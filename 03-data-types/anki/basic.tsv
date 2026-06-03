@@ -1,0 +1,21 @@
+Front	Back	Tags
+How many primitive types does Java have?	Java has 8 primitive types.	java::core::datatype
+What are Java's 8 primitive types?	`byte`, `short`, `int`, `long`, `float`, `double`, `char`, and `boolean`.	java::core::datatype
+What is a primitive type?	A primitive type stores a simple value directly and is not an object.	java::core::datatype
+What is a reference type?	A reference type stores a reference to an object rather than storing the object directly.	java::core::datatype
+Is `String` a primitive type?	No. `String` is a reference type.	java::core::datatype java::interview
+Are arrays primitive types in Java?	No. Arrays are reference types and array instances are objects.	java::core::datatype
+What is a literal?	A literal is a value written directly in source code, such as `10`, `"Java"`, or `true`.	java::core::datatype
+What is the default type of an integer literal?	The default type of an integer literal is `int`.	java::core::datatype
+What is the default type of a decimal literal?	The default type of a decimal literal is `double`.	java::core::datatype
+What suffix is commonly used for a long literal?	`L` is used for a long literal.	java::core::datatype
+What suffix is commonly used for a float literal?	`F` is used for a float literal.	java::core::datatype
+What is widening casting?	Widening casting converts a smaller compatible type to a larger type and is usually automatic.	java::core::datatype
+What is narrowing casting?	Narrowing casting converts a larger type to a smaller type and requires an explicit cast.	java::core::datatype
+What is a wrapper class?	A wrapper class is an object version of a primitive type, such as `Integer` for `int`.	java::core::datatype
+What is autoboxing?	Autoboxing is automatic conversion from a primitive value to its wrapper object.	java::core::datatype
+What is unboxing?	Unboxing is automatic conversion from a wrapper object to its primitive value.	java::core::datatype
+What does `null` mean?	`null` means a reference variable does not currently refer to any object.	java::core::datatype
+What does `==` compare for primitives?	For primitives, `==` compares values.	java::core::datatype
+What does `==` compare for objects?	For objects, `==` compares references, not content.	java::core::datatype
+What should usually be used to compare String content?	Use `.equals()` to compare String content.	java::core::datatype java::interview

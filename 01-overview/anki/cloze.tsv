@@ -1,0 +1,8 @@
+Text	Extra	Tags
+Java source files use the {{c1::.java}} extension, while compiled bytecode files use the {{c2::.class}} extension.	Source is human-written; bytecode is executed by the JVM.	java::core::overview
+{{c1::JVM}} executes Java bytecode, {{c2::JRE}} provides the runtime environment, and {{c3::JDK}} provides development tools.	This is one of the most common Java Core interview checks.	java::core::overview java::interview
+The Java compiler command is {{c1::javac}}, while the command used to run a compiled class is {{c2::java}}.	Compile first, run second.	java::core::overview
+JIT stands for {{c1::Just-In-Time}} compilation.	JIT optimizes bytecode while the program is running.	java::core::overview
+Garbage Collection reclaims memory from objects that are no longer {{c1::reachable}}.	Reachability is more precise than "not used anymore".	java::core::overview
+Java SE means {{c1::Java Standard Edition}}.	It is the main platform for Java Core fundamentals.	java::core::overview
+LTS stands for {{c1::Long-Term Support}}.	Java 17 and Java 21 are examples of LTS releases.	java::core::overview

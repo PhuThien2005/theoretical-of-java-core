@@ -1,0 +1,9 @@
+Text	Extra	Tags
+The standard Java console entry point is {{c1::public static void main(String[] args)}}.	The JVM looks for a compatible main method when launching the class.	java::core::syntax
+Most Java statements end with a {{c1::semicolon}}.	Missing semicolons are common beginner compile errors.	java::core::syntax
+Java blocks are enclosed in {{c1::curly braces}}: `{` and `}`.	Blocks define structure and often define scope.	java::core::syntax
+Java is {{c1::case-sensitive}}, so `Student` and `student` are different identifiers.	Capitalization matters in class, method, and variable names.	java::core::syntax
+Java class names usually use {{c1::PascalCase}}, while method and variable names usually use {{c2::camelCase}}.	Example: `StudentService` and `calculateTotal`.	java::core::syntax
+Java constants usually use {{c1::UPPER_SNAKE_CASE}}.	Example: `MAX_RETRY_COUNT`.	java::core::syntax
+A Java {{c1::package}} groups related classes and helps avoid name conflicts.	Package names are usually lowercase.	java::core::syntax
+An {{c1::import}} statement lets code use a class from another package by its simple name.	It does not copy code into the file.	java::core::syntax

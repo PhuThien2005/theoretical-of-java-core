@@ -1,0 +1,15 @@
+Front	Back	Tags
+What is the entry point of a standard Java console program?	The `public static void main(String[] args)` method.	java::core::syntax
+What does `public` mean in the `main` method?	It means the JVM can access the method from outside the class.	java::core::syntax
+What does `static` mean in the `main` method?	It means the method belongs to the class and can be called without creating an object.	java::core::syntax
+What does `void` mean in a method declaration?	It means the method does not return a value.	java::core::syntax
+What is a Java statement?	A statement is an instruction executed by the program, usually ending with a semicolon.	java::core::syntax
+What is a Java block?	A block is a group of code enclosed in `{}`.	java::core::syntax
+Is Java case-sensitive?	Yes. Java treats uppercase and lowercase letters as different.	java::core::syntax
+What is a package in Java?	A package groups related classes and helps avoid name conflicts.	java::core::syntax
+What does `import` do in Java?	`import` lets you use a class from another package by its simple name.	java::core::syntax
+What is a Java keyword?	A keyword is a reserved word that cannot be used as an identifier.	java::core::syntax
+What is variable scope?	Scope is the region of code where a variable or name can be accessed.	java::core::syntax
+What naming convention is used for Java class names?	Java class names usually use PascalCase, such as `StudentService`.	java::core::syntax
+What naming convention is used for Java method names?	Java method names usually use camelCase, such as `calculateTotal`.	java::core::syntax
+What naming convention is used for Java constants?	Java constants usually use UPPER_SNAKE_CASE, such as `MAX_SIZE`.	java::core::syntax
