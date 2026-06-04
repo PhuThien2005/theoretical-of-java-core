@@ -1,0 +1,2 @@
+ID	Question	Code	Answer	Explanation	Source	Tags
+<stable-id>	<question about the code or command>	<code or command snippet>	<direct answer>	<why this answer is correct>	<source markdown path>	java::core::<topic> java::code

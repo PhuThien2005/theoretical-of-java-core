@@ -19,6 +19,10 @@ By the end of this topic, you should be able to explain:
 3. [Compile And Runtime Flow](theory/03-compile-runtime-flow.md)
 4. [Java Editions And Versions](theory/04-editions-and-versions.md)
 
+## Term Notes
+
+- [Runtime Terms](terms/01-runtime-terms.md)
+
 ## Big Picture
 
 ```mermaid
@@ -60,6 +64,7 @@ Java source code is not executed directly by the operating system. The source co
 - [Basic cards](anki/basic.tsv)
 - [Basic Extra cards](anki/basic-extra.tsv)
 - [Cloze cards](anki/cloze.tsv)
+- [Code Question cards](anki/code-question.tsv)
 
 ## My Notes
 

@@ -23,13 +23,16 @@ For larger topics, do not put everything into one giant README. Use this structu
 │   ├── 01-what-is-java.md
 │   ├── 02-jvm-jre-jdk.md
 │   └── ...
+├── terms/
+│   └── 01-important-terms.md
 └── anki/
     ├── basic.tsv
     ├── basic-extra.tsv
-    └── cloze.tsv
+    ├── cloze.tsv
+    └── code-question.tsv
 ```
 
-`README.md` is the entry point. Detailed theory belongs in `theory/*.md`. Anki cards belong in the same topic folder under `anki/`.
+`README.md` is the entry point. Detailed theory belongs in `theory/*.md`. Under-explained vocabulary belongs in `terms/*.md`. Anki cards belong in the same topic folder under `anki/`.
 
 ## Running Simple Java Files
 

@@ -8,6 +8,7 @@ Actual flashcards are stored inside each topic folder:
 01-overview/anki/basic.tsv
 01-overview/anki/basic-extra.tsv
 01-overview/anki/cloze.tsv
+01-overview/anki/code-question.tsv
 ```
 
 Use one deck:

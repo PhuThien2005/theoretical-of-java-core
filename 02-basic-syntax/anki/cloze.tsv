@@ -7,3 +7,16 @@ syntax-cloze-005	Java class names usually use {{c1::PascalCase}}, while method a
 syntax-cloze-006	Java constants usually use {{c1::UPPER_SNAKE_CASE}}.	Example: `MAX_RETRY_COUNT`.	02-basic-syntax/README.md	java::core::syntax
 syntax-cloze-007	A Java {{c1::package}} groups related classes and helps avoid name conflicts.	Package names are usually lowercase.	02-basic-syntax/README.md	java::core::syntax
 syntax-cloze-008	An {{c1::import}} statement lets code use a class from another package by its simple name.	It does not copy code into the file.	02-basic-syntax/README.md	java::core::syntax
+syntax-cloze-009	If a top-level class is `public`, the file name must match the {{c1::public class name}}.	Example: `public class HelloWorld` belongs in `HelloWorld.java`.	02-basic-syntax/theory/01-program-anatomy.md	java::core::syntax
+syntax-cloze-010	A Java statement is usually ended with a {{c1::semicolon}}.	The semicolon marks the statement boundary.	02-basic-syntax/theory/01-program-anatomy.md	java::core::syntax
+syntax-cloze-011	The JVM calls `main` without creating an object because `main` is {{c1::static}}.	Static methods belong to the class.	02-basic-syntax/theory/02-main-method.md	java::core::syntax
+syntax-cloze-012	The `String[] args` parameter receives {{c1::command-line arguments}}.	Arguments passed after the class name arrive as strings.	02-basic-syntax/theory/02-main-method.md	java::core::syntax
+syntax-cloze-013	Java single-line comments start with {{c1:://}}.	They continue until the end of the line.	02-basic-syntax/theory/03-comments-packages-imports.md	java::core::syntax
+syntax-cloze-014	Java multi-line comments start with {{c1::/*}} and end with {{c2::*/}}.	Useful for longer comments, but avoid comment clutter.	02-basic-syntax/theory/03-comments-packages-imports.md	java::core::syntax
+syntax-cloze-015	Java documentation comments start with {{c1::/**}} and can be used by `javadoc`.	They are common for public APIs.	02-basic-syntax/theory/03-comments-packages-imports.md	java::core::syntax
+syntax-cloze-016	Package names are usually {{c1::lowercase}} and often use reversed domain style.	Example: `com.example.learning`.	02-basic-syntax/theory/03-comments-packages-imports.md	java::core::syntax
+syntax-cloze-017	`import java.util.*` does {{c1::not}} import subpackages such as `java.util.concurrent`.	Wildcard imports only cover direct types in that package.	02-basic-syntax/theory/03-comments-packages-imports.md	java::core::syntax
+syntax-cloze-018	Java class names usually use {{c1::PascalCase}}.	Example: `StudentService`.	02-basic-syntax/theory/04-naming-keywords-blocks-scope.md	java::core::syntax
+syntax-cloze-019	Java method and variable names usually use {{c1::camelCase}}.	Example: `calculateTotal`.	02-basic-syntax/theory/04-naming-keywords-blocks-scope.md	java::core::syntax
+syntax-cloze-020	Java keywords are {{c1::reserved words}} and cannot be used as identifiers.	Example keyword: `class`.	02-basic-syntax/theory/04-naming-keywords-blocks-scope.md	java::core::syntax
+syntax-cloze-021	A variable declared inside an `if` block is visible only inside that {{c1::block}}.	This is a scope rule.	02-basic-syntax/theory/04-naming-keywords-blocks-scope.md	java::core::syntax

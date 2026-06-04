@@ -65,6 +65,7 @@ flowchart TD
 - [Basic cards](anki/basic.tsv)
 - [Basic Extra cards](anki/basic-extra.tsv)
 - [Cloze cards](anki/cloze.tsv)
+- [Code Question cards](anki/code-question.tsv)
 
 ## My Notes
 

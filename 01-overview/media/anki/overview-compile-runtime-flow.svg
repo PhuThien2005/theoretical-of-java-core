@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="160" viewBox="0 0 920 160" role="img" aria-labelledby="title desc">
+  <title id="title">Java compile and runtime flow</title>
+  <desc id="desc">Java source goes to javac compiler, bytecode, JVM, operating system, and hardware.</desc>
+  <style>
+    .box { fill: #f8fafc; stroke: #334155; stroke-width: 2; rx: 10; }
+    .text { font-family: Arial, sans-serif; font-size: 16px; fill: #0f172a; text-anchor: middle; dominant-baseline: middle; }
+    .arrow { stroke: #2563eb; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+  <rect class="box" x="20" y="45" width="125" height="70"/>
+  <text class="text" x="82.5" y="70">Java source</text>
+  <text class="text" x="82.5" y="94">.java</text>
+  <path class="arrow" d="M 145 80 H 185"/>
+  <rect class="box" x="185" y="45" width="125" height="70"/>
+  <text class="text" x="247.5" y="70">javac</text>
+  <text class="text" x="247.5" y="94">compiler</text>
+  <path class="arrow" d="M 310 80 H 350"/>
+  <rect class="box" x="350" y="45" width="125" height="70"/>
+  <text class="text" x="412.5" y="70">Bytecode</text>
+  <text class="text" x="412.5" y="94">.class</text>
+  <path class="arrow" d="M 475 80 H 515"/>
+  <rect class="box" x="515" y="45" width="125" height="70"/>
+  <text class="text" x="577.5" y="80">JVM</text>
+  <path class="arrow" d="M 640 80 H 680"/>
+  <rect class="box" x="680" y="45" width="125" height="70"/>
+  <text class="text" x="742.5" y="70">Operating</text>
+  <text class="text" x="742.5" y="94">system</text>
+  <path class="arrow" d="M 805 80 H 845"/>
+  <rect class="box" x="845" y="45" width="75" height="70"/>
+  <text class="text" x="882.5" y="80">Hardware</text>
+</svg>

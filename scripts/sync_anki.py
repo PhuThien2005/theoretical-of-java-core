@@ -11,6 +11,7 @@ Requirements:
 from __future__ import annotations
 
 import argparse
+import base64
 import csv
 import hashlib
 import json
@@ -245,6 +246,45 @@ def ensure_models(client: AnkiConnectClient, cards: list[CardRow]) -> None:
             )
 
 
+def media_files(root: Path, topic_filters: list[str]) -> list[Path]:
+    topic_filter_set = set(topic_filters)
+    files: list[Path] = []
+
+    for path in sorted(root.glob("*/media/anki/*")):
+        if not path.is_file():
+            continue
+
+        topic_name = path.parent.parent.parent.name
+        if topic_filter_set and topic_name not in topic_filter_set:
+            continue
+
+        files.append(path)
+
+    return files
+
+
+def upload_media(client: AnkiConnectClient, paths: list[Path], dry_run: bool) -> None:
+    if not paths:
+        return
+
+    for path in paths:
+        if dry_run:
+            print(f"DRY RUN  media {path.name}")
+            continue
+
+        encoded = base64.b64encode(path.read_bytes()).decode("ascii")
+        client.invoke(
+            "storeMediaFile",
+            {
+                "filename": path.name,
+                "data": encoded,
+            },
+        )
+
+    if not dry_run:
+        print(f"Uploaded {len(paths)} media files.")
+
+
 def find_existing_note(client: AnkiConnectClient, deck_name: str, config: NoteConfig, note_id: str) -> int | None:
     query = f'deck:"{deck_name}" note:"{config.model_name}" ID:{note_id}'
     notes = client.invoke("findNotes", {"query": query})
@@ -466,14 +506,18 @@ def main() -> int:
 
         cards = read_cards(root, args.topic)
         require_unique_ids(cards, root)
+        media = media_files(root, args.topic)
 
         if not cards:
             print("No TSV cards found.")
             return 0
 
         print(f"Loaded {len(cards)} cards from topic-local TSV files.")
+        if media:
+            print(f"Found {len(media)} media files.")
 
         if args.dry_run:
+            upload_media(AnkiConnectClient(args.url, args.api_version), media, True)
             sync_cards(
                 client=AnkiConnectClient(args.url, args.api_version),
                 cards=cards,
@@ -490,6 +534,7 @@ def main() -> int:
 
         ensure_deck(client, args.deck)
         ensure_models(client, cards)
+        upload_media(client, media, False)
         added, updated = sync_cards(client, cards, args.deck, False, args.replace_tags)
 
         print(f"Sync complete. Added: {added}. Updated: {updated}.")
