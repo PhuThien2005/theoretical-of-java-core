@@ -1,0 +1,21 @@
+ID	Text	Extra	Source	Tags
+control-cloze-001	Control flow is the {{c1::order}} in which statements execute.	Branches and loops change this order.	06-control-flow/terms/01-control-flow-terms.md	java::core::control-flow java::term
+control-cloze-002	An `if` condition in Java must be a {{c1::boolean}} expression.	Java does not accept `if (1)`.	06-control-flow/theory/01-if-else-switch.md	java::core::control-flow
+control-cloze-003	In an `else if` chain, Java runs the {{c1::first matching}} branch.	Later branches are skipped.	06-control-flow/theory/01-if-else-switch.md	java::core::control-flow
+control-cloze-004	An `else` binds to the {{c1::nearest unmatched if}}.	This is the dangling `else` rule.	06-control-flow/theory/01-if-else-switch.md	java::core::control-flow java::interview
+control-cloze-005	A {{c1::guard clause}} handles a special or invalid case early.	It often uses `return`.	06-control-flow/terms/01-control-flow-terms.md	java::core::control-flow java::term
+control-cloze-006	Traditional switch {{c1::fall-through}} happens when a case lacks an exit such as `break`.	Execution continues into the next case.	06-control-flow/theory/01-if-else-switch.md	java::core::control-flow
+control-cloze-007	A `while` loop checks its condition {{c1::before}} each iteration.	It can run zero times.	06-control-flow/theory/02-loops.md	java::core::control-flow
+control-cloze-008	A `do-while` loop checks its condition {{c1::after}} each iteration.	The body runs at least once.	06-control-flow/theory/02-loops.md	java::core::control-flow
+control-cloze-009	A classic `for` loop header contains {{c1::initialization}}, {{c2::condition}}, and {{c3::update}}.	These describe the counter pattern.	06-control-flow/theory/02-loops.md	java::core::control-flow
+control-cloze-010	Enhanced `for` is best when you need each element but not the {{c1::index}}.	It reads arrays or iterables cleanly.	06-control-flow/theory/02-loops.md	java::core::control-flow
+control-cloze-011	An {{c1::iteration}} is one pass through a loop body.	This term helps count loop execution.	06-control-flow/terms/01-control-flow-terms.md	java::core::control-flow java::term
+control-cloze-012	An {{c1::infinite loop}} does not naturally stop.	It may be intentional or accidental.	06-control-flow/terms/01-control-flow-terms.md	java::core::control-flow java::term
+control-cloze-013	`break` exits the nearest {{c1::loop or switch}}.	Labeled `break` can target a named outer loop.	06-control-flow/theory/03-break-continue-return.md	java::core::control-flow
+control-cloze-014	`continue` skips the rest of the current {{c1::loop iteration}}.	The loop then moves toward the next iteration.	06-control-flow/theory/03-break-continue-return.md	java::core::control-flow
+control-cloze-015	`return` exits the current {{c1::method}}.	In a non-void method, it returns a value.	06-control-flow/theory/03-break-continue-return.md	java::core::control-flow
+control-cloze-016	A switch {{c1::expression}} produces a value.	A switch statement performs actions.	06-control-flow/theory/04-switch-expression-labeled-control.md	java::core::control-flow
+control-cloze-017	Arrow switch cases use {{c1::->}} and do not fall through.	This reduces missing-break bugs.	06-control-flow/theory/04-switch-expression-labeled-control.md	java::core::control-flow
+control-cloze-018	`yield` provides a value for a {{c1::switch expression}} branch.	It is not the same as `return`.	06-control-flow/theory/04-switch-expression-labeled-control.md	java::core::control-flow
+control-cloze-019	A switch expression must be {{c1::exhaustive}}.	It must always produce a value.	06-control-flow/theory/04-switch-expression-labeled-control.md	java::core::control-flow
+control-cloze-020	A labeled `break` can exit a named {{c1::outer loop}}.	Plain `break` exits only the nearest loop.	06-control-flow/theory/04-switch-expression-labeled-control.md	java::core::control-flow

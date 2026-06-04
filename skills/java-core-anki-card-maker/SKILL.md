@@ -56,6 +56,7 @@ ID	Question	Code	Answer	Explanation	Source	Tags
 - One card tests one idea.
 - Keep answers short.
 - Use `Extra` for code examples, gotchas, or memory hints.
+- If `Back` uses a term that is not explained elsewhere, `Extra` must explain the term deeply enough: meaning, why it matters, common confusion, and a small example when useful.
 - Use Cloze for definitions, counts, keyword lists, and contrasts.
 - Use Code Question cards for code snippets, shell commands, output prediction, compile/run flow, and bug spotting.
 - Do not mix note types in one TSV file.

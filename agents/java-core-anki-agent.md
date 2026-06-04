@@ -42,6 +42,7 @@ For each topic, create:
 - If a term is important but under-explained, create a `terms/*.md` file before generating cards.
 - Mine every terms file for definition, confusion, and exact-recall cards.
 - Keep each Anki card focused on one recall target.
+- In Basic Extra cards, make `Extra` genuinely explanatory. If a term appears in `Back` and is not explained in another card or `terms/`, explain it in `Extra`.
 - Do not mix note types in one TSV.
 - Use TSV, not CSV.
 - Avoid tab characters inside field content.

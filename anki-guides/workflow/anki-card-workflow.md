@@ -137,6 +137,28 @@ Extra
 Source
 ```
 
+Extra depth rule:
+
+- Do not use `Extra` as a vague one-line note when the card introduces important vocabulary.
+- If `Back` contains a term that is not explained elsewhere, explain it in `Extra`.
+- A strong `Extra` should answer at least one of these:
+  - What does this term mean?
+  - Why does it matter?
+  - What is a common confusion?
+  - What is a tiny example or counterexample?
+
+Weak:
+
+```text
+Long-running services benefit from a stable runtime.
+```
+
+Better:
+
+```text
+Stable runtime means the JVM is mature, predictable, well-tested, and supported for production use. It matters because backend services may run for weeks or months, so memory management, JIT behavior, monitoring, and compatibility need to be reliable.
+```
+
 ### Java Cloze
 
 Fill-in-the-blank cards for exact recall: names, counts, commands, key terms, ordered processes, and short contrasts.
