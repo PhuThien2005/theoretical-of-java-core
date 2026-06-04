@@ -24,6 +24,7 @@ Do not place topic cards in a separate global `anki/` folder.
 - Put code examples, warnings, and memory hints in `Extra`.
 - Use Cloze cards for facts that must be recalled exactly.
 - Use Mermaid diagrams in theory files when a visual model helps.
+- Add stable `ID` values to TSV rows so AnkiConnect can update notes later.
 
 ## Tags
 

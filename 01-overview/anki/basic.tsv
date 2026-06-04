@@ -1,16 +1,16 @@
-Front	Back	Tags
-What is Java?	Java is a general-purpose, object-oriented programming language that runs on the JVM through compiled bytecode.	java::core::overview
-What does "platform independent" mean in Java?	It means compiled Java bytecode can run on different platforms if they have compatible JVMs.	java::core::overview
-Does Java source code run directly on every operating system?	No. Java source code is compiled into bytecode, and the bytecode runs on a platform-specific JVM.	java::core::overview java::interview
-What is the JVM?	The JVM is the Java Virtual Machine that loads and executes Java bytecode.	java::core::overview java::core::jvm
-What is the JRE?	The JRE is the Java Runtime Environment; it provides the JVM and runtime libraries needed to run Java applications.	java::core::overview
-What is the JDK?	The JDK is the Java Development Kit; it includes runtime components plus developer tools such as `javac`.	java::core::overview
-What is bytecode?	Bytecode is the intermediate code stored in `.class` files and executed by the JVM.	java::core::overview
-What does `javac` do?	`javac` compiles Java source files into `.class` bytecode files.	java::core::overview
-What does the `java` command do?	The `java` command runs a compiled Java class on the JVM.	java::core::overview
-What is JIT compilation?	JIT compilation is runtime optimization where the JVM compiles frequently used bytecode into native machine code.	java::core::overview java::core::jvm
-What is Garbage Collection?	Garbage Collection is automatic memory reclamation for objects that are no longer reachable.	java::core::overview java::core::jvm
-What is Java SE?	Java SE is Java Standard Edition, the core platform for the Java language and standard APIs.	java::core::overview
-What is Jakarta EE?	Jakarta EE is the enterprise Java ecosystem for server-side and web application APIs.	java::core::overview
-What does LTS mean?	LTS means Long-Term Support, a release supported for a longer maintenance period.	java::core::overview
-Why is Java 8 important?	Java 8 introduced lambda expressions, functional interfaces, Stream API, and the new Date and Time API.	java::core::overview
+ID	Front	Back	Source	Tags
+overview-basic-001	What is Java?	Java is a general-purpose, object-oriented programming language that runs on the JVM through compiled bytecode.	01-overview/README.md	java::core::overview
+overview-basic-002	What does "platform independent" mean in Java?	It means compiled Java bytecode can run on different platforms if they have compatible JVMs.	01-overview/README.md	java::core::overview
+overview-basic-003	Does Java source code run directly on every operating system?	No. Java source code is compiled into bytecode, and the bytecode runs on a platform-specific JVM.	01-overview/README.md	java::core::overview java::interview
+overview-basic-004	What is the JVM?	The JVM is the Java Virtual Machine that loads and executes Java bytecode.	01-overview/README.md	java::core::overview java::core::jvm
+overview-basic-005	What is the JRE?	The JRE is the Java Runtime Environment; it provides the JVM and runtime libraries needed to run Java applications.	01-overview/README.md	java::core::overview
+overview-basic-006	What is the JDK?	The JDK is the Java Development Kit; it includes runtime components plus developer tools such as `javac`.	01-overview/README.md	java::core::overview
+overview-basic-007	What is bytecode?	Bytecode is the intermediate code stored in `.class` files and executed by the JVM.	01-overview/README.md	java::core::overview
+overview-basic-008	What does `javac` do?	`javac` compiles Java source files into `.class` bytecode files.	01-overview/README.md	java::core::overview
+overview-basic-009	What does the `java` command do?	The `java` command runs a compiled Java class on the JVM.	01-overview/README.md	java::core::overview
+overview-basic-010	What is JIT compilation?	JIT compilation is runtime optimization where the JVM compiles frequently used bytecode into native machine code.	01-overview/README.md	java::core::overview java::core::jvm
+overview-basic-011	What is Garbage Collection?	Garbage Collection is automatic memory reclamation for objects that are no longer reachable.	01-overview/README.md	java::core::overview java::core::jvm
+overview-basic-012	What is Java SE?	Java SE is Java Standard Edition, the core platform for the Java language and standard APIs.	01-overview/README.md	java::core::overview
+overview-basic-013	What is Jakarta EE?	Jakarta EE is the enterprise Java ecosystem for server-side and web application APIs.	01-overview/README.md	java::core::overview
+overview-basic-014	What does LTS mean?	LTS means Long-Term Support, a release supported for a longer maintenance period.	01-overview/README.md	java::core::overview
+overview-basic-015	Why is Java 8 important?	Java 8 introduced lambda expressions, functional interfaces, Stream API, and the new Date and Time API.	01-overview/README.md	java::core::overview

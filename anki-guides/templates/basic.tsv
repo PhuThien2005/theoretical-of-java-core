@@ -1,2 +1,2 @@
-Front	Back	Tags
-<question>	<short answer>	java::core::<topic>
+ID	Front	Back	Source	Tags
+<stable-id>	<question>	<short answer>	<source markdown path>	java::core::<topic>

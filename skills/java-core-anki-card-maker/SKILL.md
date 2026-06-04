@@ -27,18 +27,20 @@ Write Anki cards into:
 - `<topic>/anki/basic-extra.tsv`
 - `<topic>/anki/cloze.tsv`
 
+The repository sync script reads those files through `scripts/sync_anki.py`.
+
 Use these headers exactly:
 
 ```tsv
-Front	Back	Tags
+ID	Front	Back	Source	Tags
 ```
 
 ```tsv
-Front	Back	Extra	Tags
+ID	Front	Back	Extra	Source	Tags
 ```
 
 ```tsv
-Text	Extra	Tags
+ID	Text	Extra	Source	Tags
 ```
 
 ## Card Rules
@@ -52,6 +54,7 @@ Text	Extra	Tags
 - Avoid tab characters inside field content.
 - Store topic cards beside the topic notes, not in a separate global `anki/` folder.
 - Use Mermaid diagrams in theory files when a process or relationship is easier to understand visually.
+- Prefer explicit stable `ID` values in TSV rows so AnkiConnect can update existing notes even after text edits.
 
 ## Tags
 

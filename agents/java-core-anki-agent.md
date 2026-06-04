@@ -77,17 +77,17 @@ flowchart TD
 Basic:
 
 ```tsv
-Front	Back	Tags
+ID	Front	Back	Source	Tags
 ```
 
 Basic Extra:
 
 ```tsv
-Front	Back	Extra	Tags
+ID	Front	Back	Extra	Source	Tags
 ```
 
 Cloze:
 
 ```tsv
-Text	Extra	Tags
+ID	Text	Extra	Source	Tags
 ```

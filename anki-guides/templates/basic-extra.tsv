@@ -1,2 +1,2 @@
-Front	Back	Extra	Tags
-<question>	<short answer>	<example, warning, or explanation>	java::core::<topic>
+ID	Front	Back	Extra	Source	Tags
+<stable-id>	<question>	<short answer>	<example, warning, or explanation>	<source markdown path>	java::core::<topic>

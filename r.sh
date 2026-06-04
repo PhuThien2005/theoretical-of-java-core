@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd "$(dirname "$0")"
+
+case "${1:-sync}" in
+  sync)
+    shift || true
+    python3 scripts/sync_anki.py --auto-url "$@"
+    ;;
+  check)
+    shift || true
+    python3 scripts/sync_anki.py --auto-url --check-connection "$@"
+    ;;
+  dry)
+    shift || true
+    python3 scripts/sync_anki.py --auto-url --dry-run "$@"
+    ;;
+  topic)
+    shift || true
+    if [ $# -lt 1 ]; then
+      echo "Usage: ./r.sh topic <topic-folder>"
+      echo "Example: ./r.sh topic 01-overview"
+      exit 1
+    fi
+    python3 scripts/sync_anki.py --auto-url --topic "$1"
+    ;;
+  dry-topic)
+    shift || true
+    if [ $# -lt 1 ]; then
+      echo "Usage: ./r.sh dry-topic <topic-folder>"
+      echo "Example: ./r.sh dry-topic 01-overview"
+      exit 1
+    fi
+    python3 scripts/sync_anki.py --auto-url --topic "$1" --dry-run
+    ;;
+  probe)
+    shift || true
+    python3 scripts/sync_anki.py --probe-urls "$@"
+    ;;
+  help|-h|--help)
+    cat <<'EOF'
+Usage:
+  ./r.sh                     Sync all cards
+  ./r.sh sync                Sync all cards
+  ./r.sh check               Check AnkiConnect
+  ./r.sh dry                 Dry-run all cards
+  ./r.sh topic 01-overview   Sync one topic
+  ./r.sh dry-topic 01-overview
+  ./r.sh probe               Probe common WSL/AnkiConnect URLs
+
+Extra args after "sync", "check", "dry", or "probe" are passed to sync_anki.py.
+EOF
+    ;;
+  *)
+    python3 scripts/sync_anki.py --auto-url "$@"
+    ;;
+esac

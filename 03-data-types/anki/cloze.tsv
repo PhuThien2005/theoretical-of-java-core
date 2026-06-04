@@ -1,13 +1,13 @@
-Text	Extra	Tags
-Java has {{c1::8}} primitive types.	They are byte, short, int, long, float, double, char, and boolean.	java::core::datatype
-The 8 primitive types are {{c1::byte}}, {{c2::short}}, {{c3::int}}, {{c4::long}}, {{c5::float}}, {{c6::double}}, {{c7::char}}, and {{c8::boolean}}.	This is worth memorizing exactly.	java::core::datatype
-The default type for integer literals is {{c1::int}}.	Use `L` for long literals when needed.	java::core::datatype
-The default type for decimal literals is {{c1::double}}.	Use `F` for float literals.	java::core::datatype
-Primitive types store {{c1::values directly}}, while reference types store {{c2::references to objects}}.	This is the core mental model for data types.	java::core::datatype
-`String` is a {{c1::reference type}}, not a primitive type.	String has special syntax but is still an object type.	java::core::datatype java::interview
-{{c1::Widening}} casting converts a smaller compatible type to a larger type, while {{c2::narrowing}} casting converts a larger type to a smaller type.	Narrowing may lose data.	java::core::datatype
-{{c1::Autoboxing}} converts a primitive to a wrapper, while {{c2::unboxing}} converts a wrapper to a primitive.	Example: `int` <-> `Integer`.	java::core::datatype
-The wrapper class for `int` is {{c1::Integer}}.	Wrappers are needed for collections and generics.	java::core::datatype
-Calling a method on {{c1::null}} can cause `NullPointerException`.	Null means no object reference.	java::core::datatype
-For primitives, `==` compares {{c1::values}}; for objects, `==` compares {{c2::references}}.	Use `.equals()` for many object content comparisons.	java::core::datatype
-String content should usually be compared with {{c1::.equals()}} instead of {{c2::==}}.	This is a common interview and beginner bug topic.	java::core::datatype java::interview
+ID	Text	Extra	Source	Tags
+datatype-cloze-001	Java has {{c1::8}} primitive types.	They are byte, short, int, long, float, double, char, and boolean.	03-data-types/README.md	java::core::datatype
+datatype-cloze-002	The 8 primitive types are {{c1::byte}}, {{c2::short}}, {{c3::int}}, {{c4::long}}, {{c5::float}}, {{c6::double}}, {{c7::char}}, and {{c8::boolean}}.	This is worth memorizing exactly.	03-data-types/README.md	java::core::datatype
+datatype-cloze-003	The default type for integer literals is {{c1::int}}.	Use `L` for long literals when needed.	03-data-types/README.md	java::core::datatype
+datatype-cloze-004	The default type for decimal literals is {{c1::double}}.	Use `F` for float literals.	03-data-types/README.md	java::core::datatype
+datatype-cloze-005	Primitive types store {{c1::values directly}}, while reference types store {{c2::references to objects}}.	This is the core mental model for data types.	03-data-types/README.md	java::core::datatype
+datatype-cloze-006	`String` is a {{c1::reference type}}, not a primitive type.	String has special syntax but is still an object type.	03-data-types/README.md	java::core::datatype java::interview
+datatype-cloze-007	{{c1::Widening}} casting converts a smaller compatible type to a larger type, while {{c2::narrowing}} casting converts a larger type to a smaller type.	Narrowing may lose data.	03-data-types/README.md	java::core::datatype
+datatype-cloze-008	{{c1::Autoboxing}} converts a primitive to a wrapper, while {{c2::unboxing}} converts a wrapper to a primitive.	Example: `int` <-> `Integer`.	03-data-types/README.md	java::core::datatype
+datatype-cloze-009	The wrapper class for `int` is {{c1::Integer}}.	Wrappers are needed for collections and generics.	03-data-types/README.md	java::core::datatype
+datatype-cloze-010	Calling a method on {{c1::null}} can cause `NullPointerException`.	Null means no object reference.	03-data-types/README.md	java::core::datatype
+datatype-cloze-011	For primitives, `==` compares {{c1::values}}; for objects, `==` compares {{c2::references}}.	Use `.equals()` for many object content comparisons.	03-data-types/README.md	java::core::datatype
+datatype-cloze-012	String content should usually be compared with {{c1::.equals()}} instead of {{c2::==}}.	This is a common interview and beginner bug topic.	03-data-types/README.md	java::core::datatype java::interview

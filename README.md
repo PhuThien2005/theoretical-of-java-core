@@ -8,7 +8,7 @@ This repository is organized as a Java Core learning system: detailed theory not
 2. Start with the topic `README.md`; it acts as the index for that topic.
 3. Read the detailed files inside `theory/`.
 4. Review the flashcards inside the same topic's `anki/` folder.
-5. Import TSV files into one Anki deck named `Java Core`.
+5. Sync TSV files into Anki with AnkiConnect, or import them manually.
 6. Practice with small Java files in `practice/small-exercises`.
 7. Build mini projects in `extras/mini-projects` when the basics feel comfortable.
 
@@ -44,6 +44,24 @@ If a file contains multiple non-public classes, compile the file that contains t
 ```bash
 javac ArrayPractice.java
 java ArrayPractice
+```
+
+## Quick Anki Sync
+
+Use the short helper script from the repository root:
+
+```bash
+./r.sh check
+./r.sh topic 01-overview
+./r.sh
+```
+
+More commands:
+
+```bash
+./r.sh dry
+./r.sh dry-topic 01-overview
+./r.sh probe
 ```
 
 ## 45 Java Core Topics
@@ -100,6 +118,7 @@ java ArrayPractice
 - `skills`: Skills and rules for generating Java Core theory and Anki cards.
 - `agents`: Agent prompts for generating topic notes and flashcards.
 - `anki-guides`: Global Anki workflow and TSV templates.
+- `scripts`: Utility scripts, including AnkiConnect sync.
 - `practice`: Small Java practice files.
 - `extras`: Extra topics and mini projects.
 - `99-cheatsheets`: Fast review notes.
