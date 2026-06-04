@@ -222,6 +222,14 @@ Use TSV instead of CSV because Java examples often contain commas, quotes, and p
 
 Avoid tab characters inside card content. If content needs spacing, use spaces or HTML line breaks.
 
+For multi-line code in TSV, write escaped newlines:
+
+```text
+public class Main {\n    public static void main(String[] args) {\n        System.out.println("Hi");\n    }\n}
+```
+
+The sync script converts `\n` into real line breaks before sending the field to Anki.
+
 ## 8. Put Cards Beside The Topic
 
 Cards for topic `03-data-types` should live in:

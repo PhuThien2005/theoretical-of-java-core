@@ -405,8 +405,10 @@ The script will:
 1. Read `*/anki/*.tsv`.
 2. Create the `Java Core` deck if it does not exist.
 3. Check that the expected note types and fields exist.
-4. Add new notes.
-5. Update existing notes with the same `ID`.
+4. Convert escaped `\n` in TSV fields into real line breaks.
+5. Upload topic media from `<topic>/media/anki/*`.
+6. Add new notes.
+7. Update existing notes with the same `ID`.
 
 ## Tag Behavior
 

@@ -45,6 +45,7 @@ For each topic, create:
 - Do not mix note types in one TSV.
 - Use TSV, not CSV.
 - Avoid tab characters inside field content.
+- For multi-line code in TSV fields, write escaped `\n`; the sync script converts it into real line breaks for Anki.
 - Do not put raw Mermaid syntax inside Anki cards. Reference exported media with `<img src="filename.svg">`.
 
 ## Card Depth Rules

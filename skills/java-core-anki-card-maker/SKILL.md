@@ -61,6 +61,7 @@ ID	Question	Code	Answer	Explanation	Source	Tags
 - Do not mix note types in one TSV file.
 - Prefer TSV over CSV.
 - Avoid tab characters inside field content.
+- For multi-line code in TSV fields, write escaped `\n`; the sync script converts it into real line breaks for Anki.
 - Store topic cards beside the topic notes, not in a separate global `anki/` folder.
 - Use Mermaid diagrams in theory files when a process or relationship is easier to understand visually.
 - For Anki cards, do not embed raw Mermaid. Export Mermaid diagrams to SVG/PNG in `<topic>/media/anki/` and reference them with `<img src="filename.svg">`.

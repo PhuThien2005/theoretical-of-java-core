@@ -145,6 +145,15 @@ def normalize_tags(raw_tags: str) -> list[str]:
     return [tag.strip() for tag in raw_tags.split() if tag.strip()]
 
 
+def normalize_field_value(value: str) -> str:
+    return (
+        value.strip()
+        .replace("\\r\\n", "\n")
+        .replace("\\n", "\n")
+        .replace("\\t", "    ")
+    )
+
+
 def read_cards(root: Path, topic_filters: list[str]) -> list[CardRow]:
     cards: list[CardRow] = []
     topic_filter_set = set(topic_filters)
@@ -183,7 +192,7 @@ def read_cards(root: Path, topic_filters: list[str]) -> list[CardRow]:
                     source = repo_relative(path, root)
 
                 fields = {
-                    field: (row.get(field) or "").strip()
+                    field: normalize_field_value(row.get(field) or "")
                     for field in config.anki_fields
                     if field not in {"ID", "Source"}
                 }
