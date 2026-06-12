@@ -314,70 +314,41 @@ def upload_media(client: AnkiConnectClient, paths: list[Path], dry_run: bool) ->
         print(f"Uploaded {len(paths)} media files.")
 
 
-def find_existing_note(client: AnkiConnectClient, deck_name: str, config: NoteConfig, note_id: str) -> int | None:
-    query = f'deck:"{deck_name}" note:"{config.model_name}" ID:{note_id}'
-    notes = client.invoke("findNotes", {"query": query})
-
-    if len(notes) > 1:
-        raise SyncError(
-            f'Found more than one note for ID "{note_id}" in model "{config.model_name}".'
-        )
-
-    if not notes:
-        return None
-
-    return int(notes[0])
+def chunk_list(lst: list[Any], chunk_size: int):
+    for i in range(0, len(lst), chunk_size):
+        yield lst[i : i + chunk_size]
 
 
-def add_note(client: AnkiConnectClient, deck_name: str, card: CardRow) -> int:
-    return int(
-        client.invoke(
-            "addNote",
-            {
-                "note": {
-                    "deckName": deck_name,
-                    "modelName": card.config.model_name,
-                    "fields": card.fields,
-                    "tags": card.tags,
-                    "options": {
-                        "allowDuplicate": False,
-                    },
-                }
-            },
-        )
-    )
+def fetch_existing_notes(client: AnkiConnectClient, deck_name: str) -> dict[tuple[str, str], dict[str, Any]]:
+    # Get all note IDs in the deck
+    note_ids = client.invoke("findNotes", {"query": f'deck:"{deck_name}"'})
+    if not note_ids:
+        return {}
 
-
-def update_note(client: AnkiConnectClient, note_anki_id: int, card: CardRow, replace_tags: bool) -> None:
-    client.invoke(
-        "updateNoteFields",
-        {
-            "note": {
-                "id": note_anki_id,
-                "fields": card.fields,
+    existing_notes: dict[tuple[str, str], dict[str, Any]] = {}
+    
+    # Batch query their details
+    for chunk in chunk_list(note_ids, 1000):
+        notes_info = client.invoke("notesInfo", {"notes": chunk})
+        for note in notes_info:
+            model_name = note.get("modelName", "")
+            fields = note.get("fields", {})
+            
+            # Convert fields dict to simple key-value dict
+            fields_dict = {
+                name: info.get("value", "")
+                for name, info in fields.items()
             }
-        },
-    )
-
-    if replace_tags:
-        current_tags = client.invoke("getNoteTags", {"note": note_anki_id})
-        if current_tags:
-            client.invoke(
-                "removeTags",
-                {
-                    "notes": [note_anki_id],
-                    "tags": " ".join(current_tags),
-                },
-            )
-
-    if card.tags:
-        client.invoke(
-            "addTags",
-            {
-                "notes": [note_anki_id],
-                "tags": " ".join(card.tags),
-            },
-        )
+            
+            note_id_val = fields_dict.get("ID", "").strip()
+            if note_id_val:
+                existing_notes[(model_name, note_id_val)] = {
+                    "noteId": note.get("noteId"),
+                    "fields": fields_dict,
+                    "tags": note.get("tags", []),
+                }
+                
+    return existing_notes
 
 
 def sync_cards(
@@ -390,22 +361,138 @@ def sync_cards(
     added = 0
     updated = 0
 
+    if dry_run:
+        # In a dry run, we don't query the full Anki deck to avoid network calls if not requested.
+        # But wait, checking if they exist is helpful to print correct DRY RUN logs.
+        # Let's try to fetch existing notes anyway, but if it fails we fallback or handle it.
+        try:
+            existing_notes = fetch_existing_notes(client, deck_name)
+        except Exception:
+            existing_notes = {}
+    else:
+        existing_notes = fetch_existing_notes(client, deck_name)
+
+    cards_to_add: list[CardRow] = []
+    cards_to_update: list[tuple[int, CardRow, bool, bool, list[str]]] = []
+
     for card in cards:
-        if dry_run:
-            print(
-                f"DRY RUN  {card.config.model_name:<17} "
-                f"{card.note_id}  {card.source}"
-            )
-            continue
-
-        existing_note_id = find_existing_note(client, deck_name, card.config, card.note_id)
-
-        if existing_note_id is None:
-            add_note(client, deck_name, card)
-            added += 1
+        key = (card.config.model_name, card.note_id)
+        if key not in existing_notes:
+            cards_to_add.append(card)
         else:
-            update_note(client, existing_note_id, card, replace_tags)
-            updated += 1
+            existing_note = existing_notes[key]
+            note_anki_id = existing_note["noteId"]
+            
+            # Compare fields
+            fields_differ = False
+            for field_name in card.config.anki_fields:
+                local_val = card.fields.get(field_name, "")
+                remote_val = existing_note["fields"].get(field_name, "")
+                if local_val != remote_val:
+                    fields_differ = True
+                    break
+            
+            # Compare tags
+            tags_differ = False
+            if replace_tags:
+                if sorted(card.tags) != sorted(existing_note["tags"]):
+                    tags_differ = True
+            else:
+                # Only update tags if there are local tags not present in remote tags
+                missing_tags = [t for t in card.tags if t not in existing_note["tags"]]
+                if missing_tags:
+                    tags_differ = True
+
+            if fields_differ or tags_differ:
+                cards_to_update.append((note_anki_id, card, fields_differ, tags_differ, existing_note["tags"]))
+
+    # Perform additions
+    if cards_to_add:
+        if dry_run:
+            for card in cards_to_add:
+                print(
+                    f"DRY RUN  ADD {card.config.model_name:<17} "
+                    f"{card.note_id}  {card.source}"
+                )
+            added = len(cards_to_add)
+        else:
+            print(f"Adding {len(cards_to_add)} new cards...")
+            # Batch add using addNotes
+            for chunk in chunk_list(cards_to_add, 500):
+                notes_payload = []
+                for card in chunk:
+                    notes_payload.append({
+                        "deckName": deck_name,
+                        "modelName": card.config.model_name,
+                        "fields": card.fields,
+                        "tags": card.tags,
+                        "options": {
+                            "allowDuplicate": False,
+                        }
+                    })
+                results = client.invoke("addNotes", {"notes": notes_payload})
+                for card, res in zip(chunk, results):
+                    if res is None:
+                        print(f"WARNING: Failed to add card {card.note_id} from {card.source}")
+                    else:
+                        added += 1
+
+    # Perform updates
+    if cards_to_update:
+        if dry_run:
+            for _, card, fields_differ, tags_differ, _ in cards_to_update:
+                diffs = []
+                if fields_differ:
+                    diffs.append("fields")
+                if tags_differ:
+                    diffs.append("tags")
+                print(
+                    f"DRY RUN  UPDATE ({'+'.join(diffs)}) {card.config.model_name:<17} "
+                    f"{card.note_id}  {card.source}"
+                )
+            updated = len(cards_to_update)
+        else:
+            print(f"Updating {len(cards_to_update)} modified cards...")
+            for note_anki_id, card, fields_differ, tags_differ, remote_tags in cards_to_update:
+                if fields_differ:
+                    client.invoke(
+                        "updateNoteFields",
+                        {
+                            "note": {
+                                "id": note_anki_id,
+                                "fields": card.fields,
+                            }
+                        },
+                    )
+                if tags_differ:
+                    if replace_tags:
+                        if remote_tags:
+                            client.invoke(
+                                "removeTags",
+                                {
+                                    "notes": [note_anki_id],
+                                    "tags": " ".join(remote_tags),
+                                },
+                            )
+                        if card.tags:
+                            client.invoke(
+                                "addTags",
+                                {
+                                    "notes": [note_anki_id],
+                                    "tags": " ".join(card.tags),
+                                },
+                            )
+                    else:
+                        missing_tags = [t for t in card.tags if t not in remote_tags]
+                        if missing_tags:
+                            client.invoke(
+                                "addTags",
+                                {
+                                    "notes": [note_anki_id],
+                                    "tags": " ".join(missing_tags),
+                                },
+                            )
+                updated += 1
 
     return added, updated
 
