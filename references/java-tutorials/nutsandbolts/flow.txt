@@ -1,0 +1,63 @@
+Control Flow Statements (The Java™ Tutorials >        
+            Learning the Java Language > Language Basics)
+
+        A browser with JavaScript enabled is required for this page to operate properly.
+
+Documentation
+
+The Java™ Tutorials
+Hide TOC
+
+Language Basics
+Variables
+Primitive Data Types
+Arrays
+Summary of Variables
+Questions and Exercises
+Operators
+Assignment, Arithmetic, and Unary Operators
+Equality, Relational, and Conditional Operators 
+Bitwise and Bit Shift Operators
+Summary of Operators
+Questions and Exercises
+Expressions, Statements, and Blocks
+Questions and Exercises
+Control Flow Statements
+The if-then and if-then-else Statements
+The switch Statement
+The while and do-while Statements
+The for Statement
+Branching Statements
+Summary of Control Flow Statements
+Questions and Exercises
+
+Trail: Learning the Java Language
+        Lesson: Language Basics
+
+Home Page
+                >
+                Learning the Java Language
+                >
+                Language Basics
+« Previous • Trail • Next »
+
+The Java Tutorials have been written for JDK 8. Examples and practices described in this page don't take advantage of improvements introduced in later releases and might use technology no longer available.See Dev.java for updated tutorials taking advantage of the latest releases.See Java Language Changes for a summary of updated language features in Java SE 9 and subsequent releases.See JDK Release Notes for information about new features, enhancements, and removed or deprecated options for all JDK releases.
+
+# Control Flow Statements
+
+The statements inside your source files are generally executed from top to bottom, in the order that they appear. Control flow statements, however, break up the flow of execution by employing decision making, looping, and branching, enabling your program to conditionally execute particular blocks of code. This section describes the decision-making statements ( `if-then` ,  `if-then-else` ,  `switch` ), the looping statements ( `for` ,  `while` ,  `do-while` ), and the branching statements ( `break` ,  `continue` ,  `return` ) supported by the Java programming language.
+« Previous
+            •
+            Trail
+            •
+            Next »
+
+About Oracle | 
+Contact Us |
+Legal Notices | 
+Terms of Use |
+Your Privacy Rights
+
+Copyright © 1995, 2024 Oracle and/or its affiliates. All rights reserved.
+Previous page: Questions and Exercises: Expressions, Statements, and Blocks
+        Next page: The if-then and if-then-else Statements

@@ -317,3 +317,17 @@ If a card feels too vague, rewrite the question.
 If a card needs context, move the explanation into `Extra` or `Explanation`.
 
 If a theory file has detailed content but few cards, revisit it and generate more cards.
+
+## 12. Verify Against Official References
+
+For topics 01 to 08 (Overview, Syntax, Data Types, Variables, Operators, Control Flow, Arrays, Strings), always compare terminology against local Oracle Java Tutorial references:
+- Path: `references/java-tutorials/nutsandbolts/`
+- Ensure keywords, types, scope rules, and operator behaviors exactly match the official documentation before committing.
+
+## 13. Auto-Sync Workflow
+
+Whenever you finish making edits to theory or cards:
+1. Run `./r.sh dry` (or `./r.sh dry-topic <topic-folder>`) to check for format, duplicate IDs, or structural issues.
+2. Run `./r.sh` (or `./r.sh topic <topic-folder>`) to immediately synchronize the changes to your local Anki application.
+3. Verify that the changes compile and sync successfully, then commit and push them to remote.
+
