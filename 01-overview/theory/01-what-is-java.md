@@ -83,6 +83,23 @@ Java programs run on the JVM, so beginners sometimes assume Java is always slow.
 
 The JVM can use a JIT compiler to optimize frequently executed bytecode while the program is running. For many server applications, this makes Java fast enough for serious production systems.
 
+## Characteristics of Java
+
+Java was designed with a specific set of characteristics that make it suitable for enterprise applications.
+
+### Simple
+Java is designed to be relatively simple to learn and write. It removes complex and rarely used features of C++ like explicit operator overloading, multiple inheritance for classes, and explicit pointer arithmetic/memory management.
+
+### Secure
+Java is secure because it runs within a virtual machine sandbox. The JVM verifies bytecode before execution, preventing unauthorized access, stack overflows, or memory corruption. There are no pointers, meaning buffer overflow attacks are naturally prevented.
+
+### Distributed
+Java is designed for distributed environments. It has built-in support for networking, remote method calls, and distributed protocols, making it easy to build applications that communicate across networks.
+
+## The "Write once, run anywhere" mechanism
+This is Java's core portability promise. Compiled bytecode is completely platform-independent. To execute it on any operating system, that system only needs a compatible Java Virtual Machine (JVM). The JVM acts as a translator between bytecode and the native machine code of the OS.
+
+
 ## Common Misunderstandings
 
 ### Misunderstanding: Java code runs directly on every operating system

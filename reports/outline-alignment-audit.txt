@@ -1,0 +1,193 @@
+=== REPORT: OUTLINE CONCEPTS MISSING IN TOPIC FOLDERS ===
+None! All outline concepts are present in their topic folders.
+
+=== REPORT: TOPIC FOLDERS HAVE EXTRA CONCEPTS NOT IN OUTLINE ===
+
+Folder: 01-overview (Section 1)
+  - Heading: Common Misunderstandings
+  - Heading: Important Versions
+  - Heading: Version Selection For Learning
+  - Heading: Common Mistakes
+  - Heading: Relationship
+  - Heading: Example Commands
+  - Heading: Interview-Style Explanation
+  - Heading: Common Mistakes
+  - Heading: Compile And Runtime Flow
+  - Heading: Compile Time
+  - Heading: Runtime
+  - Heading: Detailed Flow
+  - Heading: JIT Compilation
+  - Heading: Compile-Time Error vs Runtime Error
+  - Heading: Common Mistakes
+  - Term: Runtime
+  - Term: Reachability
+
+Folder: 02-basic-syntax (Section 2)
+  - Heading: Naming, Keywords, Blocks, And Scope
+  - Heading: Good Names
+  - Heading: Scope Diagram
+  - Heading: Common Mistakes
+  - Heading: Common Mistakes
+  - Heading: Program Anatomy
+  - Heading: Minimal Example
+  - Heading: Statements
+  - Heading: Blocks
+  - Heading: Case Sensitivity
+  - Heading: Whitespace
+  - Heading: Common Mistakes
+  - Heading: Breaking Down The Signature
+  - Heading: public
+  - Heading: static
+  - Heading: void
+  - Heading: String[] args
+  - Heading: Valid Variation
+  - Heading: Common Mistakes
+
+Folder: 03-data-types (Section 3)
+  - Heading: Reference Types And Memory Model
+  - Heading: Basic Example
+  - Heading: Common Mistakes
+  - Heading: Why Wrappers Exist
+  - Heading: == With Primitives
+  - Heading: == With References
+  - Heading: Wrapper Equality Warning
+  - Heading: Common Mistakes
+  - Heading: Numeric Promotion
+  - Heading: Common Mistakes
+  - Heading: Primitive Types
+  - Heading: Default Values
+  - Heading: Common Mistakes
+
+Folder: 04-variables-constants (Section 4)
+  - Heading: Default Values, Scope, And Lifetime
+  - Heading: Scope
+  - Heading: Stack And Heap Mental Model
+  - Heading: Common Mistakes
+  - Heading: Variable Categories
+  - Heading: Instance vs Static
+  - Heading: Common Mistakes
+  - Heading: final With Primitives
+  - Heading: final With References
+  - Heading: Common Mistakes
+  - Heading: var And Type Inference
+  - Heading: Where var Can Be Used
+  - Heading: When var Helps
+  - Heading: When var Hurts
+  - Heading: Common Mistakes
+  - Term: Scope
+  - Term: Magic Number
+
+Folder: 06-control-flow (Section 6)
+  - Heading: Loops
+  - Heading: Infinite Loops
+  - Heading: Choosing A Loop
+  - Heading: Comparing The Three
+  - Heading: Early Exit And Readability
+  - Heading: Arrow Cases
+  - Heading: Exhaustiveness
+  - Heading: Use Labels Carefully
+  - Heading: Guard Clauses
+  - Heading: Fall-Through
+  - Term: Control Flow
+  - Term: Branch
+  - Term: Condition
+  - Term: Iteration
+  - Term: Loop Body
+  - Term: Loop Termination
+  - Term: Infinite Loop
+  - Term: Fall-Through
+  - Term: Guard Clause
+  - Term: Early Exit
+  - Term: Exhaustive
+
+Folder: 07-arrays (Section 7)
+  - Heading: Array Operations
+  - Heading: Detailed Mechanics of Copying Arrays
+  - Heading: 1. Primitive Array Sorting (Dual-Pivot Quicksort)
+  - Heading: 2. Object Array Sorting (Timsort)
+  - Heading: 3. Sorting Ranges
+  - Heading: Searching: Binary Search Math
+  - Heading: Return Value Calculations:
+  - Heading: Array Basics
+  - Heading: Declaration and Initialization
+  - Heading: Declaration Syntax
+  - Heading: Allocation and Default Values
+  - Heading: Initialization Options
+  - Heading: 1. Allocation with Default Values
+  - Heading: 2. Array Initializer (Shortcut Syntax)
+  - Heading: 3. Anonymous Array Syntax
+  - Heading: Traversing Methods
+  - Heading: Ragged (Jagged) Arrays
+  - Heading: Traversing a 2D Array
+  - Heading: Memory Layout Comparison
+  - Heading: Utility Operations: Printing and Cloning
+  - Heading: Printing Arrays
+  - Heading: Cloning Arrays
+  - Heading: Passing Arrays to Methods
+  - Term: Index
+  - Term: Ragged Array (Jagged Array)
+  - Term: Off-by-One Error
+  - Term: Dual-Pivot Quicksort
+  - Term: Timsort
+  - Term: ArrayIndexOutOfBoundsException
+
+Folder: 09-oop (Section 9)
+  - Heading: Rules for Overloading:
+  - Heading: Automatic Type Promotion
+  - Heading: 1. Traditional Syntax
+  - Heading: Scope of the Pattern Variable:
+  - Heading: Deep Review: How To Read Polymorphic Code
+  - Heading: Reference Links
+  - Heading: Key Scopes Explained:
+  - Heading: 1. Data Validation
+  - Heading: 2. Read-Only and Write-Only Control
+  - Heading: 3. Defensive Copying (Critical for Reference Types)
+  - Heading: Reference Links
+  - Heading: Compiler Mechanics:
+  - Heading: Reference Links
+  - Heading: Characteristics:
+  - Heading: Characteristics:
+  - Heading: Reference Links
+  - Heading: The Diamond Problem Explained
+  - Heading: Essential Rules for Overriding:
+  - Heading: Overriding vs Hiding Traps
+  - Heading: Reference Links
+  - Term: Diamond Problem
+
+Folder: 14-object-class (Section 14)
+  - Term: Object class
+  - Term: reference equality
+  - Term: value equality
+  - Term: monitor methods
+
+Folder: 15-inner-nested-class (Section 15)
+  - Term: variable capture
+
+Folder: 16-enum (Section 16)
+  - Term: enum constant
+
+Folder: 21-lambda-expression (Section 21)
+  - Term: target typing
+
+Folder: 24-optional (Section 24)
+  - Term: fallback value
+
+Folder: 26-io (Section 26)
+  - Term: buffering
+
+Folder: 30-regex (Section 30)
+  - Term: lookaround
+
+Folder: 41-best-practices (Section 41)
+  - Term: responsibility
+
+Folder: 44-unit-testing (Section 44)
+  - Term: fixture
+
+Folder: 45-interview-questions (Section 45)
+  - Term: pass-by-value
+  - Term: String immutability
+  - Term: HashMap internals
+  - Term: equals and hashCode
+  - Term: stream laziness
+  - Term: GC interview answer

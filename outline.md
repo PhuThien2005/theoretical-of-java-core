@@ -11,7 +11,7 @@ Java Core is usually the foundation of Java. It covers everything from basic syn
 - Robust
 - Multithreaded
 - Distributed
-- High Performance thanks to JIT
+- High Performance Through JIT
 - JVM, JRE, JDK
 - The "Write once, run anywhere" mechanism
 - The process of compiling and running a Java program:
@@ -37,7 +37,7 @@ Java Core is usually the foundation of Java. It covers everything from basic syn
 - Comment
 - Package
 - Import
-- Naming rules:
+- Naming conventions:
 - class
 - method
 - variable
@@ -145,7 +145,7 @@ Related concepts
 - `++`
 - `--`
 - Ternary operator:
-- `condition ? value1 : value2`
+- condition ? valueIfTrue : valueIfFalse
 - `instanceof`
 - Operator precedence
 
@@ -159,9 +159,9 @@ Related concepts
 - nested if
 - `switch`
 - switch expression Java 12+
-- `for`
-- enhanced for / foreach
-- `while`
+- for
+- enhanced for
+- while
 - `do while`
 - `break`
 - `continue`
