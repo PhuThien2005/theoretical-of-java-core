@@ -15,6 +15,7 @@ import base64
 import csv
 import hashlib
 import json
+import re
 import subprocess
 import sys
 import urllib.error
@@ -146,12 +147,31 @@ def normalize_tags(raw_tags: str) -> list[str]:
 
 
 def normalize_field_value(value: str) -> str:
-    return (
+    val = (
         value.strip()
         .replace("\\r\\n", "\n")
         .replace("\\n", "\n")
         .replace("\\t", "    ")
     )
+    # Escape generic angle brackets (like <int> or <Integer>) but preserve HTML br and img tags
+    br_pattern = re.compile(r'<br\s*/?>', re.IGNORECASE)
+    img_pattern = re.compile(r'<img\s+[^>]*>', re.IGNORECASE)
+    
+    img_tags = []
+    def img_replacer(match):
+        img_tags.append(match.group(0))
+        return f"___IMG_TAG_{len(img_tags)-1}___"
+        
+    val_protected = br_pattern.sub("___BR_TAG___", val)
+    val_protected = img_pattern.sub(img_replacer, val_protected)
+    
+    val_escaped = val_protected.replace("<", "&lt;").replace(">", "&gt;")
+    
+    val_restored = val_escaped.replace("___BR_TAG___", "<br>")
+    for idx, tag in enumerate(img_tags):
+        val_restored = val_restored.replace(f"___IMG_TAG_{idx}___", tag)
+        
+    return val_restored
 
 
 def read_cards(root: Path, topic_filters: list[str]) -> list[CardRow]:
