@@ -1,19 +1,80 @@
-# 18 - Concurrency
+# 29 - Synchronization and Concurrency
 
-## Can nam
+This topic follows the master outline in [outline.md](../outline.md). The goal is to understand each concept deeply enough to explain it, recognize it in code, and answer interview-style questions.
 
-- Thread la luong thuc thi doc lap.
-- `Runnable` mo ta viec can chay.
-- `synchronized` giup dong bo khi nhieu thread dung chung du lieu.
-- `ExecutorService` quan ly thread tot hon tao thread thu cong.
-- Concurrency de gay bug neu chia se state khong can than.
+## Study Order
 
-## Tu kiem tra
+- [Synchronized Method Concepts](theory/01-synchronized-method-concepts.md)
+- [Deadlock Concepts](theory/02-deadlock-concepts.md)
+- [Atomicreference Concepts](theory/03-atomicreference-concepts.md)
+- [Cyclicbarrier Concepts](theory/04-cyclicbarrier-concepts.md)
+- [Executor Concepts](theory/05-executor-concepts.md)
+- [Forkjoinpool Concepts](theory/06-forkjoinpool-concepts.md)
+- [Key Terms](terms/01-key-terms.md)
 
-- Process va thread khac nhau o muc y tuong nhu the nao?
-- Race condition la gi?
-- Vi sao nen dung executor thay vi tao qua nhieu thread?
+## Outline Checklist
 
-## Ghi chu cua minh
+- synchronized method
+- synchronized block
+- Object lock
+- Class lock
+- Monitor
+- wait
+- notify
+- notifyAll
+- Deadlock
+- Livelock
+- Starvation
+- Volatile
+- Atomic classes:
+- AtomicInteger
+- AtomicLong
+- AtomicBoolean
+- AtomicReference
+- Lock API:
+- Lock
+- ReentrantLock
+- ReadWriteLock
+- StampedLock
+- Semaphore
+- CountDownLatch
+- CyclicBarrier
+- Phaser
+- BlockingQueue
+- Concurrent collections:
+- ConcurrentHashMap
+- CopyOnWriteArrayList
+- ConcurrentLinkedQueue
+- Executor Framework:
+- Executor
+- ExecutorService
+- ScheduledExecutorService
+- ThreadPoolExecutor
+- Executors
+- Future
+- Callable
+- CompletableFuture
+- ForkJoinPool
+- Parallel Stream
 
-- 
+## Anki Cards
+
+- [Basic](anki/basic.tsv)
+- [Basic Extra](anki/basic-extra.tsv)
+- [Cloze](anki/cloze.tsv)
+- [Code Question](anki/code-question.tsv)
+
+## Mermaid Overview
+
+```mermaid
+flowchart TD
+    A[Synchronization and Concurrency] --> B[Definitions]
+    A --> C[Rules and syntax]
+    A --> D[Common mistakes]
+    A --> E[Interview recall]
+```
+
+## Reference Links
+
+- https://docs.oracle.com/javase/tutorial/essential/concurrency/sync.html
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/package-summary.html

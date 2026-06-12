@@ -1,18 +1,46 @@
-# 20 - Unit Testing
+# 44 - Basic Unit Testing
 
-## Can nam
+This topic follows the master outline in [outline.md](../outline.md). The goal is to understand each concept deeply enough to explain it, recognize it in code, and answer interview-style questions.
 
-- Unit test kiem tra mot don vi code nho.
-- JUnit la framework test pho bien trong Java.
-- Test nen ro input, expected output, va hanh vi can kiem tra.
-- Dat ten test nen noi len tinh huong.
+## Study Order
 
-## Tu kiem tra
+- [Junit Concepts](theory/01-junit-concepts.md)
+- [Test Exception Concepts](theory/02-test-exception-concepts.md)
+- [Key Terms](terms/01-key-terms.md)
 
-- Unit test khac manual test nhu the nao?
-- Arrange Act Assert la gi?
-- Test case bien la gi?
+## Outline Checklist
 
-## Ghi chu cua minh
+- JUnit
+- Test case
+- Assertion
+- @Test
+- @BeforeEach
+- @AfterEach
+- @BeforeAll
+- @AfterAll
+- Basic Mockito
+- Mock object
+- Test exception
+- Test private logic indirectly
+- Basic code coverage
 
-- 
+## Anki Cards
+
+- [Basic](anki/basic.tsv)
+- [Basic Extra](anki/basic-extra.tsv)
+- [Cloze](anki/cloze.tsv)
+- [Code Question](anki/code-question.tsv)
+
+## Mermaid Overview
+
+```mermaid
+flowchart TD
+    A[Basic Unit Testing] --> B[Definitions]
+    A --> C[Rules and syntax]
+    A --> D[Common mistakes]
+    A --> E[Interview recall]
+```
+
+## Reference Links
+
+- https://junit.org/junit5/docs/current/user-guide/

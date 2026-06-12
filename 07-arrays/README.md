@@ -1,30 +1,46 @@
-# 07 - Mang
+# 07 - Arrays
 
-## Can nam
+## What You Should Learn
 
-- Mang co kich thuoc co dinh sau khi tao.
-- Index bat dau tu `0`.
-- `array.length` tra ve so phan tu.
-- Mang co the chua primitive hoac object.
-- Mang 2 chieu co the xem nhu mang cua mang.
+- How to declare and initialize one-dimensional, two-dimensional, and multidimensional arrays.
+- How to access array elements and use the `length` property.
+- How memory is allocated for arrays and arrays of objects.
+- How to traverse, copy, sort, search, and compare arrays using loops and the `java.util.Arrays` utility class.
 
-## Vi du
+## Study Order
 
-```java
-int[] numbers = {1, 2, 3};
-System.out.println(numbers[0]);
+1. [Array Basics](theory/01-array-basics.md)
+2. [Array Operations](theory/02-array-operations.md)
 
-for (int number : numbers) {
-    System.out.println(number);
-}
+## Term Notes
+
+- [Array Terms](terms/01-array-terms.md)
+
+## Mermaid Overview
+
+```mermaid
+flowchart TD
+    A[Array Type] --> B[Primitive Array]
+    A --> C[Object Array]
+    B --> B1[Stored in Heap<br>Elements contain values]
+    C --> C1[Stored in Heap<br>Elements contain object references]
 ```
 
-## Tu kiem tra
+## Self-Check
 
-- Vi sao truy cap sai index bi loi?
-- `length` cua array khac `length()` cua String the nao?
-- Khi nao nen dung array, khi nao nen dung `ArrayList`?
+- Why do arrays have a fixed size in Java?
+- What is the default value of elements in an uninitialized numeric array?
+- What is the difference between `array.length` and `String.length()`?
+- How does `Arrays.equals()` differ from `Arrays.deepEquals()`?
+- Why does `System.arraycopy()` perform better than a manual loop for copying?
 
-## Ghi chu cua minh
+## Anki Cards
 
-- 
+- [Basic](anki/basic.tsv)
+- [Basic Extra](anki/basic-extra.tsv)
+- [Cloze](anki/cloze.tsv)
+- [Code Question](anki/code-question.tsv)
+
+## Reference Links
+
+- https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html

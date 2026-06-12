@@ -1,18 +1,62 @@
 # 28 - Multithreading
 
-## Can nam
+This topic follows the master outline in [outline.md](../outline.md). The goal is to understand each concept deeply enough to explain it, recognize it in code, and answer interview-style questions.
 
-- Multithreading cho phep nhieu luong thuc thi cung ton tai.
-- Co the tao thread bang `Thread` hoac `Runnable`.
-- Nen hieu lifecycle cua thread: new, runnable, running, waiting, terminated.
-- Thread bug thuong kho debug hon code don luong.
+## Study Order
 
-## Tu kiem tra
+- [Process Vs Thread Concepts](theory/01-process-vs-thread-concepts.md)
+- [Runnable Concepts](theory/02-runnable-concepts.md)
+- [Join Concepts](theory/03-join-concepts.md)
+- [Thread Safety Concepts](theory/04-thread-safety-concepts.md)
+- [Key Terms](terms/01-key-terms.md)
 
-- `Thread` va `Runnable` khac nhau nhu the nao?
-- `start()` va `run()` khac nhau ra sao?
-- Thread sleep co giai phong lock khong?
+## Outline Checklist
 
-## Ghi chu cua minh
+- Process vs Thread
+- Create thread using:
+- extends Thread
+- implements Runnable
+- implements Callable
+- ExecutorService
+- Lifecycle of Thread:
+- New
+- Runnable
+- Running
+- Blocked
+- Waiting
+- Timed Waiting
+- Terminated
+- start() vs run()
+- sleep
+- join
+- yield
+- interrupt
+- Daemon thread
+- User thread
+- Thread priority
+- Race condition
+- Critical section
+- Thread safety
+- Immutable object
+- Atomic operation
 
-- 
+## Anki Cards
+
+- [Basic](anki/basic.tsv)
+- [Basic Extra](anki/basic-extra.tsv)
+- [Cloze](anki/cloze.tsv)
+- [Code Question](anki/code-question.tsv)
+
+## Mermaid Overview
+
+```mermaid
+flowchart TD
+    A[Multithreading] --> B[Definitions]
+    A --> C[Rules and syntax]
+    A --> D[Common mistakes]
+    A --> E[Interview recall]
+```
+
+## Reference Links
+
+- https://docs.oracle.com/javase/tutorial/essential/concurrency/

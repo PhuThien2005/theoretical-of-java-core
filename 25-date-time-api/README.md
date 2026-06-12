@@ -1,21 +1,52 @@
-# 17 - Date Time
+# 25 - Date and Time API
 
-## Can nam
+This topic follows the master outline in [outline.md](../outline.md). The goal is to understand each concept deeply enough to explain it, recognize it in code, and answer interview-style questions.
 
-- API moi nam trong `java.time`.
-- `LocalDate`: ngay.
-- `LocalTime`: gio.
-- `LocalDateTime`: ngay va gio.
-- `Duration`: khoang thoi gian theo giay/nano.
-- `Period`: khoang thoi gian theo ngay/thang/nam.
-- `DateTimeFormatter` dung de format/parse.
+## Study Order
 
-## Tu kiem tra
+- [Date Concepts](theory/01-date-concepts.md)
+- [Period Concepts](theory/02-period-concepts.md)
+- [Key Terms](terms/01-key-terms.md)
 
-- `LocalDate` va `LocalDateTime` khac nhau ra sao?
-- `Duration` va `Period` khac nhau nhu the nao?
-- Vi sao nen dung `java.time` thay vi `Date` cu?
+## Outline Checklist
 
-## Ghi chu cua minh
+- Date
+- Calendar
+- SimpleDateFormat
+- LocalDate
+- LocalTime
+- LocalDateTime
+- ZonedDateTime
+- OffsetDateTime
+- Instant
+- Duration
+- Period
+- DateTimeFormatter
+- ZoneId
+- Parse date/time
+- Format date/time
+- Compare date/time
+- Add/subtract date/time
+- Timezone
 
-- 
+## Anki Cards
+
+- [Basic](anki/basic.tsv)
+- [Basic Extra](anki/basic-extra.tsv)
+- [Cloze](anki/cloze.tsv)
+- [Code Question](anki/code-question.tsv)
+
+## Mermaid Overview
+
+```mermaid
+flowchart TD
+    A[Date and Time API] --> B[Definitions]
+    A --> C[Rules and syntax]
+    A --> D[Common mistakes]
+    A --> E[Interview recall]
+```
+
+## Reference Links
+
+- https://docs.oracle.com/javase/tutorial/datetime/
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/package-summary.html

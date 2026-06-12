@@ -50,7 +50,33 @@ Minimum depth guideline:
 
 For a multi-file topic, it is normal to produce 80-150+ cards when the theory is detailed.
 
-## 4. Create Term Explanation Files When Needed
+For core topics such as OOP, collections, generics, exceptions, concurrency, streams, and interview-heavy sections, 150-250+ cards can be appropriate when the theory contains many rules, traps, and code examples.
+
+## 4. Add Reference Links
+
+Use reference links when the theory depends on exact Java behavior, official terminology, or important design guidance.
+
+Prefer sources in this order:
+
+- Official Java documentation, Java tutorials, or Java specification material.
+- Dev.java learning material.
+- Reputable technical books, articles, or documentation when official docs are too terse.
+
+Add references in three places:
+
+- Theory files: add a `## Reference Links` section near the end of the file.
+- Topic README: add a compact reference list when several theory files share the same sources.
+- Anki cards: include the local Markdown path and a relevant URL in `Source`, separated by ` | `.
+
+Example `Source` field:
+
+```text
+09-oop/theory/04-polymorphism.md | https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html
+```
+
+When `Extra` or `Explanation` uses an external source for a deeper explanation, add a short `Reference:` line there too.
+
+## 5. Create Term Explanation Files When Needed
 
 If the theory mentions terms without explaining them deeply, create a `terms/*.md` file for those terms.
 
@@ -72,7 +98,7 @@ If a Mermaid diagram should appear in Anki, export it to SVG/PNG and upload it a
 
 - [Mermaid Images In Anki Cards](mermaid-anki-media.md)
 
-## 5. Use Four Note Types
+## 6. Use Four Note Types
 
 ### Java Basic
 
@@ -223,7 +249,7 @@ Explanation
 Source
 ```
 
-## 6. Use Stable IDs
+## 7. Use Stable IDs
 
 Every row should have a stable `ID`.
 
@@ -238,7 +264,7 @@ overview-code-003
 
 Do not change IDs after syncing to Anki. The sync script uses `ID` to update existing notes instead of creating duplicates.
 
-## 7. Use TSV
+## 8. Use TSV
 
 Use TSV instead of CSV because Java examples often contain commas, quotes, and punctuation.
 
@@ -252,7 +278,7 @@ public class Main {\n    public static void main(String[] args) {\n        Syste
 
 The sync script converts `\n` into real line breaks before sending the field to Anki.
 
-## 8. Put Cards Beside The Topic
+## 9. Put Cards Beside The Topic
 
 Cards for topic `03-data-types` should live in:
 
@@ -262,7 +288,7 @@ Cards for topic `03-data-types` should live in:
 
 This makes it easy to read theory and inspect flashcards without jumping to a separate global folder.
 
-## 9. Sync With The Helper Script
+## 10. Sync With The Helper Script
 
 Dry-run one topic:
 
@@ -282,7 +308,7 @@ Sync all cards:
 ./r.sh
 ```
 
-## 10. Improve Cards After Review
+## 11. Improve Cards After Review
 
 If a card feels too hard, split it.
 

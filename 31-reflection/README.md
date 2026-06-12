@@ -1,17 +1,46 @@
 # 31 - Reflection
 
-## Can nam
+This topic follows the master outline in [outline.md](../outline.md). The goal is to understand each concept deeply enough to explain it, recognize it in code, and answer interview-style questions.
 
-- Reflection cho phep xem/thao tac metadata cua class khi runtime.
-- Co the lay class name, method, field, constructor.
-- Framework hay dung reflection, nhung code thuong ngay nen han che lam dung.
+## Study Order
 
-## Tu kiem tra
+- [What Is Reflection Concepts](theory/01-what-is-reflection-concepts.md)
+- [Advantages And Disadvantages Of Reflection Concepts](theory/02-advantages-and-disadvantages-of-reflection-concepts.md)
+- [Key Terms](terms/01-key-terms.md)
 
-- Reflection dung trong framework nhu the nao?
-- Vi sao reflection co the lam code cham/kho bao tri?
-- `Class<?>` la gi?
+## Outline Checklist
 
-## Ghi chu cua minh
+- What is Reflection?
+- Class<?>
+- Get class information
+- Get field
+- Get method
+- Get constructor
+- Invoke method using reflection
+- Create object using reflection
+- Access private field/method
+- Annotation + reflection
+- Advantages and disadvantages of reflection
+- Reflection in frameworks such as Spring
 
-- 
+## Anki Cards
+
+- [Basic](anki/basic.tsv)
+- [Basic Extra](anki/basic-extra.tsv)
+- [Cloze](anki/cloze.tsv)
+- [Code Question](anki/code-question.tsv)
+
+## Mermaid Overview
+
+```mermaid
+flowchart TD
+    A[Reflection] --> B[Definitions]
+    A --> C[Rules and syntax]
+    A --> D[Common mistakes]
+    A --> E[Interview recall]
+```
+
+## Reference Links
+
+- https://docs.oracle.com/javase/tutorial/reflect/
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/package-summary.html

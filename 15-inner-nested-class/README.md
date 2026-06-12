@@ -1,18 +1,40 @@
-# 15 - Inner Class Va Nested Class
+# 15 - Inner Class and Nested Class
 
-## Can nam
+This topic follows the master outline in [outline.md](../outline.md). The goal is to understand each concept deeply enough to explain it, recognize it in code, and answer interview-style questions.
 
-- Nested class la class khai bao ben trong class khac.
-- Static nested class khong can object cua outer class.
-- Inner class gan voi object cua outer class.
-- Local class va anonymous class dung trong pham vi hep.
+## Study Order
 
-## Tu kiem tra
+- [Nested Class Concepts](theory/01-nested-class-concepts.md)
+- [Key Terms](terms/01-key-terms.md)
 
-- Static nested class va inner class khac nhau ra sao?
-- Anonymous class dung khi nao?
-- Vi sao khong nen lam nested class qua phuc tap?
+## Outline Checklist
 
-## Ghi chu cua minh
+- Nested class
+- Static nested class
+- Inner class
+- Local inner class
+- Anonymous inner class
+- Access variables outside the class
+- Use case of inner class
+- Anonymous class in event handler, thread, comparator
 
-- 
+## Anki Cards
+
+- [Basic](anki/basic.tsv)
+- [Basic Extra](anki/basic-extra.tsv)
+- [Cloze](anki/cloze.tsv)
+- [Code Question](anki/code-question.tsv)
+
+## Mermaid Overview
+
+```mermaid
+flowchart TD
+    A[Inner Class and Nested Class] --> B[Definitions]
+    A --> C[Rules and syntax]
+    A --> D[Common mistakes]
+    A --> E[Interview recall]
+```
+
+## Reference Links
+
+- https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html

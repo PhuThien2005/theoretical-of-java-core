@@ -1,20 +1,43 @@
-# 42 - Design Principles Co Ban
+# 42 - Basic Design Principles Often Paired With Java Core
 
-## Can nam
+This topic follows the master outline in [outline.md](../outline.md). The goal is to understand each concept deeply enough to explain it, recognize it in code, and answer interview-style questions.
 
-- SOLID.
-- DRY.
-- KISS.
-- YAGNI.
-- Composition over inheritance.
-- Program to an interface.
+## Study Order
 
-## Tu kiem tra
+- [Solid Concepts](theory/01-solid-concepts.md)
+- [Key Terms](terms/01-key-terms.md)
 
-- Single Responsibility Principle la gi?
-- Vi sao khong nen over-engineer?
-- Khi nao composition tot hon inheritance?
+## Outline Checklist
 
-## Ghi chu cua minh
+- SOLID
+- DRY
+- KISS
+- YAGNI
+- Composition over inheritance
+- Coupling
+- Cohesion
+- Basic Dependency Injection
+- Defensive programming
+- Basic Clean Code
 
-- 
+## Anki Cards
+
+- [Basic](anki/basic.tsv)
+- [Basic Extra](anki/basic-extra.tsv)
+- [Cloze](anki/cloze.tsv)
+- [Code Question](anki/code-question.tsv)
+
+## Mermaid Overview
+
+```mermaid
+flowchart TD
+    A[Basic Design Principles Often Paired With Java Core] --> B[Definitions]
+    A --> C[Rules and syntax]
+    A --> D[Common mistakes]
+    A --> E[Interview recall]
+```
+
+## Reference Links
+
+- https://docs.oracle.com/javase/tutorial/java/concepts/
+- https://docs.oracle.com/javase/tutorial/java/concepts/

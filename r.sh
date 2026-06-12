@@ -38,6 +38,18 @@ case "${1:-sync}" in
     shift || true
     python3 scripts/sync_anki.py --probe-urls "$@"
     ;;
+  augment)
+    shift || true
+    python3 scripts/augment_anki_cards.py "$@"
+    ;;
+  audit-cards)
+    shift || true
+    python3 scripts/audit_anki_quality.py "$@"
+    ;;
+  audit-links)
+    shift || true
+    python3 scripts/audit_references.py "$@"
+    ;;
   help|-h|--help)
     cat <<'EOF'
 Usage:
@@ -48,6 +60,10 @@ Usage:
   ./r.sh topic 01-overview   Sync one topic
   ./r.sh dry-topic 01-overview
   ./r.sh probe               Probe common WSL/AnkiConnect URLs
+  ./r.sh augment             Add supplemental cards to reach 2x count
+  ./r.sh augment --topic 09-oop --dry-run
+  ./r.sh audit-cards         Check card quality and TSV structure
+  ./r.sh audit-links         Check reference links and source trust
 
 Extra args after "sync", "check", "dry", or "probe" are passed to sync_anki.py.
 EOF

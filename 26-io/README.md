@@ -1,19 +1,64 @@
-# 16 - File IO
+# 26 - IO in Java
 
-## Can nam
+This topic follows the master outline in [outline.md](../outline.md). The goal is to understand each concept deeply enough to explain it, recognize it in code, and answer interview-style questions.
 
-- `Path` dai dien duong dan.
-- `Files` co nhieu method tien ich de doc/ghi/copy/xoa file.
-- Stream byte: `InputStream`, `OutputStream`.
-- Stream ky tu: `Reader`, `Writer`.
-- Nen dung try-with-resources de tu dong dong tai nguyen.
+## Study Order
 
-## Tu kiem tra
+- [File Concepts](theory/01-file-concepts.md)
+- [Bufferedinputstream Concepts](theory/02-bufferedinputstream-concepts.md)
+- [Serialization Concepts](theory/03-serialization-concepts.md)
+- [Key Terms](terms/01-key-terms.md)
 
-- Byte stream va character stream khac nhau nhu the nao?
-- `Files.readString()` dung khi nao?
-- Try-with-resources giai quyet van de gi?
+## Outline Checklist
 
-## Ghi chu cua minh
+- File
+- Create file
+- Delete file
+- Check existence
+- Read file metadata
+- Create directory
+- InputStream
+- OutputStream
+- FileInputStream
+- FileOutputStream
+- BufferedInputStream
+- BufferedOutputStream
+- Reader
+- Writer
+- FileReader
+- FileWriter
+- BufferedReader
+- BufferedWriter
+- ObjectInputStream
+- ObjectOutputStream
+- Serialization
+- Deserialization
+- Serializable
+- serialVersionUID
+- transient
+- Scanner
+- System.in
+- System.out
+- System.err
 
-- 
+## Anki Cards
+
+- [Basic](anki/basic.tsv)
+- [Basic Extra](anki/basic-extra.tsv)
+- [Cloze](anki/cloze.tsv)
+- [Code Question](anki/code-question.tsv)
+
+## Mermaid Overview
+
+```mermaid
+flowchart TD
+    A[IO in Java] --> B[Definitions]
+    A --> C[Rules and syntax]
+    A --> D[Common mistakes]
+    A --> E[Interview recall]
+```
+
+## Reference Links
+
+- https://docs.oracle.com/javase/tutorial/essential/io/
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/package-summary.html

@@ -69,3 +69,8 @@ Java source code is not executed directly by the operating system. The source co
 ## My Notes
 
 -
+
+## Reference Links
+
+- https://docs.oracle.com/javase/tutorial/getStarted/intro/definition.html
+- https://dev.java/learn/

@@ -1,17 +1,48 @@
 # 24 - Optional
 
-## Can nam
+This topic follows the master outline in [outline.md](../outline.md). The goal is to understand each concept deeply enough to explain it, recognize it in code, and answer interview-style questions.
 
-- `Optional<T>` bieu dien gia tri co the co hoac khong.
-- Giup giam loi `NullPointerException` neu dung dung cach.
-- Method hay gap: `of`, `ofNullable`, `empty`, `isPresent`, `orElse`, `orElseGet`, `map`, `filter`.
+## Study Order
 
-## Tu kiem tra
+- [What Is Optional T Concepts](theory/01-what-is-optional-t-concepts.md)
+- [Map Concepts](theory/02-map-concepts.md)
+- [Key Terms](terms/01-key-terms.md)
 
-- `Optional.of()` va `Optional.ofNullable()` khac nhau ra sao?
-- Khi nao khong nen dung `Optional`?
-- `orElse` va `orElseGet` khac nhau nhu the nao?
+## Outline Checklist
 
-## Ghi chu cua minh
+- What is Optional<T>?
+- Avoid NullPointerException
+- Optional.of
+- Optional.ofNullable
+- Optional.empty
+- isPresent
+- ifPresent
+- orElse
+- orElseGet
+- orElseThrow
+- map
+- flatMap
+- filter
+- Do not overuse Optional
+- Optional in return type
 
-- 
+## Anki Cards
+
+- [Basic](anki/basic.tsv)
+- [Basic Extra](anki/basic-extra.tsv)
+- [Cloze](anki/cloze.tsv)
+- [Code Question](anki/code-question.tsv)
+
+## Mermaid Overview
+
+```mermaid
+flowchart TD
+    A[Optional] --> B[Definitions]
+    A --> C[Rules and syntax]
+    A --> D[Common mistakes]
+    A --> E[Interview recall]
+```
+
+## Reference Links
+
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html

@@ -1,21 +1,51 @@
-# 19 - JDBC
+# 34 - JDBC
 
-## Can nam
+This topic follows the master outline in [outline.md](../outline.md). The goal is to understand each concept deeply enough to explain it, recognize it in code, and answer interview-style questions.
 
-- JDBC la API Java de lam viec voi database quan he.
-- Thanh phan hay gap:
-  - `Connection`
-  - `PreparedStatement`
-  - `ResultSet`
-- Nen dung `PreparedStatement` de tranh SQL injection.
-- Tai nguyen database can dong dung cach.
+## Study Order
 
-## Tu kiem tra
+- [What Is Jdbc Concepts](theory/01-what-is-jdbc-concepts.md)
+- [Rollback Concepts](theory/02-rollback-concepts.md)
+- [Key Terms](terms/01-key-terms.md)
 
-- JDBC driver la gi?
-- `Statement` va `PreparedStatement` khac nhau nhu the nao?
-- SQL injection la gi?
+## Outline Checklist
 
-## Ghi chu cua minh
+- What is JDBC?
+- Driver
+- DriverManager
+- Connection
+- Statement
+- PreparedStatement
+- CallableStatement
+- ResultSet
+- Transaction:
+- commit
+- rollback
+- setAutoCommit
+- Batch processing
+- SQL Injection
+- Basic Connection Pool
+- DataSource
+- CRUD using JDBC
 
-- 
+## Anki Cards
+
+- [Basic](anki/basic.tsv)
+- [Basic Extra](anki/basic-extra.tsv)
+- [Cloze](anki/cloze.tsv)
+- [Code Question](anki/code-question.tsv)
+
+## Mermaid Overview
+
+```mermaid
+flowchart TD
+    A[JDBC] --> B[Definitions]
+    A --> C[Rules and syntax]
+    A --> D[Common mistakes]
+    A --> E[Interview recall]
+```
+
+## Reference Links
+
+- https://docs.oracle.com/javase/tutorial/jdbc/
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.sql/java/sql/package-summary.html

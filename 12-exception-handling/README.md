@@ -1,28 +1,62 @@
-# 13 - Exceptions
+# 12 - Exception Handling
 
-## Can nam
+This topic follows the master outline in [outline.md](../outline.md). The goal is to understand each concept deeply enough to explain it, recognize it in code, and answer interview-style questions.
 
-- Exception la loi/xu ly bat thuong khi chuong trinh chay.
-- `try` boc doan code co the loi.
-- `catch` xu ly loi.
-- `finally` chay sau try/catch, thuong de dong tai nguyen.
-- Checked exception bat buoc handle/throw.
-- Unchecked exception thuong ke thua `RuntimeException`.
+## Study Order
 
-## Tu khoa
+- [What Is An Exception Concepts](theory/01-what-is-an-exception-concepts.md)
+- [Finally Concepts](theory/02-finally-concepts.md)
+- [Arrayindexoutofboundsexception Concepts](theory/03-arrayindexoutofboundsexception-concepts.md)
+- [Filenotfoundexception Concepts](theory/04-filenotfoundexception-concepts.md)
+- [Key Terms](terms/01-key-terms.md)
 
-- `try`
-- `catch`
-- `finally`
-- `throw`
-- `throws`
+## Outline Checklist
 
-## Tu kiem tra
+- What is an exception?
+- Error vs Exception
+- Checked exception
+- Unchecked exception
+- Runtime exception
+- try
+- catch
+- multiple catch
+- finally
+- throw
+- throws
+- try-with-resources
+- Custom exception
+- Exception propagation
+- Common exceptions:
+- NullPointerException
+- ArrayIndexOutOfBoundsException
+- StringIndexOutOfBoundsException
+- ClassCastException
+- NumberFormatException
+- ArithmeticException
+- IllegalArgumentException
+- IllegalStateException
+- IOException
+- FileNotFoundException
+- SQLException
+- Best practices when handling exceptions
 
-- Checked va unchecked exception khac nhau nhu the nao?
-- Khi nao nen tao custom exception?
-- Vi sao khong nen catch `Exception` qua rong neu khong can?
+## Anki Cards
 
-## Ghi chu cua minh
+- [Basic](anki/basic.tsv)
+- [Basic Extra](anki/basic-extra.tsv)
+- [Cloze](anki/cloze.tsv)
+- [Code Question](anki/code-question.tsv)
 
-- 
+## Mermaid Overview
+
+```mermaid
+flowchart TD
+    A[Exception Handling] --> B[Definitions]
+    A --> C[Rules and syntax]
+    A --> D[Common mistakes]
+    A --> E[Interview recall]
+```
+
+## Reference Links
+
+- https://docs.oracle.com/javase/tutorial/essential/exceptions/

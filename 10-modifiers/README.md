@@ -1,17 +1,59 @@
-# 10 - Modifier Trong Java
+# 10 - Modifiers in Java
 
-## Can nam
+This topic follows the master outline in [outline.md](../outline.md). The goal is to understand each concept deeply enough to explain it, recognize it in code, and answer interview-style questions.
 
-- Access modifier: `public`, `protected`, default, `private`.
-- Non-access modifier: `static`, `final`, `abstract`, `synchronized`, `volatile`, `transient`, `native`, `strictfp`.
-- Modifier anh huong den cach truy cap, ke thua, override, va vong doi thanh phan trong class.
+## Study Order
 
-## Tu kiem tra
+- [Access Modifier Concepts](theory/01-access-modifier-concepts.md)
+- [Abstract Concepts](theory/02-abstract-concepts.md)
+- [Static Block Concepts](theory/03-static-block-concepts.md)
+- [Key Terms](terms/01-key-terms.md)
 
-- `public`, `protected`, default, `private` khac nhau nhu the nao?
-- `static` dung cho field/method co y nghia gi?
-- `final` tren variable, method, class khac nhau ra sao?
+## Outline Checklist
 
-## Ghi chu cua minh
+- Access modifier:
+- public
+- protected
+- default
+- private
+- Non-access modifier:
+- static
+- final
+- abstract
+- synchronized
+- volatile
+- transient
+- native
+- strictfp
+- Static variable
+- Static method
+- Static block
+- Static nested class
+- Static import
+- Final variable
+- Final method
+- Final class
+- Final parameter
+- Blank final variable
 
-- 
+## Anki Cards
+
+- [Basic](anki/basic.tsv)
+- [Basic Extra](anki/basic-extra.tsv)
+- [Cloze](anki/cloze.tsv)
+- [Code Question](anki/code-question.tsv)
+
+## Mermaid Overview
+
+```mermaid
+flowchart TD
+    A[Modifiers in Java] --> B[Definitions]
+    A --> C[Rules and syntax]
+    A --> D[Common mistakes]
+    A --> E[Interview recall]
+```
+
+## Reference Links
+
+- https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html
+- https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html

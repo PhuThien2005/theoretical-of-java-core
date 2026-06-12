@@ -1,23 +1,46 @@
 # 21 - Lambda Expression
 
-## Can nam
+This topic follows the master outline in [outline.md](../outline.md). The goal is to understand each concept deeply enough to explain it, recognize it in code, and answer interview-style questions.
 
-- Lambda giup viet ngan gon hanh vi truyen vao method.
-- Cu phap co ban: `(param) -> expression`.
-- Lambda chi ap dung cho functional interface.
+## Study Order
 
-## Vi du
+- [What Is A Lambda Concepts](theory/01-what-is-a-lambda-concepts.md)
+- [Lambda With Collection Concepts](theory/02-lambda-with-collection-concepts.md)
+- [Key Terms](terms/01-key-terms.md)
 
-```java
-Runnable task = () -> System.out.println("Run");
+## Outline Checklist
+
+- What is a lambda?
+- Lambda syntax
+- Functional interface
+- @FunctionalInterface
+- Method reference:
+- static method reference
+- instance method reference
+- constructor reference
+- Variable capture
+- Effectively final
+- Lambda with Collection
+- Lambda with Thread
+- Lambda with Comparator
+
+## Anki Cards
+
+- [Basic](anki/basic.tsv)
+- [Basic Extra](anki/basic-extra.tsv)
+- [Cloze](anki/cloze.tsv)
+- [Code Question](anki/code-question.tsv)
+
+## Mermaid Overview
+
+```mermaid
+flowchart TD
+    A[Lambda Expression] --> B[Definitions]
+    A --> C[Rules and syntax]
+    A --> D[Common mistakes]
+    A --> E[Interview recall]
 ```
 
-## Tu kiem tra
+## Reference Links
 
-- Lambda co the thay anonymous class trong truong hop nao?
-- Bien ben ngoai lambda can dieu kien gi de su dung?
-- Lambda giup code ngan hon nhung co khi nao lam code kho doc khong?
-
-## Ghi chu cua minh
-
-- 
+- https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html

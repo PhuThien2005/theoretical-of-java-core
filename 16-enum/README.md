@@ -1,25 +1,46 @@
-# 11 - Enum
+# 16 - Enum
 
-## Can nam
+This topic follows the master outline in [outline.md](../outline.md). The goal is to understand each concept deeply enough to explain it, recognize it in code, and answer interview-style questions.
 
-- Enum dung de bieu dien tap gia tri co dinh.
-- Enum giup code ro nghia hon so voi string/int magic value.
-- Enum co the co field, constructor, method.
+## Study Order
 
-## Vi du
+- [What Is An Enum Concepts](theory/01-what-is-an-enum-concepts.md)
+- [Enum Implements Interface Concepts](theory/02-enum-implements-interface-concepts.md)
+- [Key Terms](terms/01-key-terms.md)
 
-```java
-enum OrderStatus {
-    NEW, PAID, CANCELLED
-}
+## Outline Checklist
+
+- What is an enum?
+- Declare enum
+- Enum constructor
+- Enum field
+- Enum method
+- values()
+- valueOf()
+- ordinal()
+- name()
+- Enum in switch
+- Enum implements interface
+- Enum Singleton pattern
+
+## Anki Cards
+
+- [Basic](anki/basic.tsv)
+- [Basic Extra](anki/basic-extra.tsv)
+- [Cloze](anki/cloze.tsv)
+- [Code Question](anki/code-question.tsv)
+
+## Mermaid Overview
+
+```mermaid
+flowchart TD
+    A[Enum] --> B[Definitions]
+    A --> C[Rules and syntax]
+    A --> D[Common mistakes]
+    A --> E[Interview recall]
 ```
 
-## Tu kiem tra
+## Reference Links
 
-- Khi nao nen dung enum?
-- Enum co the dung trong `switch` khong?
-- Enum khac constant string nhu the nao?
-
-## Ghi chu cua minh
-
-- 
+- https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Enum.html

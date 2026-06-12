@@ -1,18 +1,49 @@
 # 17 - Annotation
 
-## Can nam
+This topic follows the master outline in [outline.md](../outline.md). The goal is to understand each concept deeply enough to explain it, recognize it in code, and answer interview-style questions.
 
-- Annotation la metadata gan vao code.
-- Annotation hay gap: `@Override`, `@Deprecated`, `@SuppressWarnings`.
-- Framework Java dung annotation rat nhieu.
-- Co the tao custom annotation, nhung nen hoc sau khi nam co ban.
+## Study Order
 
-## Tu kiem tra
+- [What Is An Annotation Concepts](theory/01-what-is-an-annotation-concepts.md)
+- [Documented Concepts](theory/02-documented-concepts.md)
+- [Key Terms](terms/01-key-terms.md)
 
-- `@Override` giup ich gi?
-- Annotation co thay doi logic code truc tiep khong?
-- Runtime annotation la gi?
+## Outline Checklist
 
-## Ghi chu cua minh
+- What is an annotation?
+- Built-in annotations:
+- @Override
+- @Deprecated
+- @SuppressWarnings
+- @FunctionalInterface
+- @SafeVarargs
+- Meta-annotations:
+- @Target
+- @Retention
+- @Documented
+- @Inherited
+- @Repeatable
+- Custom annotation
+- Runtime annotation
+- Basic annotation processing
 
-- 
+## Anki Cards
+
+- [Basic](anki/basic.tsv)
+- [Basic Extra](anki/basic-extra.tsv)
+- [Cloze](anki/cloze.tsv)
+- [Code Question](anki/code-question.tsv)
+
+## Mermaid Overview
+
+```mermaid
+flowchart TD
+    A[Annotation] --> B[Definitions]
+    A --> C[Rules and syntax]
+    A --> D[Common mistakes]
+    A --> E[Interview recall]
+```
+
+## Reference Links
+
+- https://docs.oracle.com/javase/tutorial/java/annotations/

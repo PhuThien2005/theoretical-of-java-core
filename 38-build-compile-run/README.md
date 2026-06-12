@@ -1,18 +1,46 @@
 # 38 - Build, Compile, Run
 
-## Can nam
+This topic follows the master outline in [outline.md](../outline.md). The goal is to understand each concept deeply enough to explain it, recognize it in code, and answer interview-style questions.
 
-- `javac` bien dich `.java` thanh `.class`.
-- `java` chay class co `main`.
-- Build tool pho bien: Maven, Gradle.
-- File `.jar` co the dong goi nhieu class va resource.
+## Study Order
 
-## Tu kiem tra
+- [Javac Concepts](theory/01-javac-concepts.md)
+- [Standard Project Structure Concepts](theory/02-standard-project-structure-concepts.md)
+- [Key Terms](terms/01-key-terms.md)
 
-- Compile-time va runtime khac nhau nhu the nao?
-- Maven/Gradle giup giai quyet viec gi?
-- JAR la gi?
+## Outline Checklist
 
-## Ghi chu cua minh
+- javac
+- java
+- jar
+- Create JAR file
+- Executable JAR
+- Classpath
+- Manifest file
+- Basic Maven
+- Basic Gradle
+- Dependency management
+- Standard project structure
+- Basic unit test with JUnit
 
-- 
+## Anki Cards
+
+- [Basic](anki/basic.tsv)
+- [Basic Extra](anki/basic-extra.tsv)
+- [Cloze](anki/cloze.tsv)
+- [Code Question](anki/code-question.tsv)
+
+## Mermaid Overview
+
+```mermaid
+flowchart TD
+    A[Build, Compile, Run] --> B[Definitions]
+    A --> C[Rules and syntax]
+    A --> D[Common mistakes]
+    A --> E[Interview recall]
+```
+
+## Reference Links
+
+- https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html
+- https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html

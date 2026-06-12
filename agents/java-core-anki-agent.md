@@ -13,6 +13,7 @@ For each topic, create:
 - Term explanation files inside `terms/` when theory mentions important terms without enough detail.
 - Mermaid diagrams when they help explain flow, hierarchy, memory, or relationships.
 - Exported Mermaid media for Anki when a diagram should appear on cards.
+- Reference links in theory files, topic README files, and card `Source` fields.
 - Four Anki card files inside the same topic folder under `anki/`.
 
 ## Topic Structure
@@ -41,6 +42,10 @@ For each topic, create:
 - Mine every theory file for cards, not only the topic README.
 - If a term is important but under-explained, create a `terms/*.md` file before generating cards.
 - Mine every terms file for definition, confusion, and exact-recall cards.
+- Prefer official Java documentation for references when exact language behavior matters.
+- Add `## Reference Links` to theory files when using external sources.
+- Put both local Markdown paths and relevant URLs in Anki `Source` fields, separated by ` | `.
+- Add a short `Reference:` line in `Extra` or `Explanation` when the deeper explanation depends on a specific source.
 - Keep each Anki card focused on one recall target.
 - In Basic Extra cards, make `Extra` genuinely explanatory. If a term appears in `Back` and is not explained in another card or `terms/`, explain it in `Extra`.
 - Do not mix note types in one TSV.
@@ -55,6 +60,7 @@ For each topic, create:
 - Medium theory file: 20-35 cards.
 - Large theory file: 35+ cards.
 - Multi-file topic: 80-150+ cards is normal.
+- Core topics such as OOP, collections, generics, exceptions, concurrency, streams, and interview-heavy sections may need 150-250+ cards.
 
 Create enough cards to cover definitions, contrasts, processes, commands, code snippets, diagrams, common mistakes, and interview explanations.
 
@@ -109,6 +115,10 @@ flowchart TD
 - [Basic Extra](anki/basic-extra.tsv)
 - [Cloze](anki/cloze.tsv)
 - [Code Question](anki/code-question.tsv)
+
+## Reference Links
+
+- [Official Java documentation](https://docs.oracle.com/javase/tutorial/)
 ~~~
 
 ## TSV Headers
