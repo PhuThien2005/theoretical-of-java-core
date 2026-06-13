@@ -2,153 +2,163 @@
 
 ## Learning Goal
 
-This file covers a focused slice of **Multithreading**. Study each concept as a practical Java rule, not as isolated vocabulary.
+This file covers thread synchronization primitives (`join`), signaling (`interrupt`), daemon threads, and execution behavior. Study each concept as a practical Java rule, not as isolated vocabulary.
 
 ## Outline Coverage
 
 | Concept | What to know |
 | --- | --- |
-| `join` |join is a specific concept in Multithreading; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `yield` |yield is a specific concept in Multithreading; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `interrupt` |interrupt is a specific concept in Multithreading; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Daemon thread` | A thread is a path of execution inside a process. |
-| `User thread` | A thread is a path of execution inside a process. |
-| `Thread priority` | A thread is a path of execution inside a process. |
-| `Race condition` | A race condition happens when correctness depends on unpredictable timing between threads. |
-| `Critical section` |A critical section is code that accesses shared mutable state and must be protected. |
+| `join` | An instance method (`thread.join()`) that blocks the calling thread until the target thread terminates. |
+| `yield` | A static method (`Thread.yield()`) that suggests the scheduler pause the current thread to let other threads run. The scheduler is free to ignore this hint. |
+| `interrupt` | A mechanism to signal a thread to stop what it is doing. Sets the thread's interrupt status and wakes up threads blocking in methods like `sleep()` or `wait()`. |
+| `Daemon thread` | A background thread (like garbage collection) that does not keep the JVM alive. The JVM exits when only daemon threads remain. |
+| `User thread` | A standard thread (such as the main thread). The JVM continues executing as long as at least one user thread is alive. |
+| `Thread priority` | A numeric hint (1 to 10) to the OS thread scheduler. Behavior is highly platform-dependent and should not be relied on for program correctness. |
+| `Race condition` | A concurrency bug where the program's outcome depends on the unpredictable interleaving of execution steps from multiple threads. |
+| `Critical section` | A block of code that accesses a shared mutable resource and must not be concurrently accessed by multiple threads. |
 
 ## Detailed Notes
 
-### join
+### Thread Join
+`join()` is used to coordinate thread termination. The calling thread pauses until the target thread completes execution.
+```java
+public class JoinDemo {
+    public static void main(String[] args) throws InterruptedException {
+        Thread worker = new Thread(() -> {
+            try { Thread.sleep(2000); } catch (InterruptedException e) {}
+            System.out.println("Worker done.");
+        });
 
-join is a specific concept in Multithreading; learn its Java rule, valid use cases, and failure mode rather than only its name.
+        worker.start();
+        System.out.println("Waiting for worker...");
+        worker.join(); // Main thread blocks here until worker finishes
+        System.out.println("All work finished.");
+    }
+}
+```
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+### Thread Interrupt
+Interrupts are cooperative. Calling `thread.interrupt()` does not terminate the thread immediately; it merely sets an interrupt flag.
+* If a thread is blocked in `sleep()`, `wait()`, or `join()`, it throws `InterruptedException` and **clears** its interrupt flag.
+* If a thread is executing normal CPU operations, it must periodically check its flag using `Thread.currentThread().isInterrupted()`.
 
-Practical check:
+```java
+public class InterruptDemo {
+    public static void main(String[] args) throws InterruptedException {
+        Thread worker = new Thread(() -> {
+            while (!Thread.currentThread().isInterrupted()) {
+                // Perform CPU intensive task
+            }
+            System.out.println("Worker stopped via interrupt.");
+        });
 
-- Define `join` in one sentence.
-- Recognize `join` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `join`.
+        worker.start();
+        Thread.sleep(500);
+        worker.interrupt(); // Signal worker to stop
+    }
+}
+```
 
-Tiny example or mental model:
+### Daemon vs User Threads
+By default, newly created threads inherit the daemon status of the creating thread. You can change this using `thread.setDaemon(boolean)`.
+* **Important**: You must call `setDaemon()` **before** starting the thread. Calling it on a running thread throws `IllegalThreadStateException`.
 
-- When reading code, ask: what does `join` change, allow, reject, or clarify?
+```java
+public class DaemonDemo {
+    public static void main(String[] args) {
+        Thread daemon = new Thread(() -> {
+            while (true) {
+                try { Thread.sleep(100); } catch (InterruptedException e) {}
+            }
+        });
+        daemon.setDaemon(true); // Must be set before start
+        daemon.start();
+        
+        System.out.println("Main thread ending. JVM will exit despite daemon running.");
+    }
+}
+```
 
-### yield
+### Critical Sections and Race Conditions
+A race condition occurs when multiple threads read and write a shared variable concurrently without synchronization.
+```java
+class Counter {
+    private int count = 0;
 
-yield is a specific concept in Multithreading; learn its Java rule, valid use cases, and failure mode rather than only its name.
+    public void increment() {
+        count++; // CRITICAL SECTION. Non-atomic: read, modify, write.
+    }
+    
+    public int getCount() { return count; }
+}
+```
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+---
 
-Practical check:
+## Case Study: Worker Coordinator Pattern
 
-- Define `yield` in one sentence.
-- Recognize `yield` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `yield`.
+### Problem
+A reporting system needs to fetch data from three external APIs concurrently. Once all APIs return data, the system compiles the final report.
 
-Tiny example or mental model:
+### Solution
+Use `join()` to coordinate the workers.
+```java
+import java.util.ArrayList;
+import java.util.List;
 
-- When reading code, ask: what does `yield` change, allow, reject, or clarify?
+public class ReportCoordinator {
+    public static void main(String[] args) throws InterruptedException {
+        List<Thread> workers = new ArrayList<>();
+        
+        // Start 3 workers
+        for (int i = 1; i <= 3; i++) {
+            final int id = i;
+            Thread t = new Thread(() -> {
+                System.out.println("Worker " + id + " fetching data...");
+                try { Thread.sleep(1000 * id); } catch (InterruptedException e) {}
+            });
+            workers.add(t);
+            t.start();
+        }
+        
+        // Wait for all workers to finish
+        for (Thread t : workers) {
+            t.join();
+        }
+        
+        System.out.println("All worker data collected. Compiling report.");
+    }
+}
+```
 
-### interrupt
+---
 
-interrupt is a specific concept in Multithreading; learn its Java rule, valid use cases, and failure mode rather than only its name.
+## Common Mistakes
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+### 1. Swallowing InterruptedException
+Swallowing `InterruptedException` clears the thread's interrupt status, meaning higher-level code won't know the thread was requested to stop.
+```java
+// BAD
+try {
+    Thread.sleep(1000);
+} catch (InterruptedException e) {
+    // Swallowed and ignored
+}
 
-Practical check:
+// GOOD: Restore the interrupt flag so caller knows
+try {
+    Thread.sleep(1000);
+} catch (InterruptedException e) {
+    Thread.currentThread().interrupt(); 
+}
+```
 
-- Define `interrupt` in one sentence.
-- Recognize `interrupt` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `interrupt`.
+### 2. Calling `setDaemon()` on a Running Thread
+```java
+Thread t = new Thread(() -> {});
+t.start();
+t.setDaemon(true); // Throws IllegalThreadStateException
+```
 
-Tiny example or mental model:
-
-- When reading code, ask: what does `interrupt` change, allow, reject, or clarify?
-
-### Daemon thread
-
-A thread is a path of execution inside a process.
-
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
-
-Practical check:
-
-- Define `Daemon thread` in one sentence.
-- Recognize `Daemon thread` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Daemon thread`.
-
-Tiny example or mental model:
-
-- `new Thread(task).start()` starts work on another thread.
-
-### User thread
-
-A thread is a path of execution inside a process.
-
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
-
-Practical check:
-
-- Define `User thread` in one sentence.
-- Recognize `User thread` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `User thread`.
-
-Tiny example or mental model:
-
-- `new Thread(task).start()` starts work on another thread.
-
-### Thread priority
-
-A thread is a path of execution inside a process.
-
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
-
-Practical check:
-
-- Define `Thread priority` in one sentence.
-- Recognize `Thread priority` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Thread priority`.
-
-Tiny example or mental model:
-
-- `new Thread(task).start()` starts work on another thread.
-
-### Race condition
-
-A race condition happens when correctness depends on unpredictable timing between threads.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Race condition` in one sentence.
-- Recognize `Race condition` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Race condition`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Race condition` change, allow, reject, or clarify?
-
-### Critical section
-
-A critical section is code that accesses shared mutable state and must be protected.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Critical section` in one sentence.
-- Recognize `Critical section` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Critical section`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Critical section` change, allow, reject, or clarify?
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
+### 3. Relying on `Thread.yield()` or Thread Priorities for Correctness
+Thread scheduling is platform-dependent. The JVM specification makes no guarantees about how priorities are mapped to OS priorities or how `yield()` behaves. Code that relies on them for synchronization is buggy.

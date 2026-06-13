@@ -147,6 +147,22 @@ Tiny example or mental model:
 
 - When reading code, ask: what does `ZGC` change, allow, reject, or clarify?
 
+## Code Examples
+
+### Selecting a GC Algorithm via CLI Flags
+```bash
+# Enable G1 GC
+java -XX:+UseG1GC -jar app.jar
+
+# Enable low-latency ZGC
+java -XX:+UseZGC -jar app.jar
+```
+
+## Common Mistakes
+
+- **Using Serial GC on multi-core servers**: Serial GC uses a single thread for garbage collection. It is fine for tiny CLI tools or single-core containers, but causes terrible pauses on multi-threaded servers.
+- **Assuming G1 has contiguous generations**: Unlike Parallel GC, G1 partitions the heap into equal-sized virtual regions. A region can act as Eden, Survivor, or Old dynamically.
+
 ## Common Review Prompts
 
 - Which concepts here are compile-time rules?

@@ -120,3 +120,119 @@ If `level` is `1`, both lines print. Sometimes fall-through is intentional, but 
 Use `switch` when one expression is compared against a clear set of known values.
 
 Use `if/else` when conditions involve ranges, multiple variables, or complex boolean logic.
+
+---
+
+## Common Mistakes
+
+### Mistake 1 — Reversed `else if` order (broad before specific)
+
+Putting a broad condition before a specific one silently swallows the specific case.
+
+```java
+// BUG: score of 95 prints "Pass", never "A"
+int score = 95;
+if (score >= 60) {
+    System.out.println("Pass");       // matches first → exits chain
+} else if (score >= 90) {
+    System.out.println("A");          // never reached
+}
+
+// FIX: put the more specific condition first
+if (score >= 90) {
+    System.out.println("A");
+} else if (score >= 60) {
+    System.out.println("Pass");
+}
+```
+
+### Mistake 2 — Dangling `else` misleads the reader
+
+Without braces, `else` belongs to the nearest unmatched `if`, not the outer one.
+
+```java
+// Looks like: if not loggedIn → print "Guest"
+// Actually:   else belongs to if (isAdmin)
+boolean loggedIn = true;
+boolean isAdmin  = false;
+
+if (loggedIn)
+    if (isAdmin)
+        System.out.println("Admin");
+    else
+        System.out.println("Not admin");   // prints this — NOT "Guest"
+
+// If loggedIn is false, nothing prints at all.
+// FIX: always use braces
+if (loggedIn) {
+    if (isAdmin) {
+        System.out.println("Admin");
+    } else {
+        System.out.println("Not admin");
+    }
+}
+```
+
+### Mistake 3 — Missing `break` causes accidental switch fall-through
+
+```java
+int day = 1;
+switch (day) {
+    case 1:
+        System.out.println("Monday");
+        // forgot break — falls through!
+    case 2:
+        System.out.println("Tuesday");
+        break;
+    default:
+        System.out.println("Unknown");
+}
+// Output: Monday
+//         Tuesday   ← accidental!
+```
+
+**Fix**: Add `break` after each case, or switch to arrow-case syntax (Java 14+).
+
+```java
+switch (day) {
+    case 1 -> System.out.println("Monday");
+    case 2 -> System.out.println("Tuesday");
+    default -> System.out.println("Unknown");
+}
+// Arrow cases never fall through.
+```
+
+---
+
+## Case Study — Intentional vs. Accidental Fall-Through
+
+Sometimes fall-through is *intentional* and useful:
+
+```java
+// Group several days under one action
+switch (day) {
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+        System.out.println("Weekday");
+        break;
+    case 6:
+    case 7:
+        System.out.println("Weekend");
+        break;
+}
+```
+
+This is a known Java idiom. The "fall-through" here is just empty cases sharing one `break`. The modern equivalent with arrow syntax is cleaner:
+
+```java
+String type = switch (day) {
+    case 1, 2, 3, 4, 5 -> "Weekday";
+    case 6, 7           -> "Weekend";
+    default             -> "Unknown";
+};
+System.out.println(type);
+```
+

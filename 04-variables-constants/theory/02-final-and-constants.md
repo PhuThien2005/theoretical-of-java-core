@@ -82,9 +82,63 @@ public static final String APP_NAME = "Learning Java";
 
 You do not need to master compile-time constants immediately, but you should recognize that constants are commonly used for shared fixed values.
 
+## Case Study: `final` Reference vs Immutable Object
+
+A developer wants to make a list constant but still be able to add to it:
+
+```java
+public class Config {
+    public static final List<String> ALLOWED_ROLES =
+            new ArrayList<>(Arrays.asList("ADMIN", "USER"));
+
+    public static void main(String[] args) {
+        ALLOWED_ROLES.add("MODERATOR"); // Allowed — the list object is mutable
+        System.out.println(ALLOWED_ROLES); // [ADMIN, USER, MODERATOR]
+
+        // ALLOWED_ROLES = new ArrayList<>(); // compile error — cannot reassign final
+    }
+}
+```
+
+`final` only protects the reference. The `ArrayList` itself can still be modified.
+
+**To truly protect the list:**
+
+```java
+public static final List<String> ALLOWED_ROLES =
+        Collections.unmodifiableList(Arrays.asList("ADMIN", "USER"));
+
+ALLOWED_ROLES.add("MODERATOR"); // throws UnsupportedOperationException at runtime
+```
+
+Or in Java 9+:
+
+```java
+public static final List<String> ALLOWED_ROLES = List.of("ADMIN", "USER"); // immutable
+```
+
+## Blank Final Variables
+
+A `final` variable does not have to be initialized at declaration — but it must be assigned exactly once before first use.
+
+```java
+public class Circle {
+    final double radius; // blank final field
+
+    public Circle(double r) {
+        radius = r; // assigned in constructor — OK
+    }
+
+    // public Circle() {} // compile error: radius might not have been initialized
+}
+```
+
+This pattern is useful when the value depends on constructor arguments.
+
 ## Common Mistakes
 
-- Thinking `final` makes a mutable object immutable.
-- Naming constants with normal camelCase.
+- Thinking `final` makes a mutable object immutable — only the reference is locked.
+- Naming constants with normal camelCase — use `UPPER_SNAKE_CASE`.
 - Using magic numbers instead of named constants.
 - Making too many values global constants before they really need to be shared.
+- Forgetting that blank final fields must be assigned in **every** constructor path.

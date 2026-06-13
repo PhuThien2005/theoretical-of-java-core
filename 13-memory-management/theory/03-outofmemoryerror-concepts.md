@@ -15,35 +15,74 @@ This file covers a focused slice of **Java Memory Management**. Study each conce
 
 ### OutOfMemoryError
 
-OutOfMemoryError is a specific concept in Java Memory Management; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`java.lang.OutOfMemoryError` is a runtime error thrown when the Java Virtual Machine cannot allocate an object because it is out of memory, and no more memory can be made available by the Garbage Collector.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+#### JVM Rule
+- OOM is an **Error** (extends `java.lang.VirtualMachineError`), indicating a fatal system failure that standard applications should not catch or attempt to recover from.
+- It can occur in different memory regions, signaled by the error message:
+  - **`java.lang.OutOfMemoryError: Java heap space`**: The heap is full of reachable objects.
+  - **`java.lang.OutOfMemoryError: GC OverLimit exceeded`**: The GC is spending too much time (98%) reclaiming too little memory (<2%).
+  - **`java.lang.OutOfMemoryError: Metaspace`**: Metaspace native memory is exhausted due to excessive class loading.
+- **Diagnostics**: Use `-XX:+HeapDumpOnOutOfMemoryError` and `-XX:HeapDumpPath` to generate a `.hprof` binary file for heap analysis when OOM occurs.
 
-Practical check:
+#### Code Example: OutOfMemoryError Scenario
+```java
+import java.util.ArrayList;
+import java.util.List;
 
-- Define `OutOfMemoryError` in one sentence.
-- Recognize `OutOfMemoryError` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `OutOfMemoryError`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `OutOfMemoryError` change, allow, reject, or clarify?
+public class OOMDemo {
+    public static void main(String[] args) {
+        List<byte[]> list = new ArrayList<>();
+        
+        // Infinite loop holding strong references to massive byte arrays.
+        // The GC cannot reclaim these arrays because they are reachable from the list.
+        while (true) {
+            list.add(new byte[10 * 1024 * 1024]); // Allocate 10 MB per iteration
+        }
+    }
+}
+```
 
 ### StackOverflowError
 
-Stack stores method frames, local variables, and call flow for each thread.
+`java.lang.StackOverflowError` is a runtime error thrown when a thread's stack space is exhausted.
 
-It matters because runtime behavior explains performance, memory errors, startup behavior, and many interview questions. A common confusion is mixing compile-time concepts with JVM runtime services.
+#### JVM Rule
+- Like OOM, this is a VirtualMachineError and should not be caught.
+- It typically happens when the call stack grows too deep because of recursion, or if method frames are extremely large.
+- The thread stack size is limited (default is typically 1MB on 64-bit systems) and is configured using the `-Xss` JVM flag (e.g., `-Xss512k`).
 
-Practical check:
+#### Code Example: StackOverflowError Scenario
+```java
+public class StackOverflowDemo {
+    public static void main(String[] args) {
+        recursiveCall(1);
+    }
 
-- Define `StackOverflowError` in one sentence.
-- Recognize `StackOverflowError` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `StackOverflowError`.
+    // Bug: No base case to terminate recursion.
+    // Each call pushes a new frame until the thread stack is completely full.
+    private static void recursiveCall(int depth) {
+        System.out.println("Depth: " + depth);
+        recursiveCall(depth + 1); // Infinite recursion
+    }
+}
+```
 
-Tiny example or mental model:
+---
 
-- When reading code, ask: what does `StackOverflowError` change, allow, reject, or clarify?
+## Common Mistakes
+
+### 1. Catching OutOfMemoryError or StackOverflowError
+Many developers write `try-catch (Throwable t)` or `try-catch (OutOfMemoryError e)` blocks, thinking they can recover or log the error safely.
+**The Trap:** When OOM is thrown, the JVM's state is completely compromised. The garbage collector has failed to free memory, threads are stalled, and attempting to log or execute recovery code might itself fail due to another OOM.
+**The Correction:** Let the JVM terminate, capture the heap dump, and restart the process with fixed code or adjusted memory limits.
+
+### 2. Confusing Heap and Stack Errors
+- **Heap OOM**: Caused by memory leaks, caching issues, or simply processing too much data at once. Fixed by code optimization (removing leaks) or raising `-Xmx`.
+- **StackOverflowError**: Caused by logical bugs (infinite recursion). Cannot be fixed by raising heap size (`-Xmx`). It requires fixing the recursion logic or raising stack size (`-Xss`).
+
+### 3. Assuming GC Overhead Limit Exceeded is a Heap space error
+While related, `GC Overhead Limit exceeded` occurs *before* physical heap space is fully exhausted. The JVM throws this preemptively to prevent the application from freezing completely while doing nothing but garbage collection. Raising heap size helps, but fixing memory leaks is the real solution.
 
 ## Common Review Prompts
 

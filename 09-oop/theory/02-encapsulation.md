@@ -28,7 +28,44 @@ Java provides access modifiers to restrict visibility at two levels:
 
 ## Getter and Setter Design Patterns
 
-To interact with private fields, classes expose public accessor methods (getters) and mutator methods (setters). This pattern provides multiple software design benefits:
+To interact with private fields, classes expose public accessor methods (getters) and mutator methods (setters).
+
+### Standard Encapsulation Example
+Here is a class demonstrating standard encapsulation: private fields, a parameterized constructor, and public getters/setters to access and modify the state in a controlled manner.
+
+```java
+public class Employee {
+    private String name;
+    private double salary;
+
+    public Employee(String name, double salary) {
+        this.name = name;
+        setSalary(salary); // Enforce validation during object creation
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        if (salary >= 0) {
+            this.salary = salary;
+        } else {
+            throw new IllegalArgumentException("Salary cannot be negative.");
+        }
+    }
+}
+```
+
+This pattern provides multiple software design benefits:
 
 ### 1. Data Validation
 Setters can intercept inputs to prevent invalid object states:
@@ -101,6 +138,36 @@ class User {
         }
         this.passwordHash = Passwords.hash(newPassword);
     }
+}
+```
+
+---
+
+## Common Mistakes
+
+### 1. Blindly Exposing Every Field with Getters/Setters
+Generating public getters and setters for all fields makes the class act as a global state bag, allowing outside code to violate the object's rules. Setters should only exist if modification is logically permitted and validated.
+
+### 2. Leaking Internal References (Breaking Encapsulation)
+Exposing getters for mutable internal structures (e.g. `List`, `Map`, arrays) allows callers to mutate internal collections directly.
+```java
+class Wallet {
+    private List<Coin> coins = new ArrayList<>();
+    // Mistake: returns direct reference
+    public List<Coin> getCoins() { return coins; } 
+}
+// Caller can do: wallet.getCoins().clear(); // bypasses Wallet control!
+```
+**Fix:** Return an unmodifiable wrapper or a defensive copy:
+```java
+public List<Coin> getCoins() { return Collections.unmodifiableList(coins); }
+```
+
+### 3. Leaving Fields Package-Private (Omitting `private` Modifier)
+Omitting access modifiers defaults them to package-private, letting any other class in the same package modify the fields directly. Always declare fields `private` by default.
+```java
+class Account {
+    double balance; // Missing private! Any class in package can write account.balance = -9999;
 }
 ```
 

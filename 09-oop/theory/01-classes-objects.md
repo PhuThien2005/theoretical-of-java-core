@@ -40,6 +40,7 @@ Under the hood, the Java compiler compiles constructors into a special bytecode 
    If you define *any* constructor with parameters, the compiler **will not** generate the default no-argument constructor.
 2. **Parameterized Constructor:** Accepts parameters to initialize instance fields with custom values.
 3. **Constructor Overloading:** Defining multiple constructors with different parameter signatures (different parameter counts, types, or order) inside the same class.
+4. **Copy Constructor:** Creates a new object using an existing instance of the same class. It copies the fields of the source object into the new instance, enabling safe shallow/deep duplication.
 
 ```java
 class Student {
@@ -55,6 +56,12 @@ class Student {
     Student(String name, int age) {
         this.name = name;
         this.age = age;
+    }
+
+    // Copy constructor
+    Student(Student other) {
+        this.name = other.name;
+        this.age = other.age;
     }
 }
 ```
@@ -125,6 +132,48 @@ An anonymous object is instantiated without being assigned to a reference variab
 - Immediately eligible for garbage collection after the statement completes.
 ```java
 new Student("Charlie", 19).printDetails();
+```
+
+---
+
+## Common Mistakes
+
+### 1. Declaring a Return Type on a Constructor
+Adding a return type (even `void`) turns the constructor declaration into a normal method. It will compile, but it won't run during object instantiation and leaves the object fields uninitialized or default-valued.
+```java
+class User {
+    String name;
+    // Common Mistake: void return type makes this a method, not a constructor
+    public void User(String name) { 
+        this.name = name;
+    }
+}
+// User u = new User("Alice"); // Compile Error: no matching constructor
+```
+
+### 2. Recursive Constructor Calls
+Chaining constructors via `this()` must not form a loop; doing so triggers a compile-time error.
+```java
+class Demo {
+    Demo() {
+        this(10); // Compile Error: recursive constructor invocation
+    }
+    Demo(int x) {
+        this();
+    }
+}
+```
+
+### 3. Aliasing (Confusing Reference Copy with Object Copy)
+Assigning one reference variable to another copies the pointer, not the heap object.
+```java
+Student s1 = new Student("Alice", 20);
+Student s2 = s1; // Both s1 and s2 reference the same object
+s2.age = 30;     // Modifies the object s1 points to!
+```
+To duplicate the object, use a copy constructor:
+```java
+Student s3 = new Student(s1); // Creates a separate instance in the Heap
 ```
 
 ## Deep Review: Class Design Checklist

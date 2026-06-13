@@ -186,3 +186,58 @@ Tiny example or mental model:
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Code Examples
+
+### TCP Socket Server & Client
+```java
+// ServerSocket listening on port 8080
+try (ServerSocket serverSocket = new ServerSocket(8080)) {
+    System.out.println("Server listening on port 8080...");
+    try (Socket clientSocket = serverSocket.accept();
+         PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+         BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {
+         
+        String inputLine = in.readLine();
+        System.out.println("Received: " + inputLine);
+        out.println("Hello Client!");
+    }
+}
+
+// Client connecting to localhost:8080
+try (Socket socket = new Socket("localhost", 8080);
+     PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+     BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+     
+    out.println("Hello Server!");
+    String response = in.readLine();
+    System.out.println("Server response: " + response);
+}
+```
+
+### UDP Datagram Server & Client
+```java
+// Receiving a DatagramPacket (UDP)
+try (DatagramSocket socket = new DatagramSocket(9090)) {
+    byte[] buffer = new byte[1024];
+    DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
+    socket.receive(packet); // Blocks until a packet is received
+    String message = new String(packet.getData(), 0, packet.getLength());
+    System.out.println("Received UDP: " + message);
+}
+
+// Sending a DatagramPacket
+try (DatagramSocket socket = new DatagramSocket()) {
+    String msg = "Hello UDP!";
+    byte[] buffer = msg.getBytes();
+    InetAddress address = InetAddress.getByName("localhost");
+    DatagramPacket packet = new DatagramPacket(buffer, buffer.length, address, 9090);
+    socket.send(packet);
+}
+```
+
+## Common Mistakes
+
+- **Forgetting to Close Sockets**: Sockets utilize underlying OS resources (file descriptors). Failing to close them inside a `finally` block or try-with-resources statement leads to resource leaks and connection exhaustion.
+- **Blocking accept() on Main Thread**: The `serverSocket.accept()` method blocks the calling thread until a connection is made. In server applications, this should be executed on a separate worker thread or thread pool to keep the server responsive.
+- **Using deprecated URL constructors**: Calling `new URL("https://google.com")` is deprecated starting with Java 20. Always use `URI.create("https://google.com").toURL()` instead.

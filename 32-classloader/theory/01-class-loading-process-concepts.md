@@ -169,3 +169,22 @@ Tiny example or mental model:
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+## Code Examples
+
+### Dynamic class loading
+```java
+// Load a driver class at runtime
+Class<?> driverClass = Class.forName("com.example.jdbc.Driver");
+Object driverInstance = driverClass.getDeclaredConstructor().newInstance();
+```
+
+### Class.forName usage
+```java
+// Load and initialize a class, triggering static initializers
+Class.forName("com.example.Config", true, Thread.currentThread().getContextClassLoader());
+```
+
+## Common Mistakes
+
+- **Forgetting to close resources**: When using custom class loaders, always close them to avoid memory leaks.
+- **Misunderstanding parent delegation**: Overriding `findClass` without delegating to the parent can cause `ClassNotFoundException` for core classes.

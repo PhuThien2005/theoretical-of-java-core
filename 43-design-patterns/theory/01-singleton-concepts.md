@@ -2,187 +2,253 @@
 
 ## Learning Goal
 
-This file covers a focused slice of **Basic Design Patterns Commonly Seen in Java**. Study each concept as a practical Java rule, not as isolated vocabulary.
+This file covers a focused slice of creational and structural **Design Patterns** (GoF) widely used in Java. Study each concept as a practical Java rule.
 
 ## Outline Coverage
 
 | Concept | What to know |
 | --- | --- |
-| `Singleton` | Singleton restricts a class to one instance and provides global access to it. |
-| `Factory Method` |Factory Method is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Abstract Factory` | Abstract means incomplete by design: subclasses or implementations must provide missing behavior. |
-| `Builder` |Builder is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Prototype` |Prototype is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Adapter` |Adapter is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Decorator` |Decorator is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Facade` |Facade is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Proxy` |Proxy is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Strategy` |Strategy is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Singleton` | Restricting class instantiation to a single object with global access. |
+| `Factory Method` | Delegating object instantiation to subclasses using a factory method signature. |
+| `Abstract Factory` | Interface creating families of related objects without specifying concrete classes. |
+| `Builder` | Step-by-step construction of complex objects using a fluent API. |
+| `Prototype` | Creating new objects by cloning a pre-configured instance. |
+| `Adapter` | Unifying incompatible interfaces by wrapping a source class inside an adapter. |
+| `Decorator` | Dynamically adding features to an object wrapping instance variables. |
+| `Facade` | Providing a simplified API fronting a complex subsystems layer. |
+| `Proxy` | Providing a placeholder object to control access, log, or lazy-load target instances. |
+| `Strategy` | Encapsulating interchangeable algorithms selected at runtime. |
+
+---
 
 ## Detailed Notes
 
 ### Singleton
 
-Singleton restricts a class to one instance and provides global access to it.
+Restricts a class to exactly one instance and provides a global point of access.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Runnable Example (Double-Checked Locking)**:
+  ```java
+  public final class DatabaseConnection {
+      // volatile prevents instruction reordering issues during instantiation
+      private static volatile DatabaseConnection instance;
 
-Practical check:
+      private DatabaseConnection() {
+          // Prevent reflection breaking constructor encapsulation
+          if (instance != null) {
+              throw new IllegalStateException("Instance already exists!");
+          }
+      }
 
-- Define `Singleton` in one sentence.
-- Recognize `Singleton` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Singleton`.
+      public static DatabaseConnection getInstance() {
+          if (instance == null) { // First check (no synchronization overhead)
+              synchronized (DatabaseConnection.class) {
+                  if (instance == null) { // Second check
+                      instance = new DatabaseConnection();
+                  }
+              }
+          }
+          return instance;
+      }
+  }
+  ```
 
-Tiny example or mental model:
+- **Common Mistake / Failure Mode**:
+  - **Missing Volatile**: Without `volatile`, the compiler/JVM can reorder instructions (allocating memory -> publishing reference -> running constructor). Another thread might read a half-initialized instance.
+  - **Enum Singleton**: The absolute safest way to implement a Singleton is utilizing a single-element enum, which handles serialization and reflection attacks natively:
+    ```java
+    public enum SafeSingleton {
+        INSTANCE;
+        public void performAction() {}
+    }
+    ```
 
-- When reading code, ask: what does `Singleton` change, allow, reject, or clarify?
+---
 
 ### Factory Method
 
-Factory Method is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
+Defines an interface for creating an object but lets subclasses decide which class to instantiate.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Runnable Example**:
+  ```java
+  public abstract class Dialog {
+      public void renderWindow() {
+          Button okButton = createButton();
+          okButton.render();
+      }
+      // Subclasses override this factory method to supply different buttons
+      protected abstract Button createButton();
+  }
 
-Practical check:
+  public class WindowsDialog extends Dialog {
+      protected Button createButton() { return new WindowsButton(); }
+  }
+  ```
 
-- Define `Factory Method` in one sentence.
-- Recognize `Factory Method` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Factory Method`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Factory Method` change, allow, reject, or clarify?
+---
 
 ### Abstract Factory
 
-Abstract means incomplete by design: subclasses or implementations must provide missing behavior.
+Provides an interface for creating families of related or dependent objects without specifying their concrete classes.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Runnable Example**:
+  ```java
+  public interface GUIFactory {
+      Button createButton();
+      Checkbox createCheckbox();
+  }
 
-Practical check:
+  public class MacFactory implements GUIFactory {
+      public Button createButton() { return new MacButton(); }
+      public Checkbox createCheckbox() { return new MacCheckbox(); }
+  }
+  ```
 
-- Define `Abstract Factory` in one sentence.
-- Recognize `Abstract Factory` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Abstract Factory`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Abstract Factory` change, allow, reject, or clarify?
+---
 
 ### Builder
 
-Builder is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
+Separates the construction of a complex object from its representation, allowing step-by-step assembly of fields (especially useful when class contains many optional parameters).
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Runnable Example**:
+  ```java
+  public class User {
+      private final String name; // Required
+      private final int age;     // Optional
 
-Practical check:
+      private User(Builder builder) {
+          this.name = builder.name;
+          this.age = builder.age;
+      }
 
-- Define `Builder` in one sentence.
-- Recognize `Builder` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Builder`.
+      public static class Builder {
+          private final String name;
+          private int age;
 
-Tiny example or mental model:
+          public Builder(String name) { this.name = name; }
+          public Builder age(int age) { this.age = age; return this; }
+          public User build() { return new User(this); }
+      }
+  }
 
-- When reading code, ask: what does `Builder` change, allow, reject, or clarify?
+  // Usage:
+  User u = new User.Builder("Bob").age(30).build();
+  ```
+
+---
 
 ### Prototype
 
-Prototype is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
+Creates new objects by copying (cloning) an existing instance (prototype) instead of creating them via `new` from scratch.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Runnable Example**:
+  ```java
+  public interface Prototype {
+      Prototype clone();
+  }
 
-Practical check:
+  public class Cell implements Prototype {
+      private String color;
 
-- Define `Prototype` in one sentence.
-- Recognize `Prototype` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Prototype`.
+      public Cell(Cell target) { if (target != null) this.color = target.color; }
+      public Cell clone() { return new Cell(this); }
+  }
+  ```
 
-Tiny example or mental model:
-
-- When reading code, ask: what does `Prototype` change, allow, reject, or clarify?
+---
 
 ### Adapter
 
-Adapter is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
+Converts the interface of a class into another interface clients expect, enabling classes with incompatible interfaces to work together.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Runnable Example**:
+  ```java
+  public interface TypeCInput { void connectTypeC(); }
+  
+  public class LegacyUsbCable { void plugUsb() {} }
 
-Practical check:
+  // Adapter wraps LegacyUsbCable to expose TypeCInput interface
+  public class UsbToTypeCAdapter implements TypeCInput {
+      private final LegacyUsbCable usbCable;
 
-- Define `Adapter` in one sentence.
-- Recognize `Adapter` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Adapter`.
+      public UsbToTypeCAdapter(LegacyUsbCable cable) { this.usbCable = cable; }
+      public void connectTypeC() { usbCable.plugUsb(); }
+  }
+  ```
 
-Tiny example or mental model:
-
-- When reading code, ask: what does `Adapter` change, allow, reject, or clarify?
+---
 
 ### Decorator
 
-Decorator is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
+Dynamically attaches additional responsibilities to an object. Decorators provide a flexible alternative to subclassing for extending functionality.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Runnable Example**:
+  ```java
+  public interface Coffee { double getCost(); }
 
-Practical check:
+  public class SimpleCoffee implements Coffee { public double getCost() { return 2.0; } }
 
-- Define `Decorator` in one sentence.
-- Recognize `Decorator` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Decorator`.
+  public class MilkDecorator implements Coffee {
+      private final Coffee coffee;
 
-Tiny example or mental model:
+      public MilkDecorator(Coffee coffee) { this.coffee = coffee; }
+      public double getCost() { return coffee.getCost() + 0.5; }
+  }
+  ```
 
-- When reading code, ask: what does `Decorator` change, allow, reject, or clarify?
+---
 
 ### Facade
 
-Facade is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
+Provides a unified, simplified interface to a set of interfaces in a complex subsystem.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Example**: Creating a `HomeTheaterFacade` that abstracts calls to `Amplifier.on()`, `DvdPlayer.play(movie)`, `Projector.widescreenMode()` into a single method: `facade.watchMovie("Inception")`.
 
-Practical check:
-
-- Define `Facade` in one sentence.
-- Recognize `Facade` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Facade`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Facade` change, allow, reject, or clarify?
+---
 
 ### Proxy
 
-Proxy is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
+Provides a surrogate or placeholder for another object to control access to it (lazy loading, authorization checking, logging, caching).
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Runnable Example**:
+  ```java
+  public interface Image { void display(); }
 
-Practical check:
+  public class RealImage implements Image {
+      public RealImage(String filename) { loadFromDisk(filename); }
+      public void display() {}
+      private void loadFromDisk(String filename) {}
+  }
 
-- Define `Proxy` in one sentence.
-- Recognize `Proxy` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Proxy`.
+  // Proxy lazy loads RealImage only when display() is actually called
+  public class ProxyImage implements Image {
+      private RealImage realImage;
+      private final String filename;
 
-Tiny example or mental model:
+      public ProxyImage(String filename) { this.filename = filename; }
+      public void display() {
+          if (realImage == null) realImage = new RealImage(filename);
+          realImage.display();
+      }
+  }
+  ```
 
-- When reading code, ask: what does `Proxy` change, allow, reject, or clarify?
+---
 
 ### Strategy
 
-Strategy is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
+Defines a family of algorithms, encapsulates each one, and makes them interchangeable at runtime.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Runnable Example**:
+  ```java
+  public interface PaymentStrategy { void pay(int amount); }
 
-Practical check:
+  public class CreditCardPayment implements PaymentStrategy { public void pay(int amount) {} }
+  public class PayPalPayment implements PaymentStrategy { public void pay(int amount) {} }
 
-- Define `Strategy` in one sentence.
-- Recognize `Strategy` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Strategy`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Strategy` change, allow, reject, or clarify?
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
+  public class ShoppingCart {
+      public void checkout(int amount, PaymentStrategy strategy) {
+          strategy.pay(amount);
+      }
+  }
+  ```

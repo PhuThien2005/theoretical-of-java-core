@@ -37,6 +37,29 @@ Tiny example or mental model:
 
 - `Optional.ofNullable(value)` handles a possibly-null value.
 
+#### Detailed Explanation
+`Optional<T>` is a final value-based class in the `java.util` package. It wraps a reference of type `T` which can be either present (non-null) or empty. By returning `Optional<T>` from a method, you make the potential absence of a value part of the method signature, alerting caller APIs that they must explicitly handle the empty case.
+
+#### Runnable Code Example
+```java
+import java.util.Optional;
+
+public class OptionalIntroduction {
+    public static void main(String[] args) {
+        // Creating an Optional that contains a value
+        Optional<String> optionalValue = Optional.of("Hello, Java!");
+        
+        // Checking and consuming the value
+        if (optionalValue.isPresent()) {
+            System.out.println("Value is: " + optionalValue.get()); // Prints: Value is: Hello, Java!
+        }
+    }
+}
+```
+
+#### Common Mistake
+Treating `Optional` as a direct replacement for all null references or using it to wrap local variables. This introduces unnecessary wrapper allocation overhead.
+
 ### Avoid NullPointerException
 
 An exception represents an abnormal condition that a program may catch or propagate.
@@ -52,6 +75,40 @@ Practical check:
 Tiny example or mental model:
 
 - When reading code, ask: what does `Avoid NullPointerException` change, allow, reject, or clarify?
+
+#### Detailed Explanation
+In traditional Java, `null` is often returned to represent the absence of a value. If callers forget to perform a null-check before dereferencing, a `NullPointerException` (NPE) is thrown at runtime. `Optional` helps avoid NPEs by shifting the presence check from runtime danger to a structured, compiler-encouraged check.
+
+#### Runnable Code Example
+```java
+import java.util.Optional;
+
+public class AvoidNPEExample {
+    // Bad approach: returns null
+    public static String getLegacyName(boolean exists) {
+        return exists ? "Alice" : null;
+    }
+
+    // Good approach: returns Optional
+    public static Optional<String> getOptionalName(boolean exists) {
+        return exists ? Optional.of("Alice") : Optional.empty();
+    }
+
+    public static void main(String[] args) {
+        // Bad: Can cause NullPointerException if not checked
+        String name = getLegacyName(false);
+        // System.out.println(name.toUpperCase()); // Throws NPE!
+
+        // Good: Caller is forced to address the empty possibility
+        Optional<String> optName = getOptionalName(false);
+        String upperName = optName.map(String::toUpperCase).orElse("UNKNOWN");
+        System.out.println(upperName); // Prints: UNKNOWN
+    }
+}
+```
+
+#### Common Mistake
+Calling `.get()` immediately on an `Optional` without verifying presence. If the `Optional` is empty, it throws a `NoSuchElementException`, defeating the purpose of avoiding runtime failures.
 
 ### Optional.of
 
@@ -69,6 +126,32 @@ Tiny example or mental model:
 
 - `Optional.ofNullable(value)` handles a possibly-null value.
 
+#### Detailed Explanation
+`Optional.of(T value)` is a static factory method used to create an `Optional` containing a non-null value. If the passed value is null, it immediately throws a `NullPointerException` at the point of creation, preventing the null reference from propagating further.
+
+#### Runnable Code Example
+```java
+import java.util.Optional;
+
+public class OptionalOfExample {
+    public static void main(String[] args) {
+        // Creating with a valid non-null value
+        Optional<String> valid = Optional.of("Java");
+        System.out.println(valid.isPresent()); // true
+
+        // Throws NullPointerException immediately at the creation line
+        try {
+            Optional<String> invalid = Optional.of(null);
+        } catch (NullPointerException e) {
+            System.out.println("NPE caught: Value cannot be null!");
+        }
+    }
+}
+```
+
+#### Common Mistake
+Passing a reference that might be null into `Optional.of(value)`. If a reference can be null, always use `Optional.ofNullable(value)` instead.
+
 ### Optional.ofNullable
 
 Optional is a container that may or may not hold a non-null value.
@@ -84,6 +167,33 @@ Practical check:
 Tiny example or mental model:
 
 - `Optional.ofNullable(value)` handles a possibly-null value.
+
+#### Detailed Explanation
+`Optional.ofNullable(T value)` is a static factory method that returns an `Optional` describing the value if non-null, otherwise returns an empty `Optional` (`Optional.empty()`). This is the safest way to wrap legacy APIs or external data that might return `null`.
+
+#### Runnable Code Example
+```java
+import java.util.Optional;
+
+public class OptionalOfNullableExample {
+    public static void main(String[] args) {
+        String name1 = "Bob";
+        String name2 = null;
+
+        // ofNullable with non-null wraps the value
+        Optional<String> opt1 = Optional.ofNullable(name1);
+        System.out.println(opt1.isPresent()); // true
+
+        // ofNullable with null safely returns an empty Optional
+        Optional<String> opt2 = Optional.ofNullable(name2);
+        System.out.println(opt2.isPresent()); // false
+        System.out.println(opt2 == Optional.empty()); // true
+    }
+}
+```
+
+#### Common Mistake
+Overusing `ofNullable` on values that are guaranteed to be non-null. If a value is guaranteed to be non-null, using `Optional.of()` acts as a self-documenting validation check.
 
 ### Optional.empty
 
@@ -101,6 +211,27 @@ Tiny example or mental model:
 
 - `Optional.ofNullable(value)` handles a possibly-null value.
 
+#### Detailed Explanation
+`Optional.empty()` is a static factory method that returns an empty `Optional` instance. Java caches a single empty singleton instance under the hood, so multiple calls to `Optional.empty()` return the exact same reference.
+
+#### Runnable Code Example
+```java
+import java.util.Optional;
+
+public class OptionalEmptyExample {
+    public static void main(String[] args) {
+        Optional<Integer> empty1 = Optional.empty();
+        Optional<String> empty2 = Optional.empty();
+
+        // They are reference-equal because Optional.empty() is cached
+        System.out.println(empty1 == empty2); // true
+    }
+}
+```
+
+#### Common Mistake
+Returning `null` instead of `Optional.empty()` from a method designed to return an `Optional`. This forces the caller to check for null on the `Optional` container itself, causing nested null checks and bypassing the type-level safety.
+
 ### isPresent
 
 isPresent is a specific concept in Optional; learn its Java rule, valid use cases, and failure mode rather than only its name.
@@ -116,6 +247,32 @@ Practical check:
 Tiny example or mental model:
 
 - When reading code, ask: what does `isPresent` change, allow, reject, or clarify?
+
+#### Detailed Explanation
+`isPresent()` returns `true` if there is a value present, otherwise `false`. Java 11 also introduced `isEmpty()`, which returns `true` if empty. Both are state-querying methods.
+
+#### Runnable Code Example
+```java
+import java.util.Optional;
+
+public class IsPresentExample {
+    public static void main(String[] args) {
+        Optional<String> opt = Optional.of("Hello");
+
+        if (opt.isPresent()) {
+            System.out.println("Length: " + opt.get().length()); // Length: 5
+        }
+
+        Optional<String> emptyOpt = Optional.empty();
+        if (emptyOpt.isEmpty()) {
+            System.out.println("Optional is indeed empty");
+        }
+    }
+}
+```
+
+#### Common Mistake
+Falling back to imperative null-like checks by using `if (opt.isPresent()) { ... opt.get() ... }`. This is called the "isPresent/get anti-pattern." Whenever possible, replace it with functional methods like `ifPresent`, `orElse`, or `map`.
 
 ### ifPresent
 
@@ -133,6 +290,33 @@ Tiny example or mental model:
 
 - When reading code, ask: what does `ifPresent` change, allow, reject, or clarify?
 
+#### Detailed Explanation
+`ifPresent(Consumer<? super T> action)` takes a lambda consumer and executes it only if a value is present. If the Optional is empty, it does nothing. In Java 9, `ifPresentOrElse(Consumer<? super T> action, Runnable emptyAction)` was introduced to handle both presence and absence.
+
+#### Runnable Code Example
+```java
+import java.util.Optional;
+
+public class IfPresentExample {
+    public static void main(String[] args) {
+        Optional<String> opt = Optional.of("Alice");
+
+        // safe consumption without calling get()
+        opt.ifPresent(name -> System.out.println("Hello, " + name));
+
+        // Handling both paths with ifPresentOrElse
+        Optional<String> emptyOpt = Optional.empty();
+        emptyOpt.ifPresentOrElse(
+            name -> System.out.println("Hello, " + name),
+            () -> System.out.println("No name provided")
+        ); // Prints: No name provided
+    }
+}
+```
+
+#### Common Mistake
+Executing blocks with side effects inside `ifPresent` when a return value is needed. If you want to transform the value and retrieve a result, use `map()` or `flatMap()` instead of performing side effects inside `ifPresent`.
+
 ### orElse
 
 orElse is a specific concept in Optional; learn its Java rule, valid use cases, and failure mode rather than only its name.
@@ -148,6 +332,36 @@ Practical check:
 Tiny example or mental model:
 
 - When reading code, ask: what does `orElse` change, allow, reject, or clarify?
+
+#### Detailed Explanation
+`orElse(T other)` returns the wrapped value if present, otherwise returns the default value `other`.
+**Crucial Performance Rule**: The expression passed to `orElse` is evaluated eagerly at the time of the method call, regardless of whether the `Optional` is empty or not.
+
+#### Runnable Code Example
+```java
+import java.util.Optional;
+
+public class OrElseExample {
+    public static String getDefault() {
+        System.out.println("getDefault() executed!");
+        return "DefaultValue";
+    }
+
+    public static void main(String[] args) {
+        Optional<String> presentOpt = Optional.of("Java");
+
+        // Even though presentOpt is present, getDefault() IS still executed!
+        String value = presentOpt.orElse(getDefault());
+        System.out.println("Returned: " + value);
+        // Output:
+        // getDefault() executed!
+        // Returned: Java
+    }
+}
+```
+
+#### Common Mistake
+Using `orElse` to call constructors, methods with side effects, or database fetches. This leads to performance degradation and unintended side effects since the fallback is evaluated even when not needed. Use `orElseGet` to evaluate the fallback lazily.
 
 ### orElseGet
 
@@ -165,6 +379,37 @@ Tiny example or mental model:
 
 - When reading code, ask: what does `orElseGet` change, allow, reject, or clarify?
 
+#### Detailed Explanation
+`orElseGet(Supplier<? super T> supplier)` takes a `Supplier` lambda. If the value is present, it returns the value directly. If the value is empty, it evaluates the supplier and returns the result. This evaluates the fallback lazily, avoiding performance penalties when the default value is not needed.
+
+#### Runnable Code Example
+```java
+import java.util.Optional;
+
+public class OrElseGetExample {
+    public static String getDefault() {
+        System.out.println("getDefault() executed lazily!");
+        return "DefaultValue";
+    }
+
+    public static void main(String[] args) {
+        Optional<String> presentOpt = Optional.of("Java");
+
+        // getDefault() is NOT executed because presentOpt is present
+        String value = presentOpt.orElseGet(() -> getDefault());
+        System.out.println("Returned: " + value);
+        
+        Optional<String> emptyOpt = Optional.empty();
+        // getDefault() IS executed because emptyOpt is empty
+        String value2 = emptyOpt.orElseGet(() -> getDefault());
+        System.out.println("Returned: " + value2);
+    }
+}
+```
+
+#### Common Mistake
+Using `orElse` when lazy evaluation is required, or using `orElseGet` with a lambda that returns a static, pre-allocated constant (which is unnecessary overhead for a lambda wrapper). For static constants, use `orElse`.
+
 ### orElseThrow
 
 A Set is a collection that rejects duplicates according to equality rules.
@@ -180,6 +425,38 @@ Practical check:
 Tiny example or mental model:
 
 - When reading code, ask: what does `orElseThrow` change, allow, reject, or clarify?
+
+#### Detailed Explanation
+`orElseThrow()` returns the contained value if present. If empty, it throws a `NoSuchElementException`. In Java 10, the no-argument `orElseThrow()` was added as the preferred alternative to `.get()`.
+You can also use `orElseThrow(Supplier<? extends X> exceptionSupplier)` to throw custom checked or unchecked exceptions.
+
+#### Runnable Code Example
+```java
+import java.util.Optional;
+
+public class OrElseThrowExample {
+    public static void main(String[] args) {
+        Optional<String> opt = Optional.empty();
+
+        // Custom exception
+        try {
+            opt.orElseThrow(() -> new IllegalArgumentException("Missing parameter"));
+        } catch (IllegalArgumentException e) {
+            System.out.println("Caught: " + e.getMessage()); // Caught: Missing parameter
+        }
+
+        // Default NoSuchElementException (preferred over get())
+        try {
+            opt.orElseThrow();
+        } catch (java.util.NoSuchElementException e) {
+            System.out.println("Caught default NoSuchElementException");
+        }
+    }
+}
+```
+
+#### Common Mistake
+Using `.get()` instead of `.orElseThrow()`. While they behave identically in throwing `NoSuchElementException` on empty optionals, `orElseThrow()` is self-documenting and signals explicitly that exception throwing is expected and handled behavior.
 
 ## Common Review Prompts
 

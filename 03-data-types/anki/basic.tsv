@@ -1,6 +1,5 @@
 ID	Front	Back	Source	Tags
-datatype-basic-001	How many primitive types does Java have?	Java has 8 primitive types.	03-data-types/README.md | https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html	java::core::datatype
-datatype-basic-002	What are Java's 8 primitive types?	`byte`, `short`, `int`, `long`, `float`, `double`, `char`, and `boolean`.	03-data-types/README.md | https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html	java::core::datatype
+datatype-basic-001	What are Java's 8 primitive types?	`byte`, `short`, `int`, `long`, `float`, `double`, `char`, `boolean`. 4 integer types (byte/short/int/long), 2 floating-point (float/double), 1 character (char), 1 boolean.	03-data-types/README.md | https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html	java::core::datatype
 datatype-basic-003	What is a primitive type?	A primitive type stores a simple value directly and is not an object.	03-data-types/README.md | https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html	java::core::datatype
 datatype-basic-004	What is a reference type?	A reference type stores a reference to an object rather than storing the object directly.	03-data-types/README.md | https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html	java::core::datatype
 datatype-basic-005	Is `String` a primitive type?	No. `String` is a reference type.	03-data-types/README.md | https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html	java::core::datatype java::interview

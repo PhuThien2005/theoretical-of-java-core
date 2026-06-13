@@ -2,153 +2,180 @@
 
 ## Learning Goal
 
-This file covers a focused slice of **Collections Framework**. Study each concept as a practical Java rule, not as isolated vocabulary.
+This file covers a focused slice of **Collections Framework** including wrapper collections (`unmodifiableList`, `synchronizedList`) and essential `Arrays` utility class algorithms.
 
 ## Outline Coverage
 
 | Concept | What to know |
 | --- | --- |
-| `Collections.unmodifiableList` | A collection is an object that groups multiple elements under a common API. |
-| `Collections.synchronizedList` | Synchronized protects a critical section by using a monitor lock. |
-| `Arrays.sort` |Arrays.sort is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Arrays.binarySearch` |Arrays.binarySearch is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Arrays.asList` | A List is an ordered collection that can contain duplicates and supports positional access. |
-| `Arrays.copyOf` |Arrays.copyOf is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Arrays.equals` | equals() defines logical equality between objects. |
-| `Arrays.deepEquals` | equals() defines logical equality between objects. |
+| `Collections.unmodifiableList` | Returns a read-only view of a backing list. Attempts to modify it throw `UnsupportedOperationException`. Modifications to the backing list still propagate to the view. |
+| `Collections.synchronizedList` | Returns a thread-safe list backed by the specified list. Iteration requires manual synchronization on the list object. |
+| `Arrays.sort` | Sorts primitive or object arrays. Object arrays use Timsort; primitive arrays use Dual-Pivot Quicksort. |
+| `Arrays.binarySearch` | Searches a sorted array. Returns index of match, or a negative value representing insertion point if not found. Undefined result if array is not sorted. |
+| `Arrays.asList` | Returns a fixed-size list backed by the passed array. Modifications to elements write through to the array, but structural changes (add/remove) throw `UnsupportedOperationException`. |
+| `Arrays.copyOf` | Copies the specified array, truncating or padding with default values as necessary. |
+| `Arrays.equals` | Compares two 1D arrays for equality based on element contents. |
+| `Arrays.deepEquals` | Recursively compares multi-dimensional arrays for deep equality. |
 
 ## Detailed Notes
 
-### Collections.unmodifiableList
+### Unmodifiable vs Immutable Lists
 
-A collection is an object that groups multiple elements under a common API.
+`Collections.unmodifiableList(List)` returns an **unmodifiable view** of the backing list. It is not fully immutable because modifications to the original backing list are visible in the view. In contrast, `List.copyOf()` and `List.of()` return fully **immutable** lists that hold no reference to any original backing collections.
 
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
+**Runnable Code Example:**
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-Practical check:
+public class UnmodifiableDemo {
+    public static void main(String[] args) {
+        List<String> backingList = new ArrayList<>();
+        backingList.add("A");
+        backingList.add("B");
 
-- Define `Collections.unmodifiableList` in one sentence.
-- Recognize `Collections.unmodifiableList` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Collections.unmodifiableList`.
+        List<String> unmodifiableView = Collections.unmodifiableList(backingList);
+        List<String> immutableList = List.copyOf(backingList);
 
-Tiny example or mental model:
+        backingList.add("C"); // Modifying backing list
 
-- `List<String> names = new ArrayList<>();` stores ordered elements.
+        System.out.println("Unmodifiable view: " + unmodifiableView); // [A, B, C]
+        System.out.println("Immutable List: " + immutableList);       // [A, B]
+
+        try {
+            unmodifiableView.add("D"); // Throws exception
+        } catch (UnsupportedOperationException e) {
+            System.out.println("Cannot modify unmodifiable view directly");
+        }
+    }
+}
+```
 
 ### Collections.synchronizedList
 
-Synchronized protects a critical section by using a monitor lock.
+Returns a synchronized (thread-safe) wrapper.
+- **Iteration Trap**: Even though individual methods (`add`, `get`) are synchronized, iterating over the list is NOT thread-safe. You must manually synchronize on the wrapper list object during iteration.
 
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
+**Runnable Code Example:**
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-Practical check:
+public class SynchronizedListDemo {
+    public static void main(String[] args) {
+        List<String> syncList = Collections.synchronizedList(new ArrayList<>());
+        syncList.add("A");
+        syncList.add("B");
 
-- Define `Collections.synchronizedList` in one sentence.
-- Recognize `Collections.synchronizedList` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Collections.synchronizedList`.
+        // Safe iteration requires manual synchronization
+        synchronized (syncList) {
+            for (String s : syncList) {
+                System.out.println(s);
+            }
+        }
+    }
+}
+```
 
-Tiny example or mental model:
+### Arrays Utility Class
 
-- `List<String> names = new ArrayList<>();` stores ordered elements.
+- **`Arrays.sort()`**: In-place sorting.
+- **`Arrays.binarySearch()`**: Requires the array to be sorted.
+  - **Rule**: If the element is found, it returns the index. If not found, it returns `-(insertion point) - 1`.
+- **`Arrays.asList()`**: Wraps an array into a fixed-size list.
+- **`Arrays.equals()` vs `Arrays.deepEquals()`**: `equals()` compares reference elements of 1D arrays; `deepEquals()` recursively compares sub-arrays in multi-dimensional arrays.
 
-### Arrays.sort
+**Runnable Code Example:**
+```java
+import java.util.Arrays;
+import java.util.List;
 
-Arrays.sort is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name.
+public class ArraysDemo {
+    public static void main(String[] args) {
+        // 1. Arrays.asList fixed-size list behavior
+        String[] arr = {"One", "Two"};
+        List<String> list = Arrays.asList(arr);
+        list.set(0, "Updated"); // Writes through to backing array
+        System.out.println("Array value: " + arr[0]); // Updated
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+        // 2. Binary search on sorted array
+        int[] numbers = {10, 20, 30, 40};
+        int index = Arrays.binarySearch(numbers, 30);
+        System.out.println("Index of 30: " + index); // 2
 
-Practical check:
+        // 3. Equals vs Deep Equals
+        int[][] matrix1 = {{1, 2}, {3, 4}};
+        int[][] matrix2 = {{1, 2}, {3, 4}};
+        System.out.println("Equals: " + Arrays.equals(matrix1, matrix2)); // false (checks 1D reference identity)
+        System.out.println("Deep Equals: " + Arrays.deepEquals(matrix1, matrix2)); // true (checks nested contents)
+    }
+}
+```
 
-- Define `Arrays.sort` in one sentence.
-- Recognize `Arrays.sort` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Arrays.sort`.
+---
 
-Tiny example or mental model:
+## Case Study: Evaluating Collections.unmodifiableList vs List.copyOf vs List.of
 
-- When reading code, ask: what does `Arrays.sort` change, allow, reject, or clarify?
+Let's look at reference behavior, null allowance, and performance characteristics of these unmodifiable/immutable factories.
 
-### Arrays.binarySearch
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-Arrays.binarySearch is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name.
+public class UnmodifiableComparison {
+    public static void main(String[] args) {
+        List<String> original = new ArrayList<>();
+        original.add("A");
+        original.add(null); // original has null
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+        // 1. Collections.unmodifiableList allows nulls because it's a wrapper view
+        List<String> view = Collections.unmodifiableList(original);
+        System.out.println("View size: " + view.size()); // 2
 
-Practical check:
+        // 2. List.copyOf throws NullPointerException if collection contains null
+        try {
+            List.copyOf(original);
+        } catch (NullPointerException e) {
+            System.out.println("List.copyOf rejected list containing null");
+        }
 
-- Define `Arrays.binarySearch` in one sentence.
-- Recognize `Arrays.binarySearch` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Arrays.binarySearch`.
+        // 3. List.of rejects null elements directly
+        try {
+            List.of("A", null);
+        } catch (NullPointerException e) {
+            System.out.println("List.of rejected direct null insertion");
+        }
 
-Tiny example or mental model:
+        // 4. Memory footprint and optimization
+        // List.copyOf of an already immutable list returned by List.copyOf/List.of
+        // will return the SAME reference (no duplication).
+        List<String> immutable1 = List.of("X", "Y");
+        List<String> immutable2 = List.copyOf(immutable1);
+        System.out.println("Same reference: " + (immutable1 == immutable2)); // true!
+    }
+}
+```
 
-- When reading code, ask: what does `Arrays.binarySearch` change, allow, reject, or clarify?
+---
 
-### Arrays.asList
+## Common Mistakes
 
-A List is an ordered collection that can contain duplicates and supports positional access.
+### 1. Adding/removing elements from an `Arrays.asList` list
+Since the list returned by `Arrays.asList` is fixed-size, calling `add()` or `remove()` throws `UnsupportedOperationException`. To get a fully mutable copy, wrap it: `new ArrayList<>(Arrays.asList(arr))`.
 
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
+### 2. Binary search on unsorted arrays
+Calling `Arrays.binarySearch()` on an unsorted array returns unpredictable results. Always sort the array first.
 
-Practical check:
+### 3. Iterating synchronized lists without manual locking
+Writing concurrent loops over `Collections.synchronizedList()` without enclosing in a `synchronized(list)` block is a bug that leads to race conditions or `ConcurrentModificationException` if another thread modifies the list during traversal.
 
-- Define `Arrays.asList` in one sentence.
-- Recognize `Arrays.asList` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Arrays.asList`.
-
-Tiny example or mental model:
-
-- `List<String> names = new ArrayList<>();` stores ordered elements.
-
-### Arrays.copyOf
-
-Arrays.copyOf is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Arrays.copyOf` in one sentence.
-- Recognize `Arrays.copyOf` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Arrays.copyOf`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Arrays.copyOf` change, allow, reject, or clarify?
-
-### Arrays.equals
-
-equals() defines logical equality between objects.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Arrays.equals` in one sentence.
-- Recognize `Arrays.equals` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Arrays.equals`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Arrays.equals` change, allow, reject, or clarify?
-
-### Arrays.deepEquals
-
-equals() defines logical equality between objects.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Arrays.deepEquals` in one sentence.
-- Recognize `Arrays.deepEquals` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Arrays.deepEquals`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Arrays.deepEquals` change, allow, reject, or clarify?
+---
 
 ## Common Review Prompts
 
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
+- What happens if you call `add()` on an `Arrays.asList()` list? (UnsupportedOperationException)
+- What is the difference between `Arrays.equals` and `Arrays.deepEquals`? (equals is for 1D arrays, deepEquals recursively compares multi-dimensional array structures)
+- Does List.copyOf copy the elements if the source list is already an immutable list? (No, it returns the same instance as an optimization)

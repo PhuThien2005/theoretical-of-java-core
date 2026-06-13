@@ -15,7 +15,7 @@ This file covers a focused slice of **Advanced JVM**. Study each concept as a pr
 | `Stack` | Stack stores method frames, local variables, and call flow for each thread. |
 | `Method Area / Metaspace` | Metaspace stores class metadata outside the ordinary Java heap in modern JVMs. |
 | `PC Register` |The PC register tracks the current JVM instruction for a thread. |
-| `Native Method Stack` | Stack stores method frames, local variables, and call flow for each thread. |
+| `Native Method Stack` | Native Method Stack stores frames for executing native (non-Java) methods. |
 
 ## Detailed Notes
 
@@ -133,9 +133,9 @@ Tiny example or mental model:
 
 ### Native Method Stack
 
-Stack stores method frames, local variables, and call flow for each thread.
+Native Method Stack stores frames for executing native (non-Java) methods, such as JNI functions written in C or C++.
 
-It matters because runtime behavior explains performance, memory errors, startup behavior, and many interview questions. A common confusion is mixing compile-time concepts with JVM runtime services.
+It matters because when Java code calls native code (like native crypto libraries or platform APIs), the thread's execution context shifts to this stack. A stack overflow here can crash the entire JVM process without throwing a standard Java StackOverflowError.
 
 Practical check:
 
@@ -146,6 +146,23 @@ Practical check:
 Tiny example or mental model:
 
 - When reading code, ask: what does `Native Method Stack` change, allow, reject, or clarify?
+
+## Code Examples
+
+### Querying Memory Information Programmatically
+```java
+Runtime runtime = Runtime.getRuntime();
+long maxMemory = runtime.maxMemory();   // Equivalent to -Xmx
+long totalMemory = runtime.totalMemory(); // Current heap size allocated
+long freeMemory = runtime.freeMemory();   // Free space in current heap
+
+System.out.println("Max Heap: " + (maxMemory / 1024 / 1024) + " MB");
+```
+
+## Common Mistakes
+
+- **Assuming StackOverflowError is Heap-related**: A `StackOverflowError` occurs in the Thread Stack when call frames exceed stack memory limits (often due to infinite recursion). This is unrelated to the Heap.
+- **Confusing Metaspace with Heap**: Class metadata is stored in Metaspace (off-heap/native memory) since Java 8. It does not compete with Java objects for Heap space, but can still exhaust native memory if too many classes are loaded.
 
 ## Common Review Prompts
 

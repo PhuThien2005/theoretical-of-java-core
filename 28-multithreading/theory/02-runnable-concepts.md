@@ -2,153 +2,141 @@
 
 ## Learning Goal
 
-This file covers a focused slice of **Multithreading**. Study each concept as a practical Java rule, not as isolated vocabulary.
+This file covers thread execution states, scheduling, and basic operations like starting, running, and sleeping. Study each concept as a practical Java rule, not as isolated vocabulary.
 
 ## Outline Coverage
 
 | Concept | What to know |
 | --- | --- |
-| `Runnable` |Runnable means a thread is eligible to run, though it may be waiting for CPU scheduling. |
-| `Running` |Running is a specific concept in Multithreading; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Blocked` |Blocked means a thread is waiting to acquire a monitor lock. |
-| `Waiting` |Waiting means a thread is waiting indefinitely for another thread action. |
-| `Timed Waiting` |Timed Waiting means a thread is waiting for a bounded amount of time. |
-| `Terminated` |Terminated means the thread has finished execution. |
-| `start() vs run()` |start() vs run() is a specific concept in Multithreading; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `sleep` |sleep is a specific concept in Multithreading; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Runnable` (Thread State) | The state where a thread is either executing or ready/eligible to execute, waiting for the OS thread scheduler to allocate CPU time. |
+| `Running` | The conceptual sub-state of `RUNNABLE` where the thread's instructions are actively executing on a CPU core. Java maps both ready and running states to `Thread.State.RUNNABLE`. |
+| `Blocked` | The state of a thread waiting to acquire an object monitor lock (for a `synchronized` block/method). |
+| `Waiting` | The state of a thread waiting indefinitely for another thread to perform a specific action (via `Object.wait()` or `Thread.join()`). |
+| `Timed Waiting` | The state of a thread waiting for a bounded duration (via `Thread.sleep()`, `Object.wait(timeout)`, or `Thread.join(timeout)`). |
+| `Terminated` | The state of a thread that has completed its execution (either normally or by throwing an unhandled exception). |
+| `start() vs run()` | `start()` allocates OS resources and schedules the thread to execute asynchronously; `run()` executes the task code synchronously in the current thread. |
+| `sleep` | A static method (`Thread.sleep()`) that pauses execution of the current thread for a specified duration, releasing the CPU but **retaining** any acquired locks. |
 
 ## Detailed Notes
 
-### Runnable
+### Thread States in Detail
 
-Runnable means a thread is eligible to run, though it may be waiting for CPU scheduling.
+Java defines thread states in the `Thread.State` enum. We can query a thread's state via `thread.getState()`.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+```mermaid
+graph TD
+    NEW[NEW] -->|start| RUNNABLE[RUNNABLE]
+    RUNNABLE -->|waiting for lock| BLOCKED[BLOCKED]
+    BLOCKED -->|lock acquired| RUNNABLE
+    RUNNABLE -->|wait, join| WAITING[WAITING]
+    WAITING -->|notify, join completes| RUNNABLE
+    RUNNABLE -->|sleep, wait with timeout| TIMED_WAITING[TIMED_WAITING]
+    TIMED_WAITING -->|time expires, notified| RUNNABLE
+    RUNNABLE -->|run completes| TERMINATED[TERMINATED]
+```
 
-Practical check:
+#### 1. RUNNABLE
+The thread is running or eligible to run.
+```java
+Thread t = new Thread(() -> {
+    while (true) {
+        // Active execution
+    }
+});
+t.start();
+System.out.println("State: " + t.getState()); // Prints RUNNABLE
+```
 
-- Define `Runnable` in one sentence.
-- Recognize `Runnable` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Runnable`.
+#### 2. BLOCKED
+Occurs when a thread attempts to enter a `synchronized` block but another thread already holds the monitor lock.
+```java
+public class BlockedDemo {
+    private static final Object lock = new Object();
 
-Tiny example or mental model:
+    public static void main(String[] args) throws InterruptedException {
+        Runnable r = () -> {
+            synchronized (lock) {
+                try { Thread.sleep(5000); } catch (InterruptedException e) {}
+            }
+        };
 
-- When reading code, ask: what does `Runnable` change, allow, reject, or clarify?
+        Thread t1 = new Thread(r);
+        Thread t2 = new Thread(r);
 
-### Running
+        t1.start();
+        Thread.sleep(100); // Ensure t1 gets the lock first
+        t2.start();
+        Thread.sleep(100);
 
-Running is a specific concept in Multithreading; learn its Java rule, valid use cases, and failure mode rather than only its name.
+        System.out.println("t2 state: " + t2.getState()); // Prints BLOCKED
+    }
+}
+```
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+#### 3. WAITING and TIMED_WAITING
+* `WAITING` is triggered by calling `Object.wait()` without a timeout or `Thread.join()`.
+* `TIMED_WAITING` is triggered by calling `Thread.sleep(millis)`, `Object.wait(millis)`, or `Thread.join(millis)`.
+```java
+Thread sleeper = new Thread(() -> {
+    try { Thread.sleep(1000); } catch (InterruptedException e) {}
+});
+sleeper.start();
+Thread.sleep(100); // Give it time to sleep
+System.out.println("Sleeper state: " + sleeper.getState()); // Prints TIMED_WAITING
+```
 
-Practical check:
+---
 
-- Define `Running` in one sentence.
-- Recognize `Running` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Running`.
+## Case Study: Analyzing Thread States under Lock Contention
 
-Tiny example or mental model:
+### Problem
+An e-commerce system is experiencing extreme response times on checkout. Thread dumps show multiple threads processing checkouts.
 
-- When reading code, ask: what does `Running` change, allow, reject, or clarify?
+### Analysis
+By printing thread states, the developer finds:
+* Thread-A holds a lock on a shared `Inventory` monitor and is in `TIMED_WAITING` (sleeping during a database call inside the synchronized block).
+* Threads B, C, and D are in the `BLOCKED` state, waiting to enter the checkout method.
 
-### Blocked
+### Code Demonstration
+```java
+class Inventory {
+    public synchronized void update() {
+        try {
+            // Simulated slow database write
+            Thread.sleep(3000); 
+        } catch (InterruptedException e) {}
+    }
+}
+```
+**Takeaway**: Synchronized blocks should not wrap blocking I/O (like network or database calls) because any thread that gets blocked will hold the lock, cascading blockages to other threads.
 
-Blocked means a thread is waiting to acquire a monitor lock.
+---
 
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
+## Common Mistakes
 
-Practical check:
+### 1. Assuming `Thread.sleep()` Releases Locks
+A sleeping thread does NOT yield its monitor locks. If a thread sleeps inside a synchronized block, no other thread can enter that synchronized block.
+```java
+synchronized(lock) {
+    Thread.sleep(5000); // BUG: Holds lock for 5 seconds while doing nothing
+}
+```
+**Fix**: If you need to wait for a condition and release the lock, use `lock.wait()` instead of `sleep()`.
 
-- Define `Blocked` in one sentence.
-- Recognize `Blocked` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Blocked`.
+### 2. Forgetting to Handle `InterruptedException`
+`Thread.sleep()` throws `InterruptedException` which is a checked exception. If a sleeping thread is interrupted, the sleep terminates immediately. Never swallow this exception without resetting the interrupt status or re-throwing it.
+```java
+// BAD
+try {
+    Thread.sleep(1000);
+} catch (InterruptedException e) {
+    // Swallowed!
+}
 
-Tiny example or mental model:
-
-- When reading code, ask: what does `Blocked` change, allow, reject, or clarify?
-
-### Waiting
-
-Waiting means a thread is waiting indefinitely for another thread action.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Waiting` in one sentence.
-- Recognize `Waiting` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Waiting`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Waiting` change, allow, reject, or clarify?
-
-### Timed Waiting
-
-Timed Waiting means a thread is waiting for a bounded amount of time.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Timed Waiting` in one sentence.
-- Recognize `Timed Waiting` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Timed Waiting`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Timed Waiting` change, allow, reject, or clarify?
-
-### Terminated
-
-Terminated means the thread has finished execution.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Terminated` in one sentence.
-- Recognize `Terminated` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Terminated`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Terminated` change, allow, reject, or clarify?
-
-### start() vs run()
-
-start() vs run() is a specific concept in Multithreading; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `start() vs run()` in one sentence.
-- Recognize `start() vs run()` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `start() vs run()`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `start() vs run()` change, allow, reject, or clarify?
-
-### sleep
-
-sleep is a specific concept in Multithreading; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `sleep` in one sentence.
-- Recognize `sleep` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `sleep`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `sleep` change, allow, reject, or clarify?
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
+// GOOD
+try {
+    Thread.sleep(1000);
+} catch (InterruptedException e) {
+    Thread.currentThread().interrupt(); // Restore interrupted status
+}
+```

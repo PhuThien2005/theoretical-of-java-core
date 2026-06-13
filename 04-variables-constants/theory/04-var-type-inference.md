@@ -60,9 +60,62 @@ var result = service.process(input);
 
 If `process` does not make the return type clear, explicit typing may be better.
 
+## `var` in For-Each Loops
+
+`var` also works in enhanced for-each loops (Java 10+):
+
+```java
+var names = List.of("Alice", "Bob", "Carol");
+for (var name : names) {
+    System.out.println(name); // name is inferred as String
+}
+```
+
+## Case Study: When `var` Helps vs. When It Hurts
+
+**✅ `var` improves readability** — type is obvious from right-hand side:
+
+```java
+// Without var — verbose and redundant
+HashMap<String, List<Integer>> scores = new HashMap<String, List<Integer>>();
+
+// With var — type is still clear, less noise
+var scores = new HashMap<String, List<Integer>>();
+```
+
+**❌ `var` harms readability** — return type hidden behind method name:
+
+```java
+// What is result? String? Integer? List? Nobody knows without checking the method.
+var result = parser.parse(rawInput);
+
+// Explicit type communicates intent immediately
+ParsedResult result = parser.parse(rawInput);
+```
+
+**Rule of thumb**: use `var` when the right-hand side expression *shows* the type (constructor calls, literals, `new`, casts). Avoid `var` when the type comes from a method call whose name doesn't reveal the return type.
+
+## `var` Cannot Be Used For
+
+```java
+class Config {
+    var timeout = 30;         // compile error: 'var' not allowed here (field)
+
+    var compute() {           // compile error: 'var' not allowed here (return type)
+        return 42;
+    }
+}
+
+void broken() {
+    var x;                    // compile error: cannot infer type (no initializer)
+    var y = null;             // compile error: cannot infer type from null alone
+}
+```
+
 ## Common Mistakes
 
-- Thinking `var` means dynamic typing.
-- Trying to use `var` for fields.
-- Using `var` without an initializer.
-- Using `var` when it hides important type information.
+- Thinking `var` means dynamic typing — the type is fixed at compile time.
+- Trying to use `var` for fields — only allowed for local variables.
+- Using `var` without an initializer — the compiler needs the initializer to infer the type.
+- Using `var` when it hides important type information, especially with method return values.
+- Initializing `var` with `null` — the compiler cannot infer a type from `null` alone.

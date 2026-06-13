@@ -30,6 +30,28 @@ Tiny example or mental model:
 
 - `n -> n > 0` is a lambda used as a predicate.
 
+#### Code Example: Collection methods accepting Lambdas
+```java
+java.util.List<String> list = new java.util.ArrayList<>(java.util.List.of("apple", "banana", "cherry"));
+
+// 1. Iteration with Consumer
+list.forEach(item -> System.out.println(item));
+
+// 2. Inline filtering with Predicate
+list.removeIf(item -> item.startsWith("b")); // removes "banana"
+
+// 3. Inline replacing with UnaryOperator
+list.replaceAll(item -> item.toUpperCase()); // replaces remaining with "APPLE", "CHERRY"
+```
+
+#### Common Mistake: Modifying Unmodifiable Collections at Runtime
+Methods like `List.of()`, `Map.of()`, or `Collections.unmodifiableList()` produce unmodifiable collections. Passing a lambda to `removeIf()` or `replaceAll()` on these lists compiles fine but throws `UnsupportedOperationException` at runtime.
+```java
+java.util.List<String> fixedList = java.util.List.of("a", "b");
+// Throws UnsupportedOperationException at runtime!
+fixedList.removeIf(s -> s.equals("a")); 
+```
+
 ### Lambda with Thread
 
 A lambda expression is a compact function-like block used where a functional interface is expected.
@@ -46,6 +68,18 @@ Tiny example or mental model:
 
 - `n -> n > 0` is a lambda used as a predicate.
 
+#### Code Example: Running Tasks Asynchronously
+Because `Runnable` is a functional interface (having only the `run()` abstract method), we can use lambda expressions to define thread tasks or executor service submits.
+```java
+// 1. Thread constructor
+new Thread(() -> System.out.println("Async run")).start();
+
+// 2. ExecutorService submission
+java.util.concurrent.ExecutorService executor = java.util.concurrent.Executors.newSingleThreadExecutor();
+executor.submit(() -> System.out.println("Executor task"));
+executor.shutdown();
+```
+
 ### Lambda with Comparator
 
 Comparator defines external custom ordering for objects.
@@ -61,6 +95,26 @@ Practical check:
 Tiny example or mental model:
 
 - `n -> n > 0` is a lambda used as a predicate.
+
+#### Code Example: Custom sorting logic
+```java
+java.util.List<String> names = new java.util.ArrayList<>(java.util.List.of("Charles", "Bob", "Alice"));
+
+// Sorting using custom lambda comparator (sorts by length)
+names.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
+
+// Sorting using Comparator utility methods and method references
+names.sort(java.util.Comparator.comparingInt(String::length));
+```
+
+#### Common Mistake: Integer Overflow in Subtraction Comparator
+A classic mistake when comparing integer values is using subtraction instead of `Integer.compare()`.
+```java
+// Compile-safe but prone to integer overflow bugs!
+names.sort((s1, s2) -> s1.length() - s2.length()); 
+// If s1.length() is Integer.MAX_VALUE and s2.length() is -1, subtraction overflows!
+// Correct approach is to always use Integer.compare(x, y).
+```
 
 ## Common Review Prompts
 

@@ -8,164 +8,160 @@ This file covers a focused slice of **IO in Java**. Study each concept as a prac
 
 | Concept | What to know |
 | --- | --- |
-| `Serialization` | Serialization converts an object graph into bytes so it can be stored or transferred. |
-| `Deserialization` | Serialization converts an object graph into bytes so it can be stored or transferred. |
-| `Serializable` |Serializable is a specific concept in IO in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `serialVersionUID` |serialVersionUID is a specific concept in IO in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `transient` | Transient marks a field that should be skipped during Java serialization. |
-| `Scanner` |Scanner is a specific concept in IO in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `System.in` |System.in is a specific concept in IO in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `System.out` |System.out is a specific concept in IO in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `System.err` |System.err is a specific concept in IO in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Serialization` | The process of converting an object's state into a byte stream so it can be saved to a file or sent over a network. |
+| `Deserialization` | The process of reconstructing an object from a serialized byte stream. |
+| `Serializable` | A marker interface (no methods) that must be implemented by a class to make its instances eligible for serialization. |
+| `serialVersionUID` | A unique 64-bit identifier used during deserialization to verify that the sender and receiver of a serialized object have loaded classes compatible with it. |
+| `transient` | A field modifier indicating that the variable should not be serialized; its value is restored as the default value (e.g. `null` or `0`) during deserialization. |
+| `Scanner` | A text scanner utility class used to parse primitive types and strings using regular expressions from an input stream or string. |
+| `System.in` | The standard input stream (instance of `InputStream`), usually mapped to keyboard input. |
+| `System.out` | The standard output stream (instance of `PrintStream`), usually mapped to console output. |
+| `System.err` | The standard error stream (instance of `PrintStream`), used to print error messages to the console immediately. |
 
 ## Detailed Notes
 
-### Serialization
-
-Serialization converts an object graph into bytes so it can be stored or transferred.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Serialization` in one sentence.
-- Recognize `Serialization` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Serialization`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Serialization` change, allow, reject, or clarify?
-
-### Deserialization
-
-Serialization converts an object graph into bytes so it can be stored or transferred.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Deserialization` in one sentence.
-- Recognize `Deserialization` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Deserialization`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Deserialization` change, allow, reject, or clarify?
-
-### Serializable
-
-Serializable is a specific concept in IO in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Serializable` in one sentence.
-- Recognize `Serializable` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Serializable`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Serializable` change, allow, reject, or clarify?
-
-### serialVersionUID
-
-serialVersionUID is a specific concept in IO in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `serialVersionUID` in one sentence.
-- Recognize `serialVersionUID` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `serialVersionUID`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `serialVersionUID` change, allow, reject, or clarify?
-
-### transient
-
-Transient marks a field that should be skipped during Java serialization.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `transient` in one sentence.
-- Recognize `transient` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `transient`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `transient` change, allow, reject, or clarify?
-
-### Scanner
-
-Scanner is a specific concept in IO in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Scanner` in one sentence.
-- Recognize `Scanner` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Scanner`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Scanner` change, allow, reject, or clarify?
-
-### System.in
-
-System.in is a specific concept in IO in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `System.in` in one sentence.
-- Recognize `System.in` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `System.in`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `System.in` change, allow, reject, or clarify?
-
-### System.out
-
-System.out is a specific concept in IO in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `System.out` in one sentence.
-- Recognize `System.out` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `System.out`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `System.out` change, allow, reject, or clarify?
-
-### System.err
-
-System.err is a specific concept in IO in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `System.err` in one sentence.
-- Recognize `System.err` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `System.err`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `System.err` change, allow, reject, or clarify?
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
+### Serialization & Deserialization
+Java object serialization allows developers to save the state of an object graph to a byte stream and reconstruct it later. 
+* To make a class serializable, it must implement `java.io.Serializable`.
+* Static fields represent class-level state, not object-level state, and are **not** serialized.
+* If an object references other objects, the entire object graph is serialized. All referenced classes must also implement `Serializable`, or a `NotSerializableException` will be thrown at runtime.
+
+```java
+import java.io.Serializable;
+
+public class User implements Serializable {
+    private static final long serialVersionUID = 1L; // Recommended explicit definition
+    
+    private String username;
+    private transient String password; // Will not be serialized!
+    
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+    
+    @Override
+    public String toString() {
+        return "User{username='" + username + "', password='" + password + "'}";
+    }
+}
+```
+
+### Serializing and Deserializing Code Example
+We write the object using `ObjectOutputStream` and read it back using `ObjectInputStream`.
+
+```java
+import java.io.*;
+
+public class SerializationDemo {
+    public static void main(String[] args) {
+        User user = new User("alice", "secret123");
+        File file = new File("user.ser");
+        
+        // 1. Serialize
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
+            oos.writeObject(user);
+            System.out.println("Object serialized: " + user);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        // 2. Deserialize
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+            User deserializedUser = (User) ois.readObject();
+            System.out.println("Object deserialized: " + deserializedUser);
+            // Prints: User{username='alice', password='null'} (password was transient!)
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Scanner & System I/O
+* `System.in`, `System.out`, and `System.err` are opened by the JVM when the application starts.
+* `Scanner` can wrap `System.in` to read user console input.
+* **Important**: Closing a `Scanner` wrapped around `System.in` will close the underlying `System.in` stream itself. Once closed, you cannot read from `System.in` again for the remainder of the JVM execution.
+
+```java
+import java.util.Scanner;
+
+public class ConsoleInput {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your name: ");
+        if (scanner.hasNextLine()) {
+            String name = scanner.nextLine();
+            System.out.println("Hello, " + name);
+        }
+        // Avoid closing scanner if you need System.in elsewhere in the app!
+    }
+}
+```
+
+---
+
+## Case Study: Customizing Serialization
+
+### Problem
+We want to encrypt a sensitive field (like `password`) when serializing, and decrypt it upon deserialization, so that it is not stored in plaintext inside the `.ser` file.
+
+### Implementation
+We can define private `writeObject` and `readObject` methods inside the `Serializable` class. Java's serialization mechanism looks for these methods via reflection and calls them instead of the default mechanism.
+
+```java
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.Base64;
+
+public class SecureUser implements Serializable {
+    private static final long serialVersionUID = 2L;
+    
+    private String username;
+    private String password; // Will be serialized, but encrypted!
+
+    public SecureUser(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    private void writeObject(ObjectOutputStream oos) throws IOException {
+        // Run default serialization for non-custom fields
+        oos.defaultWriteObject();
+        // Encrypt the password using simple Base64 for demo (use real cipher in production)
+        String encryptedPassword = Base64.getEncoder().encodeToString(password.getBytes());
+        oos.writeObject(encryptedPassword);
+    }
+
+    private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
+        // Run default deserialization
+        ois.defaultReadObject();
+        // Read the encrypted password and decrypt it
+        String encryptedPassword = (String) ois.readObject();
+        this.password = new String(Base64.getDecoder().decode(encryptedPassword));
+    }
+}
+```
+
+---
+
+## Common Mistakes
+
+### 1. Missing Explicit `serialVersionUID`
+If you do not specify `serialVersionUID` explicitly, the Java compiler automatically computes one at compile time based on class details (fields, methods). If you modify the class (e.g. add a minor method), the computed value will change. When deserializing older data, Java throws an `InvalidClassException`.
+* **Fix**: Always define `private static final long serialVersionUID = 1L;` explicitly.
+
+### 2. Parent Class Non-Serializable Constructor Pitfall
+If a subclass implements `Serializable` but its superclass does **not**, the superclass state is not serialized. During deserialization, Java must initialize the superclass state by calling its **no-argument constructor**. If the superclass does not define a no-argument constructor, deserialization will fail at runtime with an `InvalidClassException`.
+
+### 3. Closing Scanner wrapped around `System.in`
+Closing a scanner closed `System.in`.
+```java
+Scanner s1 = new Scanner(System.in);
+s1.close(); // Closes System.in!
+
+Scanner s2 = new Scanner(System.in);
+// s2.nextLine(); // Throws NoSuchElementException because System.in is closed!
+```

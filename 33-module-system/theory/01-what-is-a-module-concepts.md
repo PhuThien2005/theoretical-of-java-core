@@ -186,3 +186,34 @@ Tiny example or mental model:
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Code Examples
+
+### module-info.java syntax
+```java
+module com.mycompany.myapp {
+    // Requires another named module
+    requires java.sql;
+    
+    // Exports a package for use by other modules
+    exports com.mycompany.myapp.api;
+    
+    // Opens a package for reflection access at runtime
+    opens com.mycompany.myapp.internal to spring.core;
+}
+```
+
+### Module path vs Classpath command line
+```bash
+# Running with classpath (legacy mode - classes put into unnamed module)
+java -cp libs/my-dep.jar:myapp.jar com.mycompany.myapp.Main
+
+# Running with module path (modern mode - classes put into named modules)
+java --module-path libs:myapp.jar -m com.mycompany.myapp/com.mycompany.myapp.Main
+```
+
+## Common Mistakes
+
+- **Split Packages**: Putting classes in the same package (e.g. `com.foo`) in two different modules. This causes a compile-time or runtime error because the module system forbids split packages.
+- **Using `exports` instead of `opens` for reflection libraries (like Spring/Hibernate)**: If a library needs to inspect private fields/methods using reflection, `exports` is not enough (it only allows public type access). You must use `opens` to allow deep reflection.
+- **Cyclic Dependencies**: Module A requires Module B, and Module B requires Module A. Unlike maven or classpath, the Java Module System strictly forbids cyclic dependencies at compile-time.

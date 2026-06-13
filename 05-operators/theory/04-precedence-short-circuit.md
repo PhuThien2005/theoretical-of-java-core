@@ -100,3 +100,63 @@ if (hasValidAge && hasEntryRight) {
     enter();
 }
 ```
+
+---
+
+## Common Mistakes
+
+### Mistake 1 — Precedence Surprise: `||` and `&&`
+
+```java
+// These two conditions mean different things!
+boolean a = true, b = false, c = true;
+
+boolean r1 = a || b && c;    // a || (b && c) → true || false → true
+boolean r2 = (a || b) && c;  // (true || false) && true → true
+
+// Now with b=true, c=false:
+b = true; c = false;
+boolean r3 = a || b && c;    // a || (b && c) → true || false → true
+boolean r4 = (a || b) && c;  // (true) && false → false  ← different result!
+```
+
+`&&` has higher precedence than `||`. Always parenthesize mixed `&&`/`||` conditions to prevent bugs.
+
+### Mistake 2 — Short-Circuit Hides a Bug
+
+```java
+int[] arr = null;
+int index = 0;
+
+// This looks safe, but...
+if (arr == null | arr[index] > 0) { // | does NOT short-circuit!
+    System.out.println("check");
+}
+// Throws NullPointerException because arr[index] is still evaluated
+// Fix: use && and || not & and |
+```
+
+### Mistake 3 — Side Effect Assumed to Always Run
+
+```java
+int counter = 0;
+
+boolean ok = isReady() || (++counter > 0); // if isReady() is true, counter stays 0!
+System.out.println(counter); // might be 0 or 1 depending on isReady()
+```
+
+Code that assumes `++counter` always runs will behave incorrectly when `isReady()` returns `true`. Separate the increment from the condition.
+
+### Mistake 4 — Confusing `=` and `==` in Conditions
+
+```java
+boolean enabled = false;
+if (enabled = true) {      // compiles! This is ASSIGNMENT, not comparison.
+    System.out.println("always runs"); // always prints because assignment produces the value true
+}
+// Fix:
+if (enabled == true) { }   // comparison
+if (enabled) { }           // idiomatic Java
+```
+
+Java allows assignment inside `if` (because assignment is an expression), which makes this a silent logic bug.

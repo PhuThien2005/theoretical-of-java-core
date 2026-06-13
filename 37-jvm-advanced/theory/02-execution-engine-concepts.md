@@ -13,7 +13,7 @@ This file covers a focused slice of **Advanced JVM**. Study each concept as a pr
 | `JIT Compiler` | The JIT compiler turns hot bytecode into optimized machine code at runtime. |
 | `Garbage Collector` |Garbage Collector is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
 | `Native Interface` |Native Interface is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Heap generation:` | Heap stores objects created at runtime. |
+| `Heap generation:` | Heap generation separates objects by age to optimize garbage collection efficiency. |
 | `Young Generation` |Young Generation is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
 | `Eden` |Eden is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
 
@@ -101,9 +101,9 @@ Tiny example or mental model:
 
 ### Heap generation:
 
-Heap stores objects created at runtime.
+Heap generation separates objects by age (Young and Old generations) based on the weak generational hypothesis (most objects die young).
 
-It matters because runtime behavior explains performance, memory errors, startup behavior, and many interview questions. A common confusion is mixing compile-time concepts with JVM runtime services.
+It matters because garbage collecting the entire heap is slow. By separating short-lived objects into the Young generation and long-lived objects into the Old generation, GC runs faster on smaller zones.
 
 Practical check:
 
@@ -146,6 +146,19 @@ Practical check:
 Tiny example or mental model:
 
 - When reading code, ask: what does `Eden` change, allow, reject, or clarify?
+
+## Code Examples
+
+### Explicit GC Call (Avoid in production)
+```java
+// Requests JVM to run Garbage Collector, but does not guarantee immediate execution
+System.gc();
+```
+
+## Common Mistakes
+
+- **Relying on System.gc()**: Calling `System.gc()` is a bad practice. It suggests the garbage collector should run, but the JVM can ignore it, and if it runs, it triggers a major/full stop-the-world GC pause.
+- **Eden Size Misconfiguration**: Setting Eden too small causes frequent Minor GCs; setting it too large increases the duration of Minor GC pauses.
 
 ## Common Review Prompts
 

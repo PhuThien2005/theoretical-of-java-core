@@ -97,3 +97,161 @@ for (int row = 0; row < 3; row++) {
 ```
 
 If you need to exit an outer loop, you can use a flag, extract a method and `return`, or use a labeled `break`.
+
+---
+
+## Common Mistakes
+
+### Mistake 1 — Unreachable statements
+Writing code immediately after a `break`, `continue`, or `return` statement in the same block causes a compile-time error.
+
+```java
+for (int i = 0; i < 5; i++) {
+    if (i == 2) {
+        continue;
+        // BUG: Compile-time error: unreachable statement
+        System.out.println("Skipping 2"); 
+    }
+}
+```
+
+**Fix**: Ensure no statements follow early-exit keywords in the same block.
+
+### Mistake 2 — Confusing loop `break` with switch `break`
+A `break` statement inside a `switch` block nested within a loop only exits the `switch`, NOT the loop itself.
+
+```java
+// BUG: Intended to exit the loop on status 200, but only exits the switch
+while (true) {
+    int status = getResponseCode();
+    switch (status) {
+        case 200:
+            break; // Exits switch block, loop continues infinitely!
+        case 500:
+            System.out.println("Error");
+            break;
+    }
+}
+
+// FIX: Use a label, flag, or return to exit the loop
+outerLoop:
+while (true) {
+    int status = getResponseCode();
+    switch (status) {
+        case 200:
+            break outerLoop; // Exits the while loop labeled 'outerLoop'
+        case 500:
+            System.out.println("Error");
+            break;
+    }
+}
+```
+
+### Mistake 3 — `continue` causing infinite loops in `while` loops
+In a `for` loop, `continue` jumps to the update expression (e.g., `i++`). In a `while` or `do-while` loop, `continue` jumps directly to the condition check, skipping any update statements placed below it.
+
+```java
+int i = 0;
+// BUG: Infinite loop because i++ is skipped when i == 1
+while (i < 5) {
+    if (i == 1) {
+        continue; 
+    }
+    System.out.println(i);
+    i++;
+}
+
+// FIX: Perform the update before continue or use a for loop
+int i = 0;
+while (i < 5) {
+    if (i == 1) {
+        i++;
+        continue; 
+    }
+    System.out.println(i);
+    i++;
+}
+```
+
+---
+
+## Case Study — Labeled Control Flow with Nested Loop Tracing
+
+Labeled statements allow fine-grained control when managing nested loops. The label precedes the target loop (e.g., `labelName:`).
+
+### Labeled `continue` Tracing Case Study
+
+```java
+outer:
+for (int i = 1; i <= 3; i++) {
+    for (int j = 1; j <= 3; j++) {
+        if (i == 2 && j == 2) {
+            continue outer;
+        }
+        System.out.println("i=" + i + ", j=" + j);
+    }
+}
+```
+
+**Step-by-Step Execution Trace:**
+1. **`i = 1`**: Outer loop begins.
+   - **`j = 1`**: Condition `i==2 && j==2` is false. Prints `i=1, j=1`.
+   - **`j = 2`**: Condition is false. Prints `i=1, j=2`.
+   - **`j = 3`**: Condition is false. Prints `i=1, j=3`.
+2. **`i = 2`**: Outer loop updates to 2.
+   - **`j = 1`**: Condition `i==2 && j==1` is false. Prints `i=2, j=1`.
+   - **`j = 2`**: Condition `i==2 && j==2` is **true**.
+     - `continue outer` runs.
+     - Execution jumps immediately to the update step of the `outer` loop (`i++`).
+     - The inner loop iteration for `j=3` is completely skipped.
+3. **`i = 3`**: Outer loop updates to 3.
+   - **`j = 1`**: Condition is false. Prints `i=3, j=1`.
+   - **`j = 2`**: Condition is false. Prints `i=3, j=2`.
+   - **`j = 3`**: Condition is false. Prints `i=3, j=3`.
+
+**Output:**
+```text
+i=1, j=1
+i=1, j=2
+i=1, j=3
+i=2, j=1
+i=3, j=1
+i=3, j=2
+i=3, j=3
+```
+
+---
+
+### Labeled `break` Tracing Case Study
+
+```java
+outer:
+for (int i = 1; i <= 3; i++) {
+    for (int j = 1; j <= 3; j++) {
+        if (i == 2 && j == 2) {
+            break outer;
+        }
+        System.out.println("i=" + i + ", j=" + j);
+    }
+}
+```
+
+**Step-by-Step Execution Trace:**
+1. **`i = 1`**: Outer loop begins.
+   - **`j = 1`**: Prints `i=1, j=1`.
+   - **`j = 2`**: Prints `i=1, j=2`.
+   - **`j = 3`**: Prints `i=1, j=3`.
+2. **`i = 2`**: Outer loop updates to 2.
+   - **`j = 1`**: Prints `i=2, j=1`.
+   - **`j = 2`**: Condition `i==2 && j==2` is **true**.
+     - `break outer` runs.
+     - Execution breaks completely out of the loop labeled `outer`.
+     - The program resumes at the statement immediately following the outer loop block.
+
+**Output:**
+```text
+i=1, j=1
+i=1, j=2
+i=1, j=3
+i=2, j=1
+```

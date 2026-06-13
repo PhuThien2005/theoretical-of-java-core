@@ -51,6 +51,50 @@ An **Interface** is a reference type that specifies a contract of behaviors. It 
 | **Access Modifiers** | Methods can be public, protected, package-private, or private. | Methods are public by default (private is supported since Java 9). |
 | **Root Intent** | Represents **identity** (IS-A relationship). Shared state and core identity. | Represents **capability** (CAN-DO relationship). Loose contract for unrelated classes. |
 
+### Code Example: Abstract Class vs. Interface
+Here is a comparison using a payment and banking system:
+
+```java
+// Abstract Class represents identity (IS-A)
+abstract class BankAccount {
+    private String accountNumber;
+    protected double balance; // Can have instance variables
+
+    BankAccount(String accountNumber, double balance) { // Can have constructors
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
+    public double getBalance() { return balance; } // Concrete method
+
+    abstract void processInterest(); // Abstract method
+}
+
+// Interface represents capability (CAN-DO)
+interface Payable {
+    int TAX_RATE_PERCENT = 10; // Implicitly public static final constant
+
+    void pay(double amount); // Implicitly public abstract method
+}
+
+// Concrete class extending the abstract class and implementing the interface
+class SavingsAccount extends BankAccount implements Payable {
+    SavingsAccount(String accountNumber, double balance) {
+        super(accountNumber, balance);
+    }
+
+    @Override
+    void processInterest() {
+        balance += balance * 0.02;
+    }
+
+    @Override
+    public void pay(double amount) { // Must use public modifier
+        balance -= amount;
+    }
+}
+```
+
 ---
 
 ## Evolution of Interfaces (Java 8 and 9+)
@@ -67,21 +111,44 @@ interface Drivable {
 }
 ```
 
-#### Resolving Default Method Conflicts (Diamond Interface Problem)
-If a class implements two interfaces that define default methods with the same signature, the class **will fail to compile** due to ambiguity. The class must resolve the conflict by overriding the method:
+## Case Study: Diamond Problem and How Interfaces Solve It
+
+In traditional multiple inheritance (like in C++), if a class `D` inherits from both `B` and `C`, which both inherit from `A`, and both override a method `foo()` from `A`, then calling `foo()` on an instance of `D` is ambiguous (the "Diamond Problem").
+
+Java avoids this by:
+1. Allowing only single class inheritance. A class can never extend more than one class.
+2. Allowing multiple interface inheritance. Since interface methods were originally purely abstract (no body), there was no implementation conflict.
+
+### The Modern Challenge: Default Methods (Java 8+)
+With default methods, interfaces can now carry behavior. This reintroduced a form of implementation conflict (the Diamond Interface Problem) when a class implements two interfaces declaring the same default method signature.
 
 ```java
-interface A { default void msg() { System.out.println("A"); } }
-interface B { default void msg() { System.out.println("B"); } }
+interface Flyer {
+    default void move() { System.out.println("Flying"); }
+}
 
-class Test implements A, B {
+interface Swimmer {
+    default void move() { System.out.println("Swimming"); }
+}
+
+// class Duck implements Flyer, Swimmer {} // Compile Error: Duck inherits unrelated defaults for move()
+```
+
+### The Solution
+Java forces the implementing class to explicitly override the conflicting method, resolving the ambiguity at compile-time. Inside the overridden method, you can write custom behavior or explicitly delegate to one of the interfaces using `<InterfaceName>.super.<methodName>()`.
+
+```java
+class Duck implements Flyer, Swimmer {
     @Override
-    public void msg() {
-        // Option 1: Provide own implementation
-        System.out.println("Custom");
-        
-        // Option 2: Explicitly delegate to one parent interface
-        A.super.msg(); 
+    public void move() {
+        // Option 1: Provide a brand-new behavior
+        System.out.println("Walking like a duck");
+
+        // Option 2: Explicitly delegate to Flyer's default behavior
+        Flyer.super.move();
+
+        // Option 3: Explicitly delegate to Swimmer's default behavior
+        Swimmer.super.move();
     }
 }
 ```
@@ -145,6 +212,40 @@ Default methods let interface authors add behavior without immediately breaking 
 - Are callers depending on the abstraction instead of concrete classes?
 - Can multiple implementations be substituted safely?
 - Are default methods used to support API evolution rather than to dump shared logic everywhere?
+
+---
+
+## Common Mistakes
+
+### 1. Trying to Instantiate an Abstract Class or Interface
+Attempting to directly instantiate an abstract class or interface results in a compile-time error. They are incomplete contracts and must be extended or implemented by concrete classes first.
+```java
+abstract class Shape {}
+// Shape s = new Shape(); // Compile Error: Shape is abstract; cannot be instantiated
+```
+
+### 2. Overriding Interface Methods Without the `public` Modifier
+All methods declared in an interface are implicitly `public`. When a class implements an interface method, it must explicitly declare it `public`. Omitting `public` defaults the class method to package-private, which is a weaker privilege and fails compilation.
+```java
+interface Drivable {
+    void drive();
+}
+
+class Car implements Drivable {
+    // void drive() {} // Compile Error: attempting to assign weaker access privileges; was public
+    
+    @Override
+    public void drive() {} // Correct
+}
+```
+
+### 3. Trying to Declare Instance Fields in Interfaces
+Every variable declared in an interface is implicitly `public static final` (a constant). It must be initialized immediately and cannot be modified. Declaring normal instance fields in an interface is impossible.
+```java
+interface Config {
+    int TIMEOUT; // Compile Error: variable TIMEOUT might not have been initialized
+}
+```
 
 ### Reference Links
 

@@ -28,6 +28,14 @@ Here is the comprehensive reference of core `String` methods, explaining their b
   $$\text{Length of Substring} = \text{endIndex} - \text{beginIndex}$$
 - Throws `StringIndexOutOfBoundsException` if `beginIndex < 0`, `endIndex > length()`, or `beginIndex > endIndex`.
 
+```java
+String msg = "Hello World";
+String sub1 = msg.substring(6);      // "World"
+String sub2 = msg.substring(0, 5);   // "Hello"
+System.out.println(sub1); // World
+System.out.println(sub2); // Hello
+```
+
 ### 4. Search and Location: `indexOf()` and `lastIndexOf()`
 - Locates a character or substring. Returns `-1` if not found.
 - `indexOf(String str)`: Finds the first occurrence.
@@ -37,6 +45,14 @@ Here is the comprehensive reference of core `String` methods, explaining their b
 ### 5. Validation Checks: `contains()`, `startsWith()`, `endsWith()`
 - `contains(CharSequence s)`: Returns `true` if the sequence exists.
 - `startsWith(String prefix)` / `endsWith(String suffix)`: Matches start or end. Null inputs throw `NullPointerException`.
+
+```java
+String text = "Java Programming";
+boolean hasJava = text.contains("Java"); // true
+boolean hasKotlin = text.contains("Kotlin"); // false
+System.out.println(hasJava);   // true
+System.out.println(hasKotlin); // false
+```
 
 ### 6. Whitespace Cleanup: `trim()` vs. `strip()`
 - `trim()`: Removes leading/trailing characters with code points less than or equal to ASCII space (`U+0020`). It fails to clean up Unicode whitespaces (like `\u00A0` non-breaking space).
@@ -52,6 +68,18 @@ Here is the comprehensive reference of core `String` methods, explaining their b
 - `replaceAll(String regex, String replacement)`: Replaces matches of a **regular expression**.
 - `replaceFirst(String regex, String replacement)`: Replaces only the first match of a regular expression.
 
+```java
+String src = "apple.orange.banana";
+
+// replace() treats "." as a literal string
+String r1 = src.replace(".", "-"); 
+System.out.println(r1); // Output: apple-orange-banana
+
+// replaceAll() treats "." as a regex wildcard (matches any character)
+String r2 = src.replaceAll(".", "-"); 
+System.out.println(r2); // Output: -------------------
+```
+
 ### 9. Splitting: `split(String regex)` and `split(String regex, int limit)`
 Splits strings around regular expression matches.
 - `split(regex)`: Discards trailing empty strings.
@@ -65,6 +93,18 @@ String s = "a:b:c::";
 s.split(":").length;    // 3 -> {"a", "b", "c"} (trailing empty strings discarded)
 s.split(":", -1).length; // 5 -> {"a", "b", "c", "", ""} (empty strings preserved)
 s.split(":", 2).length;  // 2 -> {"a", "b:c::"} (capped at 2 splits)
+```
+
+### 10. Converting to Character Array: `toCharArray()`
+- Returns a newly allocated character array whose length is the length of this string, containing the character sequence represented by the string.
+
+```java
+String word = "Java";
+char[] chars = word.toCharArray();
+for (char c : chars) {
+    System.out.print(c + " "); // Output: J a v a 
+}
+System.out.println();
 ```
 
 ---
@@ -107,6 +147,14 @@ $$\%[\text{argument\_index}\$][\text{flags}][\text{width}][.\text{precision}]\te
 String.format("|%-10s|", "Java"); // "|Java      |"
 String.format("%.3f", 3.14159);    // "3.142" (rounded)
 String.format("%04d", 42);          // "0042"
+
+// Detailed Formatting Example:
+String name = "Alice";
+int age = 30;
+double gpa = 3.8567;
+
+String formatted = String.format("Name: %s, Age: %d, GPA: %.2f", name, age, gpa);
+System.out.println(formatted); // Output: Name: Alice, Age: 30, GPA: 3.86
 ```
 
 ---
@@ -135,3 +183,36 @@ String html = """
 ```
 - The `<p>` tag line will merge with the next line due to `\`.
 - The `\s\s` at the end of the `<p>` tag line preserves two trailing spaces.
+
+---
+
+## Common Mistakes
+
+### 1. `StringIndexOutOfBoundsException` with `charAt` and `substring`
+Java strings are zero-indexed. The bounds for `charAt(index)` are `0` to `length() - 1`. The `endIndex` of `substring(beginIndex, endIndex)` is exclusive, but it must not exceed `length()`.
+```java
+String s = "hello";
+char c = s.charAt(5); // StringIndexOutOfBoundsException (length is 5, max index is 4)
+String sub = s.substring(2, 6); // StringIndexOutOfBoundsException (endIndex 6 exceeds length)
+```
+
+### 2. Splitting on Regex Metacharacters
+Using regex special characters like `.`, `|`, `+`, `*`, `?` directly in `split()` or `replaceAll()` without escaping them.
+```java
+String data = "a.b.c";
+String[] parts = data.split("."); // Incorrect! "." matches any character.
+System.out.println(parts.length); // Prints 0 because it matched and split everything away.
+
+// Correct: Escape the dot using a double backslash
+String[] correctParts = data.split("\\.");
+System.out.println(correctParts.length); // Prints 3
+```
+
+### 3. Mixing up `replace` and `replaceAll`
+Assuming `replace(CharSequence, CharSequence)` only replaces the first occurrence or doesn't replace all. In fact, `replace()` replaces ALL occurrences of the target literal, whereas `replaceAll()` does the same but treats the target as a regular expression.
+```java
+String sentence = "I love Java. Java is fun.";
+// Both replace all occurrences, but replace() is faster/safer for plain text:
+System.out.println(sentence.replace("Java", "Kotlin")); 
+System.out.println(sentence.replaceAll("Java", "Kotlin"));
+```

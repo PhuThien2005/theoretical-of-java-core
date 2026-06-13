@@ -1,154 +1,210 @@
-# Generics - Part 2
+# Generics – Part 2: Wildcards, PECS, Generics with Collections, Type Erasure
 
-## Learning Goal
+## 1. Wildcards
 
-This file covers a focused slice of **Generics**. Study each concept as a practical Java rule, not as isolated vocabulary.
+A **wildcard** (`?`) represents an unknown type in a generic type argument position. Unlike a named type parameter (`T`), a wildcard cannot be referenced by name — it is anonymous.
 
-## Outline Coverage
+### 1.1 Unbounded Wildcard `<?>`
 
-| Concept | What to know |
-| --- | --- |
-| `<?>` |<?> is an unbounded wildcard meaning an unknown type. |
-| `<? extends T>` |<? extends T> is an upper-bounded wildcard for producers of T values. |
-| `<? super T>` |<? super T> is a lower-bounded wildcard for consumers of T values. |
-| `PECS:` | PECS is a group of related rules in Generics that groups several related details. |
-| `Producer Extends` |Producer Extends means use ? extends T when an API mainly produces T values for reading. |
-| `Consumer Super` |Consumer Super means use ? super T when an API mainly consumes T values for writing. |
-| `Generic with Collection` | A collection is an object that groups multiple elements under a common API. |
-| `Type erasure` | Type erasure is how Java implements generics by removing most generic type information at runtime. |
+**Meaning:** Any type. The list could hold `String`, `Integer`, anything.
 
-## Detailed Notes
+**When to use:** When you only need to **read** elements as `Object`, or when the code is truly type-agnostic.
 
-### <?>
+```java
+void printAll(List<?> list) {
+    for (Object o : list) System.out.println(o);
+}
+```
 
-<?> is an unbounded wildcard meaning an unknown type.
+**Read:** ✅ Returns `Object`.  
+**Write:** ❌ Cannot add any element (except `null`) because the actual type is unknown.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+```java
+List<?> list = new ArrayList<String>();
+list.add("hello");   // COMPILE ERROR – type unknown, unsafe
+list.add(null);      // OK – null is always safe
+```
 
-Practical check:
+---
 
-- Define `<?>` in one sentence.
-- Recognize `<?>` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `<?>`.
+### 1.2 Upper-Bounded Wildcard `<? extends T>`
 
-Tiny example or mental model:
+**Meaning:** Some unknown subtype of `T`. The list is a **producer** of `T` values.
 
-- When reading code, ask: what does `<?>` change, allow, reject, or clarify?
+**Read:** ✅ Returns `T` (or a subtype).  
+**Write:** ❌ Cannot add (except `null`) — the exact subtype is unknown.
 
-### <? extends T>
+```java
+void sumNumbers(List<? extends Number> numbers) {
+    double sum = 0;
+    for (Number n : numbers) sum += n.doubleValue(); // safe: n is-a Number
+}
 
-<? extends T> is an upper-bounded wildcard for producers of T values.
+// Call with any subtype:
+sumNumbers(List.of(1, 2, 3));          // List<Integer>
+sumNumbers(List.of(1.1, 2.2));         // List<Double>
+```
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+**Failure mode:**
+```java
+List<? extends Number> nums = new ArrayList<Integer>();
+nums.add(42);    // COMPILE ERROR – could be Double, Long, etc.; unsafe
+```
 
-Practical check:
+---
 
-- Define `<? extends T>` in one sentence.
-- Recognize `<? extends T>` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `<? extends T>`.
+### 1.3 Lower-Bounded Wildcard `<? super T>`
 
-Tiny example or mental model:
+**Meaning:** Some unknown supertype of `T`. The list is a **consumer** of `T` values.
 
-- When reading code, ask: what does `<? extends T>` change, allow, reject, or clarify?
+**Write:** ✅ Can safely add `T` or any subtype of `T`.  
+**Read:** ⚠️ Returns only `Object` — actual type above `T` is unknown.
 
-### <? super T>
+```java
+void addNumbers(List<? super Integer> list) {
+    list.add(1);   // safe: Integer fits in Integer, Number, or Object
+    list.add(2);
+}
 
-<? super T> is a lower-bounded wildcard for consumers of T values.
+// Call with supertypes:
+addNumbers(new ArrayList<Integer>());  // OK
+addNumbers(new ArrayList<Number>());   // OK
+addNumbers(new ArrayList<Object>());   // OK
+```
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+**Failure mode:**
+```java
+List<? super Integer> list = new ArrayList<Number>();
+Integer n = list.get(0);   // COMPILE ERROR – actual element could be any Number
+Object o  = list.get(0);   // OK – Object is always a safe assignment
+```
 
-Practical check:
+---
 
-- Define `<? super T>` in one sentence.
-- Recognize `<? super T>` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `<? super T>`.
+## 2. PECS — Producer Extends, Consumer Super
 
-Tiny example or mental model:
+**Mnemonic:** _PECS — Producer Extends, Consumer Super_
 
-- When reading code, ask: what does `<? super T>` change, allow, reject, or clarify?
+| Role | Wildcard | Can read typed value? | Can add typed value? |
+|------|----------|-----------------------|----------------------|
+| Producer | `<? extends T>` | ✅ Yes (`T`) | ❌ No |
+| Consumer | `<? super T>` | ❌ Only `Object` | ✅ Yes (`T`) |
 
-### PECS:
+**Decision rule:**
+- If a parameter **produces** (you read `T` values out of it) → `<? extends T>`.
+- If a parameter **consumes** (you write `T` values into it) → `<? super T>`.
+- If both reading and writing are needed → use exact type `T` (no wildcard).
 
-PECS is a group of related rules in Generics that groups several related details.
+**Real JDK example:**
+```java
+// src produces T → extends; dest consumes T → super
+public static <T> void copy(List<? super T> dest, List<? extends T> src) {
+    for (T item : src) dest.add(item);
+}
+```
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+**Stream example:**
+```java
+// map: Function<? super T, ? extends R>
+// T is consumed (in) → super; R is produced (out) → extends
+Stream<String> names = Stream.of("alice", "bob");
+Stream<Integer> lengths = names.map(s -> s.length());
+```
 
-Practical check:
+**Common mistake:** Using `<? extends T>` when you need to add elements:
+```java
+List<? extends Number> nums = new ArrayList<>();
+nums.add(1);   // COMPILE ERROR — cannot add to upper-bounded wildcard
+```
 
-- Define `PECS:` in one sentence.
-- Recognize `PECS:` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `PECS:`.
+---
 
-Tiny example or mental model:
+## 3. Generics with Collections
 
-- When reading code, ask: what does `PECS:` change, allow, reject, or clarify?
+Every Java Collection interface is generic. Understanding the type parameter unlocks the full contract.
 
-### Producer Extends
+| Interface | Declaration | Key constraint |
+|-----------|-------------|----------------|
+| `List<E>` | `interface List<E>` | Ordered, index-based, allows duplicates |
+| `Set<E>` | `interface Set<E>` | No duplicates (via `equals`/`hashCode`) |
+| `Map<K,V>` | `interface Map<K,V>` | Unique keys; one value per key |
+| `Queue<E>` | `interface Queue<E>` | FIFO; `peek`/`poll` from head |
+| `Deque<E>` | `interface Deque<E>` | Double-ended; stack or queue |
+| `Optional<T>` | `class Optional<T>` | Contains 0 or 1 value; avoids null |
 
-Producer Extends means use ? extends T when an API mainly produces T values for reading.
+**Wildcard usage with collections:**
+```java
+// Read from any List of Numbers → ? extends
+double totalScore(List<? extends Number> scores) { ... }
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+// Write Integers to any list that can hold them → ? super
+void addDefaults(List<? super Integer> list) { list.add(0); }
 
-Practical check:
+// Process any list of any type → ?
+void logAll(List<?> items) { items.forEach(System.out::println); }
+```
 
-- Define `Producer Extends` in one sentence.
-- Recognize `Producer Extends` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Producer Extends`.
+**Diamond operator (`<>`):** Since Java 7, the right-hand side type argument can be inferred:
+```java
+List<String> names   = new ArrayList<>();   // compiler infers ArrayList<String>
+Map<String, Integer> freq = new HashMap<>();
+```
 
-Tiny example or mental model:
+**Collections utility and generics:**
+```java
+Collections.sort(List<T> list)          // T must implement Comparable<? super T>
+Collections.max(Collection<? extends T>)
+Collections.unmodifiableList(List<? extends T>)
+```
 
-- When reading code, ask: what does `Producer Extends` change, allow, reject, or clarify?
+---
 
-### Consumer Super
+## 4. Type Erasure
 
-Consumer Super means use ? super T when an API mainly consumes T values for writing.
+**What it is:** The Java compiler removes all generic type information after type-checking. The bytecode only contains **raw types** and **inserted casts**.
 
-It matters because modern Java APIs use function-style pipelines heavily. A common confusion is forgetting which operations are lazy and which operation actually triggers execution.
+**Steps the compiler performs:**
+1. Replace all type parameters with their upper bound (or `Object` if unbounded).
+2. Insert explicit casts wherever a typed value is retrieved.
+3. Generate bridge methods when necessary to preserve polymorphism.
 
-Practical check:
+**Result in bytecode:**
+```java
+// Source
+List<String> names = new ArrayList<>();
+names.add("Alice");
+String first = names.get(0);
 
-- Define `Consumer Super` in one sentence.
-- Recognize `Consumer Super` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Consumer Super`.
+// Bytecode equivalent (after erasure)
+List names = new ArrayList();
+names.add("Alice");
+String first = (String) names.get(0);   // cast inserted by compiler
+```
 
-Tiny example or mental model:
+**Consequences of type erasure:**
 
-- When reading code, ask: what does `Consumer Super` change, allow, reject, or clarify?
+| What you cannot do | Why |
+|--------------------|-----|
+| `if (obj instanceof List<String>)` | Generic type unknown at runtime |
+| `new T[10]` | Cannot create generic arrays |
+| `new T()` | Cannot instantiate type parameter |
+| Overload methods that differ only in generic type | After erasure they have identical signatures |
+| Catch generic exception: `catch (SomeException<T> e)` | Illegal — generic info erased |
 
-### Generic with Collection
+**Example — overload conflict (compile error):**
+```java
+void process(List<String> list) { }
+void process(List<Integer> list) { }   // COMPILE ERROR: same erasure List
+```
 
-A collection is an object that groups multiple elements under a common API.
+**Work-arounds:**
+- Pass `Class<T> clazz` as a token to create instances via `clazz.getDeclaredConstructor().newInstance()`.
+- Use `Array.newInstance(clazz, size)` for arrays.
 
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
+## Reference Links
 
-Practical check:
-
-- Define `Generic with Collection` in one sentence.
-- Recognize `Generic with Collection` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Generic with Collection`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Generic with Collection` change, allow, reject, or clarify?
-
-### Type erasure
-
-Type erasure is how Java implements generics by removing most generic type information at runtime.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Type erasure` in one sentence.
-- Recognize `Type erasure` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Type erasure`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Type erasure` change, allow, reject, or clarify?
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
+- https://docs.oracle.com/javase/tutorial/java/generics/wildcards.html
+- https://docs.oracle.com/javase/tutorial/java/generics/upperBounded.html
+- https://docs.oracle.com/javase/tutorial/java/generics/lowerBounded.html
+- https://docs.oracle.com/javase/tutorial/java/generics/erasure.html
+- https://docs.oracle.com/javase/tutorial/java/generics/wildcardGuidelines.html

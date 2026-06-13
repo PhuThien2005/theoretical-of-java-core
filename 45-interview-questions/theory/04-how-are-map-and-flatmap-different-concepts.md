@@ -2,119 +2,109 @@
 
 ## Learning Goal
 
-This file covers a focused slice of **Common Java Core Interview Questions**. Study each concept as a practical Java rule, not as isolated vocabulary.
+This file covers advanced Java Core interview questions regarding Stream transformations, Optional behaviors, thread-safe Maps, hash consistency, Garbage Collection mechanics, and JVM memory organization.
 
 ## Outline Coverage
 
 | Concept | What to know |
 | --- | --- |
-| `How are map and flatMap different?` | A Map stores key-value pairs and retrieves values by key. |
-| `How are orElse and orElseGet different?` |How are orElse and orElseGet different? is a specific concept in Common Java Core Interview Questions; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `How are HashMap, Hashtable, and ConcurrentHashMap different?` | A Map stores key-value pairs and retrieves values by key. |
-| `Why must overriding equals() also override hashCode()?` | equals() defines logical equality between objects. |
-| `How does Garbage Collection work?` | Garbage collection reclaims memory from objects that are no longer reachable. |
-| `How are Stack and Heap different?` | Stack stores method frames, local variables, and call flow for each thread. |
+| `How are map and flatMap different?` | `map` transforms each element into a single value (1-to-1); `flatMap` transforms each element into a Stream and flattens them (1-to-many). |
+| `How are orElse and orElseGet different?` | `orElse` always evaluates its parameter; `orElseGet` evaluates lazily using a `Supplier` only if the `Optional` is empty. |
+| `How are HashMap, Hashtable, and ConcurrentHashMap different?` | `HashMap` is non-synchronized; `Hashtable` locks the whole table; `ConcurrentHashMap` uses lock striping/CAS for high concurrency. |
+| `Why must overriding equals() also override hashCode()?` | To maintain the contract that equal objects must have equal hashcodes, ensuring correct behavior in hash collections. |
+| `How does Garbage Collection work?` | Reclaims memory of unreachable objects; typically uses generational collection dividing heap into Young and Old Gen. |
+| `How are Stack and Heap different?` | Stack stores local variables and method execution frames (per-thread); Heap stores all objects and arrays (shared). |
+
+---
 
 ## Detailed Notes
 
-### How are map and flatMap different?
+### map() vs. flatMap()
 
-A Map stores key-value pairs and retrieves values by key.
+Both are Stream/Optional intermediate operations, but they differ in mapping style:
+- **`map`**: Transforms `Stream<T>` to `Stream<R>` using a function `T -> R`.
+- **`flatMap`**: Transforms `Stream<T>` to `Stream<R>` using a function `T -> Stream<R>`. It merges (flattens) multiple inner streams into a single outer stream.
 
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
+```java
+// map: [ ["a", "b"], ["c"] ] -> [ 2, 1 ] (lengths)
+List<List<String>> list = List.of(List.of("a", "b"), List.of("c"));
+Stream<Integer> sizes = list.stream().map(List::size);
 
-Practical check:
+// flatMap: [ ["a", "b"], ["c"] ] -> [ "a", "b", "c" ] (flattened)
+Stream<String> flat = list.stream().flatMap(Collection::stream);
+```
 
-- Define `How are map and flatMap different?` in one sentence.
-- Recognize `How are map and flatMap different?` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `How are map and flatMap different?`.
+---
 
-Tiny example or mental model:
+### Optional: `orElse` vs. `orElseGet`
 
-- `Map<String, Integer> scores = new HashMap<>();` maps keys to values.
+- **`orElse(T other)`**: The default value `other` is evaluated **eagerly**, even if the `Optional` is not empty.
+- **`orElseGet(Supplier<? extends T> other)`**: The default value is evaluated **lazily** (using a lambda) only if the `Optional` is empty.
 
-### How are orElse and orElseGet different?
+```java
+public String getDatabaseValue() {
+    System.out.println("Costly DB query run!");
+    return "DB_VALUE";
+}
 
-How are orElse and orElseGet different? is a specific concept in Common Java Core Interview Questions; learn its Java rule, valid use cases, and failure mode rather than only its name.
+Optional<String> optional = Optional.of("Alice");
+optional.orElse(getDatabaseValue());    // PRINTS: "Costly DB query run!" (eager evaluation)
+optional.orElseGet(() -> getDatabaseValue()); // DOES NOT PRINT (lazy evaluation)
+```
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+---
 
-Practical check:
+### HashMap vs. Hashtable vs. ConcurrentHashMap
 
-- Define `How are orElse and orElseGet different?` in one sentence.
-- Recognize `How are orElse and orElseGet different?` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `How are orElse and orElseGet different?`.
+- **`HashMap`**: Non-synchronized, accepts one `null` key and multiple `null` values. High performance for single-threaded or external synchronizations.
+- **`Hashtable`**: Legacy class. Synchronizes every method on the entire map instance. Poor concurrent performance. Rejects `null` keys/values.
+- **`ConcurrentHashMap`**: Highly concurrent. In Java 8+, it uses a combination of Compare-And-Swap (CAS) and synchronized locks at the bucket/node level (lock striping), allowing concurrent reads and writes in different buckets. Rejects `null` keys/values.
 
-Tiny example or mental model:
+---
 
-- When reading code, ask: what does `How are orElse and orElseGet different?` change, allow, reject, or clarify?
+### Why equals() and hashCode() must be overridden together
 
-### How are HashMap, Hashtable, and ConcurrentHashMap different?
+If you override `equals()`, you must override `hashCode()`.
+- **The Contract**: If `o1.equals(o2)` is `true`, then `o1.hashCode() == o2.hashCode()` must be `true`.
+- **Failure Consequence**: If you violate this, putting an object in a `HashMap` or `HashSet` will result in duplicate keys or lookup failures. The hash collection maps the equal keys to different buckets because their hashcodes differ.
 
-A Map stores key-value pairs and retrieves values by key.
+---
 
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
+### How Garbage Collection (GC) works
 
-Practical check:
+Garbage collection automatically reclaims heap memory allocated to objects that are no longer reachable from any **GC Roots** (active thread stacks, static variables, JNI references).
 
-- Define `How are HashMap, Hashtable, and ConcurrentHashMap different?` in one sentence.
-- Recognize `How are HashMap, Hashtable, and ConcurrentHashMap different?` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `How are HashMap, Hashtable, and ConcurrentHashMap different?`.
+- **Generational GC Theory**: Most objects die young. Therefore, the JVM heap is divided into:
+  1. **Young Generation**: Subdivided into Eden and survivor spaces (S0, S1). Minor GCs happen here frequently and are very fast.
+  2. **Old Generation**: Holds long-lived objects. Major/Full GCs happen here less frequently and take longer.
 
-Tiny example or mental model:
+---
 
-- `Map<String, Integer> scores = new HashMap<>();` maps keys to values.
+### Stack vs. Heap Memory
 
-### Why must overriding equals() also override hashCode()?
+- **Stack**:
+  - Memory allocated per thread.
+  - Stores local variables, reference pointers, and stack frames for method calls.
+  - Allocation/deallocation follows LIFO (Last-In-First-Out) structure and is handled automatically. Very fast.
+- **Heap**:
+  - Memory shared across all threads.
+  - Stores all objects and arrays.
+  - Managed by the Garbage Collector. Slower allocation and cleanup.
 
-equals() defines logical equality between objects.
+---
 
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
+## Common Mistakes & Traps
 
-Practical check:
+### 1. Database/API query inside `orElse()`
+Calling a DB retrieval inside `orElse(...)` runs the query every time, even if the value exists:
+```java
+// Database call runs even if user is cached in Optional!
+User u = optionalUser.orElse(db.fetchDefaultUser()); 
+```
+Instead, use `orElseGet()`:
+```java
+User u = optionalUser.orElseGet(() -> db.fetchDefaultUser());
+```
 
-- Define `Why must overriding equals() also override hashCode()?` in one sentence.
-- Recognize `Why must overriding equals() also override hashCode()?` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Why must overriding equals() also override hashCode()?`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Why must overriding equals() also override hashCode()?` change, allow, reject, or clarify?
-
-### How does Garbage Collection work?
-
-Garbage collection reclaims memory from objects that are no longer reachable.
-
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
-
-Practical check:
-
-- Define `How does Garbage Collection work?` in one sentence.
-- Recognize `How does Garbage Collection work?` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `How does Garbage Collection work?`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `How does Garbage Collection work?` change, allow, reject, or clarify?
-
-### How are Stack and Heap different?
-
-Stack stores method frames, local variables, and call flow for each thread.
-
-It matters because runtime behavior explains performance, memory errors, startup behavior, and many interview questions. A common confusion is mixing compile-time concepts with JVM runtime services.
-
-Practical check:
-
-- Define `How are Stack and Heap different?` in one sentence.
-- Recognize `How are Stack and Heap different?` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `How are Stack and Heap different?`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `How are Stack and Heap different?` change, allow, reject, or clarify?
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
+### 2. Violating GC reachability assumptions
+Assuming setting a reference to `null` forces immediate GC. Setting `u = null` only makes the object *eligible* for GC. The actual cleanup happens when the JVM runs the collector.

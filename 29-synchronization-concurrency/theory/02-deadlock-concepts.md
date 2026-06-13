@@ -2,153 +2,149 @@
 
 ## Learning Goal
 
-This file covers a focused slice of **Synchronization and Concurrency**. Study each concept as a practical Java rule, not as isolated vocabulary.
+This file covers advanced synchronization problems (deadlock, livelock, starvation), memory visibility (`volatile`), and lock-free atomic primitives. Study each concept as a practical Java rule, not as isolated vocabulary.
 
 ## Outline Coverage
 
 | Concept | What to know |
 | --- | --- |
-| `Deadlock` | Deadlock happens when threads wait forever for locks held by each other. |
-| `Livelock` |Livelock is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Starvation` |Starvation is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Volatile` | Volatile gives visibility guarantees for a variable shared between threads, but it does not make compound operations atomic. |
-| `Atomic classes:` | Atomic classes is a group of related rules in Synchronization and Concurrency that groups several related details. |
-| `AtomicInteger` |AtomicInteger is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `AtomicLong` |AtomicLong is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `AtomicBoolean` |AtomicBoolean is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Deadlock` | A situation where two or more threads are blocked forever, each waiting for a lock held by another thread. |
+| `Livelock` | A scenario where threads actively change their states in response to each other, but fail to make any execution progress. |
+| `Starvation` | A condition where a thread is perpetually denied access to shared resources or CPU cycles due to greedy threads or scheduling bias. |
+| `Volatile` | A keyword ensuring that reads and writes to a field go directly to main memory, bypassing CPU cache. Prevents instruction reordering but does **not** ensure atomicity. |
+| `Atomic classes:` | A suite of classes in `java.util.concurrent.atomic` utilizing lock-free Compare-And-Swap (CAS) hardware instructions to achieve thread safety. |
+| `AtomicInteger` | An atomic wrapper around `int` (methods: `incrementAndGet()`, `compareAndSet()`). |
+| `AtomicLong` | An atomic wrapper around `long`. |
+| `AtomicBoolean` | An atomic wrapper around `boolean`. |
 
 ## Detailed Notes
 
-### Deadlock
+### Deadlock and Livelock
 
-Deadlock happens when threads wait forever for locks held by each other.
+#### Deadlock
+Deadlock requires four concurrent conditions (Coffman conditions):
+1. **Mutual Exclusion**: Resources are held exclusively.
+2. **Hold and Wait**: Threads holding locks wait for additional locks.
+3. **No Preemption**: Locks cannot be forcefully taken away from threads.
+4. **Circular Wait**: Thread A holds Lock 1 and waits for Lock 2; Thread B holds Lock 2 and waits for Lock 1.
 
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
+**Fix**: Eliminate circular wait by acquiring locks in a fixed, global ordering.
 
-Practical check:
+```java
+// Deadlock prone
+public void transfer(Account from, Account to, double amt) {
+    synchronized (from) {
+        synchronized (to) {
+            // transfer
+        }
+    }
+}
+```
 
-- Define `Deadlock` in one sentence.
-- Recognize `Deadlock` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Deadlock`.
+#### Livelock
+Unlike deadlock, threads are not blocked. They actively consume CPU cycles, changing their state in reaction to other threads, but cannot complete the task.
 
-Tiny example or mental model:
+### Volatile Visibility
+Without `volatile`, updates made to a variable by Thread A may be cached in a CPU register/cache and remain invisible to Thread B reading from main memory.
+`volatile` guarantees **visibility** and **ordering** (prevents JVM from reordering instructions around the variable). It does **not** guarantee atomicity.
 
-- When reading code, ask: what does `Deadlock` change, allow, reject, or clarify?
+```java
+public class VolatileFlag implements Runnable {
+    private volatile boolean active = true; // Volatile flag
 
-### Livelock
+    public void stop() { active = false; }
 
-Livelock is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
+    @Override
+    public void run() {
+        while (active) {
+            // Perform work
+        }
+        System.out.println("Stopped cleanly.");
+    }
+}
+```
 
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
+### Atomic Classes and Compare-And-Swap (CAS)
+Atomic classes use lock-free CPU instructions (like `CMPXCHG` on x86) to perform atomic update cycles.
+* **CAS Operation**: Takes expected value and new value. Updates only if current value equals expected value. Returns true if successful; otherwise, loops and retries.
 
-Practical check:
+```java
+import java.util.concurrent.atomic.AtomicInteger;
 
-- Define `Livelock` in one sentence.
-- Recognize `Livelock` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Livelock`.
+public class AtomicCounter {
+    private final AtomicInteger count = new AtomicInteger(0);
 
-Tiny example or mental model:
+    public void increment() {
+        count.incrementAndGet(); // Lock-free atomic increment
+    }
 
-- When reading code, ask: what does `Livelock` change, allow, reject, or clarify?
+    public void updateMax(int newValue) {
+        int current;
+        do {
+            current = count.get();
+            if (newValue <= current) break;
+        } while (!count.compareAndSet(current, newValue)); // CAS Loop
+    }
+}
+```
 
-### Starvation
+---
 
-Starvation is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
+## Case Study: Bank Account Transfer Lock Ordering
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+### Problem
+In a banking app, if Customer A transfers to Customer B while Customer B concurrently transfers to Customer A, a deadlock can occur because Thread 1 locks A then B, while Thread 2 locks B then A.
 
-Practical check:
+### Solution
+Establish a consistent locking order using hash codes or a unique account key.
+```java
+public class SafeBankTransfer {
+    public void transfer(Account from, Account to, double amount) {
+        int fromHash = System.identityHashCode(from);
+        int toHash = System.identityHashCode(to);
 
-- Define `Starvation` in one sentence.
-- Recognize `Starvation` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Starvation`.
+        if (fromHash < toHash) {
+            synchronized (from) {
+                synchronized (to) {
+                    doTransfer(from, to, amount);
+                }
+            }
+        } else if (fromHash > toHash) {
+            synchronized (to) {
+                synchronized (from) {
+                    doTransfer(from, to, amount);
+                }
+            }
+        } else {
+            // Tie-breaker lock in the rare case of hash collision
+            synchronized (tieLock) {
+                synchronized (from) {
+                    synchronized (to) {
+                        doTransfer(from, to, amount);
+                    }
+                }
+            }
+        }
+    }
+    private static final Object tieLock = new Object();
+    private void doTransfer(Account from, Account to, double amt) {
+        from.debit(amt);
+        to.credit(amt);
+    }
+}
+```
 
-Tiny example or mental model:
+---
 
-- When reading code, ask: what does `Starvation` change, allow, reject, or clarify?
+## Common Mistakes
 
-### Volatile
+### 1. Assuming `volatile` makes `count++` thread-safe
+`count++` is a three-step compound operation: read, add 1, write back. Declaring `count` as `volatile` ensures other threads see the write, but does not prevent another thread from interleaving during the read and write steps.
+```java
+// BUG: Thread-unsafe
+volatile int count = 0;
+public void add() { count++; }
+```
 
-Volatile gives visibility guarantees for a variable shared between threads, but it does not make compound operations atomic.
-
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
-
-Practical check:
-
-- Define `Volatile` in one sentence.
-- Recognize `Volatile` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Volatile`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Volatile` change, allow, reject, or clarify?
-
-### Atomic classes:
-
-Atomic classes is a group of related rules in Synchronization and Concurrency that groups several related details.
-
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
-
-Practical check:
-
-- Define `Atomic classes:` in one sentence.
-- Recognize `Atomic classes:` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Atomic classes:`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Atomic classes:` change, allow, reject, or clarify?
-
-### AtomicInteger
-
-AtomicInteger is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
-
-Practical check:
-
-- Define `AtomicInteger` in one sentence.
-- Recognize `AtomicInteger` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `AtomicInteger`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `AtomicInteger` change, allow, reject, or clarify?
-
-### AtomicLong
-
-AtomicLong is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
-
-Practical check:
-
-- Define `AtomicLong` in one sentence.
-- Recognize `AtomicLong` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `AtomicLong`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `AtomicLong` change, allow, reject, or clarify?
-
-### AtomicBoolean
-
-AtomicBoolean is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
-
-Practical check:
-
-- Define `AtomicBoolean` in one sentence.
-- Recognize `AtomicBoolean` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `AtomicBoolean`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `AtomicBoolean` change, allow, reject, or clarify?
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
+### 2. Nesting Locks Without Fixed Order
+Nesting locks on resources dynamically passed as arguments is the primary cause of deadlocks in production environments.

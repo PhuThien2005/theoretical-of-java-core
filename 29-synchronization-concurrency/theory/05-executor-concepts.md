@@ -2,153 +2,151 @@
 
 ## Learning Goal
 
-This file covers a focused slice of **Synchronization and Concurrency**. Study each concept as a practical Java rule, not as isolated vocabulary.
+This file covers the Java Executor Framework (`Executor`, `ExecutorService`, `ThreadPoolExecutor`, `ScheduledExecutorService`), asynchronous task results (`Future`), and advanced promise chaining (`CompletableFuture`). Study each concept as a practical Java rule, not as isolated vocabulary.
 
 ## Outline Coverage
 
 | Concept | What to know |
 | --- | --- |
-| `Executor` |Executor is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `ExecutorService` |ExecutorService manages task execution using worker threads. |
-| `ScheduledExecutorService` |ScheduledExecutorService is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `ThreadPoolExecutor` | A thread is a path of execution inside a process. |
-| `Executors` |Executors is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Future` |Future is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Callable` |Callable represents a task that returns a result and can throw checked exceptions. |
-| `CompletableFuture` |CompletableFuture is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Executor` | The simplest interface defining task execution via `execute(Runnable)`. |
+| `ExecutorService` | A sub-interface adding task lifecycle management, task submission returning a `Future` (`submit()`), and shutdown methods. |
+| `ScheduledExecutorService` | A sub-interface that schedules tasks to run after a delay, or execute periodically. |
+| `ThreadPoolExecutor` | The standard thread pool implementation, configured using parameters like core pool size, max pool size, queue capacity, and rejection handler. |
+| `Executors` | A factory utility class containing static methods to create pre-configured thread pools (e.g. fixed, cached, scheduled). |
+| `Future` | Represents the pending result of an asynchronous computation. Call `.get()` to block and retrieve the result. |
+| `Callable` | A task representing a computation that returns a result and can throw a checked exception. |
+| `CompletableFuture` | A class implementing `Future` and `CompletionStage` that supports functional callbacks, pipelined staging, and combining multiple asynchronous tasks. |
 
 ## Detailed Notes
 
-### Executor
+### The ThreadPoolExecutor Parameters
+To configure a custom thread pool safely, you must understand its core parameters:
+1. **Core Pool Size**: The minimum number of threads kept alive in the pool, even if idle.
+2. **Maximum Pool Size**: The maximum number of threads allowed in the pool.
+3. **Keep Alive Time**: Time idle threads above the core size will wait before being terminated.
+4. **Work Queue**: The `BlockingQueue` used to hold tasks before execution.
+5. **Rejection Policy**: Handlers invoked when the pool and queue are saturated (e.g. `AbortPolicy` throws exception, `CallerRunsPolicy` executes task in the calling thread, `DiscardPolicy` silently drops task).
 
-Executor is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
+```java
+import java.util.concurrent.*;
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Executor` in one sentence.
-- Recognize `Executor` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Executor`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Executor` change, allow, reject, or clarify?
-
-### ExecutorService
-
-ExecutorService manages task execution using worker threads.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `ExecutorService` in one sentence.
-- Recognize `ExecutorService` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `ExecutorService`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `ExecutorService` change, allow, reject, or clarify?
+public class CustomPoolDemo {
+    public static void main(String[] args) {
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(
+            2,                              // Core threads
+            4,                              // Max threads
+            60, TimeUnit_SECONDS,           // Keep alive
+            new ArrayBlockingQueue<>(10),    // Bounded queue
+            new ThreadPoolExecutor.CallerRunsPolicy() // Backpressure handler
+        );
+        
+        pool.submit(() -> System.out.println("Executing task"));
+        pool.shutdown();
+    }
+    private static final TimeUnit TimeUnit_SECONDS = TimeUnit.SECONDS;
+}
+```
 
 ### ScheduledExecutorService
+Used to run periodic or delayed tasks. Know the difference:
+* `scheduleAtFixedRate(task, init, period, unit)`: Runs tasks at fixed intervals (e.g., every 5 seconds). If execution takes 6 seconds, the next task runs immediately (tasks do not overlap by default in a single thread, but interval is calculated from task start).
+* `scheduleWithFixedDelay(task, init, delay, unit)`: Waits for the specified delay *after* the previous task completes before starting the next one.
 
-ScheduledExecutorService is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
+```java
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+public class PollingDemo {
+    public static void main(String[] args) {
+        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+        
+        // Starts next task 3 seconds after previous completes
+        scheduler.scheduleWithFixedDelay(
+            () -> System.out.println("Polling API..."),
+            0, 3, TimeUnit.SECONDS
+        );
+    }
+}
+```
 
-Practical check:
+### CompletableFuture Pipelines
+`CompletableFuture` supports non-blocking callback chains.
+```java
+import java.util.concurrent.CompletableFuture;
 
-- Define `ScheduledExecutorService` in one sentence.
-- Recognize `ScheduledExecutorService` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `ScheduledExecutorService`.
+public class AsyncChainDemo {
+    public static void main(String[] args) throws Exception {
+        CompletableFuture.supplyAsync(() -> "User Data")
+            .thenApply(data -> data + " Processed")
+            .thenAccept(System.out::println) // Consumes result
+            .exceptionally(ex -> {
+                System.out.println("Failed: " + ex.getMessage());
+                return null;
+            });
+    }
+}
+```
 
-Tiny example or mental model:
+---
 
-- When reading code, ask: what does `ScheduledExecutorService` change, allow, reject, or clarify?
+## Case Study: Asynchronous E-Commerce Checkout Pipeline
 
-### ThreadPoolExecutor
+### Problem
+An online checkout system needs to process payments, update inventory, and send email confirmations. Performing these tasks sequentially in a single thread causes slow response times.
 
-A thread is a path of execution inside a process.
+### Solution
+Use `CompletableFuture` to coordinate parallel execution.
+```java
+import java.util.concurrent.CompletableFuture;
 
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
+public class CheckoutProcessor {
+    public void processCheckout(Order order) {
+        // Step 1: Start payment process asynchronously
+        CompletableFuture<PaymentResult> paymentFuture = 
+            CompletableFuture.supplyAsync(() -> processPayment(order));
 
-Practical check:
+        // Step 2: Start inventory update concurrently
+        CompletableFuture<InventoryResult> inventoryFuture = 
+            CompletableFuture.supplyAsync(() -> updateInventory(order));
 
-- Define `ThreadPoolExecutor` in one sentence.
-- Recognize `ThreadPoolExecutor` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `ThreadPoolExecutor`.
+        // Step 3: Combine both steps to generate invoice
+        paymentFuture.thenCombine(inventoryFuture, (pay, inv) -> generateInvoice(pay, inv))
+            .thenAccept(invoice -> sendEmail(invoice)) // Step 4: Email customer
+            .exceptionally(ex -> {
+                logError(ex);
+                return null;
+            });
+    }
 
-Tiny example or mental model:
+    private PaymentResult processPayment(Order o) { return new PaymentResult(); }
+    private InventoryResult updateInventory(Order o) { return new InventoryResult(); }
+    private Invoice generateInvoice(PaymentResult p, InventoryResult i) { return new Invoice(); }
+    private void sendEmail(Invoice inv) {}
+    private void logError(Throwable t) {}
 
-- `new Thread(task).start()` starts work on another thread.
+    static class Order {}
+    static class PaymentResult {}
+    static class InventoryResult {}
+    static class Invoice {}
+}
+```
 
-### Executors
+---
 
-Executors is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
+## Common Mistakes
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+### 1. Using Unbounded Queues in Production Pools
+`Executors.newFixedThreadPool(n)` uses an unbounded `LinkedBlockingQueue`. If tasks arrive faster than they are processed, the queue grows infinitely, eventually causing an `OutOfMemoryError` (OOM).
+* **Fix**: Always configure a bounded queue (like `ArrayBlockingQueue`) and define a rejection policy for production.
 
-Practical check:
-
-- Define `Executors` in one sentence.
-- Recognize `Executors` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Executors`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Executors` change, allow, reject, or clarify?
-
-### Future
-
-Future is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Future` in one sentence.
-- Recognize `Future` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Future`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Future` change, allow, reject, or clarify?
-
-### Callable
-
-Callable represents a task that returns a result and can throw checked exceptions.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Callable` in one sentence.
-- Recognize `Callable` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Callable`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Callable` change, allow, reject, or clarify?
-
-### CompletableFuture
-
-CompletableFuture is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `CompletableFuture` in one sentence.
-- Recognize `CompletableFuture` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `CompletableFuture`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `CompletableFuture` change, allow, reject, or clarify?
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
+### 2. Blocking on `Future.get()` inside a Loop
+Calling `.get()` immediately blocks the calling thread, turning parallel processing into slow synchronous execution.
+```java
+// BUG: Runs tasks one-by-one synchronously!
+for (Callable<Integer> task : tasks) {
+    Future<Integer> f = executor.submit(task);
+    System.out.println(f.get()); // Blocks here!
+}
+```
+* **Fix**: Submit all tasks to collect their `Future` objects first, then retrieve their results in a separate loop.

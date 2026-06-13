@@ -1,154 +1,176 @@
-# Generics - Part 1
+# Generics – Part 1: Generic Class, Method, Interface, Type Parameters, Bounds
 
-## Learning Goal
+## 1. Generic Class
 
-This file covers a focused slice of **Generics**. Study each concept as a practical Java rule, not as isolated vocabulary.
+**Definition:** A class that declares one or more type parameters enclosed in `<>` after the class name. The parameter acts as a placeholder for a concrete type supplied at instantiation.
 
-## Outline Coverage
+**Java rule:**
+```java
+class Box<T> {
+    private T value;
+    public Box(T value) { this.value = value; }
+    public T get() { return value; }
+}
+```
+- `T` can be used anywhere a normal type is allowed inside the class body (fields, method parameters, return types).
+- The compiler checks type correctness at compile time; the bytecode uses the raw type `Object` (or the bound) after type erasure.
 
-| Concept | What to know |
-| --- | --- |
-| `Generic class` |Generic class is a specific concept in Generics; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Generic method` |Generic method is a specific concept in Generics; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Generic interface` |Generic interface is a specific concept in Generics; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Type parameter` |Type parameter is a specific concept in Generics; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Multiple type parameters` |Multiple type parameters is a specific concept in Generics; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Bounded type parameter:` | Bounded type parameter is a group of related rules in Generics that groups several related details. |
-| `<T extends Number>` |<T extends Number> is a specific concept in Generics; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Wildcard:` | A wildcard is a generic type placeholder such as ?, ? extends T, or ? super T. |
+**Valid use cases:**
+- `Box<String>`, `Box<Integer>` — single-typed containers.
+- `Pair<K, V>` — data holders with multiple types.
+- `Optional<T>` (JDK) — wrap nullable values safely.
 
-## Detailed Notes
+**Failure mode:**
+```java
+Box rawBox = new Box("hello");   // raw type – no compile-time check
+rawBox = new Box(42);            // silently allowed; ClassCastException risk later
+Integer n = (Integer) rawBox.get(); // runtime ClassCastException
+```
+Using the raw type disables all generic safety. Always supply type arguments.
 
-### Generic class
+---
 
-Generic class is a specific concept in Generics; learn its Java rule, valid use cases, and failure mode rather than only its name.
+## 2. Generic Method
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+**Definition:** A method that introduces its own type parameters, independent of any class-level type parameters.
 
-Practical check:
+**Java rule:**
+- Type parameters go **before the return type**.
+```java
+public static <T> T identity(T obj) { return obj; }
+public static <T extends Comparable<T>> T max(T a, T b) {
+    return a.compareTo(b) >= 0 ? a : b;
+}
+```
+- The compiler infers `T` from the call-site argument; you can also specify it explicitly: `MyUtil.<String>identity("hi")`.
 
-- Define `Generic class` in one sentence.
-- Recognize `Generic class` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Generic class`.
+**Valid use cases:**
+- `Collections.max(Collection<? extends T>)` — works for any comparable element type.
+- `Arrays.asList(T... a)` — converts varargs to a typed list.
+- Utility/helper methods that should be reusable across types.
 
-Tiny example or mental model:
+**Failure mode:**
+```java
+// Missing <T> — compiler falls back to raw types
+public static Object broken(Object obj) { return obj; }  // no generic safety
+```
+Without the type-parameter declaration, the compiler cannot enforce type consistency between parameters and return type.
 
-- When reading code, ask: what does `Generic class` change, allow, reject, or clarify?
+---
 
-### Generic method
+## 3. Generic Interface
 
-Generic method is a specific concept in Generics; learn its Java rule, valid use cases, and failure mode rather than only its name.
+**Definition:** An interface that declares type parameters, forcing implementations to work with a specific type.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+**Java rule:**
+```java
+interface Transformer<T, R> {
+    R transform(T input);
+}
 
-Practical check:
+class StringToInt implements Transformer<String, Integer> {
+    public Integer transform(String s) { return s.length(); }
+}
+```
+- Implementations must either supply concrete types (`Transformer<String, Integer>`) or remain generic (`class Proxy<T, R> implements Transformer<T, R>`).
 
-- Define `Generic method` in one sentence.
-- Recognize `Generic method` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Generic method`.
+**Key JDK examples:**
+- `Comparable<T>` — total ordering.
+- `Iterable<T>` — for-each support.
+- `Comparator<T>` — external ordering.
+- `Function<T, R>` — single-argument function.
 
-Tiny example or mental model:
+**Failure mode:**
+```java
+class Broken implements Comparable {   // raw Comparable – no type safety
+    public int compareTo(Object o) { ... }
+}
+// compareTo now accepts any Object; the compiler cannot catch:
+broken.compareTo(42);   // no compile error even for wrong type
+```
 
-- When reading code, ask: what does `Generic method` change, allow, reject, or clarify?
+---
 
-### Generic interface
+## 4. Type Parameter Conventions
 
-Generic interface is a specific concept in Generics; learn its Java rule, valid use cases, and failure mode rather than only its name.
+**Definition:** A placeholder name declared in `<>` that represents an unknown type within a generic declaration.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+**Standard single-letter conventions:**
+| Letter | Meaning |
+|--------|---------|
+| `T` | Type (general) |
+| `E` | Element (collections) |
+| `K` | Key (maps) |
+| `V` | Value (maps) |
+| `N` | Number |
+| `R` | Return type (functions) |
+| `S`, `U` | Second, third type (multiple params) |
 
-Practical check:
+**Scope:** The parameter is only visible inside the generic class/method/interface where it is declared.
 
-- Define `Generic interface` in one sentence.
-- Recognize `Generic interface` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Generic interface`.
+**Practical note:** Names like `T1`, `T2` or descriptive names (`Source`, `Destination`) are allowed but the single-letter convention dominates JDK APIs and is expected in code reviews.
 
-Tiny example or mental model:
+---
 
-- When reading code, ask: what does `Generic interface` change, allow, reject, or clarify?
+## 5. Multiple Type Parameters
 
-### Type parameter
+**Syntax:**
+```java
+class Pair<K, V> {
+    private final K key;
+    private final V value;
+    public Pair(K key, V value) { this.key = key; this.value = value; }
+    public K getKey()   { return key; }
+    public V getValue() { return value; }
+}
+```
 
-Type parameter is a specific concept in Generics; learn its Java rule, valid use cases, and failure mode rather than only its name.
+**Use cases:**
+- `Map<K, V>` — maps key type to value type.
+- `BiFunction<T, U, R>` — function with two input types and one return type.
+- `Either<L, R>` (common in functional libraries) — holds one of two alternatives.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+**Rule:** All type parameters must be distinct identifiers separated by commas. The order matters only in how the class uses them internally.
 
-Practical check:
+---
 
-- Define `Type parameter` in one sentence.
-- Recognize `Type parameter` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Type parameter`.
+## 6. Bounded Type Parameter: `<T extends Bound>`
 
-Tiny example or mental model:
+**Definition:** Restricts the set of valid type arguments to a type `T` that is a subtype of `Bound`.
 
-- When reading code, ask: what does `Type parameter` change, allow, reject, or clarify?
+**Syntax:**
+```java
+// Upper bound – single class or interface
+<T extends Number>
 
-### Multiple type parameters
+// Multiple bounds – class must come first, then interfaces
+<T extends Number & Comparable<T> & Serializable>
+```
 
-Multiple type parameters is a specific concept in Generics; learn its Java rule, valid use cases, and failure mode rather than only its name.
+**Why upper bounds matter:**
+Inside the class/method you can **call methods of the bound** on `T`:
+```java
+public static <T extends Number> double sum(List<T> list) {
+    double total = 0;
+    for (T n : list) total += n.doubleValue(); // doubleValue() defined on Number
+    return total;
+}
+```
+Without the bound, `n.doubleValue()` would be a compile error — `T` would be treated as `Object`.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+**Failure mode:**
+```java
+sum(List.of("a", "b"));    // compile error: String does not extend Number
+new NumericBox<String>();   // compile error
+```
 
-Practical check:
+**Wildcard vs. bounded parameter:**
+- `<T extends Number>` declares a new named type variable — use in methods when you need to reference `T` multiple times.
+- `<? extends Number>` is an anonymous wildcard — use in method parameters when you only need to read.
 
-- Define `Multiple type parameters` in one sentence.
-- Recognize `Multiple type parameters` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Multiple type parameters`.
+## Reference Links
 
-Tiny example or mental model:
-
-- When reading code, ask: what does `Multiple type parameters` change, allow, reject, or clarify?
-
-### Bounded type parameter:
-
-Bounded type parameter is a group of related rules in Generics that groups several related details.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Bounded type parameter:` in one sentence.
-- Recognize `Bounded type parameter:` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Bounded type parameter:`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Bounded type parameter:` change, allow, reject, or clarify?
-
-### <T extends Number>
-
-<T extends Number> is a specific concept in Generics; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `<T extends Number>` in one sentence.
-- Recognize `<T extends Number>` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `<T extends Number>`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `<T extends Number>` change, allow, reject, or clarify?
-
-### Wildcard:
-
-A wildcard is a generic type placeholder such as ?, ? extends T, or ? super T.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Wildcard:` in one sentence.
-- Recognize `Wildcard:` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Wildcard:`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Wildcard:` change, allow, reject, or clarify?
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
+- https://docs.oracle.com/javase/tutorial/java/generics/types.html
+- https://docs.oracle.com/javase/tutorial/java/generics/methods.html
+- https://docs.oracle.com/javase/tutorial/java/generics/bounded.html
+- https://docs.oracle.com/javase/tutorial/java/generics/restrictions.html

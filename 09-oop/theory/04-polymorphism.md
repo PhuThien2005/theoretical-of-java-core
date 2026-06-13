@@ -12,6 +12,26 @@ Method Overloading occurs when a class contains multiple methods with the same n
 - Methods must differ in their parameters: **number**, **type**, or **order**.
 - Return types, access modifiers, or throws clauses **alone** are not part of the method signature and cannot be used to overload a method.
 
+### Code Example: Overloading
+```java
+class Calculator {
+    // Overload 1: two int parameters
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    // Overload 2: three int parameters
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Overload 3: double parameters
+    double add(double a, double b) {
+        return a + b;
+    }
+}
+```
+
 ### Automatic Type Promotion
 When overloading methods, if the exact parameter types are not passed, Java matches the method using **automatic type promotion**:
 - `byte` $\rightarrow$ `short` $\rightarrow$ `int` $\rightarrow$ `long` $\rightarrow$ `float` $\rightarrow$ `double`
@@ -30,6 +50,44 @@ class Demo {
 ## Method Overriding and Dynamic Method Dispatch (Runtime Polymorphism)
 
 Runtime Polymorphism is the process where a call to an overridden method is resolved at runtime (**late binding**).
+
+### Polymorphism via Reference Type
+Polymorphism allows declaring a reference variable of a parent class or interface type, and pointing it to an instance of any subclass. This decouples the program from concrete implementations.
+
+```java
+class Printer {
+    void printDocument() { System.out.println("Printing generic document..."); }
+}
+
+class LaserPrinter extends Printer {
+    @Override
+    void printDocument() { System.out.println("Printing high-quality laser document..."); }
+}
+
+class InkjetPrinter extends Printer {
+    @Override
+    void printDocument() { System.out.println("Printing standard inkjet document..."); }
+}
+```
+
+By referencing them through the supertype `Printer`, we can write modular methods that process any kind of printer:
+
+```java
+public class Office {
+    // This method accepts any subclass of Printer
+    static void runJob(Printer p) {
+        p.printDocument(); // Polymorphic call: behavior depends on actual object in heap
+    }
+
+    public static void main(String[] args) {
+        Printer p1 = new LaserPrinter();  // Polymorphism via reference type
+        Printer p2 = new InkjetPrinter(); // Polymorphism via reference type
+
+        runJob(p1); // Prints "Printing high-quality laser document..."
+        runJob(p2); // Prints "Printing standard inkjet document..."
+    }
+}
+```
 
 ### Dynamic Method Dispatch
 When an overridden method is invoked through a superclass reference, Java determines which method implementation to execute based on the **actual object type in the Heap**, not the reference type in the Stack.
@@ -142,6 +200,37 @@ animal.speak();
 - Creating a hierarchy only to share two helper methods.
 - Downcasting frequently because the parent type lacks the behavior you need.
 - Using inheritance where composition would isolate change better.
+
+---
+
+## Common Mistakes
+
+### 1. Calling Subclass-Specific Methods on Parent Reference Type
+A parent reference type only exposes methods declared in that parent class or interface. Even if the reference points to a subclass instance containing subclass-specific methods, calling them directly causes a compile-time error.
+```java
+class Animal {}
+class Dog extends Animal {
+    void bark() {}
+}
+
+Animal a = new Dog();
+// a.bark(); // Compile Error: bark() is not defined in Animal class
+((Dog) a).bark(); // Correct: Downcast required
+```
+
+### 2. ClassCastException with Unrelated Class Instances
+Casting a parent reference pointing to a `Cat` instance into a `Dog` compiles, but throws a `ClassCastException` at runtime since the actual heap object is not a `Dog`.
+```java
+Animal a = new Cat();
+Dog d = (Dog) a; // Runtime ClassCastException: Cat cannot be cast to Dog
+```
+
+### 3. Attempting to Cast Inconvertible Types
+The compiler blocks casts between classes that share no inheritance relationship, leading to an "inconvertible types" error.
+```java
+Dog d = new Dog();
+// String s = (String) d; // Compile Error: inconvertible types
+```
 
 ### Reference Links
 

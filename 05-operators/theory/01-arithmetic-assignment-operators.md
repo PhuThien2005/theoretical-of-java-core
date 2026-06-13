@@ -120,3 +120,57 @@ When arithmetic has learning traps, ask four questions:
 2. Does Java promote the operands?
 3. What result type does the expression produce?
 4. Is the result assigned to a variable that changes the value further?
+
+---
+
+## Common Mistakes
+
+### Mistake 1 — Integer Division Truncation
+
+```java
+// Beginner assumption: x will be 2.5
+double x = 10 / 4;
+System.out.println(x); // 2.0  ← truncated BEFORE assignment
+
+// Fix: force floating-point division
+double y = 10 / 4.0;   // 2.5
+double z = (double) 10 / 4; // 2.5
+```
+
+The key rule: **the result type of an expression is decided by the operands, not by the receiving variable.**
+
+### Mistake 2 — Remainder `%` With Negative Operands
+
+```java
+System.out.println( 7 % 3);  //  1
+System.out.println(-7 % 3);  // -1  ← sign follows the DIVIDEND (left side)
+System.out.println( 7 % -3); //  1  ← sign still follows the DIVIDEND
+System.out.println(-7 % -3); // -1
+```
+
+Java's rule: the sign of the result equals the sign of the **left operand**. This differs from mathematical modulo where the result is always non-negative.
+
+### Mistake 3 — String Concatenation Chain
+
+```java
+// All three lines look similar — outputs are very different
+System.out.println(1 + 2 + " items");   // "3 items"  (ints add first, left-to-right)
+System.out.println("items: " + 1 + 2);  // "items: 12" (String comes first, then concat)
+System.out.println("items: " + (1 + 2)); // "items: 3" (parens force int addition first)
+```
+
+Once a `String` appears as the **left** operand of `+`, every subsequent `+` in the same chain treats its right operand as text too.
+
+### Mistake 4 — Compound Assignment Hidden Cast
+
+```java
+byte b = 100;
+b *= 2;         // compiles — implicit cast back to byte
+                // result wraps around: 200 as byte is -56 (overflow!)
+System.out.println(b); // -56
+
+// Compare:
+// b = (byte)(b * 2); // explicit; same result but intention is clear
+```
+
+The implicit cast silently allows overflow. For `byte`/`short` arithmetic, verify the result stays within range.

@@ -23,163 +23,204 @@ This file covers a focused slice of **Object class**. Study each concept as a pr
 
 ### toString()
 
-toString() returns a human-readable text representation of an object.
+`toString()` returns a human-readable text representation of an object. By default, `Object.toString()` returns the class name, followed by an `@` character, and the unsigned hexadecimal representation of the hash code of the object:
+```java
+public String toString() {
+    return getClass().getName() + "@" + Integer.toHexString(hashCode());
+}
+```
+It is best practice to override `toString()` to return a concise, informative representation of the object's state, which is extremely helpful for logging and debugging.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+#### Example: Overriding `toString()`
+```java
+public class User {
+    private final int id;
+    private final String username;
 
-Practical check:
+    public User(int id, String username) {
+        this.id = id;
+        this.username = username;
+    }
 
-- Define `toString()` in one sentence.
-- Recognize `toString()` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `toString()`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `toString()` change, allow, reject, or clarify?
+    @Override
+    public String toString() {
+        return "User{id=" + id + ", username='" + username + "'}";
+    }
+}
+```
 
 ### equals()
 
-equals() defines logical equality between objects.
+`equals()` defines logical equality between objects. By default, the `Object.equals(Object obj)` implementation checks reference equality (`this == obj`). If you want to compare objects based on their state (logical equality), you must override `equals()`.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `equals()` in one sentence.
-- Recognize `equals()` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `equals()`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `equals()` change, allow, reject, or clarify?
+#### Example: Overriding `equals()`
+```java
+@Override
+public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (obj == null || getClass() != obj.getClass()) return false;
+    User user = (User) obj;
+    return id == user.id && Objects.equals(username, user.username);
+}
+```
 
 ### hashCode()
 
-hashCode() returns an integer hash used by hash-based collections.
+`hashCode()` returns an integer hash value for the object, used by hash-based collections like `HashMap`, `HashSet`, and `Hashtable` to determine the bucket location for storing and retrieving keys.
 
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
-
-Practical check:
-
-- Define `hashCode()` in one sentence.
-- Recognize `hashCode()` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `hashCode()`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `hashCode()` change, allow, reject, or clarify?
+#### Example: Overriding `hashCode()`
+```java
+@Override
+public int hashCode() {
+    return Objects.hash(id, username);
+}
+```
 
 ### getClass()
 
-getClass() returns the runtime Class object for an instance.
+`getClass()` is a final method in the `Object` class that returns the runtime `java.lang.Class` object representing the class of the instance.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+#### `getClass()` vs `instanceof`
+- `instanceof` evaluates to `true` if the object is of the specified type or any of its subtypes. It allows polymorphic checks.
+- `getClass()` allows an exact type match. For example, `obj.getClass() == User.class` checks if the object is exactly a `User` (and not a subclass).
 
-Practical check:
+```java
+class AdminUser extends User {
+    public AdminUser(int id, String username) { super(id, username); }
+}
 
-- Define `getClass()` in one sentence.
-- Recognize `getClass()` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `getClass()`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `getClass()` change, allow, reject, or clarify?
+User user = new AdminUser(1, "admin");
+boolean isInstance = user instanceof User; // true (polymorphic)
+boolean isExact = user.getClass() == User.class; // false (runtime class is AdminUser)
+```
 
 ### clone()
 
-clone() creates a field-by-field copy when cloning is supported, but it is often avoided in modern Java design.
+`clone()` creates and returns a field-by-field copy of the object. 
+- The class must implement the `java.lang.Cloneable` marker interface, otherwise `super.clone()` throws a `CloneNotSupportedException` at runtime.
+- By default, `Object.clone()` performs a **shallow copy**. It copies all primitive fields and references of object fields. It does not clone referenced objects.
+- A **deep copy** requires manually cloning mutable objects referenced by the fields.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+#### Example: Shallow vs Deep Cloning
+```java
+class Address implements Cloneable {
+    String city;
+    public Address(String city) { this.city = city; }
+    
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+}
 
-Practical check:
+class Person implements Cloneable {
+    String name;
+    Address address;
 
-- Define `clone()` in one sentence.
-- Recognize `clone()` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `clone()`.
+    public Person(String name, Address address) {
+        this.name = name;
+        this.address = address;
+    }
 
-Tiny example or mental model:
+    // Shallow Copy: Shares the same Address object
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 
-- When reading code, ask: what does `clone()` change, allow, reject, or clarify?
+    // Deep Copy: Clones the Address object as well
+    public Person deepClone() throws CloneNotSupportedException {
+        Person cloned = (Person) super.clone();
+        cloned.address = (Address) this.address.clone();
+        return cloned;
+    }
+}
+```
 
 ### finalize() deprecated
 
-Final means the variable, method, class, or parameter is restricted from later change in a specific way.
+Historically, `finalize()` was invoked by the garbage collector on an object when GC determined that there were no more references to the object. It was intended for cleaning up non-Java resources (like file handles or database connections) before the object got reclaimed.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+**Why it is deprecated (since Java 9):**
+1. **No Guarantees**: There is no guarantee when (or even if) `finalize()` will run, which can lead to resource leaks.
+2. **Performance Impact**: Overriding `finalize()` slows down garbage collection because objects must be queued and processed in a finalization queue.
+3. **Resurrection & Finalizer Attacks**: An object can "resurrect" itself inside `finalize()` by assigning `this` to a static reference. Also, if a constructor throws an exception, the partially initialized object is still eligible for finalization, allowing malicious code to run `finalize()` and access its uninitialized state.
+4. **Modern Alternatives**: Use the `AutoCloseable` interface with `try-with-resources`, or use `java.lang.ref.Cleaner` / `PhantomReference` for cleanup actions.
 
-Practical check:
+### wait(), notify(), and notifyAll()
 
-- Define `finalize() deprecated` in one sentence.
-- Recognize `finalize() deprecated` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `finalize() deprecated`.
+These methods are final methods of the `Object` class used for thread synchronization. They allow threads to coordinate activities on a shared resource monitor (lock).
 
-Tiny example or mental model:
+- `wait()`: Releases the lock on the object's monitor and causes the current thread to wait until another thread notifies it or it is interrupted.
+- `notify()`: Wakes up a single thread waiting on the object's monitor.
+- `notifyAll()`: Wakes up all threads waiting on the object's monitor.
 
-- `final int limit = 10;` cannot be reassigned.
+#### Rules:
+1. Must be called from a **synchronized** context (owning the object's monitor), otherwise they throw `IllegalMonitorStateException`.
+2. `wait()` should always be called in a loop that checks the condition being waited on, to protect against **spurious wakeups**.
 
-### wait()
+```java
+public class QueueMonitor {
+    private final Queue<String> queue = new LinkedList<>();
+    private final int MAX_SIZE = 10;
 
-wait() releases an object monitor and pauses the current thread until notification or timeout.
+    public synchronized void enqueue(String item) throws InterruptedException {
+        while (queue.size() == MAX_SIZE) { // Always wait in a loop
+            wait();
+        }
+        queue.add(item);
+        notifyAll(); // Wake up consumers
+    }
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `wait()` in one sentence.
-- Recognize `wait()` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `wait()`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `wait()` change, allow, reject, or clarify?
-
-### notify()
-
-notify() wakes one thread waiting on the same object monitor.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `notify()` in one sentence.
-- Recognize `notify()` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `notify()`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `notify()` change, allow, reject, or clarify?
-
-### notifyAll()
-
-notifyAll() wakes all threads waiting on the same object monitor.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `notifyAll()` in one sentence.
-- Recognize `notifyAll()` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `notifyAll()`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `notifyAll()` change, allow, reject, or clarify?
+    public synchronized String dequeue() throws InterruptedException {
+        while (queue.isEmpty()) { // Always wait in a loop
+            wait();
+        }
+        String item = queue.poll();
+        notifyAll(); // Wake up producers
+        return item;
+    }
+}
+```
 
 ### Why overriding equals() means you should also override hashCode()
 
-equals() defines logical equality between objects.
+This is one of the most critical contracts in Java. If you override `equals(Object)`, you **must** override `hashCode()`.
+- If two objects are equal according to `equals(Object)`, they must return the same integer from `hashCode()`.
+- If you override `equals()` but not `hashCode()`, two logically equal objects will inherit the default `Object.hashCode()`, which returns different integers (based on memory location).
+- When these objects are used as keys in a `HashMap` or elements in a `HashSet`, the collection will store them in different buckets. Consequently, retrieving an object using an equal key will return `null` because `HashMap` looks in the wrong bucket.
 
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
+---
 
-Practical check:
+## Common Mistakes
 
-- Define `Why overriding equals() means you should also override hashCode()` in one sentence.
-- Recognize `Why overriding equals() means you should also override hashCode()` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Why overriding equals() means you should also override hashCode()`.
+### 1. Overloading instead of Overriding `equals()`
+A common mistake is declaring `equals(MyClass other)` instead of `equals(Object other)`. Because Java matches method signatures statically at compile time, calls from framework code or collection APIs (which expect `equals(Object)`) will bypass your custom method and run the default `Object.equals(Object)`.
+```java
+// WRONG: Overloads equals()
+public boolean equals(User other) {
+    return this.id == other.id;
+}
 
-Tiny example or mental model:
+// CORRECT: Overrides equals()
+@Override
+public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (obj instanceof User other) {
+        return this.id == other.id;
+    }
+    return false;
+}
+```
 
-- When reading code, ask: what does `Why overriding equals() means you should also override hashCode()` change, allow, reject, or clarify?
+### 2. Modifying state inside `equals()`, `hashCode()`, or `toString()`
+These methods should be side-effect-free (pure functions). Modifying instance variables inside them leads to unpredictable bugs.
+
+### 3. Calling monitor methods outside synchronized blocks
+Calling `wait()`, `notify()`, or `notifyAll()` without holding the object monitor (e.g. outside a `synchronized` block/method matching the object) throws `IllegalMonitorStateException`.
+
+### 4. Relying on `finalize()` for resource cleanup
+Because GC execution is non-deterministic, using `finalize()` to close files or sockets leads to resource exhaustion. Use `try-with-resources` instead.
 
 ## Common Review Prompts
 

@@ -105,3 +105,89 @@ public static void main(String... args) {
 - Returning `int` instead of `void`.
 - Forgetting the `String[] args` parameter.
 - Trying to run a class that has no valid `main` method.
+
+### Common Mistake: Wrong Method Name
+
+```java
+// Compiles but JVM cannot find entry point — runtime error:
+// "Main method not found in class HelloWorld"
+public class HelloWorld {
+    public static void Main(String[] args) {  // 'M' should be 'm'
+        System.out.println("Hello");
+    }
+}
+```
+
+### Common Mistake: Missing `static`
+
+```java
+// Compiles but runtime error:
+// "Main method is not static in class HelloWorld"
+public class HelloWorld {
+    public void main(String[] args) {  // missing 'static'
+        System.out.println("Hello");
+    }
+}
+```
+
+### Common Mistake: Wrong Return Type
+
+```java
+// Compiles but runtime error:
+// "Main method must return a value of type void in class HelloWorld"
+public class HelloWorld {
+    public static int main(String[] args) {  // 'void' required, not 'int'
+        System.out.println("Hello");
+        return 0;
+    }
+}
+```
+
+### Common Mistake: Accessing `args[0]` Without Checking Length
+
+```java
+// Throws ArrayIndexOutOfBoundsException when run without arguments
+public class RiskyArgs {
+    public static void main(String[] args) {
+        System.out.println(args[0]);  // danger if args is empty
+    }
+}
+```
+
+Safe version:
+
+```java
+public class SafeArgs {
+    public static void main(String[] args) {
+        if (args.length > 0) {
+            System.out.println(args[0]);
+        } else {
+            System.out.println("No argument provided.");
+        }
+    }
+}
+```
+
+## Case Study: Verifying a Valid Entry Point
+
+```java
+// All four requirements met: public, static, void, String[] args
+public class EntryPointDemo {
+    public static void main(String[] args) {
+        System.out.println("Number of arguments: " + args.length);
+        for (int i = 0; i < args.length; i++) {
+            System.out.println("args[" + i + "] = " + args[i]);
+        }
+    }
+}
+```
+
+Run as:
+
+```bash
+java EntryPointDemo Alice Bob
+# Output:
+# Number of arguments: 2
+# args[0] = Alice
+# args[1] = Bob
+```

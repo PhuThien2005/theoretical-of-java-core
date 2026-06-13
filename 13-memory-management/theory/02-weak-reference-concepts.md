@@ -21,131 +21,238 @@ This file covers a focused slice of **Java Memory Management**. Study each conce
 
 ### Weak reference
 
-Weak reference is a specific concept in Java Memory Management; learn its Java rule, valid use cases, and failure mode rather than only its name.
+A **Weak Reference** (represented by `java.lang.ref.WeakReference`) does not prevent its referent from being reclaimed by the Garbage Collector.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+#### JVM Rule
+- If an object is only reachable via weak references (no strong or soft reference paths from GC Roots), the GC will clear it during the next collection cycle, regardless of whether heap memory is low.
+- Commonly used for metadata mappings, canonicalizing mappings, or caches (such as in `java.util.WeakHashMap`).
 
-Practical check:
+#### Code Example: WeakReference Behavior
+```java
+import java.lang.ref.WeakReference;
 
-- Define `Weak reference` in one sentence.
-- Recognize `Weak reference` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Weak reference`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Weak reference` change, allow, reject, or clarify?
+public class WeakRefDemo {
+    public static void main(String[] args) {
+        // Strong reference 'bigObject' points to a large String on the heap
+        String bigObject = new String("PayloadData");
+        
+        // Weak reference pointing to the same heap object
+        WeakReference<String> weakRef = new WeakReference<>(bigObject);
+        
+        System.out.println("Before GC: " + weakRef.get()); // Prints "PayloadData"
+        
+        // Sever the strong reference
+        bigObject = null; 
+        
+        // Request GC (strictly for demonstration, do not do this in production)
+        System.gc(); 
+        
+        // The object has been collected because it was only weakly reachable
+        System.out.println("After GC: " + weakRef.get()); // Prints null
+    }
+}
+```
 
 ### Soft reference
 
-Soft reference is a specific concept in Java Memory Management; learn its Java rule, valid use cases, and failure mode rather than only its name.
+A **Soft Reference** (represented by `java.lang.ref.SoftReference`) is a stronger reference type than a weak reference, designed for memory-sensitive caching.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+#### JVM Rule
+- An object that is softly reachable (has only soft references pointing to it) will survive standard Garbage Collection cycles.
+- The JVM will only reclaim softly-referenced objects if it is running out of memory (typically right before throwing an `OutOfMemoryError`).
+- JVM implementations attempt to clear softly-referenced objects that have been idle the longest.
 
-Practical check:
+#### Code Example: SoftReference Usage
+```java
+import java.lang.ref.SoftReference;
 
-- Define `Soft reference` in one sentence.
-- Recognize `Soft reference` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Soft reference`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Soft reference` change, allow, reject, or clarify?
+public class SoftRefDemo {
+    public static void main(String[] args) {
+        String data = new String("CachedValue");
+        SoftReference<String> softRef = new SoftReference<>(data);
+        
+        data = null; // Sever the strong reference
+        
+        System.gc(); // Suggest GC
+        
+        // Survives standard GC because memory is not low
+        System.out.println("Soft reference get: " + softRef.get()); // Prints "CachedValue"
+    }
+}
+```
 
 ### Phantom reference
 
-Phantom reference is a specific concept in Java Memory Management; learn its Java rule, valid use cases, and failure mode rather than only its name.
+A **Phantom Reference** (represented by `java.lang.ref.PhantomReference`) is the weakest reference type, used for post-mortem cleanup.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Phantom reference` in one sentence.
-- Recognize `Phantom reference` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Phantom reference`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Phantom reference` change, allow, reject, or clarify?
+#### JVM Rule
+- Unlike Weak and Soft references, calling `.get()` on a `PhantomReference` **always returns `null`**.
+- It must be created with a `ReferenceQueue`.
+- When the JVM determines an object is only phantom reachable, it queues the phantom reference. The developer can poll the queue to perform pre-cleanup actions (like freeing off-heap native memory).
+- Unlike finalized objects, memory is not automatically freed; the phantom reference must be cleared via `phantomRef.clear()` to allow complete reclamation.
 
 ### Garbage Collection
 
-Garbage collection reclaims memory from objects that are no longer reachable.
+Garbage Collection (GC) is the automatic memory management process in the JVM that reclaims heap memory occupied by objects that are no longer reachable by the application.
 
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
-
-Practical check:
-
-- Define `Garbage Collection` in one sentence.
-- Recognize `Garbage Collection` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Garbage Collection`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Garbage Collection` change, allow, reject, or clarify?
+#### JVM Rule
+- GC acts asynchronously in the background. It finds unreachable objects, frees their memory, and can compact the heap to prevent fragmentation.
+- The application halts or experiences pauses (Stop-The-World) depending on the GC algorithm (e.g., G1, ZGC, Parallel GC).
 
 ### Conditions for an object to be GC'd
 
-Conditions for an object to be GC'd is a specific concept in Java Memory Management; learn its Java rule, valid use cases, and failure mode rather than only its name.
+An object is eligible for garbage collection if it is no longer reachable from any **GC Root**.
 
-It matters because runtime behavior explains performance, memory errors, startup behavior, and many interview questions. A common confusion is mixing compile-time concepts with JVM runtime services.
+#### What is a GC Root?
+- Local variables and parameters in active thread stacks.
+- Static fields of loaded classes.
+- JNI (Java Native Interface) global and local references.
+- System class loaders and active JVM internal references.
 
-Practical check:
+#### Islands of Isolation
+- If Object A references Object B, and Object B references Object A, they point to each other.
+- If neither A nor B can be reached from any GC Root, they form an **island of isolation**.
+- The GC will reclaim both objects, even though they have non-null reference variables pointing to each other.
 
-- Define `Conditions for an object to be GC'd` in one sentence.
-- Recognize `Conditions for an object to be GC'd` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Conditions for an object to be GC'd`.
+#### Code Example: GC Eligibility & Circular Reference
+```java
+public class GCEligibilityDemo {
+    public static void main(String[] args) {
+        Node n1 = new Node("First");
+        Node n2 = new Node("Second");
+        
+        n1.next = n2;
+        n2.next = n1; // n1 and n2 reference each other (circular dependency)
+        
+        n1 = null; // "First" is still reachable via n2.next
+        // "First" is NOT eligible for GC yet.
+        
+        n2 = null; // "Second" is no longer reachable from main's stack.
+        // n1 and n2 are now isolated from the GC Roots.
+        // Both Node objects are now eligible for Garbage Collection.
+    }
+}
 
-Tiny example or mental model:
-
-- When reading code, ask: what does `Conditions for an object to be GC'd` change, allow, reject, or clarify?
+class Node {
+    String name;
+    Node next;
+    Node(String name) { this.name = name; }
+}
+```
 
 ### System.gc()
 
-System.gc() is a specific concept in Java Memory Management; learn its Java rule, valid use cases, and failure mode rather than only its name.
+Calling `System.gc()` or `Runtime.getRuntime().gc()` suggests that the JVM expend effort toward recycling unused objects.
 
-It matters because runtime behavior explains performance, memory errors, startup behavior, and many interview questions. A common confusion is mixing compile-time concepts with JVM runtime services.
-
-Practical check:
-
-- Define `System.gc()` in one sentence.
-- Recognize `System.gc()` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `System.gc()`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `System.gc()` change, allow, reject, or clarify?
+#### JVM Rule
+- This is merely a **hint** or request to the JVM. The JVM can choose to ignore the call completely (e.g., if configured with `-XX:+DisableExplicitGC`).
+- There is no guarantee that GC will run immediately, nor that all eligible objects will be reclaimed upon invocation.
+- Calling `System.gc()` is highly expensive and can freeze application threads during major collections.
 
 ### Finalization, finalize() deprecated
 
-Final means the variable, method, class, or parameter is restricted from later change in a specific way.
+The `finalize()` method was originally designed to perform cleanup before an object was reclaimed.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+#### JVM Rule
+- `finalize()` has been **deprecated since Java 9** and is deprecated/disabled in modern versions.
+- **Why it failed**: It introduced unpredictable execution timing, severe performance overhead, garbage collector stalling, and security vulnerabilities (finalize attacks where partially created objects could be resurrected).
+- **Modern Alternatives**:
+  - Implement `java.lang.AutoCloseable` and use the **try-with-resources** statement for deterministic cleanup of resources (files, sockets).
+  - Use `java.lang.ref.Cleaner` or phantom references for non-deterministic native resource cleanup.
 
-Practical check:
+#### Code Example: Modern try-with-resources Alternative
+```java
+public class ResourceDemo {
+    public static void main(String[] args) {
+        // Deterministic cleanup using try-with-resources
+        try (MyResource resource = new MyResource()) {
+            resource.doWork();
+        } // resource.close() is automatically called here, even if exceptions occur
+    }
+}
 
-- Define `Finalization, finalize() deprecated` in one sentence.
-- Recognize `Finalization, finalize() deprecated` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Finalization, finalize() deprecated`.
+class MyResource implements AutoCloseable {
+    public void doWork() {
+        System.out.println("Working...");
+    }
 
-Tiny example or mental model:
-
-- `final int limit = 10;` cannot be reassigned.
+    @Override
+    public void close() {
+        System.out.println("Resource closed and cleaned up!");
+    }
+}
+```
 
 ### Memory leak in Java
 
-Memory leak in Java is a specific concept in Java Memory Management; learn its Java rule, valid use cases, and failure mode rather than only its name.
+A memory leak in Java occurs when the application retains strong references to objects that are no longer needed, preventing the Garbage Collector from reclaiming them.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+---
 
-Practical check:
+## Case Study: Memory leak in a cache — static HashMap that grows forever
 
-- Define `Memory leak in Java` in one sentence.
-- Recognize `Memory leak in Java` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Memory leak in Java`.
+### Scenario
+An application uses an in-memory cache to store user session data. To make it globally accessible, the cache is implemented as a `static HashMap`. However, when users log out or sessions expire, the keys are never removed from the map.
 
-Tiny example or mental model:
+```java
+import java.util.HashMap;
+import java.util.Map;
 
-- When reading code, ask: what does `Memory leak in Java` change, allow, reject, or clarify?
+public class SessionCacheLeak {
+    // A static variable lives as long as the class is loaded (typically the lifetime of the JVM).
+    // It serves as a permanent GC Root. Any object stored in this map remains strongly reachable.
+    private static final Map<String, UserSession> activeSessions = new HashMap<>();
+
+    public static void userLoggedIn(String userId, UserSession session) {
+        activeSessions.put(userId, session);
+    }
+
+    // Bug: Users log out, but we forget to call activeSessions.remove(userId).
+    public static void userLoggedOut(String userId) {
+        // Missing: activeSessions.remove(userId);
+    }
+}
+
+class UserSession {
+    private byte[] data = new byte[1024 * 1024]; // 1 MB session payload
+}
+```
+
+### The Consequence
+Because `activeSessions` is a static field, it is a GC Root. Every `UserSession` added remains strongly reachable forever, even if the user has logged out. If the application handles thousands of logins daily, the heap will eventually fill up, causing a `java.lang.OutOfMemoryError: Java heap space`.
+
+### The Fixes
+1. **Explicit Removal**: Ensure the removal code is executed inside a `finally` block or clean-up listener:
+   ```java
+   public static void userLoggedOut(String userId) {
+       activeSessions.remove(userId);
+   }
+   ```
+2. **WeakHashMap**: Use `java.util.WeakHashMap` if the session lifetime is tied to external references to the keys. Once the key is no longer strongly referenced elsewhere, the map entry is cleared by GC.
+3. **Eviction Policies**: Use a bounded caching library like Guava Cache or Caffeine with time-based or size-based eviction limits.
+
+---
+
+## Common Mistakes
+
+### 1. Failing to check for null on WeakReference
+Developers often forget that the GC can clear a `WeakReference` at any moment. Calling `weakRef.get().someMethod()` without checking if `get()` returned `null` leads to a `NullPointerException`.
+**Correction**:
+```java
+Object value = weakRef.get();
+if (value != null) {
+    // Safe to use
+}
+```
+
+### 2. Creating WeakReference with String Literals
+If you pass a string literal to a `WeakReference` (e.g., `new WeakReference<>("literal")`), it will *never* be garbage collected. This is because string literals are stored in the String Constant Pool (which holds strong references to them).
+
+### 3. Relying on `finalize()` for Cleanup
+Assuming `finalize()` will run reliably or quickly is a major error. It may never execute if the JVM exits before GC runs. Always use `try-with-resources`.
+
+### 4. Thinking Islands of Isolation Cannot be GC'd
+Thinking that any cyclic dependency (like Object A referencing B, and B referencing A) prevents GC is a mistake. Reachability is traced from GC Roots; if the entire group is disconnected from GC Roots, the entire island is collected.
 
 ## Common Review Prompts
 

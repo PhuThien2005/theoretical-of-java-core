@@ -2,153 +2,158 @@
 
 ## Learning Goal
 
-This file covers a focused slice of **Synchronization and Concurrency**. Study each concept as a practical Java rule, not as isolated vocabulary.
+This file covers Java's intrinsic locking primitives, monitors, and the wait/notify signaling mechanism. Study each concept as a practical Java rule, not as isolated vocabulary.
 
 ## Outline Coverage
 
 | Concept | What to know |
 | --- | --- |
-| `synchronized method` | Synchronized protects a critical section by using a monitor lock. |
-| `synchronized block` | Synchronized protects a critical section by using a monitor lock. |
-| `Object lock` |Object lock is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Class lock` |Class lock is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Monitor` |Monitor is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `wait` |wait is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `notify` |notify is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `notifyAll` |notifyAll is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `synchronized method` | Locks the object instance (`this`) for instance methods, or the `Class` object for static methods, preventing other threads from executing any synchronized methods on that lock. |
+| `synchronized block` | Locks a specific object reference, allowing finer-grained locking compared to synchronized methods. |
+| `Object lock` | Intrinsic lock (monitor) associated with a specific object instance. Acquired via instance synchronized methods or synchronized blocks locking on that instance. |
+| `Class lock` | Intrinsic lock associated with a class's `java.lang.Class` object. Acquired via static synchronized methods or synchronized blocks locking on the class literal (e.g. `MyClass.class`). |
+| `Monitor` | The underlying synchronization mechanism (using bytecode instructions `monitorenter` and `monitorexit`) that controls mutual exclusion and wait-set signaling. |
+| `wait` | An inherited method on `java.lang.Object` that releases the monitor lock and places the calling thread in the object's wait set. |
+| `notify` | Wakes up a single arbitrary thread waiting in the object's monitor wait set. The awakened thread must re-acquire the lock before continuing. |
+| `notifyAll` | Wakes up all threads waiting in the object's monitor wait set. Recommended over `notify` to avoid lost signal bugs. |
 
 ## Detailed Notes
 
-### synchronized method
+### Synchronized Methods vs Synchronized Blocks
 
-Synchronized protects a critical section by using a monitor lock.
+#### Synchronized Method
+Acquires the lock associated with the receiver object (`this` for instance methods, class object for static methods).
+```java
+public class Counter {
+    private int count = 0;
 
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
+    // Locks 'this' Counter instance
+    public synchronized void increment() {
+        count++;
+    }
+}
+```
 
-Practical check:
+#### Synchronized Block
+Allows locking on a specific, private monitor object. This prevents external code from locking the same instance, reducing the risk of deadlock or accidental starvation.
+```java
+public class BetterCounter {
+    private int count = 0;
+    private final Object lock = new Object(); // Private lock object
 
-- Define `synchronized method` in one sentence.
-- Recognize `synchronized method` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `synchronized method`.
+    public void increment() {
+        synchronized (lock) { // Only locks the private monitor
+            count++;
+        }
+    }
+}
+```
 
-Tiny example or mental model:
+### Object Lock vs Class Lock
+* **Object Lock**: Guards instance fields. Two different threads can execute synchronized instance methods on *different* instances of the class concurrently.
+* **Class Lock**: Guards static fields. Only one thread can execute static synchronized methods in the entire JVM for that class, regardless of how many class instances exist.
 
-- When reading code, ask: what does `synchronized method` change, allow, reject, or clarify?
+```java
+class Demo {
+    // Class lock (locks Demo.class)
+    public static synchronized void staticMethod() {}
+    
+    // Object lock (locks 'this' Demo instance)
+    public synchronized void instanceMethod() {}
+}
+```
 
-### synchronized block
+### Wait and Notify Signaling Contract
+The methods `wait()`, `notify()`, and `notifyAll()` are used to coordinate state changes.
+* **Lock Ownership Requirement**: A thread **must** own the target object's monitor lock before calling these methods. Otherwise, an `IllegalMonitorStateException` is thrown at runtime.
+* **Loop Requirement for Wait**: Spurious wakeups (threads waking up without being notified) are allowed by the JVM/OS. Therefore, `wait()` must always be called inside a `while` loop that checks the condition.
 
-Synchronized protects a critical section by using a monitor lock.
+```java
+synchronized (lock) {
+    while (!condition) {
+        lock.wait(); // Releases lock, blocks thread
+    }
+    // Condition is true, perform work
+}
+```
 
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
+---
 
-Practical check:
+## Case Study: Bounded Blocking Queue
 
-- Define `synchronized block` in one sentence.
-- Recognize `synchronized block` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `synchronized block`.
+### Problem
+Implement a thread-safe bounded queue where a producer blocks if the queue is full, and a consumer blocks if the queue is empty.
 
-Tiny example or mental model:
+### Solution
+Use a private lock and `wait()` / `notifyAll()` signaling.
+```java
+import java.util.LinkedList;
+import java.util.Queue;
 
-- When reading code, ask: what does `synchronized block` change, allow, reject, or clarify?
+public class BoundedQueue<T> {
+    private final Queue<T> queue = new LinkedList<>();
+    private final int capacity;
+    private final Object lock = new Object();
 
-### Object lock
+    public BoundedQueue(int capacity) {
+        this.capacity = capacity;
+    }
 
-Object lock is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
+    public void put(T item) throws InterruptedException {
+        synchronized (lock) {
+            while (queue.size() == capacity) {
+                lock.wait(); // Wait for space to open up
+            }
+            queue.add(item);
+            lock.notifyAll(); // Wake up consumers waiting for data
+        }
+    }
 
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
+    public T take() throws InterruptedException {
+        synchronized (lock) {
+            while (queue.isEmpty()) {
+                lock.wait(); // Wait for data to arrive
+            }
+            T item = queue.poll();
+            lock.notifyAll(); // Wake up producers waiting for space
+            return item;
+        }
+    }
+}
+```
 
-Practical check:
+---
 
-- Define `Object lock` in one sentence.
-- Recognize `Object lock` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Object lock`.
+## Common Mistakes
 
-Tiny example or mental model:
+### 1. Swallowing Spurious Wakeups
+Using an `if` statement instead of a `while` loop when calling `wait()`.
+```java
+// BUG
+synchronized(lock) {
+    if (queue.isEmpty()) {
+        lock.wait(); // Might wake up spuriously and poll null!
+    }
+    return queue.poll();
+}
 
-- When reading code, ask: what does `Object lock` change, allow, reject, or clarify?
+// FIX: Always loop
+synchronized(lock) {
+    while (queue.isEmpty()) {
+        lock.wait();
+    }
+    return queue.poll();
+}
+```
 
-### Class lock
+### 2. Locking on Shared or Mutable Objects
+Locking on String literals, Boolean wrappers, or primitive wrappers is extremely dangerous.
+* String literals are pooled. If another unrelated library locks on the same string literal, it can freeze your application (causing deadlock).
+* Mutable locks (objects whose fields change) can cause threads to lock on different instances, bypassing the mutual exclusion check.
+* **Rule**: Always lock on `private final Object lock = new Object();`.
 
-Class lock is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
-
-Practical check:
-
-- Define `Class lock` in one sentence.
-- Recognize `Class lock` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Class lock`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Class lock` change, allow, reject, or clarify?
-
-### Monitor
-
-Monitor is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Monitor` in one sentence.
-- Recognize `Monitor` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Monitor`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Monitor` change, allow, reject, or clarify?
-
-### wait
-
-wait is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `wait` in one sentence.
-- Recognize `wait` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `wait`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `wait` change, allow, reject, or clarify?
-
-### notify
-
-notify is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `notify` in one sentence.
-- Recognize `notify` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `notify`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `notify` change, allow, reject, or clarify?
-
-### notifyAll
-
-notifyAll is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `notifyAll` in one sentence.
-- Recognize `notifyAll` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `notifyAll`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `notifyAll` change, allow, reject, or clarify?
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
+### 3. Calling `wait()` or `notify()` without holding the monitor lock
+```java
+Object lock = new Object();
+lock.notify(); // Throws IllegalMonitorStateException
+```

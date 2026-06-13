@@ -147,6 +147,19 @@ Tiny example or mental model:
 
 - When reading code, ask: what does `Xmx` change, allow, reject, or clarify?
 
+## Code Examples
+
+### JVM Tuning Flags Example
+```bash
+# Set initial heap to 1GB, max heap to 2GB, and target a 50ms GC pause time
+java -Xms1g -Xmx2g -XX:MaxGCPauseMillis=50 -jar app.jar
+```
+
+## Common Mistakes
+
+- **Mismatched -Xms and -Xmx**: If `-Xms` is smaller than `-Xmx`, the JVM will dynamically resize the heap. This resizing causes GC pauses and performance overhead. Setting them equal is best practice for production.
+- **Setting MaxGCPauseMillis too low**: Setting it to an unrealistic target (e.g. 5ms) can cause the GC to run continuously, starving application threads of CPU.
+
 ## Common Review Prompts
 
 - Which concepts here are compile-time rules?

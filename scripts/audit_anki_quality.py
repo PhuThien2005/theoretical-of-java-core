@@ -18,7 +18,23 @@ GENERIC_PHRASES = [
     "type safety, runtime behavior, memory, ordering, error handling, visibility, api design, or testability",
     "category of ideas",
     "specific part of",
+    "is a specific concept in",
+    "learn its java rule, valid use cases, and failure mode rather than only its name",
+    "use it to predict the exact java rule",
+    "review it with a tiny example instead of memorizing only the label",
+    "a common mistake is knowing the name but not knowing",
 ]
+
+# Patterns where an answer states a count/number but doesn't enumerate the items.
+# e.g. "Java has 8 primitive types." with no listing is a hollow answer.
+import re as _re
+HOLLOW_COUNT_PATTERN = _re.compile(
+    r'\bjava has \d+ [\w ]+(\.|$)',
+    _re.IGNORECASE,
+)
+# Short answers (< 8 words) on question cards that start with "how many" or "what are"
+HOLLOW_SHORT_THRESHOLD = 8
+HOLLOW_QUESTION_PREFIXES = ("how many", "what are", "list ", "name ", "which ")
 
 
 EXPECTED_COLUMNS = {
@@ -75,6 +91,16 @@ def audit_file(root: Path, path: Path) -> list[Finding]:
                 if phrase in text:
                     findings.append(Finding("warn", path, line_no, note_id, f"generic/template wording: {phrase}"))
                     break
+            # Detect hollow answers: answer states a count but doesn't list items
+            back = row.get("Back") or row.get("Text") or ""
+            front = (row.get("Front") or row.get("Question") or "").lower().strip()
+            if HOLLOW_COUNT_PATTERN.search(back) and len(back.split()) < 12:
+                findings.append(Finding("warn", path, line_no, note_id,
+                    "hollow count answer: states a number but does not list the items (e.g. 'Java has 8 primitive types' — list them)"))
+            elif any(front.startswith(p) for p in HOLLOW_QUESTION_PREFIXES):
+                if len(back.split()) < HOLLOW_SHORT_THRESHOLD:
+                    findings.append(Finding("warn", path, line_no, note_id,
+                        f"shallow answer for listing/count question: '{back[:80]}' — expand to include all items or a meaningful grouping"))
             source = row.get("Source", "")
             if source and not is_local_source_valid(root, source):
                 findings.append(Finding("warn", path, line_no, note_id, "local Source path does not exist"))

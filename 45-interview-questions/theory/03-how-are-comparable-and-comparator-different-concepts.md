@@ -2,153 +2,142 @@
 
 ## Learning Goal
 
-This file covers a focused slice of **Common Java Core Interview Questions**. Study each concept as a practical Java rule, not as isolated vocabulary.
+This file covers intermediate to advanced Java Core interview questions regarding object sorting, iterator semantics, multithreading synchronization, and Stream API execution logic.
 
 ## Outline Coverage
 
 | Concept | What to know |
 | --- | --- |
-| `How are Comparable and Comparator different?` | Comparable defines natural ordering inside the class being compared. |
-| `How are fail-fast and fail-safe iterators different?` | An Iterator traverses a collection while hiding its internal representation. |
-| `How are volatile and synchronized different?` | Volatile gives visibility guarantees for a variable shared between threads, but it does not make compound operations atomic. |
-| `What is deadlock?` | Deadlock happens when threads wait forever for locks held by each other. |
-| `How are Thread start() and run() different?` | A thread is a path of execution inside a process. |
-| `How are sleep() and wait() different?` |How are sleep() and wait() different? is a specific concept in Common Java Core Interview Questions; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `How are notify() and notifyAll() different?` |How are notify() and notifyAll() different? is a specific concept in Common Java Core Interview Questions; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Is Stream API lazy?` | A Stream is a pipeline for processing elements through lazy operations. |
+| `How are Comparable and Comparator different?` | `Comparable` defines a class's natural ordering via `compareTo()`; `Comparator` defines custom external ordering via `compare()`. |
+| `How are fail-fast and fail-safe iterators different?` | Fail-fast throws `ConcurrentModificationException` on mutation; fail-safe works on a clone/copy, avoiding exceptions. |
+| `How are volatile and synchronized different?` | `volatile` guarantees thread visibility and ordering; `synchronized` guarantees visibility, ordering, AND atomicity via lock execution. |
+| `What is deadlock?` | A state where two or more threads are blocked forever, each waiting for a lock held by the other. |
+| `How are Thread start() and run() different?` | `start()` spawns a new thread and executes its run logic asynchronously; `run()` executes synchronously in the caller's thread. |
+| `How are sleep() and wait() different?` | `sleep()` temporarily pauses thread execution without releasing locks; `wait()` releases locks, waiting to be notified by another thread. |
+| `How are notify() and notifyAll() different?` | `notify()` wakes up a single random waiting thread; `notifyAll()` wakes up all threads waiting on the object monitor. |
+| `Is Stream API lazy?` | Yes. Intermediate operations (like `filter`, `map`) are lazy and only execute when a terminal operation (like `collect`) is called. |
+
+---
 
 ## Detailed Notes
 
-### How are Comparable and Comparator different?
+### Comparable vs. Comparator
 
-Comparable defines natural ordering inside the class being compared.
+- **`Comparable`**:
+  - Located in `java.lang`.
+  - Used for **natural ordering** of elements (e.g. alphabetical for Strings, ascending for Integers).
+  - The class itself implements `Comparable<T>` and overrides `compareTo(T o)`.
+- **`Comparator`**:
+  - Located in `java.util`.
+  - Used for **custom/alternative ordering** (e.g. sorting strings by length or custom fields).
+  - Implemented in a separate class or as a lambda passed directly to `Collections.sort()` or `list.sort()`.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+```java
+// Comparable: Natural order (by ID)
+public class Person implements Comparable<Person> {
+    int id;
+    public int compareTo(Person other) { return Integer.compare(this.id, other.id); }
+}
 
-Practical check:
+// Comparator: Custom order (by Name)
+Comparator<Person> nameComparator = (p1, p2) -> p1.name.compareTo(p2.name);
+```
 
-- Define `How are Comparable and Comparator different?` in one sentence.
-- Recognize `How are Comparable and Comparator different?` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `How are Comparable and Comparator different?`.
+---
 
-Tiny example or mental model:
+### Fail-Fast vs. Fail-Safe (Non-Fail-Fast) Iterators
 
-- When reading code, ask: what does `How are Comparable and Comparator different?` change, allow, reject, or clarify?
+- **Fail-Fast Iterators**:
+  - Traversed directly over the collection's internal structure.
+  - Throw `ConcurrentModificationException` immediately if the collection is structurally modified (add/remove) during traversal by anything other than the iterator's own `remove()` method.
+  - Examples: `ArrayList` iterator, `HashMap` keyset iterator.
+- **Fail-Safe (Weakly Consistent) Iterators**:
+  - Traverse over a copy or clone of the collection, or handle concurrency via thread-safe internal structures.
+  - Do not throw exceptions on modification, but changes made during iteration might not be visible to the iterator.
+  - Examples: `CopyOnWriteArrayList` iterator, `ConcurrentHashMap` iterator.
 
-### How are fail-fast and fail-safe iterators different?
+---
 
-An Iterator traverses a collection while hiding its internal representation.
+### volatile vs. synchronized
 
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
+- **`volatile`**:
+  - Variable modifier.
+  - Guarantees **visibility** (reads/writes go directly to main memory, bypassing CPU caches) and prevents compiler instruction **reordering**.
+  - Does *not* guarantee **atomicity** (e.g. `count++` is not atomic and still needs sync).
+- **`synchronized`**:
+  - Method or block modifier.
+  - Guarantees **visibility**, **ordering**, and **atomicity** by obtaining a monitor lock. Only one thread can execute the block at a time.
 
-Practical check:
+---
 
-- Define `How are fail-fast and fail-safe iterators different?` in one sentence.
-- Recognize `How are fail-fast and fail-safe iterators different?` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `How are fail-fast and fail-safe iterators different?`.
+### What is Deadlock?
 
-Tiny example or mental model:
+Deadlock occurs when Thread 1 holds Lock A and waits for Lock B, while Thread 2 holds Lock B and waits for Lock A. Neither thread can proceed.
 
-- When reading code, ask: what does `How are fail-fast and fail-safe iterators different?` change, allow, reject, or clarify?
+- **To avoid deadlocks**:
+  1. Acquire locks in a strict global order.
+  2. Use timeout locks (e.g., `ReentrantLock.tryLock()`).
+  3. Keep synchronized blocks as small as possible.
 
-### How are volatile and synchronized different?
+---
 
-Volatile gives visibility guarantees for a variable shared between threads, but it does not make compound operations atomic.
+### Thread `start()` vs. `run()`
 
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
+- **`thread.start()`**:
+  - Allocates system resources, creates a new execution thread in the JVM, and schedules it to run.
+  - The JVM calls the thread's `run()` method asynchronously in the new thread context.
+- **`thread.run()`**:
+  - Just a regular method call. No new thread is spawned.
+  - Executes synchronously inside the *calling* thread's stack.
 
-Practical check:
+---
 
-- Define `How are volatile and synchronized different?` in one sentence.
-- Recognize `How are volatile and synchronized different?` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `How are volatile and synchronized different?`.
+### sleep() vs. wait()
 
-Tiny example or mental model:
+- **`Thread.sleep(millis)`**:
+  - Static method of `Thread` class.
+  - The thread pauses for a duration but **keeps any locks it currently holds**.
+  - Can be called anywhere.
+- **`object.wait()`**:
+  - Instance method of `java.lang.Object`.
+  - The thread yields execution and **releases the lock** on the object monitor, allowing other threads to enter.
+  - Must be called inside a synchronized block on that specific object.
 
-- When reading code, ask: what does `How are volatile and synchronized different?` change, allow, reject, or clarify?
+---
 
-### What is deadlock?
+### notify() vs. notifyAll()
 
-Deadlock happens when threads wait forever for locks held by each other.
+- **`notify()`**: Wakes up a single thread waiting on the object monitor. Which thread is woken up is non-deterministic (chosen by the JVM thread scheduler).
+- **`notifyAll()`**: Wakes up all threads waiting on the object monitor. They then compete for the lock; the winner proceeds, while others block. This is generally safer to avoid missed signals.
 
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
+---
 
-Practical check:
+### Is Stream API Lazy?
 
-- Define `What is deadlock?` in one sentence.
-- Recognize `What is deadlock?` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `What is deadlock?`.
+Yes, Java Stream API operations are divided into:
+1. **Intermediate Operations** (e.g. `filter()`, `map()`, `sorted()`): These return a new Stream but do not process any elements. They build an execution plan.
+2. **Terminal Operations** (e.g. `collect()`, `forEach()`, `reduce()`): These trigger the processing of the pipeline.
 
-Tiny example or mental model:
+- **Proof of Laziness**:
+```java
+Stream.of("A", "B", "C")
+      .filter(s -> {
+          System.out.println("Filter: " + s); // This will NOT print anything yet
+          return true;
+      }); 
+// No terminal operation was called, so no output is produced.
+```
 
-- When reading code, ask: what does `What is deadlock?` change, allow, reject, or clarify?
+---
 
-### How are Thread start() and run() different?
+## Common Mistakes & Traps
 
-A thread is a path of execution inside a process.
+### 1. `volatile` does not make `count++` thread-safe
+`count++` consists of three operations: read, modify, and write. `volatile` only ensures other threads see the latest write, but it doesn't prevent two threads from reading the same stale value concurrently. Use `AtomicInteger` or `synchronized`.
 
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
-
-Practical check:
-
-- Define `How are Thread start() and run() different?` in one sentence.
-- Recognize `How are Thread start() and run() different?` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `How are Thread start() and run() different?`.
-
-Tiny example or mental model:
-
-- `new Thread(task).start()` starts work on another thread.
-
-### How are sleep() and wait() different?
-
-How are sleep() and wait() different? is a specific concept in Common Java Core Interview Questions; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `How are sleep() and wait() different?` in one sentence.
-- Recognize `How are sleep() and wait() different?` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `How are sleep() and wait() different?`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `How are sleep() and wait() different?` change, allow, reject, or clarify?
-
-### How are notify() and notifyAll() different?
-
-How are notify() and notifyAll() different? is a specific concept in Common Java Core Interview Questions; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `How are notify() and notifyAll() different?` in one sentence.
-- Recognize `How are notify() and notifyAll() different?` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `How are notify() and notifyAll() different?`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `How are notify() and notifyAll() different?` change, allow, reject, or clarify?
-
-### Is Stream API lazy?
-
-A Stream is a pipeline for processing elements through lazy operations.
-
-It matters because modern Java APIs use function-style pipelines heavily. A common confusion is forgetting which operations are lazy and which operation actually triggers execution.
-
-Practical check:
-
-- Define `Is Stream API lazy?` in one sentence.
-- Recognize `Is Stream API lazy?` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Is Stream API lazy?`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Is Stream API lazy?` change, allow, reject, or clarify?
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
+### 2. Forgetting to synchronize before calling `wait()` or `notify()`
+Calling `wait()`, `notify()`, or `notifyAll()` without holding the monitor lock (outside a synchronized block) throws an `IllegalMonitorStateException` at runtime.
+```java
+Object lock = new Object();
+lock.wait(); // CRASH: Not inside synchronized(lock)!
+```

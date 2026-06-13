@@ -21,6 +21,23 @@ Starting from Java 9, the JVM implements **Compact Strings**:
 
 In Java, `String` objects are **immutable**. Once a string object is instantiated on the heap, its internal character byte sequence cannot be modified. Any operations that appear to change a string actually instantiate a new string.
 
+### Immutability Code Example
+
+Here is a concrete example demonstrating that operations on a `String` do not modify the original object:
+
+```java
+String original = "Java";
+String result = original.concat(" Core");
+
+System.out.println("Original String: " + original); // Output: Java (remains unchanged)
+System.out.println("Result String:   " + result);   // Output: Java Core (new String object)
+
+// Modifying the reference itself is just changing where the pointer points,
+// not mutating the underlying object in memory.
+String s = "Hello";
+s = s + " World"; // s now points to a new String object "Hello World"
+```
+
 ### Why is String Immutable?
 
 1. **Security & Class Loading:**
@@ -40,6 +57,27 @@ In Java, `String` objects are **immutable**. Once a string object is instantiate
 The **String Constant Pool** (String Pool) is a special memory region inside the Java Heap. It is implemented as a fixed-size internal hashtable (with buckets containing references to String objects).
 
 ### Literal Creation vs. `new` Keyword
+
+### String Pool Code Example
+
+This code demonstrates how literals share references in the pool while the `new` keyword bypasses it:
+
+```java
+// Literals are looked up in the pool. "Java" is created in the pool.
+String s1 = "Java"; 
+// "Java" already exists in the pool, so s2 points to the same object.
+String s2 = "Java"; 
+
+// Using 'new' forces creation of a new object on the heap.
+String s3 = new String("Java"); 
+
+System.out.println(s1 == s2); // true (same reference in the pool)
+System.out.println(s1 == s3); // false (s3 points to a heap object outside the pool)
+
+// Interning s3 returns the reference from the pool
+String s4 = s3.intern();
+System.out.println(s1 == s4); // true (both point to the pool reference)
+```
 
 1. **String Literal (`String s = "Hello";`):**
    - The compiler searches the String Pool for `"Hello"`.
@@ -118,3 +156,33 @@ System.out.println("apple".compareTo("banana")); // Returns negative (apple < ba
 System.out.println("banana".compareTo("apple")); // Returns positive (banana > apple)
 ```
 Use `.compareToIgnoreCase()` to perform a lexicographical comparison ignoring case differences.
+
+---
+
+## Common Mistakes
+
+### 1. Comparing String Content with `==`
+Using `==` compares object references (memory addresses), not content. This often works by chance when comparing literals because of the String Pool, but fails for strings constructed at runtime or via the `new` keyword.
+
+```java
+String s1 = "hello";
+String s2 = new String("hello");
+System.out.println(s1 == s2);      // false (Incorrect way to compare content)
+System.out.println(s1.equals(s2)); // true  (Correct way to compare content)
+```
+
+### 2. Ignoring String Immutability
+Assuming a string modification method changes the string in place.
+```java
+String s = "  Java  ";
+s.trim(); // The trimmed result is discarded!
+System.out.println("[" + s + "]"); // Output: [  Java  ]
+
+// Correct approach:
+s = s.trim();
+System.out.println("[" + s + "]"); // Output: [Java]
+```
+
+### 3. Unnecessary Use of `new String()`
+Writing `String s = new String("abc");` instead of `String s = "abc";`. The former creates an extra, redundant object on the heap. Unless explicitly required, always use string literals.
+```,StartLine:120,TargetContent:

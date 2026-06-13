@@ -2,187 +2,192 @@
 
 ## Learning Goal
 
-This file covers a focused slice of **Best Practices in Java**. Study each concept as a practical Java rule, not as isolated vocabulary.
+This file covers foundational Java **Best Practices** regarding naming, structural design, string concatenation efficiency, precision arithmetic, and safe exception/resource management. Study each concept as a practical Java rule.
 
 ## Outline Coverage
 
 | Concept | What to know |
 | --- | --- |
-| `Name variables, functions, and classes clearly` |Name variables, functions, and classes clearly is a specific concept in Best Practices in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Code according to convention` |Code according to convention is a specific concept in Best Practices in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Do not overuse static` | Static means the member belongs to the class rather than to one particular object. |
-| `Do not overuse inheritance` |Do not overuse inheritance is a specific concept in Best Practices in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Prefer composition over inheritance` |Prefer composition over inheritance is a specific concept in Best Practices in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Override equals/hashCode correctly` | equals() defines logical equality between objects. |
-| `Use StringBuilder when concatenating strings many times` |Use StringBuilder when concatenating strings many times is a specific concept in Best Practices in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Use BigDecimal for money` | BigDecimal represents decimal numbers precisely and is commonly used for money. |
-| `Use try-with-resources` | Try-with-resources automatically closes resources that implement AutoCloseable. |
-| `Do not catch overly broad Exception if unnecessary` | An exception represents an abnormal condition that a program may catch or propagate. |
+| `Name variables, functions, and classes clearly` | Rules for writing self-documenting code with descriptive names. |
+| `Code according to convention` | Adherence to standard camelCase, PascalCase, and UPPER_SNAKE_CASE styles. |
+| `Do not overuse static` | The tradeoff of overusing static states and methods (testability, concurrency issues). |
+| `Do not overuse inheritance` | Tight coupling risks associated with class inheritance (`extends`). |
+| `Prefer composition over inheritance` | The pattern of achieving behavior using object reference relationships rather than subclassing. |
+| `Override equals/hashCode correctly` | Maintaining the strict logical contract between `equals()` and `hashCode()`. |
+| `Use StringBuilder when concatenating strings many times` | Optimizing loop concatenation to avoid excessive string object creation. |
+| `Use BigDecimal for money` | Eliminating binary floating-point rounding errors in monetary math. |
+| `Use try-with-resources` | Automatic cleanup of resource streams implementing `AutoCloseable`. |
+| `Do not catch overly broad Exception if unnecessary` | Targeting catching of specific checked exceptions instead of catching generic `Exception`. |
+
+---
 
 ## Detailed Notes
 
 ### Name variables, functions, and classes clearly
 
-Name variables, functions, and classes clearly is a specific concept in Best Practices in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
+Choose descriptive, intention-revealing names to make code self-documenting. Avoid single-character names (except for index counters) and obscure abbreviations.
 
-It matters because modern Java APIs use function-style pipelines heavily. A common confusion is forgetting which operations are lazy and which operation actually triggers execution.
+- **Examples**:
+  ```java
+  // BAD:
+  int d = 86400; // Unclear unit and purpose
+  
+  // GOOD:
+  int secondsPerDay = 86400;
+  ```
 
-Practical check:
-
-- Define `Name variables, functions, and classes clearly` in one sentence.
-- Recognize `Name variables, functions, and classes clearly` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Name variables, functions, and classes clearly`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Name variables, functions, and classes clearly` change, allow, reject, or clarify?
+---
 
 ### Code according to convention
 
-Code according to convention is a specific concept in Best Practices in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
+Following conventions makes your codebase readable to other developers.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Conventions**:
+  - **Classes**: PascalCase (e.g., `OrderProcessor`)
+  - **Methods & Variables**: camelCase (e.g., `processOrder`, `customerId`)
+  - **Constants**: UPPER_SNAKE_CASE (e.g., `MAX_RETRY_COUNT`)
 
-Practical check:
-
-- Define `Code according to convention` in one sentence.
-- Recognize `Code according to convention` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Code according to convention`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Code according to convention` change, allow, reject, or clarify?
+---
 
 ### Do not overuse static
 
-Static means the member belongs to the class rather than to one particular object.
+`static` indicates that a member belongs to the class type rather than to class instances.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Tradeoffs**:
+  - **Testability**: Static methods are difficult to mock in unit tests, making isolation testing hard.
+  - **Thread-Safety**: Storing state in static variables (e.g., user request context) creates concurrent access problems in multi-threaded application servers.
+  - **Rule**: Limit `static` to pure utility functions (e.g., `Math.sqrt()`) and true constants.
 
-Practical check:
-
-- Define `Do not overuse static` in one sentence.
-- Recognize `Do not overuse static` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Do not overuse static`.
-
-Tiny example or mental model:
-
-- `ClassName.member` accesses a class-level member.
+---
 
 ### Do not overuse inheritance
 
-Do not overuse inheritance is a specific concept in Best Practices in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
+Inheritance (`extends`) creates a rigid, compile-time link between parent and child classes.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Risks (Fragile Base Class)**:
+  - If a parent class changes its implementation details, it can silently break subclass assumptions or introduce method collisions.
+  - Subclasses inherit *all* public/protected methods from parent classes, exposing APIs that might not make sense for the child class (violating encapsulation).
 
-Practical check:
-
-- Define `Do not overuse inheritance` in one sentence.
-- Recognize `Do not overuse inheritance` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Do not overuse inheritance`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Do not overuse inheritance` change, allow, reject, or clarify?
+---
 
 ### Prefer composition over inheritance
 
-Prefer composition over inheritance is a specific concept in Best Practices in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
+Instead of extending classes to reuse behavior, acquire behavior by holding a reference to an instance of that class (a "has-a" relationship instead of an "is-a" relationship).
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Runnable Example**:
+  ```java
+  // BAD: Inheritance couples SecureStack tightly to Stack
+  class SecureStack extends Stack<String> {
+      // inherits all Stack methods, exposing stack implementation details
+  }
 
-Practical check:
+  // GOOD: Composition wraps Stack, exposing only safe methods
+  class SecureStack {
+      private final Stack<String> stack = new Stack<>();
 
-- Define `Prefer composition over inheritance` in one sentence.
-- Recognize `Prefer composition over inheritance` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Prefer composition over inheritance`.
+      public void push(String item) {
+          // validate and delegate
+          stack.push(item);
+      }
+  }
+  ```
 
-Tiny example or mental model:
-
-- When reading code, ask: what does `Prefer composition over inheritance` change, allow, reject, or clarify?
+---
 
 ### Override equals/hashCode correctly
 
-equals() defines logical equality between objects.
+If you override `equals()`, you **must** override `hashCode()` to maintain the logical equality contract.
 
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
+- **The Contract**: If `a.equals(b)` is true, then `a.hashCode() == b.hashCode()` must also evaluate to true.
+- **Runnable Example**:
+  ```java
+  public class User {
+      private String email;
 
-Practical check:
+      @Override
+      public boolean equals(Object o) {
+          if (this == o) return true;
+          if (o == null || getClass() != o.getClass()) return false;
+          User user = (User) o;
+          return Objects.equals(email, user.email);
+      }
 
-- Define `Override equals/hashCode correctly` in one sentence.
-- Recognize `Override equals/hashCode correctly` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Override equals/hashCode correctly`.
+      @Override
+      public int hashCode() {
+          return Objects.hash(email); // Must match equals evaluation fields!
+      }
+  }
+  ```
+- **Pitfall**: Failing to override `hashCode()` means two distinct user objects with identical emails will return different hashes, causing duplicate records in `HashSet` or retrieval failures in `HashMap`.
 
-Tiny example or mental model:
-
-- When reading code, ask: what does `Override equals/hashCode correctly` change, allow, reject, or clarify?
+---
 
 ### Use StringBuilder when concatenating strings many times
 
-Use StringBuilder when concatenating strings many times is a specific concept in Best Practices in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
+Since `String` objects are immutable in Java, concatenating string objects inside a loop using the `+` operator generates a new String instance on every iteration, leading to $O(n^2)$ time complexity.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Runnable Example**:
+  ```java
+  // BAD: Creates 10,000 temporary String objects in heap
+  String result = "";
+  for (int i = 0; i < 10000; i++) {
+      result += i; 
+  }
 
-Practical check:
+  // GOOD: Single buffer modified in-place, O(n) execution
+  StringBuilder sb = new StringBuilder();
+  for (int i = 0; i < 10000; i++) {
+      sb.append(i);
+  }
+  String finalResult = sb.toString();
+  ```
 
-- Define `Use StringBuilder when concatenating strings many times` in one sentence.
-- Recognize `Use StringBuilder when concatenating strings many times` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Use StringBuilder when concatenating strings many times`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Use StringBuilder when concatenating strings many times` change, allow, reject, or clarify?
+---
 
 ### Use BigDecimal for money
 
-BigDecimal represents decimal numbers precisely and is commonly used for money.
+Binary floating-point types (`double` and `float`) cannot precisely represent fractions of base 10 (like 0.1), which introduces rounding errors. Always use `BigDecimal` for currency math.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Runnable Example**:
+  ```java
+  // BAD: prints 0.30000000000000004
+  System.out.println(0.1 + 0.2); 
 
-Practical check:
+  // GOOD: prints 0.3 exactly
+  BigDecimal val1 = new BigDecimal("0.1");
+  BigDecimal val2 = new BigDecimal("0.2");
+  System.out.println(val1.add(val2));
+  ```
 
-- Define `Use BigDecimal for money` in one sentence.
-- Recognize `Use BigDecimal for money` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Use BigDecimal for money`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Use BigDecimal for money` change, allow, reject, or clarify?
+---
 
 ### Use try-with-resources
 
-Try-with-resources automatically closes resources that implement AutoCloseable.
+Always close resource handles (streams, files, sockets, DB connections) that implement `AutoCloseable` using a try-with-resources statement to avoid system resource leaks.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Runnable Example**:
+  ```java
+  // Automatically calls reader.close() when leaving block, even if an exception occurs
+  try (BufferedReader reader = new BufferedReader(new FileReader("config.txt"))) {
+      System.out.println(reader.readLine());
+  } catch (IOException e) {
+      System.out.println("Error reading file");
+  }
+  ```
 
-Practical check:
-
-- Define `Use try-with-resources` in one sentence.
-- Recognize `Use try-with-resources` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Use try-with-resources`.
-
-Tiny example or mental model:
-
-- `try { ... } catch (IOException ex) { ... }` handles a specific failure path.
+---
 
 ### Do not catch overly broad Exception if unnecessary
 
-An exception represents an abnormal condition that a program may catch or propagate.
+Catching `Exception` or `Throwable` broadens exception handling to catch all subclasses, including unchecked runtime failures.
 
-It matters because exception behavior decides whether failures are handled locally, propagated, or allowed to stop the program. A common confusion is treating every exception the same instead of separating recoverable conditions from programming bugs.
-
-Practical check:
-
-- Define `Do not catch overly broad Exception if unnecessary` in one sentence.
-- Recognize `Do not catch overly broad Exception if unnecessary` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Do not catch overly broad Exception if unnecessary`.
-
-Tiny example or mental model:
-
-- `try { ... } catch (IOException ex) { ... }` handles a specific failure path.
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
+- **Pitfall**:
+  ```java
+  try {
+      readConfigFile();
+  } catch (Exception e) {
+      // BAD: This catches IOException, but also masks NullPointerException, 
+      // OutOfMemoryError, and other developer errors!
+  }
+  ```
+- **Rule**: Catch only the specific checked exceptions your method expects (e.g. `IOException`, `SQLException`). Let unexpected programming errors bubble up so they can be fixed.

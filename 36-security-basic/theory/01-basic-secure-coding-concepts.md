@@ -39,9 +39,9 @@ Tiny example or mental model:
 
 ### Hashing
 
-Hashing maps input data to a fixed-size digest and is one-way in normal use.
+Hashing maps input data of arbitrary size to a fixed-size bit string (digest). It is a one-way function, meaning it is computationally infeasible to invert.
 
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
+It matters because cryptographic hashes (like SHA-256) are used to verify data integrity, generate digital signatures, and safely store hashed representations of passwords.
 
 Practical check:
 
@@ -186,3 +186,63 @@ Tiny example or mental model:
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Code Examples
+
+### Hashing with MessageDigest (SHA-256)
+```java
+String password = "mySecurePassword123";
+MessageDigest digest = MessageDigest.getInstance("SHA-256");
+byte[] hashBytes = digest.digest(password.getBytes(StandardCharsets.UTF_8));
+
+// Convert bytes to hex representation
+StringBuilder hexString = new StringBuilder();
+for (byte b : hashBytes) {
+    String hex = Integer.toHexString(0xff & b);
+    if (hex.length() == 1) hexString.append('0');
+    hexString.append(hex);
+}
+System.out.println("SHA-256 Hash: " + hexString.toString());
+```
+
+### Base64 Encoding & Decoding
+```java
+String original = "Hello Security!";
+// Encode
+String encoded = Base64.getEncoder().encodeToString(original.getBytes(StandardCharsets.UTF_8));
+System.out.println("Encoded: " + encoded);
+
+// Decode
+byte[] decodedBytes = Base64.getDecoder().decode(encoded);
+String decoded = new String(decodedBytes, StandardCharsets.UTF_8);
+System.out.println("Decoded: " + decoded);
+```
+
+### Encryption & Decryption (AES)
+```java
+// Generate a symmetric key
+KeyGenerator keyGen = KeyGenerator.getInstance("AES");
+keyGen.init(256);
+SecretKey secretKey = keyGen.generateKey();
+
+// Encrypt
+Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+byte[] iv = new byte[16];
+new SecureRandom().nextBytes(iv); // Generate initialization vector
+IvParameterSpec ivSpec = new IvParameterSpec(iv);
+
+cipher.init(Cipher.ENCRYPT_MODE, secretKey, ivSpec);
+byte[] encrypted = cipher.doFinal("Secret Data".getBytes(StandardCharsets.UTF_8));
+
+// Decrypt
+cipher.init(Cipher.DECRYPT_MODE, secretKey, ivSpec);
+byte[] decryptedBytes = cipher.doFinal(encrypted);
+System.out.println("Decrypted: " + new String(decryptedBytes, StandardCharsets.UTF_8));
+```
+
+## Common Mistakes
+
+- **Using MD5 or SHA-1 for Security**: MD5 and SHA-1 have known collision vulnerabilities. Always use modern, strong algorithms like SHA-256, SHA-512, or specialized password hashing functions like bcrypt/Argon2.
+- **Confusing Base64 with Encryption**: Base64 is an encoding format used to represent binary data in ASCII text. It is NOT encryption and provides ZERO security or confidentiality.
+- **Using java.util.Random for Cryptographic Keys**: `java.util.Random` is a pseudorandom number generator (PRNG) that is predictable. For security-sensitive values (keys, IVs, salts, session IDs), always use `java.security.SecureRandom`.
+- **Storing Passwords in Plain Strings**: Strings are immutable and remain in the JVM memory pool until garbage collection. Sensitive data like passwords should be stored in `char[]` and zeroed out (`Arrays.fill(charArray, '0')`) immediately after use.

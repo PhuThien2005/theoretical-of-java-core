@@ -1,113 +1,1069 @@
 ID	Front	Back	Extra	Source	Tags
-collections_framework-extra-001	Explain `What is the Collection Framework?` deeply enough for review.	A collection is an object that groups multiple elements under a common API.	Meaning: A collection is an object that groups multiple elements under a common API. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: When reading code, ask: what does `What is the Collection Framework?` change, allow, reject, or clarify?	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-002	What confusion should you avoid with `What is the Collection Framework?`?	Do not treat `What is the Collection Framework?` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `What is the Collection Framework?` change, allow, reject, or clarify?	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-003	Explain `Iterable` deeply enough for review.	Iterable is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name.	Meaning:Iterable is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name. Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label. Example: When reading code, ask: what does `Iterable` change, allow, reject, or clarify?	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-004	What confusion should you avoid with `Iterable`?	Do not treat `Iterable` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Iterable` change, allow, reject, or clarify?	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-005	Explain `Collection` deeply enough for review.	A collection is an object that groups multiple elements under a common API.	Meaning: A collection is an object that groups multiple elements under a common API. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: When reading code, ask: what does `Collection` change, allow, reject, or clarify?	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-006	What confusion should you avoid with `Collection`?	Do not treat `Collection` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Collection` change, allow, reject, or clarify?	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-007	Explain `List` deeply enough for review.	A List is an ordered collection that can contain duplicates and supports positional access.	Meaning: A List is an ordered collection that can contain duplicates and supports positional access. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: `List<String> names = new ArrayList<>();` stores ordered elements.	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-008	What confusion should you avoid with `List`?	Do not treat `List` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. `List<String> names = new ArrayList<>();` stores ordered elements.	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-009	Explain `Set` deeply enough for review.	A Set is a collection that rejects duplicates according to equality rules.	Meaning: A Set is a collection that rejects duplicates according to equality rules. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: When reading code, ask: what does `Set` change, allow, reject, or clarify?	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-010	What confusion should you avoid with `Set`?	Do not treat `Set` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Set` change, allow, reject, or clarify?	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-011	Explain `Queue` deeply enough for review.	Queue is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name.	Meaning:Queue is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name. Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label. Example: When reading code, ask: what does `Queue` change, allow, reject, or clarify?	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-012	What confusion should you avoid with `Queue`?	Do not treat `Queue` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Queue` change, allow, reject, or clarify?	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-013	Explain `Deque` deeply enough for review.	Deque is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name.	Meaning:Deque is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name. Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label. Example: When reading code, ask: what does `Deque` change, allow, reject, or clarify?	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-014	What confusion should you avoid with `Deque`?	Do not treat `Deque` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Deque` change, allow, reject, or clarify?	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-015	Explain `Map` deeply enough for review.	A Map stores key-value pairs and retrieves values by key.	Meaning: A Map stores key-value pairs and retrieves values by key. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: `Map<String, Integer> scores = new HashMap<>();` maps keys to values.	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-016	What confusion should you avoid with `Map`?	Do not treat `Map` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. `Map<String, Integer> scores = new HashMap<>();` maps keys to values.	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-017	Explain `ArrayList` deeply enough for review.	A List is an ordered collection that can contain duplicates and supports positional access.	Meaning: A List is an ordered collection that can contain duplicates and supports positional access. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: `List<String> names = new ArrayList<>();` stores ordered elements.	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-018	What confusion should you avoid with `ArrayList`?	Do not treat `ArrayList` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. `List<String> names = new ArrayList<>();` stores ordered elements.	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-019	Explain `LinkedList` deeply enough for review.	A List is an ordered collection that can contain duplicates and supports positional access.	Meaning: A List is an ordered collection that can contain duplicates and supports positional access. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: `List<String> names = new ArrayList<>();` stores ordered elements.	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-020	What confusion should you avoid with `LinkedList`?	Do not treat `LinkedList` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. `List<String> names = new ArrayList<>();` stores ordered elements.	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-021	Explain `Vector` deeply enough for review.	Vector is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name.	Meaning:Vector is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name. Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label. Example: When reading code, ask: what does `Vector` change, allow, reject, or clarify?	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-022	What confusion should you avoid with `Vector`?	Do not treat `Vector` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Vector` change, allow, reject, or clarify?	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-023	Explain `Stack` deeply enough for review.	Stack stores method frames, local variables, and call flow for each thread.	Meaning: Stack stores method frames, local variables, and call flow for each thread. Why it matters: It matters because runtime behavior explains performance, memory errors, startup behavior, and many interview questions. A common confusion is mixing compile-time concepts with JVM runtime services. Example: When reading code, ask: what does `Stack` change, allow, reject, or clarify?	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-024	What confusion should you avoid with `Stack`?	Do not treat `Stack` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Stack` change, allow, reject, or clarify?	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-025	Explain `Comparing ArrayList and LinkedList` deeply enough for review.	A List is an ordered collection that can contain duplicates and supports positional access.	Meaning: A List is an ordered collection that can contain duplicates and supports positional access. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: `List<String> names = new ArrayList<>();` stores ordered elements.	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-026	What confusion should you avoid with `Comparing ArrayList and LinkedList`?	Do not treat `Comparing ArrayList and LinkedList` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. `List<String> names = new ArrayList<>();` stores ordered elements.	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-027	Explain `When to use List?` deeply enough for review.	A List is an ordered collection that can contain duplicates and supports positional access.	Meaning: A List is an ordered collection that can contain duplicates and supports positional access. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: `List<String> names = new ArrayList<>();` stores ordered elements.	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-028	What confusion should you avoid with `When to use List?`?	Do not treat `When to use List?` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. `List<String> names = new ArrayList<>();` stores ordered elements.	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-029	Explain `HashSet` deeply enough for review.	A Set is a collection that rejects duplicates according to equality rules.	Meaning: A Set is a collection that rejects duplicates according to equality rules. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: When reading code, ask: what does `HashSet` change, allow, reject, or clarify?	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-030	What confusion should you avoid with `HashSet`?	Do not treat `HashSet` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `HashSet` change, allow, reject, or clarify?	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-031	Explain `LinkedHashSet` deeply enough for review.	A Set is a collection that rejects duplicates according to equality rules.	Meaning: A Set is a collection that rejects duplicates according to equality rules. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: When reading code, ask: what does `LinkedHashSet` change, allow, reject, or clarify?	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-032	What confusion should you avoid with `LinkedHashSet`?	Do not treat `LinkedHashSet` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `LinkedHashSet` change, allow, reject, or clarify?	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-033	Explain `TreeSet` deeply enough for review.	A Set is a collection that rejects duplicates according to equality rules.	Meaning: A Set is a collection that rejects duplicates according to equality rules. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: When reading code, ask: what does `TreeSet` change, allow, reject, or clarify?	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-034	What confusion should you avoid with `TreeSet`?	Do not treat `TreeSet` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `TreeSet` change, allow, reject, or clarify?	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-035	Explain `SortedSet` deeply enough for review.	A Set is a collection that rejects duplicates according to equality rules.	Meaning: A Set is a collection that rejects duplicates according to equality rules. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: When reading code, ask: what does `SortedSet` change, allow, reject, or clarify?	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-036	What confusion should you avoid with `SortedSet`?	Do not treat `SortedSet` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `SortedSet` change, allow, reject, or clarify?	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-037	Explain `NavigableSet` deeply enough for review.	A Set is a collection that rejects duplicates according to equality rules.	Meaning: A Set is a collection that rejects duplicates according to equality rules. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: When reading code, ask: what does `NavigableSet` change, allow, reject, or clarify?	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-038	What confusion should you avoid with `NavigableSet`?	Do not treat `NavigableSet` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `NavigableSet` change, allow, reject, or clarify?	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-039	Explain `When to use Set?` deeply enough for review.	A Set is a collection that rejects duplicates according to equality rules.	Meaning: A Set is a collection that rejects duplicates according to equality rules. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: When reading code, ask: what does `When to use Set?` change, allow, reject, or clarify?	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-040	What confusion should you avoid with `When to use Set?`?	Do not treat `When to use Set?` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `When to use Set?` change, allow, reject, or clarify?	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-041	Explain `Duplicate removal mechanism` deeply enough for review.	Duplicate removal mechanism is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name.	Meaning:Duplicate removal mechanism is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name. Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label. Example: When reading code, ask: what does `Duplicate removal mechanism` change, allow, reject, or clarify?	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-042	What confusion should you avoid with `Duplicate removal mechanism`?	Do not treat `Duplicate removal mechanism` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Duplicate removal mechanism` change, allow, reject, or clarify?	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-043	Explain `Role of equals() and hashCode()` deeply enough for review.	equals() defines logical equality between objects.	Meaning: equals() defines logical equality between objects. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: When reading code, ask: what does `Role of equals() and hashCode()` change, allow, reject, or clarify?	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-044	What confusion should you avoid with `Role of equals() and hashCode()`?	Do not treat `Role of equals() and hashCode()` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Role of equals() and hashCode()` change, allow, reject, or clarify?	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-045	Explain `PriorityQueue` deeply enough for review.	PriorityQueue is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name.	Meaning:PriorityQueue is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name. Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label. Example: When reading code, ask: what does `PriorityQueue` change, allow, reject, or clarify?	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-046	What confusion should you avoid with `PriorityQueue`?	Do not treat `PriorityQueue` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `PriorityQueue` change, allow, reject, or clarify?	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-047	Explain `ArrayDeque` deeply enough for review.	ArrayDeque is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name.	Meaning:ArrayDeque is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name. Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label. Example: When reading code, ask: what does `ArrayDeque` change, allow, reject, or clarify?	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-048	What confusion should you avoid with `ArrayDeque`?	Do not treat `ArrayDeque` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `ArrayDeque` change, allow, reject, or clarify?	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-049	Explain `LinkedList as Queue` deeply enough for review.	A List is an ordered collection that can contain duplicates and supports positional access.	Meaning: A List is an ordered collection that can contain duplicates and supports positional access. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: `List<String> names = new ArrayList<>();` stores ordered elements.	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-050	What confusion should you avoid with `LinkedList as Queue`?	Do not treat `LinkedList as Queue` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. `List<String> names = new ArrayList<>();` stores ordered elements.	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-051	Explain `FIFO` deeply enough for review.	FIFO is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name.	Meaning:FIFO is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name. Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label. Example: When reading code, ask: what does `FIFO` change, allow, reject, or clarify?	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-052	What confusion should you avoid with `FIFO`?	Do not treat `FIFO` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `FIFO` change, allow, reject, or clarify?	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-053	Explain `LIFO` deeply enough for review.	LIFO is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name.	Meaning:LIFO is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name. Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label. Example: When reading code, ask: what does `LIFO` change, allow, reject, or clarify?	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-054	What confusion should you avoid with `LIFO`?	Do not treat `LIFO` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `LIFO` change, allow, reject, or clarify?	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-055	Explain `Priority queue` deeply enough for review.	Priority queue is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name.	Meaning:Priority queue is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name. Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label. Example: When reading code, ask: what does `Priority queue` change, allow, reject, or clarify?	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-056	What confusion should you avoid with `Priority queue`?	Do not treat `Priority queue` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Priority queue` change, allow, reject, or clarify?	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-057	Explain `HashMap` deeply enough for review.	A Map stores key-value pairs and retrieves values by key.	Meaning: A Map stores key-value pairs and retrieves values by key. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: `Map<String, Integer> scores = new HashMap<>();` maps keys to values.	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-058	What confusion should you avoid with `HashMap`?	Do not treat `HashMap` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. `Map<String, Integer> scores = new HashMap<>();` maps keys to values.	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-059	Explain `LinkedHashMap` deeply enough for review.	A Map stores key-value pairs and retrieves values by key.	Meaning: A Map stores key-value pairs and retrieves values by key. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: `Map<String, Integer> scores = new HashMap<>();` maps keys to values.	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-060	What confusion should you avoid with `LinkedHashMap`?	Do not treat `LinkedHashMap` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. `Map<String, Integer> scores = new HashMap<>();` maps keys to values.	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-061	Explain `TreeMap` deeply enough for review.	A Map stores key-value pairs and retrieves values by key.	Meaning: A Map stores key-value pairs and retrieves values by key. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: `Map<String, Integer> scores = new HashMap<>();` maps keys to values.	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-062	What confusion should you avoid with `TreeMap`?	Do not treat `TreeMap` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. `Map<String, Integer> scores = new HashMap<>();` maps keys to values.	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-063	Explain `Hashtable` deeply enough for review.	Hashtable is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name.	Meaning:Hashtable is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: When reading code, ask: what does `Hashtable` change, allow, reject, or clarify?	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-064	What confusion should you avoid with `Hashtable`?	Do not treat `Hashtable` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Hashtable` change, allow, reject, or clarify?	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-065	Explain `ConcurrentHashMap` deeply enough for review.	A Map stores key-value pairs and retrieves values by key.	Meaning: A Map stores key-value pairs and retrieves values by key. Why it matters: It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee. Example: `Map<String, Integer> scores = new HashMap<>();` maps keys to values.	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-066	What confusion should you avoid with `ConcurrentHashMap`?	Do not treat `ConcurrentHashMap` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. `Map<String, Integer> scores = new HashMap<>();` maps keys to values.	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-067	Explain `WeakHashMap` deeply enough for review.	A Map stores key-value pairs and retrieves values by key.	Meaning: A Map stores key-value pairs and retrieves values by key. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: `Map<String, Integer> scores = new HashMap<>();` maps keys to values.	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-068	What confusion should you avoid with `WeakHashMap`?	Do not treat `WeakHashMap` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. `Map<String, Integer> scores = new HashMap<>();` maps keys to values.	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-069	Explain `IdentityHashMap` deeply enough for review.	A Map stores key-value pairs and retrieves values by key.	Meaning: A Map stores key-value pairs and retrieves values by key. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: `Map<String, Integer> scores = new HashMap<>();` maps keys to values.	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-070	What confusion should you avoid with `IdentityHashMap`?	Do not treat `IdentityHashMap` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. `Map<String, Integer> scores = new HashMap<>();` maps keys to values.	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-071	Explain `SortedMap` deeply enough for review.	A Map stores key-value pairs and retrieves values by key.	Meaning: A Map stores key-value pairs and retrieves values by key. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: `Map<String, Integer> scores = new HashMap<>();` maps keys to values.	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-072	What confusion should you avoid with `SortedMap`?	Do not treat `SortedMap` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. `Map<String, Integer> scores = new HashMap<>();` maps keys to values.	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-073	Explain `NavigableMap` deeply enough for review.	A Map stores key-value pairs and retrieves values by key.	Meaning: A Map stores key-value pairs and retrieves values by key. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: `Map<String, Integer> scores = new HashMap<>();` maps keys to values.	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-074	What confusion should you avoid with `NavigableMap`?	Do not treat `NavigableMap` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. `Map<String, Integer> scores = new HashMap<>();` maps keys to values.	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-075	Explain `When to use Map?` deeply enough for review.	A Map stores key-value pairs and retrieves values by key.	Meaning: A Map stores key-value pairs and retrieves values by key. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: `Map<String, Integer> scores = new HashMap<>();` maps keys to values.	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-076	What confusion should you avoid with `When to use Map?`?	Do not treat `When to use Map?` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. `Map<String, Integer> scores = new HashMap<>();` maps keys to values.	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-077	Explain `Iterator` deeply enough for review.	An Iterator traverses a collection while hiding its internal representation.	Meaning: An Iterator traverses a collection while hiding its internal representation. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: When reading code, ask: what does `Iterator` change, allow, reject, or clarify?	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-078	What confusion should you avoid with `Iterator`?	Do not treat `Iterator` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Iterator` change, allow, reject, or clarify?	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-079	Explain `ListIterator` deeply enough for review.	A List is an ordered collection that can contain duplicates and supports positional access.	Meaning: A List is an ordered collection that can contain duplicates and supports positional access. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: `List<String> names = new ArrayList<>();` stores ordered elements.	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-080	What confusion should you avoid with `ListIterator`?	Do not treat `ListIterator` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. `List<String> names = new ArrayList<>();` stores ordered elements.	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-081	Explain `Fail-fast iterator` deeply enough for review.	An Iterator traverses a collection while hiding its internal representation.	Meaning: An Iterator traverses a collection while hiding its internal representation. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: When reading code, ask: what does `Fail-fast iterator` change, allow, reject, or clarify?	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-082	What confusion should you avoid with `Fail-fast iterator`?	Do not treat `Fail-fast iterator` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Fail-fast iterator` change, allow, reject, or clarify?	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-083	Explain `Fail-safe iterator` deeply enough for review.	An Iterator traverses a collection while hiding its internal representation.	Meaning: An Iterator traverses a collection while hiding its internal representation. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: When reading code, ask: what does `Fail-safe iterator` change, allow, reject, or clarify?	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-084	What confusion should you avoid with `Fail-safe iterator`?	Do not treat `Fail-safe iterator` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Fail-safe iterator` change, allow, reject, or clarify?	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-085	Explain `ConcurrentModificationException` deeply enough for review.	An exception represents an abnormal condition that a program may catch or propagate.	Meaning: An exception represents an abnormal condition that a program may catch or propagate. Why it matters: It matters because exception behavior decides whether failures are handled locally, propagated, or allowed to stop the program. A common confusion is treating every exception the same instead of separating recoverable conditions from programming bugs. Example: When reading code, ask: what does `ConcurrentModificationException` change, allow, reject, or clarify?	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-086	What confusion should you avoid with `ConcurrentModificationException`?	Do not treat `ConcurrentModificationException` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `ConcurrentModificationException` change, allow, reject, or clarify?	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-087	Explain `Collections.sort` deeply enough for review.	A collection is an object that groups multiple elements under a common API.	Meaning: A collection is an object that groups multiple elements under a common API. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: When reading code, ask: what does `Collections.sort` change, allow, reject, or clarify?	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-088	What confusion should you avoid with `Collections.sort`?	Do not treat `Collections.sort` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Collections.sort` change, allow, reject, or clarify?	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-089	Explain `Collections.reverse` deeply enough for review.	A collection is an object that groups multiple elements under a common API.	Meaning: A collection is an object that groups multiple elements under a common API. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: When reading code, ask: what does `Collections.reverse` change, allow, reject, or clarify?	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-090	What confusion should you avoid with `Collections.reverse`?	Do not treat `Collections.reverse` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Collections.reverse` change, allow, reject, or clarify?	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-091	Explain `Collections.shuffle` deeply enough for review.	A collection is an object that groups multiple elements under a common API.	Meaning: A collection is an object that groups multiple elements under a common API. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: When reading code, ask: what does `Collections.shuffle` change, allow, reject, or clarify?	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-092	What confusion should you avoid with `Collections.shuffle`?	Do not treat `Collections.shuffle` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Collections.shuffle` change, allow, reject, or clarify?	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-093	Explain `Collections.max` deeply enough for review.	A collection is an object that groups multiple elements under a common API.	Meaning: A collection is an object that groups multiple elements under a common API. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: When reading code, ask: what does `Collections.max` change, allow, reject, or clarify?	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-094	What confusion should you avoid with `Collections.max`?	Do not treat `Collections.max` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Collections.max` change, allow, reject, or clarify?	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-095	Explain `Collections.min` deeply enough for review.	A collection is an object that groups multiple elements under a common API.	Meaning: A collection is an object that groups multiple elements under a common API. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: When reading code, ask: what does `Collections.min` change, allow, reject, or clarify?	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-096	What confusion should you avoid with `Collections.min`?	Do not treat `Collections.min` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Collections.min` change, allow, reject, or clarify?	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-097	Explain `Collections.unmodifiableList` deeply enough for review.	A collection is an object that groups multiple elements under a common API.	Meaning: A collection is an object that groups multiple elements under a common API. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: `List<String> names = new ArrayList<>();` stores ordered elements.	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-098	What confusion should you avoid with `Collections.unmodifiableList`?	Do not treat `Collections.unmodifiableList` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. `List<String> names = new ArrayList<>();` stores ordered elements.	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-099	Explain `Collections.synchronizedList` deeply enough for review.	Synchronized protects a critical section by using a monitor lock.	Meaning: Synchronized protects a critical section by using a monitor lock. Why it matters: It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee. Example: `List<String> names = new ArrayList<>();` stores ordered elements.	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-100	What confusion should you avoid with `Collections.synchronizedList`?	Do not treat `Collections.synchronizedList` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. `List<String> names = new ArrayList<>();` stores ordered elements.	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-101	Explain `Arrays.sort` deeply enough for review.	Arrays.sort is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name.	Meaning:Arrays.sort is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name. Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label. Example: When reading code, ask: what does `Arrays.sort` change, allow, reject, or clarify?	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-102	What confusion should you avoid with `Arrays.sort`?	Do not treat `Arrays.sort` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Arrays.sort` change, allow, reject, or clarify?	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-103	Explain `Arrays.binarySearch` deeply enough for review.	Arrays.binarySearch is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name.	Meaning:Arrays.binarySearch is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name. Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label. Example: When reading code, ask: what does `Arrays.binarySearch` change, allow, reject, or clarify?	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-104	What confusion should you avoid with `Arrays.binarySearch`?	Do not treat `Arrays.binarySearch` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Arrays.binarySearch` change, allow, reject, or clarify?	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-105	Explain `Arrays.asList` deeply enough for review.	A List is an ordered collection that can contain duplicates and supports positional access.	Meaning: A List is an ordered collection that can contain duplicates and supports positional access. Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior. Example: `List<String> names = new ArrayList<>();` stores ordered elements.	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-106	What confusion should you avoid with `Arrays.asList`?	Do not treat `Arrays.asList` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. `List<String> names = new ArrayList<>();` stores ordered elements.	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-107	Explain `Arrays.copyOf` deeply enough for review.	Arrays.copyOf is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name.	Meaning:Arrays.copyOf is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name. Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label. Example: When reading code, ask: what does `Arrays.copyOf` change, allow, reject, or clarify?	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-108	What confusion should you avoid with `Arrays.copyOf`?	Do not treat `Arrays.copyOf` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Arrays.copyOf` change, allow, reject, or clarify?	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-109	Explain `Arrays.equals` deeply enough for review.	equals() defines logical equality between objects.	Meaning: equals() defines logical equality between objects. Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label. Example: When reading code, ask: what does `Arrays.equals` change, allow, reject, or clarify?	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-110	What confusion should you avoid with `Arrays.equals`?	Do not treat `Arrays.equals` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Arrays.equals` change, allow, reject, or clarify?	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-111	Explain `Arrays.deepEquals` deeply enough for review.	equals() defines logical equality between objects.	Meaning: equals() defines logical equality between objects. Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label. Example: When reading code, ask: what does `Arrays.deepEquals` change, allow, reject, or clarify?	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
-collections_framework-extra-112	What confusion should you avoid with `Arrays.deepEquals`?	Do not treat `Arrays.deepEquals` as just a memorized word.	Use it as a practical rule. Ask what it changes in code: compile-time checks, runtime behavior, memory use, ordering, error handling, visibility, API design, or testability. When reading code, ask: what does `Arrays.deepEquals` change, allow, reject, or clarify?	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-001	Explain `What is the Collection Framework?` deeply enough for review.	A unified architecture in Java for representing and manipulating collections, containing interfaces, implementations, and algorithms.	"Meaning & Detailed Concept:
+A unified architecture in Java for representing and manipulating collections, containing interfaces, implementations, and algorithms.
+
+Why this is important in development:
+It reduces programming effort, increases performance, and fosters software reuse by providing standard data structures.
+
+Implementation details and rules:
+The Collections Framework consists of three parts: interfaces, implementations, and algorithms. Note that Map does NOT extend Collection.
+
+Common mistake/gotcha to watch out for:
+Assuming all collections extend the Collection interface, whereas Map is a completely separate hierarchy."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-002	What confusion should you avoid with `What is the Collection Framework?`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Assuming all collections extend the Collection interface, whereas Map is a completely separate hierarchy.
+
+Why this concept matters for correctness and performance:
+It reduces programming effort, increases performance, and fosters software reuse by providing standard data structures.
+
+Detailed context and examples:
+The Collections Framework consists of three parts: interfaces, implementations, and algorithms. Note that Map does NOT extend Collection."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-003	Explain `Iterable` deeply enough for review.	The root traversal interface of the Collection hierarchy; classes implementing it can be traversed using enhanced for loops.	"Meaning & Detailed Concept:
+The root traversal interface of the Collection hierarchy; classes implementing it can be traversed using enhanced for loops.
+
+Why this is important in development:
+It provides a standard way to obtain an Iterator for sequential traversal.
+
+Implementation details and rules:
+Requires implementing iterator(). Example:
+for(String s : list) { ... }
+Gotcha: Modifying the collection during traversal throws ConcurrentModificationException.
+
+Common mistake/gotcha to watch out for:
+Modifying the collection directly inside an enhanced for loop, causing a ConcurrentModificationException."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-004	What confusion should you avoid with `Iterable`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Modifying the collection directly inside an enhanced for loop, causing a ConcurrentModificationException.
+
+Why this concept matters for correctness and performance:
+It provides a standard way to obtain an Iterator for sequential traversal.
+
+Detailed context and examples:
+Requires implementing iterator(). Example:
+for(String s : list) { ... }
+Gotcha: Modifying the collection during traversal throws ConcurrentModificationException."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-005	Explain `Collection` deeply enough for review.	The root interface of the collection hierarchy (List, Set, Queue) representing a group of objects.	"Meaning & Detailed Concept:
+The root interface of the collection hierarchy (List, Set, Queue) representing a group of objects.
+
+Why this is important in development:
+Defines common operations like size(), isEmpty(), contains(), add(), and remove() shared by all collections.
+
+Implementation details and rules:
+Root of List, Set, Queue hierarchies. Common methods: size(), add(), remove(). Note that Map does not extend Collection.
+
+Common mistake/gotcha to watch out for:
+Assuming Map extends Collection (it does not) or that Collection guarantees a specific order."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-006	What confusion should you avoid with `Collection`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Assuming Map extends Collection (it does not) or that Collection guarantees a specific order.
+
+Why this concept matters for correctness and performance:
+Defines common operations like size(), isEmpty(), contains(), add(), and remove() shared by all collections.
+
+Detailed context and examples:
+Root of List, Set, Queue hierarchies. Common methods: size(), add(), remove(). Note that Map does not extend Collection."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-007	Explain `List` deeply enough for review.	An ordered collection (sequence) that allows duplicates and positional access by index.	"Meaning & Detailed Concept:
+An ordered collection (sequence) that allows duplicates and positional access by index.
+
+Why this is important in development:
+Essential when element order must be preserved and duplicate values are permitted.
+
+Implementation details and rules:
+Ordered collection, duplicate-friendly. Backed by array (ArrayList) or nodes (LinkedList). Positional access via get(index).
+
+Common mistake/gotcha to watch out for:
+Using index-based deletion in a forward loop, which shifts elements and causes items to be skipped."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-008	What confusion should you avoid with `List`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Using index-based deletion in a forward loop, which shifts elements and causes items to be skipped.
+
+Why this concept matters for correctness and performance:
+Essential when element order must be preserved and duplicate values are permitted.
+
+Detailed context and examples:
+Ordered collection, duplicate-friendly. Backed by array (ArrayList) or nodes (LinkedList). Positional access via get(index)."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-009	Explain `Set` deeply enough for review.	A collection that contains no duplicate elements, modeling the mathematical set abstraction.	"Meaning & Detailed Concept:
+A collection that contains no duplicate elements, modeling the mathematical set abstraction.
+
+Why this is important in development:
+Ensures uniqueness of entries automatically using equality checks.
+
+Implementation details and rules:
+No duplicates. HashSet has O(1) ops (unordered); TreeSet has O(log N) ops (sorted). Rejection based on equals/hashCode or compareTo.
+
+Common mistake/gotcha to watch out for:
+Modifying key fields of an object after adding it to a HashSet, making the object unretrievable."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-010	What confusion should you avoid with `Set`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Modifying key fields of an object after adding it to a HashSet, making the object unretrievable.
+
+Why this concept matters for correctness and performance:
+Ensures uniqueness of entries automatically using equality checks.
+
+Detailed context and examples:
+No duplicates. HashSet has O(1) ops (unordered); TreeSet has O(log N) ops (sorted). Rejection based on equals/hashCode or compareTo."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-011	Explain `Queue` deeply enough for review.	A collection designed for holding elements prior to processing, typically in FIFO order.	"Meaning & Detailed Concept:
+A collection designed for holding elements prior to processing, typically in FIFO order.
+
+Why this is important in development:
+Decouples producers from consumers in processing pipelines using standard queue APIs.
+
+Implementation details and rules:
+Typically FIFO. Inserters: offer() vs add(); Removers: poll() vs remove(); Peepers: peek() vs element().
+
+Common mistake/gotcha to watch out for:
+Confusing exception-throwing methods (add, remove) with special-value return methods (offer, poll)."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-012	What confusion should you avoid with `Queue`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Confusing exception-throwing methods (add, remove) with special-value return methods (offer, poll).
+
+Why this concept matters for correctness and performance:
+Decouples producers from consumers in processing pipelines using standard queue APIs.
+
+Detailed context and examples:
+Typically FIFO. Inserters: offer() vs add(); Removers: poll() vs remove(); Peepers: peek() vs element()."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-013	Explain `Deque` deeply enough for review.	A double-ended queue supporting element insertion, removal, and inspection at both ends.	"Meaning & Detailed Concept:
+A double-ended queue supporting element insertion, removal, and inspection at both ends.
+
+Why this is important in development:
+Can be used as both a FIFO queue and a LIFO stack. ArrayDeque is faster than Stack and LinkedList.
+
+Implementation details and rules:
+Double-ended queue. Useful as stack (push, pop) or queue (addLast, removeFirst). ArrayDeque is the default choice.
+
+Common mistake/gotcha to watch out for:
+Using legacy Stack instead of Deque for stack operations, incurring synchronization overhead."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-014	What confusion should you avoid with `Deque`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Using legacy Stack instead of Deque for stack operations, incurring synchronization overhead.
+
+Why this concept matters for correctness and performance:
+Can be used as both a FIFO queue and a LIFO stack. ArrayDeque is faster than Stack and LinkedList.
+
+Detailed context and examples:
+Double-ended queue. Useful as stack (push, pop) or queue (addLast, removeFirst). ArrayDeque is the default choice."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-015	Explain `Map` deeply enough for review.	An object that maps keys to values, rejecting duplicate keys.	"Meaning & Detailed Concept:
+An object that maps keys to values, rejecting duplicate keys.
+
+Why this is important in development:
+Enables key-value associations and fast key-based retrieval.
+
+Implementation details and rules:
+Key-value pairs. Keys must be unique. HashMap (unordered), LinkedHashMap (insertion/access order), TreeMap (sorted).
+
+Common mistake/gotcha to watch out for:
+Expecting Map to implement Collection, or using mutable objects as keys and changing their hashCode."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-016	What confusion should you avoid with `Map`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Expecting Map to implement Collection, or using mutable objects as keys and changing their hashCode.
+
+Why this concept matters for correctness and performance:
+Enables key-value associations and fast key-based retrieval.
+
+Detailed context and examples:
+Key-value pairs. Keys must be unique. HashMap (unordered), LinkedHashMap (insertion/access order), TreeMap (sorted)."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-017	Explain `ArrayList` deeply enough for review.	A resizable-array implementation of the List interface.	"Meaning & Detailed Concept:
+A resizable-array implementation of the List interface.
+
+Why this is important in development:
+Provides O(1) random access and low memory overhead, making it the default choice for lists.
+
+Implementation details and rules:
+Backed by array. Growth is usually 1.5x of old capacity using System.arraycopy(). O(1) random access, O(N) middle insert/delete.
+
+Common mistake/gotcha to watch out for:
+Adding/removing items in the middle of a large ArrayList frequently, incurring O(N) element shifting cost."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-018	What confusion should you avoid with `ArrayList`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Adding/removing items in the middle of a large ArrayList frequently, incurring O(N) element shifting cost.
+
+Why this concept matters for correctness and performance:
+Provides O(1) random access and low memory overhead, making it the default choice for lists.
+
+Detailed context and examples:
+Backed by array. Growth is usually 1.5x of old capacity using System.arraycopy(). O(1) random access, O(N) middle insert/delete."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-019	Explain `LinkedList` deeply enough for review.	A doubly-linked list implementation of List and Deque interfaces.	"Meaning & Detailed Concept:
+A doubly-linked list implementation of List and Deque interfaces.
+
+Why this is important in development:
+Permits O(1) insertion/removal at the head and tail without resizing overhead.
+
+Implementation details and rules:
+Backed by doubly-linked nodes (3 references per node: value, next, prev). No array resizing. Poor cache locality.
+
+Common mistake/gotcha to watch out for:
+Iterating LinkedList using index-based get(i) loops, resulting in O(N^2) complexity."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-020	What confusion should you avoid with `LinkedList`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Iterating LinkedList using index-based get(i) loops, resulting in O(N^2) complexity.
+
+Why this concept matters for correctness and performance:
+Permits O(1) insertion/removal at the head and tail without resizing overhead.
+
+Detailed context and examples:
+Backed by doubly-linked nodes (3 references per node: value, next, prev). No array resizing. Poor cache locality."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-021	Explain `Vector` deeply enough for review.	A legacy synchronized resizable-array implementation of List.	"Meaning & Detailed Concept:
+A legacy synchronized resizable-array implementation of List.
+
+Why this is important in development:
+Synchronizes all methods, guaranteeing thread safety but causing severe contention.
+
+Implementation details and rules:
+Legacy synchronized resizable array. Obsolete. Doubles capacity when resized (ArrayList grows 1.5x).
+
+Common mistake/gotcha to watch out for:
+Using Vector in single-threaded applications instead of ArrayList, hurting performance."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-022	What confusion should you avoid with `Vector`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Using Vector in single-threaded applications instead of ArrayList, hurting performance.
+
+Why this concept matters for correctness and performance:
+Synchronizes all methods, guaranteeing thread safety but causing severe contention.
+
+Detailed context and examples:
+Legacy synchronized resizable array. Obsolete. Doubles capacity when resized (ArrayList grows 1.5x)."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-023	Explain `Stack` deeply enough for review.	A legacy synchronized subclass of Vector implementing a LIFO stack.	"Meaning & Detailed Concept:
+A legacy synchronized subclass of Vector implementing a LIFO stack.
+
+Why this is important in development:
+Violates encapsulation by exposing all Vector methods (like insert at arbitrary index).
+
+Implementation details and rules:
+Legacy LIFO stack extending Vector. Exposes illegal list methods like insert/remove by index. Use ArrayDeque instead.
+
+Common mistake/gotcha to watch out for:
+Using Stack instead of ArrayDeque, which is unsynchronized and enforces clean stack boundaries."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-024	What confusion should you avoid with `Stack`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Using Stack instead of ArrayDeque, which is unsynchronized and enforces clean stack boundaries.
+
+Why this concept matters for correctness and performance:
+Violates encapsulation by exposing all Vector methods (like insert at arbitrary index).
+
+Detailed context and examples:
+Legacy LIFO stack extending Vector. Exposes illegal list methods like insert/remove by index. Use ArrayDeque instead."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-025	Explain `Comparing ArrayList and LinkedList` deeply enough for review.	ArrayList is array-backed (fast random access); LinkedList is node-backed (fast head/tail insertions).	"Meaning & Detailed Concept:
+ArrayList is array-backed (fast random access); LinkedList is node-backed (fast head/tail insertions).
+
+Why this is important in development:
+ArrayList has better cache locality and lower memory overhead; LinkedList has node allocation cost.
+
+Implementation details and rules:
+ArrayList: O(1) get, O(N) shift, high cache hit. LinkedList: O(N) get, O(1) pointer updates, high GC/memory overhead.
+
+Common mistake/gotcha to watch out for:
+Assuming LinkedList is always faster for inserts; it is slower if index lookup is required."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-026	What confusion should you avoid with `Comparing ArrayList and LinkedList`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Assuming LinkedList is always faster for inserts; it is slower if index lookup is required.
+
+Why this concept matters for correctness and performance:
+ArrayList has better cache locality and lower memory overhead; LinkedList has node allocation cost.
+
+Detailed context and examples:
+ArrayList: O(1) get, O(N) shift, high cache hit. LinkedList: O(N) get, O(1) pointer updates, high GC/memory overhead."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-027	Explain `When to use List?` deeply enough for review.	Use when sequence order matters, duplicate elements are acceptable, or index-based access is needed.	"Meaning & Detailed Concept:
+Use when sequence order matters, duplicate elements are acceptable, or index-based access is needed.
+
+Why this is important in development:
+Provides predictable, ordered storage for elements.
+
+Implementation details and rules:
+Use List for ordered duplicates. ArrayList is the default. LinkedList only for extensive front insertions/removals.
+
+Common mistake/gotcha to watch out for:
+Choosing LinkedList by default instead of ArrayList, which is generally faster due to cache hits."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-028	What confusion should you avoid with `When to use List?`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Choosing LinkedList by default instead of ArrayList, which is generally faster due to cache hits.
+
+Why this concept matters for correctness and performance:
+Provides predictable, ordered storage for elements.
+
+Detailed context and examples:
+Use List for ordered duplicates. ArrayList is the default. LinkedList only for extensive front insertions/removals."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-029	Explain `HashSet` deeply enough for review.	An unordered Set implementation backed by a HashMap.	"Meaning & Detailed Concept:
+An unordered Set implementation backed by a HashMap.
+
+Why this is important in development:
+Provides constant-time O(1) operations for basic additions and lookups.
+
+Implementation details and rules:
+Backed by HashMap. O(1) performance. Unordered. Null key is allowed. Elements must override equals and hashCode.
+
+Common mistake/gotcha to watch out for:
+Expecting HashSet to maintain insertion order, which is not guaranteed."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-030	What confusion should you avoid with `HashSet`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Expecting HashSet to maintain insertion order, which is not guaranteed.
+
+Why this concept matters for correctness and performance:
+Provides constant-time O(1) operations for basic additions and lookups.
+
+Detailed context and examples:
+Backed by HashMap. O(1) performance. Unordered. Null key is allowed. Elements must override equals and hashCode."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-031	Explain `LinkedHashSet` deeply enough for review.	A HashSet implementation that maintains a doubly-linked list of entries.	"Meaning & Detailed Concept:
+A HashSet implementation that maintains a doubly-linked list of entries.
+
+Why this is important in development:
+Preserves the insertion order of elements during iteration with O(1) performance.
+
+Implementation details and rules:
+HashMap + doubly-linked list. Maintains insertion order. O(1) operations, slightly slower than HashSet.
+
+Common mistake/gotcha to watch out for:
+Assuming it sorts elements; it only preserves insertion order."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-032	What confusion should you avoid with `LinkedHashSet`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Assuming it sorts elements; it only preserves insertion order.
+
+Why this concept matters for correctness and performance:
+Preserves the insertion order of elements during iteration with O(1) performance.
+
+Detailed context and examples:
+HashMap + doubly-linked list. Maintains insertion order. O(1) operations, slightly slower than HashSet."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-033	Explain `TreeSet` deeply enough for review.	A NavigableSet implementation backed by a TreeMap, keeping elements sorted.	"Meaning & Detailed Concept:
+A NavigableSet implementation backed by a TreeMap, keeping elements sorted.
+
+Why this is important in development:
+Maintains elements in sorted order and provides range-search navigation methods.
+
+Implementation details and rules:
+Red-Black tree. Sorted order. O(log N) operations. Rejects null. Ignores equals/hashCode, relies on compare/compareTo.
+
+Common mistake/gotcha to watch out for:
+Adding objects that do not implement Comparable or have no Comparator, causing ClassCastException."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-034	What confusion should you avoid with `TreeSet`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Adding objects that do not implement Comparable or have no Comparator, causing ClassCastException.
+
+Why this concept matters for correctness and performance:
+Maintains elements in sorted order and provides range-search navigation methods.
+
+Detailed context and examples:
+Red-Black tree. Sorted order. O(log N) operations. Rejects null. Ignores equals/hashCode, relies on compare/compareTo."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-035	Explain `SortedSet` deeply enough for review.	An interface representing a Set sorted in ascending order.	"Meaning & Detailed Concept:
+An interface representing a Set sorted in ascending order.
+
+Why this is important in development:
+Provides range views and extreme element retrieval (first, last).
+
+Implementation details and rules:
+Interface for sorted sets. Defines first(), last(), subSet(), headSet(), tailSet().
+
+Common mistake/gotcha to watch out for:
+Adding null elements, which TreeSet (the main implementation) rejects."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-036	What confusion should you avoid with `SortedSet`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Adding null elements, which TreeSet (the main implementation) rejects.
+
+Why this concept matters for correctness and performance:
+Provides range views and extreme element retrieval (first, last).
+
+Detailed context and examples:
+Interface for sorted sets. Defines first(), last(), subSet(), headSet(), tailSet()."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-037	Explain `NavigableSet` deeply enough for review.	An interface extending SortedSet with navigation methods like lower() and higher().	"Meaning & Detailed Concept:
+An interface extending SortedSet with navigation methods like lower() and higher().
+
+Why this is important in development:
+Allows finding closest matching elements in a sorted collection.
+
+Implementation details and rules:
+Extends SortedSet. Adds floor(), ceiling(), lower(), higher(), pollFirst(), pollLast(), descendingSet().
+
+Common mistake/gotcha to watch out for:
+Confusing ceiling() (least element >= e) with higher() (least element > e)."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-038	What confusion should you avoid with `NavigableSet`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Confusing ceiling() (least element >= e) with higher() (least element > e).
+
+Why this concept matters for correctness and performance:
+Allows finding closest matching elements in a sorted collection.
+
+Detailed context and examples:
+Extends SortedSet. Adds floor(), ceiling(), lower(), higher(), pollFirst(), pollLast(), descendingSet()."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-039	Explain `When to use Set?` deeply enough for review.	Use when duplicate elements are not allowed and uniqueness must be enforced.	"Meaning & Detailed Concept:
+Use when duplicate elements are not allowed and uniqueness must be enforced.
+
+Why this is important in development:
+Models mathematical set operations like union, intersection, and difference.
+
+Implementation details and rules:
+Use Set to prevent duplicates. HashSet (default/fast), LinkedHashSet (insertion order), TreeSet (sorted/navigable).
+
+Common mistake/gotcha to watch out for:
+Using a Set when element insertion order or positional access is required."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-040	What confusion should you avoid with `When to use Set?`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Using a Set when element insertion order or positional access is required.
+
+Why this concept matters for correctness and performance:
+Models mathematical set operations like union, intersection, and difference.
+
+Detailed context and examples:
+Use Set to prevent duplicates. HashSet (default/fast), LinkedHashSet (insertion order), TreeSet (sorted/navigable)."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-041	Explain `Duplicate removal mechanism` deeply enough for review.	HashSet uses hashCode() and equals(); TreeSet uses compareTo() or compare() returning 0.	"Meaning & Detailed Concept:
+HashSet uses hashCode() and equals(); TreeSet uses compareTo() or compare() returning 0.
+
+Why this is important in development:
+Ensures correct duplicate rejection depending on the Set implementation.
+
+Implementation details and rules:
+HashSet: hashCode() matches then equals() returns true. TreeSet: compareTo() or compare() returns 0.
+
+Common mistake/gotcha to watch out for:
+Assuming TreeSet uses equals() to check duplicates; it only uses compareTo()."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-042	What confusion should you avoid with `Duplicate removal mechanism`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Assuming TreeSet uses equals() to check duplicates; it only uses compareTo().
+
+Why this concept matters for correctness and performance:
+Ensures correct duplicate rejection depending on the Set implementation.
+
+Detailed context and examples:
+HashSet: hashCode() matches then equals() returns true. TreeSet: compareTo() or compare() returns 0."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-043	Explain `Role of equals() and hashCode()` deeply enough for review.	equals() defines logical equality; hashCode() returns an integer bucket address.	"Meaning & Detailed Concept:
+equals() defines logical equality; hashCode() returns an integer bucket address.
+
+Why this is important in development:
+The hashCode contract requires that if x.equals(y), then x.hashCode() == y.hashCode().
+
+Implementation details and rules:
+Must be overridden together. If equals() is true, hashCode() must match. Mismatched hashes cause collision lookup bugs.
+
+Common mistake/gotcha to watch out for:
+Overriding equals() but not hashCode(), causing duplicate keys/values in HashMaps/HashSets."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-044	What confusion should you avoid with `Role of equals() and hashCode()`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Overriding equals() but not hashCode(), causing duplicate keys/values in HashMaps/HashSets.
+
+Why this concept matters for correctness and performance:
+The hashCode contract requires that if x.equals(y), then x.hashCode() == y.hashCode().
+
+Detailed context and examples:
+Must be overridden together. If equals() is true, hashCode() must match. Mismatched hashes cause collision lookup bugs."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-045	Explain `PriorityQueue` deeply enough for review.	An unbounded priority queue based on a binary heap, keeping the smallest element at the head.	"Meaning & Detailed Concept:
+An unbounded priority queue based on a binary heap, keeping the smallest element at the head.
+
+Why this is important in development:
+Allows retrieving elements according to priority rather than insertion order.
+
+Implementation details and rules:
+Min-heap based unbounded queue. O(log N) for offer/poll, O(1) for peek. Iterator is unsorted.
+
+Common mistake/gotcha to watch out for:
+Iterating over a PriorityQueue and expecting elements to be sorted; the iterator is unsorted."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-046	What confusion should you avoid with `PriorityQueue`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Iterating over a PriorityQueue and expecting elements to be sorted; the iterator is unsorted.
+
+Why this concept matters for correctness and performance:
+Allows retrieving elements according to priority rather than insertion order.
+
+Detailed context and examples:
+Min-heap based unbounded queue. O(log N) for offer/poll, O(1) for peek. Iterator is unsorted."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-047	Explain `ArrayDeque` deeply enough for review.	A resizable circular-array Deque implementation.	"Meaning & Detailed Concept:
+A resizable circular-array Deque implementation.
+
+Why this is important in development:
+Faster and more memory-efficient than Stack (as stack) and LinkedList (as queue).
+
+Implementation details and rules:
+Circular array double-ended queue. Faster than Stack/LinkedList. Rejects nulls. Growable, unsynchronized.
+
+Common mistake/gotcha to watch out for:
+Attempting to insert null elements, which ArrayDeque rejects."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-048	What confusion should you avoid with `ArrayDeque`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Attempting to insert null elements, which ArrayDeque rejects.
+
+Why this concept matters for correctness and performance:
+Faster and more memory-efficient than Stack (as stack) and LinkedList (as queue).
+
+Detailed context and examples:
+Circular array double-ended queue. Faster than Stack/LinkedList. Rejects nulls. Growable, unsynchronized."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-049	Explain `LinkedList as Queue` deeply enough for review.	LinkedList implementing Queue to act as a FIFO queue.	"Meaning & Detailed Concept:
+LinkedList implementing Queue to act as a FIFO queue.
+
+Why this is important in development:
+Provides fast O(1) enqueues and dequeues backed by list nodes.
+
+Implementation details and rules:
+LinkedList implements Queue. Unbounded. Uses node pointer updates for O(1) queue operations. ArrayDeque is generally preferred.
+
+Common mistake/gotcha to watch out for:
+Using LinkedList when ArrayDeque would be faster and use less memory."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-050	What confusion should you avoid with `LinkedList as Queue`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Using LinkedList when ArrayDeque would be faster and use less memory.
+
+Why this concept matters for correctness and performance:
+Provides fast O(1) enqueues and dequeues backed by list nodes.
+
+Detailed context and examples:
+LinkedList implements Queue. Unbounded. Uses node pointer updates for O(1) queue operations. ArrayDeque is generally preferred."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-051	Explain `FIFO` deeply enough for review.	First-In-First-Out processing order.	"Meaning & Detailed Concept:
+First-In-First-Out processing order.
+
+Why this is important in development:
+Standard queue behavior where elements are added to tail and removed from head.
+
+Implementation details and rules:
+First-In-First-Out. Queue inserts at tail, removes from head. offer() and poll() are standard FIFO methods.
+
+Common mistake/gotcha to watch out for:
+Expecting Deque.push() to behave in FIFO order; push() is LIFO."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-052	What confusion should you avoid with `FIFO`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Expecting Deque.push() to behave in FIFO order; push() is LIFO.
+
+Why this concept matters for correctness and performance:
+Standard queue behavior where elements are added to tail and removed from head.
+
+Detailed context and examples:
+First-In-First-Out. Queue inserts at tail, removes from head. offer() and poll() are standard FIFO methods."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-053	Explain `LIFO` deeply enough for review.	Last-In-First-Out processing order.	"Meaning & Detailed Concept:
+Last-In-First-Out processing order.
+
+Why this is important in development:
+Stack behavior where element added last is removed first.
+
+Implementation details and rules:
+Last-In-First-Out. Stack behavior. Deque uses push() and pop() for LIFO operations.
+
+Common mistake/gotcha to watch out for:
+Using legacy java.util.Stack instead of Deque implementations."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-054	What confusion should you avoid with `LIFO`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Using legacy java.util.Stack instead of Deque implementations.
+
+Why this concept matters for correctness and performance:
+Stack behavior where element added last is removed first.
+
+Detailed context and examples:
+Last-In-First-Out. Stack behavior. Deque uses push() and pop() for LIFO operations."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-055	Explain `Priority queue` deeply enough for review.	A queue where elements are ordered by natural comparison or a custom comparator.	"Meaning & Detailed Concept:
+A queue where elements are ordered by natural comparison or a custom comparator.
+
+Why this is important in development:
+Enables priority-based task execution.
+
+Implementation details and rules:
+Orders elements by priority using binary heap. Min-priority by default. Rejects nulls.
+
+Common mistake/gotcha to watch out for:
+Adding non-comparable elements, which triggers ClassCastException."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-056	What confusion should you avoid with `Priority queue`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Adding non-comparable elements, which triggers ClassCastException.
+
+Why this concept matters for correctness and performance:
+Enables priority-based task execution.
+
+Detailed context and examples:
+Orders elements by priority using binary heap. Min-priority by default. Rejects nulls."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-057	Explain `HashMap` deeply enough for review.	Unordered Map implementation mapping keys to values using a bucket array.	"Meaning & Detailed Concept:
+Unordered Map implementation mapping keys to values using a bucket array.
+
+Why this is important in development:
+Provides O(1) performance for lookups and insertions.
+
+Implementation details and rules:
+Hash table bucket array. Java 8+ treeification (list size > 8, capacity >= 64). O(1) avg ops, O(log N) worst.
+
+Common mistake/gotcha to watch out for:
+Using mutable keys whose hashcodes change, causing memory leaks and unreachable values."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-058	What confusion should you avoid with `HashMap`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Using mutable keys whose hashcodes change, causing memory leaks and unreachable values.
+
+Why this concept matters for correctness and performance:
+Provides O(1) performance for lookups and insertions.
+
+Detailed context and examples:
+Hash table bucket array. Java 8+ treeification (list size > 8, capacity >= 64). O(1) avg ops, O(log N) worst."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-059	Explain `LinkedHashMap` deeply enough for review.	HashMap with a doubly-linked list maintaining insertion or access order.	"Meaning & Detailed Concept:
+HashMap with a doubly-linked list maintaining insertion or access order.
+
+Why this is important in development:
+Enables building LRU caches using access-order mode.
+
+Implementation details and rules:
+Extends HashMap. Doubly-linked list preserves order. removeEldestEntry() allows automatic eviction.
+
+Common mistake/gotcha to watch out for:
+Thinking LinkedHashMap sorts keys; it only preserves access/insertion order."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-060	What confusion should you avoid with `LinkedHashMap`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Thinking LinkedHashMap sorts keys; it only preserves access/insertion order.
+
+Why this concept matters for correctness and performance:
+Enables building LRU caches using access-order mode.
+
+Detailed context and examples:
+Extends HashMap. Doubly-linked list preserves order. removeEldestEntry() allows automatic eviction."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-061	Explain `TreeMap` deeply enough for review.	Red-Black tree Map implementation keeping keys sorted.	"Meaning & Detailed Concept:
+Red-Black tree Map implementation keeping keys sorted.
+
+Why this is important in development:
+Maintains keys in sorted order and provides navigable lookup methods.
+
+Implementation details and rules:
+Red-Black tree NavigableMap. Sorted keys. O(log N) operations. Rejects null keys. Compares keys using compare/compareTo.
+
+Common mistake/gotcha to watch out for:
+Inserting null keys, which causes NullPointerException."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-062	What confusion should you avoid with `TreeMap`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Inserting null keys, which causes NullPointerException.
+
+Why this concept matters for correctness and performance:
+Maintains keys in sorted order and provides navigable lookup methods.
+
+Detailed context and examples:
+Red-Black tree NavigableMap. Sorted keys. O(log N) operations. Rejects null keys. Compares keys using compare/compareTo."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-063	Explain `Hashtable` deeply enough for review.	Legacy synchronized Map implementation.	"Meaning & Detailed Concept:
+Legacy synchronized Map implementation.
+
+Why this is important in development:
+Guarantees thread safety via coarse locking, which degrades performance.
+
+Implementation details and rules:
+Legacy synchronized map. Rejects null keys and values. Synchronization on every method. Obsolete.
+
+Common mistake/gotcha to watch out for:
+Using Hashtable in modern code instead of ConcurrentHashMap."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-064	What confusion should you avoid with `Hashtable`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Using Hashtable in modern code instead of ConcurrentHashMap.
+
+Why this concept matters for correctness and performance:
+Guarantees thread safety via coarse locking, which degrades performance.
+
+Detailed context and examples:
+Legacy synchronized map. Rejects null keys and values. Synchronization on every method. Obsolete."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-065	Explain `ConcurrentHashMap` deeply enough for review.	Thread-safe Map utilizing node-level locking and CAS operations.	"Meaning & Detailed Concept:
+Thread-safe Map utilizing node-level locking and CAS operations.
+
+Why this is important in development:
+Allows high-concurrency read and write operations without blocking the entire map.
+
+Implementation details and rules:
+Thread-safe. Node-level locking since Java 8. CAS for empty bins. No global lock. Read operations are lock-free.
+
+Common mistake/gotcha to watch out for:
+Assuming sequence of operations (containsKey + put) on ConcurrentHashMap is atomic."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-066	What confusion should you avoid with `ConcurrentHashMap`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Assuming sequence of operations (containsKey + put) on ConcurrentHashMap is atomic.
+
+Why this concept matters for correctness and performance:
+Allows high-concurrency read and write operations without blocking the entire map.
+
+Detailed context and examples:
+Thread-safe. Node-level locking since Java 8. CAS for empty bins. No global lock. Read operations are lock-free."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-067	Explain `WeakHashMap` deeply enough for review.	Map with keys wrapped in WeakReferences.	"Meaning & Detailed Concept:
+Map with keys wrapped in WeakReferences.
+
+Why this is important in development:
+Allows keys to be garbage collected when no longer strongly referenced elsewhere.
+
+Implementation details and rules:
+Keys wrapped in WeakReference. Entry is removed when GC collects the key. Useful for metadata caching.
+
+Common mistake/gotcha to watch out for:
+Storing values that contain strong references back to their keys, preventing GC."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-068	What confusion should you avoid with `WeakHashMap`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Storing values that contain strong references back to their keys, preventing GC.
+
+Why this concept matters for correctness and performance:
+Allows keys to be garbage collected when no longer strongly referenced elsewhere.
+
+Detailed context and examples:
+Keys wrapped in WeakReference. Entry is removed when GC collects the key. Useful for metadata caching."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-069	Explain `IdentityHashMap` deeply enough for review.	Map comparing keys using reference equality (==) instead of equals().	"Meaning & Detailed Concept:
+Map comparing keys using reference equality (==) instead of equals().
+
+Why this is important in development:
+Useful for graph algorithms or topology tracking where instance identity matters.
+
+Implementation details and rules:
+Reference equality (==) comparisons. Uses System.identityHashCode() for hashing. Not a general-purpose Map.
+
+Common mistake/gotcha to watch out for:
+Using it as a general-purpose map, expecting logical equals() comparisons."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-070	What confusion should you avoid with `IdentityHashMap`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Using it as a general-purpose map, expecting logical equals() comparisons.
+
+Why this concept matters for correctness and performance:
+Useful for graph algorithms or topology tracking where instance identity matters.
+
+Detailed context and examples:
+Reference equality (==) comparisons. Uses System.identityHashCode() for hashing. Not a general-purpose Map."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-071	Explain `SortedMap` deeply enough for review.	Interface representing a Map sorted in ascending key order.	"Meaning & Detailed Concept:
+Interface representing a Map sorted in ascending key order.
+
+Why this is important in development:
+Provides firstKey(), lastKey(), and range views.
+
+Implementation details and rules:
+Interface for sorted maps. Provides subMap(), headMap(), tailMap(), firstKey(), lastKey().
+
+Common mistake/gotcha to watch out for:
+Inserting non-comparable keys, causing ClassCastException."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-072	What confusion should you avoid with `SortedMap`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Inserting non-comparable keys, causing ClassCastException.
+
+Why this concept matters for correctness and performance:
+Provides firstKey(), lastKey(), and range views.
+
+Detailed context and examples:
+Interface for sorted maps. Provides subMap(), headMap(), tailMap(), firstKey(), lastKey()."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-073	Explain `NavigableMap` deeply enough for review.	Interface extending SortedMap with closest-match search methods.	"Meaning & Detailed Concept:
+Interface extending SortedMap with closest-match search methods.
+
+Why this is important in development:
+Allows ceilingEntry(), floorEntry(), lowerEntry(), and higherEntry() operations.
+
+Implementation details and rules:
+Extends SortedMap. Navigation methods: floorEntry, ceilingEntry, lowerKey, higherKey, descendingMap.
+
+Common mistake/gotcha to watch out for:
+Mixing up floorKey() (greatest key <= k) with lowerKey() (greatest key < k)."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-074	What confusion should you avoid with `NavigableMap`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Mixing up floorKey() (greatest key <= k) with lowerKey() (greatest key < k).
+
+Why this concept matters for correctness and performance:
+Allows ceilingEntry(), floorEntry(), lowerEntry(), and higherEntry() operations.
+
+Detailed context and examples:
+Extends SortedMap. Navigation methods: floorEntry, ceilingEntry, lowerKey, higherKey, descendingMap."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-075	Explain `When to use Map?` deeply enough for review.	Use when data is represented as key-value pairs for fast lookup.	"Meaning & Detailed Concept:
+Use when data is represented as key-value pairs for fast lookup.
+
+Why this is important in development:
+Allows mapping identifiers to objects.
+
+Implementation details and rules:
+Use Map for key-value association. HashMap (default/fast), LinkedHashMap (ordering), TreeMap (sorted/navigable).
+
+Common mistake/gotcha to watch out for:
+Using key-value lookup when simple Set uniqueness or List ordering is sufficient."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-076	What confusion should you avoid with `When to use Map?`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Using key-value lookup when simple Set uniqueness or List ordering is sufficient.
+
+Why this concept matters for correctness and performance:
+Allows mapping identifiers to objects.
+
+Detailed context and examples:
+Use Map for key-value association. HashMap (default/fast), LinkedHashMap (ordering), TreeMap (sorted/navigable)."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-077	Explain `Iterator` deeply enough for review.	Interface for forward traversal and element removal on collections.	"Meaning & Detailed Concept:
+Interface for forward traversal and element removal on collections.
+
+Why this is important in development:
+Provides safe element deletion during traversal via iterator.remove().
+
+Implementation details and rules:
+Forward traversal of Collection. Methods: hasNext(), next(), remove(). remove() is the only safe way to delete items during loop.
+
+Common mistake/gotcha to watch out for:
+Calling list.remove() inside an active iterator loop instead of iterator.remove()."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-078	What confusion should you avoid with `Iterator`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Calling list.remove() inside an active iterator loop instead of iterator.remove().
+
+Why this concept matters for correctness and performance:
+Provides safe element deletion during traversal via iterator.remove().
+
+Detailed context and examples:
+Forward traversal of Collection. Methods: hasNext(), next(), remove(). remove() is the only safe way to delete items during loop."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-079	Explain `ListIterator` deeply enough for review.	Bidirectional Iterator designed specifically for Lists.	"Meaning & Detailed Concept:
+Bidirectional Iterator designed specifically for Lists.
+
+Why this is important in development:
+Enables traversing back and forth, modifying, and adding elements during iteration.
+
+Implementation details and rules:
+Bidirectional list iterator. Adds hasPrevious(), previous(), set(), add(), nextIndex(), previousIndex().
+
+Common mistake/gotcha to watch out for:
+Attempting to use ListIterator on Sets or Maps (only works on Lists)."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-080	What confusion should you avoid with `ListIterator`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Attempting to use ListIterator on Sets or Maps (only works on Lists).
+
+Why this concept matters for correctness and performance:
+Enables traversing back and forth, modifying, and adding elements during iteration.
+
+Detailed context and examples:
+Bidirectional list iterator. Adds hasPrevious(), previous(), set(), add(), nextIndex(), previousIndex()."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-081	Explain `Fail-fast iterator` deeply enough for review.	Iterator that throws ConcurrentModificationException if the collection is structurally modified.	"Meaning & Detailed Concept:
+Iterator that throws ConcurrentModificationException if the collection is structurally modified.
+
+Why this is important in development:
+Prevents non-deterministic behavior under concurrent modification.
+
+Implementation details and rules:
+Throws ConcurrentModificationException. Tracks modCount vs expectedModCount. ArrayList/HashSet iterators are fail-fast.
+
+Common mistake/gotcha to watch out for:
+Structural modification of a collection using collection methods during a for-each loop."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-082	What confusion should you avoid with `Fail-fast iterator`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Structural modification of a collection using collection methods during a for-each loop.
+
+Why this concept matters for correctness and performance:
+Prevents non-deterministic behavior under concurrent modification.
+
+Detailed context and examples:
+Throws ConcurrentModificationException. Tracks modCount vs expectedModCount. ArrayList/HashSet iterators are fail-fast."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-083	Explain `Fail-safe iterator` deeply enough for review.	Iterator operating on a copy/snapshot, allowing modification without exceptions.	"Meaning & Detailed Concept:
+Iterator operating on a copy/snapshot, allowing modification without exceptions.
+
+Why this is important in development:
+Used in concurrent collections to prevent ConcurrentModificationException.
+
+Implementation details and rules:
+Operates on snapshot/copy (CopyOnWriteArrayList) or weakly consistent view (ConcurrentHashMap). No exception thrown.
+
+Common mistake/gotcha to watch out for:
+Using snapshot iterators in write-heavy loops, causing excessive garbage collection."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-084	What confusion should you avoid with `Fail-safe iterator`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Using snapshot iterators in write-heavy loops, causing excessive garbage collection.
+
+Why this concept matters for correctness and performance:
+Used in concurrent collections to prevent ConcurrentModificationException.
+
+Detailed context and examples:
+Operates on snapshot/copy (CopyOnWriteArrayList) or weakly consistent view (ConcurrentHashMap). No exception thrown."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-085	Explain `ConcurrentModificationException` deeply enough for review.	Exception thrown when structural modification occurs on a collection during iteration.	"Meaning & Detailed Concept:
+Exception thrown when structural modification occurs on a collection during iteration.
+
+Why this is important in development:
+Guards against modification conflicts during traversal.
+
+Implementation details and rules:
+Runtime exception. Triggered by modCount mismatch. Thrown by next() or remove() in fail-fast iterators.
+
+Common mistake/gotcha to watch out for:
+Failing to use Iterator.remove() when removing items from standard lists during loops."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-086	What confusion should you avoid with `ConcurrentModificationException`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Failing to use Iterator.remove() when removing items from standard lists during loops.
+
+Why this concept matters for correctness and performance:
+Guards against modification conflicts during traversal.
+
+Detailed context and examples:
+Runtime exception. Triggered by modCount mismatch. Thrown by next() or remove() in fail-fast iterators."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-087	Explain `Collections.sort` deeply enough for review.	Static utility method to sort a List in place.	"Meaning & Detailed Concept:
+Static utility method to sort a List in place.
+
+Why this is important in development:
+Uses Timsort to sort lists in O(N log N) time.
+
+Implementation details and rules:
+Sorts List in place. Uses modified Timsort. stable sort.
+
+Common mistake/gotcha to watch out for:
+Attempting to sort an unmodifiable list, which throws UnsupportedOperationException."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-088	What confusion should you avoid with `Collections.sort`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Attempting to sort an unmodifiable list, which throws UnsupportedOperationException.
+
+Why this concept matters for correctness and performance:
+Uses Timsort to sort lists in O(N log N) time.
+
+Detailed context and examples:
+Sorts List in place. Uses modified Timsort. stable sort."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-089	Explain `Collections.reverse` deeply enough for review.	Static utility method that reverses the elements in a List.	"Meaning & Detailed Concept:
+Static utility method that reverses the elements in a List.
+
+Why this is important in development:
+Reverses elements in place in O(N) time.
+
+Implementation details and rules:
+Reverses List in place. Swaps elements from ends towards center.
+
+Common mistake/gotcha to watch out for:
+Attempting to reverse arrays directly (only works on lists; use Arrays for arrays)."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-090	What confusion should you avoid with `Collections.reverse`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Attempting to reverse arrays directly (only works on lists; use Arrays for arrays).
+
+Why this concept matters for correctness and performance:
+Reverses elements in place in O(N) time.
+
+Detailed context and examples:
+Reverses List in place. Swaps elements from ends towards center."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-091	Explain `Collections.shuffle` deeply enough for review.	Static utility method that randomly permutes a List.	"Meaning & Detailed Concept:
+Static utility method that randomly permutes a List.
+
+Why this is important in development:
+Useful for generating random permutations.
+
+Implementation details and rules:
+Randomly permutes List. Uses default Random source. Slow on LinkedList due to positional accesses.
+
+Common mistake/gotcha to watch out for:
+Calling shuffle on a large LinkedList, which is slow due to O(N) random access."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-092	What confusion should you avoid with `Collections.shuffle`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Calling shuffle on a large LinkedList, which is slow due to O(N) random access.
+
+Why this concept matters for correctness and performance:
+Useful for generating random permutations.
+
+Detailed context and examples:
+Randomly permutes List. Uses default Random source. Slow on LinkedList due to positional accesses."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-093	Explain `Collections.max` deeply enough for review.	Static utility method returning the maximum element of a collection.	"Meaning & Detailed Concept:
+Static utility method returning the maximum element of a collection.
+
+Why this is important in development:
+Iterates through the collection to find the maximum in O(N) time.
+
+Implementation details and rules:
+Iterates Collection to find max. O(N) complexity. Requires Comparable elements or Comparator.
+
+Common mistake/gotcha to watch out for:
+Calling max on a collection containing nulls if the comparator doesn't support nulls."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-094	What confusion should you avoid with `Collections.max`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Calling max on a collection containing nulls if the comparator doesn't support nulls.
+
+Why this concept matters for correctness and performance:
+Iterates through the collection to find the maximum in O(N) time.
+
+Detailed context and examples:
+Iterates Collection to find max. O(N) complexity. Requires Comparable elements or Comparator."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-095	Explain `Collections.min` deeply enough for review.	Static utility method returning the minimum element of a collection.	"Meaning & Detailed Concept:
+Static utility method returning the minimum element of a collection.
+
+Why this is important in development:
+Iterates through the collection to find the minimum in O(N) time.
+
+Implementation details and rules:
+Iterates Collection to find min. O(N) complexity. Throws NoSuchElementException if empty.
+
+Common mistake/gotcha to watch out for:
+Calling min on an empty collection, which throws NoSuchElementException."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-096	What confusion should you avoid with `Collections.min`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Calling min on an empty collection, which throws NoSuchElementException.
+
+Why this concept matters for correctness and performance:
+Iterates through the collection to find the minimum in O(N) time.
+
+Detailed context and examples:
+Iterates Collection to find min. O(N) complexity. Throws NoSuchElementException if empty."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-097	Explain `Collections.unmodifiableList` deeply enough for review.	Returns an unmodifiable read-only wrapper view of a List.	"Meaning & Detailed Concept:
+Returns an unmodifiable read-only wrapper view of a List.
+
+Why this is important in development:
+Protects a list from direct user modification.
+
+Implementation details and rules:
+Returns wrapper view. Throws UnsupportedOperationException on modifications. Backing list modifications propagate.
+
+Common mistake/gotcha to watch out for:
+Assuming the returned list is immutable; modifications to the backing list still propagate."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-098	What confusion should you avoid with `Collections.unmodifiableList`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Assuming the returned list is immutable; modifications to the backing list still propagate.
+
+Why this concept matters for correctness and performance:
+Protects a list from direct user modification.
+
+Detailed context and examples:
+Returns wrapper view. Throws UnsupportedOperationException on modifications. Backing list modifications propagate."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-099	Explain `Collections.synchronizedList` deeply enough for review.	Returns a thread-safe synchronized wrapper view of a List.	"Meaning & Detailed Concept:
+Returns a thread-safe synchronized wrapper view of a List.
+
+Why this is important in development:
+Synchronizes individual operations to allow thread-safe access.
+
+Implementation details and rules:
+Returns thread-safe wrapper. All methods synchronized on wrapper object. Iterators must be manually synchronized.
+
+Common mistake/gotcha to watch out for:
+Iterating over the synchronized list without manual synchronization on the list object."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-100	What confusion should you avoid with `Collections.synchronizedList`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Iterating over the synchronized list without manual synchronization on the list object.
+
+Why this concept matters for correctness and performance:
+Synchronizes individual operations to allow thread-safe access.
+
+Detailed context and examples:
+Returns thread-safe wrapper. All methods synchronized on wrapper object. Iterators must be manually synchronized."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-101	Explain `Arrays.sort` deeply enough for review.	Static utility method to sort an array in place.	"Meaning & Detailed Concept:
+Static utility method to sort an array in place.
+
+Why this is important in development:
+Uses Dual-Pivot Quicksort for primitives and Timsort for objects.
+
+Implementation details and rules:
+Sorts array in place. Primitives: Dual-Pivot Quicksort (unstable, O(N log N)). Objects: Timsort (stable, O(N log N)).
+
+Common mistake/gotcha to watch out for:
+Sorting arrays of custom objects that do not implement Comparable."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-102	What confusion should you avoid with `Arrays.sort`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Sorting arrays of custom objects that do not implement Comparable.
+
+Why this concept matters for correctness and performance:
+Uses Dual-Pivot Quicksort for primitives and Timsort for objects.
+
+Detailed context and examples:
+Sorts array in place. Primitives: Dual-Pivot Quicksort (unstable, O(N log N)). Objects: Timsort (stable, O(N log N))."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-103	Explain `Arrays.binarySearch` deeply enough for review.	Static utility method to search a sorted array.	"Meaning & Detailed Concept:
+Static utility method to search a sorted array.
+
+Why this is important in development:
+Returns index of target, or a negative value representing insertion point if not found.
+
+Implementation details and rules:
+Searches sorted array. If found, returns index. If not, returns -(insertion point) - 1. Requires sorted array.
+
+Common mistake/gotcha to watch out for:
+Calling binarySearch on an unsorted array, leading to undefined results."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-104	What confusion should you avoid with `Arrays.binarySearch`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Calling binarySearch on an unsorted array, leading to undefined results.
+
+Why this concept matters for correctness and performance:
+Returns index of target, or a negative value representing insertion point if not found.
+
+Detailed context and examples:
+Searches sorted array. If found, returns index. If not, returns -(insertion point) - 1. Requires sorted array."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-105	Explain `Arrays.asList` deeply enough for review.	Static utility method returning a fixed-size list backed by an array.	"Meaning & Detailed Concept:
+Static utility method returning a fixed-size list backed by an array.
+
+Why this is important in development:
+Changes in the list write through to the array and vice versa.
+
+Implementation details and rules:
+Fixed-size list wrapper. Element updates write through to array. add/remove throws UnsupportedOperationException.
+
+Common mistake/gotcha to watch out for:
+Calling add() or remove() on the returned fixed-size list."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-106	What confusion should you avoid with `Arrays.asList`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Calling add() or remove() on the returned fixed-size list.
+
+Why this concept matters for correctness and performance:
+Changes in the list write through to the array and vice versa.
+
+Detailed context and examples:
+Fixed-size list wrapper. Element updates write through to array. add/remove throws UnsupportedOperationException."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-107	Explain `Arrays.copyOf` deeply enough for review.	Static utility method to copy an array, padding or truncating if necessary.	"Meaning & Detailed Concept:
+Static utility method to copy an array, padding or truncating if necessary.
+
+Why this is important in development:
+Allocates a new array and copies elements.
+
+Implementation details and rules:
+Copies array. Allocates new array. Pads with default values if new length is larger. Shallow copy.
+
+Common mistake/gotcha to watch out for:
+Assuming copyOf performs a deep copy of object arrays (it performs a shallow copy)."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-108	What confusion should you avoid with `Arrays.copyOf`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Assuming copyOf performs a deep copy of object arrays (it performs a shallow copy).
+
+Why this concept matters for correctness and performance:
+Allocates a new array and copies elements.
+
+Detailed context and examples:
+Copies array. Allocates new array. Pads with default values if new length is larger. Shallow copy."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-109	Explain `Arrays.equals` deeply enough for review.	Static utility method to compare two 1D arrays for equality.	"Meaning & Detailed Concept:
+Static utility method to compare two 1D arrays for equality.
+
+Why this is important in development:
+Returns true if both arrays contain equal elements in the same order.
+
+Implementation details and rules:
+Compares 1D arrays. Checks element equality (equals() for objects). Returns false for nested multidimensional arrays.
+
+Common mistake/gotcha to watch out for:
+Using equals() on multi-dimensional arrays, which only checks 1D reference identity."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-110	What confusion should you avoid with `Arrays.equals`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Using equals() on multi-dimensional arrays, which only checks 1D reference identity.
+
+Why this concept matters for correctness and performance:
+Returns true if both arrays contain equal elements in the same order.
+
+Detailed context and examples:
+Compares 1D arrays. Checks element equality (equals() for objects). Returns false for nested multidimensional arrays."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-111	Explain `Arrays.deepEquals` deeply enough for review.	Static utility method to recursively compare multi-dimensional arrays.	"Meaning & Detailed Concept:
+Static utility method to recursively compare multi-dimensional arrays.
+
+Why this is important in development:
+Enables structural comparison of nested arrays.
+
+Implementation details and rules:
+Recursively compares multidimensional arrays for element-by-element equality.
+
+Common mistake/gotcha to watch out for:
+Calling deepEquals on non-array object references."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+collections_framework-extra-112	What confusion should you avoid with `Arrays.deepEquals`?	Do not confuse it with other implementations; make sure you understand its exact contract.	"Avoid this common trap / bug:
+Calling deepEquals on non-array object references.
+
+Why this concept matters for correctness and performance:
+Enables structural comparison of nested arrays.
+
+Detailed context and examples:
+Recursively compares multidimensional arrays for element-by-element equality."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework

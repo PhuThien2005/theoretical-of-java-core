@@ -2,187 +2,183 @@
 
 ## Learning Goal
 
-This file covers a focused slice of **Basic Design Patterns Commonly Seen in Java**. Study each concept as a practical Java rule, not as isolated vocabulary.
+This file covers GoF behavioral patterns and architectural patterns (MVC, DAO, DTO, Repository, Service Layer) standard in Java enterprise code. Study each concept as a practical Java rule.
 
 ## Outline Coverage
 
 | Concept | What to know |
 | --- | --- |
-| `Observer` |Observer is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Template Method` |Template Method is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Command` |Command is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Iterator` | An Iterator traverses a collection while hiding its internal representation. |
-| `State` |State is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `MVC` |MVC is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `DAO` |DAO is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `DTO` |DTO is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Repository` |Repository is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Service Layer` |Service Layer is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Observer` | Subscription model allowing multiple listener objects to react to subject state changes. |
+| `Template Method` | Defining the skeleton of an algorithm in an abstract method, leaving implementation steps to subclasses. |
+| `Command` | Encapsulating requests as objects, supporting operation logging, queuing, and undoing. |
+| `Iterator` | Sequential traversal of a collection hiding its internal structure. |
+| `State` | Allowing an object to alter its behavior when its internal state changes (states act as classes). |
+| `MVC` | Architectural separation pattern of Model (data), View (UI), and Controller (logic). |
+| `DAO` | Data Access Object abstraction separating low-level DB queries from business logic. |
+| `DTO` | Data Transfer Object carrying data across process/network barriers (contains no business logic). |
+| `Repository` | Domain-driven pattern mimicking an in-memory collection mapping to database persistence. |
+| `Service Layer` | Encapsulation boundary for core business transactions. |
+
+---
 
 ## Detailed Notes
 
 ### Observer
 
-Observer is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
+Defines a one-to-many dependency where when one object (Subject) changes state, all its dependents (Observers) are notified and updated automatically.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Runnable Example**:
+  ```java
+  public interface Observer { void update(String event); }
+  
+  public class NewsChannel implements Observer {
+      public void update(String event) { System.out.println("Breaking: " + event); }
+  }
 
-Practical check:
+  public class NewsAgency {
+      private final List<Observer> observers = new ArrayList<>();
 
-- Define `Observer` in one sentence.
-- Recognize `Observer` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Observer`.
+      public void addObserver(Observer channel) { observers.add(channel); }
+      public void setNews(String news) {
+          for (Observer observer : observers) {
+              observer.update(news); // Notify all listeners
+          }
+      }
+  }
+  ```
 
-Tiny example or mental model:
-
-- When reading code, ask: what does `Observer` change, allow, reject, or clarify?
+---
 
 ### Template Method
 
-Template Method is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
+Defines the skeleton of an algorithm in a method, deferring some steps to subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Runnable Example**:
+  ```java
+  public abstract class NetworkDataImporter {
+      // Template Method defining the execution flow
+      public final void importData() {
+          readData();
+          parseData();
+          saveToDatabase();
+      }
+      
+      protected abstract void readData();
+      protected abstract void parseData();
+      
+      private void saveToDatabase() { /* common code */ }
+  }
+  ```
 
-Practical check:
-
-- Define `Template Method` in one sentence.
-- Recognize `Template Method` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Template Method`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Template Method` change, allow, reject, or clarify?
+---
 
 ### Command
 
-Command is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
+Encapsulates a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Runnable Example**:
+  ```java
+  public interface Command { void execute(); }
 
-Practical check:
+  public class LightOnCommand implements Command {
+      private final Light light;
+      public LightOnCommand(Light light) { this.light = light; }
+      public void execute() { light.turnOn(); }
+  }
 
-- Define `Command` in one sentence.
-- Recognize `Command` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Command`.
+  public class RemoteControl {
+      private Command command;
+      public void setCommand(Command command) { this.command = command; }
+      public void pressButton() { command.execute(); }
+  }
+  ```
 
-Tiny example or mental model:
-
-- When reading code, ask: what does `Command` change, allow, reject, or clarify?
+---
 
 ### Iterator
 
-An Iterator traverses a collection while hiding its internal representation.
+Provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation.
 
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
+- **Runnable Example**:
+  ```java
+  List<String> list = List.of("a", "b", "c");
+  Iterator<String> iterator = list.iterator();
+  
+  while (iterator.hasNext()) {
+      String element = iterator.next();
+      System.out.println(element);
+  }
+  ```
 
-Practical check:
+- **Common Mistake**: Modifying a collection structurally (e.g. `list.remove()`) while iterating using an external iterator, causing a `ConcurrentModificationException`. Always use `iterator.remove()` if mutating is required.
 
-- Define `Iterator` in one sentence.
-- Recognize `Iterator` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Iterator`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Iterator` change, allow, reject, or clarify?
+---
 
 ### State
 
-State is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
+Allows an object to alter its behavior when its internal state changes. The object will appear to change its class.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Runnable Example**:
+  ```java
+  public interface State { void handleRequest(); }
 
-Practical check:
+  public class PlayState implements State {
+      public void handleRequest() { System.out.println("Playing video..."); }
+  }
 
-- Define `State` in one sentence.
-- Recognize `State` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `State`.
+  public class VideoPlayer {
+      private State currentState = new PlayState();
 
-Tiny example or mental model:
+      public void setState(State state) { this.currentState = state; }
+      public void pressPlay() { currentState.handleRequest(); }
+  }
+  ```
 
-- When reading code, ask: what does `State` change, allow, reject, or clarify?
+---
 
-### MVC
+### MVC (Model-View-Controller)
 
-MVC is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
+An architectural pattern separating concerns into three modules:
+- **Model**: Represents database schemas, entities, and data logic.
+- **View**: Renders UI components for user display.
+- **Controller**: Listens to user inputs, updates the Model, and refreshes the View.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+---
 
-Practical check:
+### DAO (Data Access Object)
 
-- Define `MVC` in one sentence.
-- Recognize `MVC` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `MVC`.
+The DAO pattern isolates the application/business layer from the persistence layer (usually database operations) using an abstract interface.
 
-Tiny example or mental model:
+- **Runnable Example**:
+  ```java
+  public interface UserDao {
+      User findById(long id);
+      void save(User user);
+  }
+  ```
 
-- When reading code, ask: what does `MVC` change, allow, reject, or clarify?
+---
 
-### DAO
+### DTO (Data Transfer Object)
 
-DAO is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
+A DTO is an object that carries data between processes (e.g., across REST APIs, microservices, or DB entities to presentation layers) to reduce the number of method/network calls. DTOs are simple containers; they contain no business logic.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Runnable Example**:
+  ```java
+  // In modern Java, records are perfect DTO carriers
+  public record UserDto(String username, String email) implements Serializable {}
+  ```
 
-Practical check:
-
-- Define `DAO` in one sentence.
-- Recognize `DAO` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `DAO`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `DAO` change, allow, reject, or clarify?
-
-### DTO
-
-DTO is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `DTO` in one sentence.
-- Recognize `DTO` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `DTO`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `DTO` change, allow, reject, or clarify?
+---
 
 ### Repository
 
-Repository is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
+A Repository is a Domain-Driven Design (DDD) pattern that mediates between the domain and data mapping layers, acting like an in-memory collection of domain objects.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Difference from DAO**: While a DAO maps closely to single database tables, a Repository maps to a higher level Domain Aggregate, coordinating queries across multiple DAOs/tables and managing transactional state.
 
-Practical check:
-
-- Define `Repository` in one sentence.
-- Recognize `Repository` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Repository`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Repository` change, allow, reject, or clarify?
+---
 
 ### Service Layer
 
-Service Layer is a specific concept in Basic Design Patterns Commonly Seen in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Service Layer` in one sentence.
-- Recognize `Service Layer` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Service Layer`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Service Layer` change, allow, reject, or clarify?
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
+The Service Layer encapsulates the core business rules and transactions of an application. It sits between the presentation layer (Controllers) and the persistence layer (Repositories/DAOs), orchestrating domain model logic.

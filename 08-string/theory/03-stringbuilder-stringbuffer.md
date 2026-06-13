@@ -4,6 +4,61 @@ When performing frequent operations on strings (such as inside loops), the immut
 
 ---
 
+## Case Study: Why String Concatenation in a Loop is $O(n^2)$
+
+### The Problem: Naive Concatenation
+
+Consider a loop that builds a string of $n$ numbers:
+
+```java
+// DO NOT DO THIS in real code
+String s = "";
+for (int i = 0; i < n; i++) {
+    s += i; // Or s = s + i;
+}
+```
+
+Under the hood, the compiler translates `s += i` into:
+```java
+s = new StringBuilder().append(s).append(i).toString();
+```
+
+In every iteration:
+1. A new `StringBuilder` is instantiated.
+2. The entire content of the existing string `s` is copied character-by-character into the builder.
+3. The new integer/character is appended.
+4. `toString()` is called, which copies the builder's character array to construct a new `String` object.
+
+If the loop runs $n$ times and each iteration appends a small string, the length of `s` grows linearly. In iteration $k$, the JVM copies $k$ characters.
+The total number of characters copied across all iterations is:
+$$\text{Total Copies} = 1 + 2 + 3 + \dots + n = \frac{n(n + 1)}{2} = O(n^2)$$
+
+This results in:
+- **Quadratic time complexity ($O(n^2)$):** The execution time grows quadratically with $n$.
+- **Memory Churn / GC Pressure:** $n$ temporary `StringBuilder` objects and $n$ temporary `String` objects are allocated and discarded, triggering frequent garbage collection pauses.
+
+### The Solution: `StringBuilder`
+
+By initializing a single `StringBuilder` outside the loop, we avoid creating temporary objects and redundant array copies:
+
+```java
+StringBuilder sb = new StringBuilder();
+for (int i = 0; i < n; i++) {
+    sb.append(i);
+}
+String s = sb.toString();
+```
+
+Here:
+1. Only **one** `StringBuilder` is allocated.
+2. The `append()` method modifies the internal `byte[]`/`char[]` buffer in-place.
+3. Array copying only occurs when the buffer runs out of capacity. Because of the doubling strategy (`(capacity * 2) + 2`), resizing happens logarithmically ($O(\log n)$ times).
+4. The amortized complexity of each `append()` is $O(1)$.
+5. The total time complexity for the entire loop is **$O(n)$**.
+6. Only **one** final `String` object is created when calling `.toString()` at the end.
+
+---
+
 ## Internal Buffer and Capacity
 
 Both `StringBuilder` and `StringBuffer` extend a package-private abstract superclass called `AbstractStringBuilder`.
@@ -88,3 +143,64 @@ sb.setLength(2); // sb is now "Ja"
 
 ### 7. `ensureCapacity(int minimumCapacity)`
 Forces the buffer to allocate space for at least `minimumCapacity` characters, preventing multiple resizes if you know the final content size beforehand.
+
+---
+
+## Common Mistakes
+
+### 1. Recreating the `StringBuilder` Inside the Loop
+Creating a new `StringBuilder` inside the loop defeats the purpose. The code still suffers from $O(n^2)$ copying and garbage collection overhead.
+```java
+// BAD: StringBuilder is still created in every iteration!
+String s = "";
+for (int i = 0; i < 1000; i++) {
+    StringBuilder sb = new StringBuilder();
+    sb.append(s).append(i);
+    s = sb.toString();
+}
+
+// GOOD: Single StringBuilder outside the loop
+StringBuilder sb = new StringBuilder();
+for (int i = 0; i < 1000; i++) {
+    sb.append(i);
+}
+String s = sb.toString();
+```
+
+### 2. Using `append()` with String Concatenation
+Writing `sb.append(a + b)` instead of `sb.append(a).append(b)`. The former performs a string concatenation *before* passing the result to `append()`, creating a temporary `String` object and wasting memory.
+```java
+String first = "John";
+String last = "Doe";
+StringBuilder sb = new StringBuilder();
+
+// BAD: Creates a temporary string "John Doe"
+sb.append(first + " " + last);
+
+// GOOD: Method chaining avoids temporary allocations
+sb.append(first).append(" ").append(last);
+```
+
+### 3. Sharing `StringBuilder` Concurrently
+`StringBuilder` is NOT thread-safe. If multiple threads append to a shared `StringBuilder` concurrently, characters may overwrite each other or throw `ArrayIndexOutOfBoundsException`.
+If thread-safety is required, use `StringBuffer` (or manage external synchronization/thread-local buffers).
+```java
+// UNSAFE: Multiple threads modifying the same builder
+StringBuilder sharedBuilder = new StringBuilder();
+Runnable r = () -> {
+    for (int i = 0; i < 100; i++) {
+        sharedBuilder.append("A"); // Race condition!
+    }
+};
+```
+
+### 4. Ignoring Initial Capacity
+If you know that the final string will be large (e.g., 100,000 characters), initializing a `StringBuilder` with the default capacity of 16 will force the JVM to resize the buffer array many times.
+Always specify an estimated initial capacity if known:
+```java
+// Resizes multiple times: 16 -> 34 -> 70 -> 142 -> ...
+StringBuilder sb1 = new StringBuilder(); 
+
+// Resizes 0 times:
+StringBuilder sb2 = new StringBuilder(100_000); 
+```

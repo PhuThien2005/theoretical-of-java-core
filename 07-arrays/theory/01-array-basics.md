@@ -37,6 +37,30 @@ When an array is allocated, the JVM automatically initializes all of its element
 | `boolean` | `false` |
 | Reference Types (Objects, Strings) | `null` |
 
+### Runnable Example: Declaration, Allocation, and Default Values
+```java
+public class ArrayInitExample {
+    public static void main(String[] args) {
+        // Declaration and allocation
+        int[] intArray = new int[3];
+        boolean[] boolArray = new boolean[2];
+        String[] strArray = new String[2];
+
+        // Print default values
+        System.out.println("int default: " + intArray[0]); // Output: 0
+        System.out.println("boolean default: " + boolArray[0]); // Output: false
+        System.out.println("String default: " + strArray[0]); // Output: null
+
+        // Explicit initialization
+        intArray[0] = 42;
+        intArray[1] = 84;
+        intArray[2] = 126;
+        
+        System.out.println("Modified int array: " + java.util.Arrays.toString(intArray)); // Output: [42, 84, 126]
+    }
+}
+```
+
 ---
 
 ## Initialization Options
@@ -97,6 +121,63 @@ for (int val : arr) {
 }
 ```
 
+##### Runnable Example: Read-only Nature of Enhanced `for` Loop
+```java
+public class EnhancedForExample {
+    public static void main(String[] args) {
+        int[] numbers = {1, 2, 3, 4, 5};
+
+        // 1. Attempting to modify primitive elements in enhanced for loop
+        for (int num : numbers) {
+            num = num * 10; // Modifying local variable num, NOT the array slot!
+        }
+        System.out.println("After enhanced for loop: " + java.util.Arrays.toString(numbers));
+        // Output: [1, 2, 3, 4, 5] (Unmodified!)
+
+        // 2. Correct modification using standard for loop
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = numbers[i] * 10;
+        }
+        System.out.println("After standard for loop: " + java.util.Arrays.toString(numbers));
+        // Output: [10, 20, 30, 40, 50]
+    }
+}
+```
+
+### ArrayIndexOutOfBoundsException (AIOOBE)
+An `ArrayIndexOutOfBoundsException` is a runtime exception thrown to indicate that an array has been accessed with an illegal index. The index is either negative or greater than or equal to the size of the array.
+
+##### Runnable Example: Triggering AIOOBE
+```java
+public class AioobeExample {
+    public static void main(String[] args) {
+        int[] numbers = {10, 20, 30};
+
+        // Valid indices: 0, 1, 2
+        System.out.println("Valid access at index 1: " + numbers[1]); // Prints 20
+
+        try {
+            // Illegal access (index >= length)
+            int val = numbers[3];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Exception caught: " + e.toString());
+            // Expected Output: Exception caught: java.lang.ArrayIndexOutOfBoundsException: Index 3 out of bounds for length 3
+        }
+
+        try {
+            // Illegal access (negative index)
+            int val = numbers[-1];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Exception caught: " + e.toString());
+            // Expected Output: Exception caught: java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 3
+        }
+    }
+}
+```
+> [!IMPORTANT]
+> Since array indices in Java are calculated using 32-bit signed integers, the maximum index is `Integer.MAX_VALUE - 8` (exact value depends on JVM/heap constraints). Attempting to use a `long` value directly as an index results in a compile-time error.
+
+
 ---
 
 ## Multidimensional Arrays (Arrays of Arrays)
@@ -134,6 +215,32 @@ ragged[2] = new int[1];        // Row 2 has 1 column
 for (int i = 0; i < matrix.length; i++) { // matrix.length returns number of rows
     for (int j = 0; j < matrix[i].length; j++) { // matrix[i].length returns columns in row i
         System.out.print(matrix[i][j] + " ");
+    }
+}
+```
+
+### Runnable Example: Accessing and Modifying a Jagged Array
+```java
+public class JaggedArrayExample {
+    public static void main(String[] args) {
+        // Allocate a jagged array (3 rows, varying columns)
+        int[][] jagged = new int[3][];
+        jagged[0] = new int[] {1, 2};
+        jagged[1] = new int[] {3, 4, 5};
+        jagged[2] = new int[] {6};
+
+        // Traverse and print the jagged structure
+        for (int i = 0; i < jagged.length; i++) {
+            System.out.print("Row " + i + " (length " + jagged[i].length + "): ");
+            for (int j = 0; j < jagged[i].length; j++) {
+                System.out.print(jagged[i][j] + " ");
+            }
+            System.out.println();
+        }
+        // Output:
+        // Row 0 (length 2): 1 2 
+        // Row 1 (length 3): 3 4 5 
+        // Row 2 (length 1): 6 
     }
 }
 ```
@@ -194,5 +301,109 @@ In Java, arguments are passed by value. When passing an array to a method, you a
 void modifyArray(int[] arr) {
     arr[0] = 99; // Caller will see this change!
     arr = new int[]{5, 6, 7}; // Caller will NOT see this reassignment!
+}
+```
+
+### Runnable Example: Passing Array references to Methods
+```java
+public class PassArrayExample {
+    public static void main(String[] args) {
+        int[] original = {1, 2, 3};
+
+        // 1. Modify elements inside method
+        modifyElements(original);
+        System.out.println("After modifyElements: " + java.util.Arrays.toString(original));
+        // Output: [99, 2, 3] (Original array was modified!)
+
+        // 2. Reassign array reference inside method
+        tryReassignment(original);
+        System.out.println("After tryReassignment: " + java.util.Arrays.toString(original));
+        // Output: [99, 2, 3] (Original array reference did not change!)
+    }
+
+    static void modifyElements(int[] arr) {
+        arr[0] = 99; // Modifies the object stored on the heap
+    }
+
+    static void tryReassignment(int[] arr) {
+        arr = new int[]{100, 200, 300}; // Reassigns the local parameter copy of reference
+    }
+}
+```
+
+---
+
+## Common Mistakes
+
+### 1. Confusing Array `length` Property with String `length()` Method
+Arrays expose size via a read-only field `length`, while `String` exposes it via a method call `length()`.
+```java
+int[] arr = new int[5];
+int size = arr.length; // Correct!
+// int size = arr.length(); // Compile-time error!
+
+String str = "Hello";
+int len = str.length(); // Correct!
+// int len = str.length; // Compile-time error!
+```
+
+### 2. Off-by-One Errors in Array Indexing
+Because arrays are 0-indexed, the last element is located at `arr.length - 1`. A common mistake is using `<= arr.length` in a loop condition:
+```java
+int[] arr = {10, 20, 30};
+for (int i = 0; i <= arr.length; i++) { // Throws AIOOBE at i = 3
+    System.out.println(arr[i]);
+}
+```
+
+### 3. Attempting to Modify Primitive Elements via Enhanced For Loop
+Assigning a new value to the loop variable in an enhanced `for` loop only modifies a temporary stack copy, leaving the actual array element unchanged.
+
+### 4. Direct Printing of Arrays
+Passing an array directly to `System.out.println(arr)` prints `[I@hashcode` (for `int[]`), not the elements. Always use `Arrays.toString()` or `Arrays.deepToString()`.
+
+---
+
+## Case Study: Why Arrays are Fixed-Size and When to Use ArrayList
+
+### Why are Arrays Fixed-Size?
+When you instantiate an array, Java allocates a **contiguous block of memory** on the heap to hold the specified number of elements.
+1. **Contiguous Allocation:** Memory cells are physically next to each other.
+2. **$O(1)$ Direct Access Math:** Since the type is fixed (e.g. 4 bytes for `int`), the JVM can instantly compute the exact physical address of any element `i` using:
+   $$\text{Address}(i) = \text{Base Address} + i \times \text{Element Size}$$
+3. **No Resizing Overhead:** If arrays were resizable, the JVM might have to move the entire block of memory to another location on the heap if the adjacent memory cells were already taken by other objects. This would make insertion operations slow and unpredictable.
+
+### When to Use Arrays vs. ArrayList
+While arrays are highly efficient, `ArrayList` is a dynamic wrapper class built on top of a backing array.
+
+| Feature | Array (`T[]`) | `ArrayList<T>` |
+| :--- | :--- | :--- |
+| **Resizability** | Fixed size at allocation | Dynamically resizable (automatically grows by 50% when full) |
+| **Type Support** | Primitives and Objects | Object references only (primitives must be autoboxed to wrappers) |
+| **Performance** | Faster access, no wrapper overhead, lower memory footprint | Slightly slower due to object wrapping and overhead of dynamic resizing |
+| **Generics** | Covariant (not type-safe with generics) | Invariant (fully integrated with Java's generic type system) |
+
+#### Dynamic Resizing Mechanics of `ArrayList`
+When an `ArrayList` exceeds its capacity, it internally:
+1. Allocates a new array of $1.5 \times$ the current size.
+2. Copies all elements from the old array using `System.arraycopy()`.
+3. Discards the old array.
+
+```java
+import java.util.ArrayList;
+
+public class ArrayVsArrayListExample {
+    public static void main(String[] args) {
+        // Use an array when size is fixed and known beforehand (e.g., coordinates, RGB)
+        int[] rgb = {255, 128, 0};
+
+        // Use an ArrayList when size is dynamic and elements are added/removed frequently
+        ArrayList<String> namesList = new ArrayList<>();
+        namesList.add("Alice");
+        namesList.add("Bob");
+        namesList.add("Charlie"); // Grows automatically
+        
+        System.out.println("ArrayList content: " + namesList);
+    }
 }
 ```

@@ -2,153 +2,191 @@
 
 ## Learning Goal
 
-This file covers a focused slice of **Synchronization and Concurrency**. Study each concept as a practical Java rule, not as isolated vocabulary.
+This file covers Java's explicit Lock API (`Lock`, `ReentrantLock`, `ReadWriteLock`, `StampedLock`) and high-level synchronizers (`Semaphore`, `CountDownLatch`). Study each concept as a practical Java rule, not as isolated vocabulary.
 
 ## Outline Coverage
 
 | Concept | What to know |
 | --- | --- |
-| `AtomicReference` |AtomicReference is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Lock API:` | Lock API is a group of related rules in Synchronization and Concurrency that groups several related details. |
-| `Lock` |Lock is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `ReentrantLock` |ReentrantLock is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `ReadWriteLock` |ReadWriteLock is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `StampedLock` |StampedLock is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Semaphore` | A Map stores key-value pairs and retrieves values by key. |
-| `CountDownLatch` |CountDownLatch is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `AtomicReference` | Provides lock-free, atomic operations on object references using Compare-And-Swap. |
+| `Lock API:` | The `java.util.concurrent.locks` framework providing more flexible, powerful locking capabilities than `synchronized` blocks. |
+| `Lock` | The root interface defining lock acquisition operations (`lock()`, `tryLock()`, `unlock()`). |
+| `ReentrantLock` | A mutual exclusion lock with the same behavior as intrinsic monitor locks, but offering features like fairness, timeouts, and interruptible lock acquisition. |
+| `ReadWriteLock` | A lock pair that allows multiple threads to read concurrently, but restricts write access exclusively to one thread. |
+| `StampedLock` | An advanced lock featuring three modes (write, read, optimistic read) and stamp-based validation. It is **not** reentrant. |
+| `Semaphore` | A synchronizer that maintains a set of permits to restrict concurrent access to a resource pool. |
+| `CountDownLatch` | A synchronization aid that allows one or more threads to wait until a set of operations performed in other threads completes. |
 
 ## Detailed Notes
 
-### AtomicReference
+### Lock API and ReentrantLock
+Unlike `synchronized` blocks, which are structured and block-scoped, explicit `Lock` objects require manual lock acquisition and release.
+* **Important**: You must always call `unlock()` inside a `finally` block to prevent resource leaks in case of exceptions.
 
-AtomicReference is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
+```java
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
+public class ExplicitLockDemo {
+    private final Lock lock = new ReentrantLock();
 
-Practical check:
-
-- Define `AtomicReference` in one sentence.
-- Recognize `AtomicReference` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `AtomicReference`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `AtomicReference` change, allow, reject, or clarify?
-
-### Lock API:
-
-Lock API is a group of related rules in Synchronization and Concurrency that groups several related details.
-
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
-
-Practical check:
-
-- Define `Lock API:` in one sentence.
-- Recognize `Lock API:` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Lock API:`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Lock API:` change, allow, reject, or clarify?
-
-### Lock
-
-Lock is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
-
-Practical check:
-
-- Define `Lock` in one sentence.
-- Recognize `Lock` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Lock`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Lock` change, allow, reject, or clarify?
-
-### ReentrantLock
-
-ReentrantLock is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
-
-Practical check:
-
-- Define `ReentrantLock` in one sentence.
-- Recognize `ReentrantLock` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `ReentrantLock`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `ReentrantLock` change, allow, reject, or clarify?
+    public void performTask() {
+        lock.lock(); // Blocks until acquired
+        try {
+            // Critical section
+        } finally {
+            lock.unlock(); // Always release in finally block!
+        }
+    }
+}
+```
 
 ### ReadWriteLock
+Allows high concurrency for read-heavy operations. Multiple read threads can hold the read lock simultaneously, but the write lock is exclusive.
+```java
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-ReadWriteLock is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
+public class CacheDemo {
+    private final ReadWriteLock rwLock = new ReentrantReadWriteLock();
+    private String data = "";
 
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
+    public String read() {
+        rwLock.readLock().lock();
+        try { return data; }
+        finally { rwLock.readLock().unlock(); }
+    }
 
-Practical check:
+    public void write(String val) {
+        rwLock.writeLock().lock();
+        try { data = val; }
+        finally { rwLock.writeLock().unlock(); }
+    }
+}
+```
 
-- Define `ReadWriteLock` in one sentence.
-- Recognize `ReadWriteLock` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `ReadWriteLock`.
+### StampedLock (Optimistic Reading)
+`StampedLock` provides a lock stamp. It supports "optimistic reading", which allows read threads to acquire data without blocking writes. If a write occurs during the read, the stamp is validated as invalid, and the reader retries with a pessimistic read lock.
+```java
+import java.util.concurrent.locks.StampedLock;
 
-Tiny example or mental model:
+public class StampedLockDemo {
+    private final StampedLock lock = new StampedLock();
+    private double x, y;
 
-- When reading code, ask: what does `ReadWriteLock` change, allow, reject, or clarify?
+    public double getDistance() {
+        long stamp = lock.tryOptimisticRead(); // Non-blocking read
+        double curX = x, curY = y;
+        
+        if (!lock.validate(stamp)) { // Check if a write occurred
+            stamp = lock.readLock(); // Fallback to pessimistic read lock
+            try {
+                curX = x; curY = y;
+            } finally {
+                lock.unlockRead(stamp);
+            }
+        }
+        return Math.sqrt(curX * curX + curY * curY);
+    }
+}
+```
 
-### StampedLock
+### Semaphore and CountDownLatch
+* **Semaphore**: Controls resource usage via permits. Thread calls `acquire()` to take a permit (blocking if none exist) and `release()` to return it.
+* **CountDownLatch**: A one-time gate. Threads call `await()` to block until other threads call `countDown()` enough times to reduce the latch count to 0.
 
-StampedLock is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
+```java
+import java.util.concurrent.CountDownLatch;
 
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
+public class LatchDemo {
+    public static void main(String[] args) throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(2);
 
-Practical check:
+        Runnable worker = () -> {
+            System.out.println("Step finished.");
+            latch.countDown();
+        };
 
-- Define `StampedLock` in one sentence.
-- Recognize `StampedLock` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `StampedLock`.
+        new Thread(worker).start();
+        new Thread(worker).start();
 
-Tiny example or mental model:
+        latch.await(); // Blocks until count becomes 0
+        System.out.println("All steps completed.");
+    }
+}
+```
 
-- When reading code, ask: what does `StampedLock` change, allow, reject, or clarify?
+---
 
-### Semaphore
+## Case Study: Bounded Database Connection Pool via Semaphore
 
-A Map stores key-value pairs and retrieves values by key.
+### Problem
+A database connection pool has a hard limit of 5 physical connections. If more than 5 threads attempt to acquire a connection concurrently, they should block until a connection is released.
 
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
+### Solution
+Wrap connection access with a `Semaphore`.
+```java
+import java.util.concurrent.Semaphore;
 
-Practical check:
+public class ConnectionPool {
+    private final Semaphore semaphore = new Semaphore(5); // Maximum 5 connections
+    private final Connection[] connections = new Connection[5];
+    private final boolean[] used = new boolean[5];
 
-- Define `Semaphore` in one sentence.
-- Recognize `Semaphore` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Semaphore`.
+    public Connection getConnection() throws InterruptedException {
+        semaphore.acquire(); // Blocks if all 5 connections are in use
+        return getNextAvailableConnection();
+    }
 
-Tiny example or mental model:
+    public void releaseConnection(Connection c) {
+        if (markAsFree(c)) {
+            semaphore.release(); // Releases a permit, waking up a blocked thread
+        }
+    }
 
-- `Map<String, Integer> scores = new HashMap<>();` maps keys to values.
+    private synchronized Connection getNextAvailableConnection() {
+        for (int i = 0; i < 5; i++) {
+            if (!used[i]) {
+                used[i] = true;
+                return connections[i];
+            }
+        }
+        return null;
+    }
 
-### CountDownLatch
+    private synchronized boolean markAsFree(Connection c) {
+        for (int i = 0; i < 5; i++) {
+            if (connections[i] == c) {
+                if (used[i]) {
+                    used[i] = false;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    private static class Connection {} // Stub class
+}
+```
 
-CountDownLatch is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
+---
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+## Common Mistakes
 
-Practical check:
+### 1. Leaking Locks (Forgetting to Unlock in Finally)
+If an exception occurs inside the critical section and `unlock()` is not inside a `finally` block, the lock remains held forever, causing deadlocks for other threads.
+```java
+// BUG
+lock.lock();
+doTask(); // If this throws RuntimeException, lock is leaked!
+lock.unlock();
+```
 
-- Define `CountDownLatch` in one sentence.
-- Recognize `CountDownLatch` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `CountDownLatch`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `CountDownLatch` change, allow, reject, or clarify?
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
+### 2. Self-Deadlock with StampedLock (Non-Reentrant)
+Unlike `ReentrantLock`, `StampedLock` is **not** reentrant. A thread holding a StampedLock write lock that attempts to acquire it again will deadlock itself.
+```java
+StampedLock lock = new StampedLock();
+long s1 = lock.writeLock();
+long s2 = lock.writeLock(); // DEADLOCK: blocks waiting for its own lock!
+```

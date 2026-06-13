@@ -2,51 +2,68 @@
 
 ## Learning Goal
 
-This file covers a focused slice of **Modern Java Concepts To Know**. Study each concept as a practical Java rule, not as isolated vocabulary.
+This file covers Sequenced Collections and String Templates. Study each concept as a practical Java rule.
 
 ## Outline Coverage
 
 | Concept | What to know |
 | --- | --- |
-| `Sequenced Collections` | A collection is an object that groups multiple elements under a common API. |
-| `String templates were once preview; currently they should not be used as a stable feature` |String templates were once preview; currently they should not be used as a stable feature is a specific concept in Modern Java Concepts To Know; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Sequenced Collections` | Interfaces introduced in Java 21 representing collections with a defined encounter order. |
+| `String templates were once preview; currently they should not be used as a stable feature` | Status and alternatives for the removed Java 21 String Templates preview feature. |
+
+---
 
 ## Detailed Notes
 
 ### Sequenced Collections
 
-A collection is an object that groups multiple elements under a common API.
+Sequenced Collections (introduced in Java 21) unify collections that have a defined first and last element, providing a standard API for retrieval, modification, and reverse-order views.
 
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
+- **Interface Hierarchy**:
+  - `SequencedCollection<E>` (extended by `List`, `Deque`, and `SequencedSet`)
+  - `SequencedSet<E>` (extended by `LinkedHashSet` and `SortedSet`)
+  - `SequencedMap<K, V>` (extended by `LinkedHashMap` and `SortedMap`)
 
-Practical check:
+- **Runnable Example**:
+  ```java
+  SequencedCollection<String> coll = new ArrayList<>(List.of("one", "two", "three"));
 
-- Define `Sequenced Collections` in one sentence.
-- Recognize `Sequenced Collections` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Sequenced Collections`.
+  // Uniform retrieval
+  String first = coll.getFirst(); // "one"
+  String last = coll.getLast();   // "three"
 
-Tiny example or mental model:
+  // Uniform modification
+  coll.addFirst("zero");
+  coll.addLast("four");
 
-- When reading code, ask: what does `Sequenced Collections` change, allow, reject, or clarify?
+  // Reverse view (runs in O(1) time without copying elements)
+  SequencedCollection<String> reversed = coll.reversed();
+  System.out.println(reversed.getFirst()); // "four"
+  ```
+
+- **Common Mistake / Failure Mode**:
+  - **Empty Collections**: Calling `getFirst()` or `getLast()` on an empty collection throws a runtime `NoSuchElementException`.
+  - **Reversed Mutability**: The collection returned by `reversed()` is a view, not a copy. Modifying the reversed view directly mutates the backing original collection.
+
+---
 
 ### String templates were once preview; currently they should not be used as a stable feature
 
-String templates were once preview; currently they should not be used as a stable feature is a specific concept in Modern Java Concepts To Know; learn its Java rule, valid use cases, and failure mode rather than only its name.
+String Templates (e.g., `STR."Hello \{name}"`) were introduced as a preview feature in Java 21. However, due to feedback, they were **removed** in subsequent releases (Java 22+) and did not proceed to standardization.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+- **Correct Practice**:
+  - Avoid using String Templates (`STR.`) in any standard or production code, as they will cause compilation failures in modern JDK versions.
+  - **Standard Alternatives**:
+    Use traditional string concatenation, `String.format()`, or the `String.formatted()` instance method:
+    ```java
+    String name = "Alice";
+    
+    // Concatenation
+    String message1 = "Hello " + name;
 
-Practical check:
+    // String.format
+    String message2 = String.format("Hello %s", name);
 
-- Define `String templates were once preview; currently they should not be used as a stable feature` in one sentence.
-- Recognize `String templates were once preview; currently they should not be used as a stable feature` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `String templates were once preview; currently they should not be used as a stable feature`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `String templates were once preview; currently they should not be used as a stable feature` change, allow, reject, or clarify?
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
+    // String.formatted (cleanest alternative)
+    String message3 = "Hello %s".formatted(name);
+    ```

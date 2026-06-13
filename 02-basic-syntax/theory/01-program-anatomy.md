@@ -112,3 +112,89 @@ The second style is legal in many cases but terrible to read. Good formatting ma
 - Putting code outside a class.
 - Mismatching `{` and `}`.
 - Naming the file differently from the public class.
+
+### Common Mistake: Missing Semicolon
+
+```java
+// Compile error — semicolon missing
+public class Bad {
+    public static void main(String[] args) {
+        System.out.println("Hello")   // ← error: ';' expected
+    }
+}
+```
+
+```java
+// Correct
+public class Good {
+    public static void main(String[] args) {
+        System.out.println("Hello");
+    }
+}
+```
+
+### Common Mistake: File Name Mismatch
+
+```java
+// File is named: Main.java
+// Compile error: class HelloWorld is public, should be declared in a file named HelloWorld.java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hi");
+    }
+}
+```
+
+Fix: rename the file to `HelloWorld.java`.
+
+## `print` vs `println`
+
+`System.out.print` prints without a trailing newline.
+`System.out.println` prints and then moves to the next line.
+
+```java
+// print — no newline after each call
+System.out.print("Hello");
+System.out.print(" World");
+// Output: Hello World    (on one line)
+
+// println — newline appended after each call
+System.out.println("A");
+System.out.println("B");
+// Output:
+// A
+// B
+```
+
+Mixing them is valid:
+
+```java
+System.out.print("Score: ");
+System.out.println(42);
+// Output: Score: 42
+```
+
+## Case Study: A Minimal But Complete Program
+
+```java
+// File: Greeter.java
+package com.example;
+
+/**
+ * A minimal greeting program demonstrating all basic anatomy elements.
+ */
+public class Greeter {          // class name matches file name
+
+    // Entry point
+    public static void main(String[] args) {
+        String name = "Java";   // variable with a meaningful name
+        // Print greeting — no newline first, then println to finish the line
+        System.out.print("Hello, ");
+        System.out.println(name);
+    }
+}
+// Output: Hello, Java
+```
+
+This program demonstrates: package declaration, doc comment, public class matching file name,
+`main` method, meaningful variable name, mixed `print`/`println`, and block structure.

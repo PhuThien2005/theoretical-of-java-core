@@ -11,7 +11,7 @@ This file covers a focused slice of **Advanced JVM**. Study each concept as a pr
 | `-XX` |-XX is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
 | `Basic profiling` |Basic profiling is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
 | `Memory dump` |Memory dump is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Thread dump` | A thread is a path of execution inside a process. |
+| `Thread dump` | A thread dump is a snapshot of the state and stack trace of all active threads in a JVM. |
 
 ## Detailed Notes
 
@@ -65,9 +65,9 @@ Tiny example or mental model:
 
 ### Thread dump
 
-A thread is a path of execution inside a process.
+A thread dump is a snapshot of all active threads inside the JVM, showing the state (RUNNABLE, BLOCKED, WAITING) and full stack trace for each.
 
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
+It matters because it allows developers to diagnose deadlocks, thread contention, infinite loops, and resource locks in concurrent applications.
 
 Practical check:
 
@@ -78,6 +78,22 @@ Practical check:
 Tiny example or mental model:
 
 - `new Thread(task).start()` starts work on another thread.
+
+## Code Examples
+
+### CLI Command to capture thread/heap dumps
+```bash
+# Capture thread dump (PID: 1234)
+jstack 1234 > thread_dump.txt
+
+# Capture heap dump (PID: 1234)
+jmap -dump:format=b,file=heap_dump.hprof 1234
+```
+
+## Common Mistakes
+
+- **Manually parsing heap dumps**: Heap dumps are binary files and can be huge. Do not open them in raw text editors. Always use specialized tools like Eclipse Memory Analyzer (MAT) or VisualVM.
+- **Failing to capture thread dumps during deadlocks**: When application threads hang, immediately capture 2-3 thread dumps spaced a few seconds apart to identify which threads are blocked on which monitors.
 
 ## Common Review Prompts
 

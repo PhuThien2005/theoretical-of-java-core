@@ -2,153 +2,130 @@
 
 ## Learning Goal
 
-This file covers a focused slice of **Synchronization and Concurrency**. Study each concept as a practical Java rule, not as isolated vocabulary.
+This file covers high-level concurrent collections (`ConcurrentHashMap`, `CopyOnWriteArrayList`, `BlockingQueue`) and synchronization barriers (`CyclicBarrier`, `Phaser`). Study each concept as a practical Java rule, not as isolated vocabulary.
 
 ## Outline Coverage
 
 | Concept | What to know |
 | --- | --- |
-| `CyclicBarrier` |CyclicBarrier is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Phaser` |Phaser is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `BlockingQueue` |BlockingQueue is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Concurrent collections:` | A collection is an object that groups multiple elements under a common API. |
-| `ConcurrentHashMap` | A Map stores key-value pairs and retrieves values by key. |
-| `CopyOnWriteArrayList` | A List is an ordered collection that can contain duplicates and supports positional access. |
-| `ConcurrentLinkedQueue` |ConcurrentLinkedQueue is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Executor Framework:` | Executor Framework is a group of related rules in Synchronization and Concurrency that groups several related details. |
+| `CyclicBarrier` | A reusable synchronization barrier where a fixed number of threads must wait for each other before proceeding. |
+| `Phaser` | A flexible, reusable synchronization barrier that supports dynamic registration of parties and multi-phase execution. |
+| `BlockingQueue` | A thread-safe queue interface that blocks putting threads if full, and taking threads if empty. |
+| `Concurrent collections:` | Special thread-safe collections in `java.util.concurrent` optimized for high concurrent throughput without global locking. |
+| `ConcurrentHashMap` | A high-performance, thread-safe hash map that uses fine-grained lock striping and CAS operations. Reads are non-blocking. |
+| `CopyOnWriteArrayList` | A thread-safe list that creates a fresh copy of the underlying array upon any write operation. Efficient for read-heavy scenarios. |
+| `ConcurrentLinkedQueue` | An unbounded thread-safe queue based on lock-free, concurrent node links (using CAS). |
+| `Executor Framework:` | A library framework that simplifies asynchronous task execution by pooling and managing worker threads. |
 
 ## Detailed Notes
 
-### CyclicBarrier
+### CyclicBarrier vs CountDownLatch
+* **CountDownLatch**: Cannot be reset. One thread waits, other threads decrement.
+* **CyclicBarrier**: Reusable (resets count after passing). Threads wait for each other at a common barrier point via `barrier.await()`. Can execute an optional "barrier action" runnable when all threads arrive.
 
-CyclicBarrier is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
+```java
+import java.util.concurrent.CyclicBarrier;
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+public class CyclicBarrierDemo {
+    public static void main(String[] args) {
+        CyclicBarrier barrier = new CyclicBarrier(3, () -> System.out.println("Phase completed!"));
 
-Practical check:
+        Runnable worker = () -> {
+            try {
+                System.out.println(Thread.currentThread().getName() + " arriving.");
+                barrier.await(); // Wait for all 3 threads
+            } catch (Exception e) {}
+        };
 
-- Define `CyclicBarrier` in one sentence.
-- Recognize `CyclicBarrier` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `CyclicBarrier`.
+        new Thread(worker, "Thread-1").start();
+        new Thread(worker, "Thread-2").start();
+        new Thread(worker, "Thread-3").start();
+    }
+}
+```
 
-Tiny example or mental model:
+### Concurrent Collections: ConcurrentHashMap vs SynchronizedMap
+* `Collections.synchronizedMap()` locks the *entire* map for every read and write operation, causing severe thread contention.
+* `ConcurrentHashMap` partitions the map into lock stripes or buckets. Multiple threads can read concurrently without locking, and write concurrently to different buckets.
+* **Important**: Compound operations (like check-then-act) are not safe on `ConcurrentHashMap` unless using atomic methods like `putIfAbsent()`, `replace()`, or `computeIfAbsent()`.
 
-- When reading code, ask: what does `CyclicBarrier` change, allow, reject, or clarify?
+```java
+import java.util.concurrent.ConcurrentHashMap;
 
-### Phaser
+public class MapDemo {
+    private final ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
 
-Phaser is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Phaser` in one sentence.
-- Recognize `Phaser` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Phaser`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Phaser` change, allow, reject, or clarify?
-
-### BlockingQueue
-
-BlockingQueue is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
-
-Practical check:
-
-- Define `BlockingQueue` in one sentence.
-- Recognize `BlockingQueue` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `BlockingQueue`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `BlockingQueue` change, allow, reject, or clarify?
-
-### Concurrent collections:
-
-A collection is an object that groups multiple elements under a common API.
-
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
-
-Practical check:
-
-- Define `Concurrent collections:` in one sentence.
-- Recognize `Concurrent collections:` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Concurrent collections:`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Concurrent collections:` change, allow, reject, or clarify?
-
-### ConcurrentHashMap
-
-A Map stores key-value pairs and retrieves values by key.
-
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
-
-Practical check:
-
-- Define `ConcurrentHashMap` in one sentence.
-- Recognize `ConcurrentHashMap` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `ConcurrentHashMap`.
-
-Tiny example or mental model:
-
-- `Map<String, Integer> scores = new HashMap<>();` maps keys to values.
+    // Thread-safe compound operation
+    public void increment(String key) {
+        map.compute(key, (k, v) -> (v == null) ? 1 : v + 1);
+    }
+}
+```
 
 ### CopyOnWriteArrayList
+Mutating operations (add, set, remove) copy the entire backing array. This is expensive for writes but makes reads extremely fast and lock-free. Iterators read a snapshot of the array and never throw `ConcurrentModificationException`.
 
-A List is an ordered collection that can contain duplicates and supports positional access.
+---
 
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
+## Case Study: Event Listener Registry
 
-Practical check:
+### Problem
+A GUI framework has a core class that fires events to a list of registered listeners. Listeners can be added or removed dynamically, and sometimes a listener attempts to unsubscribe *while* an event is being broadcasted (leading to `ConcurrentModificationException` with a standard `ArrayList`).
 
-- Define `CopyOnWriteArrayList` in one sentence.
-- Recognize `CopyOnWriteArrayList` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `CopyOnWriteArrayList`.
+### Solution
+Use `CopyOnWriteArrayList`.
+```java
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
-Tiny example or mental model:
+public class EventPublisher {
+    // Highly read-heavy: events are fired frequently, listeners change rarely.
+    private final List<Listener> listeners = new CopyOnWriteArrayList<>();
 
-- `List<String> names = new ArrayList<>();` stores ordered elements.
+    public void addListener(Listener l) {
+        listeners.add(l);
+    }
 
-### ConcurrentLinkedQueue
+    public void removeListener(Listener l) {
+        listeners.remove(l);
+    }
 
-ConcurrentLinkedQueue is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
+    public void publishEvent(String event) {
+        // Safe lock-free iteration. No ConcurrentModificationException even if
+        // a listener calls removeListener() inside onEvent().
+        for (Listener l : listeners) {
+            l.onEvent(event);
+        }
+    }
 
-It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
+    interface Listener {
+        void onEvent(String msg);
+    }
+}
+```
 
-Practical check:
+---
 
-- Define `ConcurrentLinkedQueue` in one sentence.
-- Recognize `ConcurrentLinkedQueue` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `ConcurrentLinkedQueue`.
+## Common Mistakes
 
-Tiny example or mental model:
+### 1. Using CopyOnWriteArrayList for Write-Heavy Lists
+If you write to a `CopyOnWriteArrayList` inside a loop, it copies the entire array on every single iteration, destroying performance and causing massive GC pressure.
+```java
+// BUG: Massive array copy overhead
+CopyOnWriteArrayList<Integer> list = new CopyOnWriteArrayList<>();
+for (int i = 0; i < 10000; i++) {
+    list.add(i); // Copies array 10,000 times!
+}
+```
 
-- When reading code, ask: what does `ConcurrentLinkedQueue` change, allow, reject, or clarify?
+### 2. Check-Then-Act Bugs with ConcurrentHashMap
+Assuming that checking a value in `ConcurrentHashMap` and then acting on it is atomic.
+```java
+// BUG: Race condition! Two threads could see containsKey as false and both insert.
+if (!map.containsKey("key")) {
+    map.put("key", newValue);
+}
 
-### Executor Framework:
-
-Executor Framework is a group of related rules in Synchronization and Concurrency that groups several related details.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Executor Framework:` in one sentence.
-- Recognize `Executor Framework:` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Executor Framework:`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Executor Framework:` change, allow, reject, or clarify?
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
+// FIX: Use atomic computeIfAbsent
+map.computeIfAbsent("key", k -> newValue);
+```

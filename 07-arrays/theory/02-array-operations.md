@@ -37,6 +37,32 @@ int[] copy = Arrays.copyOf(original, newLength);
 - If `newLength` is smaller, the array is truncated.
 - Under the hood, this method calls `System.arraycopy` after allocating the new array.
 
+##### Runnable Example: Using `Arrays.copyOf()` and `copyOfRange()`
+```java
+import java.util.Arrays;
+
+public class ArrayCopyExample {
+    public static void main(String[] args) {
+        int[] original = {10, 20, 30, 40, 50};
+
+        // 1. Truncating copy (length = 3)
+        int[] truncated = Arrays.copyOf(original, 3);
+        System.out.println("Truncated (length 3): " + Arrays.toString(truncated));
+        // Output: [10, 20, 30]
+
+        // 2. Padding copy (length = 7)
+        int[] padded = Arrays.copyOf(original, 7);
+        System.out.println("Padded (length 7): " + Arrays.toString(padded));
+        // Output: [10, 20, 30, 40, 50, 0, 0]
+
+        // 3. Sub-range copy (indices 1 to 4 exclusive, i.e., 20, 30, 40)
+        int[] range = Arrays.copyOfRange(original, 1, 4);
+        System.out.println("Range (indices 1 to 4): " + Arrays.toString(range));
+        // Output: [20, 30, 40]
+    }
+}
+```
+
 ### 3. `Arrays.copyOfRange()`
 Copies a specific range of the array.
 
@@ -70,6 +96,62 @@ For object arrays (`String[]`, custom classes), `Arrays.sort()` uses **Timsort**
 You can sort a specific sub-array using:
 ```java
 Arrays.sort(arr, fromIndex, toIndex); // toIndex is exclusive
+```
+
+##### Runnable Example: Sorting Primitives vs. Objects
+```java
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class ArraySortExample {
+    static class Person implements Comparable<Person> {
+        String name;
+        int age;
+
+        Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        @Override
+        public int compareTo(Person other) {
+            return Integer.compare(this.age, other.age); // Sort by age ascending
+        }
+
+        @Override
+        public String toString() {
+            return name + " (" + age + ")";
+        }
+    }
+
+    public static void main(String[] args) {
+        // 1. Primitive sorting (Dual-Pivot Quicksort)
+        int[] numbers = {5, 2, 8, 1, 9};
+        Arrays.sort(numbers);
+        System.out.println("Sorted primitives: " + Arrays.toString(numbers));
+        // Output: [1, 2, 5, 8, 9]
+
+        // 2. Object sorting using Comparable (Timsort)
+        Person[] people = {
+            new Person("Alice", 30),
+            new Person("Bob", 25),
+            new Person("Charlie", 35)
+        };
+        Arrays.sort(people);
+        System.out.println("Sorted by Comparable (age): " + Arrays.toString(people));
+        // Output: [Bob (25), Alice (30), Charlie (35)]
+
+        // 3. Object sorting using a custom Comparator (by name descending)
+        Arrays.sort(people, new Comparator<Person>() {
+            @Override
+            public int compare(Person p1, Person p2) {
+                return p2.name.compareTo(p1.name);
+            }
+        });
+        System.out.println("Sorted by custom Comparator (name desc): " + Arrays.toString(people));
+        // Output: [Charlie (35), Bob (25), Alice (30)]
+    }
+}
 ```
 
 ---
@@ -122,4 +204,40 @@ int[][] matrix2 = {{1, 2}};
 
 System.out.println(Arrays.equals(matrix1, matrix2));     // false (inner row addresses differ)
 System.out.println(Arrays.deepEquals(matrix1, matrix2)); // true (contents compared recursively)
+```
+
+## Common Mistakes
+
+### 1. Searching an Unsorted Array with `Arrays.binarySearch()`
+`Arrays.binarySearch()` relies on the array being sorted in ascending order. If it is not sorted, the result is undefined.
+```java
+int[] unsorted = {3, 1, 4, 1, 5};
+int index = Arrays.binarySearch(unsorted, 4); // Undefined result! Could be negative or incorrect.
+```
+
+### 2. Using `==` or `.equals()` to Compare Array Contents
+Arrays do not override `.equals()` from `Object`. Therefore, `arr1.equals(arr2)` is equivalent to `arr1 == arr2` (it compares stack references, not heap array contents). Use `Arrays.equals()` or `Arrays.deepEquals()` instead.
+```java
+int[] a = {1, 2};
+int[] b = {1, 2};
+System.out.println(a == b);       // false
+System.out.println(a.equals(b));  // false
+System.out.println(Arrays.equals(a, b)); // true
+```
+
+### 3. Using `Arrays.equals()` on Multidimensional Arrays
+`Arrays.equals()` only compares top-level references when run on multi-dimensional arrays. If those references are different, it returns `false`, even if the underlying values are identical. Use `Arrays.deepEquals()` instead.
+```java
+int[][] m1 = {{1, 2}};
+int[][] m2 = {{1, 2}};
+System.out.println(Arrays.equals(m1, m2));     // false
+System.out.println(Arrays.deepEquals(m1, m2)); // true
+```
+
+### 4. Direct Casting in `System.arraycopy()` with Incompatible Types
+`System.arraycopy()` throws an `ArrayStoreException` at runtime if the element types are incompatible, even though the code compiles fine (since both arguments are typed as `Object`).
+```java
+Object[] src = { "Hello", "World" };
+Integer[] dest = new Integer[2];
+// System.arraycopy(src, 0, dest, 0, 2); // Throws ArrayStoreException at runtime!
 ```
