@@ -37,15 +37,15 @@ The repository sync script reads those files through `scripts/sync_anki.py`.
 Use these headers exactly:
 
 ```tsv
-ID	Front	Back	Source	Tags
+ID	Front	Back	Code	Source	Tags
 ```
 
 ```tsv
-ID	Front	Back	Extra	Source	Tags
+ID	Front	Back	Extra	Code	Source	Tags
 ```
 
 ```tsv
-ID	Text	Extra	Source	Tags
+ID	Text	Extra	Code	Source	Tags
 ```
 
 ```tsv
@@ -56,14 +56,14 @@ ID	Question	Code	Answer	Explanation	Source	Tags
 
 - One card tests one idea.
 - Keep answers short.
-- Use `Extra` for code examples, gotchas, or memory hints.
-- If `Back` uses a term that is not explained elsewhere, `Extra` must explain the term deeply enough: meaning, why it matters, common confusion, and a small example when useful.
+- Use `Code` for code examples/snippets, and `Extra` for explanations, gotchas, or memory hints.
+- If `Back` uses a term that is not explained elsewhere, `Extra` must explain the term deeply enough: meaning, why it matters, common confusion.
 - Use Cloze for definitions, counts, keyword lists, and contrasts.
-- Use Code Question cards for code snippets, shell commands, output prediction, compile/run flow, and bug spotting.
+- Use Code Question cards for code output prediction, compile/run flow, and bug spotting (or where the question is primarily code-based).
 - Do not mix note types in one TSV file.
 - Prefer TSV over CSV.
 - Avoid tab characters inside field content.
-- For multi-line code in TSV fields, write escaped `\n`; the sync script converts it into real line breaks for Anki.
+- For multi-line code in TSV fields (including the `Code` field), write escaped `\n`; the sync script converts it into real line breaks for Anki.
 - Store topic cards beside the topic notes, not in a separate global `anki/` folder.
 - Use Mermaid diagrams in theory files when a process or relationship is easier to understand visually.
 - For Anki cards, do not embed raw Mermaid. Export Mermaid diagrams to SVG/PNG in `<topic>/media/anki/` and reference them with `<img src="filename.svg">`.

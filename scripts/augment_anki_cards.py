@@ -12,9 +12,9 @@ from pathlib import Path
 
 
 FILES = {
-    "basic.tsv": ["ID", "Front", "Back", "Source", "Tags"],
-    "basic-extra.tsv": ["ID", "Front", "Back", "Extra", "Source", "Tags"],
-    "cloze.tsv": ["ID", "Text", "Extra", "Source", "Tags"],
+    "basic.tsv": ["ID", "Front", "Back", "Code", "Source", "Tags"],
+    "basic-extra.tsv": ["ID", "Front", "Back", "Extra", "Code", "Source", "Tags"],
+    "cloze.tsv": ["ID", "Text", "Extra", "Code", "Source", "Tags"],
     "code-question.tsv": ["ID", "Question", "Code", "Answer", "Explanation", "Source", "Tags"],
 }
 

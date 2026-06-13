@@ -1,341 +1,341 @@
-ID	Text	Extra	Source	Tags
+ID	Text	Extra	Code	Source	Tags
 collections_framework-cloze-001	The {{c1::Collections Framework}} is a unified architecture representing and manipulating collections, including interfaces, implementations, and algorithms.	"Why it matters: It reduces programming effort, increases performance, and fosters software reuse by providing standard data structures.
 
-Details: The Collections Framework consists of three parts: interfaces, implementations, and algorithms. Note that Map does NOT extend Collection."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: The Collections Framework consists of three parts: interfaces, implementations, and algorithms. Note that Map does NOT extend Collection."		19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-002	The Collections Framework consists of three main parts: {{c1::interfaces}}, {{c2::implementations}}, and {{c3::algorithms}}.	"Gotcha: Assuming all collections extend the Collection interface, whereas Map is a completely separate hierarchy.
 
-Details: The Collections Framework consists of three parts: interfaces, implementations, and algorithms. Note that Map does NOT extend Collection."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: The Collections Framework consists of three parts: interfaces, implementations, and algorithms. Note that Map does NOT extend Collection."		19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-003	The root traversal contract in Java that returns an Iterator and enables for-each loop traversal is {{c1::Iterable}}.	"Why it matters: It provides a standard way to obtain an Iterator for sequential traversal.
 
 Details: Requires implementing iterator(). Example:
 for(String s : list) { ... }
-Gotcha: Modifying the collection during traversal throws ConcurrentModificationException."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Gotcha: Modifying the collection during traversal throws ConcurrentModificationException."		19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-004	Any class that implements the {{c1::Iterable}} interface must provide an implementation for the {{c2::iterator()}} method.	"Gotcha: Modifying the collection directly inside an enhanced for loop, causing a ConcurrentModificationException.
 
 Details: Requires implementing iterator(). Example:
 for(String s : list) { ... }
-Gotcha: Modifying the collection during traversal throws ConcurrentModificationException."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Gotcha: Modifying the collection during traversal throws ConcurrentModificationException."		19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-005	The root interface of the main collection hierarchy is {{c1::Collection}}.	"Why it matters: Defines common operations like size(), isEmpty(), contains(), add(), and remove() shared by all collections.
 
-Details: Root of List, Set, Queue hierarchies. Common methods: size(), add(), remove(). Note that Map does not extend Collection."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Root of List, Set, Queue hierarchies. Common methods: size(), add(), remove(). Note that Map does not extend Collection."		19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-006	The {{c1::Collection}} interface is extended by {{c2::List}}, {{c3::Set}}, and {{c4::Queue}}.	"Gotcha: Assuming Map extends Collection (it does not) or that Collection guarantees a specific order.
 
-Details: Root of List, Set, Queue hierarchies. Common methods: size(), add(), remove(). Note that Map does not extend Collection."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Root of List, Set, Queue hierarchies. Common methods: size(), add(), remove(). Note that Map does not extend Collection."		19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-007	An ordered collection that can contain duplicate elements and supports index-based access is {{c1::List}}.	"Why it matters: Essential when element order must be preserved and duplicate values are permitted.
 
-Details: Ordered collection, duplicate-friendly. Backed by array (ArrayList) or nodes (LinkedList). Positional access via get(index)."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Ordered collection, duplicate-friendly. Backed by array (ArrayList) or nodes (LinkedList). Positional access via get(index)."		19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-008	Common implementations of the List interface include {{c1::ArrayList}} and {{c2::LinkedList}}.	"Gotcha: Using index-based deletion in a forward loop, which shifts elements and causes items to be skipped.
 
-Details: Ordered collection, duplicate-friendly. Backed by array (ArrayList) or nodes (LinkedList). Positional access via get(index)."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Ordered collection, duplicate-friendly. Backed by array (ArrayList) or nodes (LinkedList). Positional access via get(index)."		19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-009	A collection that cannot contain duplicate elements is {{c1::Set}}.	"Why it matters: Ensures uniqueness of entries automatically using equality checks.
 
-Details: No duplicates. HashSet has O(1) ops (unordered); TreeSet has O(log N) ops (sorted). Rejection based on equals/hashCode or compareTo."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: No duplicates. HashSet has O(1) ops (unordered); TreeSet has O(log N) ops (sorted). Rejection based on equals/hashCode or compareTo."		19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-010	The three main implementations of the Set interface are {{c1::HashSet}}, {{c2::LinkedHashSet}}, and {{c3::TreeSet}}.	"Gotcha: Modifying key fields of an object after adding it to a HashSet, making the object unretrievable.
 
-Details: No duplicates. HashSet has O(1) ops (unordered); TreeSet has O(log N) ops (sorted). Rejection based on equals/hashCode or compareTo."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: No duplicates. HashSet has O(1) ops (unordered); TreeSet has O(log N) ops (sorted). Rejection based on equals/hashCode or compareTo."		19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-011	A collection designed for holding elements prior to processing, typically in FIFO order, is {{c1::Queue}}.	"Why it matters: Decouples producers from consumers in processing pipelines using standard queue APIs.
 
-Details: Typically FIFO. Inserters: offer() vs add(); Removers: poll() vs remove(); Peepers: peek() vs element()."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Typically FIFO. Inserters: offer() vs add(); Removers: poll() vs remove(); Peepers: peek() vs element()."		19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-012	Queue methods that return special values on failure instead of throwing exceptions are {{c1::offer()}}, {{c2::poll()}}, and {{c3::peek()}}.	"Gotcha: Confusing exception-throwing methods (add, remove) with special-value return methods (offer, poll).
 
-Details: Typically FIFO. Inserters: offer() vs add(); Removers: poll() vs remove(); Peepers: peek() vs element()."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Typically FIFO. Inserters: offer() vs add(); Removers: poll() vs remove(); Peepers: peek() vs element()."		19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-013	A double-ended queue that supports element insertion and removal at both ends is {{c1::Deque}}.	"Why it matters: Can be used as both a FIFO queue and a LIFO stack. ArrayDeque is faster than Stack and LinkedList.
 
-Details: Double-ended queue. Useful as stack (push, pop) or queue (addLast, removeFirst). ArrayDeque is the default choice."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Double-ended queue. Useful as stack (push, pop) or queue (addLast, removeFirst). ArrayDeque is the default choice."		19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-014	To implement a stack, Deque provides the LIFO methods {{c1::push()}} and {{c2::pop()}}.	"Gotcha: Using legacy Stack instead of Deque for stack operations, incurring synchronization overhead.
 
-Details: Double-ended queue. Useful as stack (push, pop) or queue (addLast, removeFirst). ArrayDeque is the default choice."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Double-ended queue. Useful as stack (push, pop) or queue (addLast, removeFirst). ArrayDeque is the default choice."		19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-015	An object that maps keys to values and cannot contain duplicate keys is {{c1::Map}}.	"Why it matters: Enables key-value associations and fast key-based retrieval.
 
-Details: Key-value pairs. Keys must be unique. HashMap (unordered), LinkedHashMap (insertion/access order), TreeMap (sorted)."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Key-value pairs. Keys must be unique. HashMap (unordered), LinkedHashMap (insertion/access order), TreeMap (sorted)."		19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-016	Although part of the Collections Framework, the {{c1::Map}} interface does NOT extend the {{c2::Collection}} interface.	"Gotcha: Expecting Map to implement Collection, or using mutable objects as keys and changing their hashCode.
 
-Details: Key-value pairs. Keys must be unique. HashMap (unordered), LinkedHashMap (insertion/access order), TreeMap (sorted)."	19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Key-value pairs. Keys must be unique. HashMap (unordered), LinkedHashMap (insertion/access order), TreeMap (sorted)."		19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-017	A resizable-array implementation of the List interface is {{c1::ArrayList}}.	"Why it matters: Provides O(1) random access and low memory overhead, making it the default choice for lists.
 
-Details: Backed by array. Growth is usually 1.5x of old capacity using System.arraycopy(). O(1) random access, O(N) middle insert/delete."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Backed by array. Growth is usually 1.5x of old capacity using System.arraycopy(). O(1) random access, O(N) middle insert/delete."		19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-018	ArrayList provides {{c1::O(1)}} random access time complexity, but middle insertions take {{c2::O(N)}} time due to element shifting.	"Gotcha: Adding/removing items in the middle of a large ArrayList frequently, incurring O(N) element shifting cost.
 
-Details: Backed by array. Growth is usually 1.5x of old capacity using System.arraycopy(). O(1) random access, O(N) middle insert/delete."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Backed by array. Growth is usually 1.5x of old capacity using System.arraycopy(). O(1) random access, O(N) middle insert/delete."		19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-019	A doubly-linked list implementation of the List and Deque interfaces is {{c1::LinkedList}}.	"Why it matters: Permits O(1) insertion/removal at the head and tail without resizing overhead.
 
-Details: Backed by doubly-linked nodes (3 references per node: value, next, prev). No array resizing. Poor cache locality."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Backed by doubly-linked nodes (3 references per node: value, next, prev). No array resizing. Poor cache locality."		19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-020	LinkedList requires {{c1::O(N)}} time for index lookup, but insertion/removal at a known node is {{c2::O(1)}}.	"Gotcha: Iterating LinkedList using index-based get(i) loops, resulting in O(N^2) complexity.
 
-Details: Backed by doubly-linked nodes (3 references per node: value, next, prev). No array resizing. Poor cache locality."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Backed by doubly-linked nodes (3 references per node: value, next, prev). No array resizing. Poor cache locality."		19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-021	A legacy synchronized version of ArrayList is {{c1::Vector}}.	"Why it matters: Synchronizes all methods, guaranteeing thread safety but causing severe contention.
 
-Details: Legacy synchronized resizable array. Obsolete. Doubles capacity when resized (ArrayList grows 1.5x)."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Legacy synchronized resizable array. Obsolete. Doubles capacity when resized (ArrayList grows 1.5x)."		19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-022	Vector is obsolete because all its public methods are {{c1::synchronized}}, causing high performance overhead in single-threaded scenarios.	"Gotcha: Using Vector in single-threaded applications instead of ArrayList, hurting performance.
 
-Details: Legacy synchronized resizable array. Obsolete. Doubles capacity when resized (ArrayList grows 1.5x)."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Legacy synchronized resizable array. Obsolete. Doubles capacity when resized (ArrayList grows 1.5x)."		19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-023	The legacy LIFO stack class in java.util that extends Vector is {{c1::Stack}}.	"Why it matters: Violates encapsulation by exposing all Vector methods (like insert at arbitrary index).
 
-Details: Legacy LIFO stack extending Vector. Exposes illegal list methods like insert/remove by index. Use ArrayDeque instead."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Legacy LIFO stack extending Vector. Exposes illegal list methods like insert/remove by index. Use ArrayDeque instead."		19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-024	Stack is considered poorly designed because it inherits list operations from {{c1::Vector}}, violating {{c2::LIFO}} encapsulation.	"Gotcha: Using Stack instead of ArrayDeque, which is unsynchronized and enforces clean stack boundaries.
 
-Details: Legacy LIFO stack extending Vector. Exposes illegal list methods like insert/remove by index. Use ArrayDeque instead."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Legacy LIFO stack extending Vector. Exposes illegal list methods like insert/remove by index. Use ArrayDeque instead."		19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-025	Compared to LinkedList, ArrayList has better CPU cache performance due to {{c1::spatial locality}} of contiguous memory.	"Why it matters: ArrayList has better cache locality and lower memory overhead; LinkedList has node allocation cost.
 
-Details: ArrayList: O(1) get, O(N) shift, high cache hit. LinkedList: O(N) get, O(1) pointer updates, high GC/memory overhead."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: ArrayList: O(1) get, O(N) shift, high cache hit. LinkedList: O(N) get, O(1) pointer updates, high GC/memory overhead."		19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-026	LinkedList has higher memory overhead than ArrayList because it creates a {{c1::node object}} with next/prev references for every element.	"Gotcha: Assuming LinkedList is always faster for inserts; it is slower if index lookup is required.
 
-Details: ArrayList: O(1) get, O(N) shift, high cache hit. LinkedList: O(N) get, O(1) pointer updates, high GC/memory overhead."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: ArrayList: O(1) get, O(N) shift, high cache hit. LinkedList: O(N) get, O(1) pointer updates, high GC/memory overhead."		19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-027	You should use a List when you need to maintain element {{c1::order}} and allow {{c2::duplicate}} values.	"Why it matters: Provides predictable, ordered storage for elements.
 
-Details: Use List for ordered duplicates. ArrayList is the default. LinkedList only for extensive front insertions/removals."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Use List for ordered duplicates. ArrayList is the default. LinkedList only for extensive front insertions/removals."		19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-028	The default List implementation choice in Java is {{c1::ArrayList}} due to performance and memory efficiency.	"Gotcha: Choosing LinkedList by default instead of ArrayList, which is generally faster due to cache hits.
 
-Details: Use List for ordered duplicates. ArrayList is the default. LinkedList only for extensive front insertions/removals."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Use List for ordered duplicates. ArrayList is the default. LinkedList only for extensive front insertions/removals."		19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-029	A Set implementation that makes no guarantees about element iteration order is {{c1::HashSet}}.	"Why it matters: Provides constant-time O(1) operations for basic additions and lookups.
 
-Details: Backed by HashMap. O(1) performance. Unordered. Null key is allowed. Elements must override equals and hashCode."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Backed by HashMap. O(1) performance. Unordered. Null key is allowed. Elements must override equals and hashCode."		19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-030	HashSet uses a {{c1::HashMap}} internally, storing set elements as map {{c2::keys}} with a dummy value object.	"Gotcha: Expecting HashSet to maintain insertion order, which is not guaranteed.
 
-Details: Backed by HashMap. O(1) performance. Unordered. Null key is allowed. Elements must override equals and hashCode."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Backed by HashMap. O(1) performance. Unordered. Null key is allowed. Elements must override equals and hashCode."		19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-031	A Set implementation that maintains the insertion order of its elements is {{c1::LinkedHashSet}}.	"Why it matters: Preserves the insertion order of elements during iteration with O(1) performance.
 
-Details: HashMap + doubly-linked list. Maintains insertion order. O(1) operations, slightly slower than HashSet."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: HashMap + doubly-linked list. Maintains insertion order. O(1) operations, slightly slower than HashSet."		19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-032	LinkedHashSet maintains insertion order by using a {{c1::doubly-linked list}} running through its entries.	"Gotcha: Assuming it sorts elements; it only preserves insertion order.
 
-Details: HashMap + doubly-linked list. Maintains insertion order. O(1) operations, slightly slower than HashSet."	19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: HashMap + doubly-linked list. Maintains insertion order. O(1) operations, slightly slower than HashSet."		19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-033	A Set implementation backed by a Red-Black tree that keeps elements sorted is {{c1::TreeSet}}.	"Why it matters: Maintains elements in sorted order and provides range-search navigation methods.
 
-Details: Red-Black tree. Sorted order. O(log N) operations. Rejects null. Ignores equals/hashCode, relies on compare/compareTo."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Red-Black tree. Sorted order. O(log N) operations. Rejects null. Ignores equals/hashCode, relies on compare/compareTo."		19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-034	TreeSet rejects {{c1::null}} elements and requires elements to implement {{c2::Comparable}} or use a custom {{c3::Comparator}}.	"Gotcha: Adding objects that do not implement Comparable or have no Comparator, causing ClassCastException.
 
-Details: Red-Black tree. Sorted order. O(log N) operations. Rejects null. Ignores equals/hashCode, relies on compare/compareTo."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Red-Black tree. Sorted order. O(log N) operations. Rejects null. Ignores equals/hashCode, relies on compare/compareTo."		19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-035	An interface representing a Set sorted in ascending order of its elements is {{c1::SortedSet}}.	"Why it matters: Provides range views and extreme element retrieval (first, last).
 
-Details: Interface for sorted sets. Defines first(), last(), subSet(), headSet(), tailSet()."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Interface for sorted sets. Defines first(), last(), subSet(), headSet(), tailSet()."		19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-036	SortedSet provides range view operations such as {{c1::subSet()}}, {{c2::headSet()}}, and {{c3::tailSet()}}.	"Gotcha: Adding null elements, which TreeSet (the main implementation) rejects.
 
-Details: Interface for sorted sets. Defines first(), last(), subSet(), headSet(), tailSet()."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Interface for sorted sets. Defines first(), last(), subSet(), headSet(), tailSet()."		19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-037	An interface extending SortedSet that adds closest-match search methods is {{c1::NavigableSet}}.	"Why it matters: Allows finding closest matching elements in a sorted collection.
 
-Details: Extends SortedSet. Adds floor(), ceiling(), lower(), higher(), pollFirst(), pollLast(), descendingSet()."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Extends SortedSet. Adds floor(), ceiling(), lower(), higher(), pollFirst(), pollLast(), descendingSet()."		19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-038	In NavigableSet, {{c1::floor()}} returns the greatest element <= e, while {{c2::ceiling()}} returns the least element >= e.	"Gotcha: Confusing ceiling() (least element >= e) with higher() (least element > e).
 
-Details: Extends SortedSet. Adds floor(), ceiling(), lower(), higher(), pollFirst(), pollLast(), descendingSet()."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Extends SortedSet. Adds floor(), ceiling(), lower(), higher(), pollFirst(), pollLast(), descendingSet()."		19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-039	You should choose a Set implementation when your collection must reject {{c1::duplicate}} elements.	"Why it matters: Models mathematical set operations like union, intersection, and difference.
 
-Details: Use Set to prevent duplicates. HashSet (default/fast), LinkedHashSet (insertion order), TreeSet (sorted/navigable)."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Use Set to prevent duplicates. HashSet (default/fast), LinkedHashSet (insertion order), TreeSet (sorted/navigable)."		19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-040	For sorted unique elements, choose {{c1::TreeSet}}; for insertion-ordered uniqueness, choose {{c2::LinkedHashSet}}.	"Gotcha: Using a Set when element insertion order or positional access is required.
 
-Details: Use Set to prevent duplicates. HashSet (default/fast), LinkedHashSet (insertion order), TreeSet (sorted/navigable)."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Use Set to prevent duplicates. HashSet (default/fast), LinkedHashSet (insertion order), TreeSet (sorted/navigable)."		19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-041	HashSet checks duplicates using {{c1::hashCode()}} and {{c2::equals()}}, whereas TreeSet uses {{c3::compareTo()}} or {{c4::compare()}}.	"Why it matters: Ensures correct duplicate rejection depending on the Set implementation.
 
-Details: HashSet: hashCode() matches then equals() returns true. TreeSet: compareTo() or compare() returns 0."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: HashSet: hashCode() matches then equals() returns true. TreeSet: compareTo() or compare() returns 0."		19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-042	HashSet checks duplicates using hashCode() and equals(), while TreeSet uses {{c1::compareTo()}} or {{c2::compare()}}.	"Gotcha: Assuming TreeSet uses equals() to check duplicates; it only uses compareTo().
 
-Details: HashSet: hashCode() matches then equals() returns true. TreeSet: compareTo() or compare() returns 0."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: HashSet: hashCode() matches then equals() returns true. TreeSet: compareTo() or compare() returns 0."		19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-043	If two objects are equal according to equals(), they must return the {{c1::same}} value from {{c2::hashCode()}}.	"Why it matters: The hashCode contract requires that if x.equals(y), then x.hashCode() == y.hashCode().
 
-Details: Must be overridden together. If equals() is true, hashCode() must match. Mismatched hashes cause collision lookup bugs."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Must be overridden together. If equals() is true, hashCode() must match. Mismatched hashes cause collision lookup bugs."		19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-044	If equals() is overridden without hashCode(), hashing collections will store duplicates because they search in different {{c1::buckets}}.	"Gotcha: Overriding equals() but not hashCode(), causing duplicate keys/values in HashMaps/HashSets.
 
-Details: Must be overridden together. If equals() is true, hashCode() must match. Mismatched hashes cause collision lookup bugs."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Must be overridden together. If equals() is true, hashCode() must match. Mismatched hashes cause collision lookup bugs."		19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-045	An unbounded queue based on a binary heap that orders elements by priority is {{c1::PriorityQueue}}.	"Why it matters: Allows retrieving elements according to priority rather than insertion order.
 
-Details: Min-heap based unbounded queue. O(log N) for offer/poll, O(1) for peek. Iterator is unsorted."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Min-heap based unbounded queue. O(log N) for offer/poll, O(1) for peek. Iterator is unsorted."		19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-046	Iterating over a PriorityQueue using an iterator does NOT yield sorted elements; you must call {{c1::poll()}} sequentially.	"Gotcha: Iterating over a PriorityQueue and expecting elements to be sorted; the iterator is unsorted.
 
-Details: Min-heap based unbounded queue. O(log N) for offer/poll, O(1) for peek. Iterator is unsorted."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Min-heap based unbounded queue. O(log N) for offer/poll, O(1) for peek. Iterator is unsorted."		19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-047	A resizable-array Deque implementation that is faster than Stack and LinkedList is {{c1::ArrayDeque}}.	"Why it matters: Faster and more memory-efficient than Stack (as stack) and LinkedList (as queue).
 
-Details: Circular array double-ended queue. Faster than Stack/LinkedList. Rejects nulls. Growable, unsynchronized."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Circular array double-ended queue. Faster than Stack/LinkedList. Rejects nulls. Growable, unsynchronized."		19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-048	ArrayDeque rejects {{c1::null}} elements and is not thread-safe; for concurrent scenarios, use {{c2::LinkedBlockingDeque}}.	"Gotcha: Attempting to insert null elements, which ArrayDeque rejects.
 
-Details: Circular array double-ended queue. Faster than Stack/LinkedList. Rejects nulls. Growable, unsynchronized."	19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Circular array double-ended queue. Faster than Stack/LinkedList. Rejects nulls. Growable, unsynchronized."		19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-049	When LinkedList is used as a Queue, elements are enqueued using {{c1::offer()}} and dequeued using {{c2::poll()}}.	"Why it matters: Provides fast O(1) enqueues and dequeues backed by list nodes.
 
-Details: LinkedList implements Queue. Unbounded. Uses node pointer updates for O(1) queue operations. ArrayDeque is generally preferred."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: LinkedList implements Queue. Unbounded. Uses node pointer updates for O(1) queue operations. ArrayDeque is generally preferred."		19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-050	LinkedList acts as an {{c1::unbounded}} queue, which means it will never throw an exception from {{c2::offer()}} due to capacity limits.	"Gotcha: Using LinkedList when ArrayDeque would be faster and use less memory.
 
-Details: LinkedList implements Queue. Unbounded. Uses node pointer updates for O(1) queue operations. ArrayDeque is generally preferred."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: LinkedList implements Queue. Unbounded. Uses node pointer updates for O(1) queue operations. ArrayDeque is generally preferred."		19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-051	The queue ordering policy where the oldest element is processed first is {{c1::FIFO}}.	"Why it matters: Standard queue behavior where elements are added to tail and removed from head.
 
-Details: First-In-First-Out. Queue inserts at tail, removes from head. offer() and poll() are standard FIFO methods."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: First-In-First-Out. Queue inserts at tail, removes from head. offer() and poll() are standard FIFO methods."		19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-052	In a standard FIFO queue, elements are added to the {{c1::tail}} and removed from the {{c2::head}}.	"Gotcha: Expecting Deque.push() to behave in FIFO order; push() is LIFO.
 
-Details: First-In-First-Out. Queue inserts at tail, removes from head. offer() and poll() are standard FIFO methods."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: First-In-First-Out. Queue inserts at tail, removes from head. offer() and poll() are standard FIFO methods."		19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-053	The stack ordering policy where the most recently added element is processed first is {{c1::LIFO}}.	"Why it matters: Stack behavior where element added last is removed first.
 
-Details: Last-In-First-Out. Stack behavior. Deque uses push() and pop() for LIFO operations."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Last-In-First-Out. Stack behavior. Deque uses push() and pop() for LIFO operations."		19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-054	For LIFO operations, Java developers should use the {{c1::Deque}} interface instead of the legacy {{c2::Stack}} class.	"Gotcha: Using legacy java.util.Stack instead of Deque implementations.
 
-Details: Last-In-First-Out. Stack behavior. Deque uses push() and pop() for LIFO operations."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Last-In-First-Out. Stack behavior. Deque uses push() and pop() for LIFO operations."		19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-055	A queue that orders its elements according to natural order or a custom Comparator is a {{c1::Priority queue}}.	"Why it matters: Enables priority-based task execution.
 
-Details: Orders elements by priority using binary heap. Min-priority by default. Rejects nulls."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Orders elements by priority using binary heap. Min-priority by default. Rejects nulls."		19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-056	The head of a PriorityQueue is the {{c1::least}} element according to the specified ordering.	"Gotcha: Adding non-comparable elements, which triggers ClassCastException.
 
-Details: Orders elements by priority using binary heap. Min-priority by default. Rejects nulls."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Orders elements by priority using binary heap. Min-priority by default. Rejects nulls."		19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-057	An unordered Map implementation based on a hash table is {{c1::HashMap}}.	"Why it matters: Provides O(1) performance for lookups and insertions.
 
-Details: Hash table bucket array. Java 8+ treeification (list size > 8, capacity >= 64). O(1) avg ops, O(log N) worst."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Hash table bucket array. Java 8+ treeification (list size > 8, capacity >= 64). O(1) avg ops, O(log N) worst."		19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-058	In HashMap, buckets containing more than 8 elements are treeified into {{c1::Red-Black trees}} if total capacity is at least 64.	"Gotcha: Using mutable keys whose hashcodes change, causing memory leaks and unreachable values.
 
-Details: Hash table bucket array. Java 8+ treeification (list size > 8, capacity >= 64). O(1) avg ops, O(log N) worst."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Hash table bucket array. Java 8+ treeification (list size > 8, capacity >= 64). O(1) avg ops, O(log N) worst."		19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-059	A Map implementation that maintains insertion or access order using a doubly-linked list is {{c1::LinkedHashMap}}.	"Why it matters: Enables building LRU caches using access-order mode.
 
-Details: Extends HashMap. Doubly-linked list preserves order. removeEldestEntry() allows automatic eviction."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Extends HashMap. Doubly-linked list preserves order. removeEldestEntry() allows automatic eviction."		19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-060	To build an LRU cache, LinkedHashMap is constructed with access-order set to {{c1::true}}, overriding {{c2::removeEldestEntry()}}.	"Gotcha: Thinking LinkedHashMap sorts keys; it only preserves access/insertion order.
 
-Details: Extends HashMap. Doubly-linked list preserves order. removeEldestEntry() allows automatic eviction."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Extends HashMap. Doubly-linked list preserves order. removeEldestEntry() allows automatic eviction."		19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-061	A Map implementation based on a Red-Black tree that keeps keys sorted is {{c1::TreeMap}}.	"Why it matters: Maintains keys in sorted order and provides navigable lookup methods.
 
-Details: Red-Black tree NavigableMap. Sorted keys. O(log N) operations. Rejects null keys. Compares keys using compare/compareTo."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Red-Black tree NavigableMap. Sorted keys. O(log N) operations. Rejects null keys. Compares keys using compare/compareTo."		19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-062	TreeMap compares keys using {{c1::compareTo()}} or {{c2::compare()}} instead of hashCode() and equals().	"Gotcha: Inserting null keys, which causes NullPointerException.
 
-Details: Red-Black tree NavigableMap. Sorted keys. O(log N) operations. Rejects null keys. Compares keys using compare/compareTo."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Red-Black tree NavigableMap. Sorted keys. O(log N) operations. Rejects null keys. Compares keys using compare/compareTo."		19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-063	The legacy synchronized map class that rejects null keys and null values is {{c1::Hashtable}}.	"Why it matters: Guarantees thread safety via coarse locking, which degrades performance.
 
-Details: Legacy synchronized map. Rejects null keys and values. Synchronization on every method. Obsolete."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Legacy synchronized map. Rejects null keys and values. Synchronization on every method. Obsolete."		19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-064	Hashtable is obsolete because it synchronizes all methods globally; you should use {{c1::ConcurrentHashMap}} for thread safety.	"Gotcha: Using Hashtable in modern code instead of ConcurrentHashMap.
 
-Details: Legacy synchronized map. Rejects null keys and values. Synchronization on every method. Obsolete."	19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Legacy synchronized map. Rejects null keys and values. Synchronization on every method. Obsolete."		19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-065	A highly concurrent, thread-safe Map implementation that locks at node/bucket level is {{c1::ConcurrentHashMap}}.	"Why it matters: Allows high-concurrency read and write operations without blocking the entire map.
 
-Details: Thread-safe. Node-level locking since Java 8. CAS for empty bins. No global lock. Read operations are lock-free."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Thread-safe. Node-level locking since Java 8. CAS for empty bins. No global lock. Read operations are lock-free."		19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-066	ConcurrentHashMap does not throw {{c1::ConcurrentModificationException}} during iteration because it uses weakly consistent iterators.	"Gotcha: Assuming sequence of operations (containsKey + put) on ConcurrentHashMap is atomic.
 
-Details: Thread-safe. Node-level locking since Java 8. CAS for empty bins. No global lock. Read operations are lock-free."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Thread-safe. Node-level locking since Java 8. CAS for empty bins. No global lock. Read operations are lock-free."		19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-067	A Map implementation where keys are wrapped in weak references is {{c1::WeakHashMap}}.	"Why it matters: Allows keys to be garbage collected when no longer strongly referenced elsewhere.
 
-Details: Keys wrapped in WeakReference. Entry is removed when GC collects the key. Useful for metadata caching."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Keys wrapped in WeakReference. Entry is removed when GC collects the key. Useful for metadata caching."		19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-068	In WeakHashMap, entries are automatically removed when their {{c1::keys}} are garbage collected.	"Gotcha: Storing values that contain strong references back to their keys, preventing GC.
 
-Details: Keys wrapped in WeakReference. Entry is removed when GC collects the key. Useful for metadata caching."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Keys wrapped in WeakReference. Entry is removed when GC collects the key. Useful for metadata caching."		19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-069	A Map implementation that uses reference equality (==) instead of equals() is {{c1::IdentityHashMap}}.	"Why it matters: Useful for graph algorithms or topology tracking where instance identity matters.
 
-Details: Reference equality (==) comparisons. Uses System.identityHashCode() for hashing. Not a general-purpose Map."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Reference equality (==) comparisons. Uses System.identityHashCode() for hashing. Not a general-purpose Map."		19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-070	IdentityHashMap compares keys using {{c1::==}} and handles hash codes using {{c2::System.identityHashCode()}}.	"Gotcha: Using it as a general-purpose map, expecting logical equals() comparisons.
 
-Details: Reference equality (==) comparisons. Uses System.identityHashCode() for hashing. Not a general-purpose Map."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Reference equality (==) comparisons. Uses System.identityHashCode() for hashing. Not a general-purpose Map."		19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-071	An interface representing a Map sorted in ascending order of its keys is {{c1::SortedMap}}.	"Why it matters: Provides firstKey(), lastKey(), and range views.
 
-Details: Interface for sorted maps. Provides subMap(), headMap(), tailMap(), firstKey(), lastKey()."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Interface for sorted maps. Provides subMap(), headMap(), tailMap(), firstKey(), lastKey()."		19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-072	SortedMap provides key range operations including {{c1::subMap()}}, {{c2::headMap()}}, and {{c3::tailMap()}}.	"Gotcha: Inserting non-comparable keys, causing ClassCastException.
 
-Details: Interface for sorted maps. Provides subMap(), headMap(), tailMap(), firstKey(), lastKey()."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Interface for sorted maps. Provides subMap(), headMap(), tailMap(), firstKey(), lastKey()."		19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-073	An interface extending SortedMap with navigation search methods is {{c1::NavigableMap}}.	"Why it matters: Allows ceilingEntry(), floorEntry(), lowerEntry(), and higherEntry() operations.
 
-Details: Extends SortedMap. Navigation methods: floorEntry, ceilingEntry, lowerKey, higherKey, descendingMap."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Extends SortedMap. Navigation methods: floorEntry, ceilingEntry, lowerKey, higherKey, descendingMap."		19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-074	In NavigableMap, {{c1::floorEntry()}} returns the entry for the greatest key <= target, while {{c2::lowerEntry()}} is for key < target.	"Gotcha: Mixing up floorKey() (greatest key <= k) with lowerKey() (greatest key < k).
 
-Details: Extends SortedMap. Navigation methods: floorEntry, ceilingEntry, lowerKey, higherKey, descendingMap."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Extends SortedMap. Navigation methods: floorEntry, ceilingEntry, lowerKey, higherKey, descendingMap."		19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-075	You should use a Map when you need to store data in {{c1::key-value}} pairs.	"Why it matters: Allows mapping identifiers to objects.
 
-Details: Use Map for key-value association. HashMap (default/fast), LinkedHashMap (ordering), TreeMap (sorted/navigable)."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Use Map for key-value association. HashMap (default/fast), LinkedHashMap (ordering), TreeMap (sorted/navigable)."		19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-076	For O(1) lookups, choose {{c1::HashMap}}; if keys must be sorted, choose {{c2::TreeMap}}.	"Gotcha: Using key-value lookup when simple Set uniqueness or List ordering is sufficient.
 
-Details: Use Map for key-value association. HashMap (default/fast), LinkedHashMap (ordering), TreeMap (sorted/navigable)."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Use Map for key-value association. HashMap (default/fast), LinkedHashMap (ordering), TreeMap (sorted/navigable)."		19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-077	An object that enables forward traversal and safe element removal in a collection is an {{c1::Iterator}}.	"Why it matters: Provides safe element deletion during traversal via iterator.remove().
 
-Details: Forward traversal of Collection. Methods: hasNext(), next(), remove(). remove() is the only safe way to delete items during loop."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Forward traversal of Collection. Methods: hasNext(), next(), remove(). remove() is the only safe way to delete items during loop."		19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-078	To safely remove an element while iterating a collection, you must call the iterator's own {{c1::remove()}} method.	"Gotcha: Calling list.remove() inside an active iterator loop instead of iterator.remove().
 
-Details: Forward traversal of Collection. Methods: hasNext(), next(), remove(). remove() is the only safe way to delete items during loop."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Forward traversal of Collection. Methods: hasNext(), next(), remove(). remove() is the only safe way to delete items during loop."		19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-079	An iterator interface that supports bidirectional traversal and modification of Lists is {{c1::ListIterator}}.	"Why it matters: Enables traversing back and forth, modifying, and adding elements during iteration.
 
-Details: Bidirectional list iterator. Adds hasPrevious(), previous(), set(), add(), nextIndex(), previousIndex()."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Bidirectional list iterator. Adds hasPrevious(), previous(), set(), add(), nextIndex(), previousIndex()."		19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-080	Unlike standard Iterator, ListIterator supports moving backward using {{c1::hasPrevious()}} and {{c2::previous()}}.	"Gotcha: Attempting to use ListIterator on Sets or Maps (only works on Lists).
 
-Details: Bidirectional list iterator. Adds hasPrevious(), previous(), set(), add(), nextIndex(), previousIndex()."	19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Bidirectional list iterator. Adds hasPrevious(), previous(), set(), add(), nextIndex(), previousIndex()."		19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-081	An iterator that throws ConcurrentModificationException upon detecting modification outside the iterator is {{c1::Fail-fast iterator}}.	"Why it matters: Prevents non-deterministic behavior under concurrent modification.
 
-Details: Throws ConcurrentModificationException. Tracks modCount vs expectedModCount. ArrayList/HashSet iterators are fail-fast."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Throws ConcurrentModificationException. Tracks modCount vs expectedModCount. ArrayList/HashSet iterators are fail-fast."		19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-082	Fail-fast iterators detect structural changes by comparing their expectedModCount with the collection's {{c1::modCount}}.	"Gotcha: Structural modification of a collection using collection methods during a for-each loop.
 
-Details: Throws ConcurrentModificationException. Tracks modCount vs expectedModCount. ArrayList/HashSet iterators are fail-fast."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Throws ConcurrentModificationException. Tracks modCount vs expectedModCount. ArrayList/HashSet iterators are fail-fast."		19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-083	An iterator that operates on a copy or snapshot, preventing ConcurrentModificationException, is {{c1::Fail-safe iterator}}.	"Why it matters: Used in concurrent collections to prevent ConcurrentModificationException.
 
-Details: Operates on snapshot/copy (CopyOnWriteArrayList) or weakly consistent view (ConcurrentHashMap). No exception thrown."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Operates on snapshot/copy (CopyOnWriteArrayList) or weakly consistent view (ConcurrentHashMap). No exception thrown."		19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-084	Fail-safe iterators used in CopyOnWriteArrayList iterate over a {{c1::snapshot array}}, ignoring subsequent writes.	"Gotcha: Using snapshot iterators in write-heavy loops, causing excessive garbage collection.
 
-Details: Operates on snapshot/copy (CopyOnWriteArrayList) or weakly consistent view (ConcurrentHashMap). No exception thrown."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Operates on snapshot/copy (CopyOnWriteArrayList) or weakly consistent view (ConcurrentHashMap). No exception thrown."		19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-085	The runtime exception thrown when a collection is modified structurally during active iteration is {{c1::ConcurrentModificationException}}.	"Why it matters: Guards against modification conflicts during traversal.
 
-Details: Runtime exception. Triggered by modCount mismatch. Thrown by next() or remove() in fail-fast iterators."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Runtime exception. Triggered by modCount mismatch. Thrown by next() or remove() in fail-fast iterators."		19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-086	ConcurrentModificationException is thrown when a collection is modified via its own methods instead of the {{c1::iterator's}} remove().	"Gotcha: Failing to use Iterator.remove() when removing items from standard lists during loops.
 
-Details: Runtime exception. Triggered by modCount mismatch. Thrown by next() or remove() in fail-fast iterators."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Runtime exception. Triggered by modCount mismatch. Thrown by next() or remove() in fail-fast iterators."		19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-087	The static utility method used to sort a List in place is {{c1::Collections.sort}}.	"Why it matters: Uses Timsort to sort lists in O(N log N) time.
 
-Details: Sorts List in place. Uses modified Timsort. stable sort."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Sorts List in place. Uses modified Timsort. stable sort."		19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-088	Collections.sort internally uses the {{c1::Timsort}} algorithm, which guarantees a time complexity of {{c2::O(N log N)}}.	"Gotcha: Attempting to sort an unmodifiable list, which throws UnsupportedOperationException.
 
-Details: Sorts List in place. Uses modified Timsort. stable sort."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Sorts List in place. Uses modified Timsort. stable sort."		19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-089	The static utility method used to reverse the order of elements in a List in place is {{c1::Collections.reverse}}.	"Why it matters: Reverses elements in place in O(N) time.
 
-Details: Reverses List in place. Swaps elements from ends towards center."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Reverses List in place. Swaps elements from ends towards center."		19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-090	Collections.reverse operates on a List in place, running in {{c1::O(N)}} linear time complexity.	"Gotcha: Attempting to reverse arrays directly (only works on lists; use Arrays for arrays).
 
-Details: Reverses List in place. Swaps elements from ends towards center."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Reverses List in place. Swaps elements from ends towards center."		19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-091	The static utility method used to randomly permute elements in a List in place is {{c1::Collections.shuffle}}.	"Why it matters: Useful for generating random permutations.
 
-Details: Randomly permutes List. Uses default Random source. Slow on LinkedList due to positional accesses."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Randomly permutes List. Uses default Random source. Slow on LinkedList due to positional accesses."		19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-092	Shuffling a LinkedList using Collections.shuffle is inefficient because it requires {{c1::O(N)}} random access lookups.	"Gotcha: Calling shuffle on a large LinkedList, which is slow due to O(N) random access.
 
-Details: Randomly permutes List. Uses default Random source. Slow on LinkedList due to positional accesses."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Randomly permutes List. Uses default Random source. Slow on LinkedList due to positional accesses."		19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-093	The static utility method that returns the maximum element of a collection is {{c1::Collections.max}}.	"Why it matters: Iterates through the collection to find the maximum in O(N) time.
 
-Details: Iterates Collection to find max. O(N) complexity. Requires Comparable elements or Comparator."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Iterates Collection to find max. O(N) complexity. Requires Comparable elements or Comparator."		19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-094	Collections.max runs in {{c1::O(N)}} linear time because it must inspect every element in the collection.	"Gotcha: Calling max on a collection containing nulls if the comparator doesn't support nulls.
 
-Details: Iterates Collection to find max. O(N) complexity. Requires Comparable elements or Comparator."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Iterates Collection to find max. O(N) complexity. Requires Comparable elements or Comparator."		19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-095	The static utility method that returns the minimum element of a collection is {{c1::Collections.min}}.	"Why it matters: Iterates through the collection to find the minimum in O(N) time.
 
-Details: Iterates Collection to find min. O(N) complexity. Throws NoSuchElementException if empty."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Iterates Collection to find min. O(N) complexity. Throws NoSuchElementException if empty."		19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-096	Calling Collections.min on an empty collection throws a {{c1::NoSuchElementException}}.	"Gotcha: Calling min on an empty collection, which throws NoSuchElementException.
 
-Details: Iterates Collection to find min. O(N) complexity. Throws NoSuchElementException if empty."	19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Iterates Collection to find min. O(N) complexity. Throws NoSuchElementException if empty."		19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-097	The static method that returns a read-only unmodifiable view of a backing List is {{c1::Collections.unmodifiableList}}.	"Why it matters: Protects a list from direct user modification.
 
-Details: Returns wrapper view. Throws UnsupportedOperationException on modifications. Backing list modifications propagate."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Returns wrapper view. Throws UnsupportedOperationException on modifications. Backing list modifications propagate."		19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-098	An unmodifiableList view is not fully immutable; modifications to the original {{c1::backing list}} will be reflected in the view.	"Gotcha: Assuming the returned list is immutable; modifications to the backing list still propagate.
 
-Details: Returns wrapper view. Throws UnsupportedOperationException on modifications. Backing list modifications propagate."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Returns wrapper view. Throws UnsupportedOperationException on modifications. Backing list modifications propagate."		19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-099	The static method that returns a synchronized thread-safe wrapper for a List is {{c1::Collections.synchronizedList}}.	"Why it matters: Synchronizes individual operations to allow thread-safe access.
 
-Details: Returns thread-safe wrapper. All methods synchronized on wrapper object. Iterators must be manually synchronized."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Returns thread-safe wrapper. All methods synchronized on wrapper object. Iterators must be manually synchronized."		19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-100	To iterate safely over a synchronizedList under concurrency, you must manually synchronize on the {{c1::list object}}.	"Gotcha: Iterating over the synchronized list without manual synchronization on the list object.
 
-Details: Returns thread-safe wrapper. All methods synchronized on wrapper object. Iterators must be manually synchronized."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Returns thread-safe wrapper. All methods synchronized on wrapper object. Iterators must be manually synchronized."		19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-101	The static utility method used to sort arrays in place is {{c1::Arrays.sort}}.	"Why it matters: Uses Dual-Pivot Quicksort for primitives and Timsort for objects.
 
-Details: Sorts array in place. Primitives: Dual-Pivot Quicksort (unstable, O(N log N)). Objects: Timsort (stable, O(N log N))."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Sorts array in place. Primitives: Dual-Pivot Quicksort (unstable, O(N log N)). Objects: Timsort (stable, O(N log N))."		19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-102	For primitive arrays, Arrays.sort uses {{c1::Dual-Pivot Quicksort}}; for object arrays, it uses {{c2::Timsort}}.	"Gotcha: Sorting arrays of custom objects that do not implement Comparable.
 
-Details: Sorts array in place. Primitives: Dual-Pivot Quicksort (unstable, O(N log N)). Objects: Timsort (stable, O(N log N))."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Sorts array in place. Primitives: Dual-Pivot Quicksort (unstable, O(N log N)). Objects: Timsort (stable, O(N log N))."		19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-103	The static method to perform binary search on a sorted array is {{c1::Arrays.binarySearch}}.	"Why it matters: Returns index of target, or a negative value representing insertion point if not found.
 
-Details: Searches sorted array. If found, returns index. If not, returns -(insertion point) - 1. Requires sorted array."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Searches sorted array. If found, returns index. If not, returns -(insertion point) - 1. Requires sorted array."		19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-104	If an element is not found, Arrays.binarySearch returns {{c1::-(insertion point) - 1}}.	"Gotcha: Calling binarySearch on an unsorted array, leading to undefined results.
 
-Details: Searches sorted array. If found, returns index. If not, returns -(insertion point) - 1. Requires sorted array."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Searches sorted array. If found, returns index. If not, returns -(insertion point) - 1. Requires sorted array."		19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-105	The static utility method that returns a fixed-size List backed by the specified array is {{c1::Arrays.asList}}.	"Why it matters: Changes in the list write through to the array and vice versa.
 
-Details: Fixed-size list wrapper. Element updates write through to array. add/remove throws UnsupportedOperationException."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Fixed-size list wrapper. Element updates write through to array. add/remove throws UnsupportedOperationException."		19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-106	Modifications using set() on an Arrays.asList list will write through to the {{c1::backing array}}.	"Gotcha: Calling add() or remove() on the returned fixed-size list.
 
-Details: Fixed-size list wrapper. Element updates write through to array. add/remove throws UnsupportedOperationException."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Fixed-size list wrapper. Element updates write through to array. add/remove throws UnsupportedOperationException."		19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-107	The static utility method used to copy an array and return a new array of a specific length is {{c1::Arrays.copyOf}}.	"Why it matters: Allocates a new array and copies elements.
 
-Details: Copies array. Allocates new array. Pads with default values if new length is larger. Shallow copy."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Copies array. Allocates new array. Pads with default values if new length is larger. Shallow copy."		19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-108	For object arrays, Arrays.copyOf perform a {{c1::shallow copy}}, copying object references rather than cloning them.	"Gotcha: Assuming copyOf performs a deep copy of object arrays (it performs a shallow copy).
 
-Details: Copies array. Allocates new array. Pads with default values if new length is larger. Shallow copy."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Copies array. Allocates new array. Pads with default values if new length is larger. Shallow copy."		19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-109	The static utility method to compare two 1D arrays for element equality is {{c1::Arrays.equals}}.	"Why it matters: Returns true if both arrays contain equal elements in the same order.
 
-Details: Compares 1D arrays. Checks element equality (equals() for objects). Returns false for nested multidimensional arrays."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Compares 1D arrays. Checks element equality (equals() for objects). Returns false for nested multidimensional arrays."		19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-110	Arrays.equals does not work for multi-dimensional arrays; it only compares references of the {{c1::nested array}} elements.	"Gotcha: Using equals() on multi-dimensional arrays, which only checks 1D reference identity.
 
-Details: Compares 1D arrays. Checks element equality (equals() for objects). Returns false for nested multidimensional arrays."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Compares 1D arrays. Checks element equality (equals() for objects). Returns false for nested multidimensional arrays."		19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-111	The static utility method to recursively compare multi-dimensional arrays for deep equality is {{c1::Arrays.deepEquals}}.	"Why it matters: Enables structural comparison of nested arrays.
 
-Details: Recursively compares multidimensional arrays for element-by-element equality."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Recursively compares multidimensional arrays for element-by-element equality."		19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
 collections_framework-cloze-112	To structurally compare nested arrays like int[][] or String[][], you should use {{c1::Arrays.deepEquals}}.	"Gotcha: Calling deepEquals on non-array object references.
 
-Details: Recursively compares multidimensional arrays for element-by-element equality."	19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
+Details: Recursively compares multidimensional arrays for element-by-element equality."		19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/	java::core::collections-framework
