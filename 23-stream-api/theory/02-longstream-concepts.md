@@ -259,3 +259,52 @@ Tiny example or mental model:
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Why flatMap() Differs from map()
+
+In the Java Stream API, the fundamental difference between `map()` and `flatMap()` lies in the structure of the data they produce and how they transform elements. The `map()` operation is a one-to-one transformation, taking a function of type `T -> R` and returning a `Stream<R>` where each input element corresponds to exactly one output element. Conversely, `flatMap()` is a one-to-many transformation, taking a mapper function of type `T -> Stream<R>`. Instead of producing a nested stream structure like `Stream<Stream<R>>`, `flatMap()` merges or "flattens" the contents of each transient stream into a single, continuous downstream `Stream<R>`. As elements flow, the JVM executes the function, creates temporary stream objects, consumes their elements, and closes each transient stream sequentially.
+
+### Mental Model
+```
+map() [One-to-One]:
+Input:  [ "A" ] ---------> map(s -> s.toLowerCase()) ---------> Output: [ "a" ]
+
+flatMap() [One-to-Many & Flatten]:
+Input:  [ [1, 2], [3, 4] ]
+              |
+              +--> flatMap(list -> list.stream())
+                      |
+                      v
+          Stream[1, 2] and Stream[3, 4]  (Nested Streams)
+                      |
+                      v (Flattening)
+Output: [ 1, 2, 3, 4 ]                   (Single Stream)
+```
+
+### Code Example
+```java
+import java.util.List;
+import java.util.stream.Stream;
+
+public class FlatMapDemo {
+    public static void main(String[] args) {
+        List<List<String>> nestedList = List.of(
+            List.of("Java", "Python"),
+            List.of("C++", "Go")
+        );
+
+        // flatMap flattens the Stream<List<String>> into Stream<String>
+        List<String> flattened = nestedList.stream()
+            .flatMap(list -> list.stream())
+            .map(String::toUpperCase)
+            .toList();
+
+        System.out.println("Flattened: " + flattened);
+        // Console Output:
+        // Flattened: [JAVA, PYTHON, C++, GO]
+    }
+}
+```
+
+### Cause-Effect Chain
+Nested collection input &rarr; map() produces Stream of Streams (nested) &rarr; flatMap() receives mapper returning Stream&lt;R&gt; &rarr; flatMap() extracts and concatenates elements of intermediate streams &rarr; Intermediate streams automatically closed &rarr; Single unified downstream Stream produced

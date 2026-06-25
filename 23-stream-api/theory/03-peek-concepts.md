@@ -230,3 +230,46 @@ Tiny example or mental model:
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Why peek() Should Not Be Used for State Mutation
+
+The API specification for `Stream.peek()` explicitly states that its primary purpose is to support debugging, allowing you to observe elements as they flow past a certain point in a pipeline. Using `peek()` to mutate the state of elements or external variables is highly discouraged and error-prone because the stream implementation is free to optimize away intermediate pipeline steps. For example, if a terminal operation like `count()` is used, modern JDK versions (Java 9+) can determine the count directly from the stream source description without traversing the pipeline, meaning `peek()` will never execute. Furthermore, in parallel stream pipelines, invoking side-effects inside `peek()` introduces data races and thread-safety violations unless complex synchronization is added. State mutation inside `peek()` breaks the fundamental design goal of functional stream pipelines, which should remain pure, side-effect-free, and deterministic.
+
+### Mental Model
+```
+Stream Source (size known) -> peek(mutate) -> count()
+                                  |
+                                  v
+                    [ JVM Count Optimization ]
+    (Source size is queried directly; pipeline traversal skipped)
+                                  |
+                                  v
+                    peek() is NEVER executed!
+```
+
+### Code Example
+```java
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
+
+public class PeekMutationDemo {
+    public static void main(String[] args) {
+        List<String> mutatedList = new ArrayList<>();
+        
+        // DANGEROUS: Using peek to mutate external state
+        long totalCount = Stream.of("a", "b", "c")
+                                .peek(mutatedList::add)
+                                .count();
+        
+        System.out.println("Total Count: " + totalCount);
+        System.out.println("Mutated List Size: " + mutatedList.size());
+        // Console Output (Java 9+):
+        // Total Count: 3
+        // Mutated List Size: 0
+    }
+}
+```
+
+### Cause-Effect Chain
+State mutation inside peek() &rarr; Execution depends on pipeline traversal &rarr; Terminal operation optimized (e.g., count() queries source directly) &rarr; Pipeline traversal skipped &rarr; Mutation logic never runs &rarr; External state inconsistent and bugs introduced

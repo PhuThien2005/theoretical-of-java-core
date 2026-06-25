@@ -154,6 +154,48 @@ Tiny example or mental model:
 
 - `final int limit = 10;` cannot be reassigned.
 
+## Why Final Variables Prevent Re-Assignment and Enable Inlining
+
+The `final` keyword on a variable guarantees that once a value is assigned, the variable's reference or value cannot be changed for the remainder of its lifetime. For primitive variables, this prevents the numeric value from being modified, while for reference variables, it prevents the reference from pointing to a different object (though the object's internal fields may still be mutable). Because `final` guarantees compile-time constant values when initialized with constants, the Java compiler and the Just-In-Time (JIT) compiler can perform an optimization called **inlining**. Inlining replaces the variable name or method call directly with the constant value or body at compile time, eliminating the overhead of variable lookup or method dispatch and boosting runtime performance.
+
+### Compiler Inlining Optimization Model
+
+```mermaid
+graph LR
+    subgraph Before_Optimization [Before Optimization]
+        Code1["final int LIMIT = 100;<br/>if (x > LIMIT) { ... }"]
+    end
+    subgraph After_Optimization [After Optimization (Inlined)]
+        Code2["if (x > 100) { ... }"]
+    end
+    Before_Optimization -- "Compiler replaces LIMIT with 100" --> After_Optimization
+```
+
+### Code Example: Demonstration of Final Variable and Inlining
+```java
+public class OptimizationDemo {
+    // Compile-time constant: final + primitive/String + constant expression
+    public static final int MAX_USERS = 500;
+
+    public void displayLimit() {
+        // The compiler replaces MAX_USERS with the literal 500 in the bytecode
+        System.out.println("Limit: " + MAX_USERS); 
+    }
+
+    public static void main(String[] args) {
+        OptimizationDemo demo = new OptimizationDemo();
+        demo.displayLimit(); // Output: Limit: 500
+    }
+}
+```
+
+### Cause-Effect Chain of Final Variables
+- **Trigger**: Variable is declared with the `final` keyword.
+- **Immediate Effect**: The compiler prevents any reassignment of the variable after its first initialization.
+- **Secondary Effect**: If the value is a compile-time constant, the compiler can substitute the literal value directly wherever the variable is referenced.
+- **Ultimate Outcome**: Variable reassignments are blocked at compile time, and runtime performance is enhanced via JIT/compiler inlining.
+
+
 ### Final method
 
 Final means the variable, method, class, or parameter is restricted from later change in a specific way.

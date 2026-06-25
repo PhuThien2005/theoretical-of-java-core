@@ -89,3 +89,48 @@ While related, `GC Overhead Limit exceeded` occurs *before* physical heap space 
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Why Heap and Stack Errors Differ
+
+The JVM isolates thread-specific call structures from shared application data by dividing its memory into distinct regions, resulting in different error types when resources are exhausted. OutOfMemoryError occurs in the Heap or Metaspace when dynamic memory allocations exceed the physical space limits and the Garbage Collector is unable to reclaim any further space. StackOverflowError, on the other hand, occurs in the thread-specific stack when method invocation frames grow too deep and exhaust the allocated stack memory slot. Catching these VirtualMachineError subclasses within application code is a dangerous anti-pattern because the JVM's internal state is compromised and cannot guarantee stability. Attempting recovery operations or logging after an error occurs is highly likely to fail, potentially causing secondary errors like a nested OutOfMemoryError.
+
+### Mental Model
+```
++-------------------------------------------------------------+
+| StackOverflowError (Thread Stack)                           |
+| [ Frame n ] - Stack limit exceeded (Recursion loop)         |
+|   ...                                                       |
+| [ Frame 1 ] - Initial method call                           |
++-------------------------------------------------------------+
+
++-------------------------------------------------------------+
+| OutOfMemoryError (Heap/Metaspace)                           |
+| [ Reachable Objects | Reachable Objects | ... ]             |
+| Heap is 100% full. GC cannot free space for new allocations |
++-------------------------------------------------------------+
+```
+
+### Code Example
+```java
+public class MemoryErrorsDemo {
+    public static void main(String[] args) {
+        try {
+            causeStackOverflow(1);
+        } catch (StackOverflowError e) {
+            System.err.println("Caught StackOverflowError");
+        }
+    }
+
+    private static void causeStackOverflow(int depth) {
+        causeStackOverflow(depth + 1); // Infinite recursion
+    }
+}
+```
+
+### Cause-Effect Chain
+Thread stack size exceeded &rarr; StackOverflowError thrown &rarr; State compromised &rarr; Attempted recovery catches Error &rarr; Log operations require memory &rarr; Nested OutOfMemoryError/Crash.
+
+## Reference Links
+
+- https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.html#jvms-2.5 (Run-Time Data Areas)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-11.html#jls-11.1.1 (Kinds of Exceptions - Errors)

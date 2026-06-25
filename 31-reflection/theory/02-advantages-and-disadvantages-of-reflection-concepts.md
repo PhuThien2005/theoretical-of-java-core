@@ -48,7 +48,113 @@ public class PerformanceComparison {
 }
 ```
 
+## Why Reflection Introduces Performance Penalties and How to Optimize It
+
+In standard Java execution, the JVM's Just-In-Time (JIT) compiler compiles hot bytecode paths into native machine code. It relies on static analysis to perform critical optimizations like method inlining (replacing a method call directly with its body) and dead code elimination. Reflective invocations bypass this process because class, method, and field references are resolved as dynamic variables at runtime. This forces the JVM to disable JIT compilation optimizations for reflective calls, requiring the execution engine to perform name lookup, access verification, and parameter type compatibility checks on every invocation. Additionally, passing primitive arguments reflectively requires allocating an object array (`Object[]`) and boxing primitives (e.g., wrapping `int` to `Integer`), which adds significant heap allocation and garbage collection overhead. To optimize these reflective operations, Java 7 introduced the `java.lang.invoke.MethodHandles` and `VarHandle` APIs, which leverage direct JVM bootstrap lookup mechanics and allow JIT compiler inlining when handles are stored in `static final` fields.
+
+### Mental Model: Direct Invocation vs. Reflection JIT Bypass
+```mermaid
+flowchart TD
+    subgraph Direct Invocation [Direct Method Call]
+        A[target.method()] --> B[Static Type Checked]
+        B --> C[JIT Optimization: Method Inlining]
+        C --> D[Direct Native Code Execution]
+    end
+    subgraph Reflective Invocation [Reflective Method Call]
+        E[method.invoke(target, args)] --> F[Runtime Lookup by String Name]
+        F --> G[Modifier Verification & Access Checks]
+        G --> H[Primitive Auto-boxing & Object[] Allocation]
+        H --> I[JVM Stub Execution (Dynamic Dispatch)]
+        I --> J[Unboxing & Actual Execution]
+    end
+```
+
+### Code Example: Performance Comparison and MethodHandles
+```java
+import java.lang.invoke.MethodHandle;
+import java.lang.invoke.MethodHandles;
+import java.lang.invoke.MethodType;
+import java.lang.reflect.Method;
+
+public class ReflectionPerformanceDemo {
+    public void targetMethod() {}
+
+    public static void main(String[] args) throws Throwable {
+        ReflectionPerformanceDemo instance = new ReflectionPerformanceDemo();
+        
+        // 1. Standard Reflection: Slow due to lookup, access checks, and JIT bypass
+        Method reflectMethod = ReflectionPerformanceDemo.class.getMethod("targetMethod");
+        reflectMethod.invoke(instance); 
+        
+        // 2. MethodHandles: Faster because it is type-safe and optimizable by the JVM
+        MethodHandles.Lookup lookup = MethodHandles.lookup();
+        MethodType type = MethodType.methodType(void.class);
+        MethodHandle handle = lookup.findVirtual(ReflectionPerformanceDemo.class, "targetMethod", type);
+        
+        // Dynamic invocation with compile-time type verification
+        handle.invokeExact(instance); 
+    }
+}
+```
+
+### Cause-Effect Chain
+Reflective lookup by name &rarr; JIT compiler cannot determine target method signature at compile-time &rarr; Method inlining and optimizations disabled &rarr; JVM performs runtime access checks, parameter type checking, and argument boxing &rarr; Heap allocation rate increases and execution latency rises by 10x to 100x compared to direct calls.
+
 ---
+
+## Why Reflective Instantiation and Classloading Pose Security and Stability Risks
+
+Dynamic classloading (`Class.forName()`) and reflective constructor instantiation (`Constructor.newInstance()`) bypass static compile-time type boundaries to resolve classes by name at runtime. While this enables high flexibility, it introduces severe security and stability risks, most notably unsafe deserialization and arbitrary code execution (RCE). If an application accepts untrusted data that specifies class names to load dynamically, an attacker can supply the names of "gadget classes" (classes present on the classpath that execute actions in their constructors, static blocks, or deserialization methods). When the application instantiates these classes reflectively, it executes the attacker's code, potentially compromising the host system. Furthermore, loading classes dynamically can lead to Metaspace memory leaks because classes are stored in the JVM's Metaspace, which cannot be garbage collected as long as the loading ClassLoader remains referenced.
+
+### Mental Model: Unsafe Dynamic Instantiation Vulnerability Flow
+```mermaid
+sequenceDiagram
+    participant Attacker
+    participant App as Vulnerable Java App
+    participant VM as JVM ClassLoader
+    participant Gadget as Gadget Class (e.g. templates)
+    
+    Attacker->>App: Submits serialized payload containing class "com.attacker.Gadget"
+    App->>VM: Class.forName("com.attacker.Gadget")
+    VM-->>App: Returns Class object
+    App->>App: constructor.newInstance() called reflectively
+    App->>Gadget: Executes constructor / static initializer
+    Gadget->>Gadget: Runs Runtime.getRuntime().exec("malicious_command")
+    Note over Gadget: Host compromise (Remote Code Execution)
+```
+
+### Code Example: Reflective Instantiation Security Risk
+```java
+import java.lang.reflect.Constructor;
+
+public class UnsafeDynamicInstantiation {
+    // DANGER: Instantiates arbitrary classes by name from untrusted dynamic input
+    public static Object instantiateDynamic(String className) {
+        try {
+            Class<?> clazz = Class.forName(className);
+            Constructor<?> constructor = clazz.getDeclaredConstructor();
+            constructor.setAccessible(true);
+            return constructor.newInstance();
+        } catch (Exception e) {
+            System.out.println("Failed to instantiate: " + e.getMessage());
+            return null;
+        }
+    }
+
+    public static void main(String[] args) {
+        // Simulating an attacker attempting to instantiate ProcessBuilder reflectively
+        // which can lead to system command execution without compile-time restrictions
+        instantiateDynamic("java.lang.ProcessBuilder"); 
+    }
+}
+```
+
+### Cause-Effect Chain
+Untrusted input specifies class name &rarr; `Class.forName` loads the class from the classpath dynamically &rarr; Reflective instantiation executes the class's constructor or static initializer &rarr; Malicious payload executes OS commands reflectively &rarr; Host operating system is compromised with Remote Code Execution (RCE).
+
+---
+
+## Accessing private field/method
 
 ### Reflection in frameworks such as Spring
 
@@ -104,6 +210,68 @@ public class MiniSpringContainer {
 }
 ```
 
+## Why Reflection Enables Dependency Injection and ORM Frameworks
+
+Modern Java enterprise frameworks, such as Spring and Hibernate, must operate on user-defined classes that do not exist at the time the framework is compiled. Reflection serves as the critical mechanism that resolves this chicken-and-egg problem by allowing frameworks to introspect class structures and inspect metadata at runtime. Instead of requiring developers to write boilerplate factory code, instantiate classes manually, or manually map database columns to fields, the framework scans the classpath and inspects classes for annotations (such as `@Autowired`, `@Entity`, or `@Column`). Using reflection, the framework can locate the appropriate constructor, call `newInstance()` to create instances, and use `setAccessible(true)` to directly inject dependency instances or database row values into private fields. This decoupling allows applications to remain clean of infrastructure code, shifting component wiring and object-relational mapping to a declarative configuration model handled entirely by the framework container.
+
+### Mental Model: Annotation Scanning and Reflection-Based Wiring
+```mermaid
+flowchart TD
+    A[Framework Bootstraps] --> B[Scan Classpath for Classes]
+    B --> C{Class annotated with @Component or @Entity?}
+    C -- Yes --> D[Reflectively inspect constructors]
+    D --> E[Instantiate Bean via constructor.newInstance()]
+    E --> F[Iterate over Fields checking for @Autowired or @Column]
+    F --> G{Annotation found?}
+    G -- Yes --> H[Bypass private visibility with setAccessible]
+    H --> I[Inject dependency reference or DB value reflectively]
+    I --> J[Register fully-wired Bean in Application Context]
+    G -- No --> J
+```
+
+### Code Example: Reflective Annotation Mapping
+```java
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.reflect.Field;
+
+@Retention(RetentionPolicy.RUNTIME)
+@interface Column {
+    String name();
+}
+
+class UserProfile {
+    @Column(name = "user_email")
+    private String email;
+    
+    public String getEmail() { return email; }
+}
+
+public class MiniOrmMapper {
+    public static void populateField(Object target, String columnName, String value) throws Exception {
+        Class<?> clazz = target.getClass();
+        for (Field field : clazz.getDeclaredFields()) {
+            if (field.isAnnotationPresent(Column.class)) {
+                Column annotation = field.getAnnotation(Column.class);
+                if (annotation.name().equals(columnName)) {
+                    field.setAccessible(true); // Bypass encapsulation
+                    field.set(target, value); // Inject value reflectively
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        UserProfile profile = new UserProfile();
+        populateField(profile, "user_email", "admin@example.com");
+        System.out.println("Mapped Email: " + profile.getEmail()); // Outputs "Mapped Email: admin@example.com"
+    }
+}
+```
+
+### Cause-Effect Chain
+Framework scans classpath &rarr; Dynamic reflection reads user-defined class structures and annotations &rarr; Field access controls bypassed with `setAccessible(true)` &rarr; Data and dependencies injected directly into fields &rarr; Boilerplate factory and mapping code eliminated, achieving decoupling and declarative architecture.
+
 ---
 
 ## Common Review Prompts
@@ -115,3 +283,12 @@ public class MiniSpringContainer {
 - **What is the difference between JDK Dynamic Proxies and CGLIB?**
   - **JDK Dynamic Proxies** use standard reflection (`java.lang.reflect.Proxy`) to create proxy instances for classes that implement interfaces.
   - **CGLIB** generates subclasses at runtime to intercept method calls for classes that do not implement any interfaces.
+
+## Reference Links
+
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-15.html#jls-15.12 (Method Invocation Expressions)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/invoke/MethodHandles.html (MethodHandles Lookup)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-12.html#jls-12.2 (Class Loading)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/AnnotatedElement.html (AnnotatedElement Annotation Reflection)
+- https://docs.oracle.com/javase/tutorial/reflect/ (Oracle Reflection Tutorial)
+

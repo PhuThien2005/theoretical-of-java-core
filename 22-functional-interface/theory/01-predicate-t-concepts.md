@@ -51,6 +51,92 @@ public interface SimpleCalculator {
 }
 ```
 
+## Why Use the @FunctionalInterface Annotation
+
+The `@FunctionalInterface` annotation is a compiler-directing annotation that explicitly documents the design intent of an interface. While Java allows any interface containing exactly one abstract method to serve as the target for lambda expressions or method references, omitting this annotation exposes the code to future regressions. If a developer unknowingly adds a second abstract method to a functional interface without this annotation, the compilation failure will manifest at the usage sites (where lambda expressions are written) rather than at the interface declaration itself, making debugging more difficult. Including `@FunctionalInterface` ensures the compiler verifies the single-abstract-method (SAM) contract immediately at the declaration site, preventing accidental additions of other abstract methods.
+
+```mermaid
+graph TD
+    A[Developer modifies Interface] -->|Adds 2nd abstract method| B{Annotated with @FunctionalInterface?}
+    B -->|Yes| C[Compile-time error at interface definition: 'Multiple non-overriding abstract methods']
+    B -->|No| D[Interface compiles successfully]
+    D --> E[Compile-time error at lambda usage sites: 'Target type is not a functional interface']
+```
+
+### Code Example: Annotation Enforcement
+
+```java
+// Correct usage: compiler checks declaration
+@FunctionalInterface
+interface StringTransformer {
+    String transform(String input);
+    
+    // If we uncomment the line below, compiler complains immediately:
+    // "StringTransformer is not a functional interface"
+    // void anotherMethod(); 
+}
+
+public class AnnotationDemo {
+    public static void main(String[] args) {
+        StringTransformer upper = String::toUpperCase;
+        System.out.println(upper.transform("hello")); // Output: HELLO
+    }
+}
+```
+
+### Cause-Effect Chain
+- **Annotated with `@FunctionalInterface`** $\rightarrow$ Compiler enforces single abstract method constraint at declaration $\rightarrow$ Prevents accidental addition of new abstract methods $\rightarrow$ Avoids compile-time breakage at downstream lambda usage sites.
+
+---
+
+## How the JLS Counts Abstract Methods and Treats java.lang.Object Overrides
+
+The Java Language Specification (JLS §9.8) defines a functional interface as an interface with exactly one functional method, which is a single abstract method that is not overridden. When determining the abstract method count, any abstract method declared in the interface that overrides a public method of the `java.lang.Object` class (such as `equals(Object)`, `hashCode()`, or `toString()`) is excluded from the count. This exclusion exists because any class implementing this interface will automatically inherit implementations of these methods from `java.lang.Object` (either directly or via the parent class hierarchy), meaning the implementing class does not need to provide a new implementation for them. If a method in the interface overrides a non-public `Object` method (such as `clone()`), or if it declares an abstract method not present in `Object`, it is counted towards the single abstract method constraint.
+
+```mermaid
+flowchart TD
+    A[Inspect Interface Methods] --> B{Is method abstract?}
+    B -->|No: default/static| C[Excluded from SAM count]
+    B -->|Yes| D{Does it match a public java.lang.Object method signature?}
+    D -->|Yes| E[Excluded from SAM count]
+    D -->|No| F[Included in SAM count]
+    F --> G{Total SAM count == 1?}
+    G -->|Yes| H[Valid Functional Interface]
+    G -->|No| I[Invalid Functional Interface]
+```
+
+### Code Example: Object Overrides
+
+```java
+@FunctionalInterface
+interface CustomComparator<T> {
+    // 1. Counts as the single abstract method (SAM)
+    int compare(T o1, T o2);
+
+    // 2. Overrides public java.lang.Object method: NOT counted
+    @Override
+    boolean equals(Object obj);
+
+    // 3. Overrides public java.lang.Object method: NOT counted
+    @Override
+    String toString();
+    
+    // 4. Overriding protected/non-public Object method is NOT allowed as a non-counted method.
+    // Object clone(); // If uncommented, counts as second abstract method and fails compilation!
+}
+
+public class JlsChecksDemo {
+    public static void main(String[] args) {
+        CustomComparator<String> lengthComp = (s1, s2) -> Integer.compare(s1.length(), s2.length());
+        System.out.println(lengthComp.compare("apple", "banana")); // Output: -1
+        System.out.println(lengthComp.equals(lengthComp));         // Output: true
+    }
+}
+```
+
+### Cause-Effect Chain
+- **Declares public `Object` method as abstract** $\rightarrow$ Compiler recognizes signature matches public `Object` method $\rightarrow$ Method is excluded from the functional interface's abstract method count $\rightarrow$ Interface successfully compiles as a valid `@FunctionalInterface`.
+
 ---
 
 ### Predicate<T>
@@ -531,6 +617,68 @@ For example:
 - `Function<T, R>` has **one** input.
 - `BiFunction<T, U, R>` has **two** inputs.
 - `IntConsumer` has **one primitive `int`** input.
+
+---
+
+## Why Primitive Specializations Prevent Boxing Overhead
+
+Generic types in Java are subject to type erasure, meaning the JVM operates only on references of type `java.lang.Object` at runtime, which prevents primitives like `int` or `double` from being used directly as type arguments. When using standard functional interfaces like `Predicate<Integer>`, any primitive `int` passed as an argument must be wrapped in a heap-allocated `Integer` object through autoboxing. This boxing process allocates memory on the heap, increases garbage collection (GC) pressure, and requires dereferencing to retrieve the primitive value during method execution. To solve this efficiency problem, Java provides primitive specializations like `IntPredicate` or `DoubleConsumer` which define abstract methods taking primitive arguments directly (e.g., `test(int value)`). Using these specializations eliminates heap allocation, avoids memory overhead, and allows the JVM to execute operations with minimal overhead inside high-throughput loops.
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Loop as Loop / Code
+    participant Generic as Predicate<Integer>
+    participant Heap as JVM Heap Memory
+    participant Primitive as IntPredicate
+    
+    Note over Loop, Heap: Using Generic Predicate (Autoboxing)
+    Loop->>Generic: test(42)
+    Generic->>Heap: Allocate Integer(42) [Heap Overhead!]
+    Heap-->>Generic: Return Integer Reference
+    Generic->>Generic: Unbox Integer to int
+    Generic-->>Loop: Return boolean
+    
+    Note over Loop, Primitive: Using Primitive Specialization
+    Loop->>Primitive: test(42)
+    Primitive->>Primitive: Execute logic directly on primitive 42
+    Primitive-->>Loop: Return boolean [Zero Heap Allocation]
+```
+
+### Code Example: Boxing Overhead vs Primitive Specializations
+
+```java
+import java.util.function.Predicate;
+import java.util.function.IntPredicate;
+
+public class BoxingOverheadDemo {
+    public static void main(String[] args) {
+        int iterations = 10_000_000;
+        
+        // 1. Generic Predicate (autoboxing overhead)
+        Predicate<Integer> isEvenGeneric = x -> x % 2 == 0;
+        long startGeneric = System.nanoTime();
+        for (int i = 0; i < iterations; i++) {
+            isEvenGeneric.test(i); // boxes 'i' into Integer
+        }
+        long endGeneric = System.nanoTime();
+        
+        // 2. Primitive Specialization (no autoboxing)
+        IntPredicate isEvenPrimitive = x -> x % 2 == 0;
+        long startPrimitive = System.nanoTime();
+        for (int i = 0; i < iterations; i++) {
+            isEvenPrimitive.test(i); // passes primitive int
+        }
+        long endPrimitive = System.nanoTime();
+        
+        System.out.println("Generic took: " + (endGeneric - startGeneric) / 1_000_000 + " ms");
+        System.out.println("Primitive took: " + (endPrimitive - startPrimitive) / 1_000_000 + " ms");
+    }
+}
+```
+
+### Cause-Effect Chain
+- **Generic type parameter used** $\rightarrow$ Compiler enforces reference type argument $\rightarrow$ Primitive values must be boxed into wrapper objects $\rightarrow$ Heap allocation and GC pressure increase $\rightarrow$ Performance degrades compared to direct primitive specializations.
 
 ---
 

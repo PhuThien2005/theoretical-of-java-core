@@ -259,3 +259,91 @@ Thinking that any cyclic dependency (like Object A referencing B, and B referenc
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Why Different Reference Types Exist
+
+Java provides distinct reference strengths to allow developers fine-grained control over object lifetimes and prevent memory leaks while optimizing caches or cleanup routines. Strong references prevent the Garbage Collector from reclaiming an object even under extreme memory pressure, which is necessary for active data but dangerous for temporary caches. Soft references act as a buffer, allowing objects to persist during normal execution but reclaiming them automatically right before the JVM throws an OutOfMemoryError, making them ideal for memory-sensitive caches. Weak references are cleared during the next collection cycle if the referent has no stronger reachability paths, which is perfect for associating metadata with objects (e.g., WeakHashMap) without extending their lifecycle. Phantom references are the weakest type, always returning null on get() and serving solely to notify developers via a ReferenceQueue when an object has been fully collected so off-heap cleanup can occur safely.
+
+### Mental Model
+```
+[ GC Root ]
+     |
+     +===(Strong Reference)===> [ Object A ] (Never collected)
+     |
+     +---(Soft Reference)--->  [ Object B ] (Collected only if heap is exhausted)
+     |
+     +---(Weak Reference)--->  [ Object C ] (Collected on next GC cycle)
+     |
+     +---(Phantom Reference)--> [ Object D ] (Always returns null; enqueued on GC)
+                                    |
+                                    v
+                             [ ReferenceQueue ] (Handles post-mortem cleanup)
+```
+
+### Code Example
+```java
+import java.lang.ref.*;
+
+public class ReferenceTypesDemo {
+    public static void main(String[] args) {
+        Object referent = new Object();
+        SoftReference<Object> softRef = new SoftReference<>(referent);
+        WeakReference<Object> weakRef = new WeakReference<>(referent);
+        ReferenceQueue<Object> queue = new ReferenceQueue<>();
+        PhantomReference<Object> phantomRef = new PhantomReference<>(referent, queue);
+
+        System.out.println("Weak get: " + (weakRef.get() != null));       // Output: Weak get: true
+        System.out.println("Phantom get: " + phantomRef.get());            // Output: Phantom get: null (always)
+    }
+}
+```
+
+### Cause-Effect Chain
+Heap exhausted &rarr; GC runs &rarr; Strong reference preserved &rarr; Soft reference cleared &rarr; Weak reference cleared &rarr; Phantom reference queued &rarr; OutOfMemoryError avoided/mitigated.
+
+## Why Islands of Isolation Can Be Garbage Collected
+
+Older or simpler garbage collectors utilized reference counting, which incremented a counter whenever an object was referenced and decremented it when a reference was severed. However, reference counting fails to reclaim circular references (islands of isolation) because their cross-references maintain a reference count greater than zero even when completely disconnected from the rest of the application. The JVM solves this fundamental limitation by implementing tracing garbage collection, which begins reachability checks from defined 'GC Roots' (such as stack frames, static fields, and JNI references). Any group of objects that cannot be reached by traversing the reference graph starting from these GC Roots is identified as unreachable, regardless of internal cross-references. Consequently, the garbage collector safely reclaims the entire island of isolation during a collection cycle because no path exists to them from any active application thread.
+
+### Mental Model
+```
+[ GC Root (Stack Frame) ]
+            |
+            x (Reference severed)
+            |
+    +-------v--------+
+    | Object A       | <=======> [ Object B ]
+    | (Count = 1)    |           (Count = 1)
+    +----------------+
+    
+    [ Island of Isolation (Unreachable from GC Root) ]
+```
+
+### Code Example
+```java
+public class IslandOfIsolation {
+    IslandOfIsolation partner;
+
+    public static void main(String[] args) {
+        IslandOfIsolation a = new IslandOfIsolation();
+        IslandOfIsolation b = new IslandOfIsolation();
+
+        a.partner = b; // a references b
+        b.partner = a; // b references a
+
+        a = null;      // sever stack reference to a
+        b = null;      // sever stack reference to b
+        
+        // Both objects reference each other but are unreachable from GC Roots.
+        System.gc(); // Tracing GC reclaims both objects successfully.
+    }
+}
+```
+
+### Cause-Effect Chain
+Stack references set to null &rarr; GC Roots traversal starts &rarr; GC traversal cannot reach Object A or B &rarr; Circular references ignored &rarr; Island of isolation marked unreachable &rarr; Both objects reclaimed.
+
+## Reference Links
+
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ref/package-summary.html (Package java.lang.ref)
+- https://docs.oracle.com/en/java/javase/21/gctuning/introduction-garbage-collection-tuning.html (Garbage Collection Tuning Guide)

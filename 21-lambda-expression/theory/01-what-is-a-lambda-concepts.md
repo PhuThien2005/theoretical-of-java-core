@@ -47,6 +47,64 @@ Runnable runTask = () -> System.out.println("Executing...");
 java.util.function.Predicate<Integer> isPositive = n -> n > 0;
 ```
 
+### Why Lambdas Use invokedynamic and Bootstrap Methods
+
+Traditional anonymous inner classes compile to separate class files (e.g., `EnclosingClass$1.class`). Creating and loading these class files consumes disk space, increases the JAR package footprint, and incurs class loader IO overhead at startup. Instead of translating lambda expressions into inner classes, the Java compiler uses the `invokedynamic` (Indy) instruction introduced in Java 7, along with dynamic bootstrap methods. When a lambda is compiled, the compiler generates a recipe to construct the functional interface instance, emitting an `invokedynamic` call site and a private helper method that holds the lambda body logic. At runtime, the first time this instruction is hit, a bootstrap method (specifically `LambdaMetafactory.metafactory`) is invoked to dynamically link the call site to a call site target (e.g., a dynamically generated class or a direct method handle). This avoids creating separate static `.class` files on disk, reduces class loading overhead, and leaves optimizations to the JVM's JIT compiler.
+
+#### Mental Model: Lambda Bootstrapping Lifecycle
+```mermaid
+sequenceDiagram
+    autonumber
+    participant JVM as JVM Execution
+    participant Indy as invokedynamic Call Site
+    participant Metafactory as LambdaMetafactory.metafactory()
+    participant Target as Call Site Target (Dynamic Class)
+    
+    JVM->>Indy: Execute lambda instantiation
+    Note over Indy: First time invocation? (Bootstrap phase)
+    Indy->>Metafactory: Invoke Bootstrap Method (BSM)
+    Metafactory-->>Indy: Return CallSite holding MethodHandle to dynamic class/logic
+    Indy->>Target: Invoke dynamic implementation method
+    JVM->>Indy: Subsequent invocations (Fast path)
+    Indy->>Target: Direct invocation (skips BSM)
+```
+
+#### Code Example: Dynamic Class Generation Output
+```java
+public class LambdaCompilationDemo {
+    public static void main(String[] args) {
+        Runnable r = () -> System.out.println("Hello from Lambda!");
+        r.run();
+        // Output:
+        // Hello from Lambda!
+        
+        System.out.println(r.getClass().getName());
+        // Output:
+        // LambdaCompilationDemo$$Lambda$1/0x0000000801000840 (dynamically generated class name)
+    }
+}
+```
+
+#### Cause-Effect Chain
+```
+Lambda written in source
+  │
+  ▼
+Compiler compiles body into a private class method and emits invokedynamic at call site
+  │
+  ▼
+Runtime hits call site for the first time
+  │
+  ▼
+LambdaMetafactory generates runtime class/wrapper in memory
+  │
+  ▼
+JVM binds MethodHandle to the call site
+  │
+  ▼
+Future calls skip runtime class generation and execute fast-path direct invocation
+```
+
 ### Lambda syntax
 
 A lambda expression is a compact function-like block used where a functional interface is expected.
@@ -154,6 +212,82 @@ interface Invalid {
 }
 ```
 
+### Why Lambdas Cannot Throw Checked Exceptions and How to Bypass It
+
+Java's type system requires checked exceptions to be either handled in a `try-catch` block or declared in the method signature using the `throws` clause. When writing lambda expressions, the target functional interface's abstract method defines the type signature, including what exceptions it is permitted to throw. Standard functional interfaces in `java.util.function` (like `Function`, `Consumer`, `Predicate`) do not declare any checked exceptions in their method signatures. Consequently, a lambda implementing these interfaces is prohibited from throwing checked exceptions, as doing so would violate the interface's contract and cause compilation failures. To bypass this, developers must either wrap the throwing call in a try-catch block inside the lambda, design custom functional interfaces that declare `throws Exception`, or use sneaky throwing techniques to trick the compiler.
+
+#### Mental Model: Checked Exception Signature Verification
+```
+[Lambda Expression] ──(Tries to throw checked Exception)──► [Compiler Validation]
+                                                                   │
+                                               Is it declared in Functional Interface?
+                                                /                         \
+                                              (No)                        (Yes)
+                                              /                             \
+                                    [Compile Error]                 [Compilation Succeeds]
+```
+
+#### Code Example: Catching vs Propagating Checked Exceptions
+```java
+import java.io.IOException;
+import java.util.function.Consumer;
+
+public class LambdaExceptionHandling {
+    @FunctionalInterface
+    interface ThrowingConsumer<T> {
+        void accept(T t) throws Exception;
+    }
+
+    public static void main(String[] args) {
+        // Standard Consumer: Compile error if we throw checked exception directly
+        // Consumer<String> bad = s -> { throw new IOException(); }; 
+
+        // Fix 1: Try-catch block inside lambda
+        Consumer<String> consumerWithCatch = s -> {
+            try {
+                throwChecked(s);
+            } catch (IOException e) {
+                System.out.println("Caught inside lambda: " + e.getMessage());
+            }
+        };
+        consumerWithCatch.accept("test");
+        // Output:
+        // Caught inside lambda: Test Exception
+
+        // Fix 2: Custom functional interface
+        ThrowingConsumer<String> customConsumer = s -> throwChecked(s);
+        try {
+            customConsumer.accept("test");
+        } catch (Exception e) {
+            System.out.println("Caught from custom interface: " + e.getMessage());
+        }
+        // Output:
+        // Caught from custom interface: Test Exception
+    }
+
+    private static void throwChecked(String s) throws IOException {
+        throw new IOException("Test Exception");
+    }
+}
+```
+
+#### Cause-Effect Chain
+```
+Lambda throws checked exception
+  │
+  ▼
+Compiler checks signature of the target Functional Interface method
+  │
+  ▼
+Method lacks throws declaration for that exception
+  │
+  ▼
+Compiler rejects the code as compile error
+  │
+  ▼
+Wrapper try-catch or custom functional interface with throws resolves the signature mismatch
+```
+
 ### Method reference:
 
 Method reference is a group of related rules in Lambda Expression that groups several related details.
@@ -257,6 +391,61 @@ java.util.function.Supplier<java.util.List<String>> listSupplier = java.util.Arr
 java.util.function.Function<Integer, java.util.List<String>> sizeSupplier = java.util.ArrayList::new;
 ```
 
+### How Method References Resolve Receivers and Signatures Under the Hood
+
+Method references (`Class::method` or `instance::method`) are compact syntactic sugar for lambdas, but they map to the underlying functional interface method signature differently depending on their category. In a static method reference, all arguments of the functional interface method are passed directly as parameters to the static method. In a bound instance method reference, the receiver instance is predetermined at compile-time, and all interface parameters are mapped as parameters to the instance method. In contrast, an unbound instance method reference requires the first parameter of the functional interface method to act as the target receiver (the object on which the method is called), and any remaining parameters are mapped as arguments.
+
+#### Mental Model: Method Reference Mapping
+```mermaid
+graph TD
+    A[Method Reference Type] --> B[Static: Class::staticMethod]
+    A --> C[Bound: instance::instanceMethod]
+    A --> D[Unbound: Class::instanceMethod]
+    
+    B --> B1["Lambda: (a, b) -> Class.staticMethod(a, b)"]
+    C --> C1["Lambda: (a, b) -> instance.instanceMethod(a, b)"]
+    D --> D1["Lambda: (obj, a, b) -> obj.instanceMethod(a, b)"]
+```
+
+#### Code Example: Parameter Mapping Differences
+```java
+import java.util.function.*;
+
+public class MethodRefResolution {
+    public static void main(String[] args) {
+        // 1. Static method reference
+        Function<String, Integer> parser = Integer::parseInt;
+        System.out.println(parser.apply("123")); // Output: 123
+        
+        // 2. Bound instance method reference
+        String prefix = "Java";
+        Predicate<String> boundRef = prefix::startsWith;
+        System.out.println(boundRef.test("J")); // Output: true (Equivalent to prefix.startsWith("J"))
+
+        // 3. Unbound instance method reference
+        BiPredicate<String, String> unboundRef = String::startsWith;
+        System.out.println(unboundRef.test("Java", "J")); // Output: true (Equivalent to "Java".startsWith("J"))
+    }
+}
+```
+
+#### Cause-Effect Chain
+```
+Method reference category determined at compile time
+  │
+  ▼
+Static method maps parameters 1..N
+  │
+  ▼
+Bound method fixes receiver instance and maps parameters 1..N
+  │
+  ▼
+Unbound method treats parameter 1 as the receiver object and parameters 2..N as the arguments
+  │
+  ▼
+Functional interface method matches signature and executes successfully
+```
+
 ### Variable capture
 
 Variable capture is a specific concept in Lambda Expression; learn its Java rule, valid use cases, and failure mode rather than only its name.
@@ -331,8 +520,63 @@ public void testReassignmentInLambda() {
 }
 ```
 
-#### Why is this constraint necessary?
-Local variables live on the stack and are destroyed when the enclosing method exits. However, lambdas can be stored and executed much later (e.g., in another thread). To support this, Java copies the value of the local variable into the lambda object. If the variable could be modified, the local variable and the copy inside the lambda would drift out of sync, violating Java's memory guarantees.
+### Why Local Variables Captured by Lambdas Must Be Final or Effectively Final
+
+Local variables reside on the execution stack and are destroyed immediately when the enclosing method exits. However, a lambda expression is represented by an object on the heap that can outlive the method execution (e.g., if it is passed to a background thread or stored in an instance variable). To prevent the lambda from accessing a deallocated stack variable, Java uses "variable capture," copying the variable's value into the lambda instance's fields at creation time. If the original local variable or the copy inside the lambda could be modified, their values would drift out of sync, creating confusing concurrency issues and violating JVM stack safety guarantees. By enforcing the final or effectively final constraint, Java ensures that the copied value remains identical to the original variable, maintaining consistency across stack and heap boundaries.
+
+#### Mental Model: Variable Capture stack vs heap Lifecycle
+```
+STACK (Method Frame)             HEAP (Lambda Instance)
+┌────────────────────────┐      ┌──────────────────────────────┐
+│ localVar = 42          │      │ LambdaInstance               │
+│ (destroyed on exit)    │      │ ┌──────────────────────────┐ │
+│                        │      │ │ capturedLocalVarCopy = 42│ │
+└───────────┬────────────┘      │ └──────────────────────────┘ │
+            │                   │                              │
+            │ (Capture: Copy)   │                              │
+            └──────────────────►│ Value cannot change!         │
+                                └──────────────────────────────┘
+```
+
+#### Code Example: Accessing Captured Variables
+```java
+public class VariableCaptureWhy {
+    public static void main(String[] args) {
+        int nonMutable = 100; // Effectively final local variable
+        
+        Runnable r = () -> {
+            System.out.println(nonMutable);
+        };
+        r.run();
+        // Output:
+        // 100
+        
+        // If we uncommented the next line, compilation would fail:
+        // nonMutable = 200; 
+        // error: local variables referenced from a lambda expression must be final or effectively final
+    }
+}
+```
+
+#### Cause-Effect Chain
+```
+Local variables stored on stack frame
+  │
+  ▼
+Enclosing method exits and stack frame is popped
+  │
+  ▼
+Lambda on the heap attempts to read variable
+  │
+  ▼
+Stack variable no longer exists
+  │
+  ▼
+Memory corruption/desync potential
+  │
+  ▼
+Compiler mandates final/effectively final to guarantee captured copies never drift
+```
 
 ## Case Study: Refactoring Anonymous Class Callbacks to Lambdas and Method References
 
@@ -384,6 +628,76 @@ names.sort(String::compareTo);
 1. **`this` reference scope**: Inside an anonymous class, `this` refers to the anonymous class instance itself. Inside a lambda, `this` refers to the enclosing class instance where the lambda is defined.
 2. **Class Files**: Anonymous classes generate an extra `.class` file at compile time (e.g., `RefactoringDemo$1.class`). Lambdas are compiled into private methods in the host class using `invokedynamic` instructions, improving memory footprint and startup time.
 
+### Scope and Scoping Semantics: Lambdas vs Anonymous Inner Classes
+
+An anonymous inner class introduces a completely new lexical scope, creating a new class context where `this` refers to the generated inner class instance itself. This requires developers to use `EnclosingClass.this` if they need to reference the surrounding outer class instance from inside the anonymous class. In contrast, a lambda expression does not introduce a new scope level and is lexically scoped to the enclosing class instance. Within a lambda body, the `this` keyword refers exclusively to the instance of the enclosing class, just as it does in the surrounding block. Additionally, because lambdas share the method's scope, declaring a lambda parameter with the same name as a local variable in the method causes a compile-time variable shadowing conflict.
+
+#### Mental Model: Lexical vs Class Scoping Boundaries
+```
+Lexical Scoping in Enclosing Method:
+┌────────────────────────────────────────────────────────┐
+│ Outer Class Instance (this = OuterClassInstance)       │
+│  ┌──────────────────────────────────────────────────┐  │
+│  │ Enclosing Method                                 │  │
+│  │  ┌────────────────────────────────────────────┐  │  │
+│  │  │ Lambda Expression (this = OuterClassInstance)│  │  │
+│  │  └────────────────────────────────────────────┘  │  │
+│  │  ┌────────────────────────────────────────────┐  │  │
+│  │  │ Anonymous Inner Class (this = InnerClass)  │  │  │
+│  │  └────────────────────────────────────────────┘  │  │
+│  └──────────────────────────────────────────────────┘  │
+└────────────────────────────────────────────────────────┘
+```
+
+#### Code Example: Lexical Scoping and 'this' Resolution
+```java
+public class ScopingDemo {
+    private final String name = "Outer";
+
+    public void run() {
+        // 1. Anonymous Inner Class
+        Runnable r1 = new Runnable() {
+            private final String name = "Inner";
+            @Override
+            public void run() {
+                System.out.println("Anonymous inner class 'this': " + this.name);
+                System.out.println("Enclosing class 'this': " + ScopingDemo.this.name);
+            }
+        };
+        r1.run();
+        // Output:
+        // Anonymous inner class 'this': Inner
+        // Enclosing class 'this': Outer
+
+        // 2. Lambda Expression
+        Runnable r2 = () -> {
+            // 'this' refers to ScopingDemo instance
+            System.out.println("Lambda 'this': " + this.name);
+        };
+        r2.run();
+        // Output:
+        // Lambda 'this': Outer
+    }
+
+    public static void main(String[] args) {
+        new ScopingDemo().run();
+    }
+}
+```
+
+#### Cause-Effect Chain
+```
+Lambda uses lexical scoping
+  │
+  ▼
+Scope is inherited from enclosing environment
+  │
+  ▼
+'this' references enclosing object rather than any dynamic subclass
+  │
+  ▼
+Compiler prevents local variable declaration collisions (no shadowing allowed)
+```
 
 ## Common Mistakes
 
@@ -435,3 +749,9 @@ java.util.function.Function<String, Boolean> badChecker = String::startsWith; //
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Reference Links
+
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-15.html#jls-15.27 (Lambda Expressions JLS)
+- https://docs.oracle.com/javase/8/docs/api/java/lang/invoke/LambdaMetafactory.html (LambdaMetafactory API)
+- https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html (Oracle Java Tutorials: Lambda Expressions)

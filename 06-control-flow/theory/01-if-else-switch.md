@@ -65,6 +65,47 @@ if (loggedIn)
 
 The `else` belongs to `if (isAdmin)`, not `if (loggedIn)`. Use braces to avoid ambiguity.
 
+## Why Dangling Else Ambiguity Occurs and How Java Resolves It
+
+The dangling-else problem is a classic grammatical ambiguity in nested control structures. When parsing nested `if` statements without block braces, the syntax is grammatically compatible with two different parse trees: attaching the `else` to the outer `if` or the inner `if`. To prevent parsing conflicts, Java resolves this ambiguity at the language design level by specifying that an `else` always binds to the nearest preceding unmatched `if` at the same nesting level. While this nearest-match rule makes parsing deterministic, it can easily lead to silent logical bugs when code indentation suggests a different association than the one the compiler actually creates.
+
+```mermaid
+graph TD
+    subgraph Actual Compiler Parsing [Nearest-Match Binding]
+        i1["if (loggedIn)"] --> t1["[Body]"]
+        t1 --> i2["if (isAdmin)"]
+        i2 --> t2["print 'Admin'"]
+        i2 --> e2["else: print 'Not admin'"]
+    end
+    subgraph Incorrect Indentation Assumption [Logical Developer Intent]
+        i1_alt["if (loggedIn)"] --> t1_alt["[Body]"]
+        t1_alt --> i2_alt["if (isAdmin)"]
+        i2_alt --> t2_alt["print 'Admin'"]
+        i1_alt --> e1_alt["else: print 'Not admin'"]
+    end
+```
+
+### Code Example: Dangling Else Bug
+
+In the following example, the developer indents the `else` clause to line up with the outer `if`, intending to print `"Logged out"` when `loggedIn` is `false`.
+
+```java
+boolean loggedIn = false;
+boolean isAdmin = false;
+
+if (loggedIn)
+    if (isAdmin)
+        System.out.println("Admin");
+else
+    System.out.println("Logged out"); // Indented with outer 'if', but binds to 'if (isAdmin)'!
+
+// Output:
+// (No output is printed!)
+```
+
+### Cause-Effect Chain
+Omission of curly braces `{}` in nested `if` statements $\rightarrow$ Compiler applies JLS nearest-match disambiguation rule $\rightarrow$ `else` binds to the inner `if (isAdmin)` $\rightarrow$ Outer `if (loggedIn)` evaluates to `false` $\rightarrow$ The entire inner `if-else` block is bypassed $\rightarrow$ The intended fallback action is never executed, creating a silent logical defect.
+
 ## Guard Clauses
 
 A guard clause handles an invalid or special case early, often with `return`.
@@ -236,3 +277,7 @@ String type = switch (day) {
 System.out.println(type);
 ```
 
+## Reference Links
+
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.9.2 (The dangling-else ambiguity in the Java Language Specification)
+- https://docs.oracle.com/javase/tutorial/java/nutsandbolts/flow.html (Oracle Java Control Flow Statements Tutorial)

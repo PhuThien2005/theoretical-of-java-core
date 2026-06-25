@@ -69,6 +69,38 @@ java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
 // Thread 2: sdf.format(date2) -> Can result in corrupted/mixed date output!
 ```
 
+### Why the Legacy Date, Calendar, and SimpleDateFormat APIs Are Flawed
+
+The legacy `java.util.Date` and `java.util.Calendar` classes represent dates and calendar fields using mutable state, which poses a severe risk of data corruption in concurrent applications. Because any thread with a reference to a `Date` or `Calendar` instance can call mutator methods like `setTime()` or `set()`, developers must write verbose defensive copies to protect encapsulation. Additionally, their API design is highly error-prone: month indices are 0-based (January is `0`), years are offset by `1900` in legacy constructors, and timezone behavior is opaque and format-dependent. Furthermore, classes like `java.text.SimpleDateFormat` are not thread-safe because they maintain mutable calendar state internally; sharing an instance across threads without external synchronization results in corrupted date strings or parsing errors.
+
+#### Mental Model: SimpleDateFormat Concurrency Conflict
+```mermaid
+sequenceDiagram
+    participant ThreadA as Thread A
+    participant ThreadB as Thread B
+    participant SharedSDF as Shared SimpleDateFormat (with internal Calendar)
+    ThreadA->>SharedSDF: format(date1)
+    Note over SharedSDF: Sets internal calendar time to date1
+    ThreadB->>SharedSDF: format(date2)
+    Note over SharedSDF: Overwrites internal calendar time to date2
+    ThreadA->>SharedSDF: reads calendar to format output
+    Note over ThreadA: Output corrupted (shows date2 instead of date1!)
+```
+
+#### Code Example: Mutability and Indexing Bugs
+```java
+// 0-based month (5 = June) and 1900-based year offset (126 = 2026)
+java.util.Date legacyDate = new java.util.Date(126, 5, 12); 
+System.out.println(legacyDate); // Fri Jun 12 00:00:00 UTC 2026 (formats with JVM timezone)
+
+// Mutability bug
+legacyDate.setTime(0L); // Mutated to Epoch (Jan 1, 1970)
+System.out.println(legacyDate); // Thu Jan 01 00:00:00 UTC 1970
+```
+
+#### Cause-Effect Chain
+`Sharing mutable SimpleDateFormat` → `Multiple threads concurrently parse/format` → `Internal Calendar state overwritten midway` → `Corrupt output or unexpected exceptions`
+
 ### LocalDate
 `java.time.LocalDate` represents a date without time or time zone in the ISO-8601 calendar system (e.g., `2026-06-12`). It is immutable, thread-safe, and implements the `Temporal` interface.
 
@@ -103,6 +135,31 @@ LocalDateTime ldt = LocalDateTime.of(date, time);
 System.out.println("LocalDateTime: " + ldt); // 2026-06-12T13:45
 ```
 
+### Why Modern Java 8 Date-Time Objects Are Immutable and Thread-Safe
+
+Classes in the `java.time` package (such as `LocalDate`, `LocalTime`, and `LocalDateTime`) are designed as immutable value types: they are declared `final`, and their internal state is stored in `private final` fields. Because an immutable object's state cannot change after it is constructed, it is inherently thread-safe and can be shared freely across multiple threads without locks or defensive copies. Rather than modifying the original instance, methods like `plusDays()` or `with()` use a copying pattern to create and return a brand-new instance representing the new state. This design guarantees that code elsewhere in your program holding a reference to the original date-time object will never observe unexpected mutations.
+
+#### Mental Model: Immutable State Transition
+```mermaid
+graph LR
+    ref1[Reference: date] --> obj1[LocalDate Object: 2026-06-12]
+    ref2[Reference: nextWeek] --> obj2[LocalDate Object: 2026-06-19]
+    style obj1 fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
+    style obj2 fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+```
+
+#### Code Example: Immutable Modification
+```java
+LocalDate date = LocalDate.of(2026, 6, 12);
+LocalDate nextWeek = date.plusDays(7); // Returns new LocalDate instance
+
+System.out.println(date);     // 2026-06-12 (original remains untouched)
+System.out.println(nextWeek); // 2026-06-19 (new instance created)
+```
+
+#### Cause-Effect Chain
+`Call plusDays()` → `Retrieve value from final fields` → `Compute new values` → `Construct and return a brand new instance` → `Original instance remains unchanged`
+
 ### ZonedDateTime
 `java.time.ZonedDateTime` represents a date and time with a full timezone context (e.g., `2026-06-12T13:45:00+09:00[Asia/Tokyo]`). It incorporates daylight saving time rules and timezone offset transitions from a `ZoneId`.
 
@@ -136,6 +193,36 @@ ZonedDateTime zdt = ZonedDateTime.now(ZoneId.of("America/New_York"));
 Instant fromZdt = zdt.toInstant();
 System.out.println("Instant from ZonedDateTime: " + fromZdt);
 ```
+
+### Why We Distinguish Instant, OffsetDateTime, and ZonedDateTime
+
+Java separates temporal models to reflect how different systems track time. An `Instant` represents a raw, timezone-independent point on the timeline measured in seconds and nanoseconds from the Unix epoch, making it the ideal representation for machine logs, database timestamps, and server communication. An `OffsetDateTime` adds a fixed offset (like `+09:00`) to the date-time fields, allowing representation of local times relative to UTC but without daylight saving time (DST) transition rules. A `ZonedDateTime` includes a full geographical time zone identifier (like `Europe/London`), which automatically handles historical changes and daylight saving adjustments for that specific region by looking up active rules.
+
+#### Mental Model: Time Representation Relationship
+```mermaid
+flowchart TD
+    I["Instant (Raw UTC Point: 1773489600s)"]
+    O["OffsetDateTime (Instant + Fixed Offset e.g., +09:00)"]
+    Z["ZonedDateTime (Instant + Region e.g., Asia/Tokyo + DST Rules)"]
+    I -->|Apply +09:00 ZoneOffset| O
+    I -->|Apply Asia/Tokyo ZoneId| Z
+```
+
+#### Code Example: Converting Between Types
+```java
+Instant instant = Instant.ofEpochSecond(1773489600L); // 2026-03-12T12:00:00Z
+
+// Conversion to OffsetDateTime
+OffsetDateTime odt = instant.atOffset(ZoneOffset.ofHours(9));
+System.out.println(odt); // 2026-03-12T21:00:00+09:00
+
+// Conversion to ZonedDateTime (automatically shifts based on local DST/offset rules)
+ZonedDateTime zdt = instant.atZone(ZoneId.of("America/New_York"));
+System.out.println(zdt); // 2026-03-12T07:00:00-05:00[America/New_York]
+```
+
+#### Cause-Effect Chain
+`Get Instant` → `Apply geographical ZoneId (e.g. Europe/London)` → `Look up active DST rules for that timestamp` → `Determine correct ZoneOffset` → `Construct ZonedDateTime containing Instant, ZoneId, and computed ZoneOffset`
 
 ### Duration
 `java.time.Duration` represents a time-based amount of time (e.g., "34.5 seconds" or "2 hours"). It is calculated using seconds and nanoseconds and works with time-based temporals (`Instant`, `LocalTime`, `LocalDateTime`).
@@ -189,3 +276,13 @@ Using a static or shared instance of `SimpleDateFormat` across threads causes co
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Reference Links
+
+- https://docs.oracle.com/javase/tutorial/datetime/ (Oracle Java Date-Time Trail)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/package-summary.html (Java 21 java.time Package Summary)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/format/DateTimeFormatter.html (DateTimeFormatter JavaDoc)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZonedDateTime.html (ZonedDateTime JavaDoc)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/OffsetDateTime.html (OffsetDateTime JavaDoc)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Instant.html (Instant JavaDoc)
+

@@ -72,6 +72,55 @@ public class ClassFetchers {
 }
 ```
 
+## Why Reflection Bypasses Compile-Time Type Safety
+
+In standard Java execution, the compiler enforces static type checking by validating type compatibility, method signatures, and accessibility constraints before producing bytecode. Reflection bypasses these checks because it operates directly on JVM class metadata (`Class<?>` instances, `Method`, `Field`, `Constructor` objects) resolved dynamically at runtime rather than compile time. When code uses reflection, the compiler cannot verify whether a target method actually exists, whether argument types are compatible, or if access constraints are violated. Instead, these checks are deferred to the JVM execution engine, which performs dynamic lookup and verification during execution, shifting what would be compile-time errors into runtime exceptions.
+
+### Mental Model: Compile-Time vs. Runtime Reflection Resolution
+```mermaid
+graph TD
+    subgraph Compile Time [Compile-Time (Static Check)]
+        A[Source Code: obj.someMethod()] --> B[Compiler checks Type of obj]
+        B --> C{Method exists in declared class?}
+        C -- Yes --> D[Generate invokevirtual/invokestatic Bytecode]
+        C -- No --> E[Compilation Error]
+    end
+    subgraph Run Time [Runtime (Reflection Dynamic Resolution)]
+        F[Reflective Code: method.invoke(obj)] --> G[Bypass compiler check: Type is java.lang.Object]
+        G --> H[JVM queries Class<?> metadata at runtime]
+        H --> I{Method signature matching & access checks?}
+        I -- Pass --> J[Execute Method via JVM Engine]
+        I -- Fail --> K[Throw NoSuchMethodException / IllegalAccessException]
+    end
+```
+
+### Code Example: Bypassing Compile-time Verification
+```java
+import java.lang.reflect.Method;
+
+public class TypeSafetyBypass {
+    public static void main(String[] args) {
+        Object target = "Hello Reflection";
+        try {
+            // Compile-time checks are bypassed because 'target' is declared as Object.
+            // String type is resolved at runtime dynamically.
+            Method lengthMethod = target.getClass().getMethod("length");
+            Object result = lengthMethod.invoke(target);
+            System.out.println("Result: " + result); // Prints "Result: 16"
+            
+            // Misspelled method name bypasses compile-time verification but fails at runtime
+            Method invalidMethod = target.getClass().getMethod("lenght"); 
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getClass().getSimpleName()); 
+            // Prints "Error: NoSuchMethodException"
+        }
+    }
+}
+```
+
+### Cause-Effect Chain
+Reflective lookup with misspelled method name &rarr; Compiler sees generic metadata API call &rarr; Compilation succeeds &rarr; JVM attempts dynamic lookup at runtime &rarr; Method not found in `Class<?>` metadata &rarr; `NoSuchMethodException` thrown at runtime
+
 ---
 
 ### Get class information
@@ -283,6 +332,48 @@ public class PrivateAccess {
     }
 }
 ```
+
+## Why setAccessible(true) Can Bypass Access Controls and Its Module System Constraints
+
+Java's access modifiers (`private`, `protected`, package-private) are language-level constraints designed to enforce encapsulation and maintain class invariants at compile time. Under the hood, the JVM enforces these modifiers at runtime by verifying field access and method invocation bytecode instructions. When a program invokes `AccessibleObject.setAccessible(true)` on a reflective object (such as a `Field` or `Method`), it instructs the JVM to disable these runtime access checks for that specific object instance. However, in modern Java versions, this capability is heavily restricted: a configured `SecurityManager` (if present) can block the operation by throwing a `SecurityException`, and the Java Module System (introduced in Java 9) strictly prevents deep reflection into encapsulated packages of named modules unless the module explicitly exports or opens the package to the caller.
+
+### Mental Model: Accessibility Override Decision Tree
+```mermaid
+graph TD
+    A[Caller Class] --> B{setAccessible(true)}
+    B --> C{Is target class in a named module?}
+    C -- Yes --> D{Is package opened/exported to caller?}
+    D -- No --> E[InaccessibleObjectException thrown]
+    D -- Yes --> F{Is SecurityManager active?}
+    C -- No --> F
+    F -- Yes --> G{Permission checkMemberAccess granted?}
+    G -- No --> H[SecurityException thrown]
+    G -- Yes --> I[Override flags set: access checks bypassed]
+    F -- No --> I
+```
+
+### Code Example: Module Boundaries and setAccessible Constraints
+```java
+import java.lang.reflect.Field;
+
+public class ModuleReflectionBypass {
+    public static void main(String[] args) {
+        try {
+            // Attempting to reflectively access a private field in java.lang.String (module java.base)
+            Field valueField = String.class.getDeclaredField("value");
+            valueField.setAccessible(true); 
+            // In Java 9+, this throws java.lang.reflect.InaccessibleObjectException 
+            // because java.lang package is not opened to unnamed modules.
+        } catch (Exception e) {
+            System.out.println("Caught exception: " + e.getClass().getName());
+            // Prints "Caught exception: java.lang.reflect.InaccessibleObjectException"
+        }
+    }
+}
+```
+
+### Cause-Effect Chain
+`setAccessible(true)` called on module-internal field &rarr; JVM checks module boundaries &rarr; Package not opened to caller module &rarr; JVM rejects override request &rarr; `InaccessibleObjectException` thrown at runtime
 
 ---
 

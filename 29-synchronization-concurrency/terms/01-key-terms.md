@@ -2,82 +2,105 @@
 
 Use this file when a word in the theory feels too compressed. Each term has meaning, importance, confusion, and a small example.
 
-## monitor
+## synchronized
 
-monitor is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
+The `synchronized` keyword in Java is used to provide mutual exclusion and establish a happens-before relationship between threads. It ensures that only one thread at a time can execute a synchronized method or block locked on a particular object monitor.
 
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `monitor` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `monitor` change, allow, reject, or clarify?
-
-## object lock
-
-object lock is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Why it matters: It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
-
-Common confusion: learners often memorize `object lock` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `object lock` change, allow, reject, or clarify?
+* **Why it matters**: It prevents race conditions and data corruption by serializing access to shared mutable state. It also guarantees memory visibility, ensuring that changes made by one thread inside a synchronized block are visible to any other thread subsequently entering a block synchronized on the same lock object.
+* **Common confusion**: Assuming `synchronized` blocks on different objects exclude each other. A `synchronized` block only blocks other threads trying to synchronize on the *same* lock object. Locking on separate objects allows threads to execute the protected blocks concurrently.
+* **Small example**:
+  ```java
+  private final Object lock = new Object();
+  public void safeIncrement() {
+      synchronized (lock) {
+          count++;
+      }
+  }
+  ```
 
 ## deadlock
 
-Deadlock happens when threads wait forever for locks held by each other.
+A deadlock is a runtime state where two or more threads are permanently blocked, each waiting for a lock held by one of the other threads.
 
-Why it matters: It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
+* **Why it matters**: Deadlocks completely halt execution of the affected threads, leading to application hangs and unresponsive systems. They cannot resolve themselves and usually require a system restart.
+* **Common confusion**: Confusing deadlock with starvation or livelock. In a deadlock, threads are physically suspended (BLOCKED state) and consume zero CPU. In a livelock, threads are actively running and changing states (consuming CPU) but making no progress.
+* **Small example**:
+  ```java
+  // Thread 1 locks A then B; Thread 2 locks B then A
+  // Both hold one lock and wait forever for the other
+  ```
 
-Common confusion: learners often memorize `deadlock` as a word but cannot explain what problem it solves or what rule it changes.
+## atomic variable
 
-Small example: When reading code, ask: what does `deadlock` change, allow, reject, or clarify?
+Classes in `java.util.concurrent.atomic` (like `AtomicInteger`, `AtomicReference`) that support lock-free, thread-safe programming on single variables.
 
-## volatile
+* **Why it matters**: They allow highly performant, concurrent read-write access to a single variable without the heavy overhead of OS-level thread suspension and context switches associated with lock-based synchronization.
+* **Common confusion**: Assuming that grouping multiple atomic variable operations makes the entire sequence atomic. For example, `int x = atomicInt.get(); atomicInt.set(x + 1);` is *not* thread-safe, even though each individual method call is atomic. You must use compound operations like `compareAndSet` or `incrementAndGet`.
+* **Small example**:
+  ```java
+  private final AtomicInteger counter = new AtomicInteger(0);
+  public void increment() {
+      counter.incrementAndGet(); // Thread-safe atomic increment
+  }
+  ```
 
-Volatile gives visibility guarantees for a variable shared between threads, but it does not make compound operations atomic.
+## CAS (Compare-And-Swap)
 
-Why it matters: It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
+A hardware-level atomic instruction used to implement lock-free synchronization. It compares the contents of a memory location to a given expected value and, only if they are equal, modifies the contents to a new given value.
 
-Common confusion: learners often memorize `volatile` as a word but cannot explain what problem it solves or what rule it changes.
+* **Why it matters**: It is the foundational building block for all atomic classes and non-blocking data structures in Java. It allows threads to update values concurrently and safely by retrying (spinning) rather than blocking on a lock.
+* **Common confusion**: Thinking CAS is implemented via Java software loops. Java's `compareAndSet` maps directly to native CPU assembly instructions (e.g., `lock cmpxchg` on x86 architectures), making it extremely fast.
+* **Small example**:
+  ```java
+  AtomicInteger val = new AtomicInteger(10);
+  boolean success = val.compareAndSet(10, 11); // returns true, val is now 11
+  ```
 
-Small example: When reading code, ask: what does `volatile` change, allow, reject, or clarify?
+## CyclicBarrier
 
-## atomic class
+A synchronization aid that allows a set of threads to all wait for each other to reach a common barrier point before continuing.
 
-atomic class is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Why it matters: It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
-
-Common confusion: learners often memorize `atomic class` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `atomic class` change, allow, reject, or clarify?
-
-## ReentrantLock
-
-ReentrantLock is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Why it matters: It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
-
-Common confusion: learners often memorize `ReentrantLock` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `ReentrantLock` change, allow, reject, or clarify?
+* **Why it matters**: It is extremely useful in parallel algorithms where multiple threads perform independent subtasks and must wait for all others to finish before moving to the next phase. Crucially, it can be reset and reused after the barrier trips.
+* **Common confusion**: Confusing it with `CountDownLatch`. A `CyclicBarrier` requires threads to actively block at the barrier point using `await()` to decrement the count. A thread cannot decrement the barrier without blocking itself.
+* **Small example**:
+  ```java
+  CyclicBarrier barrier = new CyclicBarrier(3, () -> System.out.println("Phase complete!"));
+  // 3 threads calling barrier.await() will trip the barrier, run the runnable, and proceed
+  ```
 
 ## CountDownLatch
 
-CountDownLatch is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
+A synchronization aid that allows one or more threads to wait until a set of operations being performed in other threads completes.
 
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+* **Why it matters**: It acts as a one-shot gate. It is ideal for coordinating startup phases, where a main thread blocks via `await()` until all initialization workers call `countDown()`.
+* **Common confusion**: Trying to reuse a `CountDownLatch`. Once a latch's count reaches zero, its gate remains permanently open, and subsequent calls to `await()` return immediately. It cannot be reset; a new instance must be created.
+* **Small example**:
+  ```java
+  CountDownLatch latch = new CountDownLatch(3);
+  // Workers call latch.countDown();
+  // Main thread blocks on latch.await() until count is 0
+  ```
 
-Common confusion: learners often memorize `CountDownLatch` as a word but cannot explain what problem it solves or what rule it changes.
+## Executor
 
-Small example: When reading code, ask: what does `CountDownLatch` change, allow, reject, or clarify?
+An object that executes submitted `Runnable` tasks. This interface decouples task submission from the mechanics of how each task will be run, such as thread use, scheduling, etc.
 
-## CompletableFuture
+* **Why it matters**: Decoupling allows developers to focus on defining tasks while the configuration of thread execution (pooling, scheduling) can be managed separately and modified without changing submission code.
+* **Common confusion**: Thinking `Executor` is a thread pool. `Executor` is just a simple functional interface with a single `execute(Runnable)` method. Its sub-interfaces and implementations (like `ExecutorService` and `ThreadPoolExecutor`) provide the thread pooling logic.
+* **Small example**:
+  ```java
+  Executor executor = command -> new Thread(command).start();
+  executor.execute(() -> System.out.println("Running task"));
+  ```
 
-CompletableFuture is a specific concept in Synchronization and Concurrency; learn its Java rule, valid use cases, and failure mode rather than only its name.
+## ForkJoinPool
 
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+An `ExecutorService` implementation specifically designed for divide-and-conquer tasks using a work-stealing algorithm.
 
-Common confusion: learners often memorize `CompletableFuture` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `CompletableFuture` change, allow, reject, or clarify?
+* **Why it matters**: It maximizes CPU core utilization by ensuring that idle worker threads steal tasks from the deques of busy threads, reducing thread starvation and keeping all cores active.
+* **Common confusion**: Using `ForkJoinPool` for blocking I/O tasks. Because `ForkJoinPool` is designed for compute-intensive tasks, blocking threads inside the pool can starve other tasks. Use a standard `ThreadPoolExecutor` with a cached or fixed pool for blocking operations.
+* **Small example**:
+  ```java
+  ForkJoinPool pool = ForkJoinPool.commonPool();
+  Long sum = pool.invoke(new SumTask(largeArray, 0, largeArray.length));
+  ```

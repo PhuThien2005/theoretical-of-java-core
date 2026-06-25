@@ -26,6 +26,90 @@ Directly reading or writing a file byte-by-byte via `FileInputStream` or `FileOu
 * `BufferedInputStream` wraps an existing `InputStream` and reads chunks of bytes (default 8KB) into an internal buffer memory. Subsequent reads pull data directly from the buffer.
 * `BufferedOutputStream` accumulates written bytes in a buffer and flushes them to disk only when the buffer is full, the stream is closed, or `flush()` is explicitly called.
 
+## Why Buffered Streams Significantly Outperform Raw Streams
+
+Direct I/O operations (like `FileInputStream.read()` or `FileOutputStream.write()`) are extremely slow because each read/write call triggers a context switch from user space to kernel space, requesting a system call (`read(2)` or `write(2)`) to interact with the physical disk controller or file system. System calls require the CPU to save registers, switch page tables, and execute kernel handler code, which consumes significant CPU cycles. `BufferedInputStream` wraps a raw stream and reads a large block of bytes (default 8,192 bytes or 8KB) in a single system call into an internal byte array (`buf`). Subsequent `read()` calls are served directly from this memory buffer, eliminating 99.9% of user-to-kernel mode context switches. The buffer size of 8KB is chosen because it aligns with modern operating system disk page sizes (usually 4KB or 8KB), ensuring that a single JVM buffer read matches a single OS block request from the physical storage, optimizing the OS page cache utilization.
+
+### User/Kernel Space Buffering Mechanics
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor JVM as JVM (User Space)
+    participant BIS as BufferedInputStream Buffer (JVM Memory)
+    participant OS as OS Kernel & Page Cache (Kernel Space)
+    participant Disk as Physical Disk (Hardware)
+
+    JVM->>BIS: read() 1st byte
+    Note over BIS: Buffer empty!
+    BIS->>OS: system call: read(8192 bytes)
+    OS->>Disk: Request block read
+    Disk-->>OS: Return block data
+    OS-->>BIS: Fill internal buf[8192]
+    BIS-->>JVM: Return 1st byte
+    
+    JVM->>BIS: read() 2nd byte
+    Note over BIS: Served instantly from JVM memory!
+    BIS-->>JVM: Return 2nd byte
+```
+
+### Code Demo: Benchmarking Raw vs. Buffered Streams
+
+```java
+import java.io.*;
+
+public class BufferingPerformanceDemo {
+    public static void main(String[] args) throws IOException {
+        File tempFile = File.createTempFile("benchmark", ".bin");
+        tempFile.deleteOnExit();
+        
+        // Generate a 1MB test file
+        try (FileOutputStream fos = new FileOutputStream(tempFile)) {
+            byte[] data = new byte[1024 * 1024]; // 1MB
+            fos.write(data);
+        }
+
+        // Test 1: Raw FileInputStream (Byte-by-Byte)
+        long start = System.nanoTime();
+        try (FileInputStream fis = new FileInputStream(tempFile)) {
+            int b;
+            while ((b = fis.read()) != -1) {
+                // Process byte
+            }
+        }
+        long rawDuration = System.nanoTime() - start;
+
+        // Test 2: BufferedInputStream (Byte-by-Byte out of buffer)
+        start = System.nanoTime();
+        try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(tempFile))) {
+            int b;
+            while ((b = bis.read()) != -1) {
+                // Process byte
+            }
+        }
+        long bufferedDuration = System.nanoTime() - start;
+
+        System.out.println("Raw FileInputStream Duration: " + (rawDuration / 1_000_000.0) + " ms");
+        System.out.println("BufferedInputStream Duration: " + (bufferedDuration / 1_000_000.0) + " ms");
+    }
+}
+```
+
+### Context Switch and Disk I/O Cause-Effect Chain
+
+```
+Call to fis.read() 
+  ↳ CPU saves user-space state & context switches to kernel space
+    ↳ OS issues read(2) system call & fetches physical block from disk
+      ↳ Data loaded into OS page cache & copied to JVM memory
+        ↳ CPU context switches back to user space (massive performance overhead)
+
+Call to bis.read()
+  ↳ Checks internal memory array (buf)
+    ↳ If present, returns byte instantly (bypasses system calls and OS kernel context switches)
+```
+
+
 ```java
 // Wrapping file stream with buffered stream
 try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream("input.dat"));
@@ -113,3 +197,8 @@ System.out.println("Buffered stream time: " + bufferedTime + " ms"); // e.g., 15
 ### 2. Forgetting to `flush()` Buffered Streams
 Data written to a `BufferedOutputStream` or `BufferedWriter` is stored in memory. If the program crashes or the stream is not closed properly, the buffered data may never be written to disk.
 * **Fix**: Ensure streams are closed (which auto-flushes) using try-with-resources, or call `flush()` manually if the stream must remain open.
+
+## Reference Links
+
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/BufferedInputStream.html (BufferedInputStream API Documentation)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/BufferedOutputStream.html (BufferedOutputStream API Documentation)

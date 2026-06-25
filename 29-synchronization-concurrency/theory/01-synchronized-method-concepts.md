@@ -157,3 +157,42 @@ Locking on String literals, Boolean wrappers, or primitive wrappers is extremely
 Object lock = new Object();
 lock.notify(); // Throws IllegalMonitorStateException
 ```
+
+## Why synchronized Blocks Prevent Race Conditions
+
+In Java, every object is associated with an intrinsic lock, or monitor. The compiler translates a `synchronized` block into `monitorenter` and `monitorexit` bytecode instructions. When a thread reaches `monitorenter`, it attempts to acquire the monitor lock. If the monitor is held by another thread, the requesting thread is suspended and placed into the monitor's entry set (blocked state). Upon executing `monitorexit`, the lock owner releases the monitor, allowing a blocked thread to wake up and acquire it.
+
+### Mental Model: Monitor Lock Queue
+```
+[Thread A (Owner)] ──► [Object Monitor (Locked)]
+                             │
+                             ▼ [Entry Set]
+                      ┌──────────────┐
+                      │ Thread B, C  │ (BLOCKED)
+                      └──────────────┘
+```
+
+### Code Example
+```java
+public class MonitorLockDemo {
+    private int count = 0;
+    private final Object lock = new Object();
+
+    public void increment() {
+        synchronized (lock) { // monitorenter
+            count++;
+        } // monitorexit
+    }
+
+    public static void main(String[] args) throws Exception {
+        MonitorLockDemo demo = new MonitorLockDemo();
+        Thread t1 = new Thread(() -> demo.increment());
+        Thread t2 = new Thread(() -> demo.increment());
+        t1.start(); t2.start(); t1.join(); t2.join();
+        System.out.println(demo.count); // Output: 2
+    }
+}
+```
+
+### Cause-Effect Chain
+Thread enters `synchronized` → Runs `monitorenter` bytecode → Checks monitor state → Monitor busy → Thread enters monitor's Entry Set (BLOCKED) → Owner thread runs `monitorexit` → Monitor becomes free → Blocked thread wakes up and acquires monitor → Race conditions prevented.

@@ -109,3 +109,48 @@ Parallel streams introduce overhead (splitting the source, managing task deques,
 * **Rule**: Only use parallel streams when:
   1. The data size is large (N) and the calculation per element is expensive (Q), such that $N \times Q$ is large.
   2. The collection splits easily (like `ArrayList` or arrays, unlike `LinkedList` or `BufferedReader.lines()`).
+
+## Why ForkJoinPool Uses Work-Stealing
+
+`ForkJoinPool` is optimized for divide-and-conquer processing by using a work-stealing algorithm to maximize CPU core utilization. In standard thread pools, a single queue can become a lock contention bottleneck, and threads might remain idle if their assigned tasks finish early. To prevent this, `ForkJoinPool` assigns each worker thread its own private double-ended queue (deque). A worker thread processes its own tasks by pushing new subtasks onto, and popping tasks from, the head of its deque (acting as a LIFO stack). When a worker thread runs out of tasks, it steals a task from the tail of another thread's deque (acting as a FIFO queue), reducing contention and keeping all threads active.
+
+### Mental Model: Work-Stealing Deques
+```
+Worker 1 (Busy)                       Worker 2 (Idle)
+   │                                     │
+   ▼ (Push/Pop Head)                     ▼ (Out of work)
+┌────────────┐                        ┌────────────┐
+│ Task A [H] │                        │   Empty    │
+├────────────┤                        └────────────┘
+│ Task B [T] │ ◄─────────────────────────┘ (Steals Task B from tail)
+└────────────┘
+```
+
+### Code Example
+```java
+import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.RecursiveTask;
+
+public class WorkStealingDemo {
+    static class Sum extends RecursiveTask<Long> {
+        private final int start, end;
+        Sum(int s, int e) { this.start = s; this.end = e; }
+        @Override protected Long compute() {
+            if (end - start <= 1) return (long) start;
+            int mid = (start + end) / 2;
+            Sum left = new Sum(start, mid);
+            Sum right = new Sum(mid, end);
+            left.fork(); // Pushed to deque head
+            return right.compute() + left.join(); // May steal here
+        }
+    }
+    public static void main(String[] args) {
+        ForkJoinPool pool = ForkJoinPool.commonPool();
+        long result = pool.invoke(new Sum(1, 5));
+        System.out.println("Sum: " + result); // Output: Sum: 10
+    }
+}
+```
+
+### Cause-Effect Chain
+Subtask forked → Pushed to thread's deque head → Thread executes own tasks LIFO → Another thread finishes its tasks and becomes idle → Idle thread scans other queues → Steals task from tail of busy thread's deque FIFO → Core contention minimized → Hardware threads kept busy → Processing speed maximized.

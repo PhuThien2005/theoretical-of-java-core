@@ -219,3 +219,75 @@ Developers sometimes confuse `LinkedHashMap` (which maintains insertion/access o
 - Which map implementations reject null keys? (TreeMap, Hashtable)
 - What is the difference between `peek()` and `element()`? (`peek()` returns null on empty queue, `element()` throws exception)
 - How does HashMap handle hash collisions since Java 8? (Linked list up to 8 items, then treeifies to Red-Black tree if table capacity >= 64)
+
+## Why Equals and HashCode Must Be Overridden Together
+
+In Java's collections framework, hashing-based structures like `HashMap` and `HashSet` rely on a strict contract between `equals()` and `hashCode()` to store and retrieve elements. According to the contract defined in `java.lang.Object`, if two objects are equal according to the `equals(Object)` method, they must produce the exact same integer result from `hashCode()`. When you override `equals()` but fail to override `hashCode()`, the JVM uses the default implementation from the `Object` class, which generates a hash code typically based on the object's memory address. Consequently, two logically equivalent key instances will produce different hash codes and map to different bucket indices in the internal table. When attempting to retrieve a value using a logically equal but different key instance, `HashMap.get(key)` calculates a different bucket index, causing it to look in the wrong bucket and return `null`, which leads to duplicate keys, lost data, and silent memory leaks.
+
+### Mental Model
+
+Without overriding `hashCode()`, two logically equal objects end up in different buckets:
+```text
+Key A ("John", ID 5) -> hashCode() = 9876 -> maps to Bucket 2
+Key B ("John", ID 5) -> hashCode() = 5432 -> maps to Bucket 7
+
+Internal HashMap Table:
+Bucket 2: [ Key A ("John", ID 5) -> "Value X" ]
+Bucket 7: [ Key B ("John", ID 5) -> "Value Y" ] (Duplicate key created!)
+
+HashMap.get(Key B) searches Bucket 7.
+If we only had Key A stored, get(Key B) looks in Bucket 7, finds nothing, and returns null!
+```
+
+### Code Example
+
+```java
+import java.util.HashMap;
+import java.util.Objects;
+
+public class EqualsHashCodeContractDemo {
+    static class BadKey {
+        private final int id;
+        
+        public BadKey(int id) {
+            this.id = id;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            BadKey badKey = (BadKey) o;
+            return id == badKey.id;
+        }
+
+        // hashCode() is intentionally NOT overridden, inheriting Object.hashCode()
+    }
+
+    public static void main(String[] args) {
+        HashMap<BadKey, String> map = new HashMap<>();
+        BadKey key1 = new BadKey(101);
+        BadKey key2 = new BadKey(101);
+        
+        map.put(key1, "Engineer A");
+        
+        // Output results demonstrating contract violation
+        System.out.println("Are keys equal? " + key1.equals(key2)); // Are keys equal? true
+        System.out.println("Key 1 hashCode: " + key1.hashCode());
+        System.out.println("Key 2 hashCode: " + key2.hashCode()); // Different values!
+        System.out.println("Retrieve via key2: " + map.get(key2)); // Retrieve via key2: null
+        System.out.println("Map size: " + map.size()); // Map size: 1
+    }
+}
+```
+
+### Cause-Effect Chain
+
+```text
+Override equals() only → Logically equal key objects generate different hash codes → map.put() and map.get() compute different bucket indices → HashMap looks in different buckets for the same logical key → get() returns null and put() inserts duplicates → Structural corruption and data leaks occur in the Map
+```
+
+## Reference Links
+
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#hashCode() (Object.hashCode contract)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/HashMap.html (HashMap documentation)

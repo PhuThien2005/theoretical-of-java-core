@@ -49,15 +49,26 @@ flowchart TD
 - `null`
 - `==`
 - `.equals()`
+- Stack
+- Heap
+- Integer Cache
+- Two's complement
+- `NullPointerException`
 
 ## Self-Check
 
 - Why is `String` not a primitive type?
+  → See [Why String Is Not A Primitive](theory/02-reference-types.md#why-string-is-not-a-primitive)
 - Why can `int` be stored directly but `String` is accessed through a reference?
+  → See [Stack And Heap Memory Model](theory/02-reference-types.md#stack-and-heap-memory-model)
 - What is the difference between `int` and `Integer`?
+  → See [int vs Integer: Full Comparison](theory/04-wrappers-null-equality.md#int-vs-integer-full-comparison)
 - Why can narrowing conversion lose data?
+  → See [Why Narrowing Can Lose Data](theory/03-literals-casting-numeric-behavior.md#why-narrowing-can-lose-data)
 - Why should String content usually be compared with `.equals()`?
+  → See [Why Use .equals() For String Content](theory/04-wrappers-null-equality.md#why-use-equals-for-string-content)
 - Why can unboxing a null wrapper cause an exception?
+  → See [Why Unboxing null Throws NullPointerException](theory/04-wrappers-null-equality.md#why-unboxing-null-throws-nullpointerexception)
 
 ## Anki Cards
 

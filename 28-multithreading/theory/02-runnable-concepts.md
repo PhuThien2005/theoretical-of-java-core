@@ -140,3 +140,97 @@ try {
     Thread.currentThread().interrupt(); // Restore interrupted status
 }
 ```
+
+## Why Runnable/Callable Is Preferred Over Extending Thread
+
+Java enforcing a single class inheritance model creates a severe architectural restriction when extending the `Thread` class. If a class inherits from `Thread`, it cannot inherit from any other base class, which limits the extensibility and reuse of business logic within enterprise frameworks. Furthermore, subclassing `Thread` violates the Single Responsibility Principle by combining the execution context (the physical thread managed by the OS) with the computational task itself. By implementing `Runnable` or `Callable`, you cleanly separate the core task definition from the execution framework. This decoupling allows tasks to be submitted to modern execution frameworks like `ExecutorService` thread pools, reused across different execution engines, and easily mocked or tested in isolation. The `Callable` interface specifically enhances this pattern by allowing tasks to return computation results asynchronously and propagate checked exceptions up the stack, which is impossible with the standard `run()` method in the `Thread` class.
+
+### Mental Model
+```text
+[Tight Coupling (Inheritance)]
++-----------------------------+
+| CustomTask extends Thread   | ---> Single inheritance slot consumed!
+|  - Thread Control Logic     |
+|  - Task Logic (run())       |
++-----------------------------+
+
+[Loose Coupling (Composition)]
++----------------------+     +-----------------------+
+|  Task (Runnable)     |     | Thread / Thread Pool  |
+|  - Pure Task Logic   |===> | - Execution Mechanics |
++----------------------+     +-----------------------+
+```
+
+### Code Example
+```java
+import java.util.concurrent.*;
+
+public class TaskDecoupling {
+    public static void main(String[] args) throws Exception {
+        Callable<String> task = () -> "Task executed by: " + Thread.currentThread().getName();
+        
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        Future<String> future = executor.submit(task);
+        
+        System.out.println(future.get());
+        executor.shutdown();
+    }
+}
+/*
+Output:
+Task executed by: pool-1-thread-1
+*/
+```
+
+### Cause-Effect Chain
+1. Code implements Runnable/Callable &rarr; Task logic is decoupled from execution mechanism.
+2. Single class inheritance slot remains open &rarr; Class can extend database, network, or framework utilities.
+3. Decoupled tasks are submitted to ExecutorService &rarr; JVM avoids the overhead of manually creating threads.
+4. Callable propagates results and checked exceptions &rarr; Caller thread handles asynchronous outcomes safely.
+
+## Why start() Is Required to Spawn a Thread
+
+Invoking the `run()` method directly on a `Thread` instance executes the task instructions synchronously within the call stack of the calling thread, failing to spawn a concurrent thread. To achieve actual multithreaded execution, you must call `start()`, which triggers a sequence of native JVM and operating system operations. Calling `start()` performs a state check to ensure the thread is in the `NEW` state, then invokes the internal JVM native method `start0()`. This native hook requests the operating system's thread scheduler to allocate a new platform-level thread structure and set up its private execution stack. Once the operating system schedules this new thread, the JVM invokes the `run()` method asynchronously inside the newly created thread context. Attempting to call `start()` multiple times is illegal because the internal state machine of the thread transitions out of the `NEW` state; doing so immediately throws an `IllegalThreadStateException`.
+
+### Mental Model
+```text
+[Calling run() directly]
+Caller Thread Stack: [main()] -> [run()]   (Synchronous, same stack)
+
+[Calling start() method]
+Caller Thread Stack: [main()] -> [start()] -> [native start0()]
+                                                    |
+                                                    v (OS Thread Spawning)
+New Thread Stack:                               [run()] (Asynchronous)
+```
+
+### Code Example
+```java
+public class StartVsRun {
+    public static void main(String[] args) {
+        Thread thread = new Thread(() -> {
+            System.out.println("Executing inside: " + Thread.currentThread().getName());
+        });
+
+        System.out.println("Calling run() directly:");
+        thread.run(); // Executed synchronously on main stack
+
+        System.out.println("Calling start():");
+        thread.start(); // Spawns new thread asynchronously
+    }
+}
+/*
+Output:
+Calling run() directly:
+Executing inside: main
+Calling start():
+Executing inside: Thread-0
+*/
+```
+
+### Cause-Effect Chain
+1. Caller invokes start() on a Thread &rarr; JVM performs state checks to ensure the thread is NEW.
+2. JVM calls native method start0() &rarr; OS thread scheduler allocates platform thread structure.
+3. OS configures a new private call stack &rarr; Thread state transitions from NEW to RUNNABLE.
+4. OS schedules thread for CPU time &rarr; JVM run() method executes asynchronously on the new stack.
+

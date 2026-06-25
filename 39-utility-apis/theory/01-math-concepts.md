@@ -62,6 +62,68 @@ The `java.util.Random` class generates pseudorandom numbers using a Linear Congr
   - **Security Risk**: `Random` is not cryptographically secure and is predictable. Never use it for generating security-sensitive data (e.g., passwords, session tokens, cryptography keys). Use `java.security.SecureRandom` instead.
   - **Multithreading Contention**: While thread-safe, a shared `Random` instance incurs performance penalties under high contention. Use `java.util.concurrent.ThreadLocalRandom.current().nextInt()` for concurrent environments.
 
+### Why Random and Math.random() Have Flaws in Concurrency and Security
+
+`java.util.Random` and `Math.random()` are built on a Linear Congruential Generator (LCG) algorithm. This design creates critical limitations in both multi-threaded and security-sensitive applications.
+
+#### 1. Multithreading Contention (The Thread-Safety Bottleneck)
+To be thread-safe, `java.util.Random` uses an internal `AtomicLong` to store its seed. When multiple threads call `nextInt()` or `Math.random()` concurrently, they all attempt to update this single atomic seed using a Compare-And-Swap (CAS) loop. Under high contention, threads repeatedly fail the CAS operation and spin, wasting CPU cycles and degrading performance.
+- **The Solution (`ThreadLocalRandom`)**: Java 7 introduced `java.util.concurrent.ThreadLocalRandom`. It allocates a separate seed to each thread, eliminating shared mutable state and seed contention completely.
+
+#### 2. Cryptographic Predictability (The Security Vulnerability)
+LCG is a deterministic formula: $X_{n+1} = (aX_n + c) \pmod m$. If an attacker collects a small sequence of generated numbers, they can easily calculate the current seed and predict all future outputs.
+- **The Solution (`SecureRandom`)**: `java.security.SecureRandom` uses cryptographically strong pseudorandom number generators (CSPRNG) seeded from OS-level entropy (such as `/dev/urandom` on Unix-like systems). It is designed to resist prediction, though it is slower due to entropy collection.
+
+#### Concurrency and Security Comparison Analogy
+Imagine a single vending machine in a busy office (shared `Random`). Every employee must update a single logbook before taking a drink. If many people try to write in the logbook at once, they crowd around and block each other (contention). `ThreadLocalRandom` is like giving every employee their own personal vending machine and logbook. `SecureRandom` is like a bank vault that uses chaotic external events (like atmospheric noise) to generate a combination; it is much slower to open, but impossible to guess.
+
+```mermaid
+flowchart TD
+    subgraph Random ["java.util.Random (Shared)"]
+        T1[Thread 1] -->|CAS Update| Seed((Shared Seed))
+        T2[Thread 2] -->|CAS Update| Seed
+        T3[Thread 3] -->|CAS Update| Seed
+        note1["High CPU spin lock contention under load"]
+    end
+    subgraph TLR ["ThreadLocalRandom"]
+        TH1[Thread 1] --> Seed1((Thread 1 Seed))
+        TH2[Thread 2] --> Seed2((Thread 2 Seed))
+        TH3[Thread 3] --> Seed3((Thread 3 Seed))
+        note2["Zero lock/CAS contention"]
+    end
+```
+
+#### Cause-Effect Chain of Thread Contention
+```text
+Shared Random Instance → Multiple Threads request numbers concurrently → Threads attempt AtomicLong CAS on the same seed → Only one thread succeeds → Remaining threads fail CAS and spin in a loop → High CPU usage and severe latency
+```
+
+#### Runnable Example
+```java
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+import java.security.SecureRandom;
+
+public class RandomDemo {
+    public static void main(String[] args) {
+        // Math.random() internally uses a single shared static Random instance
+        double randomVal = Math.random(); // 0.0 to 1.0 (Contention in multithreading)
+        System.out.println("Math.random(): " + randomVal);
+
+        // ThreadLocalRandom: No contention, but predictable (Do not use for security)
+        int localRandom = ThreadLocalRandom.current().nextInt(1, 100);
+        System.out.println("ThreadLocalRandom: " + localRandom); // e.g. 42
+
+        // SecureRandom: Cryptographically secure, slower, unpredictable
+        SecureRandom secure = new SecureRandom();
+        byte[] token = new byte[16];
+        secure.nextBytes(token); // Fills array with secure, unpredictable bytes
+        System.out.println("Secure token generated successfully.");
+    }
+}
+```
+
+
 ---
 
 ### BigInteger
@@ -109,6 +171,93 @@ The `java.util.Random` class generates pseudorandom numbers using a Linear Congr
     // BigDecimal res = one.divide(three); // WRONG: Throws ArithmeticException
     BigDecimal res = one.divide(three, 2, RoundingMode.HALF_UP); // CORRECT: 0.33
     ```
+
+### Why BigDecimal is Precise: Unscaled Value and Scale Representation
+
+Computers represent `double` and `float` types using IEEE 754 floating-point format (base 2). Because fractional numbers like `0.1` or `0.2` do not have a terminating representation in binary ($0.1_{10} = 0.0001100110011..._2$), storing them in double-precision format introduces tiny rounding errors. These accumulate over multiple operations, making them dangerous for financial calculations.
+
+#### Internal Representation Mechanics
+`java.math.BigDecimal` avoids floating-point binary issues by storing numbers as base-10 decimals. It uses two values internally:
+1. **Unscaled Value**: An arbitrary-precision integer (`BigInteger`) representing the digits of the number without the decimal point.
+2. **Scale**: A 32-bit integer representing the power of ten by which to divide the unscaled value.
+
+The mathematical value of a `BigDecimal` is:
+$$\text{Value} = \text{unscaledValue} \times 10^{-\text{scale}}$$
+
+##### Example Representation Table
+| Number | Unscaled Value | Scale | Mathematical Formula |
+|---|---|---|---|
+| `123.45` | `12345` | `2` | $12345 \times 10^{-2}$ |
+| `0.0007` | `7` | `4` | $7 \times 10^{-4}$ |
+| `-50` | `-5` | `-1` | $-5 \times 10^{-(-1)} = -5 \times 10^1$ |
+
+#### Eager Double Literal Initialization Risk
+When you write `new BigDecimal(0.1)`, the compiler first evaluates the `double` literal `0.1`, which is already imprecise in binary. The `BigDecimal` constructor then captures that exact imprecise value. 
+Using `new BigDecimal("0.1")` or `BigDecimal.valueOf(0.1)` parses the string representation, allowing `BigDecimal` to extract the exact base-10 values directly. Note that `BigDecimal.valueOf(double)` internally calls `Double.toString(double)`, which converts the double to its canonical string representation before parsing.
+
+#### Scale Representation Analogy
+Think of `double` as trying to write down $1/3$ in decimal format on a sticky note. You will write `0.33333333` but eventually run out of space, leaving a tiny error. 
+`BigDecimal` is like writing the fraction as a pair of integers: numerator `1` and denominator `3`. It stores the exact digits (`unscaledValue`) and remembers where the decimal dot goes (`scale`), never losing any information.
+
+```mermaid
+flowchart LR
+    subgraph IEEE_754 ["double (Base 2 Float)"]
+        D[0.1] -->|Approximate Binary| B["0.000110011001100110011001100110011..."]
+        B -->|Rounding Noise| R[0.10000000000000000555111512312578]
+    end
+    subgraph BigDecimal_Structure ["BigDecimal (Base 10 Decimal)"]
+        S["new BigDecimal('0.1')"] --> U["unscaledValue = 1 (BigInteger)"]
+        S --> SC["scale = 1 (int)"]
+        U --> F["1 * 10^-1"]
+        SC --> F
+        F --> E[Exactly 0.1]
+    end
+```
+
+#### Cause-Effect Chain of Double Literal Noise
+```text
+double literal 0.1 → Binary representation has repeating fraction → Value is rounded to nearest IEEE 754 float → new BigDecimal(double) parses the rounded float → BigDecimal inherits the floating-point noise
+```
+
+#### Runnable Example
+```java
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+public class BigDecimalDemo {
+    public static void main(String[] args) {
+        // Floating point noise accumulation
+        double d1 = 0.1;
+        double d2 = 0.2;
+        System.out.println("double sum: " + (d1 + d2)); // 0.30000000000000004 (not 0.3!)
+
+        // WRONG: Initializing with double literal preserves the noise
+        BigDecimal bad = new BigDecimal(0.1);
+        System.out.println("new BigDecimal(0.1): " + bad); // 0.10000000000000000555111512312578...
+
+        // CORRECT: Initialize with String for exact value
+        BigDecimal good1 = new BigDecimal("0.1");
+        BigDecimal good2 = new BigDecimal("0.2");
+        System.out.println("BigDecimal sum: " + good1.add(good2)); // 0.3 (exactly!)
+
+        // CORRECT: Using BigDecimal.valueOf(double) internally uses String conversion
+        BigDecimal good3 = BigDecimal.valueOf(0.1);
+        System.out.println("BigDecimal.valueOf(0.1): " + good3); // 0.1
+
+        // Division with and without RoundingMode
+        BigDecimal one = BigDecimal.ONE;
+        BigDecimal three = new BigDecimal("3");
+        try {
+            one.divide(three); // Throws ArithmeticException (infinite decimal expansion 0.333...)
+        } catch (ArithmeticException e) {
+            System.out.println("Caught expected non-terminating division exception.");
+        }
+        BigDecimal quotient = one.divide(three, 4, RoundingMode.HALF_UP);
+        System.out.println("Quotient with scale 4: " + quotient); // 0.3333
+    }
+}
+```
+
 
 ---
 
@@ -200,6 +349,71 @@ The `java.util.Random` class generates pseudorandom numbers using a Linear Congr
   ```
 
 - **Common Mistake**: Trying to force garbage collection with `Runtime.getRuntime().gc()`. It is merely a suggestion to the JVM; the garbage collector is free to ignore the call entirely, and calling it repeatedly degrades performance.
+
+### System vs. Runtime: Purpose and JVM Interaction
+
+While both `java.lang.System` and `java.lang.Runtime` allow developers to interface with the environment in which the application is running, they serve different design roles and interact with the JVM at different levels of abstraction.
+
+#### Key Differences and Design Intent
+- **`java.lang.System` (Static Utility Wrapper)**:
+  `System` is a final class containing only `static` fields and methods. It cannot be instantiated. It acts as a high-level utility class to access standard I/O streams (`System.in`, `System.out`, `System.err`), system properties, environment variables, array copying (`System.arraycopy`), and low-level system timers (`currentTimeMillis` and `nanoTime`).
+- **`java.lang.Runtime` (JVM Lifecycle Instance Control)**:
+  `Runtime` represents the active, single instance of the Java Virtual Machine. It follows the Singleton design pattern; you obtain the current instance using `Runtime.getRuntime()`. Because it represents the virtual machine process itself, it provides methods to inspect memory usage (`freeMemory()`, `totalMemory()`, `maxMemory()`), register shutdown hooks, and spawn sub-processes.
+
+#### Delegating Wrappers
+To make common JVM operations easier to write, `System` provides several convenience wrapper methods that delegate directly to the `Runtime` singleton.
+- `System.gc()` is a shorthand wrapper for `Runtime.getRuntime().gc()`.
+- `System.exit(status)` is a shorthand wrapper for `Runtime.getRuntime().exit(status)`.
+
+#### Host and JVM Interaction Analogy
+Think of the JVM as a cruise ship. 
+`Runtime` is like the ship's Captain and control deck. There is only one captain (`Runtime.getRuntime()`), and you must talk to the captain to query the engine room (check memory status), schedule emergency procedures (register shutdown hooks), or order the ship to halt (exit). 
+`System` is like the ship's guest services desk. It is a static, easily accessible location. If you ask guest services to clean the cabins (`System.gc()`), they do not do it themselves; they forward the message to the captain's department. It also provides general utilities, like looking up the daily schedule (system properties) or reading standard announcements (system streams).
+
+```mermaid
+flowchart TD
+    App[Your Application] -->|Calls Static Helper| System[System Class]
+    App -->|Requests Singleton| Runtime[Runtime Class]
+    System -->|System.exit() delegates| Runtime
+    System -->|System.gc() delegates| Runtime
+    Runtime -->|Direct Control| JVM[JVM Process]
+    JVM -->|Environment Info| OS[Host Operating System]
+```
+
+#### Cause-Effect Chain of a JVM Graceful Shutdown Hook
+```text
+Call Runtime.addShutdownHook() → JVM registers the hook thread → User terminates process or System.exit() is invoked → JVM starts shutdown sequence → JVM runs all registered shutdown hook threads concurrently → JVM process exits
+```
+
+#### Runnable Example
+```java
+public class SystemRuntimeDemo {
+    public static void main(String[] args) {
+        // --- System usage (Static Wrapper) ---
+        long start = System.nanoTime();
+        String osName = System.getProperty("os.name");
+        System.out.println("Running on: " + osName); // Prints OS Name
+        
+        // --- Runtime usage (JVM Singleton) ---
+        Runtime rt = Runtime.getRuntime();
+        System.out.println("Available processors: " + rt.availableProcessors());
+        System.out.println("Free JVM Memory: " + rt.freeMemory() + " bytes");
+
+        // --- Delegation Demonstration ---
+        // Registering a shutdown hook must be done directly on the Runtime instance
+        rt.addShutdownHook(new Thread(() -> {
+            System.out.println("Graceful shutdown cleanup completed in hook.");
+        }));
+
+        // System.gc() simply delegates to Runtime.getRuntime().gc() under the hood
+        System.gc(); 
+
+        long duration = System.nanoTime() - start;
+        System.out.println("Demo took: " + duration + " ns");
+    }
+}
+```
+
 
 ---
 

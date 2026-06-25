@@ -39,12 +39,17 @@ flowchart TD
 
 ## Self-Check
 
-- What is the difference between a class and an object?
-- What happens if you do not define any constructor in a class?
-- Why should instance variables be declared `private`?
-- Why does Java not support multiple class inheritance, and how does it solve this through interfaces?
-- What is the difference between method overloading and method overriding?
-- When should you choose an abstract class over an interface?
+Before moving to the next topic, verify that you can answer these questions:
+1. Why should instance variables be declared `private`, and what is the difference between language enforcement and JVM enforcement of field access?
+   &rarr; See [Why Instance Variables Should Be Private](theory/02-encapsulation.md#why-instance-variables-should-be-private)
+2. Why does Java not support multiple class inheritance, and how does the interface mechanism solve the diamond problem?
+   &rarr; See [Why Java Uses Interfaces Instead of Multiple Class Inheritance](theory/05-abstraction.md#why-java-uses-interfaces-instead-of-multiple-class-inheritance)
+3. Why does method overriding resolve at runtime (dynamic dispatch) rather than compile time?
+   &rarr; See [Why Method Overriding Uses Runtime Dynamic Dispatch](theory/04-polymorphism.md#why-method-overriding-uses-runtime-dynamic-dispatch)
+4. Why must `super()` be the first statement in a subclass constructor, and what constructor chain does it trigger?
+   &rarr; See [Why super() Must Be the First Statement](theory/03-inheritance.md#why-super-must-be-the-first-statement-in-a-subclass-constructor)
+5. When should you choose an abstract class over an interface, and what is the design rule?
+   &rarr; See [Why Abstract Classes and Interfaces Serve Different Design Purposes](theory/05-abstraction.md#why-abstract-classes-and-interfaces-serve-different-design-purposes)
 
 ## Anki Cards
 

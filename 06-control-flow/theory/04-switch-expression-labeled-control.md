@@ -76,6 +76,52 @@ String label = switch (day) {
 
 This rule exists because an expression must produce a value.
 
+## Why Switch Expressions Require Exhaustiveness and How It Is Enforced
+
+A key distinction between a traditional switch statement and a switch expression is that an expression is defined to produce a single resolved value of a specific type. If a switch expression is evaluated at runtime and the input value does not match any of the defined `case` branches, the expression would be unable to return a value, leaving the variable assignment or method parameter unassigned. To maintain Java's strict type-safety and initialize variables reliably, the compiler mandates that switch expressions be mathematically exhaustive. The compiler verifies this at compile time by checking if the input is an enum and all enum values are explicitly handled. For non-enum types (like `int`, `String`, or `char`), the compiler requires a `default` case to handle the infinite domain of possible values.
+
+```mermaid
+graph TD
+    start["Switch Expression (Input x)"] --> type_check{"What is the input type?"}
+    type_check -- Enum --> enum_check{"Are all enum constants covered?"}
+    type_check -- "non-Enum (int, String, etc.)" --> default_check{"Is there a default case?"}
+    enum_check -- Yes --> pass["Compilation Succeeds"]
+    enum_check -- No --> default_check
+    default_check -- Yes --> pass
+    default_check -- No --> fail["Compile-Time Error: Switch expression does not cover all possible input values"]
+```
+
+### Code Example: Exhaustive vs. Non-Exhaustive Expressions
+
+```java
+enum TaskState { PENDING, ACTIVE, COMPLETE }
+
+public String getTaskStatusMessage(TaskState state) {
+    // Exhaustive switch expression: covers all enum cases without requiring a 'default' branch.
+    return switch (state) {
+        case PENDING  -> "Task is waiting to start.";
+        case ACTIVE   -> "Task is currently running.";
+        case COMPLETE -> "Task has finished execution.";
+    };
+}
+```
+
+If we omit a case, the compiler immediately catches it and fails the build.
+
+```java
+public String getFailedStatusMessage(TaskState state) {
+    // BUG: Compile-time error: the switch expression does not cover all possible input values
+    // String msg = switch (state) {
+    //     case PENDING -> "Pending";
+    //     case ACTIVE  -> "Active";
+    // }; // Omitted COMPLETE!
+    return "Error";
+}
+```
+
+### Cause-Effect Chain
+Switch expression produces a value at runtime $\rightarrow$ All possible execution paths must return a value of the declared type $\rightarrow$ Compiler analyzes input domain coverage during compilation $\rightarrow$ Missing branches or missing default case on open domains are flag-matched $\rightarrow$ Compiler rejects the code with an exhaustiveness compile-time error.
+
 ## Labeled `break`
 
 A label can name a loop. A labeled `break` exits the named loop.
@@ -249,3 +295,10 @@ String movement = switch (dir) {
     default    -> "Moving East or West";
 };
 ```
+
+## Reference Links
+
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.11 (The switch Statement in the Java Language Specification)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-15.html#jls-15.28 (Switch Expressions in the Java Language Specification)
+- https://docs.oracle.com/en/java/javase/21/language/switch-expressions.html (Java Language Updates: Switch Expressions)
+

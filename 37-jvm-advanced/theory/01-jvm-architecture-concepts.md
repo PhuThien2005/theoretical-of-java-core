@@ -169,3 +169,58 @@ System.out.println("Max Heap: " + (maxMemory / 1024 / 1024) + " MB");
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Why Class Loading Has Three Distinct Phases
+
+The JVM class loading subsystem splits class loading into three distinct phases (Loading, Linking, and Initializing) to enforce security, verify structural integrity, and optimize memory allocation before code execution. During the **Loading** phase, the JVM locates the binary representation of a class (typically a `.class` file) and imports it into the Method Area/Metaspace, creating a `java.lang.Class` object. In the **Linking** phase, the JVM performs Verification (crucial for security, checking format, bytecode constraints, and type rules to prevent malicious exploits), Preparation (allocating memory for static fields and initializing them to default values), and Resolution (optionally resolving symbolic references into direct references). Finally, during **Initialization**, the JVM executes the static initialization blocks and assigns the actual values declared in code to the static variables via the compiler-generated `<clinit>` method.
+
+### Mental Model: Class Loading Phases
+
+```text
++-------------------------------------------------------------------------------+
+|                               CLASS LOADING                                   |
++-------------------------------------------------------------------------------+
+|  1. LOADING          |  2. LINKING                                 |  3. INIT |
+|                      |  a. Verification -> b. Prep -> c. Resolution|          |
+|  [Find bytecode]     |  [Verify safety]  [Alloc defaults] [Resolve]| [<clinit>|
+|  .class file -> JVM  |  Type checking    static x = 0     symbols  |  x = 42] |
++-------------------------------------------------------------------------------+
+```
+
+### Code Example
+
+```java
+package theory;
+
+public class ClassLoaderDemo {
+    // Allocation of static memory occurs in Preparation, but value assignment occurs in Initialization
+    public static final int CONSTANT_VAL = 42; 
+    public static int mutableVal = 99;
+
+    static {
+        System.out.println("ClassLoaderDemo initialized!");
+        mutableVal = 100;
+    }
+
+    public static void main(String[] args) {
+        // Accessing CONSTANT_VAL (a constant compile-time value) does NOT trigger full initialization
+        System.out.println("Constant: " + ClassLoaderDemo.CONSTANT_VAL);
+        // Accessing mutableVal triggers static block execution (Initialization)
+        System.out.println("Mutable Value: " + ClassLoaderDemo.mutableVal);
+    }
+}
+/* Output:
+Constant: 42
+ClassLoaderDemo initialized!
+Mutable Value: 100
+*/
+```
+
+### Cause-Effect Chain
+
+Classloader reads `.class` byte stream &rarr; Verification runs type checks &rarr; Preparation allocates memory with default values &rarr; Initialization runs `<clinit>` method &rarr; Class is fully usable by the application.
+
+## Reference Links
+
+- https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html (Chapter 5. Loading, Linking, and Initializing)
+

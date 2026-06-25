@@ -57,6 +57,22 @@ This topic follows the master outline in [outline.md](../outline.md). The goal i
 - ForkJoinPool
 - Parallel Stream
 
+## Self-Check
+
+Before moving to the next topic, verify that you can answer these questions:
+1. Why does the `synchronized` keyword prevent race conditions, and how do object monitors and lock acquisition/release behave under the hood?
+   &rarr; See [Why synchronized Blocks Prevent Race Conditions](theory/01-synchronized-method-concepts.md#why-synchronized-blocks-prevent-race-conditions)
+2. Why does a deadlock occur in Java, and what specific resource-acquisition sequence creates the four necessary deadlock conditions?
+   &rarr; See [Why Deadlocks Occur and How to Avoid Them](theory/02-deadlock-concepts.md#why-deadlocks-occur-and-how-to-avoid-them)
+3. Why do atomic variables (like `AtomicReference` or `AtomicInteger`) avoid lock-based synchronization, and how does the hardware-level CAS (Compare-And-Swap) mechanism guarantee atomicity?
+   &rarr; See [Why Atomic Variables Avoid Lock-Based Synchronization](theory/03-atomicreference-concepts.md#why-atomic-variables-avoid-lock-based-synchronization)
+4. Why does `CyclicBarrier` differ from `CountDownLatch`, and how does the internal lock/condition await mechanism reset the barrier for reuse?
+   &rarr; See [Why CyclicBarrier and CountDownLatch Differ](theory/04-cyclicbarrier-concepts.md#why-cyclicbarrier-and-count-down-latch-differ)
+5. Why should you use `ExecutorService` (and thread pools) instead of manually spawning new threads for each task, and how do thread queue limit policies protect the JVM?
+   &rarr; See [Why ExecutorService and Thread Pools Are Required](theory/05-executor-concepts.md#why-executorservice-and-thread-pools-are-required)
+6. Why does `ForkJoinPool` use a work-stealing algorithm, and how do its double-ended queues (deques) improve CPU utilization for divide-and-conquer tasks?
+   &rarr; See [Why ForkJoinPool Uses Work-Stealing](theory/06-forkjoinpool-concepts.md#why-forkjoinpool-uses-work-stealing)
+
 ## Anki Cards
 
 - [Basic](anki/basic.tsv)

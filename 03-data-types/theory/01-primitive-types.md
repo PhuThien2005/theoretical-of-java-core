@@ -15,6 +15,23 @@ Java has 8 primitive types:
 | `char` | character | a single UTF-16 code unit |
 | `boolean` | logical | `true` or `false` |
 
+## Size In Memory
+
+Every primitive type has a **fixed, guaranteed size** in memory. This is a defining characteristic of primitives — the JVM always knows exactly how many bits to allocate before the program runs.
+
+| Type | Size (bits) | Size (bytes) | Range |
+| --- | --- | --- | --- |
+| `byte` | 8 | 1 | −128 to 127 |
+| `short` | 16 | 2 | −32,768 to 32,767 |
+| `int` | 32 | 4 | −2,147,483,648 to 2,147,483,647 |
+| `long` | 64 | 8 | −9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 |
+| `float` | 32 | 4 | ±3.4 × 10³⁸ (~7 decimal digits) |
+| `double` | 64 | 8 | ±1.7 × 10³⁰⁸ (~15 decimal digits) |
+| `char` | 16 | 2 | 0 to 65,535 (unsigned) |
+| `boolean` | JVM-dependent | typically 1 | `true` or `false` |
+
+This fixed size is why primitives can be stored directly on the Stack — see [Reference Types And Memory Model](02-reference-types.md) for details on Stack vs Heap storage.
+
 ## Integer Types
 
 Integer types store whole numbers.

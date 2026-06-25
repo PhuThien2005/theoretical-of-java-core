@@ -19,6 +19,15 @@ This topic follows the master outline in [outline.md](../outline.md). The goal i
 - Classpath
 - Basic module path
 
+## Self-Check
+
+- Why does Java use packages for namespace isolation and reverse DNS naming conventions?
+- Why should the default package be avoided in production environments?
+- Why do static imports increase code readability but also risk naming collisions?
+- Why does Classpath differ from Module path regarding package access constraints?
+- Why does default (package-private) access control exist, and how does it prevent external classes from accessing package-internal implementation details?
+- Why does the Java compiler/runtime enforce a strict relationship between a class's package declaration and its physical directory structure?
+
 ## Anki Cards
 
 - [Basic](anki/basic.tsv)

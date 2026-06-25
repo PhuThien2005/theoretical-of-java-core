@@ -59,6 +59,33 @@ System.out.println(hasKotlin); // false
 - `strip()` (Java 11+): Uses `Character.isWhitespace()` to identify and remove all Unicode-compliant whitespaces.
 - `stripLeading()` / `stripTrailing()` (Java 11+): Cleans only one end of the string.
 
+### Deep-Dive: Mechanical Differences Between trim() and strip()
+
+The mechanical difference between `String.trim()` and `String.strip()` lies in how they define and identify whitespace characters. The legacy `trim()` method, designed in Java 1.0, determines whitespace strictly by checking if a character's Unicode code point value is less than or equal to the ASCII space character (`U+0020`). Consequently, it fails to remove any modern Unicode-defined whitespace characters that reside at higher code points, such as the non-breaking space (`U+00A0`) or the em space (`U+2003`). In contrast, the `strip()` method introduced in Java 11 queries the `Character.isWhitespace(int)` method, which checks the character against the official Unicode standard database. This makes `strip()` fully Unicode-aware, ensuring that modern internationalized applications correctly clean up non-ASCII whitespace characters that `trim()` would silently ignore.
+
+#### Whitespace Comparison Matrix
+
+| Whitespace Character | Code Point | trim() Action | strip() Action | Technical Reason |
+| :--- | :--- | :--- | :--- | :--- |
+| ASCII Space | `U+0020` | Removes | Removes | Code point $\le$ `U+0020` |
+| Tab (`\t`) | `U+0009` | Removes | Removes | Code point $\le$ `U+0020` |
+| Non-Breaking Space | `U+00A0` | **Ignores** | **Removes** | Code point > `U+0020`, but recognized as whitespace by Unicode |
+| Em Space | `U+2003` | **Ignores** | **Removes** | Code point > `U+0020`, but recognized as whitespace by Unicode |
+
+#### Unicode Whitespace Demonstration Code Example
+
+```java
+// String containing Unicode Em Space (\u2003)
+String input = "\u2003Java Core\u2003";
+
+System.out.println("Original length: " + input.length()); // Output: 11
+System.out.println("trim() length: " + input.trim().length()); // Output: 11 (ignored!)
+System.out.println("strip() length: " + input.strip().length()); // Output: 9 (removed!)
+```
+
+#### Cause-Effect Chain of Unicode Whitespace Processing
+Unicode character `\u2003` (Em Space, value `0x2003`) $\rightarrow$ Evaluated by `trim()` $\rightarrow$ Checks if `0x2003 <= 0x20` (evaluates to `false`) $\rightarrow$ `trim()` ignores character $\rightarrow$ Evaluated by `strip()` $\rightarrow$ Calls `Character.isWhitespace(0x2003)` $\rightarrow$ Returns `true` based on Unicode properties $\rightarrow$ `strip()` removes character.
+
 ### 7. Conversions: `toLowerCase()` and `toUpperCase()`
 - Converts characters using locale-specific rules. Be careful: `"title".toUpperCase()` in the Turkish locale produces `TİTLE` instead of `TITLE`.
 
@@ -216,3 +243,11 @@ String sentence = "I love Java. Java is fun.";
 System.out.println(sentence.replace("Java", "Kotlin")); 
 System.out.println(sentence.replaceAll("Java", "Kotlin"));
 ```
+
+---
+
+## Reference Links
+
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html#trim() (Oracle Java API: String.trim())
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html#strip() (Oracle Java API: String.strip())
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Character.html#isWhitespace(int) (Oracle Java API: Character.isWhitespace())

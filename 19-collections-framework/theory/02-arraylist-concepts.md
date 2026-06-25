@@ -137,3 +137,57 @@ If you insert a mutable object into a `HashSet`, and then modify that object's f
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Why ArrayList Resizes by 1.5x
+
+When an `ArrayList` exceeds its current capacity, it must resize to accommodate new elements. The JDK implementation of `ArrayList` grows its capacity by 50% (1.5x) using the formula `newCapacity = oldCapacity + (oldCapacity >> 1)`. This growth factor of 1.5 represents a mathematical sweet spot in computer systems engineering: growing by 2x would waste too much memory and prevent memory reuse in subsequent allocations, while a factor closer to 1.0 would cause frequent, expensive resizes. Because Java arrays are allocated as contiguous memory blocks on the JVM heap, their size is immutable once created. Consequently, to resize, the JVM must allocate a completely new array of the larger size and copy every existing reference over via `Arrays.copyOf()` (which delegates to the native `System.arraycopy()`), making the resizing operation an `O(N)` complexity cost in the worst case.
+
+### Mental Model
+
+When the backing array is full, a larger array is allocated and elements are copied:
+```text
+Backing Array (Full, Capacity 4):
+[ A ] [ B ] [ C ] [ D ]  (Contiguous heap memory)
+  |     |     |     |
+  v     v     v     v
+Allocating new array (1.5x size = Capacity 6):
+[ A ] [ B ] [ C ] [ D ] [   ] [   ]
+  |     |     |     |     ^     ^
+  +-----+-----+-----+-----+-----+---- (Elements copied via System.arraycopy)
+```
+
+### Code Example
+
+```java
+import java.util.ArrayList;
+import java.lang.reflect.Field;
+
+public class ArrayListResizeDemo {
+    public static void main(String[] args) throws Exception {
+        ArrayList<Integer> list = new ArrayList<>(4);
+        System.out.println("Initial size: " + list.size()); // Initial size: 0
+        
+        list.add(1); list.add(2); list.add(3); list.add(4);
+        // Under the hood, capacity is 4. Adding 5th element triggers grow()
+        list.add(5);
+        
+        // Reflectively check the backing array capacity
+        Field elementDataField = ArrayList.class.getDeclaredField("elementData");
+        elementDataField.setAccessible(true);
+        Object[] elementData = (Object[]) elementDataField.get(list);
+        System.out.println("New capacity after 1.5x resize: " + elementData.length);
+        // New capacity after 1.5x resize: 6
+    }
+}
+```
+
+### Cause-Effect Chain
+
+```text
+ArrayList reaches capacity limit → Add operation triggers grow() internal helper → Bitwise shift calculates capacity + capacity/2 (1.5x) → JVM allocates new contiguous array on Heap → System.arraycopy() copies all elements (O(N) cost) → Old backing array reference is discarded for Garbage Collection
+```
+
+## Reference Links
+
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html (ArrayList class API docs)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Arrays.html#copyOf(T%5B%5D,int) (Arrays.copyOf method)

@@ -148,3 +148,91 @@ Calling `for (Integer i : priorityQueue)` or using an `Iterator` does NOT traver
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Why TreeSet and TreeMap Rely on Comparable/Comparator
+
+Unlike `HashSet` and `HashMap` which use hashing buckets, `TreeSet` and `TreeMap` are backed by a Red-Black Tree, which is a self-balancing binary search tree. To insert or retrieve any node, the tree must navigate left or right starting from the root based on whether the target node is smaller or larger than the current node. This navigation requires a deterministic sorting mechanism, which is provided either by the element's natural ordering (`Comparable.compareTo()`) or a custom `Comparator.compare()`. If a comparison returns `0`, the tree determines that the element is already present, rejecting the insertion to enforce the uniqueness constraint of a `Set` (or overwriting the value in a `Map`). Consequently, if `compareTo()` or `compare()` is inconsistent with `equals()` (meaning they return non-zero for objects that are logically equal under `equals()`), `TreeSet` will incorrectly allow duplicate entries, or conversely, if they return `0` for unequal objects, it will discard unique items.
+
+### Mental Model
+
+A Binary Search Tree relies purely on comparative navigation (`<`, `>`, `==`) rather than hash buckets:
+```text
+                  [ Node B (Value: 20) ]
+                       /         \
+                      /           \
+                     v             v
+  [ Node A (Value: 10) ]         [ Node C (Value: 30) ]
+
+Inserting new item (Value: 15):
+1. Compare 15 to 20 (Root) -> 15 < 20 -> Go Left.
+2. Compare 15 to 10 -> 15 > 10 -> Go Right (Insert here).
+
+If compareTo returns 0, it means "Duplicate Found" -> Reject insertion.
+```
+
+### Code Example
+
+```java
+import java.util.Objects;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class TreeSetBehaviorDemo {
+    static class Item implements Comparable<Item> {
+        private final String name;
+        private final int value;
+
+        public Item(String name, int value) {
+            this.name = name;
+            this.value = value;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Item item = (Item) o;
+            return value == item.value && Objects.equals(name, item.name);
+        }
+
+        // compareTo is inconsistent with equals (only compares name length)
+        @Override
+        public int compareTo(Item other) {
+            return Integer.compare(this.name.length(), other.name.length());
+        }
+
+        @Override
+        public String toString() {
+            return name + ":" + value;
+        }
+    }
+
+    public static void main(String[] args) {
+        Set<Item> set = new TreeSet<>();
+        Item item1 = new Item("Apple", 10);
+        Item item2 = new Item("Peach", 20); // Same name length (5), different value
+        Item item3 = new Item("Pear", 10);  // Different name length (4), same value
+
+        set.add(item1);
+        set.add(item2); // Rejected because name lengths are both 5 (compareTo returns 0)
+        set.add(item3); // Accepted because name length is 4 (compareTo returns non-zero)
+
+        System.out.println("Set elements: " + set); 
+        // Set elements: [Pear:10, Apple:10]
+        
+        System.out.println("Contains Peach? " + set.contains(item2)); // Contains Peach? true
+        System.out.println("Equals Peach? " + item1.equals(item2));   // Equals Peach? false
+    }
+}
+```
+
+### Cause-Effect Chain
+
+```text
+TreeSet add() operation → Traverses Red-Black Tree using compareTo() or compare() → Node comparison returns 0 → Tree assumes element is a duplicate → Tree rejects insertion (even if equals() returns false) → Element is silently ignored, causing data loss and incorrect duplicates checks
+```
+
+## Reference Links
+
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/TreeSet.html (TreeSet class API)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Comparable.html (Comparable interface documentation)

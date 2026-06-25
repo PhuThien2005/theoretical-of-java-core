@@ -40,6 +40,16 @@ flowchart TD
     A --> E[Interview recall]
 ```
 
+## Self-Check
+
+Here are 5 deep conceptual questions to verify your understanding of functional interfaces. The answers can be found in the theory files:
+
+1. Why is the `@FunctionalInterface` annotation optional, and what compile-time benefits does it provide?
+2. How do the functional contract styles of `Predicate`, `Function`, `Consumer`, and `Supplier` differ in their input/output shapes and purposes?
+3. Why do we need primitive specializations (like `IntPredicate`, `LongFunction`, `DoubleConsumer`) instead of just using generic wrappers, and how do they prevent boxing overhead?
+4. How do functional interfaces leverage default methods for functional composition and chaining?
+5. How does the Java Language Specification (JLS) count abstract methods for a functional interface, and what are the exact rules regarding overridden methods from `java.lang.Object`?
+
 ## Reference Links
 
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/package-summary.html

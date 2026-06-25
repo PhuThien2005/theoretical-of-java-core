@@ -38,6 +38,49 @@ a = b = 10;
 
 This means `b = 10` happens first, then `a = 10`.
 
+## Why Precedence and Associativity Dictate Expression Correctness
+
+Operator precedence and associativity determine the parser tree that the compiler constructs to evaluate compound expressions. Without strict, deterministic rules, expressions containing multiple mixed operators would produce ambiguous and unpredictable results. Precedence dictates which operators are evaluated first (like multiplication before addition), while associativity resolves the order of evaluation for operators of identical precedence (most group left-to-right, while assignment and unary operators group right-to-left). Parentheses act as an explicit override to this default parser tree, forcing specific sub-expressions to be grouped and evaluated first. Relying purely on implicit precedence rules makes code fragile and hard to read, whereas using parentheses clarifies developer intent and prevents subtle logic bugs.
+
+### Operator Parsing Tree Mental Model
+
+This diagram illustrates how operator precedence builds different parsing trees, changing the order of execution for `10 - 2 * 3` versus `(10 - 2) * 3`:
+
+```mermaid
+graph TD
+    subgraph Parsing Tree: 10 - 2 * 3
+        Minus1[-] --> Ten1[10]
+        Minus1 --> Times1[*]
+        Times1 --> Two1[2]
+        Times1 --> Three1[3]
+    end
+
+    subgraph Parsing Tree: (10 - 2) * 3
+        Times2[*] --> Minus2[-]
+        Times2 --> Three2[3]
+        Minus2 --> Ten2[10]
+        Minus2 --> Two2[2]
+    end
+```
+
+### Cause-Effect Chain
+The expression `10 - 2 * 3` is parsed by the compiler → the compiler checks the operator precedence table and finds that `*` has higher precedence than `-` → the sub-expression `2 * 3` is grouped and evaluated first to `6` → the `-` operator subtracts `6` from `10` → the expression yields `4` (whereas force grouping with `(10 - 2)` would yield `24`).
+
+### Code Example
+```java
+// Case A: Precedence controls the evaluation
+int noParens = 10 - 2 * 3;
+System.out.println(noParens); // 4 (multiplication happens first)
+
+// Case B: Parentheses override precedence
+int withParens = (10 - 2) * 3;
+System.out.println(withParens); // 24 (subtraction happens first)
+
+// Case C: Associativity resolves tie (left-to-right)
+int assoc = 12 / 3 / 2; // Evaluated as (12 / 3) / 2
+System.out.println(assoc); // 2
+```
+
 ## Parentheses Are For Humans Too
 
 You do not need parentheses in every expression, but you should use them when they make the intention obvious.

@@ -206,6 +206,61 @@ Tiny example or mental model:
 
 - When reading code, ask: what does `private` change, allow, reject, or clarify?
 
+## Why Private Restricts Access and Supports Encapsulation
+
+The `private` modifier is the strongest access restriction in Java, limiting access exclusively to the declaring class (including its nested classes). By restricting access, `private` prevents external classes and subclasses from directly reading or modifying an object's internal state. This enforces a strict boundary where an object's state can only be mutated through public methods that validate inputs, thereby preventing the object from entering an inconsistent or invalid state. Furthermore, because subclasses cannot access private fields of their parent class directly, subclass code cannot depend on the parent's internal implementation details, which maintains decoupling and prevents subclass modifications from breaking parent class invariants.
+
+### Encapsulation Boundary Model
+
+```mermaid
+graph TD
+    subgraph External_World [External Classes / Subclasses]
+        Client[Client Code]
+        Sub[Subclass Code]
+    end
+    subgraph Class_Boundary [Encapsulated Class Boundary]
+        PublicAPI[Public Methods: getBalance / deposit]
+        PrivateState[Private Field: balance]
+    end
+    Client -- Cannot access directly --> PrivateState
+    Sub -- Cannot access directly --> PrivateState
+    Client -- "Authorized Access" --> PublicAPI
+    PublicAPI -- "Controlled Mutation" --> PrivateState
+```
+
+### Code Example: Preventing Invalid Modifications
+```java
+public class SecureBankAccount {
+    private double balance = 100.0;
+
+    public double getBalance() {
+        return this.balance; // Controlled access
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            this.balance += amount; // Validated mutation
+        }
+    }
+}
+
+class Client {
+    public static void main(String[] args) {
+        SecureBankAccount account = new SecureBankAccount();
+        // account.balance = -500.0; // COMPILE ERROR: balance has private access in SecureBankAccount
+        account.deposit(50.0);
+        System.out.println(account.getBalance()); // Output: 150.0
+    }
+}
+```
+
+### Cause-Effect Chain of Encapsulation
+- **Trigger**: Field marked with `private` modifier.
+- **Immediate Effect**: The compiler rejects any direct external read or write access to the field.
+- **Secondary Effect**: Mutability is channeled exclusively through public method APIs that enforce business logic validation rules.
+- **Ultimate Outcome**: The object guarantees its own state invariants, remaining decoupled from client classes.
+
+
 ### Non-access modifier:
 
 Non-access modifier is a group of related rules in Modifiers in Java that groups several related details.

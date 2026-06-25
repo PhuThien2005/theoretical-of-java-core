@@ -49,6 +49,65 @@ public class User {
 }
 ```
 
+## Why toString is Auto-Invoked and How Circular References Cause Stack Overflow
+
+In Java, the `toString()` method is implicitly called by the compiler during string concatenation and by standard output streams like `System.out.println()`. When compiling code like `"User: " + user`, the compiler generates bytecode that calls `String.valueOf(user)`, which internally checks if the object reference is `null` and, if not, invokes `user.toString()`. A severe runtime vulnerability occurs when two objects contain circular references to each other and their `toString()` implementations print each other's state. When `toString()` is called on the first object, it invokes the `toString()` on the second object, which in turn calls `toString()` on the first, leading to infinite recursion. This recursion rapidly consumes the thread's execution stack frame capacity, eventually throwing a `StackOverflowError` and crashing the application.
+
+```mermaid
+sequenceDiagram
+    participant Main
+    participant NodeA as Node A
+    participant NodeB as Node B
+    Main->>NodeA: toString()
+    NodeA->>NodeB: toString() (accesses circular field)
+    NodeB->>NodeA: toString() (accesses circular field)
+    NodeA->>NodeB: toString() (accesses circular field)
+    Note over NodeA,NodeB: Infinite Recursion -> StackOverflowError
+```
+
+### Code Example: Circular Reference Stack Overflow
+
+```java
+public class CircularNode {
+    private final String name;
+    private CircularNode next;
+
+    public CircularNode(String name) {
+        this.name = name;
+    }
+
+    public void setNext(CircularNode next) {
+        this.next = next;
+    }
+
+    @Override
+    public String toString() {
+        // Accessing 'next' implicitly calls next.toString(), causing recursion
+        return "CircularNode{name='" + name + "', next=" + next + "}";
+    }
+
+    public static void main(String[] args) {
+        CircularNode nodeA = new CircularNode("Node-A");
+        CircularNode nodeB = new CircularNode("Node-B");
+        nodeA.setNext(nodeB);
+        nodeB.setNext(nodeA); // Circular link
+
+        // This will attempt to concatenate and print nodeA, triggering StackOverflowError
+        System.out.println(nodeA); // Output: Exception in thread "main" java.lang.StackOverflowError
+    }
+}
+```
+
+### Cause-Effect Chain of Circular toString()
+
+```text
+String concatenation / print triggers implicit String.valueOf() 
+  ↳ valueOf() invokes user-defined toString() 
+  ↳ toString() recursively calls toString() on the circularly linked object 
+  ↳ Execution stack frame capacity is exceeded 
+  ↳ JVM throws StackOverflowError and terminates the execution thread
+```
+
 ### equals()
 
 `equals()` defines logical equality between objects. By default, the `Object.equals(Object obj)` implementation checks reference equality (`this == obj`). If you want to compare objects based on their state (logical equality), you must override `equals()`.
@@ -62,6 +121,64 @@ public boolean equals(Object obj) {
     User user = (User) obj;
     return id == user.id && Objects.equals(username, user.username);
 }
+```
+
+## Why Overloading equals Instead of Overriding It Fails Silently
+
+A common and dangerous mistake in Java is overloading `equals()` by declaring a method like `public boolean equals(User other)` instead of overriding `public boolean equals(Object other)`. The compiler views the overloaded method as a completely separate method signature and compiles it successfully without any warnings. However, Java's method resolution binds parameters statically at compile time for overloaded methods, whereas it binds them dynamically at runtime for overridden methods. Standard Java collections like `HashMap` and `ArrayList` are generic and operate on the `Object` type, meaning they compile calls to `equals(Object)`. Consequently, when collections attempt to check equality, they will bypass the overloaded `equals(User)` method and run the default `Object.equals(Object)` instead, leading to silent failures where equal keys are not recognized.
+
+```mermaid
+flowchart TD
+    subgraph Collection [ArrayList / HashMap Internals]
+        Call["elements[i].equals(searchKey)"]
+    end
+    subgraph UserClass [User Class]
+        Overload["equals(User other)"]
+        Default["equals(Object other) - Inherited from Object"]
+    end
+    Call -->|Statically bound to Object type| Default
+    Default -->|Checks reference equality ==| Result["false (Different instances)"]
+    style Overload fill:#faa,stroke:#333
+```
+
+### Code Example: Silent Collection Failure
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class OverloadedUser {
+    private final String name;
+
+    public OverloadedUser(String name) {
+        this.name = name;
+    }
+
+    // WRONG: Overloads equals(OverloadedUser) instead of overriding equals(Object)
+    public boolean equals(OverloadedUser other) {
+        if (other == null) return false;
+        return this.name.equals(other.name);
+    }
+
+    public static void main(String[] args) {
+        List<OverloadedUser> list = new ArrayList<>();
+        list.add(new OverloadedUser("Alice"));
+
+        // Searching with a logically identical instance
+        boolean found = list.contains(new OverloadedUser("Alice"));
+        System.out.println("User found: " + found); // Output: User found: false
+    }
+}
+```
+
+### Cause-Effect Chain of Overloaded equals()
+
+```text
+Declaring equals(User other) overloads instead of overriding equals(Object)
+  ↳ Collection classes call equals(Object) on the element
+  ↳ Java matches signature to Object.equals(Object) statically
+  ↳ Default reference equality (==) is executed instead of custom value comparison
+  ↳ Collection search fails silently (returns false)
 ```
 
 ### hashCode()
@@ -221,6 +338,12 @@ Calling `wait()`, `notify()`, or `notifyAll()` without holding the object monito
 
 ### 4. Relying on `finalize()` for resource cleanup
 Because GC execution is non-deterministic, using `finalize()` to close files or sockets leads to resource exhaustion. Use `try-with-resources` instead.
+
+## Reference Links
+
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object) (Java SE 21 Object.equals Contract)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#toString() (Java SE 21 Object.toString Contract)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-15.html#jls-15.18.1 (JLS 21 String Concatenation Operator +)
 
 ## Common Review Prompts
 

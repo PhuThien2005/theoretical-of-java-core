@@ -29,6 +29,15 @@ This topic follows the master outline in [outline.md](../outline.md). The goal i
 - Add/subtract date/time
 - Timezone
 
+## Self-Check
+
+- Why is the legacy date and calendar API (`java.util.Date`, `java.util.Calendar`, `java.text.SimpleDateFormat`) flawed (e.g. mutability, index bias, thread-safety issues)?
+- Why are modern Java 8 date-time objects (like `LocalDate`, `LocalTime`, `ZonedDateTime`) designed to be immutable and thread-safe, and what pattern is used to obtain modified instances?
+- What is the difference in timezone representation and rules between `OffsetDateTime`, `ZonedDateTime`, and `Instant`?
+- Why does `java.time.format.DateTimeFormatter` avoid the concurrency bugs of `SimpleDateFormat`?
+- How do `Period` and `Duration` differ in representation and behavior, particularly when added to a timezone-aware temporal object like `ZonedDateTime` across Daylight Saving Time (DST) changes?
+- How does `ZonedDateTime` handle invalid or overlapping local date-times resulting from DST transitions?
+
 ## Anki Cards
 
 - [Basic](anki/basic.tsv)

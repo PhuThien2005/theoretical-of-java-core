@@ -179,3 +179,61 @@ Writing concurrent loops over `Collections.synchronizedList()` without enclosing
 - What happens if you call `add()` on an `Arrays.asList()` list? (UnsupportedOperationException)
 - What is the difference between `Arrays.equals` and `Arrays.deepEquals`? (equals is for 1D arrays, deepEquals recursively compares multi-dimensional array structures)
 - Does List.copyOf copy the elements if the source list is already an immutable list? (No, it returns the same instance as an optimization)
+
+## Why Unmodifiable Views and Immutable Collections Differ
+
+In Java, there is a fundamental architectural difference between unmodifiable views and truly immutable collections. When you invoke `Collections.unmodifiableList()`, the JVM constructs a wrapper class (an instance of `Collections.UnmodifiableList`) that delegates all read operations directly to the original backing list, while intercepting write operations to throw an `UnsupportedOperationException`. Because the wrapper retains a live reference to the original list, any structural changes made directly to that backing list are immediately reflected when querying the unmodifiable view. Conversely, `List.of()` and `List.copyOf()` create entirely self-contained, immutable collection instances (e.g., `ImmutableCollections.ListN`) that allocate a fresh, isolated array under the hood. These immutable collections do not reference any external mutable arrays, store elements in a highly optimized structure, reject `null` elements entirely to prevent design bugs, and permit internal JVM optimizations such as returning the same instance when copying an already immutable list.
+
+### Mental Model
+
+Unmodifiable view wraps a live mutable list, whereas immutable collections copy data into a new private structure:
+```text
+Unmodifiable View:
+[ Unmodifiable View ] ---> [ Backing List (Mutable) ] ---> [ Element Array (Heap) ]
+    (Throws on write)        (Modifiable directly)             [ A ] [ B ] [ C ]
+
+Immutable Collection (List.copyOf):
+[ Immutable Collection ] ---> [ Private Immutable Array (Heap) ]
+    (Throws on write)             [ A ] [ B ] (Completely isolated)
+```
+
+### Code Example
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class ImmutabilityDemo {
+    public static void main(String[] args) {
+        List<String> mutableList = new ArrayList<>();
+        mutableList.add("Red");
+        mutableList.add("Green");
+
+        // 1. Create wrapper view
+        List<String> view = Collections.unmodifiableList(mutableList);
+
+        // 2. Create copy of list
+        List<String> copy = List.copyOf(mutableList);
+
+        // Modify the original list
+        mutableList.add("Blue");
+
+        System.out.println("Original List: " + mutableList); // Original List: [Red, Green, Blue]
+        System.out.println("Unmodifiable View: " + view);    // Unmodifiable View: [Red, Green, Blue]
+        System.out.println("Immutable Copy: " + copy);        // Immutable Copy: [Red, Green]
+    }
+}
+```
+
+### Cause-Effect Chain
+
+```text
+Call Collections.unmodifiableList() → Wrapper retains reference to backing list → Backing list modified → Reads through the view access the modified backing list → Changes are visible.
+Call List.copyOf() → Elements copied to a new private array structure → Backing list modified → Immutable collection remains completely isolated → Changes are not visible.
+```
+
+## Reference Links
+
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collections.html#unmodifiableList(java.util.List) (unmodifiableList documentation)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html#copyOf(java.util.Collection) (List.copyOf documentation)

@@ -150,3 +150,47 @@ for (Callable<Integer> task : tasks) {
 }
 ```
 * **Fix**: Submit all tasks to collect their `Future` objects first, then retrieve their results in a separate loop.
+
+## Why ExecutorService and Thread Pools Are Required
+
+Manually spawning threads for each task is highly inefficient and dangerous for the JVM. Every thread created in Java requires an operating system thread, which carries a substantial allocation overhead including a default stack footprint of about 1MB. If an application spawns threads without bounds, it will quickly exhaust system memory or file descriptors, causing crashes. `ExecutorService` addresses this by utilizing thread pools that maintain a managed, fixed set of active worker threads to process tasks concurrently. Furthermore, configuring bounded queues (such as `ArrayBlockingQueue`) inside the pool prevents incoming task pile-ups from consuming all memory, safeguarding the JVM from `OutOfMemoryError` via a structured rejection handler policy.
+
+### Mental Model: Thread Pool with Bounded Queue
+```
+[Tasks Submitted] ──► [Bounded Queue (capacity = 100)]
+                            │ (If full: Rejection Policy)
+                            ▼
+                    ┌─────────────────────────┐
+                    │  Thread Pool (Workers)  │
+                    │ ┌──────┐┌──────┐┌──────┐ │
+                    │ │  T1  ││  T2  ││  T3  │ │
+                    │ └──────┘└──────┘└──────┘ │
+                    └─────────────────────────┘
+```
+
+### Code Example
+```java
+import java.util.concurrent.*;
+
+public class ExecutorDemo {
+    public static void main(String[] args) {
+        // Safe thread pool with bounded queue and rejection policy
+        ExecutorService executor = new ThreadPoolExecutor(
+            2, 4, 60L, TimeUnit.SECONDS,
+            new ArrayBlockingQueue<>(10),
+            new ThreadPoolExecutor.AbortPolicy()
+        );
+
+        try {
+            executor.submit(() -> System.out.println("Executing Task"));
+        } finally {
+            executor.shutdown();
+        }
+        // Output:
+        // Executing Task
+    }
+}
+```
+
+### Cause-Effect Chain
+Manually spawn new thread for each request → High OS thread allocation overhead → 1MB stack memory consumed per thread → Memory exhaustion / system crash → Replace with `ExecutorService` → Reuses fixed set of worker threads → Bounded queues restrict task accumulation → ThreadPool Rejection Policy handles excess load → JVM protected against OutOfMemoryError.

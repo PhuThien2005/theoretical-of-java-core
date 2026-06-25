@@ -270,6 +270,69 @@ class MyClass {
 }
 ```
 
+#### Why Runtime Annotation Processing Uses Dynamic Proxies Under the Hood
+
+At runtime, when reflection queries an annotation using methods like `element.getAnnotation(MyAnnotation.class)`, the JVM does not return a direct instance of a compiler-generated class. Instead, because annotations are interfaces, the JVM dynamically synthesizes a proxy class that implements the annotation interface. 
+
+Under the hood, this proxy delegates all element accessors (which look like methods in the annotation declaration) to an `InvocationHandler`, typically `sun.reflect.annotation.AnnotationInvocationHandler` (in standard HotSpot/OpenJDK implementations). This handler maps the method names to the pre-parsed metadata values stored in the class's constant pool. 
+
+This design is highly efficient: it avoids generating, loading, and verifying a separate physical class file for every annotation declaration at compile-time, saving memory and keeping class-loading fast.
+
+**Mental Model:**
+*Analogy:* Imagine a restaurant menu (annotation interface). When you order food, the waiter (dynamic proxy) takes your order. The waiter doesn't cook the food themselves; they consult a recipe book (the parsed constant-pool metadata map) and return the pre-cooked dish (metadata value).
+
+```
+[User Reflection Call] -> MyAnnotation.class.getAnnotation(...)
+                                 |
+                                 v
+                    [JVM Synthesized Proxy Class]
+                    (e.g., $Proxy1 implements MyAnnotation)
+                                 |
+                                 v
+                   [AnnotationInvocationHandler]
+                (holds a Map<String, Object> of values)
+                                 |
+                                 v
+                [Parsed Constant-Pool Metadata Map]
+                (e.g., "value" -> 5, "message" -> "Hello")
+```
+
+**Code Example with Expected Output:**
+```java
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+@Retention(RetentionPolicy.RUNTIME)
+@interface RuntimeCheck {
+    String value() default "Default";
+}
+
+@RuntimeCheck("ProxyTest")
+class AnnotatedClass {}
+
+public class ProxyDemo {
+    public static void main(String[] args) {
+        RuntimeCheck anno = AnnotatedClass.class.getAnnotation(RuntimeCheck.class);
+        
+        // Verify that the annotation instance is a Proxy
+        System.out.println(java.lang.reflect.Proxy.isProxyClass(anno.getClass())); // true
+        
+        // Print the synthesized proxy class name
+        System.out.println(anno.getClass().getName().contains("Proxy")); // true
+        
+        // Print the interfaces implemented by the proxy class
+        for (Class<?> iface : anno.getClass().getInterfaces()) {
+            System.out.println(iface.getSimpleName());
+            // output:
+            // RuntimeCheck
+        }
+    }
+}
+```
+
+**Cause-Effect Chain:**
+Application calls `element.getAnnotation(MyAnno.class)` &rarr; Reflection subsystem checks constant pool attributes of the class file &rarr; JVM detects presence of `MyAnno` &rarr; JVM invokes dynamic proxy generation to produce a class implementing `MyAnno` &rarr; Proxy delegates method calls to `AnnotationInvocationHandler` &rarr; Handler retrieves corresponding values from pre-parsed metadata map &rarr; Client receives the annotated element value.
+
 ---
 
 ## Case Study: Custom Validation Annotation & Reflection Processor
@@ -400,3 +463,9 @@ Attempting to declare an element returning a wrapper object class (such as `Inte
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Reference Links
+
+- [Java reflection API](https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Proxy.html)
+- [OpenJDK sun.reflect.annotation.AnnotationInvocationHandler Source](https://github.com/openjdk/jdk/blob/master/src/java.base/share/classes/sun/reflect/annotation/AnnotationInvocationHandler.java)
+- [Java Language Specification: Annotations](https://docs.oracle.com/javase/specs/jls/se21/html/jls-9.html#jls-9.7)

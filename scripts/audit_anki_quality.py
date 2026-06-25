@@ -92,7 +92,7 @@ def audit_file(root: Path, path: Path) -> list[Finding]:
                     findings.append(Finding("warn", path, line_no, note_id, f"generic/template wording: {phrase}"))
                     break
             # Detect hollow answers: answer states a count but doesn't list items
-            back = row.get("Back") or row.get("Text") or ""
+            back = row.get("Back") or row.get("Text") or row.get("Answer") or ""
             front = (row.get("Front") or row.get("Question") or "").lower().strip()
             if HOLLOW_COUNT_PATTERN.search(back) and len(back.split()) < 12:
                 findings.append(Finding("warn", path, line_no, note_id,

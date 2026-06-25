@@ -101,6 +101,41 @@ if (user != null & user.isActive()) {
 
 Both sides are evaluated. This is rarely what beginners want in conditions. Prefer `&&` and `||` for normal decision logic.
 
+## Why Logical Operators Short-Circuit and How They Differ From Bitwise Operators
+
+Short-circuiting is both a performance optimization and a safety mechanism built into Java's logical AND (`&&`) and OR (`||`) operators. By halting evaluation as soon as the final result of the expression is mathematically guaranteed (e.g., a `false` on the left of `&&`, or a `true` on the left of `||`), the virtual machine avoids wasting CPU cycles on unnecessary computations. More importantly, this behavior allows developers to write defensive guards, such as validating that an object reference is not null before checking its properties, all in a single expression. In contrast, boolean logical/bitwise operators (`&` and `|`) do not short-circuit and always evaluate both operands regardless of the left-hand side's result. If the right-hand side contains operations that rely on the safety check on the left, using a non-short-circuiting operator will result in runtime errors.
+
+### Decision Flow Mental Model
+
+The following diagram illustrates how `&&` (short-circuiting) and `&` (non-short-circuiting) handle a `false` left-hand side (LHS):
+
+```mermaid
+graph TD
+    Start[Start: Evaluate LHS] --> LHS{Is LHS true?}
+    LHS -- No (&&) --> SC[Short-Circuit: Return false\n(RHS is skipped)]
+    LHS -- No (&) --> NoSC[No Short-Circuit: Evaluate RHS\n(Can cause NullPointerException)]
+    NoSC --> Return[Return false]
+```
+
+### Cause-Effect Chain
+`name` reference is `null` → `name != null` evaluates to `false` → `&&` operator detects a `false` left-hand operand → Java short-circuits and skips evaluating the right-hand side (`name.length() > 0`) → execution completes safely and returns `false` without throwing an exception.
+
+### Code Example
+```java
+String name = null;
+
+// Case 1: Safe short-circuit evaluation
+boolean isNotEmptySafe = (name != null && name.length() > 0);
+System.out.println(isNotEmptySafe); // false (LHS is false, RHS is ignored)
+
+// Case 2: Unsafe non-short-circuit evaluation
+try {
+    boolean isNotEmptyUnsafe = (name != null & name.length() > 0);
+} catch (NullPointerException e) {
+    System.out.println("Caught NullPointerException!"); // Prints: Caught NullPointerException!
+}
+```
+
 ## Common Mistakes
 
 Do not confuse assignment and comparison:

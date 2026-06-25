@@ -51,6 +51,54 @@ public class User implements Comparable<User> {
 - **ClassCastException**: If you attempt to sort a list of objects that do not implement `Comparable` (and do not provide a `Comparator`), Java will throw a `ClassCastException` at runtime (if using raw types) or fail to compile (with generic types).
 - **Consistency with Equals**: It is strongly recommended (though not strictly required) that natural ordering be consistent with `equals`. That is, `(x.compareTo(y) == 0) == (x.equals(y))`. Collections like `TreeSet` and `TreeMap` use `compareTo` (not `equals`) to determine uniqueness; if they are inconsistent, the set/map will violate the general contract of `Set`/`Map` and behave unexpectedly.
 
+## Why TreeSet and TreeMap Require Consistency with Equals
+
+Sorted collections such as `TreeSet` and `TreeMap` behave differently from general collections. Unlike `HashSet` or `HashMap`, which determine uniqueness using `Object.hashCode()` and `Object.equals()`, sorted collections depend exclusively on the comparison method (`compareTo` or `compare`) to identify duplicates. If `compareTo` returns `0` for two elements, they are considered identical, regardless of what `equals()` returns. If the natural ordering is inconsistent with `equals()`, elements that are distinct under `equals()` will be silently ignored when added to a `TreeSet` or `TreeMap`. This breaks the formal contract of the `Set` and `Map` interfaces, which are defined in terms of `equals()`, leading to unexpected data loss or retrieval bugs in collections-based code.
+
+### Mental Model: Uniqueness Resolution in Java Collections
+```mermaid
+flowchart TD
+    A[Add Element to Collection] --> B{Collection Type?}
+    B -->|HashSet / HashMap| C[Uses hashCode and equals]
+    B -->|TreeSet / TreeMap| D[Uses compareTo or compare]
+    C -->|equals == true| E[Duplicate: Element Rejected]
+    C -->|equals == false| F[Unique: Element Added]
+    D -->|compare/compareTo == 0| G[Duplicate: Element Rejected]
+    D -->|compare/compareTo != 0| H[Unique: Element Added]
+```
+
+### Code Example: BigDecimal Inconsistency
+```java
+import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class ConsistencyExample {
+    public static void main(String[] args) {
+        BigDecimal d1 = new BigDecimal("1.0");
+        BigDecimal d2 = new BigDecimal("1.00");
+
+        // 1. HashSet uses hashCode() and equals()
+        // d1.equals(d2) is false because scale differs (1 vs 2 decimal places)
+        Set<BigDecimal> hashSet = new HashSet<>();
+        hashSet.add(d1);
+        hashSet.add(d2);
+        System.out.println("HashSet size: " + hashSet.size()); // Output: HashSet size: 2
+
+        // 2. TreeSet uses compareTo()
+        // d1.compareTo(d2) is 0 because the numerical values are equal
+        Set<BigDecimal> treeSet = new TreeSet<>();
+        treeSet.add(d1);
+        treeSet.add(d2); // Rejected as duplicate!
+        System.out.println("TreeSet size: " + treeSet.size()); // Output: TreeSet size: 1
+    }
+}
+```
+
+### Cause-Effect Chain
+`(x.compareTo(y) == 0) == (x.equals(y))` is false $\rightarrow$ `TreeSet`/`TreeMap` rely solely on `compareTo` for uniqueness checks $\rightarrow$ Distinct objects under `equals` that return `0` from `compareTo` are treated as duplicate elements $\rightarrow$ The duplicate elements are rejected during insertion $\rightarrow$ Data loss occurs and the collection violates the standard Java Collections Set/Map contract.
+
 ### compareTo
 
 compareTo is a specific method in Comparable used to define natural ordering rules.
@@ -77,6 +125,43 @@ int result = "apple".compareTo("banana"); // returns a negative number (< 0)
   If `this.id` is `Integer.MIN_VALUE` and `other.id` is `1`, the subtraction results in `Integer.MAX_VALUE` (a positive number), incorrectly indicating that `this` is greater than `other`. Always use `Integer.compare(a, b)` instead.
 - **NullPointerException**: `x.compareTo(null)` should always throw a `NullPointerException`.
 
+## Why Subtraction-Based Comparison Leads to Overflow Bugs
+
+Using subtraction (e.g., `this.id - other.id`) to implement comparison is a dangerous anti-pattern in Java. The subtraction formula assumes that if `x > y`, then `x - y` will be positive; however, this assumption is broken by the boundaries of finite-precision binary arithmetic. In two's complement representation, subtracting a positive number from a large negative number (or vice-versa) can cause the result to exceed the type's minimum or maximum value, wrapping the value around and flipping the sign of the result. When this sign flip occurs, the sorting algorithm receives the exact opposite result of the true comparison, leading to unsorted collections, incorrect sorting orders, or contract violation exceptions at runtime.
+
+### Mental Model: Subtraction Overflow Under Two's Complement
+Let us compare two values: `x = Integer.MIN_VALUE` ($-2147483648$) and `y = 1`.
+Mathematically, $x < y$, so a comparison must return a negative number.
+Using subtraction:
+```text
+  10000000 00000000 00000000 00000000   (Integer.MIN_VALUE)
+- 00000000 00000000 00000000 00000001   (1)
+=====================================
+  01111111 11111111 11111111 11111111   (Integer.MAX_VALUE / +2147483647)
+```
+The sign bit changes from `1` (negative) to `0` (positive). Java now incorrectly concludes that $x > y$.
+
+### Code Example: Subtraction Bug Demonstrating Overflow
+```java
+public class SubtractionOverflowDemo {
+    public static void main(String[] args) {
+        int x = Integer.MIN_VALUE;
+        int y = 1;
+
+        // Subtraction method (BUGGY)
+        int buggyResult = x - y;
+        System.out.println("Buggy Result: " + buggyResult); // Output: Buggy Result: 2147483647 (> 0, indicating x > y!)
+
+        // Proper comparison method (SAFE)
+        int safeResult = Integer.compare(x, y);
+        System.out.println("Safe Result: " + safeResult);   // Output: Safe Result: -1 (< 0, indicating x < y)
+    }
+}
+```
+
+### Cause-Effect Chain
+Opposing sign values compared via subtraction $\rightarrow$ Difference exceeds the minimum or maximum bounds of the primitive type $\rightarrow$ Binary representation under two's complement arithmetic overflows or underflows $\rightarrow$ The sign bit of the subtraction result flips $\rightarrow$ The comparator returns a positive number for a less-than relation $\rightarrow$ The sorting algorithm orders the elements incorrectly or throws a contract exception.
+
 ### Comparator
 
 Comparator defines external custom ordering for objects.
@@ -99,6 +184,85 @@ public class EmployeeSalaryComparator implements Comparator<Employee> {
 #### Gotchas & Failure Modes
 - **Concurrent Modification / Mutable Fields**: If you sort a collection and then modify the fields of an object that the `Comparator` uses to sort, the sorting state becomes inconsistent. The collection (like `TreeSet` or `TreeMap`) will fail to retrieve, delete, or correctly order the modified elements.
 
+## Why Java Separates Comparable and Comparator
+
+Java segregates sorting capabilities into `Comparable` and `Comparator` to support the single-responsibility principle and facilitate multiple sorting strategies. The `Comparable` interface defines a class's *natural ordering*, meaning it represents the default, intrinsic sorting logic that is hardcoded directly into the class itself. However, embedding comparison logic inside the class is impossible when dealing with third-party classes, or when a class needs to be sorted dynamically in different contexts (such as sorting employees by salary in one view and by name in another). The `Comparator` interface resolves this by acting as an external strategy object, allowing developers to define an arbitrary number of custom sorting rules separate from the class definition itself.
+
+### Mental Model: Intrinsic (Comparable) vs Extrinsic (Comparator) Ordering
+```mermaid
+classDiagram
+    class User {
+        -int id
+        -String username
+        +compareTo(User other) int
+    }
+    class Comparable~User~ {
+        <<interface>>
+        +compareTo(User o) int
+    }
+    User ..|> Comparable~User~ : Implements Natural Order (by ID)
+
+    class UserAgeComparator {
+        +compare(User u1, User u2) int
+    }
+    class Comparator~User~ {
+        <<interface>>
+        +compare(User o1, User o2) int
+    }
+    UserAgeComparator ..|> Comparator~User~ : External Custom Order (by Age)
+```
+
+### Code Example: Natural Ordering vs Custom Comparator
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class SortingComparison {
+    public static class User implements Comparable<User> {
+        final String name;
+        final int id;
+
+        public User(String name, int id) {
+            this.name = name;
+            this.id = id;
+        }
+
+        // Comparable defines the single, default natural order (by ID)
+        @Override
+        public int compareTo(User other) {
+            return Integer.compare(this.id, other.id);
+        }
+
+        @Override
+        public String toString() {
+            return name + "(ID:" + id + ")";
+        }
+    }
+
+    public static void main(String[] args) {
+        List<User> users = new ArrayList<>(List.of(
+            new User("Charlie", 3),
+            new User("Alice", 1),
+            new User("Bob", 2)
+        ));
+
+        // 1. Natural Sort using Comparable (by ID)
+        Collections.sort(users);
+        System.out.println("Natural order: " + users); // Output: Natural order: [Alice(ID:1), Bob(ID:2), Charlie(ID:3)]
+
+        // 2. Custom Sort using an external Comparator (by Name lexicographically)
+        users.sort(Comparator.comparing(u -> u.name));
+        System.out.println("Custom order:  " + users); // Output: Custom order:  [Alice(ID:1), Bob(ID:2), Charlie(ID:3)]
+    }
+}
+```
+
+### Cause-Effect Chain
+Class requires a single, universal default order $\rightarrow$ Implement `Comparable` in the class itself $\rightarrow$ Call `Collections.sort(list)` without passing arguments.
+Class requires multiple context-specific orders or is unmodifiable $\rightarrow$ Define external `Comparator` instances $\rightarrow$ Pass comparator to `list.sort(comparator)` to dynamically execute the chosen strategy.
+
 ### compare
 
 compare is the abstract method in Comparator used to evaluate two objects.
@@ -118,6 +282,62 @@ int result = lengthComparator.compare("short", "extremelyLong"); // negative
 #### Gotchas & Failure Modes
 - **Null Safety**: Unlike `compareTo` (where `x.compareTo(null)` throws NPE by contract), `compare(o1, o2)` may receive `null` for either or both parameters. Implementations must decide how to handle `null` (e.g., using `Comparator.nullsFirst()`) to avoid throwing unexpected `NullPointerException`s.
 - **Asymmetry Bug**: The implementation must satisfy asymmetry: `signum(compare(x, y)) == -signum(compare(y, x))`. If not met, sorting algorithms can loop infinitely or produce wrong results.
+
+## Why the Transitivity Contract is Critical for Sorting
+
+The mathematical contracts for `Comparable.compareTo` and `Comparator.compare` dictate three properties: reflexivity, symmetry, and transitivity. Among these, the **transitivity contract** is the most crucial for correctness: if element $A$ is greater than element $B$ ($compare(A, B) > 0$), and element $B$ is greater than element $C$ ($compare(B, C) > 0$), then element $A$ must be greater than element $C$ ($compare(A, C) > 0$). Transitivity guarantees that a set of elements can be mapped to a linear, logically consistent sequence. If a comparator violates transitivity (creating cyclic preferences like Rock-Paper-Scissors), modern sorting algorithms like TimSort will detect the logical contradiction during the merge phase, throwing a runtime `IllegalArgumentException`. In older JDKs or other algorithms, violating transitivity can result in silent data corruption, infinite loops, or elements being entirely lost during the sorting process.
+
+### Mental Model: Linear Transitive Order vs Cyclic Contradiction
+```mermaid
+graph TD
+    subgraph Non-Transitive Cycle (Rock-Paper-Scissors - BUG)
+        Rock -->|beats| Scissors
+        Scissors -->|beats| Paper
+        Paper -->|beats| Rock
+    end
+    subgraph Transitive Order (Linear - CORRECT)
+        A[A: 3] -->|greater than| B[B: 2]
+        B -->|greater than| C[C: 1]
+        A -->|greater than| C
+    end
+```
+
+### Code Example: Non-Transitive Comparator Triggering Exception
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class TransitivityViolationDemo {
+    public static void main(String[] args) {
+        // Create a list representing a rock-paper-scissors game
+        List<String> rps = new ArrayList<>();
+        for (int i = 0; i < 15; i++) {
+            rps.add("Rock");
+            rps.add("Paper");
+            rps.add("Scissors");
+        }
+
+        try {
+            // A cyclic, non-transitive comparator
+            rps.sort((a, b) -> {
+                if (a.equals(b)) return 0;
+                if (a.equals("Rock") && b.equals("Scissors")) return 1;
+                if (a.equals("Scissors") && b.equals("Paper")) return 1;
+                if (a.equals("Paper") && b.equals("Rock")) return 1;
+                return -1; // Reverse relationships
+            });
+            System.out.println("Sorted: " + rps);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Caught Expected Error: " + e.getMessage());
+            // Output: Caught Expected Error: Comparison method violates its general contract!
+        }
+    }
+}
+```
+
+### Cause-Effect Chain
+Comparison method exhibits non-transitive cyclic relationships $\rightarrow$ Sorting algorithm (TimSort) processes elements by merging runs $\rightarrow$ Merging logic encounters contradiction (e.g., $A > B$ and $B > C$ but $C > A$) $\rightarrow$ Run-time validation check fails $\rightarrow$ JVM aborts execution and throws `IllegalArgumentException: Comparison method violates its general contract!`.
 
 ### Natural ordering
 
@@ -366,3 +586,9 @@ names.sort(Comparator.nullsFirst(Comparator.naturalOrder())); // [null, Alice, B
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Reference Links
+
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Comparable.html (Comparable Interface Specification)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Comparator.html (Comparator Interface Specification)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collections.html#sort(java.util.List) (Collections.sort contract)

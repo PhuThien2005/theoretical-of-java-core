@@ -208,3 +208,121 @@ class PaymentServiceTest {
     }
 }
 ```
+
+---
+
+## Why Mocking Isolates the Unit Under Test
+
+Unit testing has a specific goal: test **one unit** (a class or method) in isolation from its external dependencies. When a class under test (`UserService`) depends on a database repository (`UserRepository`), calling real database methods in a unit test creates multiple problems:
+
+1. **Coupling**: The test fails if the database is unavailable, the schema changed, or the test data is wrong — even if `UserService` logic is correct.
+2. **Speed**: Real database I/O is orders of magnitude slower than in-memory assertions. A test suite with real I/O can take minutes rather than milliseconds.
+3. **Non-determinism**: Real external systems (APIs, databases, clocks) return different results across runs, making tests flaky.
+
+Mockito replaces real dependencies with in-memory mock objects that return configured (stubbed) values. The test now exercises only `UserService` logic — the repository is controlled entirely by the test itself.
+
+### Mental Model: Real Dependency vs. Mock
+```
+[Without Mock — coupled to database]
+Test calls UserService.getUser(1)
+    → UserService calls UserRepository.findById(1)  ← real DB call
+    → DB may be down, slow, or have different data  ← test fails for wrong reason
+    → Test is actually testing DB + network + config, not UserService
+
+[With Mock — isolated unit test]
+Test calls UserService.getUser(1)
+    → UserService calls mockRepo.findById(1)
+    → mockRepo returns stub "alice" immediately (in-memory)
+    → Test verifies UserService processed "alice" correctly
+    → Only UserService logic is tested
+```
+
+### Code Example: Isolation via Mockito Stubbing and Verification
+```java
+@Test
+void testGetUserEmail() {
+    // Arrange: mock the dependency, define its behavior
+    UserRepository mockRepo = mock(UserRepository.class);
+    when(mockRepo.findById(1L)).thenReturn(new User(1L, "alice@example.com"));
+
+    UserService service = new UserService(mockRepo); // inject mock
+
+    // Act: test only UserService
+    String email = service.getUserEmail(1L);
+
+    // Assert: UserService correctly extracted the email
+    assertEquals("alice@example.com", email);
+
+    // Verify: UserService called the repo exactly once
+    verify(mockRepo, times(1)).findById(1L);
+}
+```
+
+### Cause-Effect Chain
+`UserService` depends on `UserRepository` &rarr; Test injects a `mock(UserRepository.class)` instead of a real DB connection &rarr; `when(mockRepo.findById(1L)).thenReturn(...)` configures controlled return &rarr; Test runs entirely in-memory in milliseconds &rarr; Only `UserService` logic can cause the test to fail &rarr; Test is fast, deterministic, and isolated.
+
+---
+
+## Why JUnit Creates a New Instance Per Test Method
+
+JUnit 5's default lifecycle is `PER_METHOD` — a new test class instance is created for each `@Test` method. This design choice ensures **test isolation**: each test starts with a clean instance state, preventing state mutations in one test from leaking into another.
+
+If JUnit reused a single test class instance across all tests, shared instance fields mutated by one test would carry over to the next. Test ordering would matter, and tests would fail depending on which order they ran — a category of bugs called "order-dependent test failures."
+
+The practical consequence: `@BeforeAll` and `@AfterAll` methods must be `static` by default, because they need to run before and after all instances are created/destroyed. They cannot reference `this` (no instance exists at that point).
+
+`@TestInstance(Lifecycle.PER_CLASS)` switches to a single shared instance. This is useful when expensive setup (like starting an embedded database) should happen once for all tests. But it requires careful test isolation — `@BeforeEach` must explicitly reset mutable state that `@BeforeAll` initialized.
+
+### Mental Model: PER_METHOD vs PER_CLASS instance lifecycle
+```
+PER_METHOD (default):
+Test run begins
+    → @BeforeAll (static): runs once
+    → new TestClass() for test1 → @BeforeEach → @Test test1 → @AfterEach → GC
+    → new TestClass() for test2 → @BeforeEach → @Test test2 → @AfterEach → GC
+    → @AfterAll (static): runs once
+    → No state leaks between test1 and test2 (different instances)
+
+PER_CLASS:
+    → @BeforeAll (can be non-static): runs once
+    → @BeforeEach → @Test test1 → @AfterEach   (same instance)
+    → @BeforeEach → @Test test2 → @AfterEach   (same instance)
+    → @AfterAll (can be non-static): runs once
+    → Shared instance state — must explicitly reset in @BeforeEach
+```
+
+### Code Example: PER_CLASS lifecycle with non-static @BeforeAll
+```java
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+class DatabaseIntegrationTest {
+
+    private EmbeddedDatabase db;
+
+    @BeforeAll // non-static — allowed with PER_CLASS
+    void startDatabase() {
+        db = EmbeddedDatabaseBuilder.build(); // expensive setup — once for all tests
+    }
+
+    @BeforeEach
+    void resetState() {
+        db.clearAll(); // reset between tests — prevents test interference
+    }
+
+    @Test
+    void testInsert() { db.insert("alice"); assertEquals(1, db.count()); }
+
+    @Test
+    void testDelete() { db.insert("bob"); db.delete("bob"); assertEquals(0, db.count()); }
+
+    @AfterAll
+    void stopDatabase() { db.shutdown(); }
+}
+```
+
+### Cause-Effect Chain
+JUnit default creates new instance per test &rarr; Each `@Test` starts with clean instance fields &rarr; State mutations in test1 do not affect test2 &rarr; Tests are order-independent &rarr; `@BeforeAll` must be static (no instance yet) &rarr; `@TestInstance(PER_CLASS)` switches to shared instance &rarr; One expensive setup; `@BeforeAll` can be non-static &rarr; `@BeforeEach` must reset mutable state to preserve isolation.
+
+## Reference Links
+
+- https://junit.org/junit5/docs/current/user-guide/ (JUnit 5 User Guide)
+- https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html (Mockito API)

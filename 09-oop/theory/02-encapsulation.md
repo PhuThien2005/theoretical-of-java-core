@@ -185,3 +185,80 @@ class Account {
 - Oracle Java Tutorials - OOP concepts: https://docs.oracle.com/javase/tutorial/java/concepts/
 - Oracle Java Tutorials - Classes and Objects: https://docs.oracle.com/javase/tutorial/java/javaOO/index.html
 - Dev.java OOP overview: https://dev.java/learn/oop/
+
+---
+
+## Why Instance Variables Should Be Private
+
+When an instance variable is declared `private`, the Java compiler enforces an access boundary at the source-code level: any attempt to read or write that field from outside the declaring class produces a compile-time error before a single byte of bytecode is generated. This is a language-level guarantee, not a JVM-level guarantee — the JVM itself does not prevent field access by bytecode; it only checks the access flags encoded in the `.class` file when the class is loaded and linked. In practice, reflection (`Field.setAccessible(true)`) can bypass those flags and reach `private` fields at runtime, which means the JVM does not truly prevent all access — it only refuses access through normal invocation. What the language enforces is that no legitimately compiled class file can reference a `private` field of another class without triggering a compiler error; only deliberately crafted or reflective bytecode can circumvent this. Making fields `private` therefore locks down the ordinary development path: all mutations must go through methods you deliberately expose, letting you validate inputs, maintain invariants, and swap the internal representation without touching any calling code.
+
+### Mental Model
+
+```
+[Outside Code]                 [Account Class]
+     |                              |
+     |  account.balance = -999;     |
+     |----------------------------> X  <-- Compile Error (language enforcement)
+     |                              |
+     |  account.setBalance(-999);   |
+     |----------------------------> [setBalance()]
+     |                              |  if (amount >= 0) this.balance = amount;
+     |                              |  else throw IllegalArgumentException
+     |                              |
+     |  // Reflection bypass:       |
+     |  f.setAccessible(true);      |
+     |  f.set(account, -999);  ---> [JVM: checks AccessibleObject flag]
+     |                              |  flag == true → JVM allows write
+     |                              |  (JVM does NOT prevent; language prevented compilation)
+```
+
+### Code Example
+
+```java
+public class Account {
+    private double balance; // private: compiler enforces access restriction
+
+    public Account(double openingBalance) {
+        setBalance(openingBalance);
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double amount) {
+        if (amount >= 0) {
+            this.balance = amount;
+        } else {
+            throw new IllegalArgumentException("Balance cannot be negative: " + amount);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        Account acc = new Account(500.0);
+
+        // acc.balance = -999; // Compile Error: balance has private access in Account
+
+        acc.setBalance(200.0);
+        System.out.println(acc.getBalance()); // Output: 200.0
+
+        // Reflection bypass (JVM does not prevent at runtime if setAccessible used)
+        java.lang.reflect.Field f = Account.class.getDeclaredField("balance");
+        f.setAccessible(true);
+        f.set(acc, -999.0); // JVM allows this — language enforcement is already gone
+        System.out.println(acc.getBalance()); // Output: -999.0  ← invariant violated!
+    }
+}
+```
+
+### Cause-Effect Chain
+
+Field declared `private`
+→ Java compiler rejects any `obj.field` access from outside the class at compile time
+→ All external mutations must pass through public setter methods
+→ Setter methods can validate inputs and enforce class invariants
+→ Internal representation can change freely without breaking callers
+→ JVM access flags in `.class` record `private`, but `setAccessible(true)` via reflection bypasses them at runtime
+→ Language enforcement (compile-time) is the real protective layer; JVM enforcement is a softer runtime check that reflection can override

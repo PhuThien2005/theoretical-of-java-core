@@ -129,3 +129,51 @@ if (!map.containsKey("key")) {
 // FIX: Use atomic computeIfAbsent
 map.computeIfAbsent("key", k -> newValue);
 ```
+
+## Why CyclicBarrier and CountDownLatch Differ
+
+`CountDownLatch` and `CyclicBarrier` are concurrency utilities designed for thread synchronization, but they differ significantly in reusability and execution mechanisms. `CountDownLatch` operates as a one-shot gate; threads decrement its counter by calling `countDown()` and block on `await()` until the count reaches zero, at which point the latch cannot be reset or reused. Conversely, `CyclicBarrier` is fully reusable and synchronizes threads at a common barrier point. When threads call `await()` on a `CyclicBarrier`, they block until the specified number of threads arrive. Once the barrier count reaches zero, the barrier trips, executes an optional barrier action, resets its internal counter back to its initial state, and releases all waiting threads to proceed.
+
+### Mental Model: CountDownLatch vs. CyclicBarrier
+```
+CountDownLatch (One-shot):
+Threads ──► countDown() ──► [Count: 3 -> 2 -> 1 -> 0] ──► Gate Opens (Cannot reuse)
+
+CyclicBarrier (Reusable):
+Thread 1 ──► await() ──┐
+Thread 2 ──► await() ──┼─► [Count: 3 -> 0] ─► Trip ─► Run Action ─► Reset to 3 ─► Release
+Thread 3 ──► await() ──┘
+```
+
+### Code Example
+```java
+import java.util.concurrent.CyclicBarrier;
+
+public class BarrierDemo {
+    public static void main(String[] args) {
+        // A barrier for 2 threads with a reusable barrier action
+        CyclicBarrier barrier = new CyclicBarrier(2, () -> {
+            System.out.println("Barrier Tripped!");
+        });
+
+        Runnable task = () -> {
+            try {
+                System.out.println(Thread.currentThread().getName() + " arriving");
+                barrier.await(); // Thread blocks until count is 2
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        };
+
+        new Thread(task, "Thread-1").start();
+        new Thread(task, "Thread-2").start();
+        // Output:
+        // Thread-1 arriving
+        // Thread-2 arriving
+        // Barrier Tripped!
+    }
+}
+```
+
+### Cause-Effect Chain
+Threads invoke `barrier.await()` → Internal lock acquired → Arrival count decremented → Count is non-zero → Threads wait on a Condition → Final thread invokes `await()` → Count reaches zero → Optional barrier action runs → Barrier resets count and generation → Condition signals all → All threads released → Barrier ready for next cycle.

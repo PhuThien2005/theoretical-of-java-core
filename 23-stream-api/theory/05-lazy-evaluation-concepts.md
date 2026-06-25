@@ -259,3 +259,85 @@ Tiny example or mental model:
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Why Streams Are Lazily Evaluated
+
+Java Streams achieve laziness by separating pipeline construction from element processing. When you invoke intermediate operations like `filter()` or `map()`, the JVM does not traverse the data source or execute any lambda expressions. Instead, each intermediate operation returns a new Stream stage represented by an `AbstractPipeline` subclass, appending itself to form a linked list of stream stages. A `Sink` interface facilitates the actual execution; each stage wraps the downstream `Sink` inside its own `Sink` implementation, establishing a chained callback architecture. Only when a terminal operation is invoked does the pipeline traverse the source, pushing elements down the nested `Sink` chain one by one. This single-pass evaluation allows short-circuiting operations to terminate early and prevents the creation of overhead-heavy intermediate collections.
+
+### Mental Model
+```
+[Source] -> AbstractPipeline (filter) -> AbstractPipeline (map) -> Terminal (collect)
+                  |                            |
+            Sink.begin()                 Sink.begin()
+            Sink.accept()  ------------> Sink.accept()
+            Sink.end()                   Sink.end()
+```
+
+### Code Example
+```java
+import java.util.List;
+import java.util.stream.Stream;
+
+public class LazyEvaluationDemo {
+    public static void main(String[] args) {
+        List<String> result = Stream.of("apple", "banana", "pear")
+            .filter(s -> {
+                System.out.println("Filtering: " + s);
+                return s.length() > 4;
+            })
+            .map(s -> {
+                System.out.println("Mapping: " + s);
+                return s.toUpperCase();
+            })
+            .limit(1)
+            .toList();
+        
+        System.out.println("Result: " + result);
+        // Console Output:
+        // Filtering: apple
+        // Mapping: apple
+        // Result: [APPLE]
+    }
+}
+```
+
+### Cause-Effect Chain
+Intermediate operations registered &rarr; Pipeline constructed as linked AbstractPipeline nodes &rarr; Terminal operation invoked &rarr; Source elements pulled through Sink chain one-by-one &rarr; Short-circuit (limit) triggers early termination &rarr; Minimum CPU work performed
+
+## Why Parallel Streams Are Not a Default Solution
+
+Parallel streams split the stream's source data using a `Spliterator` and submit tasks to the shared `ForkJoinPool.commonPool()`. Because this pool is shared globally across the entire JVM classloader, long-running, CPU-intensive, or blocking operations in one stream will starve thread resources for other parts of the application. The efficiency of data splitting also heavily relies on the structure of the data source; an array or `ArrayList` can be split in O(1) time by dividing index ranges, whereas a `LinkedList` requires sequential traversal of O(N) elements to find the split point, destroying any performance gain. Furthermore, coordinating, context-switching, and merging results across worker threads introduces substantial JVM overhead. Consequently, for small datasets or non-trivial I/O-bound tasks, a parallel stream can run significantly slower than its sequential counterpart.
+
+### Mental Model
+```
+ArrayList Splitting (O(1) index-based split):
+[ Element 0 - 3 ] ---> Thread 1
+[ Element 4 - 7 ] ---> Thread 2
+
+LinkedList Splitting (O(N) sequential traversal):
+[Head] -> [Node] -> [Node] -> [Node] -> [Node] -> [Node] -> [Node] -> [Tail]
+ (Must traverse links step-by-step to find splitting point)
+```
+
+### Code Example
+```java
+import java.util.List;
+import java.util.stream.LongStream;
+
+public class ParallelStreamDemo {
+    public static void main(String[] args) {
+        // Parallel stream processing using the common ForkJoinPool
+        long sum = LongStream.rangeClosed(1, 1_000_000)
+                             .parallel()
+                             .filter(n -> n % 2 == 0)
+                             .sum();
+        
+        System.out.println("Sum: " + sum);
+        // Console Output:
+        // Sum: 250000500000
+    }
+}
+```
+
+### Cause-Effect Chain
+Data source (e.g. LinkedList) is hard to split &rarr; Spliterator performs O(N) sequential traversal to split work &rarr; High splitting and coordination overhead &rarr; Thread execution in shared global ForkJoinPool.commonPool() &rarr; Blocking operations starve threads &rarr; Degraded performance compared to sequential stream

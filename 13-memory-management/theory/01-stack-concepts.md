@@ -190,3 +190,94 @@ Since Java 8, static variables (both primitives and object references) are alloc
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Why Primitives Live on the Stack or Heap
+
+The JVM determines the physical memory allocation of primitive variables based entirely on their declaration scope rather than their data type. Local primitives declared within a method are stored directly inside that thread's stack frame because the stack's LIFO (Last-In-First-Out) lifecycle is tied to method execution, allowing instant allocation and deallocation. Conversely, instance primitives declared as fields of a class live on the Heap inside the memory block allocated for the parent object. Similarly, static primitives are class-level fields and are allocated within the Class metadata object residing on the Heap. The stack's frame-based lifecycle avoids the overhead of Garbage Collection for local variables, but heap-allocated variables must persist across method calls and thus rely on the Garbage Collector for cleanup.
+
+### Mental Model
+```
++-------------------------------------------------------------+
+| Thread Stack Frame (LIFO)                                   |
+| [ main() frame: localPrimitive = 100 ]                     |
+| [ process() frame: tempVal = 42 ]                          |
++-------------------------------------------------------------+
+                                | (References heap object)
+                                v
++-------------------------------------------------------------+
+| Heap Memory (Dynamic Lifecycle)                            |
+| [ Container Object ] -------> [ instancePrimitive = 200 ]   |
+| [ Class Metadata Object ] --> [ staticPrimitive = 300 ]     |
++-------------------------------------------------------------+
+```
+
+### Code Example
+```java
+public class PrimitiveAllocation {
+    static int staticPrimitive = 300; // Allocated on the Heap (inside Class object)
+    int instancePrimitive = 200;      // Allocated on the Heap (inside object payload)
+
+    public void methodScope() {
+        int localPrimitive = 100;     // Allocated on the Stack (inside current frame)
+        System.out.println(localPrimitive);      // Output: 100
+        System.out.println(instancePrimitive);   // Output: 200
+        System.out.println(staticPrimitive);     // Output: 300
+    }
+}
+```
+
+### Cause-Effect Chain
+Method invoked &rarr; Stack frame pushed &rarr; Local primitive allocated on Stack &rarr; Method exits &rarr; Stack frame popped &rarr; Local memory reclaimed instantly without GC overhead.
+
+## Why Java Is Strictly Pass-by-Value
+
+Java strictly implements pass-by-value, meaning that the JVM always copies the actual value stored in a variable when passing it as a parameter to a method. For primitive data types, the value passed is a direct copy of the bits representing the data itself. For reference variables (objects), the value passed is a copy of the pointer address (the memory address) referencing the object on the heap. Consequently, reassigning the parameter inside the method merely overwrites the local copy of the pointer on the stack frame, leaving the caller's original variable unaffected. However, because both the caller's variable and the parameter copy point to the exact same object location on the heap, mutating the object's fields inside the method changes the shared heap state.
+
+### Mental Model
+```
+Stack Frame: main()               Stack Frame: modify()
++-----------------------+         +-----------------------+
+| customerRef (0x7F2B)  | ----+   | parameterCopy (0x7F2B)|
++-----------------------+     |   +-----------------------+
+                              |         |
+                              +----+----+
+                                   |
+                                   v
+                             Heap Memory
+                             +---------------------------+
+                             | Customer Object (0x7F2B)  |
+                             | { name: "Alice" }         |
+                             +---------------------------+
+```
+
+### Code Example
+```java
+public class PassByValueEx {
+    public static void main(String[] args) {
+        int num = 10;
+        modifyPrimitive(num);
+        System.out.println("Primitive: " + num); // Output: Primitive: 10
+
+        Customer c = new Customer("Alice");
+        modifyObject(c);
+        System.out.println("Object: " + c.name); // Output: Object: Bob
+    }
+    static void modifyPrimitive(int x) { x = 20; }
+    static void modifyObject(Customer cust) {
+        cust.name = "Bob"; // Mutates heap object
+        cust = new Customer("Charlie"); // Reassigns local stack copy
+    }
+    static class Customer {
+        String name;
+        Customer(String n) { name = n; }
+    }
+}
+```
+
+### Cause-Effect Chain
+Reference passed to method &rarr; JVM copies pointer value onto new stack frame &rarr; Local parameter re-assigned &rarr; Copy pointer changes to new address &rarr; Caller's pointer remains at original address &rarr; Original reference unaffected.
+
+## Reference Links
+
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-4.html#jls-4.12.2 (Variables of Reference Type)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-8.html#jls-8.4.1 (Formal Parameters)

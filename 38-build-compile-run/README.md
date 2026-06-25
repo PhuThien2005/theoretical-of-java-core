@@ -40,6 +40,17 @@ flowchart TD
     A --> E[Interview recall]
 ```
 
+## Self-Check
+
+Answer these questions after studying the theory to verify your depth of understanding:
+
+1. **Why do we need build automation tools like Maven or Gradle** instead of using `javac` and `java` directly for large-scale projects?
+2. **How does Classpath resolution work at runtime**, and what is the technical distinction between a `NoClassDefFoundError` and a `ClassNotFoundException`?
+3. **What is the purpose of the Manifest file (`MANIFEST.MF`) in a JAR**, and how does it configure the JVM to make a JAR executable?
+4. **Why does placing production resource files** in `src/main/java/` instead of `src/main/resources/` result in runtime lookup errors?
+5. **How does dependency management handle transitive dependencies**, and what mechanism is used to resolve version conflicts ("Jar Hell")?
+6. **Why is it important to follow the `assertEquals(expected, actual)` argument order** in JUnit, and what are the consequences of reversing them?
+
 ## Reference Links
 
 - https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html

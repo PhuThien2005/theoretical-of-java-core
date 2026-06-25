@@ -37,6 +37,40 @@ When an array is allocated, the JVM automatically initializes all of its element
 | `boolean` | `false` |
 | Reference Types (Objects, Strings) | `null` |
 
+### Why Array Elements are Automatically Zero-Initialized
+
+Unlike local variables which reside on the stack and must be explicitly initialized, heap-allocated array elements are automatically zero-initialized by the JVM upon creation. When the JVM allocates memory on the heap for a new array, it zero-fills the allocated memory block before returning the array reference to the program. This automatic initialization is a fundamental safety feature of the Java language to guarantee type safety and prevent security vulnerabilities. If Java allowed access to uninitialized heap memory, a program could potentially read leftover binary data from previously deallocated objects, leading to undefined behavior or security leaks. By ensuring that every slot in the array contains a predictable default value, Java prevents garbage reads and maintains its strict memory-safety contracts.
+
+```mermaid
+flowchart TD
+    subgraph Stack [Stack Memory]
+        A["local_var (uninitialized)"]
+        style A fill:#ffcccc,stroke:#333
+    end
+    subgraph Heap [Heap Memory]
+        B["Array Object<br>(Zero-filled by JVM)"]
+        B --> C["[0] = 0"]
+        B --> D["[1] = 0"]
+        style B fill:#d1e7dd,stroke:#333
+    end
+    A -.->|Compile Error if read| E[Compilation Fails]
+    B -->|Safe Read| F[Value: 0]
+```
+
+**Runnable Code Example:**
+```java
+public class ArrayZeroInitDemo {
+    public static void main(String[] args) {
+        int[] rawArray = new int[3];
+        System.out.println(rawArray[0]); // Output: 0
+        System.out.println(rawArray[1]); // Output: 0
+    }
+}
+```
+
+**Cause-Effect Chain:**
+`Array allocation on heap` &rarr; `JVM zero-fills the contiguous memory block` &rarr; `Elements get default type-specific values` &rarr; `Read operations return predictable defaults instead of raw memory garbage` &rarr; `Strict memory safety and security guaranteed`
+
 ### Runnable Example: Declaration, Allocation, and Default Values
 ```java
 public class ArrayInitExample {
@@ -210,6 +244,52 @@ ragged[1] = new int[4];        // Row 1 has 4 columns
 ragged[2] = new int[1];        // Row 2 has 1 column
 ```
 
+### Why Multidimensional Arrays are Arrays of Arrays
+
+Java does not support true multi-dimensional contiguous arrays in memory; instead, it implements them as nested single-dimensional arrays, commonly referred to as "arrays of arrays". In this model, the top-level array does not hold the actual primitive values or objects directly, but rather stores reference addresses pointing to other independent array objects. This architecture provides great flexibility, as it allows for the creation of jagged (or ragged) arrays where each sub-array can have a different length. Each sub-array is treated as a fully independent object on the heap, meaning they do not need to be allocated contiguously with respect to each other. By adopting this uniform design, the JVM simplifies its internal memory representation because it only needs to support single-dimensional arrays of primitives and single-dimensional arrays of object references.
+
+```mermaid
+flowchart TD
+    subgraph Stack
+        matrix[matrix variable]
+    end
+    subgraph Heap
+        matrix --> TopArray["Top-level Array int[][]<br>Length: 3"]
+        TopArray -->|Index 0| Row0["Row 0 int[]<br>Length: 2"]
+        TopArray -->|Index 1| Row1["Row 1 int[]<br>Length: 3"]
+        TopArray -->|Index 2| Row2["Row 2 int[]<br>Length: 1"]
+        Row0 --> R0_0[10]
+        Row0 --> R0_1[20]
+        Row1 --> R1_0[30]
+        Row1 --> R1_1[40]
+        Row1 --> R1_2[50]
+        Row2 --> R2_0[60]
+    end
+    style TopArray fill:#e2e3e5,stroke:#333
+    style Row0 fill:#d1e7dd,stroke:#333
+    style Row1 fill:#d1e7dd,stroke:#333
+    style Row2 fill:#d1e7dd,stroke:#333
+```
+
+**Runnable Code Example:**
+```java
+public class JaggedArrayMemoryDemo {
+    public static void main(String[] args) {
+        int[][] matrix = new int[3][];
+        matrix[0] = new int[]{10, 20};
+        matrix[1] = new int[]{30, 40, 50};
+        matrix[2] = new int[]{60};
+        
+        System.out.println("Top-level array size: " + matrix.length); // Output: 3
+        System.out.println("Row 0 array size: " + matrix[0].length);   // Output: 2
+        System.out.println("Row 1 array size: " + matrix[1].length);   // Output: 3
+    }
+}
+```
+
+**Cause-Effect Chain:**
+`Multidimensional array declared` &rarr; `Top-level reference array allocated on heap` &rarr; `Inner dimensions allocated as separate array objects` &rarr; `References to sub-arrays stored in top-level array` &rarr; `Jagged array structure with independent row lengths achieved`
+
 ### Traversing a 2D Array
 ```java
 for (int i = 0; i < matrix.length; i++) { // matrix.length returns number of rows
@@ -364,14 +444,38 @@ Passing an array directly to `System.out.println(arr)` prints `[I@hashcode` (for
 
 ---
 
-## Case Study: Why Arrays are Fixed-Size and When to Use ArrayList
+### Why Arrays Have Fixed Size and Contiguous Memory Layout
 
-### Why are Arrays Fixed-Size?
-When you instantiate an array, Java allocates a **contiguous block of memory** on the heap to hold the specified number of elements.
-1. **Contiguous Allocation:** Memory cells are physically next to each other.
-2. **$O(1)$ Direct Access Math:** Since the type is fixed (e.g. 4 bytes for `int`), the JVM can instantly compute the exact physical address of any element `i` using:
-   $$\text{Address}(i) = \text{Base Address} + i \times \text{Element Size}$$
-3. **No Resizing Overhead:** If arrays were resizable, the JVM might have to move the entire block of memory to another location on the heap if the adjacent memory cells were already taken by other objects. This would make insertion operations slow and unpredictable.
+In Java, an array is allocated as a contiguous block of memory on the heap, which means all its elements are stored physically adjacent to one another. When an array is instantiated, the JVM must request a block of memory of a specific, unchanging size from the operating system or the heap allocator. Because the JVM knows the exact memory offset for each element based on its index and data type, it can access any element in constant time $O(1)$ without traversing the preceding elements. Allowing an array to resize dynamically would require the memory block to expand, which is impossible if the adjacent memory addresses are already occupied by other objects on the heap. Therefore, to ensure memory safety, fast performance, and predictable execution, arrays are designed to have a strictly fixed size at the time of allocation.
+
+```mermaid
+graph TD
+    subgraph Heap Memory Layout
+        subgraph Array Object
+            A[Base Address: 0x1000<br>Header / metadata]
+            B[Index 0: 0x1010<br>Value: 10]
+            C[Index 1: 0x1014<br>Value: 20]
+            D[Index 2: 0x1018<br>Value: 30]
+        end
+    end
+    style Array Object fill:#f9f,stroke:#333,stroke-width:2px
+```
+
+**Runnable Code Example:**
+```java
+public class ArrayMemoryLayoutDemo {
+    public static void main(String[] args) {
+        int[] numbers = new int[3];
+        numbers[0] = 10;
+        numbers[1] = 20;
+        numbers[2] = 30;
+        System.out.println("Value at index 1: " + numbers[1]); // Output: 20
+    }
+}
+```
+
+**Cause-Effect Chain:**
+`Heap allocation request` &rarr; `Contiguous memory block reserved` &rarr; `Index calculation formula (Base + Index * Size) used` &rarr; `Direct physical address computed` &rarr; `O(1) constant-time access achieved`
 
 ### When to Use Arrays vs. ArrayList
 While arrays are highly efficient, `ArrayList` is a dynamic wrapper class built on top of a backing array.
@@ -407,3 +511,10 @@ public class ArrayVsArrayListExample {
     }
 }
 ```
+
+---
+
+## Reference Links
+
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-10.html (Arrays in Java Language Specification)
+- https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html (Official Java Arrays Tutorial)

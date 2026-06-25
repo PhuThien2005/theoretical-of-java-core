@@ -191,3 +191,65 @@ While individual read and write operations on `ConcurrentHashMap` are thread-saf
 - What does ConcurrentHashMap use since Java 8 instead of segment locks? (CAS operations and synchronized bucket head nodes)
 - Why does IdentityHashMap use `==`? (For identity matching rather than logical equals, useful for graph traversals or system level caches)
 - Which iterator supports going backwards? (ListIterator)
+
+## Why ConcurrentHashMap Avoids Global Locking
+
+Traditional synchronized maps (such as `Hashtable` or the wrapper returned by `Collections.synchronizedMap()`) achieve thread-safety by locking the entire data structure during reads and writes, creating severe performance bottlenecks. To overcome this limitation, `ConcurrentHashMap` employs a lock-striping strategy where read operations are completely lock-free, and write operations synchronize at the individual bucket level. When inserting an element into an empty bucket, the map uses a Compare-And-Swap (CAS) CPU instruction to place the node atomically without acquiring a software lock. If the target bucket is not empty, the write thread acquires a lock only on the head node of that specific bucket using a standard Java `synchronized` block, allowing other threads to read or write to other buckets concurrently. Additionally, `ConcurrentHashMap` rejects `null` keys and values to prevent ambiguity in concurrent contexts; if `null` values were permitted, it would be impossible to safely distinguish whether a key has a mapped value of `null` or if the key is simply absent from the map, since calling `containsKey(key)` immediately after `get(key)` is non-atomic and prone to race conditions.
+
+### Mental Model
+
+Fine-grained locking targets individual buckets rather than locking the entire map:
+```text
+Hashtable / Synchronized Map:
+[Lock Active] -> Lock entire array [Bucket 0 | Bucket 1 | Bucket 2 | Bucket 3] (Blocks all threads)
+
+ConcurrentHashMap:
+Bucket 0 (Empty): [ (No Node) ] -> Write thread inserts node using CAS (No Locks!)
+Bucket 1 (Active): [ Head Node *Locked* ] -> Write thread locks head node only.
+Bucket 2 (Active): [ Head Node ] -> Read threads traverse lock-free.
+Bucket 3 (Active): [ Head Node ] -> Other write threads lock bucket 3 concurrently.
+```
+
+### Code Example
+
+```java
+import java.util.concurrent.ConcurrentHashMap;
+
+public class ConcurrentHashMapLockingDemo {
+    public static void main(String[] args) {
+        ConcurrentHashMap<String, String> map = new ConcurrentHashMap<>();
+
+        // 1. Concurrent lock-free writes to different buckets
+        map.put("KeyA", "ValueA"); // Hash maps to Bucket X
+        map.put("KeyB", "ValueB"); // Hash maps to Bucket Y
+        
+        System.out.println("Map content: " + map); // Map content: {KeyA=ValueA, KeyB=ValueB}
+
+        // 2. Demonstration of NullPointerException for null keys/values
+        try {
+            map.put("KeyC", null);
+        } catch (NullPointerException e) {
+            System.out.println("Caught NullPointerException for null value");
+            // Caught NullPointerException for null value
+        }
+        
+        try {
+            map.put(null, "ValueC");
+        } catch (NullPointerException e) {
+            System.out.println("Caught NullPointerException for null key");
+            // Caught NullPointerException for null key
+        }
+    }
+}
+```
+
+### Cause-Effect Chain
+
+```text
+Concurrent write initiated → Bucket is empty? → Use CAS operation to write node lock-free → Bucket is occupied? → Synchronize ONLY on bucket head node → Allow concurrent writes to different buckets → Reject null keys/values to avoid get()/containsKey() race condition ambiguity
+```
+
+## Reference Links
+
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html (ConcurrentHashMap API docs)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collections.html#synchronizedMap(java.util.Map) (synchronizedMap wrapper)

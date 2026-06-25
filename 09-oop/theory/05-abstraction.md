@@ -254,3 +254,180 @@ interface Config {
 - Oracle Java Tutorials - Abstract methods and classes: https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html
 - Oracle Java Tutorials - Default methods: https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html
 - Dev.java OOP overview: https://dev.java/learn/oop/
+
+---
+
+## Why Java Uses Interfaces Instead of Multiple Class Inheritance
+
+Java's designers deliberately prohibited multiple class inheritance because allowing `class D extends B, C` — where both `B` and `C` independently override a method from a shared ancestor `A` — creates an ambiguity that has no safe, deterministic resolution: the compiler and JVM would need to pick one implementation over the other with no principled basis for the choice, leading to unpredictable behavior known as the **Diamond Problem**. Languages like C++ allow multiple class inheritance but require explicit disambiguation syntax that adds significant complexity for both compiler writers and developers. Java solved this by restricting every class to a single `extends` relationship while allowing unlimited `implements` relationships. Interfaces originally carried no implementations — only method signatures — so implementing two interfaces with the same method name created no ambiguity: the implementing class was simply obligated to provide one implementation that satisfied both contracts. When Java 8 introduced `default` methods (concrete implementations inside interfaces), the diamond problem re-emerged in a new form: if two interfaces both declare a `default` method with the same signature and a class implements both, it inherits two conflicting implementations. Java resolves this by refusing to compile such a class unless it explicitly overrides the conflicting method, forcing the developer to resolve the ambiguity deliberately using either custom logic or the `InterfaceName.super.method()` delegation syntax.
+
+### Mental Model
+
+```
+Diamond Problem (class inheritance — Java PROHIBITS):
+
+        A
+       / \
+      B   C         B.foo() and C.foo() are different implementations
+       \ /
+        D           D.foo() — ambiguous! Which parent's foo() runs? No answer.
+
+Java's Solution (interface inheritance):
+
+  interface Flyable { void move(); }    // no implementation
+  interface Swimmer { void move(); }    // no implementation
+  class Duck implements Flyable, Swimmer {
+      @Override public void move() { ... }  // Duck MUST provide ONE explicit implementation
+  }
+
+Default Method Conflict (Java 8+ — still resolved at compile time):
+
+  interface Flyable { default void move() { "fly"; } }
+  interface Swimmer { default void move() { "swim"; } }
+  class Duck implements Flyable, Swimmer {
+      // COMPILE ERROR unless Duck overrides move()
+      @Override public void move() {
+          Flyer.super.move();  // OR: Swimmer.super.move();  OR: custom
+      }
+  }
+```
+
+### Code Example
+
+```java
+interface Flyable {
+    default void move() { System.out.println("Flying"); }
+}
+
+interface Swimmer {
+    default void move() { System.out.println("Swimming"); }
+}
+
+// class Duck implements Flyable, Swimmer {} // Compile Error: inherits unrelated defaults for move()
+
+class Duck implements Flyable, Swimmer {
+    @Override
+    public void move() {
+        // Must resolve the conflict explicitly
+        Flyable.super.move(); // delegates to Flyable's default
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        new Duck().move();
+    }
+}
+// Output:
+// Flying
+```
+
+### Cause-Effect Chain
+
+Java prohibits `class D extends B, C` (multiple class inheritance)
+→ Eliminates the Diamond Problem: no two parent classes can supply conflicting concrete vtable slots for the same method
+→ Interfaces with only abstract methods can be multiply implemented — no conflict because no implementations exist
+→ Java 8 introduces `default` methods: interfaces can now carry implementations
+→ Two interfaces with the same default method signature creates a new conflict
+→ Java compiler refuses to compile unless the implementing class explicitly overrides the method
+→ Developer must use `InterfaceName.super.method()` or provide custom logic
+→ Conflict always resolved at compile time — never left ambiguous at runtime
+
+---
+
+## Why Abstract Classes and Interfaces Serve Different Design Purposes
+
+The choice between an abstract class and an interface is a **semantic** decision about what the type represents, not merely a technical one about what language features are needed. An abstract class models an **is-a identity**: it represents a real, recognizable category of objects that share state, lifecycle, and partial behavior (e.g., every `BankAccount` has a balance and an account number regardless of whether it is a savings or checking account). Because an abstract class can declare instance fields and constructors, it is the natural home for shared mutable state that all subclasses need to inherit and build upon; subclasses call `super(...)` to initialize that shared state before adding their own. An interface models a **can-do capability**: it describes a role or contract that completely unrelated classes might fulfil (e.g., both a `Robot` and a `Human` can be `Payable`, but they share no common identity or state). The design rule that resolves the choice is the **Liskov Substitution Principle together with the presence of shared state**: if the abstraction carries instance fields, requires a constructor, or represents a stable identity hierarchy from which subclasses truly inherit state and behavior, use an abstract class; if the abstraction is a pure behavioral contract that should be applicable across unrelated types without forcing a single inheritance slot, use an interface. In modern Java (8+), interfaces support `default` and `static` methods, narrowing the gap — but they still cannot hold instance state, which remains the hard boundary between the two mechanisms.
+
+### Mental Model
+
+```
+ABSTRACT CLASS — use when there is shared identity + state:
+
+  abstract class BankAccount {
+      private double balance;       // shared state — instance field
+      private String accountNumber; // shared state — instance field
+      BankAccount(String acct, double bal) { ... } // shared constructor
+
+      public double getBalance() { return balance; } // shared concrete method
+
+      abstract void processInterest();               // specialization point
+  }
+
+  SavingsAccount extends BankAccount  → IS-A BankAccount, inherits balance/accountNumber
+  CheckingAccount extends BankAccount → IS-A BankAccount, inherits balance/accountNumber
+
+INTERFACE — use when there is only a behavioral contract across unrelated types:
+
+  interface Payable {
+      void pay(double amount);   // contract only — no state
+  }
+
+  SavingsAccount implements Payable  → CAN-DO paying
+  Robot          implements Payable  → CAN-DO paying (unrelated hierarchy!)
+  Employee       implements Payable  → CAN-DO paying (completely different type!)
+
+Decision Rule:
+  Has shared instance state?  → Abstract Class
+  Pure behavioral contract?   → Interface
+  Needs both?                 → Abstract Class + Interface(s)
+```
+
+### Code Example
+
+```java
+// Abstract class: shared identity + state
+abstract class Shape {
+    private String color; // shared instance state
+
+    Shape(String color) { this.color = color; }
+
+    public String getColor() { return color; }
+
+    abstract double area(); // specialization point
+}
+
+// Interface: pure capability, applicable to unrelated types
+interface Printable {
+    void print(); // behavioral contract only
+}
+
+class Circle extends Shape implements Printable {
+    private double radius;
+
+    Circle(String color, double radius) {
+        super(color); // initializes shared Shape state
+        this.radius = radius;
+    }
+
+    @Override
+    public double area() { return Math.PI * radius * radius; }
+
+    @Override
+    public void print() {
+        System.out.printf("Circle [color=%s, area=%.2f]%n", getColor(), area());
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Circle c = new Circle("red", 5.0);
+        c.print();
+        System.out.printf("Area: %.2f%n", c.area());
+    }
+}
+// Output:
+// Circle [color=red, area=78.54]
+// Area: 78.54
+```
+
+### Cause-Effect Chain
+
+Type needs to carry instance fields and a constructor for shared state
+→ Use an abstract class: subclasses call `super(...)` to initialize that state
+→ Single inheritance slot is consumed; subclass can still implement multiple interfaces
+→ Type is only a behavioral contract with no instance state
+→ Use an interface: any class from any hierarchy can implement it
+→ Multiple interfaces can be implemented simultaneously — no slot conflict
+→ If both shared state and a cross-cutting capability are needed:
+→ Extend one abstract class for identity/state AND implement one or more interfaces for capabilities

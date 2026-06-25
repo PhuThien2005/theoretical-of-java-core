@@ -28,6 +28,14 @@ This topic follows the master outline in [outline.md](../outline.md). The goal i
 - DataSource
 - CRUD using JDBC
 
+## Self-Check
+
+1. Why does `PreparedStatement` prevent SQL injection, and how does it leverage the database's query plan cache to improve performance compared to `Statement`?
+2. Why does disabling auto-commit override the database's default behavior, and why is this manual control critical for maintaining transactional ACID boundaries?
+3. Why do database `Savepoint`s allow partial rollbacks, and what is the underlying mechanism and impact on transaction isolation levels when executing a partial rollback?
+4. Why do database connection pools (like HikariCP) yield massive performance gains, and how do they reuse physical connections to avoid TCP handshakes and database authentication overhead?
+5. Why must JDBC resources (`Connection`, `Statement`, `ResultSet`) be closed in the strict reverse order of their creation, and how does try-with-resources prevent resource leaks under JVM garbage collection?
+
 ## Anki Cards
 
 - [Basic](anki/basic.tsv)

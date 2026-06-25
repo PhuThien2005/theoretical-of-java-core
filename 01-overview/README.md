@@ -49,6 +49,11 @@ Java source code is not executed directly by the operating system. The source co
 - Jakarta EE
 - Java ME
 - LTS
+- Stack
+- Heap
+- GC Roots
+- Records
+- Virtual Threads
 
 ## Self-Check
 

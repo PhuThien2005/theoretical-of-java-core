@@ -30,12 +30,11 @@ flowchart TD
 
 ## Self-Check
 
-- Why is String immutable in Java?
-- What is the difference between `s1 = "hello"` and `s2 = new String("hello")`?
-- How does the String Pool save memory?
-- What is the difference between `trim()` and `strip()`?
-- When should you use `StringBuilder` instead of `String`?
-- Are `StringBuilder` methods thread-safe?
+- Why is `String` immutable in Java, and how does this design decision impact security, thread-safety, and caching (String Pool)?
+- How does the JVM String Pool optimize memory usage, and what are the exact heap mechanics of `s1 = "hello"` versus `s2 = new String("hello")`?
+- Why does reference comparison (`==`) produce different results for pool-allocated versus heap-allocated strings, and why is `.equals()` required for content comparison?
+- What are the mechanical differences between `trim()` and `strip()` regarding Unicode whitespace and codepoint processing?
+- Why does `StringBuilder` outperform `StringBuffer`, and how does synchronization impact their performance and thread-safety?
 
 ## Anki Cards
 

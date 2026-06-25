@@ -28,11 +28,12 @@ flowchart TD
 
 ## Self-Check
 
-- Why do arrays have a fixed size in Java?
-- What is the default value of elements in an uninitialized numeric array?
-- What is the difference between `array.length` and `String.length()`?
-- How does `Arrays.equals()` differ from `Arrays.deepEquals()`?
-- Why does `System.arraycopy()` perform better than a manual loop for copying?
+- Why does the JVM allocate arrays as contiguous blocks of memory on the Heap, and how does this enable O(1) constant-time direct access?
+- Why are array elements automatically zero-initialized upon allocation, unlike local variables which trigger compilation errors if read before initialization?
+- Why does a multidimensional array in Java behave as an "array of arrays" rather than a single contiguous block, and what is its physical memory layout?
+- Why is `System.arraycopy()` faster than a manual loop, and why does it perform a shallow copy instead of a deep copy for object reference arrays?
+- Why does `Arrays.equals()` fail to compare the contents of multidimensional arrays correctly, requiring `Arrays.deepEquals()`?
+- Why must an array be sorted in ascending order before calling `Arrays.binarySearch()`, and what does the returned negative value represent mathematically if the key is not found?
 
 ## Anki Cards
 

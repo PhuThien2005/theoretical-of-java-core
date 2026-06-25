@@ -168,16 +168,150 @@ Immutable objects are objects whose state cannot be changed after construction. 
 - **Runnable Example**:
   ```java
   public final class ImmutableUser {
-      private final String username;
-      private final List<String> roles;
+    private final String username;
+    private final List<String> roles;
 
-      public ImmutableUser(String username, List<String> roles) {
-          this.username = username;
-          // Defensive copy to prevent caller modifying the passed list
-          this.roles = List.copyOf(roles); 
-      }
+    public ImmutableUser(String username, List<String> roles) {
+        this.username = username;
+        // Defensive copy to prevent caller modifying the passed list
+        this.roles = List.copyOf(roles); 
+    }
 
-      public String getUsername() { return username; }
-      public List<String> getRoles() { return roles; } // Returns unmodifiable view
-  }
+    public String getUsername() { return username; }
+    public List<String> getRoles() { return roles; } // Returns unmodifiable view
+    }
   ```
+
+---
+
+## Why Exception Swallowing Is Dangerous
+
+Swallowing exceptions occurs when a program catches an exception but performs no corrective action, failing to log or propagate the error. When an exception is thrown, the JVM halts normal control flow and performs a search on the current method's Exception Table in the bytecode. If a handler matches, control transfers to it; otherwise, the JVM unwinds the stack, popping active stack frames until a handler is found or the thread dies. Swallowing an exception halts this unwinding process without resolving the root cause, discarding the exception's internal state which includes the message, cause, and stack trace array. This masks underlying bugs, prevents runtime monitoring systems from capturing failures, and creates severe security hazards where operations fail silently, potentially leaving the system in a corrupted or half-initialized state.
+
+### Mental Model: Stack Trace and Diagnostic Context Loss
+
+```text
+Normal Error Path (Propagated):
+Method C (Throws) ---> Method B (Propagates) ---> Method A (Catches & Logs Stack Trace)
+Result: Trace preserved, bug isolated.
+
+Swallowed Path (Lost):
+Method C (Throws) ---> Method B (Catch { }) ---> Method A (Continues blind, assumes success)
+Result: Exception object discarded; Stack Trace lost; system corrupts silently.
+```
+
+### Code Example
+
+```java
+import java.io.IOException;
+
+public class ExceptionSwallowingDemo {
+    public static void loadConfigSwallowed() {
+        try {
+            throw new IOException("Disk failure reading config file");
+        } catch (IOException e) {
+            // Bad: Exception swallowed. No log, no rethrow, no recovery.
+        }
+    }
+
+    public static void loadConfigSafe() {
+        try {
+            throw new IOException("Disk failure reading config file");
+        } catch (IOException e) {
+            // Good: Preserves context by wrapping and throwing
+            throw new RuntimeException("Failed to load application config", e);
+        }
+    }
+
+    public static void main(String[] args) {
+        loadConfigSwallowed();
+        System.out.println("Swallowed completed without warning. Application unstable."); 
+        // Output: Swallowed completed without warning. Application unstable.
+
+        try {
+            loadConfigSafe();
+        } catch (RuntimeException e) {
+            System.out.println("Caught safely: " + e.getMessage() + " | Cause: " + e.getCause().getMessage());
+            // Output: Caught safely: Failed to load application config | Cause: Disk failure reading config file
+        }
+    }
+}
+```
+
+### Cause-Effect Chain
+
+```text
+Exception occurs → Empty catch block intercepts exception object → JVM stack unwinding halted → Diagnostic details (stack trace, cause) discarded → System continues executing with corrupted state/undefined behavior
+```
+
+---
+
+## Why Custom Exceptions Group by Recovery Rationale
+
+Custom exceptions should be designed based on whether the calling application can programmatically recover from the failure. The Java Language Specification enforces checked exceptions at compile-time by requiring methods to either handle them or declare them in their `throws` signature. Unchecked exceptions, which inherit from `RuntimeException`, bypass compile-time verification because they typically indicate programmer errors or unrecoverable system states. When defining custom exceptions, extending `Exception` (checked) signals to callers that the condition is recoverable (e.g., a temporary network timeout) and forces them to write recovery paths. Conversely, extending `RuntimeException` (unchecked) signifies that the failure is unrecoverable (e.g., bad database credentials or invalid API payloads), allowing the thread to fail fast, abort the operation, and log the diagnostic stack trace without polluting call-chain method signatures.
+
+### Mental Model: Checked vs Unchecked Exception Recovery
+
+```text
+Recoverable (Checked Exception):
+[Disk Read Failed] ---> CustomCheckedException ---> Catch Block ---> [Retry alternative file]
+
+Unrecoverable (Unchecked Exception):
+[Null Pointer/Bad Config] ---> CustomUncheckedException ---> Abort ---> [Log Stack Trace & Exit]
+```
+
+### Code Example
+
+```java
+// Recoverable custom exception
+class UserInputException extends Exception {
+    public UserInputException(String msg) { super(msg); }
+}
+
+// Unrecoverable custom exception
+class SystemDatabaseException extends RuntimeException {
+    public SystemDatabaseException(String msg, Throwable cause) { super(msg, cause); }
+}
+
+public class RecoveryExceptionDemo {
+    public static void processInput(String input) throws UserInputException {
+        if (input == null || input.isBlank()) {
+            throw new UserInputException("Input cannot be empty. Please retry.");
+        }
+    }
+
+    public static void connectDatabase() {
+        // Unrecoverable configuration or driver load failure
+        throw new SystemDatabaseException("Database driver not found", new ClassNotFoundException());
+    }
+
+    public static void main(String[] args) {
+        try {
+            processInput("");
+        } catch (UserInputException e) {
+            System.out.println("Recoverable: " + e.getMessage()); // Output: Recoverable: Input cannot be empty. Please retry.
+        }
+
+        try {
+            connectDatabase();
+        } catch (SystemDatabaseException e) {
+            System.out.println("Unrecoverable: " + e.getMessage() + " | Cause: " + e.getCause().getClass().getSimpleName());
+            // Output: Unrecoverable: Database driver not found | Cause: ClassNotFoundException
+        }
+    }
+}
+```
+
+### Cause-Effect Chain
+
+```text
+Determine recovery possibility → Choose parent (Exception vs RuntimeException) → Compile-time check enforced (for checked) vs thread aborted (for unchecked) → Developer forced to implement recovery or thread safely terminated → Clean separation of error-handling concerns
+```
+
+---
+
+## Reference Links
+
+- [Oracle Java Exception Tutorial](https://docs.oracle.com/javase/tutorial/essential/exceptions/)
+- [Java Language Specification - Exceptions](https://docs.oracle.com/javase/specs/jls/se21/html/jls-11.html)
+- [Dev.java Exceptions Guide](https://dev.java/learn/exceptions/)

@@ -151,7 +151,45 @@ An executable JAR is packaged with a `META-INF/MANIFEST.MF` metadata file that d
     java -cp library.jar com.example.MainApp
     ```
 
+### Why Executable JARs Need MANIFEST.MF
+
+When you run a JAR using `java -jar app.jar`, the Java Virtual Machine needs to know which class contains the application entry point (the `public static void main` method) to begin execution. Unlike standard class execution where you explicitly pass the class name, `java -jar` delegates this lookup entirely to the metadata inside the JAR archive. This metadata is stored in the `META-INF/MANIFEST.MF` file, specifically under the `Main-Class` attribute. If this attribute is missing, the JVM cannot resolve the starting point and aborts immediately. Additionally, the `Class-Path` attribute in the manifest tells the JVM where to find external dependencies relative to the JAR, preventing the need to specify long `-cp` commands at runtime.
+
+#### Mental Model: Executable JAR Entry Point
+```mermaid
+flowchart LR
+    subgraph CLI ["Shell / Command Line"]
+        RunCommand["java -jar app.jar"]
+    end
+    subgraph JAR ["app.jar Archive"]
+        Manifest["META-INF/MANIFEST.MF\nMain-Class: com.example.MainApp"]
+        MainClass["com/example/MainApp.class\n(main method)"]
+    end
+    RunCommand -->|1. Inspects Manifest| Manifest
+    Manifest -->|2. Identifies Entrypoint Class| MainClass
+    MainClass -->|3. Launches JVM execution| JVM[JVM Runtime]
+```
+
+#### Runnable Example
+Suppose you have the following manifest named `custom-manifest.txt` with a trailing blank newline:
+```text
+Manifest-Version: 1.0
+Main-Class: com.example.MainApp
+Class-Path: libs/gson-2.10.1.jar
+
+```
+If you build the JAR without this manifest or fail to add a trailing newline:
+```bash
+# Attempting to run without manifest or with a malformed manifest:
+java -jar myapp.jar
+# Output: no main manifest attribute, in myapp.jar
+```
+
+#### Cause-Effect Chain
+`java -jar app.jar` executed $\rightarrow$ JVM inspects `META-INF/MANIFEST.MF` inside the archive $\rightarrow$ JVM fails to find `Main-Class` header (due to missing attribute or missing trailing newline) $\rightarrow$ JVM does not know which class's `main` method to run $\rightarrow$ Startup aborts with `no main manifest attribute` error.
+
 ---
+
 
 ### Classpath
 
@@ -170,7 +208,52 @@ The Classpath defines the search path that the compiler (`javac`) and the JVM ru
   - **Wrong Separator**: Using `;` on Linux/macOS or `:` on Windows will break path resolution.
   - **Implicit Current Directory Overridden**: When you specify `-cp` or `-classpath`, the default search path `.` (current directory) is automatically disabled. If your program relies on classes in the current folder, you must add `.` to the classpath explicitly (e.g., `-cp .:libs/helper.jar`).
 
+### Why Classpath Resolution Fails: NoClassDefFoundError vs ClassNotFoundException
+
+The JVM resolves classes dynamically during runtime as they are referenced by the executing code. When the JVM tries to load a class and fails, it throws one of two distinct issues: `ClassNotFoundException` or `NoClassDefFoundError`. A `ClassNotFoundException` is a checked exception that occurs when an application attempts to load a class dynamically by its string name (e.g., using `Class.forName()`, `ClassLoader.loadClass()`, or `ClassLoader.findSystemClass()`) but the class cannot be found on the classpath. On the other hand, `NoClassDefFoundError` is a runtime error (subclass of `LinkageError`) that occurs when the compiler successfully compiles a class reference, but at runtime, the JVM cannot find the definition of that class on the classpath when it is first instantiated or accessed. This usually happens because a library was present during compilation but is missing from the classpath during execution, or because static initialization failed.
+
+#### Mental Model: Book on Shelf vs. Catalog Search
+* **`ClassNotFoundException`**: You go to the librarian (dynamic lookup) and ask: "Please find me a book named 'SecretRecipes' by name." The librarian checks the catalog and says: "I don't have any book registered by that name." (Checked exception: your code must handle the possibility that the book doesn't exist).
+* **`NoClassDefFoundError`**: You read a recipe book (compiled code) that says: "Now add 2 spoons of secret sauce from the yellow jar." You look at the shelf where the yellow jar is supposed to be, but it is missing! The recipe was written assuming the jar exists, but it's not physically there at runtime. (Fatal error: linkage has failed).
+
+```mermaid
+flowchart TD
+    subgraph CNF ["ClassNotFoundException (Checked Exception)"]
+        DynamicLookup["Code calls Class.forName('com.Helper')"] -->|Search Classpath| ClasspathQuery{Found?}
+        ClasspathQuery -->|No| ThrowCNF["Throw ClassNotFoundException"]
+    end
+    subgraph NCDF ["NoClassDefFoundError (Linkage Error)"]
+        CompOK["javac compiles source referencing Helper.class successfully"] -->|Run java App| Linkage{"JVM attempts to link helper class"}
+        Linkage -->|Class missing from Classpath| ThrowNCDF["Throw NoClassDefFoundError"]
+    end
+```
+
+#### Runnable Example
+```java
+// Example causing ClassNotFoundException
+try {
+    Class<?> clazz = Class.forName("com.nonexistent.Helper");
+} catch (ClassNotFoundException e) {
+    e.printStackTrace();
+    // Output: java.lang.ClassNotFoundException: com.nonexistent.Helper
+}
+
+// Example causing NoClassDefFoundError
+// Compiled fine when LibClass was present:
+public class Main {
+    public static void main(String[] args) {
+        LibClass lib = new LibClass(); // Throws NoClassDefFoundError if LibClass.class is deleted/missing at runtime
+    }
+}
+// Output at runtime:
+// Exception in thread "main" java.lang.NoClassDefFoundError: LibClass
+```
+
+#### Cause-Effect Chain
+Compiler builds class reference successfully $\rightarrow$ Class definition is omitted from the runtime classpath flag (`-cp`) $\rightarrow$ JVM executes instruction calling class constructor $\rightarrow$ Class loader searches classpath and returns null $\rightarrow$ JVM linker throws `NoClassDefFoundError`.
+
 ---
+
 
 ### Manifest file
 
@@ -258,6 +341,50 @@ Dependency management is the mechanism of resolving, fetching, and managing exte
         </exclusions>
     </dependency>
     ```
+
+### Why Build Tools (Maven/Gradle) Are Essential
+
+As Java projects grow in complexity, managing dependencies, compiling files, running tests, and packaging binaries manually using raw CLI commands becomes error-prone and unsustainable. Build automation tools like Maven and Gradle solve this by orchestrating the entire lifecycle of a project through declarative or programmatic configurations. They automatically resolve transitive dependencies—libraries that your direct dependencies require—by downloading them from central repositories like Maven Central and caching them locally. Without build tools, you would have to manually download every JAR, recursively find its dependencies, and construct massive, fragile classpath strings. Additionally, build tools provide standardized build lifecycles (such as `clean`, `compile`, `test`, and `package`) ensuring consistent, reproducible builds across development and production environments.
+
+#### Mental Model: Manual vs Automated Dependency Management
+```mermaid
+graph TD
+    subgraph Manual ["Manual Dependency Resolution (Jar Hell)"]
+        User["Developer"] -->|1. Download Gson.jar| Gson["gson.jar"]
+        User -->|2. Search dependencies of Gson| WebSearch["Web Search"]
+        User -->|3. Construct Classpath| CPString["java -cp lib1.jar:lib2.jar:lib3.jar... App"]
+    end
+    subgraph Automated ["Build Tool Resolution (Maven/Gradle)"]
+        POM["pom.xml / build.gradle"] -->|Declares Gson dependency| BuildTool["Maven/Gradle"]
+        BuildTool -->|Queries repository| CentralRepo["Maven Central"]
+        CentralRepo -->|Resolves recursively| Transitive["Downloads Gson + all transitive dependencies"]
+        BuildTool -->|Orchestrated Lifecycle| Package["Compiles, Tests & Packages automatically"]
+    end
+```
+
+#### Runnable Example
+A developer specifies a single dependency in a Maven `pom.xml`:
+```xml
+<dependency>
+    <groupId>org.apache.httpcomponents.client5</groupId>
+    <artifactId>httpclient5</artifactId>
+    <version>5.2.1</version>
+</dependency>
+```
+Running `mvn dependency:tree` shows Maven resolving all transitive dependencies automatically:
+```bash
+mvn dependency:tree
+# Output:
+# [INFO] com.example:myapp:jar:1.0.0
+# [INFO] \- org.apache.httpcomponents.client5:httpclient5:jar:5.2.1:compile
+# [INFO]    +- org.apache.httpcomponents.client5:httpcore5:jar:5.2.1:compile
+# [INFO]    \- org.slf4j:slf4j-api:jar:2.0.0:compile
+```
+
+#### Cause-Effect Chain
+Declare direct dependency in `pom.xml`/`build.gradle` $\rightarrow$ Build tool reads POM/Gradle script $\rightarrow$ Build tool queries remote repository for dependency POM metadata $\rightarrow$ Build tool discovers transitive dependencies (e.g., `httpcore5`, `slf4j-api`) $\rightarrow$ Build tool resolves conflicts and constructs correct classpath automatically for compilation and execution.
+
+---
 
 ## Common Review Prompts
 

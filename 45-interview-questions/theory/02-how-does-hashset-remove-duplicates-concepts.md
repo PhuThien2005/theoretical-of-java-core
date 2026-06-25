@@ -139,3 +139,50 @@ set.add(new Student("Bob")); // Set now contains TWO elements because references
 - `System.exit(0)` is called in the try or catch block.
 - The JVM crashes or suffers a power failure.
 - The thread running the try-catch block is killed/interrupted externally.
+
+---
+
+## Why HashSet Leverages HashMap to Remove Duplicates
+
+A `HashSet` in Java does not implement its own hashing collision-handling logic; instead, it delegates all storage and uniqueness checks to an internal `HashMap` instance. When a `HashSet` is instantiated, it initializes a private, transient `HashMap` where the set's elements serve as the map's keys, and a shared dummy object (`PRESENT`) is used as the constant value. Because a `HashMap` key collection must remain unique, calling `add(element)` performs a `map.put(element, PRESENT)` call under the hood. If the element is already mapped, `put()` returns the old value (`PRESENT`), prompting `add()` to return `false` to indicate a duplicate was rejected. By piggybacking on `HashMap`'s robust collision-resolution techniques (like linked lists and treeified buckets), Java avoids code duplication and ensures that element lookup, insertion, and deletion occur with O(1) average time complexity.
+
+### Mental Model
+
+```text
+  HashSet: [add(Key1)] ──(delegates)──> HashMap: put(Key1, PRESENT)
+  +-------------------------------------------------------+
+  | Backing HashMap Keys (Set Elements)                   |
+  |  - "Java" -> maps to PRESENT (dummy Object)           |
+  |  - "Python" -> maps to PRESENT                        |
+  |  - ["Java" added again -> put() returns PRESENT -> false] |
+  +-------------------------------------------------------+
+```
+
+### Code Example
+
+The code snippet below demonstrates how `HashSet` uses `add()` and how it internally calls the backing `HashMap`'s `put()` operation.
+
+```java
+import java.util.HashSet;
+
+public class HashSetMechanismDemo {
+    public static void main(String[] args) {
+        HashSet<String> set = new HashSet<>();
+        // map.put("Java", PRESENT) returns null -> add() returns true
+        System.out.println(set.add("Java")); // Output: true
+        // map.put("Java", PRESENT) returns PRESENT -> add() returns false
+        System.out.println(set.add("Java")); // Output: false
+    }
+}
+```
+
+### Cause-Effect Chain
+
+```text
+Call hashSet.add(element)
+  → Delegates internally to map.put(element, PRESENT)
+  → HashMap computes hash(element) and locates target bucket index
+  → HashMap scans bucket nodes checking key.equals(element)
+  → IF matching key found: overwrites value with PRESENT, returns PRESENT (add() returns false)
+  → IF matching key NOT found: creates new node, inserts key-value, returns null (add() returns true)
+```

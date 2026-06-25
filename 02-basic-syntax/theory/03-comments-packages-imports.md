@@ -35,6 +35,36 @@ public double calculateTotal() {
 
 Documentation comments can be used by tools such as `javadoc`.
 
+## How Comments are Processed by the Compiler
+
+During the compilation phase, the Java compiler handles comments differently depending on their syntax. When you run `javac`, the lexical analyzer parses the source file and strips out all single-line (`//`) and multi-line (`/* ... */`) comments, replacing them with whitespace. These comments are entirely omitted from the generated `.class` files, meaning they occupy no space in the JVM memory at runtime. In contrast, Javadoc documentation comments (`/** ... */`) are structured to hold meta-information and can be parsed by the compiler or doclet APIs to build HTML reference documentation. Unless compiler flags are set to retain specific metadata, compiled bytecode contains only executable instructions.
+
+### Mental Model: Compiler Filter
+Think of the compiler like a coffee filter: the coffee grounds (comments) are kept in the filter (the source code) to guide the barista, but only the pure liquid coffee (the bytecode) passes through into the cup (the `.class` file).
+
+```mermaid
+flowchart TD
+    A[Source Code with Comments] -->|Lexical Analysis| B[javac Compiler]
+    B -->|Strips // and /* comments| C[Clean Bytecode: HelloWorld.class]
+    B -->|Preserves /** comments| D[Javadoc Tool generates HTML API]
+```
+
+### Code Example
+```java
+public class CommentDemo {
+    public static void main(String[] args) {
+        // This single-line comment is stripped by the compiler.
+        /* This multi-line comment is 
+           also completely stripped. */
+        System.out.println("No comments exist in bytecode!");
+        // Output: No comments exist in bytecode!
+    }
+}
+```
+
+### Cause-Effect Chain
+`Developer writes comments` &rarr; `Compiler parses source file tokens` &rarr; `Lexical analyzer replaces comment characters with whitespace` &rarr; `Generated class bytecode contains only executable instructions without comment text`.
+
 ## Good Comments
 
 Good comments explain why code exists or clarify non-obvious decisions.
@@ -69,6 +99,42 @@ Package names are usually lowercase and often use a reversed domain name style:
 ```text
 com.company.project.module
 ```
+
+## Why Reverse DNS and Package Structure Prevent Collisions
+
+The internet's Domain Name System (DNS) is guaranteed to be globally unique. Java leverages this uniqueness by recommending that developers name packages using their organization's domain name in reverse order (e.g., `com.google` or `org.apache`). This naming convention prevents naming conflicts when integrating third-party libraries into a project. If two organizations both write a class named `Parser`, the reverse DNS package ensures one class lives at `com.companyA.utils.Parser` while the other lives at `com.companyB.network.Parser`, allowing the JVM to safely resolve both types on the classpath without collision.
+
+Furthermore, Java maps package names directly to directory structures on the filesystem. A class declared in package `com.example.learning` must reside in a folder path `com/example/learning/`. This guarantees that the operating system's filesystem and the JVM's class loader are aligned, keeping code files organized and unique.
+
+### Mental Model: Post Office Addresses
+Think of packages like postal addresses. If you write a letter to "John Smith", the post office cannot deliver it without a unique street address, city, and country. Similarly, the Fully Qualified Class Name (FQCN) acts as the complete postal address for your class.
+
+```mermaid
+flowchart TD
+    A[Global DNS Registry] -->|Guarantees unique domain| B[companyA.com]
+    A -->|Guarantees unique domain| C[companyB.com]
+    B -->|Reverse mapping| D["package com.companyA.Parser"]
+    C -->|Reverse mapping| E["package com.companyB.Parser"]
+```
+
+### Code Example
+```java
+// Two classes with the same simple name resolved using Fully Qualified Class Names (FQCN)
+package com.example.shop;
+
+public class NamespaceDemo {
+    public static void main(String[] args) {
+        // Explicitly naming package paths prevents ambiguity
+        com.companyA.utils.Parser localParser = new com.companyA.utils.Parser();
+        com.companyB.network.Parser remoteParser = new com.companyB.network.Parser();
+        System.out.println("Both Parser classes loaded without collision.");
+        // Output: Both Parser classes loaded without collision.
+    }
+}
+```
+
+### Cause-Effect Chain
+`Organizations register unique internet domains` &rarr; `Java packages use reversed domain structures` &rarr; `Class files reside in unique subdirectory paths on disk` &rarr; `JVM classpath loader resolves type names cleanly using Fully Qualified Class Names`.
 
 ## Imports
 
@@ -185,3 +251,10 @@ public class OrderService {        // 4. class — name matches file name
     }
 }
 ```
+
+## Reference Links
+
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-3.html#jls-3.7 (JLS Lexical Structure - Comments)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-7.html#jls-7.3 (JLS Packages - Compilation Units)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-7.html#jls-7.5 (JLS Packages - Import Declarations)
+

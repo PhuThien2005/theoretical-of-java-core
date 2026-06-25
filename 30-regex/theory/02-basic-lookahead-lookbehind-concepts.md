@@ -59,6 +59,87 @@ public class LookaroundExample {
 Pattern p = Pattern.compile("(?<=prefix.*)digits"); 
 ```
 
+## Why Lookarounds are Zero-Width Assertions
+
+Lookahead and lookbehind assertions are called "zero-width" because they do not consume characters in the input stream during execution. Instead, they act as virtual anchors or logical checkpoints that inspect the upcoming or preceding characters from the current match pointer. Once the assertion succeeds, the regex engine's matching cursor remains at the exact same position it was before the assertion started. This allows multiple conditions to be validated at the exact same character position, which is particularly useful for checking password complexity rules.
+
+#### Mental Model: Zero-Width Navigation
+
+```mermaid
+sequenceDiagram
+    Note over Regex Engine: Cursor at position 3 (between 'a' and '1')
+    Note over Regex Engine: Input: 'java17'
+    Regex Engine->>Lookahead: Check if (?=\d) matches
+    Lookahead->>Regex Engine: Yes (matches '1')
+    Note over Regex Engine: Cursor remains at position 3 (width = 0)
+    Regex Engine->>Matcher: Continue matching next pattern token
+```
+
+#### Code Example: Asserting Without Consuming
+
+```java
+import java.util.regex.*;
+
+public class ZeroWidthDemo {
+    public static void main(String[] args) {
+        // (?=abc) checks for "abc" forward from start, but doesn't consume it.
+        // The subsequent token 'a' then successfully matches the first character.
+        Pattern p = Pattern.compile("(?=abc)a");
+        Matcher m = p.matcher("abc");
+        if (m.find()) {
+            System.out.println("Matched: " + m.group()); // Matched: a (only 'a' is consumed)
+            System.out.println("Start: " + m.start() + ", End: " + m.end()); // Start: 0, End: 1
+        }
+    }
+}
+```
+
+#### Cause-Effect Chain
+
+Engine reaches lookaround group `(?=pattern)` → Temporarily branches to evaluate pattern → Pattern matches successfully → Engine discards matched characters' state and reverts cursor → Continues matching main regex from the original position.
+
+## Why Java Lookbehinds Have Width Limitations
+
+Unlike lookaheads which read forward into the remaining unconsumed string, lookbehinds require the regex engine to step backward in the input buffer. To implement this step-back operation efficiently, the Java regex compiler must pre-calculate the exact range of characters it needs to look back. If the lookbehind pattern has an unbounded width (such as using `*` or `+`), the engine cannot determine at compile time how many steps to rewind. To prevent unpredictable runtime performance and buffer navigation issues, Java's regex engine enforces a fixed-length or bounded-length rule for lookbehind expressions, throwing a `PatternSyntaxException` for unbounded lookbehinds.
+
+#### Mental Model: Lookahead vs. Lookbehind Directions
+
+```
+Lookahead (?=abc)  ---> Matches forward into remaining stream (arbitrary length OK)
+Input: [x][y][z][a][b][c]
+               ^-- (Cursor evaluates forward)
+
+Lookbehind (?<=abc) <-- Steps backward in the buffer (fixed or bounded width required)
+Input: [a][b][c][x][y][z]
+               ^-- (Cursor evaluates backward)
+```
+
+#### Code Example: Bounded vs. Unbounded Lookbehinds
+
+```java
+import java.util.regex.*;
+
+public class LookbehindLimitDemo {
+    public static void main(String[] args) {
+        // Bounded lookbehinds work in Java (length range is known: 1 to 5)
+        Pattern bounded = Pattern.compile("(?<=id=\\d{1,5})\\w+");
+        System.out.println(bounded.matcher("id=123active").find()); // true
+        
+        try {
+            // Unbounded lookbehinds (using + or *) will fail compilation
+            Pattern.compile("(?<=id=\\d+)\\w+");
+        } catch (PatternSyntaxException e) {
+            System.out.println("Compilation failed: " + e.getDescription()); // Look-behind group does not have an obvious maximum length
+        }
+    }
+}
+```
+
+#### Cause-Effect Chain
+
+Lookbehind pattern compiled → Engine checks if pattern width is bounded → If unbounded (`*` or `+`), maximum step-back size is infinite/unknown → Throws `PatternSyntaxException` at compile-time to prevent inefficient memory scans.
+
+
 ---
 
 ### Validate email, phone, password
@@ -188,6 +269,54 @@ String[] bad = ip.split(".");
 // CORRECT: escape the dot
 String[] good = ip.split("\\."); 
 ```
+
+## Why String.split Discards Trailing Empty Strings
+
+By default, Java's `String.split(regex)` or `String.split(regex, 0)` is designed for convenience, assuming that trailing empty segments resulting from consecutive separators are unwanted noise (e.g., parsing comma-separated lists with trailing commas). To do this, the regex engine splits the string fully, but then performs a post-processing cleanup step that truncates any trailing empty strings from the resulting array. When you need to preserve all fields—such as when parsing CSV records where a trailing empty string represents an empty database cell—you must pass a negative limit parameter (like `-1`). This negative limit instructs the engine to split as many times as possible and skip the trailing empty truncation step.
+
+#### Mental Model: Default Limit vs. Negative Limit
+
+```
+Input: "A,B,,"
+
+Default split(",") or split(",", 0):
+Step 1: Match separators -> ["A", "B", "", ""]
+Step 2: Clean up trailing empty elements -> ["A", "B"]
+
+Negative limit split(",", -1):
+Step 1: Match separators -> ["A", "B", "", ""]
+Step 2: Return array directly -> ["A", "B", "", ""]
+```
+
+#### Code Example: Split Array Comparison
+
+```java
+import java.util.Arrays;
+
+public class SplitExplanation {
+    public static void main(String[] args) {
+        String input = "name,age,,";
+        
+        // Discards trailing empty elements
+        String[] defaultSplit = input.split(",");
+        System.out.println(Arrays.toString(defaultSplit)); // [name, age]
+        
+        // Preserves all empty elements
+        String[] rawSplit = input.split(",", -1);
+        System.out.println(Arrays.toString(rawSplit)); // [name, age, , ]
+    }
+}
+```
+
+#### Cause-Effect Chain
+
+Separator matched at end of input → Engine creates empty string array element → Default limit (`0`) triggers post-split scan → Truncates consecutive trailing empty strings → Negative limit (`-1`) skips post-split scan → All array entries preserved.
+
+## Reference Links
+
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html#split(java.lang.String,int) (String.split Java Documentation)
+- https://docs.oracle.com/javase/tutorial/essential/regex/bounds.html (Boundary Matchers Oracle Java Tutorial)
+
 
 ---
 

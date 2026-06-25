@@ -70,6 +70,11 @@ def trust_label(url: str) -> str:
 
 
 def check_url(url: str, timeout: float) -> tuple[str, str]:
+    host = urllib.parse.urlparse(url).netloc.lower()
+    host = host.split("@")[-1].split(":")[0]
+    if host == "example.com" or host.endswith(".example.com"):
+        return "ok", "example domain"
+
     headers = {"User-Agent": "learning-java-reference-audit/1.0"}
     for method in ("HEAD", "GET"):
         request = urllib.request.Request(url, method=method, headers=headers)

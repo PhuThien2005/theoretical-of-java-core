@@ -141,3 +141,59 @@ Calling `wait()`, `notify()`, or `notifyAll()` without holding the monitor lock 
 Object lock = new Object();
 lock.wait(); // CRASH: Not inside synchronized(lock)!
 ```
+
+---
+
+## Why Comparable and Comparator Differ in Sorting Design
+
+Java separates sorting logic into `Comparable` and `Comparator` to distinguish between an object's inherent natural ordering and its context-dependent custom orderings. When a class implements `Comparable`, it overrides `compareTo()` to establish a default sorting rule that represents the single, intrinsic identity ordering of that entity (e.g., sorting Students by their unique ID). Conversely, a `Comparator` is defined externally as a separate object or lambda, overriding `compare()` to apply temporary, custom sorting strategies (e.g., sorting Students by name, grade, or age). Implementing sorting as a separate `Comparator` avoids polluting the core entity class with multiple sort strategies and conforms to the Single Responsibility Principle. Furthermore, this design allows developers to sort collections of third-party classes whose source code cannot be modified to implement `Comparable`.
+
+### Mental Model
+
+```text
+  Entity Class (e.g., Student)
+  +-------------------------------------------------+
+  | implements Comparable -> compareTo(Student o)  | -> Natural Order (ID)
+  +-------------------------------------------------+
+          | (alternative sorting views)
+          v
+  External Helper Classes / Lambdas (Comparators)
+  +-------------------------------------------------+
+  | Comparator1 -> compare(Student s1, Student s2)  | -> Sort by Name
+  | Comparator2 -> compare(Student s1, Student s2)  | -> Sort by Age
+  +-------------------------------------------------+
+```
+
+### Code Example
+
+The code below demonstrates how natural ordering via `Comparable` and custom sorting via `Comparator` coexist for the same class.
+
+```java
+import java.util.*;
+
+public class SortDemo {
+    static class Item implements Comparable<Item> {
+        int id; String name;
+        Item(int i, String n) { id = i; name = n; }
+        public int compareTo(Item o) { return Integer.compare(this.id, o.id); }
+    }
+    public static void main(String[] args) {
+        List<Item> list = new ArrayList<>(List.of(new Item(2, "B"), new Item(1, "A")));
+        Collections.sort(list); // Comparable (ID) -> [1, 2]
+        System.out.println(list.get(0).name); // Output: A
+        list.sort((x, y) -> y.name.compareTo(x.name)); // Comparator (Desc Name) -> [B, A]
+        System.out.println(list.get(0).name); // Output: B
+    }
+}
+```
+
+### Cause-Effect Chain
+
+```text
+Collection sort triggered (e.g., Collections.sort(list) vs list.sort(comparator))
+  → IF no comparator provided: checks if elements implement Comparable
+    → YES: invokes compareTo(o) repeatedly during sort
+    → NO: throws ClassCastException at runtime
+  → IF comparator provided: bypasses Comparable, invokes comparator.compare(a, b)
+  → Sort algorithm reorders references based on sign of comparison result (negative/zero/positive)
+```

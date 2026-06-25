@@ -257,3 +257,44 @@ Tiny example or mental model:
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Why Primitive Streams Exist and Avoid Autoboxing
+
+In Java, generic type parameters cannot be primitive types, which means standard reference streams like `Stream<Integer>` must work with boxed objects. This boxing model introduces significant overhead: every number is wrapped in an object on the heap, causing memory inflation and cache misses due to pointer chasing. To address this, the JDK provides specialized primitive streams: `IntStream`, `LongStream`, and `DoubleStream`. These streams process primitive values directly within native memory boundaries, entirely bypassing the CPU overhead of auto-boxing and unboxing. Additionally, primitive streams expose optimized numeric terminal operations such as `sum()`, `average()`, and `summaryStatistics()`, which are unavailable on general reference streams without mapping.
+
+### Mental Model
+```
+Stream<Integer> (Boxed references, pointer chasing):
+[ Stream Pipeline ] -> [ Integer Ref ] -> ( Heap Object: 16-byte header + 4-byte int )
+                       [ Integer Ref ] -> ( Heap Object: 16-byte header + 4-byte int )
+
+IntStream (Contiguous primitives, direct cache lookup):
+[ Stream Pipeline ] -> [ Primitive 1 ] -> [ Primitive 2 ] -> [ Primitive 3 ]
+                       (Raw 32-bit values directly in CPU register/cache)
+```
+
+### Code Example
+```java
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
+public class PrimitiveStreamDemo {
+    public static void main(String[] args) {
+        // Primitive stream avoiding box/unbox cycles
+        int sum = IntStream.rangeClosed(1, 5)
+                           .sum();
+
+        // Reference stream incurring boxing overhead
+        int boxedSum = Stream.of(1, 2, 3, 4, 5)
+                             .mapToInt(Integer::intValue) // Unboxing
+                             .sum();
+
+        System.out.println("Sum: " + sum + ", Boxed Sum: " + boxedSum);
+        // Console Output:
+        // Sum: 15, Boxed Sum: 15
+    }
+}
+```
+
+### Cause-Effect Chain
+Use of generic Stream&lt;Integer&gt; &rarr; Object references stored on Heap &rarr; Garbage collection pressure and cache-miss overhead &rarr; Migrate to specialized IntStream &rarr; Operates directly on native 32-bit values &rarr; Zero boxing overhead & maximized performance

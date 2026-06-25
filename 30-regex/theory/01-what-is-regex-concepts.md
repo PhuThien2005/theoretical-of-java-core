@@ -75,6 +75,52 @@ public boolean badValidate(String email) {
 }
 ```
 
+## Why Pattern Compilation Is Expensive
+
+Compiling a regular expression is not a simple character-by-character check. Under the hood, when `Pattern.compile(regex)` is called, the regex engine parses the regex string into an abstract syntax tree (AST) to validate its syntax. Next, it compiles this tree into an internal representation of a finite state automaton (specifically, a Non-deterministic Finite Automaton, or NFA). This compilation process is a heavy CPU and memory operation that involves allocating numerous node objects, building state transitions, and optimizing the resulting state machine structure. Because of this high compilation overhead, re-compiling a pattern inside a hot loop or a frequently called method degrades throughput significantly; the pattern should be compiled once and cached as a `static final` field.
+
+### Mental Model: Regex Compilation vs. Execution
+
+```mermaid
+flowchart TD
+    A["Regex String: '[a-zA-Z]+'"] -->|Pattern.compile| B[Parser & Syntax Checker]
+    B --> C[AST / Parse Tree]
+    C --> D[NFA State Machine]
+    D -->|Pattern Object Cached| E[Matcher Execution Engine]
+    F[Input Text] --> E
+    E --> G[Match Result: true / false]
+```
+
+### Code Example: Caching Patterns vs. On-the-Fly Compilation
+
+```java
+import java.util.regex.*;
+
+public class PatternCompilationCost {
+    // GOOD: Pattern is compiled once during class loading and reused
+    private static final Pattern CACHED_PATTERN = Pattern.compile("^[a-zA-Z]+$");
+
+    // BAD: Re-compiles the pattern on every single method invocation
+    public static boolean badValidate(String text) {
+        return Pattern.compile("^[a-zA-Z]+$").matcher(text).matches();
+    }
+
+    public static boolean goodValidate(String text) {
+        return CACHED_PATTERN.matcher(text).matches(); // Reuses NFA state machine
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Good result: " + goodValidate("Java")); // true
+        System.out.println("Bad result: " + badValidate("Java"));   // true
+    }
+}
+```
+
+### Cause-Effect Chain
+
+`String.matches("regex")` called or `Pattern.compile("regex")` called in loop → Engine must parse pattern string and allocate AST nodes → JVM compiles AST into NFA state machine on the heap → Matching runs on the input → Compiled state machine discarded and garbage collected → Repeated execution causes high CPU utilization and GC thrashing.
+
+
 ---
 
 ### Matcher
@@ -325,6 +371,52 @@ public class NonCapturingGroup {
 }
 ```
 
+## Why Non-Capturing Groups Save Heap Allocations
+
+In regular expressions, capturing groups `(group)` perform dual duties: they group tokens for quantifiers or alternation, and they capture matched substrings for backreferences or retrieval. To store these captured substrings, the regex engine must allocate and maintain internal capture buffers (arrays or list-like structures) to track the start and end offsets of each group. In contrast, non-capturing groups `(?:group)` only group tokens and tell the engine to bypass offset tracking. By avoiding the need to record substring indices, non-capturing groups eliminate heap allocations for match state tracking and avoid hitting the backreference limits of the matcher.
+
+### Mental Model: Capture Buffers vs. Logic Grouping
+
+```
+Capturing Group: (\\d+)
+[Input: "123"] ---> [Regex Engine] ---> [Heap Allocations: Capture Buffer #1 (start=0, end=3)]
+
+Non-capturing Group: (?:\\d+)
+[Input: "123"] ---> [Regex Engine] ---> [No Heap Allocations for offsets (logic only)]
+```
+
+### Code Example: Performance Difference of Groups
+
+```java
+import java.util.regex.*;
+
+public class GroupAllocationExample {
+    public static void main(String[] args) {
+        // Captures each group, allocating capture buffers on the heap
+        Pattern capturing = Pattern.compile("(\\w+)-(\\d+)");
+        Matcher m1 = capturing.matcher("item-4082");
+        if (m1.find()) {
+            System.out.println(m1.group(1)); // "item"
+            System.out.println(m1.group(2)); // "4082"
+        }
+
+        // Non-capturing: groups without tracking offset states
+        Pattern nonCapturing = Pattern.compile("(?:\\w+)-(?:\\d+)");
+        Matcher m2 = nonCapturing.matcher("item-4082");
+        if (m2.find()) {
+            System.out.println(m2.groupCount()); // 0 (saves heap tracking buffers)
+        }
+    }
+}
+```
+
+### Cause-Effect Chain
+
+Using `(pattern)` → Engine reserves capture slot → Records start/end index on match → Allocates heap storage for group state → Substring extracted on demand.
+
+Using `(?:pattern)` → Engine groups logic without reservation → Skips offset recording → Saves heap allocations and reduces GC pressure.
+
+
 ---
 
 ## Case Study: Regex Backtracking and ReDoS Prevention
@@ -357,6 +449,59 @@ public class RedosDemo {
 1. **Avoid Nested Overlapping Quantifiers**: Do not nest quantifiers when the inner and outer patterns can match the same characters (e.g., instead of `(a+)+` use `a+`).
 2. **Use Possessive Quantifiers**: Use possessive quantifiers like `(a+)++b` or `a++b` to disable backtracking. Since the engine will not release matched characters, it fails instantly on mismatches.
 3. **Use String Methods or Character Scans**: If regex becomes too complex, replace it with simple character sweeps (e.g., `indexOf` or character-by-character validation).
+
+## Why Backtracking Occurs and How Quantifiers Prevent ReDoS
+
+Backtracking occurs when a regular expression engine using a Nondeterministic Finite Automaton (NFA) encounters a partial mismatch and must return to a previous decision point to try a different execution path. Greedy quantifiers (`*`, `+`) eagerly consume as many characters as possible first, and backtrack one character at a time when subsequent tokens fail to match. Reluctant quantifiers (`*?`, `+?`) consume as few characters as possible first, stepping forward only when subsequent tokens mismatch. Possessive quantifiers (`*+`, `++`) consume as much as possible and immediately fail if subsequent tokens mismatch, completely disabling backtracking. Without careful quantifier selection, nested or overlapping patterns can lead to catastrophic backtracking (ReDoS), freezing execution threads.
+
+### Mental Model: Backtracking Execution Flow
+
+```
+Pattern: a+b
+Input: aac
+
+Step 1: a+ matches "aa" (Greedy consumption)
+Step 2: Engine tries to match 'b' against 'c' -> Fails
+Step 3: Engine backtracks: a+ releases last 'a', matches "a"
+Step 4: Engine tries to match 'b' against 'a' (at index 1) -> Fails
+Step 5: Engine backtracks again, but no more options -> Overall Fail (fails fast)
+```
+
+### Code Example: Quantifier Backtracking Behaviors
+
+```java
+import java.util.regex.*;
+
+public class BacktrackDemo {
+    public static void main(String[] args) {
+        // Greedy: Backtracks when matching 'b' fails
+        Pattern greedy = Pattern.compile("a+b");
+        System.out.println(greedy.matcher("aab").matches()); // true
+
+        // Possessive: Consumes all 'a's, locks them, never backtracks to match 'b'
+        Pattern possessive = Pattern.compile("a++b");
+        System.out.println(possessive.matcher("aab").matches()); // true
+        
+        // ReDoS Prevention: possessive fails instantly instead of freezing on mismatch
+        Pattern redosVulnerable = Pattern.compile("(a+)+b");
+        Pattern redosSafe = Pattern.compile("(a+)++b");
+        
+        long start = System.currentTimeMillis();
+        boolean matched = redosSafe.matcher("aaaaaaaaaaaaaaaaaX").matches(); // false (instant)
+        System.out.println("Possessive matched: " + matched + " in " + (System.currentTimeMillis() - start) + "ms");
+    }
+}
+```
+
+### Cause-Effect Chain
+
+Nested/overlapping quantifiers → Input contains almost-matching sequence followed by mismatch → Engine tries exponential combinations of group lengths → Thread blocks at 100% CPU (ReDoS) → Mitigated by possessive quantifiers which lock matches and disable backtracking.
+
+## Reference Links
+
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/regex/Pattern.html (Pattern Java Documentation)
+- https://docs.oracle.com/javase/tutorial/essential/regex/ (Oracle Java Regex Tutorial)
+
 
 ---
 

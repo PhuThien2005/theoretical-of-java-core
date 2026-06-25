@@ -354,6 +354,46 @@ public @interface MethodAndFieldOnly {
 }
 ```
 
+#### Why `@Target` Exists: Restricting Scope and Preventing Misuse
+
+Annotations attach metadata to code elements. Without `@Target`, an annotation can be placed on any declaration context, including classes, methods, parameters, local variables, and constructors. This lack of restriction can lead to structural clutter, semantic confusion, and unsafe assumptions in code processing libraries. By defining `@Target`, language designers allow developers to restrict the applicability of an annotation to specific locations where it is valid and expected. For example, a validation annotation like `@NonNull` only makes sense on fields, method parameters, or return values, while a mapping annotation like `@RequestMapping` only makes sense on methods or classes. Restricting target scopes prevents developers from using annotations in contexts that the processing logic does not support, avoiding runtime errors or logical failures.
+
+**Mental Model:**
+*Analogy:* A "Do Not Disturb" sign is meant for doors. Putting it on a keyboard, a coffee mug, or a person's head makes no sense and causes confusion. `@Target` acts as the instructions that specify exactly where the sign can be hung.
+
+```mermaid
+flowchart TD
+    A[Annotation Declared] --> B{Does it have @Target?}
+    B -- No --> C[Allowed on any declaration context class, method, field, etc.]
+    B -- Yes --> D[Allowed ONLY on specified ElementType contexts]
+    E[Compile Time Check] --> F{Is applied context in @Target?}
+    F -- Yes --> G[Compilation succeeds]
+    F -- No --> H[Compilation fails: annotation type not applicable to this kind of declaration]
+```
+
+**Code Example with Expected Output:**
+```java
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Target;
+
+@Target(ElementType.METHOD)
+@interface MethodOnly {}
+
+public class TargetDemo {
+    // Compilation Error: annotation type not applicable to this kind of declaration
+    // @MethodOnly
+    private String field;
+
+    @MethodOnly
+    public void execute() {
+        // OK: applied to method
+    }
+}
+```
+
+**Cause-Effect Chain:**
+`@Target(ElementType.METHOD)` defined on `@MethodOnly` &rarr; Developer attempts to write `@MethodOnly` on a field declaration &rarr; Java compiler checks `@MethodOnly` definition &rarr; Compiler detects that `ElementType.FIELD` is absent from allowed targets &rarr; Compiler aborts build and throws "annotation type not applicable to this kind of declaration".
+
 ---
 
 ### @Retention
@@ -388,6 +428,63 @@ public @interface VisibleAtRuntime {
 }
 ```
 
+#### Why `@Retention` Exists and How Retention Policies Differ
+
+Annotations exist in different phases of a program's lifecycle: source code, class files, and execution memory. Without `@Retention`, Java defaults to `RetentionPolicy.CLASS`, which discards the annotation metadata when the classloader loads the class into the JVM heap. Declaring an explicit retention policy allows developers to balance information availability with memory and performance overhead. 
+
+*   `RetentionPolicy.SOURCE` is ideal for tool-based compile checks (like `@Override`) or compile-time code generators (like Project Lombok), preventing compile-only metadata from adding overhead to the compiled `.class` files.
+*   `RetentionPolicy.CLASS` is useful for bytecode analysis tools, linters, or compilers that process classes statically without loading them into the JVM heap. It is recorded in the `.class` file but discarded at runtime.
+*   `RetentionPolicy.RUNTIME` keeps the metadata fully intact inside the JVM heap, allowing reflection-based frameworks (like Spring, Hibernate, or Jackson) to query annotations and adjust program behavior dynamically during execution.
+
+**Mental Model:**
+*Analogy:*
+- `SOURCE`: A scaffolding blueprint used to construct a building but discarded once the building is complete.
+- `CLASS`: A construction manual shipped with the building materials but left unopened once the building is inhabited.
+- `RUNTIME`: A physical label on the building's utility box that remains visible and readable to maintenance crews at any time during the building's lifetime.
+
+```
++------------------+                   +--------------------+                   +-------------------+
+|   Source Code    | --[ Compiler ]--> |    .class File     | --[ Classloader ]-> |     JVM Heap      |
+|  (MyClass.java)  |                   |   (MyClass.class)  |                   | (Runtime Memory)  |
++------------------+                   +--------------------+                   +-------------------+
+      |                                          |                                        |
+      | SOURCE annotations                       | CLASS annotations                      | RUNTIME annotations
+      v (discarded by compiler)                  v (omitted by classloader)               v (accessible via reflection)
+   [Compile-only Checks]                      [Static Bytecode Tools]                  [Dynamic Frameworks]
+```
+
+**Code Example with Expected Output:**
+```java
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+@Retention(RetentionPolicy.SOURCE)
+@interface SourceAnno {}
+
+@Retention(RetentionPolicy.CLASS)
+@interface ClassAnno {}
+
+@Retention(RetentionPolicy.RUNTIME)
+@interface RuntimeAnno {}
+
+@SourceAnno
+@ClassAnno
+@RuntimeAnno
+class RetentionTest {}
+
+public class RetentionDemo {
+    public static void main(String[] args) {
+        Class<?> clazz = RetentionTest.class;
+        System.out.println(clazz.isAnnotationPresent(SourceAnno.class));  // false
+        System.out.println(clazz.isAnnotationPresent(ClassAnno.class));   // false
+        System.out.println(clazz.isAnnotationPresent(RuntimeAnno.class)); // true
+    }
+}
+```
+
+**Cause-Effect Chain:**
+`@Retention(RetentionPolicy.SOURCE)` &rarr; Compiler processes the Java source code &rarr; Compiler discards annotations matching SOURCE policy &rarr; Bytecode is produced without these annotations &rarr; JVM classloader parses `.class` file &rarr; Reflection call `clazz.isAnnotationPresent()` returns `false`.
+
 ---
 
 ## Common Mistakes
@@ -408,3 +505,10 @@ Putting `@SafeVarargs` on a method that modifies the varargs array contents (e.g
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Reference Links
+
+- [Java Tutorials: Annotations](https://docs.oracle.com/javase/tutorial/java/annotations/)
+- [Java Language Specification: Annotation Types](https://docs.oracle.com/javase/specs/jls/se21/html/jls-9.html#jls-9.6)
+- [Java Language Specification: Retention Policy](https://docs.oracle.com/javase/specs/jls/se21/html/jls-9.html#jls-9.6.4.2)
+- [Java Language Specification: Target](https://docs.oracle.com/javase/specs/jls/se21/html/jls-9.html#jls-9.6.4.1)

@@ -373,3 +373,110 @@ try {
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+---
+
+## Why Java Has Checked and Unchecked Exceptions
+
+Java's designers made a deliberate philosophical distinction when categorizing exceptions. **Checked exceptions** represent failures in external resources or conditions entirely outside the program's control — file system I/O, network connections, database access. These failures are expected, possible, and recoverable: a file might not exist, a network might be unavailable. The compiler enforces handling because the designer believes callers must be explicitly informed about these failure modes and must make a decision about them.
+
+**Unchecked exceptions** (`RuntimeException` and its subclasses) represent programming bugs — null dereferences, array index errors, division by zero, illegal arguments. These are caused by errors in the code itself, not by external conditions. Since they can theoretically occur anywhere in any code, requiring the compiler to enforce `try-catch` for every unchecked exception would make Java code unreadably verbose. The design decision is: programmers are expected to fix bugs, not catch them.
+
+The distinction maps to the question: "Is this failure mode something the caller can reasonably be expected to handle at the call site?" For `FileNotFoundException` — yes, a caller can handle a missing file. For `NullPointerException` — no, the correct response is to fix the null dereference in the code, not to catch it.
+
+### Mental Model: Checked vs Unchecked split
+```
+External Environment Failures (Checked — compiler enforces handling):
+  FileNotFoundException → network: IOException → database: SQLException
+  Caller MUST decide: catch it here, or declare throws to propagate it upward
+
+Programming Bugs (Unchecked — compiler does NOT enforce handling):
+  NullPointerException → ArrayIndexOutOfBoundsException → NumberFormatException
+  Programmer should FIX the bug, not catch it
+  Theoretically possible in any method → forcing catch everywhere = unreadable code
+```
+
+### Code Example: Checked vs Unchecked in method signatures
+```java
+import java.io.*;
+
+// CHECKED — compiler enforces caller to handle or declare throws
+public void readFile(String path) throws FileNotFoundException {
+    FileReader fr = new FileReader(path);  // compiler mandates this is handled
+}
+
+// UNCHECKED — no compiler requirement to declare or handle
+public int divide(int a, int b) {
+    return a / b;  // ArithmeticException if b=0 — compiler doesn't care
+}
+
+// Caller of readFile MUST handle
+try {
+    readFile("config.txt");       // must catch FileNotFoundException
+} catch (FileNotFoundException e) {
+    System.out.println("Config missing: " + e.getMessage());
+}
+
+// Caller of divide has no compiler requirement
+int result = divide(10, 0);  // throws ArithmeticException at runtime — fix the code
+```
+
+### Cause-Effect Chain
+File I/O fails &rarr; `FileNotFoundException` thrown (checked) &rarr; Compiler detects uncaught checked exception &rarr; Compile error unless try-catch or throws declaration added &rarr; Caller is forced to make a conscious decision about the failure &rarr; Program handles or propagates — never silently ignores. Programming bug: null dereference &rarr; `NullPointerException` thrown (unchecked) &rarr; Compiler imposes no requirement &rarr; Exception propagates up the call stack &rarr; Program crashes with stack trace &rarr; Developer fixes the null check in code.
+
+---
+
+## Why Catching Broad Exception Types Is Dangerous
+
+When you catch `Exception` or `Throwable` broadly, you catch not only the exceptions you expected, but also every other exception that could possibly be thrown — including `InterruptedException`, `OutOfMemoryError`, `StackOverflowError`, `ThreadDeath`, and future exceptions added by refactoring. This introduces three serious problems.
+
+First, **exception masking**: an unanticipated exception is caught and treated as if it was the expected one, hiding the real failure. Code that catches `Exception` and logs "file not found" may be masking a database timeout, a null pointer bug, or a network issue — all silently misclassified as "file not found."
+
+Second, **swallowed errors**: if `Error` subclasses are caught via `Throwable`, JVM-level catastrophes like `OutOfMemoryError` are silently absorbed, leaving the application in an undefined state.
+
+Third, **loss of exception type information**: catch blocks often react differently depending on exception type. A broad catch with a single response forces all exceptions into one behavior, preventing the correct, type-specific response.
+
+### Mental Model: Narrow vs Broad catch scope
+```
+[Narrow — correct]
+try { readFile("data.csv"); }
+catch (FileNotFoundException e) {
+    // Handles ONLY file-not-found
+    // All other exceptions propagate to their proper handlers
+}
+
+[Broad — dangerous]
+try { readFile("data.csv"); }
+catch (Exception e) {
+    // Catches FileNotFoundException ← intended
+    // Also catches NullPointerException ← bug masking!
+    // Also catches OutOfMemoryError (via Throwable) ← dangerous!
+    // Also catches SQLException ← unrelated, different behavior needed
+    log("Error: " + e.getMessage()); // one response for all — wrong!
+}
+```
+
+### Code Example: Bug masking via broad exception catch
+```java
+public void processFile(String path) {
+    try {
+        FileReader fr = new FileReader(path);    // May throw FileNotFoundException
+        String content = null;
+        content.length();                         // NullPointerException bug in code!
+    } catch (Exception e) {
+        // BUG MASKED: Both exceptions caught here as if they were the same
+        System.out.println("File error: " + e.getMessage());
+        // Developer thinks file is missing — actually there's a NPE in the code
+    }
+}
+
+// CORRECT:
+public void processFileCorrect(String path) throws FileNotFoundException {
+    FileReader fr = new FileReader(path);    // Compiler enforces handling
+    String content = null;
+    content.length();                         // NullPointerException propagates — visible bug!
+}
+```
+
+### Cause-Effect Chain
+Catch `Exception` broadly &rarr; `NullPointerException` thrown inside try &rarr; Caught by broad `catch (Exception e)` &rarr; Application logs "file error" &rarr; Bug is misclassified as an expected failure &rarr; Developer investigates file path, not null dereference &rarr; Real bug hidden for days or weeks. Catch narrowly (`FileNotFoundException`) &rarr; `NullPointerException` not caught here &rarr; Propagates up call stack &rarr; Crash with clear stack trace &rarr; Developer sees the null dereference immediately.

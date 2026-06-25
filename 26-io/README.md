@@ -48,6 +48,15 @@ This topic follows the master outline in [outline.md](../outline.md). The goal i
 - [Cloze](anki/cloze.tsv)
 - [Code Question](anki/code-question.tsv)
 
+## Self-Check
+
+Before moving to the next topic, verify that you can answer these questions:
+1. Why does Java distinguish between byte streams and character streams, and how do encoding charsets mapping apply under the hood?
+2. Why does `BufferedInputStream` / `BufferedOutputStream` significantly outperform raw stream operations, and how does the JVM buffer sizing interact with OS disk page caching?
+3. Why does Java serialization require `serialVersionUID`, and what compile-time or runtime compatibility issues occur if it is missing or mismatched during class evolution?
+4. Why are `transient` fields excluded from serialization, and what happens to transient fields during deserialization (do constructor rules or zero-value initialization rules apply)?
+5. Why is the default Java serialization mechanism considered a security liability, and what are modern alternatives or mitigation strategies?
+
 ## Mermaid Overview
 
 ```mermaid

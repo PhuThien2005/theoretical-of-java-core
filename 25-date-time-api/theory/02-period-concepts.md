@@ -38,6 +38,38 @@ Period badPeriod = Period.ofYears(1).ofDays(5); // Only represents 5 days!
 System.out.println(badPeriod); // P5D
 ```
 
+### Why Period and Duration Behave Differently (Daylight Saving Time Transitions)
+
+A `Period` represents a date-based amount of time (e.g., 1 day) in calendar units, whereas a `Duration` represents a time-based amount of time measured in exact physical seconds (e.g., 86,400 seconds). When adding these quantities to a timezone-aware `ZonedDateTime`, they can yield different results if the transition spans a Daylight Saving Time (DST) change. For example, during a spring-forward transition, a day is only 23 hours long; adding a `Period` of 1 day updates the calendar date and keeps the local time digits the same (resulting in 23 physical hours passing), whereas adding a `Duration` of 24 hours results in a time that is one hour later in local time (24 physical hours passing).
+
+#### Mental Model: Period vs Duration under DST
+```text
+Timeline of Spring Forward (2:00 AM becomes 3:00 AM):
+
+Base Time: 2026-03-08T01:30-05:00[America/New_York]
+
+Adding Period.ofDays(1):
+[01:30] ---------------- (Date increments by 1) ---------------> [01:30 next day] (23 hours elapsed)
+
+Adding Duration.ofDays(1) / Duration.ofHours(24):
+[01:30] ---------------- (Exactly 24 hours elapse) -------------> [02:30 next day] (Time shifted by +1h)
+```
+
+#### Code Example: DST Arithmetic
+```java
+ZonedDateTime zdt = ZonedDateTime.of(2026, 3, 8, 1, 30, 0, 0, ZoneId.of("America/New_York"));
+
+ZonedDateTime plusPeriod = zdt.plus(Period.ofDays(1));
+ZonedDateTime plusDuration = zdt.plus(Duration.ofDays(1));
+
+System.out.println("Base:     " + zdt);          // 2026-03-08T01:30-05:00[America/New_York]
+System.out.println("Period:   " + plusPeriod);   // 2026-03-09T01:30-04:00[America/New_York]
+System.out.println("Duration: " + plusDuration); // 2026-03-09T02:30-04:00[America/New_York]
+```
+
+#### Cause-Effect Chain
+`Spring forward DST transition occurs` → `Local clock skips from 02:00 to 03:00` → `Adding Period of 1 day preserves local time (01:30 → 01:30 next day, 23 real hours)` → `Adding Duration of 1 day adds exactly 24 real hours (01:30 → 02:30 next day)`
+
 ### DateTimeFormatter
 `java.time.format.DateTimeFormatter` is the modern, immutable, and thread-safe class for formatting and parsing date-time objects. It replaces `SimpleDateFormat`.
 
@@ -50,6 +82,37 @@ LocalDate date = LocalDate.of(2026, 6, 12);
 String formatted = date.format(formatter);
 System.out.println(formatted); // 12/06/2026
 ```
+
+### Why DateTimeFormatter Is Completely Thread-Safe
+
+Unlike legacy `java.text.SimpleDateFormat`, `java.time.format.DateTimeFormatter` is designed to be immutable and stateless. It does not maintain any mutable state fields (like the internal calendar in `SimpleDateFormat`) during parsing or formatting operations. Instead, all transient parsing and formatting state is maintained entirely on the execution stack of the calling thread, in local variables. Consequently, a single static instance of `DateTimeFormatter` can be shared globally across all threads in a multi-threaded system without any lock contention, data race, or overhead.
+
+#### Mental Model: Stateless Stack Execution
+```mermaid
+graph TD
+    subgraph Thread-Safe DateTimeFormatter
+        T1[Thread 1] -->|calls format| DF[Shared DateTimeFormatter - Immutable]
+        T2[Thread 2] -->|calls format| DF
+        DF -->|formats on stack| O1[Output 1]
+        DF -->|formats on stack| O2[Output 2]
+    end
+```
+
+#### Code Example: Safe Concurrent Usage
+```java
+// Completely safe to share static formatter across multiple threads
+public static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+Runnable task = () -> {
+    String result = FORMATTER.format(LocalDate.now());
+    System.out.println(result);
+};
+new Thread(task).start();
+new Thread(task).start();
+```
+
+#### Cause-Effect Chain
+`DateTimeFormatter is stateless and immutable` → `Transient state is kept on thread-specific call stacks` → `No thread-shared mutable variables exist` → `Zero race conditions or lock contention during format/parse`
 
 ### ZoneId
 `java.time.ZoneId` represents a time zone identifier (e.g., `Europe/Paris`, `Asia/Tokyo`, `America/New_York`). It provides rules for converting instants to local date-times and dynamically handles daylight saving time transitions.
@@ -120,6 +183,39 @@ System.out.println("Last Day of Month: " + lastDayOfMonth); // 2026-06-30
 
 ### Timezone
 A timezone offset is the difference between local time and Coordinated Universal Time (UTC). Modern Java represents this offset using `ZoneOffset` (e.g., `+05:30`), while regional timezones (with historical DST rules) are managed using `ZoneId`.
+
+### How ZonedDateTime Resolves Invalid and Overlapping Times (DST Shifts)
+
+During Daylight Saving Time transitions, two anomalies can occur: gaps (when the clock springs forward, leaving invalid local times) and overlaps (when the clock falls back, repeating a local hour). If an invalid time is specified in the gap, `ZonedDateTime` automatically adjusts the time forward by the offset transition amount (typically 1 hour) to the first valid time. If an overlapping time is specified, `ZonedDateTime` defaults to retaining the earlier offset (before the transition) to preserve logical chronological progression. However, developers can override this behavior and select the later offset using the `.withLaterOffsetAtOverlap()` method.
+
+#### Mental Model: ZonedDateTime DST Resolution Logic
+```mermaid
+flowchart TD
+    Q{Local DateTime falls in DST shift?}
+    Q -->|Yes: Gap e.g., 2:30 AM Spring| Gap[Adjust forward by offset amount to 3:30 AM]
+    Q -->|Yes: Overlap e.g., 1:30 AM Fall| Overlap[Use earlier offset by default]
+    Q -->|No| Normal[Keep local time and offset]
+```
+
+#### Code Example: Gap and Overlap Resolution
+```java
+ZoneId ny = ZoneId.of("America/New_York");
+
+// 1. Gap: Spring forward 2026-03-08 (02:00 to 03:00 is skipped)
+// Attempting to construct 02:30 AM
+ZonedDateTime gapTime = ZonedDateTime.of(2026, 3, 8, 2, 30, 0, 0, ny);
+System.out.println("Gap (02:30): " + gapTime); // 2026-03-08T03:30-04:00[America/New_York] (Adjusted)
+
+// 2. Overlap: Fall back 2026-11-01 (02:00 becomes 01:00, 01:30 is repeated)
+ZonedDateTime overlapTime = ZonedDateTime.of(2026, 11, 1, 1, 30, 0, 0, ny);
+System.out.println("Overlap Default: " + overlapTime); // 2026-11-01T01:30-04:00 (EDT)
+
+ZonedDateTime laterOffset = overlapTime.withLaterOffsetAtOverlap();
+System.out.println("Overlap Later:   " + laterOffset);  // 2026-11-01T01:30-05:00 (EST)
+```
+
+#### Cause-Effect Chain
+`Create ZonedDateTime in DST gap` → `Check zone rules` → `Identify time does not exist locally` → `Shift forward by transition gap (typically +1 hour)` → `Construct valid ZonedDateTime in new offset`
 
 ---
 
@@ -206,3 +302,12 @@ DateTimeFormatter badFormatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Reference Links
+
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Period.html (Period JavaDoc)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration.html (Duration JavaDoc)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZoneId.html (ZoneId JavaDoc)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/format/DateTimeFormatter.html (DateTimeFormatter JavaDoc)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZonedDateTime.html (ZonedDateTime JavaDoc)
+

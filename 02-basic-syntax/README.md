@@ -50,15 +50,21 @@ flowchart TD
 - Import
 - Keyword
 - Scope
+- Stack Memory
+- Symbol Table
+- Case Sensitivity
+- Lexical Analysis
+- Reverse DNS
 
 ## Self-Check
 
-- Why must a Java program usually have a class?
-- What does the `main` method do?
-- Why is Java called case-sensitive?
-- What is the difference between a statement and a block?
-- Why should naming conventions matter?
-- What problem do packages solve?
+- Why must a Java program start execution from a class?
+- Why must the main method signature be exactly `public static void main(String[] args)`? (Detail JVM access, execution without object instantiation, return type, and runtime arguments).
+- How are comments processed during compilation and Javadoc generation? (Detail what is preserved in the compiled bytecode vs. what is stripped).
+- Why do we need packages and imports in Java, and why does naming packages reversely (reverse DNS) prevent name collisions?
+- Why is local variable scope restricted to its declaring block, and how does this restriction help memory management and safety (preventing shadowing errors)?
+- Why does Java enforce case sensitivity at both compile-time and runtime?
+
 
 ## Anki Cards
 

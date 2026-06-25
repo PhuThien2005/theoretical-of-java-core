@@ -23,6 +23,14 @@ This topic follows the master outline in [outline.md](../outline.md). The goal i
 - Advantages and disadvantages of reflection
 - Reflection in frameworks such as Spring
 
+## Self-Check
+
+1. Why does reflection bypass compile-time type safety, and what are the mechanisms and risks of dynamic metadata resolution at runtime?
+2. Why does reflection introduce significant performance penalties compared to direct bytecode execution, and how can MethodHandles or call-site caching optimize this?
+3. Why can setAccessible(true) bypass Java's access visibility controls, and how do JVM Security Managers and the Java Module System (Jigsaw) restrict this behavior?
+4. Why does reflective dynamic classloading and instantiation pose severe security and stability risks (such as unsafe deserialization), and how can they be mitigated?
+5. Why is reflection the critical enabler for modern Dependency Injection (DI) and Object-Relational Mapping (ORM) frameworks, and how do they use metadata annotations to manage object lifecycles?
+
 ## Anki Cards
 
 - [Basic](anki/basic.tsv)

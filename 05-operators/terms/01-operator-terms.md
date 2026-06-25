@@ -79,3 +79,24 @@ Two different `String` objects may contain the same text but still fail `==`.
 Type compatibility means a value can legally be treated as a certain type. `instanceof` checks runtime type compatibility for object references.
 
 If `value instanceof String text` is true, Java knows `text` is a `String` inside that block.
+
+## Signed Right Shift (>>)
+
+The signed right shift operator (`>>`) shifts the binary representation of a number to the right, filling the vacated leftmost bits with the original sign bit (0 for positive, 1 for negative). This arithmetic shift preserves the mathematical sign of the value.
+
+## Unsigned Right Shift (>>>)
+
+The unsigned right shift operator (`>>>`) shifts the binary representation of a number to the right, always filling the vacated leftmost bits with zeros regardless of the original sign. This logical shift converts negative numbers into positive integers.
+
+## Operand Stack
+
+The operand stack is a JVM runtime data structure used during method execution to push and pop operands, performing operations dynamically.
+
+## Local Variable Slot
+
+A local variable slot is a memory location allocated within a JVM stack frame to hold the value of a local variable or parameter during method execution.
+
+## Pattern Variable
+
+A pattern variable is a local variable declared inside a pattern check (such as `instanceof String text`). The variable is automatically typed, cast, and bound if the type check succeeds, with its scope restricted to where the type check is guaranteed to be true.
+

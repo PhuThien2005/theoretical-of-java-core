@@ -126,3 +126,67 @@ String status = getStatus();
 if (status.equals("ACTIVE")) {} // Crash if status is null!
 if ("ACTIVE".equals(status)) {} // Safe!
 ```
+
+---
+
+## Why JDK, JRE, and JVM Differ
+
+The Java platform is architected with three nested layers to support compile-once, run-anywhere software development. The JVM is the core execution engine that translates intermediate bytecode into native platform instructions, managing runtime thread scheduling, call stacks, and garbage collection. The JRE wraps the JVM by bundling it with the Java standard library class files (rt.jar/modules) and the necessary bootstrap class loaders to execute applications. The JDK represents the complete development suite, adding compilation, profiling, and debugging tools such as `javac`, `jdb`, and `jcmd` that are never required to simply run a program. Dividing the platform this way allows end-users to install minimal lightweight runtimes, while developers retain a complete toolset for compilation and performance analysis.
+
+### Mental Model
+
+```text
++-------------------------------------------------------------+
+| JDK (Java Development Kit)                                  |
+|   - javac (Compiler)                                        |
+|   - jdb (Debugger)                                          |
+|   - visualvm / jcmd (Diagnostics & Profiling)               |
+|  +-------------------------------------------------------+  |
+|  | JRE (Java Runtime Environment)                        |  |
+|  |   - Standard Libraries (java.base, java.util, etc.)   |  |
+|  |   - Launcher Tools (java)                             |  |
+|  |  +-------------------------------------------------+  |  |
+|  |  | JVM (Java Virtual Machine)                      |  |  |
+|  |  |   - Class Loader System                         |  |  |
+|  |  |   - Runtime Data Areas (Stack, Heap, Method)    |  |  |
+|  |  |   - Execution Engine (JIT, Interpreter, GC)     |  |  |
+|  |  +-------------------------------------------------+  |  |
+|  +-------------------------------------------------------+  |
++-------------------------------------------------------------+
+```
+
+### Code Example
+
+The following code illustrates that the execution process requires the developer tool `javac` to compile, but only requires the `java` runtime launcher to execute.
+
+```java
+// Save as: EnvironmentTest.java
+// Run compilation: javac EnvironmentTest.java  <- Provided by JDK
+// Run execution:   java EnvironmentTest        <- Provided by JRE/JVM
+
+public class EnvironmentTest {
+    public static void main(String[] args) {
+        // Checking if JDK tools are on the runtime path is a compilation/deployment step,
+        // but executing JVM property retrieval is a runtime environment step.
+        String javaVersion = System.getProperty("java.version");
+        String javaHome = System.getProperty("java.home");
+        
+        System.out.println("Java Version: " + javaVersion);
+        System.out.println("Java Home (JRE Location): " + javaHome);
+        // Sample Output:
+        // Java Version: 17.0.1
+        // Java Home (JRE Location): /usr/lib/jvm/java-17-openjdk
+    }
+}
+```
+
+### Cause-Effect Chain
+
+```text
+Write Java Source (.java)
+  → Compile with `javac` (JDK tool) to generate portable bytecode (.class)
+  → Execute bytecode with `java` launcher (JRE runtime utility)
+  → Class Loader loads bytecode into memory (JVM runtime area)
+  → JIT Compiler/Interpreter translates bytecode to CPU-specific instructions (JVM core)
+  → Program executes on target Operating System hardware
+```

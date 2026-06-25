@@ -100,6 +100,33 @@ b += 1;      // allowed
 
 This matters because arithmetic on smaller integer types like `byte`, `short`, and `char` is promoted to `int`.
 
+## Why Compound Assignment Performs Implicit Casting
+
+In Java, any arithmetic operations on small integer types (`byte`, `short`, and `char`) automatically promote the operands to `int` before the operation runs. Consequently, writing `b = b + 1` on a `byte b` fails to compile because it attempts to assign an `int` result back to a `byte` variable. To prevent code from being littered with repetitive, explicit casts, the Java language specifications define compound assignment operators (like `+=`, `*=`) to include an implicit cast to the type of the left-hand variable. While this provides cleaner syntax, it also masks potential arithmetic overflow or loss of precision because the compiler will not warn you when the value exceeds the variable's type limits.
+
+### Truncation Mental Model
+
+When a value is implicitly cast back to a smaller type, Java performs a narrowing primitive conversion by discarding all the high-order bits that do not fit in the target type's size.
+
+```text
+Value 130 in decimal (int, 32-bit):
+[00000000] [00000000] [00000000] [10000010]
+                                      │
+                         [Narrowing cast to byte (8-bit)]
+                                      ▼
+                             [10000010]  --> -126 in two's complement (MSB is 1)
+```
+
+### Cause-Effect Chain
+`b += 10` is evaluated → Java promotes `b` and `10` to `int` and adds them → intermediate sum is `130` (32-bit `int`) → implicit cast `(byte)` is applied → high-order 24 bits are discarded → remaining `8` bits `10000010` have a sign bit (Most Significant Bit) of `1`, making the final stored value `-126` (overflow).
+
+### Code Example
+```java
+byte b = 120;
+b += 10; // Silently compiled as: b = (byte) (b + 10)
+System.out.println(b); // -126
+```
+
 ## Assignment Is An Expression
 
 In Java, assignment has a value: the value assigned.

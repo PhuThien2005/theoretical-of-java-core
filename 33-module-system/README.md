@@ -20,6 +20,15 @@ This topic follows the master outline in [outline.md](../outline.md). The goal i
 - Module-level encapsulation
 - Module path vs Classpath
 
+## Self-Check
+
+Before moving to Anki cards, verify you can answer these questions:
+1. Why did Java 9 introduce the Module System (Project Jigsaw), and what security/reliability issues of the classpath did it solve?
+2. What is the difference between `exports` and `opens` in `module-info.java`, and how does `opens` affect reflection?
+3. How does the Module Path differ from the Classpath (modular classloading vs flat classloading)?
+4. What are automatic modules and unnamed modules, and how do they bridge the transition for legacy libraries?
+5. Why are cyclic dependencies and split packages strictly forbidden under the Java Module System?
+
 ## Anki Cards
 
 - [Basic](anki/basic.tsv)

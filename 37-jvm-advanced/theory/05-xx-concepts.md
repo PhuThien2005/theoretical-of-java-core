@@ -100,3 +100,62 @@ jmap -dump:format=b,file=heap_dump.hprof 1234
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Why JVM Flag Classifications Exist
+
+The JVM organizes its command-line configuration options into three distinct classifications—Standard, Non-Standard (`-X`), and Developer/Experimental (`-XX`)—to manage flag stability, vendor portability, and experimental features. **Standard options** (e.g., `-classpath`, `-verbose:gc`) are guaranteed to be supported across all compliant JVM vendors and versions, ensuring basic command-line stability. **Non-Standard options** (prefixed with `-X`, such as `-Xms` and `-Xmx`) customize HotSpot-specific memory layouts or execution settings, but are not guaranteed to be supported by other vendors and are subject to change without notice. **Developer, experimental, or unstable options** (prefixed with `-XX`, such as `-XX:NewRatio` or `-XX:+UseG1GC`) allow deep customization of GC algorithms, JIT compiler policies, and memory sub-boundaries. These flags require explicit unlocking (via `-XX:+UnlockDiagnosticVMOptions` or `-XX:+UnlockExperimentalVMOptions`) because improper usage can severely degrade performance, crash the JVM, or lead to undefined runtime behavior.
+
+### Mental Model: JVM Flag Categories and Heap Boundary Tuning
+
+```text
+  JVM Options Spectrum:
+  [ Standard: -cp, -version ]  ===> Supported universally, stable
+  [ Non-Standard: -Xms, -Xmx ] ===> HotSpot-specific heap sizing, subject to change
+  [ Experimental: -XX:NewRatio ]==> System developer parameters, unstable/requires unlock
+  
+  Heap Sizing Flags Memory Layout:
+  |<---------------------------- -Xmx (Max Heap Size) ----------------------------->|
+  |<--------- -Xms (Initial Heap Size) --------->|
+  +----------------------------------------------+---------------------------------+
+  |      Young Gen (Eden + S0 + S1)              |            Old Gen              |
+  |  (Proportion tuned via -XX:NewRatio)         |                                 |
+  +----------------------------------------------+---------------------------------+
+```
+
+### Code Example
+
+Below is a runnable Java program that queries heap parameters to show how command-line options set the memory boundaries.
+
+```java
+package theory;
+
+import java.lang.management.ManagementFactory;
+import java.lang.management.MemoryMXBean;
+import java.lang.management.MemoryUsage;
+
+public class HeapTuningInspection {
+    public static void main(String[] args) {
+        MemoryMXBean memoryMXBean = ManagementFactory.getMemoryMXBean();
+        MemoryUsage heapMemoryUsage = memoryMXBean.getHeapMemoryUsage();
+        
+        long initHeap = heapMemoryUsage.getInit();
+        long maxHeap = heapMemoryUsage.getMax();
+        
+        System.out.println("Initial Heap (-Xms): " + (initHeap / 1024 / 1024) + " MB");
+        System.out.println("Maximum Heap (-Xmx): " + (maxHeap / 1024 / 1024) + " MB");
+    }
+}
+/* Output (Default or when run with -Xms256m -Xmx512m):
+Initial Heap (-Xms): 256 MB
+Maximum Heap (-Xmx): 512 MB
+*/
+```
+
+### Cause-Effect Chain
+
+Configuring standard flags &rarr; Guarantees cross-vendor portability &rarr; Adding `-Xms` and `-Xmx` sets boundary limits on Java heap &rarr; Adding `-XX:NewRatio=2` allocates twice as much space to Old Gen as Young Gen &rarr; Unlocking `-XX` experimental flags enables advanced features like Shenandoah &rarr; Fine-tuned JVM performance achieved for target workload.
+
+## Reference Links
+
+- https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html (Java Command-Line Tool Options Reference)
+

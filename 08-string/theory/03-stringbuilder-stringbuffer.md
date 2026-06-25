@@ -91,6 +91,55 @@ If this new capacity is still insufficient, the JVM sets the capacity to the exa
   - In multi-threaded environments, if multiple threads attempt to write to the same `StringBuffer` concurrently, it causes **lock contention**, blocking threads and degrading performance.
 - **`StringBuilder`:** Removes all `synchronized` keywords. It is not thread-safe. If multiple threads write to a single `StringBuilder` instance simultaneously, it will result in corrupted data or index out of bounds exceptions. However, for local variables inside a method, `StringBuilder` is always preferred since local variables are thread-confined.
 
+### Deep-Dive: Synchronization Overhead and Lock Contention Mechanics
+
+The performance disparity between `StringBuilder` and `StringBuffer` arises entirely from the runtime overhead of thread synchronization. In `StringBuffer`, every mutating method is declared with the `synchronized` keyword, requiring the executing thread to acquire the object's monitor lock before execution and release it afterward. This process involves JVM and operating system-level checks, introducing latency even in completely single-threaded environments. When multiple threads concurrently access a single `StringBuffer` instance, they experience lock contention, causing threads to block and context-switch, which severely degrades application throughput. Because `StringBuilder` is completely unsynchronized, it avoids all lock acquisition overhead and performs operations directly on its internal buffer, making it the superior choice for single-threaded tasks and local, thread-confined variables.
+
+#### Thread Contention Comparison Model
+
+```mermaid
+graph TD
+    subgraph StringBuffer (Synchronized)
+        sb[StringBuffer Monitor Lock]
+        t1[Thread 1] -->|Acquires Lock| sb
+        t2[Thread 2] -->|Blocked / Waiting| sb
+    end
+    subgraph StringBuilder (Unsynchronized)
+        sbuilder[StringBuilder Buffer]
+        t3[Thread 3] -->|Direct Write| sbuilder
+        t4[Thread 4] -->|Direct Write / Race Condition Risk| sbuilder
+    end
+```
+
+#### Unsafe Concurrency Demonstration Code Example
+
+```java
+// Unsafe concurrent write to StringBuilder
+StringBuilder sb = new StringBuilder();
+Runnable task = () -> {
+    for (int i = 0; i < 1000; i++) {
+        sb.append("A");
+    }
+};
+
+Thread thread1 = new Thread(task);
+Thread thread2 = new Thread(task);
+thread1.start();
+thread2.start();
+try {
+    thread1.join();
+    thread2.join();
+} catch (InterruptedException e) {
+    e.printStackTrace();
+}
+
+// May throw ArrayIndexOutOfBoundsException or print a length less than 2000!
+System.out.println("Expected: 2000, Actual Length: " + sb.length()); 
+```
+
+#### Cause-Effect Chain of Unsafe StringBuilder Concurrency
+Concurrent writes to `StringBuilder` $\rightarrow$ Multiple threads read the same internal write index simultaneously $\rightarrow$ Threads write characters to the same index slot $\rightarrow$ One thread's write is overwritten by another $\rightarrow$ Internal size tracker is incremented inconsistently $\rightarrow$ Yields corrupted array bounds or throws `ArrayIndexOutOfBoundsException`.
+
 ---
 
 ## Key API Methods
@@ -204,3 +253,11 @@ StringBuilder sb1 = new StringBuilder();
 // Resizes 0 times:
 StringBuilder sb2 = new StringBuilder(100_000); 
 ```
+
+---
+
+## Reference Links
+
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/StringBuilder.html (Oracle Java API: StringBuilder Class Reference)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/StringBuffer.html (Oracle Java API: StringBuffer Class Reference)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-17.html (Java Language Specification: Threads and Locks)

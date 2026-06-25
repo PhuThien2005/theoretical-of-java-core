@@ -40,12 +40,12 @@ flowchart TD
 
 ## Self-Check
 
-- Why must a local variable be assigned before use?
-- How is an instance variable different from a static variable?
-- What does `final` prevent?
-- Why are constants often `static final`?
-- When should `var` not be used?
-- How does scope limit variable visibility?
+- Why must a local variable be definitely assigned before use, while instance and static fields receive default values?
+- What is the difference in lifetime, memory location, and storage mechanisms between local variables, instance variables, and static variables?
+- Why does `final` prevent re-assignment, and how does it enable compiler optimizations like inlining and constant folding?
+- Why are constants in Java typically declared as `static final`?
+- Why is local variable type inference (`var`) restricted to local variables and not allowed for fields or method parameter/return types?
+- How does scope limit variable visibility, and how does scope differ from variable lifetime?
 
 ## Anki Cards
 

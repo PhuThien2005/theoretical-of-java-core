@@ -113,6 +113,72 @@ public class ByteFileCopy {
 }
 ```
 
+## Why Character Streams Translate Bytes and Corrupt Binary Data
+
+Character streams (`Reader` and `Writer`) are designed to process textual data by translating raw 8-bit bytes into 16-bit Unicode characters. This translation is governed by a character encoding (such as UTF-8 or UTF-16) that maps specific byte patterns to Unicode code points. When binary files (like images, zip files, or compiled classes) are read using character streams, the underlying bytes represent arbitrary raw data, not encoded characters. The character stream's decoder attempts to parse these bytes as valid characters; if it encounters a byte sequence that does not conform to the expected encoding, it automatically replaces it with a replacement character (typically `\uFFFD` or `?`) or drops it entirely. When the data is written back, the encoder writes out the replacement character's byte sequence, permanently altering and corrupting the original file structure.
+
+### Binary vs. Character Stream Processing
+
+```mermaid
+flowchart TD
+    subgraph ByteStream [Byte Stream: Safe for Binary]
+        B1[Raw Binary Byte: e.g. 0xFF] -->|FileInputStream| B2[No translation] -->|FileOutputStream| B3[Identical Byte: 0xFF]
+    end
+    subgraph CharStream [Character Stream: Corrupts Binary]
+        C1[Raw Binary Byte: e.g. 0xFF] -->|FileReader| C2[Charset Decoder: invalid UTF-8 byte]
+        C2 -->|Replaced with| C3[Unicode Replacement Char: \uFFFD]
+        C3 -->|FileWriter| C4[Charset Encoder: writes UTF-8 sequence]
+        C4 -->|Corrupted Output Bytes| C5[0xEF 0xBF 0xBD]
+    end
+```
+
+### Code Example: Corrupting Binary Data with Readers
+
+The following example demonstrates how reading arbitrary binary data (specifically, the byte `0xFF`) with a character stream using UTF-8 encoding transforms the data into a multi-byte sequence (`0xEF 0xBF 0xBD`), causing corruption.
+
+```java
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+
+public class BinaryCorruptionDemo {
+    public static void main(String[] args) {
+        byte[] binaryData = { (byte) 0xFF }; // Arbitrary raw binary byte
+        
+        // 1. Attempting to process as character data
+        try {
+            // Write using character writer
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            OutputStreamWriter writer = new OutputStreamWriter(out, StandardCharsets.UTF_8);
+            
+            // Reinterprets the byte 0xFF as a character. In UTF-8, 0xFF alone is invalid.
+            writer.write(new String(binaryData, StandardCharsets.UTF_8));
+            writer.flush();
+            
+            byte[] corruptedData = out.toByteArray();
+            System.out.println("Original size: " + binaryData.length); // 1
+            System.out.println("Corrupted size: " + corruptedData.length); // 3
+            
+            for (byte b : corruptedData) {
+                System.out.format("0x%02X ", b);
+            }
+            // Output: 0xEF 0xBF 0xBD (This is the UTF-8 representation of \uFFFD)
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Cause-Effect Chain
+
+```
+Arbitrary binary byte (0xFF) read as text 
+  ↳ Decoder interprets 0xFF as invalid UTF-8 sequence
+    ↳ Decoder replaces the invalid sequence with Unicode replacement character \uFFFD
+      ↳ Writer encodes \uFFFD back to UTF-8 byte representation (0xEF 0xBF 0xBD)
+        ↳ Binary file size increases and physical structure changes (Corrupted File)
+```
+
 ---
 
 ## Common Mistakes
@@ -133,3 +199,10 @@ Calling `directory.delete()` returns `false` if the directory contains files or 
 File folder = new File("myFolder");
 folder.delete(); // Returns false if not empty!
 ```
+
+## Reference Links
+
+- https://docs.oracle.com/javase/tutorial/essential/io/charstreams.html (Character Streams - Oracle Java Tutorials)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/Reader.html (Reader API Documentation)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/InputStreamReader.html (InputStreamReader API Documentation)
+

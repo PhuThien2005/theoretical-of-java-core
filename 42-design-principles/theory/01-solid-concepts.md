@@ -190,3 +190,327 @@ Clean code is written primarily to be readable and easily understood by other de
   - Functions should be short and do exactly one thing.
   - Limit method indentation depth (e.g. avoid nested loops and `if` checks deeper than 2 levels; return early to keep code flat).
   - Write descriptive names, and do not use comments to explain bad code—rewrite the code to be clear.
+
+---
+
+## Why Single Responsibility Promotes High Cohesion
+
+In the JVM, classes are the fundamental unit of deployment, class loading, and execution. When a class has multiple responsibilities, it accumulates unrelated instance variables and methods, which decreases its cohesion. A highly cohesive class has fields and methods that are conceptually and functionally unified, meaning the class's methods consistently operate on its fields. When multiple responsibilities are packed into a single class, a change in one domain's requirements forces the recompilation and redeployment of the entire class, affecting unrelated domains. This can cause classpath dependency bloat and increase the risk of side effects, where modifications to one feature inadvertently break another due to shared state. By enforcing the Single Responsibility Principle, we ensure that a class is loaded by the ClassLoader as a single, isolated unit of change with a singular purpose, thereby reducing class coupling and compile-time dependencies.
+
+### Mental Model
+```text
+Low Cohesion (Fat Class):
++------------------------------------------+
+|                 UserClass                |
+|  [data] name, email, hashedPassword      |
+|  [methods] saveToDb(), sendEmail()       |
++------------------------------------------+
+                  /         \
+         Change in DB      Change in Email API
+                  \         /
+             Recompile entire class!
+
+High Cohesion (SRP Split):
++------------------+     +------------------+
+|    UserEntity    |     |   EmailService   |
+| [data] name, etc |---->|  [methods]       |
++------------------+     |  sendEmail()     |
+                         +------------------+
+```
+
+### Code Example
+```java
+// SRP Compliant Design
+class User {
+    private final String username;
+    private final String email;
+
+    public User(String username, String email) {
+        this.username = username;
+        this.email = email;
+    }
+
+    public String getEmail() { return email; }
+    public String getUsername() { return username; }
+}
+
+class EmailSender {
+    public void sendWelcomeEmail(User user) {
+        System.out.println("Email sent to " + user.getEmail());
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        User user = new User("alice", "alice@example.com");
+        EmailSender sender = new EmailSender();
+        sender.sendWelcomeEmail(user);
+        // Output: Email sent to alice@example.com
+    }
+}
+```
+
+### Cause-Effect Chain
+Single responsibility for a class &rarr; All methods focus on a single task &rarr; Highly related fields and methods (High Cohesion) &rarr; Modifying one requirement only changes its corresponding class &rarr; Rest of the system is unaffected &rarr; Loose coupling is preserved.
+
+---
+
+## Why Open/Closed Principle Protects Existing Code
+
+The Open/Closed Principle (OCP) leverages Java's object-oriented mechanisms of polymorphism and dynamic binding to enable software extensibility. When behavior is extended through subclassing or implementing interfaces, the JVM's `invokevirtual` and `invokeinterface` instructions perform dynamic method dispatch at runtime, resolving the method call based on the actual object type rather than the reference type. Modifying existing compiled classes directly is highly risky because it requires editing verified, tested source code, which can introduce regression bugs and break existing binary compatibility. By designing systems using abstract classes or interface contracts, the base logic remains untouched and closed to modification, while new features are added as new classes (open to extension). This compile-time decoupling ensures that existing bytecode does not need to be recompiled or re-verified by the JVM, dramatically stabilizing enterprise software deployments.
+
+### Mental Model
+```text
+Without OCP (Modifying Existing Class):
+Client ---> [ PaymentProcessor ]  <-- (Modifying this class to add new methods)
+             (Risk of breaking existing Visa processing!)
+
+With OCP (Extending via Interface):
+Client ---> [ PaymentProcessor (Interface) ]
+                   ^                  ^
+                   |                  |
+           [ VisaProcessor ]   [ PayPalProcessor ] <-- New class, zero risk to Visa!
+```
+
+### Code Example
+```java
+interface Payment {
+    void process();
+}
+
+class VisaPayment implements Payment {
+    public void process() {
+        System.out.println("Visa payment processed.");
+    }
+}
+
+class PayPalPayment implements Payment {
+    public void process() {
+        System.out.println("PayPal payment processed.");
+    }
+}
+
+class PaymentService {
+    public void executePayment(Payment payment) {
+        payment.process();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        PaymentService service = new PaymentService();
+        service.executePayment(new VisaPayment());
+        service.executePayment(new PayPalPayment());
+        // Output:
+        // Visa payment processed.
+        // PayPal payment processed.
+    }
+}
+```
+
+### Cause-Effect Chain
+Program depends on interfaces &rarr; New features implemented by adding new classes &rarr; No modification to existing classes &rarr; Pre-existing classes remain compiled and untested &rarr; Regression risks avoided &rarr; System maintains stability.
+
+---
+
+## Why Liskov Substitution Principle Enforces Behavioral Contracts
+
+Subtype polymorphism in Java allows a reference variable of a parent class or interface type to refer to any subclass instance. The Liskov Substitution Principle (LSP) ensures that this substitution is safe by demanding that subclasses adhere to the behavioral contract defined by the parent class. In Java, while the compiler enforces static type safety (such as method signatures and return type covariance), it cannot enforce behavioral invariants at runtime. Subclasses violate LSP when they strengthen preconditions (for instance, throwing a new checked exception or requiring input parameters to meet tighter constraints) or weaken postconditions (such as returning a null reference when the parent contract guarantees a non-null object, or modifying inherited state in a way that breaks parent invariants). When these runtime behavioral contracts are violated, polymorphism fails because client code designed to work with the parent class behaves unpredictably or throws runtime exceptions when encountering the subclass.
+
+### Mental Model
+```text
+Parent Class (Contract: returns positive integer)
+    [ MathHelper ] -> getValue() returns >= 1
+
+Subclass A (LSP compliant)
+    [ SecureHelper ] -> getValue() returns >= 1 (Complies with contract)
+
+Subclass B (LSP Violator)
+    [ BadHelper ] -> getValue() returns 0 or negative (Violates contract!)
+    Client expecting positive integer crashes due to division by zero!
+```
+
+### Code Example
+```java
+class Rectangle {
+    protected int width;
+    protected int height;
+
+    public void setWidth(int width) { this.width = width; }
+    public void setHeight(int height) { this.height = height; }
+    public int getArea() { return width * height; }
+}
+
+class Square extends Rectangle {
+    @Override
+    public void setWidth(int width) {
+        this.width = width;
+        this.height = width;
+    }
+
+    @Override
+    public void setHeight(int height) {
+        this.width = height;
+        this.height = height;
+    }
+}
+
+public class Main {
+    public static void verifyRectangle(Rectangle r) {
+        r.setWidth(5);
+        r.setHeight(10);
+        System.out.println("Expected Area: 50, Actual: " + r.getArea());
+    }
+
+    public static void main(String[] args) {
+        verifyRectangle(new Rectangle()); // Output: Expected Area: 50, Actual: 50
+        verifyRectangle(new Square());    // Output: Expected Area: 50, Actual: 100 (LSP Violation!)
+    }
+}
+```
+
+### Cause-Effect Chain
+Subclass overrides parent method &rarr; Subclass strengthens preconditions or weakens postconditions &rarr; Client code holds parent reference &rarr; Client code executes subclass method via dynamic dispatch &rarr; Subclass violates parent behavioral assumptions &rarr; Runtime crash or incorrect logic occurs.
+
+---
+
+## Why Interface Segregation Prevents Fat Interface Coupling
+
+In the JVM, when a class implements an interface, it must provide concrete implementations for all non-default methods defined by that interface, or else be declared abstract. A "fat" interface containing methods for distinct, unrelated clients forces every implementing class to depend on and implement methods it does not require, often resulting in empty or dummy method bodies that throw `UnsupportedOperationException`. This design couples unrelated components together at compile-time: if a method signature in a fat interface changes, all implementing classes must be recompiled and re-linked by the JVM, even if they never invoked or used that method. By segregating a bloated interface into small, client-specific interfaces, we minimize the size of the interface table (`itable`) references resolved during `invokeinterface` calls. Consequently, clients only depend on the specific methods they actually execute, which eliminates unnecessary compile-time dependencies, classloading overhead, and runtime code fragility.
+
+### Mental Model
+```text
+Fat Interface (Couples unrelated clients):
++-------------------------------+
+|        MultiFunction          |
+|  print(), scan(), fax()       |
++-------------------------------+
+        ^               ^
+        |               |
+  SimplePrinter     SuperOfficeJet (Needs all)
+  (forced to throw UnsupportedOperationException on fax()!)
+
+Segregated Interfaces (Lean, client-specific):
++-------------+   +-------------+
+|   Printer   |   |   Scanner   |
+|   print()   |   |   scan()    |
++-------------+   +-------------+
+       ^                 ^
+       |                 |
+       +--- SimplePrinter+
+```
+
+### Code Example
+```java
+interface Printer {
+    void print();
+}
+
+interface Scanner {
+    void scan();
+}
+
+class BasicPrinter implements Printer {
+    public void print() {
+        System.out.println("Printing document...");
+    }
+}
+
+class MultiFunctionPrinter implements Printer, Scanner {
+    public void print() {
+        System.out.println("Printing document...");
+    }
+    public void scan() {
+        System.out.println("Scanning document...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Printer printer = new BasicPrinter();
+        printer.print();
+        
+        MultiFunctionPrinter mfp = new MultiFunctionPrinter();
+        mfp.print();
+        mfp.scan();
+        // Output:
+        // Printing document...
+        // Printing document...
+        // Scanning document...
+    }
+}
+```
+
+### Cause-Effect Chain
+Fat interface contains unrelated methods &rarr; Implementing classes forced to write empty/dummy implementations &rarr; Modification of unused method signature &rarr; Recompilation and re-linking of all implementing classes &rarr; Increased compile-time coupling and risk of runtime exceptions.
+
+---
+
+## Why Dependency Inversion Decouples Modules
+
+The Dependency Inversion Principle (DIP) reverses the traditional top-down dependency flow of software systems by declaring that high-level modules should not depend on low-level concrete implementations. Under a direct dependency model, compile-time relationships are bound directly to concrete classes, meaning that high-level classes cannot be compiled or tested independently of low-level modules like databases or external APIs. By introducing interfaces as abstractions between these layers, both high-level and low-level modules depend on the abstract interface. At compile time, the high-level class relies entirely on the interface type, which is verified by Java's static type checker. At runtime, concrete implementations are injected into the high-level class using Dependency Injection (DI) through constructors or setters, and the JVM resolves the dynamic method calls via polymorphism. This decouples the compile-time relationship, enabling easy mock substitution for unit testing and allowing developers to swap low-level infrastructure classes without changing the core business logic.
+
+### Mental Model
+```text
+Direct Dependency (Tight Coupling):
+[ High-Level Service ] ---> [ Concrete MySQLDatabase ]
+(Service is hard-coded to MySQL; cannot test without database running!)
+
+Dependency Inverted (Loose Coupling):
+[ High-Level Service ] ---> [ Database (Interface) ]
+                                   ^
+                                   |
+                       [ Concrete MySQLDatabase ] or [ MockDatabase ]
+```
+
+### Code Example
+```java
+interface Database {
+    void save(String data);
+}
+
+class MySqlDatabase implements Database {
+    public void save(String data) {
+        System.out.println("Saved to MySQL: " + data);
+    }
+}
+
+class MockDatabase implements Database {
+    public void save(String data) {
+        System.out.println("Saved to Mock: " + data);
+    }
+}
+
+class OrderProcessor {
+    private final Database database;
+
+    public OrderProcessor(Database database) {
+        this.database = database;
+    }
+
+    public void process(String orderId) {
+        database.save(orderId);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        OrderProcessor production = new OrderProcessor(new MySqlDatabase());
+        production.process("order-100");
+
+        OrderProcessor test = new OrderProcessor(new MockDatabase());
+        test.process("order-100");
+        // Output:
+        // Saved to MySQL: order-100
+        // Saved to Mock: order-100
+    }
+}
+```
+
+### Cause-Effect Chain
+High-level module references abstract interface &rarr; Low-level concrete implementations implement same interface &rarr; Dependency Injection provides concrete instance at runtime &rarr; Compile-time reference remains bound to the abstraction &rarr; Low-level changes do not require recompilation of high-level code &rarr; System components are loosely coupled and testable.
+
+## Reference Links
+
+- https://docs.oracle.com/javase/tutorial/java/concepts/
+- https://docs.oracle.com/javase/specs/jls/se21/html/index.html

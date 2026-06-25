@@ -162,3 +162,59 @@ t.setDaemon(true); // Throws IllegalThreadStateException
 
 ### 3. Relying on `Thread.yield()` or Thread Priorities for Correctness
 Thread scheduling is platform-dependent. The JVM specification makes no guarantees about how priorities are mapped to OS priorities or how `yield()` behaves. Code that relies on them for synchronization is buggy.
+
+## Why join() Blocks the Calling Thread
+
+The coordination of thread completion via `join()` is built directly on the JVM's primitive wait-and-notify signaling mechanism. When a calling thread (Thread A) invokes `threadB.join()`, Thread A must enter a synchronized block internally locked on the `threadB` object instance. Inside this synchronized context, the JVM checks the status of Thread B using a loop containing the condition `threadB.isAlive()`. If Thread B is still executing, the JVM invokes `threadB.wait(0)` on behalf of Thread A, causing Thread A to release the lock and enter the `WAITING` state. When Thread B finishes its execution and is about to transition to the `TERMINATED` state, the JVM's runtime environment natively executes a `lock.notifyAll()` equivalent on the `threadB` monitor object. This notification wakes up Thread A, allowing it to re-acquire the object monitor lock, exit the loop because `isAlive()` is now false, and continue executing its remaining code.
+
+### Mental Model
+```text
+Thread A (Caller)                 Thread B (Target)              JVM Runtime
+    |                                 |                              |
+    |-- calls threadB.join()          |                              |
+    |-- acquires lock on threadB      |                              |
+    |-- loops on threadB.isAlive()    |                              |
+    |-- calls threadB.wait()          |                              |
+    |   (Releases lock, enters WAITING)|                              |
+    :                                 |                              |
+    :                                 |-- completes execution        |
+    :                                 |----------------------------->|
+    :                                 |                              |-- natively calls
+    :                                 |                              |   threadB.notifyAll()
+    |<-- wakes up (moves to RUNNABLE) <------------------------------|
+    |-- acquires lock on threadB      |                              |
+    |-- isAlive() loop returns false  |                              |
+    |-- exits join() method           |                              |
+    v                                 v                              v
+```
+
+### Code Example
+```java
+public class JoinMechanism {
+    public static void main(String[] args) throws InterruptedException {
+        Thread worker = new Thread(() -> {
+            try { Thread.sleep(500); } catch (InterruptedException e) {}
+        });
+        
+        long start = System.currentTimeMillis();
+        worker.start();
+        
+        System.out.println("Main thread joining worker...");
+        worker.join(); // Blocks main thread using wait/notify mechanism
+        
+        System.out.println("Worker joined in " + (System.currentTimeMillis() - start) + " ms");
+    }
+}
+/*
+Output:
+Main thread joining worker...
+Worker joined in 505 ms
+*/
+```
+
+### Cause-Effect Chain
+1. Thread A invokes threadB.join() &rarr; Thread A acquires monitor lock on threadB object.
+2. Thread A finds threadB.isAlive() is true &rarr; Thread A invokes threadB.wait(), entering WAITING.
+3. Thread B completes execution &rarr; JVM natively triggers notifyAll() on threadB monitor.
+4. Thread A is awakened &rarr; Thread A re-evaluates isAlive() to false and exits join().
+

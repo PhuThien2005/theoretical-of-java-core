@@ -201,6 +201,112 @@ void process(List<Integer> list) { }   // COMPILE ERROR: same erasure List
 - Pass `Class<T> clazz` as a token to create instances via `clazz.getDeclaredConstructor().newInstance()`.
 - Use `Array.newInstance(clazz, size)` for arrays.
 
+## Why Java Uses Type Erasure
+
+Java generics were introduced in Java 5 to provide compile-time type safety. At that time, billions of lines of legacy Java bytecode were already running on production systems. If the JVM had been redesigned to enforce generics at runtime (similar to C# reified generics), older pre-generic libraries would have been incompatible with newer runtimes, requiring massive recompilation. To preserve strict backward compatibility, Java opted for type erasure, a design where type parameters exist only at compile time for safety checks, and are removed by the compiler before producing standard class files. Consequently, the compiled bytecode uses raw types and implicit type casts, allowing old bytecode and new generic code to run side-by-side on the same virtual machine without modifications.
+
+### Mental Model
+
+```text
+Compile-Time (Safe checking):
+[List<String>] ---> Allows adding "hello" ---> Rejects adding 123 (Compile Error)
+
+       |
+       | Compilation (Type Erasure & Cast Insertion)
+       v
+
+Runtime (JVM Execution):
+[List] (Raw ArrayList holding Objects) ---> [Object: "hello"]
+                                             |
+                                             v (Implicit cast inserted by compiler)
+                                        (String) value
+```
+
+### Code Example
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class TypeErasureExplanation {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        list.add("Java Generics");
+        
+        // At compile-time, get(0) is checked to be String.
+        // At runtime, the bytecode performs a cast: (String) list.get(0)
+        String value = list.get(0); 
+        System.out.println(value); // Output: Java Generics
+        
+        // Demonstrating that runtime class ignores generic type
+        System.out.println(list.getClass() == ArrayList.class); // Output: true
+    }
+}
+```
+
+### Cause-Effect Chain
+
+Goal: Run legacy bytecode alongside generic code &rarr; Adopt Type Erasure &rarr; Generic type parameters erased to bounds/Object during compilation &rarr; JVM bytecode contains only raw types and inserted casts &rarr; Older JVMs can execute the bytecode without knowing about generics.
+
+## Why Generics Are Invariant and How PECS Solves It
+
+In Java, arrays are covariant, meaning `Integer[]` is a subtype of `Number[]`. However, generic types are invariant; for example, `List<Integer>` is not a subtype of `List<Number>`, even though `Integer` inherits from `Number`. If generics were covariant, you could assign a `List<Integer>` to a `List<Number>` reference, and then invoke `list.add(1.5)` (a double) on that reference, corrupting the integer list at runtime with invalid elements. To restore flexibility while maintaining type safety, Java provides wildcards under the PECS rule: Producer Extends, Consumer Super. Covariance with `? extends T` guarantees that we can safely read elements from a producer because they are guaranteed to be at least of type `T`, while contravariance with `? super T` guarantees we can safely write `T` elements into a consumer because the structure is guaranteed to hold `T` or its supertypes.
+
+### Mental Model
+
+```text
+Invariance (Strict Type Matching):
+List<Number>  <--- No Relationship --->  List<Integer>
+
+PECS Solution for Flexibility:
+                       +-------------------------+
+                       |   List<? extends Number> |  <--- Read-Only (Covariant)
+                       +-------------------------+
+                                    ^
+                                    | (Allows pointing to)
+                        List<Integer> or List<Double>
+
+                       +-------------------------+
+                       |   List<? super Integer>  |  <--- Write-Only (Contravariant)
+                       +-------------------------+
+                                    ^
+                                    | (Allows pointing to)
+                         List<Number> or List<Object>
+```
+
+### Code Example
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class PecsExplanation {
+    public static void main(String[] args) {
+        List<Integer> ints = new ArrayList<>();
+        ints.add(10);
+        ints.add(20);
+
+        // 1. Invariance prevention: List<Number> nums = ints; // Compile Error
+
+        // 2. Producer Extends (Read from list):
+        List<? extends Number> producer = ints;
+        Number num = producer.get(0); // Safe read: guaranteed to be Number
+        System.out.println(num); // Output: 10
+        // producer.add(5.5); // Compile Error: Write forbidden
+
+        // 3. Consumer Super (Write to list):
+        List<Number> numList = new ArrayList<>();
+        List<? super Integer> consumer = numList;
+        consumer.add(42); // Safe write: Integer is a subtype of Number/Object
+        System.out.println(numList.get(0)); // Output: 42
+    }
+}
+```
+
+### Cause-Effect Chain
+
+Covariance allows assignment of subtypes &rarr; Writing arbitrary supertypes to the reference corrupts the collection &rarr; Generics made invariant &rarr; Restricts APIs too much &rarr; PECS introduced &rarr; Use extends for safe reading (covariance) and super for safe writing (contravariance).
+
 ## Reference Links
 
 - https://docs.oracle.com/javase/tutorial/java/generics/wildcards.html
@@ -208,3 +314,5 @@ void process(List<Integer> list) { }   // COMPILE ERROR: same erasure List
 - https://docs.oracle.com/javase/tutorial/java/generics/lowerBounded.html
 - https://docs.oracle.com/javase/tutorial/java/generics/erasure.html
 - https://docs.oracle.com/javase/tutorial/java/generics/wildcardGuidelines.html
+- https://docs.oracle.com/javase/tutorial/java/generics/subtyping.html
+

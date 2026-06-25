@@ -96,10 +96,93 @@ Another example:
 ```java
 int value = 130;
 byte small = (byte) value;
-System.out.println(small);
+System.out.println(small); // -126
 ```
 
-This may produce an unexpected result because `byte` cannot represent all `int` values.
+This produces −126 instead of 130 because `byte` can only hold values −128 to 127.
+
+## Why Narrowing Can Lose Data
+
+### Analogy: Big Bucket → Small Bucket
+
+Think of an `int` as a large 32-bit bucket and a `byte` as a small 8-bit bucket. If the large bucket holds only a little water (value `10`), pouring it into the small bucket works fine — nothing spills. But if the large bucket is full (value `1000`), the small bucket overflows and you lose most of the water. The "water" here is **bits**, and the overflow is **data loss**.
+
+### Binary Mechanics: Keep the Lowest Bits, Chop the Rest
+
+When Java narrows a value, it does **not** scale or round the number. Instead it performs a simple operation: **keep only the lowest N bits** of the original binary representation and **discard all higher bits**.
+
+For `int` → `byte`, Java keeps the lowest **8 bits** and throws away the upper **24 bits**.
+
+### Concrete Example 1: `(byte) 1000`
+
+`int value = 1000;` in binary (32 bits):
+
+```
+00000000 00000000 00000011 11101000
+|________ discarded _______||_kept_|
+         24 bits              8 bits
+```
+
+Java keeps only the last 8 bits: `11101000`.
+
+In two's complement, the leading bit `1` means **negative**. The value of `11101000` is:
+
+```
+11101000  →  invert bits  →  00010111  →  add 1  →  00011000  =  24
+→  result = −24
+```
+
+So `(byte) 1000` produces **−24**, not 1000!
+
+### Concrete Example 2: `(byte) 130`
+
+`int value = 130;` in binary (32 bits):
+
+```
+00000000 00000000 00000000 10000010
+|________ discarded _______||_kept_|
+         24 bits              8 bits
+```
+
+Kept bits: `10000010`. Leading bit is `1` → negative.
+
+```
+10000010  →  invert  →  01111101  →  add 1  →  01111110  =  126
+→  result = −126
+```
+
+### Code With Output
+
+```java
+int v1 = 1000;
+byte b1 = (byte) v1;
+System.out.println(b1); // -24
+
+int v2 = 130;
+byte b2 = (byte) v2;
+System.out.println(b2); // -126
+
+int v3 = 10;
+byte b3 = (byte) v3;
+System.out.println(b3); // 10 — fits perfectly, no data loss
+```
+
+### Cause-Effect Chain
+
+Large type has more bits → cast to smaller type → **excess high bits are chopped off** → remaining bits may form a completely different value (including a sign flip) → **DATA CORRUPTED**.
+
+### How It Looks Visually
+
+```mermaid
+flowchart LR
+    A["int (32 bits)\n00000000 00000000 00000011 11101000"] -- "(byte) cast" --> B["Chop upper 24 bits"]
+    B --> C["byte (8 bits)\n11101000 = −24"]
+```
+
+> **Warning:** Narrowing from `double` to `int` has an **additional** behavior — Java **truncates** the decimal part (rounds toward zero), not rounds to nearest.
+> `(int) 9.8` → `9`, and `(int) -2.7` → `-2`.
+
+> See also: [Narrowing Casting](#narrowing-casting) above for the basic syntax.
 
 ## Integer Division
 

@@ -17,7 +17,7 @@ This file covers a focused slice of **Optional**. Study each concept as a practi
 | `ifPresent` |ifPresent is a specific concept in Optional; learn its Java rule, valid use cases, and failure mode rather than only its name. |
 | `orElse` |orElse is a specific concept in Optional; learn its Java rule, valid use cases, and failure mode rather than only its name. |
 | `orElseGet` |orElseGet is a specific concept in Optional; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `orElseThrow` | A Set is a collection that rejects duplicates according to equality rules. |
+| `orElseThrow` | orElseThrow returns the wrapped value or throws an exception if the value is absent. |
 
 ## Detailed Notes
 
@@ -410,11 +410,65 @@ public class OrElseGetExample {
 #### Common Mistake
 Using `orElse` when lazy evaluation is required, or using `orElseGet` with a lambda that returns a static, pre-allocated constant (which is unnecessary overhead for a lambda wrapper). For static constants, use `orElse`.
 
+## Why orElse() and orElseGet() Differ in Evaluation Mechanics
+
+The fundamental difference between `orElse()` and `orElseGet()` lies in their evaluation strategy: `orElse()` evaluates its argument eagerly (at method call time), whereas `orElseGet()` evaluates its Supplier lambda lazily (only when the `Optional` is empty). When a method call is passed directly into `orElse(expensiveCall())`, the Java compiler evaluates `expensiveCall()` first to obtain its return value, which is then passed as an argument to `orElse()`. This eager execution occurs even if the `Optional` is full and the fallback is completely discarded. In contrast, `orElseGet(() -> expensiveCall())` accepts a functional interface (`Supplier`), meaning Java only invokes the functional method `get()` inside `orElseGet()` if the wrapped value is absent, avoiding useless resource consumption.
+
+### Mental Model: The Vending Machine Analogy
+
+Imagine a vending machine that dispenses drinks:
+- **Eager Evaluation (`orElse`)**: Every time you request a drink, the machine proactively opens and pours a backup cup of water, even if the primary drink is perfectly available. If the primary drink is dispensed, it throws the poured backup cup into the trash.
+- **Lazy Evaluation (`orElseGet`)**: The machine only starts pouring the backup cup of water if and when the primary drink dispenser runs out completely.
+
+```mermaid
+flowchart TD
+    A[Call orElse/orElseGet] --> B{Is Value Present?}
+    B -- Yes --> C["orElse(expensiveCall()) evaluates argument anyway"]
+    B -- Yes --> D["orElseGet(() -> expensiveCall()) skips Supplier execution"]
+    B -- No --> E["orElse returns already evaluated argument"]
+    B -- No --> F["orElseGet executes Supplier lambda"]
+```
+
+### Runnable Code Example
+
+```java
+import java.util.Optional;
+
+public class OrElseEvaluationDemo {
+    public static String fetchBackupFromDatabase() {
+        System.out.println("Database queried for fallback!"); // Side effect!
+        return "DatabaseBackup";
+    }
+
+    public static void main(String[] args) {
+        Optional<String> optionalValue = Optional.of("PrimaryValue");
+
+        System.out.println("--- Testing orElse (Eager) ---");
+        // Eager evaluation: method is called even though optionalValue is present!
+        String res1 = optionalValue.orElse(fetchBackupFromDatabase());
+        System.out.println("Result: " + res1);
+        // Output:
+        // Database queried for fallback!
+        // Result: PrimaryValue
+
+        System.out.println("\n--- Testing orElseGet (Lazy) ---");
+        // Lazy evaluation: Supplier is not triggered because optionalValue is present!
+        String res2 = optionalValue.orElseGet(() -> fetchBackupFromDatabase());
+        System.out.println("Result: " + res2);
+        // Output:
+        // Result: PrimaryValue
+    }
+}
+```
+
+### Cause-Effect Chain
+Method argument passed to `orElse()` → Java Runtime evaluates argument expression eagerly before entering `orElse()` execution scope → Secondary method executes and incurs CPU/IO/Memory overhead → Primary value is present → Evaluated argument is discarded → Performance waste and unintended side-effects occur.
+
 ### orElseThrow
 
-A Set is a collection that rejects duplicates according to equality rules.
+orElseThrow returns the contained value if present, or throws an exception if empty.
 
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
+It matters because it allows developers to safely unwrap Optionals in contexts where an absent value is an exceptional condition. A common confusion is using `.get()` which does the same but lacks self-documenting intent and has been deprecated/marked as less preferred.
 
 Practical check:
 
@@ -424,7 +478,8 @@ Practical check:
 
 Tiny example or mental model:
 
-- When reading code, ask: what does `orElseThrow` change, allow, reject, or clarify?
+- `opt.orElseThrow(() -> new IllegalArgumentException("Required value missing"))`
+
 
 #### Detailed Explanation
 `orElseThrow()` returns the contained value if present. If empty, it throws a `NoSuchElementException`. In Java 10, the no-argument `orElseThrow()` was added as the preferred alternative to `.get()`.
@@ -457,6 +512,11 @@ public class OrElseThrowExample {
 
 #### Common Mistake
 Using `.get()` instead of `.orElseThrow()`. While they behave identically in throwing `NoSuchElementException` on empty optionals, `orElseThrow()` is self-documenting and signals explicitly that exception throwing is expected and handled behavior.
+
+## Reference Links
+
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html#orElse(T) (Optional.orElse API Documentation)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html#orElseGet(java.util.function.Supplier) (Optional.orElseGet API Documentation)
 
 ## Common Review Prompts
 

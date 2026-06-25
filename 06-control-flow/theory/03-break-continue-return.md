@@ -98,7 +98,68 @@ for (int row = 0; row < 3; row++) {
 
 If you need to exit an outer loop, you can use a flag, extract a method and `return`, or use a labeled `break`.
 
+## Under the Hood: How the JVM Handles Labeled break and continue
+
+Standard `break` and `continue` statements in Java operate implicitly on the innermost loop or switch structure. When managing complex nested loops, developers use labeled statements (e.g., `labelName:`) to specify which outer loop should be targeted. In Java bytecode, labels do not exist as named symbols; they are compiled away entirely. The Java compiler (`javac`) processes the label by calculating the bytecode offsets for the target loop's update instructions (for `continue`) or the statement immediately following the loop (for `break`). The compiler then replaces the labeled statement with a direct `goto` instruction targeting that specific bytecode offset, bypassing the default nesting rules.
+
+```mermaid
+graph TD
+    subgraph Outer Loop Frame
+        outer_start["Outer Loop Start (Offset 0)"] --> inner_start["Inner Loop Start (Offset 10)"]
+        subgraph Inner Loop Frame
+            inner_start --> check{"Check: i == 1 && j == 1?"}
+            check -- "Yes: break outer" --> outer_exit_goto["goto Offset 40 (Outer Exit)"]
+            check -- "Yes: continue outer" --> outer_update_goto["goto Offset 30 (Outer Update)"]
+            check -- "No" --> body["Inner Loop Body"]
+            body --> inner_update["j++ (Offset 20)"]
+            inner_update --> inner_start
+        end
+        outer_update_goto --> outer_update["i++ (Offset 30)"]
+        outer_update --> outer_start
+    end
+    outer_exit_goto --> outer_end["Post-Outer Statement (Offset 40)"]
+```
+
+### Bytecode Compilation Analysis
+
+Consider this nested loop structure with a labeled break:
+
+```java
+public void search() {
+    outer:
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (i == 1 && j == 1) {
+                break outer; // Jumps completely out of outer loop
+            }
+        }
+    }
+}
+// Under the hood, javac translates this to the following bytecode offsets:
+// 0: iconst_0
+// 1: istore_1          // i = 0
+// 2: iload_1
+// 3: iconst_3
+// 4: if_icmpge 28      // If i >= 3, jump to 28 (end of outer loop)
+// 7: iconst_0
+// 8: istore_2          // j = 0
+// 9: iload_2
+// 10: iconst_3
+// 11: if_icmpge 22     // If j >= 3, jump to 22 (end of inner loop)
+// 14: iload_1
+// 15: iconst_1
+// 16: if_icmpne 19     // Check i == 1 and j == 1
+// 19: goto 28          // break outer: Direct jump to outer loop exit (offset 28)
+// 22: iinc 1, 1        // i++ (outer loop update)
+// 25: goto 2           // Loop back to outer check
+// 28: return           // Exit method
+```
+
+### Cause-Effect Chain
+Compiler parses labeled control command (`break outer`) $\rightarrow$ Compiler maps symbolic label to target loop's exit bytecode offset (offset 28) $\rightarrow$ Compiler emits direct `goto 28` instruction $\rightarrow$ JVM jumps directly to the target location at runtime $\rightarrow$ All intermediate loops are exited cleanly without requiring flag variables or conditional logic checks.
+
 ---
+
 
 ## Common Mistakes
 
@@ -116,6 +177,37 @@ for (int i = 0; i < 5; i++) {
 ```
 
 **Fix**: Ensure no statements follow early-exit keywords in the same block.
+
+## Why Java Prohibits Unreachable Statements and How the Compiler Detects Them
+
+Java does not permit statements to exist if they cannot be executed under any runtime condition. To enforce this, the Java compiler performing static analysis builds a Control Flow Graph (CFG) of the code and applies "definite completion" rules (detailed in JLS 14.21). If an instruction block terminates with an unconditional jump (such as `return`, `break`, `continue`, or a thrown exception), the compiler evaluates subsequent statements in that block as having no incoming control edges. Rather than warning the developer or compiling dead bytecode, the compiler throws a compile-time error to prevent latent logical errors, minimize bytecode footprints, and enforce clear flow design.
+
+```mermaid
+graph TD
+    start["Start Block"] --> action["Execute Statement"]
+    action --> exit["Unconditional Exit: return / break / continue"]
+    exit --> dead_end["Dead End (No exit path can reach here)"]
+    dead_end -.-> unreachable["Unreachable Statement (Compile-time Error)"]
+    style unreachable fill:#f9f,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
+```
+
+### Code Example: Unreachable Code compilation Error
+
+In the code below, once `return` is processed, the subsequent statement is statically unreachable.
+
+```java
+public int processScore(int score) {
+    if (score < 0) {
+        return 0;
+        // The following line causes a compilation error!
+        // System.out.println("Invalid score reset"); // Compile-time error: unreachable statement
+    }
+    return score;
+}
+```
+
+### Cause-Effect Chain
+Developer writes statement immediately after a block-terminating control transfer statement $\rightarrow$ Compiler constructs Control Flow Graph (CFG) $\rightarrow$ Statically verifies that no execution paths can branch to the statement $\rightarrow$ Definite completion check for the statement fails $\rightarrow$ Compiler emits an "unreachable statement" compilation error and halts compilation.
 
 ### Mistake 2 — Confusing loop `break` with switch `break`
 A `break` statement inside a `switch` block nested within a loop only exits the `switch`, NOT the loop itself.
@@ -255,3 +347,12 @@ i=1, j=2
 i=1, j=3
 i=2, j=1
 ```
+
+## Reference Links
+
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.7 (Labeled Statements in the Java Language Specification)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.15 (The break Statement in the Java Language Specification)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.16 (The continue Statement in the Java Language Specification)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.21 (Unreachable Statements in the Java Language Specification)
+- https://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html (Oracle Java Branching Statements Tutorial)
+

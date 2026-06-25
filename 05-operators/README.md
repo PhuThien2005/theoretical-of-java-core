@@ -43,6 +43,17 @@ flowchart LR
 - Recognize when the ternary operator improves code and when it makes code harder to understand.
 - Use `instanceof` safely, including pattern matching syntax.
 
+## Self-Check
+
+Before moving to the next topic, verify that you can answer these "why" questions:
+1. Why do logical AND (`&&`) and OR (`||`) operators short-circuit, and how does this prevent runtime exceptions like `NullPointerException`?
+2. What is the difference in execution behavior between logical operators (`&&`, `||`) and bitwise/logical operators (`&`, `|`) when applied to boolean expressions?
+3. How do the bitwise shift operators (`<<`, `>>`, `>>>`) manipulate binary representations, and what is the difference between signed and unsigned right shifts?
+4. Why do compound assignment operators (like `+=`, `*=`) perform implicit type casting, and what potential overflow risks can this mask?
+5. What is the execution mechanism and side effect differences between prefix (`++i`) and postfix (`i++`) increment/decrement operators?
+6. How does `instanceof` perform pattern matching in modern Java, and why is it preferred over traditional checking and casting?
+7. Why does operator precedence and associativity matter in complex compound expressions, and how do parentheses affect readability and correctness?
+
 ## Anki Files
 
 - [basic.tsv](anki/basic.tsv): direct concept questions.

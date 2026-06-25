@@ -40,6 +40,45 @@ It cannot be used without an initializer.
 // var x; // invalid
 ```
 
+## Why var Type Inference Only Works Locally
+
+In Java, type inference using `var` is strictly limited to local variables. This design decision is due to the fundamental role that class fields and method signatures play in establishing class contracts and API boundaries. Fields and methods are visible outside of their declaring class, and their types must be explicitly defined in compile-time metadata (`.class` files) so that other classes can be compiled independently. Allowing fields or method signatures to use `var` would mean the compiler has to parse the internal initialization blocks of one class file to resolve types needed by another class file, breaking separate compilation. Local variables, on the other hand, are internal implementation details confined within a single method block, making inference entirely safe and local.
+
+### API Contract vs. Internal Implementation
+
+```text
+Public Boundary (API Contract) ──> Must be Explicitly Typed
+[Class Demo] 
+  ├── Field: public int count; ──> Explicit Type (Required)
+  └── Method: public String process() ──> Explicit Return Type (Required)
+  
+Internal implementation (Hidden) ──> Local Inference Allowed
+  └── Method Body:
+        └── var list = new ArrayList<String>(); ──> Inferred Local Type
+```
+
+### Type Inference Boundary Code Demo
+
+```java
+public class ContractDemo {
+    // Compile Error: 'var' is not allowed on fields
+    // public var status = "ACTIVE"; 
+    
+    // Compile Error: 'var' is not allowed in method parameter or return types
+    // public var doWork(var input) { return "Done"; }
+
+    public String getStatus() {
+        // Allowed: local variable is confined to getStatus() execution frame
+        var currentStatus = "ACTIVE"; 
+        return currentStatus;
+    }
+}
+```
+
+### API Contract Cause-Effect Chain
+
+`var` allowed on fields/methods $\rightarrow$ Compiler must analyze method bodies to determine public API types $\rightarrow$ Separate compilation of classes becomes interdependent $\rightarrow$ Modifying internal code breaks external classes unexpectedly $\rightarrow$ `var` restricted to local scopes $\rightarrow$ Class interfaces remain static and explicit, maintaining compile-time speed and stability.
+
 ## When `var` Helps
 
 `var` can reduce noise when the type is obvious.
@@ -119,3 +158,9 @@ void broken() {
 - Using `var` without an initializer — the compiler needs the initializer to infer the type.
 - Using `var` when it hides important type information, especially with method return values.
 - Initializing `var` with `null` — the compiler cannot infer a type from `null` alone.
+
+## Reference Links
+
+- [Java Language Specification: Local Variable Type Inference](https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.4)
+- [OpenJDK FAQ: Local Variable Type Inference](https://openjdk.org/projects/amber/LVTIstyle.html)
+

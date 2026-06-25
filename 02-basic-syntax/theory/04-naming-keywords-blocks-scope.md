@@ -100,6 +100,43 @@ flowchart TD
     C --> D[inner variable is visible only here]
 ```
 
+## Why Variable Scopes are Restricted to Blocks
+
+Restricting local variable scopes to specific code blocks `{}` is a critical design choice in Java for memory safety and efficiency.
+
+*   **Memory Management (Stack Allocation):** Local variables are stored on the thread execution Stack. When the JVM enters a block, it adjusts the stack pointer to allocate space for variables declared inside that block. When the block exits, the stack frame pointer is adjusted back, automatically reclaiming that memory. By keeping scopes small, variables do not consume stack memory longer than necessary.
+*   **Safety and Refactoring:** Limiting variable visibility ensures that variables cannot be accidentally read or modified by code outside their intended domain. This limits side effects and prevents bugs.
+*   **Preventing Variable Shadowing:** If a variable were visible everywhere, declaring another variable with the same name in a nested block could lead to confusion or shadowing errors. Strict block scope rules make the boundaries unambiguous.
+
+### Mental Model: Stack Memory Lifecycle
+Think of block scope like writing notes on a whiteboard during a meeting: when the meeting (the block) finishes, the board is erased (the variables are popped off the Stack) so the next meeting can use the clean space.
+
+```mermaid
+flowchart TD
+    A[Enter main method] -->|Stack Frame: push outer| B[Execute main statements]
+    B -->|Enter if block| C[Stack Frame: push inner]
+    C -->|Exit if block| D[Stack Frame: pop inner / memory reclaimed]
+    D -->|Only outer remains visible| E[Exit main method]
+```
+
+### Code Example
+```java
+public class BlockScopeWhy {
+    public static void main(String[] args) {
+        int outerValue = 100;
+        if (outerValue > 50) {
+            int blockValue = 50; // blockValue allocated on stack
+            System.out.println(blockValue + outerValue); // 150
+        } // blockValue goes out of scope, stack space reclaimed
+        
+        // System.out.println(blockValue); // Compile Error: cannot find symbol 'blockValue'
+    }
+}
+```
+
+### Cause-Effect Chain
+`Variable declared inside block` &rarr; `Compiler restricts access to tokens between curly braces` &rarr; `JVM runtime adjusts stack pointer on block exit` &rarr; `Memory is immediately reclaimed and accidental access errors are prevented`.
+
 ## Common Mistakes
 
 - Reusing vague names such as `data`, `temp`, or `value` everywhere.
@@ -196,3 +233,9 @@ public class OrderService {  // PascalCase class
 ```
 
 Every identifier here signals its type at a glance: class, constant, variable, method.
+
+## Reference Links
+
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-6.html#jls-6.3 (JLS Declarations - Scope of a Declaration)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.2 (JLS Blocks, Statements, and Patterns)
+

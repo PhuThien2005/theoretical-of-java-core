@@ -159,3 +159,53 @@ Tiny example or mental model:
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Why groupingBy and partitioningBy Serve Different Purposes
+
+In the Java Collectors API, `partitioningBy` and `groupingBy` serve distinct classification strategies, differing in key types, optimization, and structure. The `partitioningBy` collector accepts a `Predicate` and divides the input stream into exactly two categories, returning a map with keys of type `Boolean` (specifically, `true` and `false`). Internally, it leverages a specialized, highly efficient binary-only collector that pre-populates a map with both boolean keys initialized to empty downstream structures. Conversely, `groupingBy` is a general-purpose classifier accepting a `Function<T, K>`, mapping elements to arbitrary keys of type `K`. It dynamically constructs keys and groups items into a standard `HashMap` (by default) or a specified map type, allowing multiple arbitrary buckets based on the classifier's output.
+
+### Mental Model
+```
+partitioningBy(s -> s.length() > 3):
+[ "cat", "elephant" ]
+        |
+        +-----> [ true  ] ---> [ "elephant" ]
+        +-----> [ false ] ---> [ "cat" ] (Fixed to true & false keys only)
+
+groupingBy(String::length):
+[ "a", "bb", "c" ]
+        |
+        +-----> [ Key: 1 ] ---> [ "a", "c" ]
+        +-----> [ Key: 2 ] ---> [ "bb" ] (Dynamic, arbitrary keys created)
+```
+
+### Code Example
+```java
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class ClassificationDemo {
+    public static void main(String[] args) {
+        List<String> words = List.of("dog", "elephant", "cat");
+
+        // partitioningBy: always exactly true and false keys
+        Map<Boolean, List<String>> partition = words.stream()
+            .collect(Collectors.partitioningBy(s -> s.length() > 3));
+
+        // groupingBy: keys are dynamic and depend on classification function
+        Map<Integer, List<String>> groups = words.stream()
+            .collect(Collectors.groupingBy(String::length));
+
+        System.out.println("Partition: " + partition);
+        System.out.println("Groups: " + groups);
+        // Console Output:
+        // Partition: {false=[dog, cat], true=[elephant]}
+        // Groups: {3=[dog, cat], 8=[elephant]}
+    }
+}
+```
+
+### Cause-Effect Chain
+Need to categorize elements &rarr; Choose partitioningBy for simple boolean check / Choose groupingBy for complex classification &rarr; partitioningBy pre-populates Boolean.TRUE and Boolean.FALSE keys &rarr; groupingBy dynamically instantiates keys on demand &rarr; partitioningBy returns Map&lt;Boolean, List&lt;T&gt;&gt; / groupingBy returns Map&lt;K, List&lt;T&gt;&gt;

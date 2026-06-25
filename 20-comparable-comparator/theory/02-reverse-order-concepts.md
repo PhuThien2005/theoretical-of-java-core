@@ -111,6 +111,73 @@ System.out.println(list); // [2, 5, 8, null, null]
 #### Gotchas & Failure Modes
 - **Wrapper vs Primitive Boxing**: If the downstream comparator uses primitive comparisons (like `comparingInt`), sorting a list containing `null` wrapper objects can cause a `NullPointerException` during auto-unboxing before the comparator can run. Ensure your collection holds objects, and use object-based comparators with null-safety wrapping.
 
+## Why Java Uses Dual-Pivot Quicksort for Primitives but TimSort for Objects
+
+Java segregates its array sorting algorithms based on whether the input contains primitive values or object references. Primitives are pure value types without a distinct identity, meaning that sorting stability—preserving the relative input order of equal elements—is irrelevant because one primitive `7` is completely indistinguishable from another. To optimize performance, the JDK uses **Dual-Pivot Quicksort** for primitive arrays because it is highly cache-efficient, requires small $O(\log N)$ auxiliary stack space, and executes faster on raw memory. Conversely, objects have distinct identities, references, and attributes, meaning that sorting stability is mandatory to ensure that sorting elements by a secondary criteria does not scramble the ordering established by a primary sorting pass. Therefore, Java uses **TimSort** (a hybrid of merge sort and insertion sort) for object arrays, which guarantees stable $O(N \log N)$ worst-case performance and adapts to pre-sorted runs efficiently, though it requires $O(N)$ auxiliary storage to manage runs.
+
+### Mental Model: Stable Sort (TimSort) vs Unstable Sort (Quicksort)
+Suppose we have a list of cards and want to sort them by value.
+Input: `[5♣, 5♥]` where `5♣` appears before `5♥`.
+
+```text
+Stable Sort (TimSort):     [5♣, 5♥] (relative order of equal values is guaranteed to be preserved)
+Unstable Sort (Quicksort): [5♥, 5♣] (equal values may have their relative order swapped)
+```
+
+| Metric | Dual-Pivot Quicksort (Primitives) | TimSort (Objects) |
+|---|---|---|
+| **Stability** | Unstable | Stable |
+| **Worst-case Time** | $O(N^2)$ (rare) / $O(N \log N)$ | $O(N \log N)$ |
+| **Best-case Time** | $O(N)$ (if already sorted or uniform) | $O(N)$ (if elements are in pre-sorted runs) |
+| **Space Complexity** | $O(\log N)$ (in-place recursion stack) | $O(N)$ (requires temporary runs array) |
+
+### Code Example: Illustrating the Importance of Stable Sorting for Objects
+```java
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+public class SortingStabilityDemo {
+    public static class LogEntry {
+        final String severity;
+        final int timestamp;
+
+        public LogEntry(String severity, int timestamp) {
+            this.severity = severity;
+            this.timestamp = timestamp;
+        }
+
+        @Override
+        public String toString() {
+            return severity + "@" + timestamp;
+        }
+    }
+
+    public static void main(String[] args) {
+        List<LogEntry> logs = new ArrayList<>(List.of(
+            new LogEntry("ERROR", 100),
+            new LogEntry("INFO",  101),
+            new LogEntry("ERROR", 102),
+            new LogEntry("INFO",  103)
+        ));
+
+        // 1. Sort by timestamp (already in order)
+        logs.sort(Comparator.comparingInt(l -> l.timestamp));
+
+        // 2. Sort by severity. TimSort guarantees that for the same severity,
+        // the original timestamp order is preserved.
+        logs.sort(Comparator.comparing(l -> l.severity));
+        System.out.println(logs);
+        // Output: [ERROR@100, ERROR@102, INFO@101, INFO@103]
+        // Note: ERROR@100 still precedes ERROR@102, and INFO@101 precedes INFO@103.
+    }
+}
+```
+
+### Cause-Effect Chain
+Sorting array of primitives $\rightarrow$ Individual elements are pure values without identity $\rightarrow$ Stability is unnecessary $\rightarrow$ Use Dual-Pivot Quicksort to maximize CPU cache locality and avoid auxiliary heap memory allocations.
+Sorting array of objects $\rightarrow$ Individual elements are references where relative order must be preserved $\rightarrow$ Stability is required for correct multi-key sorting $\rightarrow$ Use TimSort to guarantee a stable sort at the cost of allocating extra run-tracking memory.
+
 ## Common Mistakes with Reversal and Nulls
 
 1. **Incorrectly reversing primitive comparators**: Reversing a primitive comparator using custom lambda subtraction `(a, b) -> b - a` is highly prone to overflow bugs (e.g. `Integer.MIN_VALUE` vs `1`). Always use `Comparator.reverseOrder()` or `Comparator.comparingInt(...).reversed()`.
@@ -123,3 +190,9 @@ System.out.println(list); // [2, 5, 8, null, null]
 - Which concepts here are compile-time rules?
 - Which concepts here affect runtime behavior?
 - Which concepts here are likely interview traps?
+
+## Reference Links
+
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Comparator.html (Comparator nullsFirst/nullsLast specification)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Arrays.html#sort(int%5B%5D) (Dual-Pivot Quicksort specification)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Arrays.html#sort(java.lang.Object%5B%5D) (TimSort specification)

@@ -183,3 +183,68 @@ Some list views (like `List.of()` or `Collections.unmodifiableList()`) throw `Un
 - How does a fail-fast iterator detect concurrent modifications? (By comparing the iterator's expectedModCount with the collection's modCount)
 - What note type is returned by CopyOnWriteArrayList's iterator? (A snapshot array iterator that doesn't track modifications)
 - Does Collections.sort modify the list in place or return a new list? (It modifies the list in place)
+
+## Why Fail-Fast Iterators Throw ConcurrentModificationException
+
+To prevent unpredictable runtime behavior and data corruption, Java's non-concurrent collections use a fail-fast iterator mechanism to detect concurrent modifications. The backing collection maintains an internal tracker called `modCount` (modification count), which increments with every structural modification such as additions, insertions, or removals. When an iterator is initialized, it caches this counter value into its own private field, `expectedModCount`. During subsequent operations like `next()`, `remove()`, or `forEachRemaining()`, the iterator compares the collection's live `modCount` with its stored `expectedModCount` value. If they mismatch, indicating that the collection was altered outside the iterator's control, the iterator immediately throws a `ConcurrentModificationException`. Conversely, fail-safe or weakly-consistent iterators (like that of `CopyOnWriteArrayList`) avoid this conflict entirely by iterating over an immutable snapshot of the backing array created at the moment of iterator construction, meaning modifications to the live collection target a separate copy and never interfere with the iterator's snapshot.
+
+### Mental Model
+
+Fail-fast iterator checks modification counts on every step:
+```text
+Collection State: modCount = 3
+Iterator initialized -> expectedModCount = 3
+
+1. Call iterator.next():
+   Compare modCount (3) == expectedModCount (3) -> OK! Returns element.
+
+2. Call collection.remove(x) (outside iterator):
+   Collection increments modCount to 4.
+
+3. Call iterator.next():
+   Compare modCount (4) == expectedModCount (3) -> Mismatch detected!
+   Action: Throw ConcurrentModificationException immediately.
+```
+
+### Code Example
+
+```java
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class ConcurrentModificationDemo {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        list.add("Java");
+        list.add("Python");
+        list.add("Go");
+
+        Iterator<String> iterator = list.iterator();
+
+        try {
+            while (iterator.hasNext()) {
+                String language = iterator.next();
+                if (language.equals("Python")) {
+                    // Modifying the backing list directly, not via iterator.remove()
+                    list.remove(language);
+                }
+            }
+        } catch (java.util.ConcurrentModificationException e) {
+            System.out.println("Caught ConcurrentModificationException!");
+            // Caught ConcurrentModificationException!
+        }
+    }
+}
+```
+
+### Cause-Effect Chain
+
+```text
+Initialize Iterator → Cache modCount into expectedModCount → Modify collection structurally (add/remove) → modCount increments on backing collection → Iterator calls next() and compares modCount vs expectedModCount → Mismatch detected → Throw ConcurrentModificationException immediately
+```
+
+## Reference Links
+
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ConcurrentModificationException.html (ConcurrentModificationException API)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CopyOnWriteArrayList.html (CopyOnWriteArrayList API documentation)

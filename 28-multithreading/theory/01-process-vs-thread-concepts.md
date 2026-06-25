@@ -158,3 +158,56 @@ t.start(); // Throws IllegalThreadStateException
 
 ### 3. Forgetting to Shut Down an `ExecutorService`
 An `ExecutorService` creates non-daemon threads by default. If you do not call `shutdown()`, the JVM will remain running even after the `main` method terminates.
+
+## Why Processes Differ from Threads
+
+At the operating system level, a process represents an isolated execution context containing its own address space, file handles, socket descriptors, and security tokens. In contrast, a thread is a lightweight execution path that exists within a parent process. The Java Virtual Machine (JVM) reflects this operating system model within its memory allocation architecture. When a new thread is spawned, the JVM allocates a private runtime stack and program counter (PC) register for that specific thread, ensuring that local variable states and execution instructions remain isolated. However, all threads of a single JVM process share the common Heap and Metaspace regions, enabling direct memory access and extremely fast inter-thread communication. This shared access eliminates the CPU overhead of inter-process communication (IPC) protocols, but it introduces the risk of data corruption, race conditions, and visibility errors when multiple threads write to the same memory locations concurrently.
+
+### Mental Model
+```text
++-----------------------------------------------------------+
+| OS PROCESS (Isolated Address Space, File Handles, etc.)   |
+|   +-----------------------------------------------------+   |
+|   | JVM Instance Memory                                 |   |
+|   |  Shared Heap (Objects)  &  Metaspace (Class Metadata)|   |
+|   |  [Object A] <--------------+-------------+          |   |
+|   +----------------------------|-------------|----------+   |
+|   | Thread 1 Stack & PC  | Thread 2 Stack & PC          |   |
+|   |  [Local Variables 1] |  [Local Variables 2]         |   |
+|   +----------------------+------------------------------+   |
++-----------------------------------------------------------+
+```
+
+### Code Example
+```java
+// A runnable class showcasing thread memory sharing vs process isolation
+public class ProcessVsThread {
+    private static int sharedCounter = 0; // Shared memory in the Heap
+
+    public static void main(String[] args) throws InterruptedException {
+        Thread t1 = new Thread(() -> {
+            for (int i = 0; i < 1000; i++) sharedCounter++;
+        });
+        Thread t2 = new Thread(() -> {
+            for (int i = 0; i < 1000; i++) sharedCounter++;
+        });
+        t1.start();
+        t2.start();
+        t1.join();
+        t2.join();
+        // Output can be less than 2000 due to unsynchronized shared memory access!
+        System.out.println("Shared Counter: " + sharedCounter);
+    }
+}
+/*
+Possible Output:
+Shared Counter: 1984
+*/
+```
+
+### Cause-Effect Chain
+1. Operating System launches JVM process &rarr; OS allocates isolated virtual address space and resources.
+2. JVM spawns Java threads &rarr; Threads share the JVM Heap/Metaspace but get private Stack/PC registers.
+3. Multiple threads access Heap objects &rarr; Thread communication is extremely fast without IPC overhead.
+4. Unsynchronized parallel writes occur &rarr; Interleaved CPU instructions corrupt shared state (Race Condition).
+

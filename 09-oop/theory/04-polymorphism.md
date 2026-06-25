@@ -237,3 +237,89 @@ Dog d = new Dog();
 - Oracle Java Tutorials - Polymorphism: https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html
 - Oracle Java Tutorials - Overriding and hiding methods: https://docs.oracle.com/javase/tutorial/java/IandI/override.html
 - Oracle Java Tutorials - Method overloading: https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html
+
+---
+
+## Why Method Overriding Uses Runtime Dynamic Dispatch
+
+Method overriding resolves at runtime rather than compile time because the Java compiler cannot always know which concrete class an object will be at the point a polymorphic call is made. A variable declared as `Animal` might hold a `Dog`, a `Cat`, or any future subclass that does not even exist when the calling code is compiled; fixing the method target at compile time would make it impossible to extend behavior by adding new subclasses without recompiling every call site. The JVM solves this with **virtual method dispatch**: for every class, it maintains a **virtual method table (vtable)** in the Method Area (Metaspace) containing pointers to the actual bytecode for each overridable method. When a subclass overrides a method, the JVM updates that slot in the subclass's vtable to point to the overriding implementation rather than the parent's. When the JVM executes an `invokevirtual` bytecode instruction (which is what all non-static, non-private, non-final instance method calls compile to), it does not use the reference variable's declared type — it dereferences the object in the heap, looks up its class descriptor, and follows the vtable pointer for the matching method slot. This lookup takes only a single indirection step and is so fast that the JIT compiler can even inline frequently called virtual methods via speculative devirtualization. Static methods compile to `invokestatic` and are resolved purely from the reference type at compile time, which is why static methods can only be hidden, never overridden polymorphically.
+
+### Mental Model
+
+```
+Compile time:
+  Animal a = new Dog();
+  a.speak();
+  ↓
+  Compiler generates: invokevirtual #speak  (checks only that speak() exists in Animal)
+  Compiler does NOT know the runtime type is Dog
+
+Runtime:
+  Stack: [ a → ref to Dog object in Heap ]
+                    |
+                    v
+  Heap: [ Dog object ] → class descriptor pointer → Dog.class metadata
+                                                           |
+                                                           v
+                                               Dog's vtable:
+                                               +------------------+----------+
+                                               | Method           | Pointer  |
+                                               +------------------+----------+
+                                               | speak()          | Dog.speak|  ← updated slot
+                                               | eat()            | Animal.eat (inherited, not overridden)
+                                               +------------------+----------+
+                                                           |
+                                               JVM follows Dog.speak pointer → executes Dog's speak()
+```
+
+### Code Example
+
+```java
+class Animal {
+    void speak() {
+        System.out.println("Animal speaks");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void speak() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    void speak() {
+        System.out.println("Cat meows");
+    }
+}
+
+public class Main {
+    static void makeNoise(Animal a) {
+        // Compiled as invokevirtual — the actual method is resolved at runtime
+        a.speak();
+    }
+
+    public static void main(String[] args) {
+        Animal[] animals = { new Dog(), new Cat(), new Animal() };
+        for (Animal a : animals) {
+            makeNoise(a);
+        }
+    }
+}
+// Output:
+// Dog barks
+// Cat meows
+// Animal speaks
+```
+
+### Cause-Effect Chain
+
+Method call `a.speak()` compiled to `invokevirtual` bytecode instruction
+→ At runtime JVM dereferences the heap object that `a` points to
+→ JVM reads the object's class descriptor (always present in object header)
+→ JVM looks up `speak()` slot in that class's vtable
+→ If Dog overrode `speak()`, the slot points to Dog's implementation; otherwise it points to Animal's
+→ JVM executes whichever implementation the vtable slot points to
+→ Adding new subclasses never requires recompiling existing call sites — each new class provides its own vtable with updated slots

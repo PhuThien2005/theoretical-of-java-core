@@ -272,3 +272,99 @@ System.out.println(obj.val); // Prints 100 (resolved from Super reference type, 
 - Oracle Java Tutorials - Overriding and hiding methods: https://docs.oracle.com/javase/tutorial/java/IandI/override.html
 - Oracle Java Tutorials - Interfaces and Inheritance: https://docs.oracle.com/javase/tutorial/java/IandI/index.html
 - Dev.java Inheritance: https://dev.java/learn/inheritance/
+
+---
+
+## Why super() Must Be the First Statement in a Subclass Constructor
+
+Java requires `super()` (or `super(args)`) to be the very first statement in a subclass constructor because of a fundamental ordering guarantee: every object in a hierarchy must be fully initialized from the top of the chain downward before any subclass code can reference `this`. If a subclass constructor were allowed to execute statements before calling `super()`, it could read or call methods on `this` while the superclass portion of the object — its fields and any initialization blocks — had not yet run, producing an object in a partially constructed, invalid state. The Java Language Specification (JLS §8.8.7) encodes this constraint directly into the compiler: if no explicit `super(...)` or `this(...)` call appears as the first statement, the compiler automatically inserts a `super()` call to the no-argument constructor of the immediate parent. This implicit insertion propagates all the way up the chain: every parent class also calls its own `super()`, until `java.lang.Object`'s constructor is reached and invoked. `Object`'s constructor performs the final allocation bookkeeping and is the root of every constructor chain. Constructors then return in LIFO order — Object first finishes, then each intermediate class, then the final subclass — so by the time a subclass body completes, every ancestor's state is guaranteed to be initialized.
+
+### Mental Model
+
+```
+new SportsCar("Ferrari", 300)
+        |
+        v
+  SportsCar constructor called
+        |
+        |-- super("Ferrari") must be first statement
+        v
+  Car constructor called
+        |
+        |-- super() implicitly inserted by compiler
+        v
+  Vehicle constructor called
+        |
+        |-- super() implicitly inserted by compiler
+        v
+  Object constructor called
+        |
+        Object fields initialized  <-- root of chain
+        |
+  Object constructor returns
+        |
+  Vehicle fields initialized & body runs
+        |
+  Car fields initialized & body runs
+        |
+  SportsCar fields initialized & body runs
+        |
+  Object fully constructed, reference returned to caller
+```
+
+### Code Example
+
+```java
+class Vehicle {
+    private String brand;
+
+    Vehicle(String brand) {
+        this.brand = brand;
+        System.out.println("Vehicle constructor: brand = " + brand);
+    }
+
+    public String getBrand() { return brand; }
+}
+
+class Car extends Vehicle {
+    private int topSpeed;
+
+    Car(String brand, int topSpeed) {
+        super(brand); // MUST be first — compiler enforces this
+        this.topSpeed = topSpeed;
+        System.out.println("Car constructor: topSpeed = " + topSpeed);
+    }
+}
+
+class SportsCar extends Car {
+    private String model;
+
+    SportsCar(String brand, int topSpeed, String model) {
+        super(brand, topSpeed); // delegates to Car, which delegates to Vehicle, which delegates to Object
+        this.model = model;
+        System.out.println("SportsCar constructor: model = " + model);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        new SportsCar("Ferrari", 300, "F40");
+    }
+}
+// Output:
+// Vehicle constructor: brand = Ferrari
+// Car constructor: topSpeed = 300
+// SportsCar constructor: model = F40
+```
+
+### Cause-Effect Chain
+
+`new SportsCar(...)` invoked
+→ SportsCar constructor begins; `super(brand, topSpeed)` is first statement
+→ Car constructor begins; `super(brand)` is first statement
+→ Vehicle constructor begins; compiler inserts implicit `super()`
+→ Object constructor runs first, completing root initialization
+→ Vehicle fields and body complete
+→ Car fields and body complete
+→ SportsCar fields and body complete
+→ Fully initialized object reference returned to caller with all ancestor state guaranteed valid

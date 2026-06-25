@@ -190,3 +190,47 @@ StampedLock lock = new StampedLock();
 long s1 = lock.writeLock();
 long s2 = lock.writeLock(); // DEADLOCK: blocks waiting for its own lock!
 ```
+
+## Why Atomic Variables Avoid Lock-Based Synchronization
+
+Atomic variables avoid lock-based synchronization by utilizing lock-free algorithms powered by hardware-level Compare-And-Swap (CAS) instructions. In contrast to `synchronized` blocks which suspend threads using OS-level context switching, CAS relies on CPU instructions like `CMPXCHG`. The CAS operation takes three arguments: a memory address, the expected current value at that address, and a new target value. If the value at the memory address matches the expected value, the CPU updates it to the new value in a single, atomic instruction. If another thread modified the value in the meantime, the check fails, and the calling thread loops (spins) to retry the operation with the updated value rather than blocking.
+
+### Mental Model: CAS Spin Loop
+```
+   [ Thread A ] ──► Read Value (V=5)
+                         │
+         Update local copy to (New=6)
+                         │
+             CAS(Address, V=5, New=6)
+                         │
+        ┌────────────────┴────────────────┐
+        ▼ (Expected == Actual)            ▼ (Expected != Actual)
+   [ SUCCESS: V becomes 6 ]     [ FAIL: Spin & retry with V=actual ]
+```
+
+### Code Example
+```java
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class CASDemo {
+    private final AtomicInteger value = new AtomicInteger(0);
+
+    public void safeIncrement() {
+        int expected;
+        int next;
+        do {
+            expected = value.get();
+            next = expected + 1;
+        } while (!value.compareAndSet(expected, next)); // CAS loop
+    }
+
+    public static void main(String[] args) {
+        CASDemo demo = new CASDemo();
+        demo.safeIncrement();
+        System.out.println("Value: " + demo.value.get()); // Output: Value: 1
+    }
+}
+```
+
+### Cause-Effect Chain
+Thread reads memory address → Local variable holds expected value → Thread computes new value → Thread executes hardware CAS (`compareAndSet`) → CPU compares current memory value to expected value → Value matches → Atomic update succeeds → Value does not match → CAS returns false → Thread loops back and retries (spins) → Thread safety achieved without blocking overhead.

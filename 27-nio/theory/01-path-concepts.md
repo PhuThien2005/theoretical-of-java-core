@@ -26,6 +26,68 @@ This file covers a focused slice of **NIO / NIO.2**. Study each concept as a pra
 * Note: Since Java 11, `Path.of(String)` is preferred over `Paths.get(String)`.
 * Path manipulations do not access the file system (they are logical operations in memory).
 
+#### Why Path and Files Are Superior to java.io.File
+
+The legacy `java.io.File` class conflates the abstract path representation with physical file system operations, leading to poor design separation. Furthermore, many `java.io.File` methods (like `delete()` or `createNewFile()`) return a simple `boolean` on failure instead of throwing a descriptive `IOException`, which often causes developers to overlook error handling and results in silent failures. The NIO.2 `Path` interface represents a pure logical path in memory, completely separating path manipulation from filesystem access. Actual disk operations are delegated to the `java.nio.file.Files` utility class, which throws rich, specific exceptions (such as `NoSuchFileException` or `AccessDeniedException`) that force proper error handling and aid debugging.
+
+```mermaid
+graph TD
+    subgraph Legacy IO (java.io.File)
+        FileObj["java.io.File Class"]
+        FileObj -->|Conflates| PathLogic[Logical Path Manipulation]
+        FileObj -->|Conflates| DiskAccess[Physical Disk Access]
+        FileObj -->|Returns| BooleanFail[Boolean on Failure]
+    end
+    subgraph Modern NIO.2 (java.nio.file)
+        PathInt[Path Interface] -->|Pure Logic| Memory[In-Memory Representation]
+        FilesUtil[Files Class] -->|Disk Operations| Disk[Actual Disk Access]
+        FilesUtil -->|Throws| RichException[Descriptive IOExceptions]
+    end
+```
+
+##### Code Example: Error Handling Comparison
+
+```java
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+public class LegacyVsNioErrorHandling {
+    public static void main(String[] args) {
+        // Legacy java.io.File: Silent failure prone
+        File legacyFile = new File("/nonexistent/dir/file.txt");
+        boolean isDeleted = legacyFile.delete(); 
+        System.out.println("Legacy deleted: " + isDeleted); // Prints: Legacy deleted: false (No exception thrown!)
+
+        // Modern java.nio.file.Path & Files: Fail-fast and descriptive
+        Path nioPath = Path.of("/nonexistent/dir/file.txt");
+        try {
+            Files.delete(nioPath);
+        } catch (IOException e) {
+            System.err.println("NIO deletion failed: " + e.getClass().getSimpleName());
+            // Prints: NIO deletion failed: NoSuchFileException
+        }
+    }
+}
+```
+
+##### Cause-Effect Chain of Deletion Operations
+
+```
+Legacy File.delete() called on missing file 
+  └── Returns false (No exception raised)
+        └── Developer forgets to check return value
+              └── Program proceeds under false assumption of deletion
+                    └── Silent failure propagates, leading to potential data corruption/logic errors
+
+NIO.2 Files.delete() called on missing file
+  └── Throws NoSuchFileException
+        └── JVM interrupts normal execution flow
+              └── Caller is forced to catch/handle the exception
+                    └── Application fails fast, providing a clear stack trace for diagnostic debugging
+```
+
 #### Key Path Operations:
 * `resolve(Path)`: Joins two paths. If the argument is an absolute path, it simply returns the argument.
 * `relativize(Path)`: Computes the relative path between two paths (the "distance" between them).
@@ -114,6 +176,81 @@ NIO data transfers happen through channels and buffers. A `Buffer` is an in-memo
 * `clear()`: Prepares the buffer for writing after reading. Sets `position = 0`, `limit = capacity` (pointers reset; data is not cleared).
 * `rewind()`: Resets `position` to 0, allowing re-reading of the data already in the buffer (leaves `limit` unchanged).
 
+#### Why Buffer flip() is Required and State Pointer Transitions
+
+A Java NIO `Buffer` is a single block of memory managed by a single set of read/write cursors: `position`, `limit`, and `capacity`. When writing data into the buffer, the `position` pointer advances toward the `limit` (which initially equals `capacity`) to track the next index to write. If a reader tries to read from the buffer immediately after writing without shifting modes, the buffer will try to read from the current `position` onwards, resulting in reading uninitialized/empty bytes or hitting the limit immediately. Calling `flip()` transitions the buffer from write-mode to read-mode by setting the `limit` to the current `position` (marking the exact boundary of valid written data) and resetting `position` back to `0` so that reading starts from the beginning of the written data.
+
+```mermaid
+graph TD
+    subgraph Write Mode (Initial state)
+        W_Pos[position = 2]
+        W_Lim[limit = 10]
+        W_Cap[capacity = 10]
+        DataW["['H', 'i', _, _, _, _, _, _, _, _]"]
+    end
+    subgraph After flip() (Read Mode)
+        R_Pos[position = 0]
+        R_Lim[limit = 2]
+        R_Cap[capacity = 10]
+        DataR["['H', 'i' | limit boundary, _, _, _, _, _, _, _]"]
+    end
+    Write Mode -->|flip() call| After flip()
+```
+
+##### Code Example: The Danger of Forgetting flip()
+
+```java
+import java.nio.ByteBuffer;
+
+public class FlipRequirementDemo {
+    public static void main(String[] args) {
+        ByteBuffer buf = ByteBuffer.allocate(10); // capacity=10, position=0, limit=10
+        
+        // Write two bytes
+        buf.put((byte) 'H');
+        buf.put((byte) 'i'); // position becomes 2
+        
+        // INCORRECT: Read without flipping
+        System.out.println("Remaining bytes without flip: " + buf.remaining()); // Prints: 8
+        System.out.print("Data read without flip: ");
+        while (buf.hasRemaining()) {
+            System.out.print((char) buf.get()); // Reads uninitialized bytes at indices 2 to 9 (prints spaces/garbage)
+        }
+        System.out.println();
+        
+        // Reset pointers for correct demo
+        buf.position(2); // Set back to where it was after writing
+        
+        // CORRECT: Flip before reading
+        buf.flip(); // limit becomes 2, position becomes 0
+        System.out.println("Remaining bytes after flip: " + buf.remaining()); // Prints: 2
+        System.out.print("Data read after flip: ");
+        while (buf.hasRemaining()) {
+            System.out.print((char) buf.get()); // Prints: Hi
+        }
+        System.out.println();
+    }
+}
+```
+
+##### Cause-Effect Chain of Writing and Reading Without flip()
+
+```
+Write 'H' and 'i' into buffer
+  └── position advances from 0 to 2 (limit remains 10)
+        └── Attempt to read buffer directly (without calling flip())
+              └── get() starts reading from position 2 up to limit 10
+                    └── Reads index 2 to 9 (uninitialized buffer data) instead of 'H' and 'i'
+                          └── Returns garbage or empty data, leaving 'H' and 'i' unread
+
+Write 'H' and 'i' into buffer
+  └── position advances from 0 to 2 (limit remains 10)
+        └── Call flip()
+              └── limit is set to 2 (marks end of valid data), position is reset to 0
+                    └── get() starts reading from position 0 up to limit 2
+                          └── Correctly reads 'H' at index 0 and 'i' at index 1, stopping at limit 2
+```
+
 ```java
 import java.nio.ByteBuffer;
 
@@ -158,3 +295,11 @@ System.out.println(base.resolve(target)); // Prints /etc/config, NOT /home/user/
 ### 3. Forgetting to `flip()` before reading a buffer
 After writing data into a buffer, the buffer's `position` points to the next empty index. If you immediately try to read from it without calling `flip()`, you will read uninitialized/empty bytes up to the limit (or read nothing if position is at limit).
 * **Rule**: Always call `buffer.flip()` before reading from a buffer, and `buffer.clear()` before writing to it again.
+
+---
+
+## Reference Links
+
+- [Official Java Path Documentation](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html)
+- [Official Java Files Documentation](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Files.html)
+- [Official Java Buffer Documentation](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/Buffer.html)

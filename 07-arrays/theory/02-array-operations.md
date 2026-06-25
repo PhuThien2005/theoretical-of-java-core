@@ -27,6 +27,48 @@ System.arraycopy(Object src, int srcPos, Object dest, int destPos, int length);
 - Throws `IndexOutOfBoundsException` if indices exceed array sizes.
 - Throws `ArrayStoreException` if the runtime types of source and destination arrays are incompatible.
 
+### Why System.arraycopy is Performant and Shallow
+
+The `System.arraycopy()` method is highly performant because it bypasses the Java virtual machine's element-by-element loop overhead and executes a direct memory block transfer (equivalent to `memmove` in C) at the operating system or hardware level. When copying large arrays, a standard Java loop requires fetching, type-checking, and writing each individual element, which incurs significant CPU instruction overhead. In contrast, `System.arraycopy()` utilizes native CPU instructions to copy the entire raw memory block in a single unified operation, maximizing bus utilization. However, because it copies the raw bits of the array elements directly, it performs a shallow copy when applied to arrays of object references. It copies the reference addresses (pointers) stored in the array rather than duplicating the underlying objects themselves, meaning both arrays will reference the same instances on the heap.
+
+```mermaid
+flowchart TD
+    subgraph Source Array [Source String[]]
+        S0["Index 0: Ref A"]
+        S1["Index 1: Ref B"]
+    end
+    subgraph Dest Array [Dest String[]]
+        D0["Index 0: Ref A"]
+        D1["Index 1: Ref B"]
+    end
+    subgraph Heap Objects
+        ObjA["String Object A: 'Hello'"]
+        ObjB["String Object B: 'World'"]
+    end
+    S0 --> ObjA
+    D0 --> ObjA
+    S1 --> ObjB
+    D1 --> ObjB
+    Source Array -.->|Direct memory copy of references| Dest Array
+    style Source Array fill:#fff3cd,stroke:#333
+    style Dest Array fill:#d1e7dd,stroke:#333
+```
+
+**Runnable Code Example:**
+```java
+public class ArrayCopyPerformanceDemo {
+    public static void main(String[] args) {
+        String[] src = {new String("Hello"), new String("World")};
+        String[] dest = new String[2];
+        System.arraycopy(src, 0, dest, 0, 2);
+        System.out.println("Same object reference: " + (src[0] == dest[0])); // Output: true
+    }
+}
+```
+
+**Cause-Effect Chain:**
+`System.arraycopy called` &rarr; `Native system call bypasses JVM loop` &rarr; `Contiguous memory block copied directly at OS/hardware level` &rarr; `Raw reference addresses copied verbatim` &rarr; `Shallow copy where both arrays point to the same heap objects`
+
 ### 2. `Arrays.copyOf()`
 Creates a new array copy from index `0` up to `newLength`.
 
@@ -156,31 +198,49 @@ public class ArraySortExample {
 
 ---
 
-## Searching: Binary Search Math
+## Why Binary Search Requires Sorted Arrays and How Its Return Code Math Works
 
-`Arrays.binarySearch()` is an $O(\log n)$ search algorithm.
+The `Arrays.binarySearch()` method relies on the binary search algorithm, which repeatedly halves the search space by comparing the target key to the middle element of the current range. This halving mechanism assumes a strict sorting contract: if the target key is less than the middle element, it must reside in the left half, and if greater, it must reside in the right half. If the array is not sorted, this directional assumption is broken, causing the algorithm to prune the correct path and return an incorrect or unpredictable result. When the key is not found, `binarySearch()` returns a negative value calculated as `-(insertionPoint) - 1` to communicate both the absence of the key and its correct sorted insertion location. By offsetting the negative insertion point by 1, the algorithm avoids the collision at index `0`, ensuring that a negative return value always unambiguously indicates 'not found' while preserving the index value.
 
-> [!IMPORTANT]
-> The array **must be sorted** in ascending order before calling `binarySearch()`. If the array is not sorted, the returned index is undefined and unpredictable.
-
-### Return Value Calculations:
-1. **If Key is Found:** Returns the positive index (0-based) where the element resides.
-2. **If Key is Not Found:** Returns a negative value calculated as:
-   $$\text{Return Value} = -(\text{insertionPoint}) - 1$$
-   Where `insertionPoint` is the index where the key *would be* inserted to maintain sorted order.
-
-**Example Math:**
-```java
-int[] arr = {10, 20, 30, 40, 50};
-
-int index1 = Arrays.binarySearch(arr, 30); // Found at index 2. Returns 2.
-int index2 = Arrays.binarySearch(arr, 25); // Not found. Should be inserted at index 2 (between 20 and 30).
-                                           // Returns: -(2) - 1 = -3.
-int index3 = Arrays.binarySearch(arr, 5);  // Not found. Should be inserted at index 0.
-                                           // Returns: -(0) - 1 = -1.
-int index4 = Arrays.binarySearch(arr, 60); // Not found. Should be inserted at index 5.
-                                           // Returns: -(5) - 1 = -6.
+```mermaid
+flowchart TD
+    subgraph Sorted Array: [10, 20, 30, 40, 50]
+        A["[0]=10"]
+        B["[1]=20"]
+        C["[2]=30"]
+        D["[3]=40"]
+        E["[4]=50"]
+    end
+    Target["Search for 25"]
+    Target -->|Compare to Mid [2]=30| C
+    C -->|25 < 30: Go Left| B
+    B -->|25 > 20: Go Right| NotFound["Not Found. Insertion point is index 2"]
+    NotFound -->|Formula: -insertionPoint - 1| Return["Return: -2 - 1 = -3"]
+    style Sorted Array fill:#f8f9fa,stroke:#333
+    style Return fill:#f8d7da,stroke:#333
 ```
+
+**Runnable Code Example:**
+```java
+import java.util.Arrays;
+
+public class BinarySearchDemo {
+    public static void main(String[] args) {
+        int[] sorted = {10, 20, 30, 40, 50};
+        
+        // Element found
+        int indexFound = Arrays.binarySearch(sorted, 30);
+        System.out.println("Index of 30: " + indexFound); // Output: 2
+        
+        // Element not found (should be at index 2)
+        int indexNotFound = Arrays.binarySearch(sorted, 25);
+        System.out.println("Index of 25: " + indexNotFound); // Output: -3
+    }
+}
+```
+
+**Cause-Effect Chain:**
+`Binary search assumes sorted order` &rarr; `Middle element compared to key` &rarr; `Range halved based on order assumption` &rarr; `Key not found` &rarr; `Insertion point determined` &rarr; `Return value calculated as -(insertionPoint) - 1 to prevent 0 index collision`
 
 ---
 
@@ -205,6 +265,47 @@ int[][] matrix2 = {{1, 2}};
 System.out.println(Arrays.equals(matrix1, matrix2));     // false (inner row addresses differ)
 System.out.println(Arrays.deepEquals(matrix1, matrix2)); // true (contents compared recursively)
 ```
+
+### Why Arrays.equals Fails on Multidimensional Arrays
+
+The `Arrays.equals()` method is designed to perform a single-level equality check, meaning it iterates through the elements of the arrays and compares them using `==` for primitives or the `.equals()` method for objects. When `Arrays.equals()` is called on multidimensional arrays (which are arrays of sub-array references), it compares the inner row references rather than the actual values inside those sub-arrays. Because sub-arrays are independent objects on the heap, two structurally identical multidimensional arrays will have different row references and thus fail the single-level reference check. To solve this, `Arrays.deepEquals()` must be used because it detects when elements are nested arrays and recursively traverses down into them to compare their low-level values. This recursion ensures that multidimensional structures are evaluated by value rather than by the memory addresses of their component rows.
+
+```mermaid
+flowchart TD
+    subgraph Matrix 1
+        M1["matrix1"] --> M1_0["Row Ref A"]
+    end
+    subgraph Matrix 2
+        M2["matrix2"] --> M2_0["Row Ref B"]
+    end
+    subgraph Sub-Arrays on Heap
+        M1_0 --> RowA["[10, 20]"]
+        M2_0 --> RowB["[10, 20]"]
+    end
+    M1_0 ===|Arrays.equals compares row references: Ref A != Ref B| M2_0
+    RowA -.->|Arrays.deepEquals compares element values: 10==10, 20==20| RowB
+    style RowA fill:#d1e7dd,stroke:#333
+    style RowB fill:#d1e7dd,stroke:#333
+```
+
+**Runnable Code Example:**
+```java
+import java.util.Arrays;
+
+public class ArrayEqualityDemo {
+    public static void main(String[] args) {
+        int[][] m1 = {{10, 20}};
+        int[][] m2 = {{10, 20}};
+        System.out.println("Arrays.equals: " + Arrays.equals(m1, m2));         // Output: false
+        System.out.println("Arrays.deepEquals: " + Arrays.deepEquals(m1, m2)); // Output: true
+    }
+}
+```
+
+**Cause-Effect Chain:**
+`Arrays.equals called on 2D array` &rarr; `Nested arrays treated as Object elements` &rarr; `Single-level .equals() compares sub-array references using identity check` &rarr; `References differ` &rarr; `Returns false despite identical numeric values`
+
+---
 
 ## Common Mistakes
 
@@ -241,3 +342,11 @@ Object[] src = { "Hello", "World" };
 Integer[] dest = new Integer[2];
 // System.arraycopy(src, 0, dest, 0, 2); // Throws ArrayStoreException at runtime!
 ```
+
+---
+
+## Reference Links
+
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-10.html (Arrays in Java Language Specification)
+- https://docs.oracle.com/javase/8/docs/api/java/lang/System.html#arraycopy-java.lang.Object-int-java.lang.Object-int-int- (Java SE 8 System.arraycopy Javadoc)
+- https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html (Java SE 8 java.util.Arrays Javadoc)

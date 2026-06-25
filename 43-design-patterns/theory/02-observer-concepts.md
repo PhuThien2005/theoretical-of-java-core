@@ -182,3 +182,55 @@ A Repository is a Domain-Driven Design (DDD) pattern that mediates between the d
 ### Service Layer
 
 The Service Layer encapsulates the core business rules and transactions of an application. It sits between the presentation layer (Controllers) and the persistence layer (Repositories/DAOs), orchestrating domain model logic.
+
+---
+
+## Why the Observer Pattern Decouples Subjects from Observers
+
+The Observer pattern defines a one-to-many dependency that decouples the subject (the source of events) from its observers (the consumers of events) using Java interfaces. In a tightly coupled system, a subject would maintain direct references to concrete observer classes and call their specific methods. This forces the subject to change whenever a new observer type is introduced, violating the Open-Closed Principle. By programming to an interface, the subject only interacts with a generic signature, such as `update()`.
+
+At runtime, the subject stores observers in a collection (e.g., `ArrayList<Observer>`). When a state change occurs, the subject iterates through this collection and invokes `update()` on each element. The JVM's execution engine dynamically dispatches each call to the appropriate concrete observer class using virtual method tables (vtables). Consequently, the subject has no compile-time dependency on concrete observers, allowing developers to add, remove, or swap listeners at runtime without modifying the subject's implementation.
+
+### Mental Model
+```
+     Subject (maintains List<Observer>) 
+       |
+       +---notify()---> [ Loop: Observer.update() ]
+                             |
+         +-------------------+-------------------+
+         |                                       |
+         v                                       v
+   ConcreteObserverA (update)             ConcreteObserverB (update)
+   (Draws graph)                          (Sends email)
+```
+
+### Code Example
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+interface Observer { void update(String msg); }
+
+class ConsoleObserver implements Observer {
+    public void update(String msg) { System.out.println("Console: " + msg); }
+}
+
+class Subject {
+    private final List<Observer> observers = new ArrayList<>();
+    public void attach(Observer o) { observers.add(o); }
+    public void notifyAll(String msg) {
+        for (Observer o : observers) { o.update(msg); }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Subject subject = new Subject();
+        subject.attach(new ConsoleObserver());
+        subject.notifyAll("Event Triggered"); // Output: Console: Event Triggered
+    }
+}
+```
+
+### Cause-Effect Chain
+Subject directly references concrete observer classes &rarr; Tight coupling and compile-time dependency on every observer type &rarr; Define abstract Observer interface &rarr; Subject maintains references using the Observer interface type &rarr; JVM dynamic method dispatch resolves concrete subclasses at runtime &rarr; New observers added dynamically without altering Subject code.
