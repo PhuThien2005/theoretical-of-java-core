@@ -27,7 +27,7 @@ flowchart LR
     A --> I[Bitwise]
 
     B --> B1[int division truncates]
-    D --> D1[short-circuit with && and ||]
+    D --> D1["short-circuit with && and ||"]
     E --> E1[may combine operation + assignment]
     F --> F1[has a side effect]
     G --> G1[chooses one of two values]
