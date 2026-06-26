@@ -167,7 +167,7 @@ Bitwise operators work on the binary representation of integer values.
 | Operator | Meaning |
 |---|---|
 | `&` | bitwise AND |
-| `|` | bitwise OR |
+| `\|` | bitwise OR |
 | `^` | bitwise XOR |
 | `~` | bitwise complement |
 | `<<` | left shift |

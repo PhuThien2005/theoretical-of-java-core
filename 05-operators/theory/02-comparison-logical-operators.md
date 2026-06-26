@@ -58,7 +58,7 @@ Logical operators combine boolean expressions.
 | Operator | Name | Meaning |
 |---|---|---|
 | `&&` | logical AND | true only if both sides are true |
-| `||` | logical OR | true if at least one side is true |
+| `\|\|` | logical OR | true if at least one side is true |
 | `!` | logical NOT | reverses a boolean |
 
 ```java
