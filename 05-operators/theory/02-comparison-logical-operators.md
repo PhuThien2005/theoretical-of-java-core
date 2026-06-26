@@ -112,8 +112,8 @@ The following diagram illustrates how `&&` (short-circuiting) and `&` (non-short
 ```mermaid
 graph TD
     Start[Start: Evaluate LHS] --> LHS{Is LHS true?}
-    LHS -- No (&&) --> SC[Short-Circuit: Return false\n(RHS is skipped)]
-    LHS -- No (&) --> NoSC[No Short-Circuit: Evaluate RHS\n(Can cause NullPointerException)]
+    LHS -- "No (&&)" --> SC["Short-Circuit: Return false\n(RHS is skipped)"]
+    LHS -- "No (&)" --> NoSC["No Short-Circuit: Evaluate RHS\n(Can cause NullPointerException)"]
     NoSC --> Return[Return false]
 ```
 
