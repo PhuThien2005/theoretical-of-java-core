@@ -252,6 +252,7 @@ Defines a family of algorithms, encapsulates each one, and makes them interchang
         cart.checkout(100, new CreditCardPayment());
     }
 }
+```
 
 ---
 
