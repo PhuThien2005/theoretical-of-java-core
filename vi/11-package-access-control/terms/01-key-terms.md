@@ -1,63 +1,51 @@
 # Thuật ngữ về Gói và Kiểm soát truy cập (Package and Access Control Terms)
 
-Sử dụng tập tin này khi một từ trong lý thuyết có cảm giác quá ngắn gọn. Mỗi thuật ngữ đều có ý nghĩa, tầm quan trọng, điểm dễ nhầm lẫn và một ví dụ nhỏ.
+Sử dụng tài liệu này khi một từ khóa trong phần lý thuyết có vẻ quá cô đọng. Mỗi thuật ngữ đều có định nghĩa, tầm quan trọng, hiểu lầm thường gặp và một ví dụ nhỏ.
 
-## package (gói)
+## gói (package)
 
-Một gói (package) nhóm các lớp liên quan lại với nhau và cung cấp cho chúng một không gian tên (namespace).
+Một gói (package) nhóm các lớp có liên quan lại với nhau và cung cấp cho chúng một không gian tên (namespace).
 
-Tại sao nó quan trọng: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
+* **Tầm quan trọng**: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
+* **Hiểu lầm thường gặp**: Người học thường ghi nhớ từ `package` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
+* **Ví dụ nhỏ**: Khi đọc mã nguồn, hãy hỏi: `package` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-Điểm nhầm lẫn phổ biến: Người học thường ghi nhớ `package` như một từ khóa nhưng không thể giải thích nó giải quyết vấn đề gì hoặc quy tắc nào nó thay đổi.
+## nhập (import)
 
-Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `package` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+nhập (import) là một khái niệm cụ thể trong Gói và Kiểm soát truy cập; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
 
-## import (nhập)
+* **Tầm quan trọng**: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
+* **Hiểu lầm thường gặp**: Người học thường ghi nhớ từ `import` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
+* **Ví dụ nhỏ**: Khi đọc mã nguồn, hãy hỏi: `import` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-import là một khái niệm cụ thể trong Gói và Kiểm soát truy cập; tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ tên.
+## nhập tĩnh (static import)
 
-Tại sao nó quan trọng: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
+Tĩnh (static) nghĩa là thành viên thuộc về kiểu lớp thay vì một đối tượng cụ thể.
 
-Điểm nhầm lẫn phổ biến: Người học thường ghi nhớ `import` như một từ khóa nhưng không thể giải thích nó giải quyết vấn đề gì hoặc quy tắc nào nó thay đổi.
+* **Tầm quan trọng**: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
+* **Hiểu lầm thường gặp**: Người học thường ghi nhớ từ `static import` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
+* **Ví dụ nhỏ**: `ClassName.member` truy cập vào một thành viên ở cấp độ lớp.
 
-Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `import` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+## gói mặc định (default package)
 
-## static import (nhập tĩnh)
+Một gói mặc định (default package) nhóm các lớp có liên quan lại với nhau và cung cấp cho chúng một không gian tên (namespace).
 
-Static nghĩa là thành viên thuộc về lớp thay vì một đối tượng cụ thể.
+* **Tầm quan trọng**: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
+* **Hiểu lầm thường gặp**: Người học thường ghi nhớ cụm từ `default package` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
+* **Ví dụ nhỏ**: Khi đọc mã nguồn, hãy hỏi: `default package` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-Tại sao nó quan trọng: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
+## đường dẫn lớp (classpath)
 
-Điểm nhầm lẫn phổ biến: Người học thường ghi nhớ `static import` như một từ khóa nhưng không thể giải thích nó giải quyết vấn đề gì hoặc quy tắc nào nó thay đổi.
+Đường dẫn lớp (classpath) cho biết cho JVM và trình biên dịch biết nơi tìm kiếm các lớp và các tệp JAR.
 
-Ví dụ nhỏ: `ClassName.member` truy cập vào một thành viên cấp lớp.
+* **Tầm quan trọng**: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
+* **Hiểu lầm thường gặp**: Người học thường ghi nhớ từ `classpath` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
+* **Ví dụ nhỏ**: Khi đọc mã nguồn, hãy hỏi: `classpath` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-## default package (gói mặc định)
+## đường dẫn mô-đun (module path)
 
-Một gói nhóm các lớp liên quan lại với nhau và cung cấp cho chúng một không gian tên.
+Đường dẫn mô-đun (module path) là giải pháp thay thế có nhận thức về hệ thống mô-đun cho classpath đối với các mô-đun có tên.
 
-Tại sao nó quan trọng: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
-
-Điểm nhầm lẫn phổ biến: Người học thường ghi nhớ `default package` như một từ khóa nhưng không thể giải thích nó giải quyết vấn đề gì hoặc quy tắc nào nó thay đổi.
-
-Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `default package` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
-## classpath (đường dẫn lớp)
-
-Classpath cho JVM và trình biên dịch biết nơi để tìm các lớp và tệp JAR.
-
-Tại sao nó quan trọng: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
-
-Điểm nhầm lẫn phổ biến: Người học thường ghi nhớ `classpath` như một từ khóa nhưng không thể giải thích nó giải quyết vấn đề gì hoặc quy tắc nào nó thay đổi.
-
-Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `classpath` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
-## module path (đường dẫn mô-đun)
-
-Module path là giải pháp thay thế nhận biết hệ thống mô-đun cho classpath đối với các mô-đun được đặt tên.
-
-Tại sao nó quan trọng: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
-
-Điểm nhầm lẫn phổ biến: Người học thường ghi nhớ `module path` như một từ khóa nhưng không thể giải thích nó giải quyết vấn đề gì hoặc quy tắc nào nó thay đổi.
-
-Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `module path` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+* **Tầm quan trọng**: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
+* **Hiểu lầm thường gặp**: Người học thường ghi nhớ cụm từ `module path` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
+* **Ví dụ nhỏ**: Khi đọc mã nguồn, hãy hỏi: `module path` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?

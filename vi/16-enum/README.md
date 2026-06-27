@@ -1,63 +1,63 @@
-# 16 - Enum
+# 16 - Enum (Kiểu Liệt Kê)
 
-Chủ đề này tuân theo đề cương chính tại [outline.md](../../outline.md). Mục tiêu là hiểu từng khái niệm đủ sâu để giải thích, nhận diện trong code và trả lời các câu hỏi phỏng vấn.
+Chủ đề này bám sát đề cương chính trong [outline.md](../outline.md). Mục tiêu là hiểu sâu từng khái niệm để có thể giải thích, nhận diện trong mã nguồn và trả lời các câu hỏi phỏng vấn.
 
-## Thứ tự học
+## Thứ Tự Học Tập (Study Order)
 
-- [Enum là gì](theory/01-what-is-an-enum-concepts.md)
-- [Enum triển khai interface](theory/02-enum-implements-interface-concepts.md)
-- [Thuật ngữ chính](terms/01-key-terms.md)
+- [Khái Niệm Enum Là Gì](theory/01-what-is-an-enum-concepts.md)
+- [Khái Niệm Enum Triển Khai Interface](theory/02-enum-implements-interface-concepts.md)
+- [Thuật Ngữ Chính](terms/01-key-terms.md)
 
-## Danh mục đề cương
+## Checklist Đề Cương (Outline Checklist)
 
 - Enum là gì?
 - Khai báo enum
-- Constructor của enum
-- Field của enum
-- Method của enum
-- `values()`
-- `valueOf()`
-- `ordinal()`
-- `name()`
+- Hàm khởi tạo enum
+- Trường (field) của enum
+- Phương thức của enum
+- values()
+- valueOf()
+- ordinal()
+- name()
 - Enum trong switch
 - Enum triển khai interface
-- Mẫu thiết kế Singleton với Enum
+- Mẫu thiết kế Singleton bằng Enum
 
-## Tự kiểm tra (Self-Check)
+## Tự Kiểm Tra (Self-Check)
 
-Hãy cố gắng trả lời các câu hỏi này sau khi học xong chủ đề. Bạn phải có khả năng giải thích cơ chế bên dưới mà không cần tra cứu:
+Hãy cố gắng trả lời những câu hỏi này sau khi nghiên cứu chủ đề. Bạn nên giải thích được các cơ chế nền tảng bên dưới mà không cần tài liệu bên ngoài:
 
-1. **Tại sao trình biên dịch Java biên dịch enum thành class `final` kế thừa (Inheritance) `java.lang.Enum`?**
-   - *Cơ chế chính*: Ràng buộc single inheritance của Java, type safety tại compile-time, và ngăn chặn subclassing các enum type.
-2. **Tại sao constructor của enum phải là `private` ngầm định hoặc tường minh, và điều gì xảy ra nếu bạn cố dùng `new` hoặc reflection để khởi tạo enum?**
-   - *Cơ chế chính*: Kiểm soát instance nghiêm ngặt ngăn khởi tạo từ bên ngoài; chặn tại compile-time với `new` và chặn tại runtime với reflection.
-3. **Mẫu Enum Singleton một phần tử đảm bảo thread-safety và bảo vệ khỏi tấn công qua reflection và serialization như thế nào?**
-   - *Cơ chế chính*: JVM class loading đảm bảo thread safety, reflection API ném `IllegalArgumentException`, và serialization khôi phục instance bằng tên.
-4. **Các method `values()` và `valueOf(String)` do trình biên dịch tạo ra hoạt động bên dưới như thế nào, và tại sao gọi `values()` trong vòng lặp hot được coi là anti-pattern về hiệu suất?**
-   - *Cơ chế chính*: Mảng tĩnh ẩn `$VALUES` lưu các hằng, clone mảng mỗi lần gọi để ngăn sửa đổi, và overhead GC.
-5. **Tại sao enum an toàn để so sánh bằng toán tử `==` thay vì `.equals()`, và điều này liên quan đến instance control của JVM như thế nào?**
-   - *Cơ chế chính*: Tính singleton của mỗi hằng enum, identity reference, và kiểm tra type-safety tại compile-time.
-6. **Hằng enum có thể triển khai interface và định nghĩa constant-specific class body để đạt được đa hình (Polymorphism) hành vi như thế nào?**
-   - *Cơ chế chính*: Trình biên dịch tạo anonymous inner subclass cho các hằng có class body, ghi đè interface hoặc base method.
+1. **Tại sao trình biên dịch Java biên dịch các enum thành các lớp `final` kế thừa từ `java.lang.Enum`?**
+   - *Cơ chế chính*: Ràng buộc đơn kế thừa của Java, an toàn kiểu dữ liệu tại thời điểm biên dịch (compile-time type safety), và việc cấm tạo lớp con từ các kiểu enum.
+2. **Tại sao các hàm khởi tạo enum phải là `private` một cách ngầm định hoặc tường minh, và điều gì xảy ra nếu bạn cố gắng khởi tạo một enum bằng từ khóa `new` hoặc qua reflection (phản xạ)?**
+   - *Cơ chế chính*: Kiểm soát thực thể (instance control) nghiêm ngặt để ngăn chặn việc khởi tạo từ bên ngoài; trình biên dịch chặn sử dụng `new` tại thời điểm biên dịch và runtime chặn các hành vi khởi tạo qua phản xạ (reflection).
+3. **Làm thế nào mà mẫu thiết kế Singleton bằng Enum một phần tử (single-element Enum Singleton) đảm bảo an toàn đa luồng (thread safety) và bảo vệ chống lại các cuộc tấn công qua reflection cũng như tuần tự hóa (serialization)?**
+   - *Cơ chế chính*: JVM tải lớp (class loading) đảm bảo an toàn đa luồng, việc chặn reflection tại thời điểm chạy sẽ ném ra `IllegalArgumentException`, và quá trình tuần tự hóa khôi phục các thực thể chỉ bằng cách sử dụng tên của chúng.
+4. **Các phương thức `values()` và `valueOf(String)` do trình biên dịch tự động tạo hoạt động như thế nào bên dưới, và tại sao việc gọi `values()` trong một vòng lặp có tần suất cao (hot loop) lại được coi là một phản mẫu thiết kế (anti-pattern) về hiệu năng?**
+   - *Cơ chế chính*: Mảng tĩnh ẩn `$VALUES` lưu trữ các hằng số, việc sao chép mảng (array cloning) trên mỗi lần gọi để ngăn chặn sửa đổi, và chi phí thu gom rác (garbage collection overhead).
+5. **Tại sao các enum lại an toàn khi so sánh bằng toán tử `==` thay vì `.equals()`, và điều này liên quan thế nào đến việc kiểm soát thực thể của JVM?**
+   - *Cơ chế chính*: Bản chất Singleton của mỗi hằng số enum, so sánh danh tính tham chiếu (reference identity), và kiểm tra an toàn kiểu tại thời điểm biên dịch.
+6. **Làm thế nào các hằng số enum có thể triển khai các interface và định nghĩa các thân lớp riêng cho hằng số (constant-specific class body) để đạt được tính đa hình về hành vi?**
+   - *Cơ chế chính*: Các lớp con nội danh (anonymous inner subclass) do trình biên dịch tạo ra cho các hằng số định nghĩa thân lớp, ghi đè các phương thức của interface hoặc phương thức cơ sở.
 
-## Thẻ Anki
+## Thẻ Anki (Anki Cards)
 
-- [Basic](anki/basic.tsv)
-- [Basic Extra](anki/basic-extra.tsv)
-- [Cloze](anki/cloze.tsv)
-- [Code Question](anki/code-question.tsv)
+- [Cơ Bản (Basic)](anki/basic.tsv)
+- [Cơ Bản Mở Rộng (Basic Extra)](anki/basic-extra.tsv)
+- [Điền Khuyết (Cloze)](anki/cloze.tsv)
+- [Câu Hỏi Code (Code Question)](anki/code-question.tsv)
 
-## Sơ đồ tổng quan (Mermaid Overview)
+## Tổng Quan Sơ Đồ Mermaid (Mermaid Overview)
 
 ```mermaid
 flowchart TD
     A[Enum] --> B[Định nghĩa]
     A --> C[Quy tắc và cú pháp]
-    A --> D[Lỗi thường gặp]
-    A --> E[Ôn tập phỏng vấn]
+    A --> D[Các lỗi thường gặp]
+    A --> E[Ghi nhớ phỏng vấn]
 ```
 
-## Reference Links
+## Liên Kết Tham Khảo (Reference Links)
 
 - https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Enum.html

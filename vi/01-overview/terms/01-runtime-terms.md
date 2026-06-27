@@ -1,67 +1,67 @@
-# Điều khoản thời gian chạy (Runtime) (Runtime Terms)
+# Thuật Ngữ Runtime
 
-Tệp này giải thích các thuật ngữ quan trọng liên quan đến thời gian chạy xuất hiện trong các ghi chú tổng quan. Những thuật ngữ này tuy ngắn gọn trong các hồ sơ lý thuyết chính, nhưng chúng đủ quan trọng để xứng đáng có những thẻ giải thích tập trung.
+File này giải thích các thuật ngữ liên quan đến runtime quan trọng xuất hiện trong các ghi chú tổng quan. Các thuật ngữ này được đề cập ngắn gọn trong các file lý thuyết chính, nhưng chúng đủ quan trọng để có thẻ giải thích riêng.
 
-## Thuật ngữ: Mã byte (Term: Bytecode)
+## Thuật Ngữ: Bytecode
 
-### Định nghĩa ngắn gọn (Short Definition)
+### Định Nghĩa Ngắn Gọn
 
-Mã byte là định dạng lệnh trung gian được lưu trữ trong các tệp `.class` và được JVM thực thi.
+Bytecode là định dạng lệnh trung gian được lưu trong các file `.class` và được JVM thực thi.
 
-### Tại sao nó quan trọng (Why It Matters)
+### Tại Sao Nó Quan Trọng
 
-Bytecode là một trong những lý do chính khiến Java có thể di động được. Cùng một mã byte có thể được thực thi bởi các JVM tương thích trên các nền tảng khác nhau.
+Bytecode là một trong những lý do chính khiến Java có tính di động. Cùng một bytecode có thể được thực thi bởi các JVM tương thích trên nhiều nền tảng khác nhau.
 
-### Nhầm lẫn chung (Common Confusion)
+### Nhầm Lẫn Thường Gặp
 
-Bytecode không phải là mã nguồn Java. Nó cũng không phải là mã máy gốc cho một CPU cụ thể.
+Bytecode không phải là mã nguồn Java. Nó cũng không phải là mã máy gốc (native machine code) dành cho một CPU cụ thể.
 
-### Ví dụ (Example)
+### Ví Dụ
 
 ```bash
 javac HelloWorld.java
 ```
 
-Lệnh này tạo ra `HelloWorld.class` , chứa mã byte.
+Lệnh này tạo ra `HelloWorld.class`, chứa bytecode.
 
-## Thuật ngữ: Thời gian chạy (Term: Runtime)
+## Thuật Ngữ: Runtime
 
-### Định nghĩa ngắn gọn (Short Definition)
+### Định Nghĩa Ngắn Gọn
 
-Thời gian chạy là giai đoạn khi một chương trình được biên dịch thực sự đang thực thi.
+Runtime (thời gian chạy) là giai đoạn khi một chương trình đã biên dịch thực sự đang thực thi.
 
-### Tại sao nó quan trọng (Why It Matters)
+### Tại Sao Nó Quan Trọng
 
-Một số vấn đề không được hiển thị trong quá trình biên dịch. Chúng chỉ xảy ra khi chương trình thực thi với giá trị thực hoặc đầu vào thực.
+Một số vấn đề không thể phát hiện trong quá trình biên dịch. Chúng chỉ xảy ra khi chương trình thực thi với các giá trị hoặc đầu vào thực tế.
 
-### Nhầm lẫn chung (Common Confusion)
+### Nhầm Lẫn Thường Gặp
 
-Thời gian chạy không giống như thời gian biên dịch (Compile time). Biên dịch kiểm tra thời gian và dịch mã nguồn. Thời gian chạy thực thi chương trình đã biên dịch.
+Runtime không giống với compile time (thời gian biên dịch). Compile time kiểm tra và dịch mã nguồn. Runtime thực thi chương trình đã biên dịch.
 
-## Học kỳ: Đang tải lớp (Term: Class Loading)
+## Thuật Ngữ: Class Loading (Nạp Lớp)
 
-### Định nghĩa ngắn gọn (Short Definition)
+### Định Nghĩa Ngắn Gọn
 
-Tải lớp là quá trình JVM tìm và tải các định nghĩa lớp cần thiết cho một chương trình Java đang chạy.
+Nạp lớp là quá trình JVM tìm kiếm và nạp các định nghĩa lớp cần thiết cho một chương trình Java đang chạy.
 
-### Tại sao nó quan trọng (Why It Matters)
+### Tại Sao Nó Quan Trọng
 
-Các chương trình Java không tải mọi lớp có thể ngay lập tức. Các lớp được tải khi JVM cần chúng.
+Các chương trình Java không nạp tất cả mọi lớp có thể ngay lập tức. Các lớp chỉ được nạp khi JVM cần đến chúng.
 
-### Nhầm lẫn chung (Common Confusion)
+### Nhầm Lẫn Thường Gặp
 
-Tải lớp không giống như tạo đối tượng. Việc tải một lớp sẽ làm cho định nghĩa của nó có sẵn; việc tạo một đối tượng sẽ tạo một phiên bản thời gian chạy từ một lớp.
+Nạp lớp không giống với tạo đối tượng. Nạp một lớp làm cho định nghĩa của nó sẵn có; tạo một đối tượng tạo ra một thực thể (instance) runtime từ lớp đó.
 
-## Thuật ngữ: Khả năng tiếp cận (Reachability) (Term: Reachability)
+## Thuật Ngữ: Reachability (Khả Năng Tiếp Cận)
 
-### Định nghĩa ngắn gọn (Short Definition)
+### Định Nghĩa Ngắn Gọn
 
-Khả năng tiếp cận mô tả liệu một đối tượng vẫn có thể được truy cập thông qua các tham chiếu hoạt động từ chương trình đang chạy hay không.
+Khả năng tiếp cận mô tả liệu một đối tượng có thể được truy cập thông qua các tham chiếu đang hoạt động từ chương trình đang chạy hay không.
 
-### Tại sao nó quan trọng (Why It Matters)
+### Tại Sao Nó Quan Trọng
 
-Việc thu gom rác (Garbage Collection) phụ thuộc vào khả năng tiếp cận. Một đối tượng không thể truy cập có thể được thu hồi.
+Garbage Collection (thu gom rác) phụ thuộc vào khả năng tiếp cận. Một đối tượng không thể tiếp cận được có thể bị thu hồi.
 
-### Nhầm lẫn chung (Common Confusion)
+### Nhầm Lẫn Thường Gặp
 
-Một đối tượng không thể truy cập được không có nghĩa là nó sẽ được thu thập ngay lập tức. Điều đó có nghĩa là Người thu gom rác có thể lấy lại nó sau.
+Một đối tượng trở nên không thể tiếp cận không có nghĩa là nó bị thu gom ngay lập tức. Điều đó có nghĩa là Garbage Collector có thể thu hồi nó sau đó.

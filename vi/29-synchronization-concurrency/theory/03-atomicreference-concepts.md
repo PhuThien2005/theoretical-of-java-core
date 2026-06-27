@@ -1,27 +1,27 @@
-# Đồng bộ hóa và Đồng thời - Phần 3 (Synchronization and Concurrency - Part 3)
+# Đồng Bộ Hóa và Độ Đồng Thời (Synchronization and Concurrency) - Phần 3
 
-## Mục tiêu học tập (Learning Goal)
+## Mục Tiêu Học Tập
 
-Tệp này bao gồm API Lock hiển thị của Java (`Lock`, `ReentrantLock`, `ReadWriteLock`, `StampedLock`) và các bộ đồng bộ hóa cấp cao (`Semaphore`, `CountDownLatch`). Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, không phải là từ vựng cô lập.
+File này đề cập đến Lock API tường minh của Java (`Lock`, `ReentrantLock`, `ReadWriteLock`, `StampedLock`) và các bộ đồng bộ hóa cấp cao (`Semaphore`, `CountDownLatch`). Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải là những từ vựng rời rạc.
 
-## Đề cương chi tiết (Outline Coverage)
+## Đề Cương Khái Niệm
 
-| Khái niệm (Concept) | Những điều cần biết (What to know) |
+| Khái niệm | Những điều cần biết |
 | --- | --- |
-| `AtomicReference` | Cung cấp các thao tác nguyên tử, không dùng khóa trên các tham chiếu đối tượng bằng cách sử dụng Compare-And-Swap. |
-| `Lock API:` | Khung làm việc `java.util.concurrent.locks` cung cấp khả năng khóa linh hoạt và mạnh mẽ hơn so với các khối `synchronized`. |
-| `Lock` | Giao diện gốc định nghĩa các thao tác giành khóa (`lock()`, `tryLock()`, `unlock()`). |
-| `ReentrantLock` | Một khóa loại trừ tương hỗ có hành vi tương tự như các khóa monitor nội tại, nhưng cung cấp các tính năng bổ sung như tính công bằng (fairness), thời gian chờ (timeouts), và giành khóa có thể ngắt (interruptible). |
-| `ReadWriteLock` | Một cặp khóa cho phép nhiều luồng (Thread) đọc đồng thời, nhưng giới hạn quyền truy cập ghi độc quyền cho một luồng duy nhất. |
-| `StampedLock` | Một khóa nâng cao có ba chế độ (ghi, đọc, đọc lạc quan — optimistic read) và xác thực dựa trên dấu hiệu (stamp). Nó **không** có tính tái nhập (reentrant). |
-| `Semaphore` | Một bộ đồng bộ hóa duy trì một tập hợp các giấy phép (permits) để hạn chế truy cập đồng thời vào một nhóm tài nguyên (resource pool). |
-| `CountDownLatch` | Một công cụ hỗ trợ đồng bộ hóa cho phép một hoặc nhiều luồng chờ cho đến khi một tập hợp các thao tác được thực hiện trong các luồng khác hoàn thành. |
+| `AtomicReference` | Cung cấp các hoạt động nguyên tử, không dùng khóa (lock-free) trên các tham chiếu đối tượng bằng cách sử dụng Compare-And-Swap. |
+| `Lock API:` | Framework `java.util.concurrent.locks` cung cấp các khả năng khóa linh hoạt và mạnh mẽ hơn các khối `synchronized`. |
+| `Lock` | Giao diện gốc định nghĩa các hoạt động tranh chấp khóa (`lock()`, `tryLock()`, `unlock()`). |
+| `ReentrantLock` | Một khóa loại trừ tương hỗ (mutual exclusion lock) có cùng hành vi như các khóa monitor nội tại (intrinsic monitor lock), nhưng cung cấp các tính năng như tính công bằng (fairness), thời gian chờ (timeout), và tranh chấp khóa có thể bị gián đoạn (interruptible lock acquisition). |
+| `ReadWriteLock` | Một cặp khóa cho phép nhiều luồng đọc đồng thời, nhưng hạn chế quyền truy cập ghi độc quyền cho duy nhất một luồng. |
+| `StampedLock` | Một khóa nâng cao có ba chế độ (write, read, optimistic read) và xác thực dựa trên dấu vết (stamp). Nó **không** hỗ trợ khả năng reentrant. |
+| `Semaphore` | Một bộ đồng bộ hóa duy trì một tập hợp các giấy phép (permits) để giới hạn quyền truy cập đồng thời vào một nhóm tài nguyên (resource pool). |
+| `CountDownLatch` | Một công cụ hỗ trợ đồng bộ hóa cho phép một hoặc nhiều luồng chờ cho đến khi một tập hợp các hoạt động được thực hiện trong các luồng khác hoàn thành. |
 
-## Chi tiết tài liệu học tập (Detailed Notes)
+## Ghi Chú Chi Tiết
 
-### API Lock và ReentrantLock (Lock API and ReentrantLock)
-Khác với các khối `synchronized` vốn có cấu trúc và phạm vi khối, các đối tượng `Lock` tường minh yêu cầu việc giành và giải phóng khóa thủ công.
-* **Quan trọng**: Bạn phải luôn gọi `unlock()` bên trong một khối `finally` để ngăn rò rùi tài nguyên trong trường hợp xảy ra ngoại lệ.
+### Lock API và ReentrantLock
+Khác với các khối `synchronized` vốn có cấu trúc và giới hạn theo phạm vi khối lệnh, các đối tượng `Lock` tường minh yêu cầu việc tranh chấp khóa và giải phóng khóa thủ công.
+* **Quan trọng**: Bạn phải luôn gọi `unlock()` bên trong khối `finally` để ngăn chặn rò rỉ tài nguyên trong trường hợp xảy ra ngoại lệ.
 
 ```java
 import java.util.concurrent.locks.Lock;
@@ -42,7 +42,7 @@ public class ExplicitLockDemo {
 ```
 
 ### ReadWriteLock
-Cho phép tính đồng thời cao cho các thao tác đọc nhiều (read-heavy). Nhiều luồng đọc có thể giữ khóa đọc đồng thời, nhưng khóa ghi là độc quyền.
+Cho phép độ đồng thời cao cho các hoạt động thiên về đọc dữ liệu. Nhiều luồng đọc có thể giữ khóa đọc đồng thời, nhưng khóa ghi là độc quyền.
 ```java
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -65,8 +65,8 @@ public class CacheDemo {
 }
 ```
 
-### StampedLock (Đọc lạc quan — StampedLock (Optimistic Reading))
-`StampedLock` cung cấp một nhãn khóa (lock stamp). Nó hỗ trợ "đọc lạc quan" (optimistic reading), cho phép các luồng đọc truy xuất dữ liệu mà không chặn các luồng ghi. Nếu một thao tác ghi xảy ra trong quá trình đọc, nhãn khóa được xác thực là không hợp lệ, và luồng đọc sẽ thử lại bằng một khóa đọc bi quan (pessimistic read lock).
+### StampedLock (Đọc Tối Ưu Hóa - Optimistic Reading)
+`StampedLock` cung cấp một nhãn khóa (stamp). Nó hỗ trợ "đọc lạc quan (optimistic reading)", cho phép các luồng đọc lấy dữ liệu mà không chặn các phép ghi. Nếu một phép ghi xảy ra trong quá trình đọc, nhãn khóa được xác thực là không hợp lệ, và trình đọc sẽ thử lại bằng một khóa đọc bi quan (pessimistic read lock).
 ```java
 import java.util.concurrent.locks.StampedLock;
 
@@ -92,8 +92,8 @@ public class StampedLockDemo {
 ```
 
 ### Semaphore và CountDownLatch
-* **Semaphore**: Kiểm soát việc sử dụng tài nguyên thông qua các giấy phép (permits). Luồng gọi `acquire()` để nhận giấy phép (bị chặn nếu không còn giấy phép nào) và gọi `release()` để trả lại.
-* **CountDownLatch**: Một cánh cổng một lần (one-time gate). Các luồng gọi `await()` để chặn cho đến khi các luồng khác gọi `countDown()` đủ số lần để giảm số đếm của chốt về 0.
+* **Semaphore**: Kiểm soát việc sử dụng tài nguyên thông qua các giấy phép (permits). Luồng gọi `acquire()` để lấy một giấy phép (chặn nếu không còn cái nào) và gọi `release()` để trả lại nó.
+* **CountDownLatch**: Một cánh cổng dùng một lần. Các luồng gọi `await()` để chặn cho đến khi các luồng khác gọi `countDown()` đủ số lần để giảm số lượng chốt (latch count) về 0.
 
 ```java
 import java.util.concurrent.CountDownLatch;
@@ -118,13 +118,13 @@ public class LatchDemo {
 
 ---
 
-## Tình huống nghiên cứu: Nhóm kết nối cơ sở dữ liệu có giới hạn thông qua Semaphore (Case Study: Bounded Database Connection Pool via Semaphore)
+## Ví Dụ Thực Tế: Nhóm Kết Nối Cơ Sở Dữ Liệu Bị Giới Hạn Qua Semaphore
 
-### Vấn đề (Problem)
-Một nhóm kết nối cơ sở dữ liệu (connection pool) có giới hạn cứng là 5 kết nối vật lý. Nếu có nhiều hơn 5 luồng cố gắng giành kết nối đồng thời, chúng sẽ bị chặn cho đến khi một kết nối được giải phóng.
+### Vấn đề
+Một nhóm kết nối cơ sở dữ liệu (database connection pool) có giới hạn cứng là 5 kết nối vật lý. Nếu có nhiều hơn 5 luồng cố gắng lấy một kết nối đồng thời, chúng sẽ bị chặn cho đến khi một kết nối được giải phóng.
 
-### Giải pháp (Solution)
-Bao bọc việc truy cập kết nối bằng một `Semaphore`.
+### Giải pháp
+Bọc việc truy cập kết nối bằng một `Semaphore`.
 ```java
 import java.util.concurrent.Semaphore;
 
@@ -172,43 +172,45 @@ public class ConnectionPool {
 
 ---
 
-## Các sai lầm thường gặp (Common Mistakes)
+## Các Lỗi Thường Gặp
 
-### 1. Rò rỉ khóa (Quên mở khóa trong khối Finally - Leaking Locks (Forgetting to Unlock in Finally))
-Nếu một ngoại lệ xảy ra bên trong vùng tranh chấp (critical section) and `unlock()` không nằm trong khối `finally`, khóa sẽ bị giữ mãi mãi, gây ra deadlock cho các luồng khác.
+### 1. Rò Rỉ Khóa (Quên Không Giải Phóng Khóa Trong Khối Finally)
+
+Nếu xảy ra ngoại lệ bên trong miền tranh chấp (critical section) và `unlock()` không nằm trong khối `finally`, khóa sẽ bị giữ mãi mãi, gây ra hiện tượng bế tắc (deadlock) cho các luồng khác.
 ```java
-// BUG
+// LỖI (BUG)
 lock.lock();
-doTask(); // If this throws RuntimeException, lock is leaked!
+doTask(); // Nếu dòng này ném ra RuntimeException, khóa sẽ bị rò rỉ!
 lock.unlock();
 ```
 
-### 2. Tự gây bế tắc với StampedLock (Không có tính tái nhập - Self-Deadlock with StampedLock (Non-Reentrant))
-Khác với `ReentrantLock`, `StampedLock` **không** có tính tái nhập. Một luồng đang giữ khóa ghi của `StampedLock` cố gắng giành lấy nó lần nữa sẽ tự làm mình bế tắc.
+### 2. Tự Bế Tắc Với StampedLock (Không Reentrant)
+
+Khác với `ReentrantLock`, `StampedLock` **không** hỗ trợ reentrant. Một luồng đang giữ khóa ghi của `StampedLock` mà cố gắng lấy lại nó một lần nữa sẽ tự làm mình rơi vào trạng thái bế tắc.
 ```java
 StampedLock lock = new StampedLock();
 long s1 = lock.writeLock();
-long s2 = lock.writeLock(); // DEADLOCK: blocks waiting for its own lock!
+long s2 = lock.writeLock(); // BẾ TẮC (DEADLOCK): chặn để chờ chính khóa của nó!
 ```
 
-## Tại sao các biến nguyên tử tránh đồng bộ hóa dựa trên khóa (Why Atomic Variables Avoid Lock-Based Synchronization)
+## Tại Sao Các Biến Nguyên Tử Giúp Tránh Cơ Chế Đồng Bộ Hóa Dựa Trên Khóa
 
-Các biến nguyên tử tránh việc đồng bộ hóa dựa trên khóa bằng cách sử dụng các thuật toán không khóa (lock-free algorithms) được cung cấp bởi các chỉ thị So sánh và Tráo đổi (Compare-And-Swap - CAS) ở cấp độ phần cứng. Khác với các khối `synchronized` vốn đình chỉ hoạt động của luồng bằng cách chuyển đổi ngữ cảnh ở cấp hệ điều hành (OS-level context switching), CAS dựa vào các chỉ thị CPU như `CMPXCHG`. Thao tác CAS nhận ba đối số: một địa chỉ bộ nhớ, giá trị hiện tại mong đợi tại địa chỉ đó, và một giá trị đích mới. Nếu giá trị tại địa chỉ bộ nhớ khớp với giá trị mong đợi, CPU sẽ cập nhật nó sang giá trị mới trong một chỉ thị nguyên tử duy nhất. Nếu một luồng khác đã sửa đổi giá trị trong thời gian đó, bước kiểm tra sẽ thất bại, và luồng gọi sẽ lặp lại (xoay vòng - spins) để thử lại thao tác với giá trị được cập nhật thay vì bị chặn.
+Các biến nguyên tử tránh cơ chế đồng bộ hóa dựa trên khóa bằng cách sử dụng các thuật toán không dùng khóa (lock-free) hoạt động trên các chỉ thị Compare-And-Swap (CAS) ở cấp độ phần cứng. Ngược lại với các khối `synchronized` vốn tạm dừng các luồng bằng cách sử dụng chuyển đổi ngữ cảnh cấp hệ điều hành, CAS dựa vào các chỉ thị CPU như `CMPXCHG`. Hoạt động CAS nhận ba đối số: một địa chỉ bộ nhớ, giá trị hiện tại mong đợi tại địa chỉ đó, và một giá trị đích mới. Nếu giá trị tại địa chỉ bộ nhớ khớp với giá trị mong đợi, CPU sẽ cập nhật nó sang giá trị mới trong một chỉ thị nguyên tử duy nhất. Nếu một luồng khác đã sửa đổi giá trị trong thời gian đó, bước kiểm tra sẽ thất bại, và luồng gọi sẽ lặp (spin) để thử lại hoạt động với giá trị đã cập nhật thay vì bị chặn lại.
 
-### Mô hình tư duy: Vòng lặp xoay CAS (Mental Model: CAS Spin Loop)
-```
-   [ Thread A ] ──► Read Value (V=5)
+### Mô Hình Tư Duy: Vòng Lặp Trống CAS (CAS Spin Loop)
+```text
+   [ Thread A ] ──► Đọc giá trị (V=5)
                           │
-          Update local copy to (New=6)
+          Cập nhật bản sao cục bộ thành (Mới=6)
                           │
-              CAS(Address, V=5, New=6)
+              CAS(Địa chỉ, V=5, Mới=6)
                           │
         ┌────────────────┴────────────────┐
-        ▼ (Expected == Actual)            ▼ (Expected != Actual)
-   [ SUCCESS: V becomes 6 ]     [ FAIL: Spin & retry with V=actual ]
+        ▼ (Mong đợi == Thực tế)           ▼ (Mong đợi != Thực tế)
+    [ THÀNH CÔNG: V trở thành 6 ]     [ THẤT BẠI: Vòng lặp spin & thử lại với V=thực tế ]
 ```
 
-### Ví dụ mã nguồn (Code Example)
+### Ví Dụ Mã Nguồn
 ```java
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -221,30 +223,16 @@ public class CASDemo {
         do {
             expected = value.get();
             next = expected + 1;
-        } while (!value.compareAndSet(expected, next)); // CAS loop
+        } while (!value.compareAndSet(expected, next)); // Vòng lặp CAS
     }
 
     public static void main(String[] args) {
         CASDemo demo = new CASDemo();
         demo.safeIncrement();
-        System.out.println("Value: " + demo.value.get()); // Output: Value: 1
+        System.out.println("Giá trị: " + demo.value.get()); // Output: Giá trị: 1
     }
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-
-```text
-Luồng đọc địa chỉ bộ nhớ
-  → Biến cục bộ giữ giá trị mong đợi
-  → Luồng tính toán giá trị mới
-  → Luồng thực thi CAS phần cứng (`compareAndSet`)
-  → CPU so sánh giá trị bộ nhớ hiện tại với giá trị mong đợi
-  → Giá trị khớp
-  → Cập nhật nguyên tử thành công
-  → Giá trị không khớp
-  → CAS trả về false
-  → Luồng quay lại và thử lại (xoay vòng)
-  → Đạt được an toàn luồng mà không tốn chi phí chặn.
-```
-
+### Chuỗi Nguyên Nhân - Kết Quả
+Luồng đọc địa chỉ bộ nhớ &rarr; Biến cục bộ giữ giá trị mong đợi &rarr; Luồng tính toán giá trị mới &rarr; Luồng thực thi CAS phần cứng (`compareAndSet`) &rarr; CPU so sánh giá trị bộ nhớ hiện tại với giá trị mong đợi &rarr; Giá trị khớp &rarr; Cập nhật nguyên tử thành công &rarr; Giá trị không khớp &rarr; CAS trả về false &rarr; Luồng quay lại vòng lặp và thử lại (spin) &rarr; Đạt được an toàn luồng mà không tốn chi phí chặn luồng.

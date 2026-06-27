@@ -1,31 +1,31 @@
-# Các Thực Hành Tốt Nhất trong Java - Phần 1 (Best Practices in Java - Part 1)
+# Thực hành tốt nhất trong Java - Phần 1 (Best Practices in Java - Part 1)
 
-## Mục Tiêu Học Tập (Learning Goal)
+## Mục tiêu học tập
 
-Tài liệu này trình bày các **Thực Hành Tốt Nhất (Best Practices)** nền tảng trong Java liên quan đến việc đặt tên, thiết kế cấu trúc, hiệu quả nối chuỗi, số học chính xác, và quản lý ngoại lệ/tài nguyên an toàn. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế.
+Tài liệu này tập trung vào các **Thực hành tốt nhất (Best Practices)** nền tảng trong Java liên quan đến đặt tên, thiết kế cấu trúc, hiệu quả cộng chuỗi, toán học chính xác, và quản lý tài nguyên/ngoại lệ an toàn. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc Java thực tế.
 
-## Khái Quát Nội Dung (Outline Coverage)
+## Đề cương chi tiết
 
-| Khái niệm (Concept) | Điều cần biết (What to know) |
+| Khái niệm | Điều cần biết |
 | --- | --- |
-| `Name variables, functions, and classes clearly` | Các quy tắc viết mã nguồn tự tài liệu hóa với các tên gọi mang tính mô tả. |
-| `Code according to convention` | Tuân thủ các phong cách chuẩn camelCase, PascalCase, và UPPER_SNAKE_CASE. |
-| `Do not overuse static` | Sự đánh đổi khi lạm dụng trạng thái và phương thức static (vấn đề về khả năng kiểm thử và xử lý đồng thời). |
-| `Do not overuse inheritance` | Rủi ro liên kết chặt chẽ liên quan đến kế thừa lớp (`extends`). |
-| `Prefer composition over inheritance` | Mô hình đạt được hành vi bằng cách sử dụng các mối quan hệ tham chiếu đối tượng thay vì tạo lớp con (subclassing). |
-| `Override equals/hashCode correctly` | Duy trì giao ước logic nghiêm ngặt giữa `equals()` và `hashCode()`. |
-| `Use StringBuilder when concatenating strings many times` | Tối ưu hóa việc nối chuỗi trong vòng lặp để tránh tạo ra quá nhiều đối tượng String. |
-| `Use BigDecimal for money` | Loại bỏ các lỗi làm tròn dấu phẩy động nhị phân trong các phép toán tiền tệ. |
-| `Use try-with-resources` | Tự động dọn dẹp các luồng tài nguyên triển khai giao diện `AutoCloseable`. |
-| `Do not catch overly broad Exception if unnecessary` | Nhắm mục tiêu bắt các ngoại lệ có kiểm tra cụ thể thay vì bắt `Exception` chung chung. |
+| `Name variables, functions, and classes clearly` | Đặt tên rõ ràng cho các biến, hàm và lớp: Các quy tắc để viết mã tự tài liệu hóa với các tên mô tả rõ ràng. |
+| `Code according to convention` | Viết mã theo quy ước (Code according to convention): Tuân thủ các phong cách chuẩn camelCase, PascalCase, và UPPER_SNAKE_CASE. |
+| `Do not overuse static` | Không lạm dụng static (Do not overuse static): Sự đánh đổi khi lạm dụng các trạng thái và phương thức static (khả năng kiểm thử, các vấn đề về xử lý đồng thời). |
+| `Do not overuse inheritance` | Không lạm dụng kế thừa (Do not overuse inheritance): Các rủi ro liên kết chặt chẽ liên quan đến kế thừa lớp (`extends`). |
+| `Prefer composition over inheritance` | Ưu tiên thành phần hơn kế thừa (Prefer composition over inheritance): Mẫu thiết kế đạt được hành vi bằng cách sử dụng các mối quan hệ tham chiếu đối tượng thay vì tạo lớp con. |
+| `Override equals/hashCode correctly` | Ghi đè equals/hashCode chính xác: Duy trì giao ước logic nghiêm ngặt giữa `equals()` và `hashCode()`. |
+| `Use StringBuilder when concatenating strings many times` | Sử dụng StringBuilder khi cộng chuỗi nhiều lần: Tối ưu hóa việc cộng chuỗi trong vòng lặp để tránh tạo ra các đối tượng String dư thừa. |
+| `Use BigDecimal for money` | Sử dụng BigDecimal cho tiền tệ: Loại bỏ các sai số làm tròn của số dấu phẩy động nhị phân trong tính toán tiền tệ. |
+| `Use try-with-resources` | Sử dụng try-with-resources: Tự động dọn dẹp các luồng tài nguyên có triển khai `AutoCloseable`. |
+| `Do not catch overly broad Exception if unnecessary` | Không bắt Exception quá chung chung nếu không cần thiết: Tập trung bắt các ngoại lệ được kiểm tra (checked exception) cụ thể thay vì bắt một `Exception` chung chung. |
 
 ---
 
-## Ghi Chú Chi Tiết (Detailed Notes)
+## Ghi chú chi tiết
 
-### Đặt tên biến, hàm và lớp một cách rõ ràng (Name variables, functions, and classes clearly)
+### Đặt tên rõ ràng cho các biến, hàm và lớp (Name variables, functions, and classes clearly)
 
-Chọn các tên gọi mang tính mô tả, thể hiện rõ ý định để giúp mã nguồn tự tài liệu hóa. Tránh sử dụng tên một ký tự (ngoại trừ các biến đếm chỉ số vòng lặp) và các từ viết tắt khó hiểu.
+Chọn các tên mô tả và thể hiện rõ ý định để làm cho mã nguồn tự tài liệu hóa. Tránh sử dụng tên có một ký tự (ngoại trừ các biến chỉ số vòng lặp) và các từ viết tắt mơ hồ.
 
 - **Ví dụ**:
   ```java
@@ -38,25 +38,25 @@ Chọn các tên gọi mang tính mô tả, thể hiện rõ ý định để gi
 
 ---
 
-### Viết mã theo đúng quy ước (Code according to convention)
+### Viết mã theo quy ước (Code according to convention)
 
 Tuân thủ các quy ước giúp mã nguồn của bạn dễ đọc hơn đối với các nhà phát triển khác.
 
-- **Quy ước**:
-  - **Lớp (Classes)**: PascalCase (ví dụ: `OrderProcessor`)
-  - **Phương thức & Biến (Methods & Variables)**: camelCase (ví dụ: `processOrder`, `customerId`)
-  - **Hằng số (Constants)**: UPPER_SNAKE_CASE (ví dụ: `MAX_RETRY_COUNT`)
+- **Các quy ước**:
+  - **Lớp (Class)**: PascalCase (ví dụ: `OrderProcessor`)
+  - **Phương thức & Biến**: camelCase (ví dụ: `processOrder`, `customerId`)
+  - **Hằng số**: UPPER_SNAKE_CASE (ví dụ: `MAX_RETRY_COUNT`)
 
 ---
 
 ### Không lạm dụng static (Do not overuse static)
 
-`static` chỉ ra rằng một thành viên thuộc về kiểu lớp (class type) thay vì thuộc về các thực thể lớp (class instances).
+`static` chỉ ra rằng một thành viên thuộc về kiểu lớp thay vì các thực thể của lớp.
 
 - **Sự đánh đổi**:
-  - **Khả năng kiểm thử (Testability)**: Các phương thức static rất khó giả lập (mock) trong các bài kiểm thử đơn vị, gây khó khăn cho việc kiểm thử cô lập.
-  - **An toàn luồng (Thread-Safety)**: Lưu trữ trạng thái trong các biến static (ví dụ: ngữ cảnh yêu cầu của người dùng - user request context) tạo ra các vấn đề truy cập đồng thời trong các máy chủ ứng dụng đa luồng.
-  - **Quy tắc**: Giới hạn `static` cho các hàm tiện ích thuần túy (ví dụ: `Math.sqrt()`) và các hằng số thực sự.
+  - **Khả năng kiểm thử (Testability)**: Các phương thức tĩnh rất khó giả lập (mock) trong các bài kiểm thử đơn vị (unit test), khiến việc kiểm thử cô lập trở nên khó khăn.
+  - **An toàn luồng (Thread-Safety)**: Lưu trữ trạng thái trong các biến tĩnh (ví dụ: ngữ cảnh yêu cầu của người dùng) tạo ra các vấn đề truy cập đồng thời trong các máy chủ ứng dụng đa luồng.
+  - **Quy tắc**: Giới hạn việc sử dụng `static` cho các hàm tiện ích thuần túy (ví dụ: `Math.sqrt()`) và các hằng số thực sự.
 
 ---
 
@@ -64,29 +64,29 @@ Tuân thủ các quy ước giúp mã nguồn của bạn dễ đọc hơn đố
 
 Kế thừa (`extends`) tạo ra một liên kết cứng nhắc tại thời điểm biên dịch giữa lớp cha và lớp con.
 
-- **Rủi ro (Fragile Base Class)**:
-  - Nếu một lớp cha thay đổi các chi tiết triển khai của nó, nó có thể âm thầm phá vỡ các giả định của lớp con hoặc gây ra xung đột phương thức.
-  - Các lớp con kế thừa *tất cả* các phương thức public/protected từ các lớp cha, làm để lộ các API vốn có thể không có ý nghĩa đối với lớp con (vi phạm tính đóng gói).
+- **Rủi ro (Lớp cơ sở dễ vỡ - Fragile Base Class)**:
+  - Nếu một lớp cha thay đổi chi tiết triển khai của nó, nó có thể phá vỡ các giả định của lớp con một cách âm thầm hoặc gây ra xung đột phương thức.
+  - Các lớp con kế thừa *tất cả* các phương thức public/protected từ lớp cha, làm lộ ra các API có thể không có ý nghĩa đối với lớp con (vi phạm tính đóng gói).
 
 ---
 
-### Ưu tiên lắp ghép hơn kế thừa (Prefer composition over inheritance)
+### Ưu tiên thành phần hơn kế thừa (Prefer composition over inheritance)
 
-Thay vì mở rộng các lớp để tái sử dụng hành vi, hãy có được hành vi bằng cách giữ một tham chiếu đến một thực thể của lớp đó (mối quan hệ "has-a" thay vì mối quan hệ "is-a").
+Thay vì mở rộng các lớp để tái sử dụng hành vi, hãy thu được hành vi bằng cách giữ một tham chiếu đến một thực thể của lớp đó (mối quan hệ "has-a" thay vì mối quan hệ "is-a").
 
-- **Ví dụ có thể chạy được (Runnable Example)**:
+- **Ví dụ**:
   ```java
-  // BAD: Kế thừa liên kết SecureStack chặt chẽ với Stack
+  // BAD: Inheritance couples SecureStack tightly to Stack
   class SecureStack extends Stack<String> {
-      // kế thừa tất cả các phương thức của Stack, làm lộ chi tiết triển khai của stack
+      // inherits all Stack methods, exposing stack implementation details
   }
 
-  // GOOD: Lắp ghép bọc lấy Stack, chỉ để lộ các phương thức an toàn
+  // GOOD: Composition wraps Stack, exposing only safe methods
   class SecureStack {
       private final Stack<String> stack = new Stack<>();
 
       public void push(String item) {
-          // xác thực và ủy quyền
+          // validate and delegate
           stack.push(item);
       }
   }
@@ -94,12 +94,12 @@ Thay vì mở rộng các lớp để tái sử dụng hành vi, hãy có đư�
 
 ---
 
-### Ghi đè equals/hashCode đúng cách (Override equals/hashCode correctly)
+### Ghi đè equals/hashCode chính xác (Override equals/hashCode correctly)
 
-Nếu bạn ghi đè `equals()`, bạn **phải** ghi đè `hashCode()` để duy trì giao ước bằng nhau về mặt logic (logical equality contract).
+Nếu bạn ghi đè `equals()`, bạn **bắt buộc** phải ghi đè `hashCode()` để duy trì giao ước bằng nhau về mặt logic.
 
-- **Giao ước (The Contract)**: Nếu `a.equals(b)` là true, thì `a.hashCode() == b.hashCode()` cũng phải được đánh giá là true.
-- **Ví dụ có thể chạy được (Runnable Example)**:
+- **Giao ước**: Nếu `a.equals(b)` là true, thì `a.hashCode() == b.hashCode()` cũng phải trả về true.
+- **Ví dụ**:
   ```java
   public class User {
       private String email;
@@ -118,23 +118,23 @@ Nếu bạn ghi đè `equals()`, bạn **phải** ghi đè `hashCode()` để du
       }
   }
   ```
-- **Cạm bẫy (Pitfall)**: Việc không ghi đè `hashCode()` có nghĩa là hai đối tượng người dùng riêng biệt có email giống hệt nhau sẽ trả về các mã băm khác nhau, gây ra các bản ghi trùng lặp trong `HashSet` hoặc thất bại khi truy xuất trong `HashMap`.
+- **Bẫy**: Việc không ghi đè `hashCode()` đồng nghĩa với việc hai đối tượng người dùng khác biệt có email giống hệt nhau sẽ trả về các mã băm khác nhau, gây ra các bản ghi trùng lặp trong `HashSet` hoặc thất bại khi truy xuất trong `HashMap`.
 
 ---
 
-### Sử dụng StringBuilder khi nối chuỗi nhiều lần (Use StringBuilder when concatenating strings many times)
+### Sử dụng StringBuilder khi cộng chuỗi nhiều lần (Use StringBuilder when concatenating strings many times)
 
-Vì các đối tượng `String` là bất biến trong Java, việc nối các đối tượng chuỗi bên trong một vòng lặp bằng toán tử `+` sẽ tạo ra một thực thể String mới trên mỗi vòng lặp, dẫn đến độ phức tạp thời gian là $O(n^2)$.
+Vì các đối tượng `String` là bất biến trong Java, việc cộng các đối tượng chuỗi bên trong một vòng lặp bằng cách sử dụng toán tử `+` sẽ tạo ra một thực thể String mới sau mỗi lần lặp, dẫn đến độ phức tạp thời gian là $O(n^2)$.
 
-- **Ví dụ có thể chạy được (Runnable Example)**:
+- **Ví dụ**:
   ```java
-  // BAD: Tạo ra 10,000 đối tượng String tạm thời trong heap
+  // BAD: Creates 10,000 temporary String objects in heap
   String result = "";
   for (int i = 0; i < 10000; i++) {
       result += i; 
   }
 
-  // GOOD: Một bộ đệm duy nhất được sửa đổi tại chỗ, thực thi trong O(n)
+  // GOOD: Single buffer modified in-place, O(n) execution
   StringBuilder sb = new StringBuilder();
   for (int i = 0; i < 10000; i++) {
       sb.append(i);
@@ -146,9 +146,9 @@ Vì các đối tượng `String` là bất biến trong Java, việc nối các
 
 ### Sử dụng BigDecimal cho tiền tệ (Use BigDecimal for money)
 
-Các kiểu số thực dấu phẩy động nhị phân (`double` và `float`) không thể biểu diễn chính xác các phân số của cơ số 10 (như 0.1), điều này gây ra các lỗi làm tròn số. Hãy luôn sử dụng `BigDecimal` cho các phép toán tiền tệ.
+Các kiểu dấu phẩy động nhị phân (`double` và `float`) không thể biểu diễn chính xác các phân số cơ số 10 (như 0.1), điều này gây ra các sai số làm tròn. Luôn luôn sử dụng `BigDecimal` cho các tính toán tiền tệ.
 
-- **Ví dụ có thể chạy được (Runnable Example)**:
+- **Ví dụ**:
   ```java
   // BAD: prints 0.30000000000000004
   System.out.println(0.1 + 0.2); 
@@ -163,11 +163,11 @@ Các kiểu số thực dấu phẩy động nhị phân (`double` và `float`) 
 
 ### Sử dụng try-with-resources
 
-Luôn đóng các đối tượng quản lý tài nguyên (luồng dữ liệu, tệp, socket, kết nối cơ sở dữ liệu) triển khai `AutoCloseable` bằng cách sử dụng câu lệnh try-with-resources để tránh rò rỉ tài nguyên hệ thống.
+Luôn đóng các tay cầm tài nguyên (luồng, tệp, socket, kết nối cơ sở dữ liệu) có triển khai `AutoCloseable` bằng cách sử dụng câu lệnh try-with-resources để tránh rò rỉ tài nguyên hệ thống.
 
-- **Ví dụ có thể chạy được (Runnable Example)**:
+- **Ví dụ**:
   ```java
-  // Tự động gọi reader.close() khi rời khỏi khối lệnh, ngay cả khi xảy ra ngoại lệ
+  // Automatically calls reader.close() when leaving block, even if an exception occurs
   try (BufferedReader reader = new BufferedReader(new FileReader("config.txt"))) {
       System.out.println(reader.readLine());
   } catch (IOException e) {
@@ -179,47 +179,47 @@ Luôn đóng các đối tượng quản lý tài nguyên (luồng dữ liệu, 
 
 ### Không bắt Exception quá chung chung nếu không cần thiết (Do not catch overly broad Exception if unnecessary)
 
-Việc bắt `Exception` hoặc `Throwable` mở rộng phạm vi xử lý ngoại lệ để bắt tất cả các lớp con, bao gồm cả các lỗi thời gian chạy không có kiểm tra (unchecked runtime failures).
+Bắt `Exception` hoặc `Throwable` mở rộng việc xử lý ngoại lệ để bắt tất cả các lớp con, bao gồm cả các lỗi thời gian chạy không được kiểm tra (unchecked runtime failure).
 
-- **Cạm bẫy (Pitfall)**:
+- **Bẫy**:
   ```java
   try {
       readConfigFile();
   } catch (Exception e) {
-      // BAD: Việc này bắt IOException, nhưng cũng che khuất NullPointerException, 
-      // OutOfMemoryError, và các lỗi lập trình khác!
+      // BAD: This catches IOException, but also masks NullPointerException, 
+      // OutOfMemoryError, and other developer errors!
   }
   ```
-- **Quy tắc**: Chỉ bắt các ngoại lệ có kiểm tra cụ thể mà phương thức của bạn mong đợi (ví dụ: `IOException`, `SQLException`). Hãy để các lỗi lập trình không mong đợi lan truyền ngược lên (bubble up) để chúng có thể được sửa chữa.
+- **Quy tắc**: Chỉ bắt các ngoại lệ được kiểm tra cụ thể mà phương thức của bạn mong đợi (ví dụ: `IOException`, `SQLException`). Hãy để các lỗi lập trình không mong muốn nổi lên trên để chúng có thể được sửa chữa.
 
 ---
 
-## Tại sao việc đặt tên mô tả lại Quan trọng (Why Descriptive Naming Matters)
+## Tại sao đặt tên mô tả lại quan trọng
 
-Đặt tên mang tính mô tả là một thực hành viết mã sạch cốt lõi giúp giảm tải nhận thức khi đọc và bảo trì phần mềm. Khi tên gọi tiết lộ ý định, tránh thông tin sai lệch và cung cấp các sự phân biệt có ý nghĩa, các nhà phát triển có thể hiểu được logic mà không cần đọc các chi tiết triển khai. Trong Java, tên các biến cục bộ được trình biên dịch sử dụng để xây dựng Bảng Biến Cục Bộ (Local Variable Table) phục vụ gỡ lỗi, nhưng ở cấp độ mã bytecode, JVM tham chiếu đến các biến bằng các ô chỉ số (ví dụ: `iload_1`, `dstore_2`). Bởi vì trình biên dịch Java (`javac`) loại bỏ các tên biến trong quá trình biên dịch (trừ khi được biên dịch với flag `-g`), các tên mô tả dài hoàn toàn không mang lại bất kỳ chi phí thời gian chạy hay hình phạt hiệu năng nào trong JVM. Việc sử dụng các biến một ký tự (ngoại trừ làm biến đếm vòng lặp) hoặc ký hiệu Hungarian (ví dụ: `iCount`, `strName`) làm giảm khả năng đọc khi quy mô dự án mở rộng, vì nó buộc người đọc phải theo dõi các mã hóa tùy ý thay vì các khái niệm nghiệp vụ của miền.
+Đặt tên mang tính mô tả là một thực hành viết mã sạch cốt lõi nhằm giảm tải nhận thức (cognitive load) khi đọc và bảo trì phần mềm. Khi tên gọi thể hiện rõ ý định, tránh thông tin sai lệch và cung cấp các phân biệt có ý nghĩa, nhà phát triển có thể hiểu được logic mà không cần đọc chi tiết triển khai. Trong Java, tên biến cục bộ được trình biên dịch sử dụng để xây dựng Bảng biến cục bộ (Local Variable Table) phục vụ việc gỡ lỗi, nhưng ở cấp độ mã bytecode, JVM tham chiếu đến các biến bằng các ô chỉ số (ví dụ: `iload_1`, `dstore_2`). Vì trình biên dịch Java (`javac`) loại bỏ tên biến trong quá trình biên dịch (trừ khi được biên dịch với tùy chọn `-g`), các tên mô tả dài hoàn toàn không gây ra chi phí thời gian chạy hoặc giảm hiệu năng trong JVM. Việc sử dụng các biến một ký tự (ngoại trừ các bộ đếm vòng lặp) hoặc ký hiệu Hungarian (ví dụ: `iCount`, `strName`) làm giảm khả năng đọc khi dự án mở rộng, vì nó buộc người đọc phải theo dõi các mã hóa tùy ý thay vì các khái niệm nghiệp vụ.
 
-### Mô hình tư duy: Tải Nhận Thức Khi Đọc Mã Nguồn (Mental Model: Cognitive Load in Reading Code)
+### Mô hình tư duy: Tải nhận thức khi đọc mã nguồn
 
 ```text
-Đặt tên khó hiểu:
-[Mã nguồn: x = a * b / 100] ---> [Tra cứu ý nghĩa của 'a'] ---> [Tra cứu ý nghĩa của 'b'] ---> Quá tải nhận thức!
+Đặt tên mơ hồ:
+[Mã: x = a * b / 100] ---> [Tra cứu ý nghĩa của 'a'] ---> [Tra cứu ý nghĩa của 'b'] ---> Quá tải nhận thức!
 
 Đặt tên mô tả:
-[Mã nguồn: tax = price * rate / 100] ---------------------------------------------> Thấu hiểu ngay lập tức
+[Mã: tax = price * rate / 100] ---------------------------------------------> Hiểu ngay lập tức
 ```
 
-### Ví dụ Code
+### Ví dụ mã nguồn
 
 ```java
 public class NamingDemo {
     public static void main(String[] args) {
-        // Khó hiểu: x, y, và z đại diện cho cái gì?
+        // Obscure: What are x, y, and z representing?
         double x = 150.0;
         double y = 0.08;
         double z = x * y;
         System.out.println("Result: " + z); // Result: 12.0
 
-        // Mô tả: Các biến tiết lộ ý định rõ ràng
+        // Descriptive: Intention-revealing variables
         double itemPrice = 150.0;
         double salesTaxRate = 0.08;
         double calculatedSalesTax = itemPrice * salesTaxRate;
@@ -228,78 +228,78 @@ public class NamingDemo {
 }
 ```
 
-### Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)
+### Chuỗi nguyên nhân - kết quả
 
 ```text
-Sử dụng tên biến mang tính mô tả → Bị trình biên dịch javac loại bỏ trong quá trình biên dịch → Được dịch thành các dịch vị chỉ số bytecode (không tốn chi phí thời gian chạy) → Người đọc quét các tên gọi thay vì theo dõi các kiểu/mã hóa → Ngăn chặn quá tải nhận thức và các phản khuôn mẫu đặt tên
+Sử dụng tên biến mang tính mô tả ➔ Bị trình biên dịch javac loại bỏ trong quá trình biên dịch ➔ Được dịch thành các dịch vị chỉ số bytecode (không tốn chi phí thời gian chạy) ➔ Người đọc quét tên biến thay vì theo dõi kiểu dữ liệu/mã hóa ➔ Ngăn ngừa quá tải nhận thức và các phản mẫu đặt tên (naming anti-pattern)
 ```
 
 ---
 
-## Tại sao Hằng số Giúp Ngăn chặn Con số Ma thuật (Why Constants Prevent Magic Numbers)
+## Tại sao các hằng số giúp ngăn ngừa các số ma thuật (Magic Numbers)
 
-Các con số ma thuật là các giá trị trực tiếp được sử dụng trong mã nguồn mà không có giải thích, điều này che khuất ý định của nhà phát triển và làm cho các cập nhật dễ xảy ra lỗi. Việc trích xuất các giá trị này thành các hằng số có tên giúp cải thiện khả năng đọc và đảm bảo các thay đổi được khu trú vào một định nghĩa duy nhất. Từ góc độ ngôn ngữ và JVM, các giá trị nguyên thủy hoặc `String` khai báo `public static final` được công nhận là các hằng số tại thời điểm biên dịch. Trình biên dịch Java (`javac`) thực hiện cơ chế chèn hằng số trực tiếp (constant inlining), thay thế giá trị của hằng số trực tiếp vào mã bytecode của lớp tiêu thụ thay vì chèn một lệnh `getstatic` để tra cứu trường trong thời gian chạy. Mặc dù sự tối ưu hóa này làm giảm chi phí phân giải trường trong thời gian chạy, nó tạo ra một sự phụ thuộc biên dịch tinh tế: nếu giá trị của một hằng số bị sửa đổi, tất cả các lớp tham chiếu đến nó phải được biên dịch lại để phản ánh sự thay đổi trong mã bytecode được inlined của chúng.
+Số ma thuật (magic number) là các giá trị literal được sử dụng trong mã nguồn mà không có lời giải thích, làm lu mờ ý định của nhà phát triển và dễ gây ra lỗi khi cập nhật. Việc trích xuất các giá trị này vào các hằng số có tên giúp nâng cao khả năng đọc và đảm bảo các thay đổi được khu trú ở một nơi định nghĩa duy nhất. Từ góc độ ngôn ngữ và JVM, các giá trị nguyên thủy hoặc `String` kiểu `public static final` được công nhận là hằng số thời gian biên dịch (compile-time constant). Trình biên dịch Java (`javac`) thực hiện nội tuyến hằng số (constant inlining), thay thế trực tiếp giá trị của hằng số vào bytecode của lớp tiêu thụ thay vì chèn một lệnh `getstatic` để tra cứu trường tại thời điểm chạy. Mặc dù tối ưu hóa này giảm chi phí phân giải trường lúc chạy, nó tạo ra một sự phụ thuộc biên dịch nhỏ: nếu giá trị của hằng số bị thay đổi, tất cả các lớp tham chiếu đến nó phải được biên dịch lại để phản ánh sự thay đổi đó trong bytecode được nội tuyến của chúng.
 
-### Mô hình tư duy: Chèn Hằng Số Trực Tiếp ở Thời Điểm Biên Dịch (Mental Model: Compile-Time Constant Inlining)
+### Mô hình tư duy: Nội tuyến hằng số thời điểm biên dịch
 
 ```text
-Mã nguồn (Source Code):
+Mã nguồn:
 class Config { public static final int MAX_LIMIT = 50; }
 class Client { int limit = Config.MAX_LIMIT; }
 
-Mã bytecode (sau khi biên dịch bằng javac):
+Bytecode (sau khi chạy javac):
 Config.class  <-- Chứa định nghĩa trường
-Client.class  <-- Chứa giá trị trực tiếp 'bipush 50' (Được inlined! Không có tham chiếu thời gian chạy đến Config)
+Client.class  <-- Chứa trực tiếp giá trị literal 'bipush 50' (Đã nội tuyến! Không tham chiếu lúc chạy tới Config)
 ```
 
-### Ví dụ Code
+### Ví dụ mã nguồn
 
 ```java
 public class ConstantsDemo {
-    // Được khai báo là một hằng số tại thời điểm biên dịch
+    // Declared as a compile-time constant
     public static final int DAYS_IN_WEEK = 7;
     public static final double SALES_TAX_PERCENT = 8.25;
 
     public static void main(String[] args) {
         double subtotal = 100.0;
-        // Bad: Con số ma thuật 8.25 làm khó biết đó là thuế, lãi suất hay chiết khấu
+        // Bad: Magic number 8.25 makes it hard to know if it's tax, interest, or a discount
         double taxAmountBad = subtotal * (8.25 / 100.0);
         System.out.println("Tax: " + taxAmountBad); // Tax: 8.25
 
-        // Good: Hằng số có tên làm rõ ý định và được inlined tại thời điểm biên dịch
+        // Good: Named constant clarifies intent and is inlined at compile-time
         double taxAmountGood = subtotal * (SALES_TAX_PERCENT / 100.0);
         System.out.println("Tax: " + taxAmountGood); // Tax: 8.25
     }
 }
 ```
 
-### Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)
+### Chuỗi nguyên nhân - kết quả
 
 ```text
-Trích xuất giá trị trực tiếp thành hằng số public static final → javac xác định giá trị là hằng số biên dịch → Giá trị hằng số được inlined trực tiếp vào mã bytecode tiêu thụ → Tránh được các lệnh tra cứu getstatic của JVM trong thời gian chạy → Ngăn chặn các con số ma thuật & tối ưu hóa tốc độ thực thi
+Trích xuất giá trị literal vào hằng số public static final ➔ javac xác định giá trị là hằng số thời gian biên dịch ➔ Giá trị hằng số được nội tuyến trực tiếp vào bytecode tiêu thụ ➔ Tránh được lệnh tra cứu getstatic của JVM lúc chạy ➔ Ngăn ngừa số ma thuật & tối ưu hóa tốc độ thực thi
 ```
 
 ---
 
-## Tại sao các Mệnh đề Bảo vệ Giúp Đơn giản hóa Luồng Kiểm soát (Why Guard Clauses Simplify Control Flow)
+## Tại sao các mệnh đề bảo vệ (Guard Clause) đơn giản hóa luồng điều khiển
 
-Mô hình mệnh đề bảo vệ "Trả về sớm" (Return Early) hoặc "Thất bại nhanh" (Fail Fast) thay thế các khối điều kiện lồng nhau sâu bằng các câu lệnh thoát sớm. Các khối điều kiện lồng nhau yêu cầu các nhà phát triển duy trì một bộ nhớ tạm thời phức tạp trong đầu về các điều kiện tiên quyết để theo dõi các đường dẫn thực thi, điều này làm tăng tải nhận thức theo cấp số nhân. Ngược lại, các mệnh đề bảo vệ xử lý các trạng thái không hợp lệ hoặc các trường hợp tầm thường trước và thoát ra ngay lập tức, cho phép người đọc bỏ qua các đường dẫn đó trong phần còn lại của phương thức. Từ góc độ JVM, các mệnh đề bảo vệ tạo ra một Biểu đồ Luồng Kiểm Soát (Control Flow Graph - CFG) phẳng hơn, tuyến tính hơn trong mã bytecode được biên dịch. Cấu trúc tinh giản này hỗ trợ các lượt tối ưu hóa của trình biên dịch JIT, giúp dự đoán nhánh hoạt động hiệu quả hơn và tăng khả năng biên dịch inlining phương thức thành công bằng cách tránh lồng nhau sâu.
+Mô hình mệnh đề bảo vệ (guard clause) "Trả về sớm" hoặc "Thất bại ngay" thay thế các khối điều kiện lồng nhau sâu bằng các câu lệnh thoát sớm. Các khối điều kiện lồng nhau yêu cầu nhà phát triển phải duy trì một ngăn xếp tinh thần phức tạp của các tiền điều kiện để theo dõi các đường dẫn thực thi, điều này làm tăng tải nhận thức theo cấp số nhân. Ngược lại, các mệnh đề bảo vệ xử lý các trạng thái không hợp lệ hoặc các trường hợp tầm thường trước và thoát ra ngay lập tức, cho phép người đọc bỏ qua các đường dẫn đó trong phần còn lại của phương thức. Từ góc độ JVM, các mệnh đề bảo vệ tạo ra một Đồ thị luồng điều khiển (Control Flow Graph - CFG) phẳng hơn, tuyến tính hơn trong bytecode đã biên dịch. Cấu trúc tinh gọn này hỗ trợ các lượt tối ưu hóa của trình biên dịch JIT, giúp việc dự đoán nhánh (branch prediction) hiệu quả hơn và tăng khả năng nội tuyến phương thức thành công bằng cách tránh lồng ghép sâu.
 
-### Mô hình tư duy: if-else lồng nhau vs. Luồng Mệnh đề Bảo vệ (Mental Model: Nested if-else vs. Guard Clause Flow)
+### Mô hình tư duy: if-else lồng nhau so với Mệnh đề bảo vệ
 
 ```text
-if-else lồng nhau (Lồng nhau sâu):
-[Kiểm tra A] ---> Có ---> [Kiểm tra B] ---> Có ---> [Xử lý Logic cốt lõi]
-    |                         |
-    Không (Thoát)             Không (Thoát)
+if-else lồng nhau (Ngăn xếp sâu):
+[Kiểm tra A] ---> Có ---> [Kiểm tra B] ---> Có ---> [Xử lý logic cốt lõi]
+    |                        |
+  Không (Thoát)            Không (Thoát)
 
-Các mệnh đề bảo vệ (Đường dẫn tuyến tính):
-[Kiểm tra A là Xấu] ---> Ném lỗi/Trả về (Thoát sớm)
-[Kiểm tra B là Xấu] ---> Ném lỗi/Trả về (Thoát sớm)
-[Xử lý Logic cốt lõi] (Đường dẫn chính thuận lợi - Không lồng nhau)
+Mệnh đề bảo vệ (Đường dẫn tuyến tính):
+[Kiểm tra A không tốt] ---> Ném ngoại lệ/Trả về (Thoát sớm)
+[Kiểm tra B không tốt] ---> Ném ngoại lệ/Trả về (Thoát sớm)
+[Xử lý logic cốt lõi] (Happy Path - Không lồng nhau)
 ```
 
-### Ví dụ Code
+### Ví dụ mã nguồn
 
 ```java
 public class GuardClauseDemo {
@@ -316,11 +316,11 @@ public class GuardClauseDemo {
     }
 
     public static String processOrderGuard(String orderId, int quantity) {
-        // Các mệnh đề bảo vệ (thất bại nhanh)
+        // Guard clauses (fail fast)
         if (orderId == null) return "Invalid order ID.";
         if (quantity <= 0) return "Invalid quantity.";
 
-        // Logic nghiệp vụ cốt lõi (luồng chính thuận lợi)
+        // Core business logic (happy path)
         return "Order " + orderId + " processed successfully.";
     }
 
@@ -331,15 +331,15 @@ public class GuardClauseDemo {
 }
 ```
 
-### Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)
+### Chuỗi nguyên nhân - kết quả
 
 ```text
-Các mệnh đề bảo vệ đánh giá đầu vào không hợp lệ trước → Phương thức trả về hoặc ném ngoại lệ ngay lập tức khi thất bại → Logic nghiệp vụ cốt lõi tiếp tục mà không cần các khối lồng thụt lề → Biểu đồ luồng kiểm soát phẳng được tạo ra trong bytecode → Giảm tải nhận thức cho nhà phát triển & tối ưu hóa dự đoán nhánh JIT
+Các mệnh đề bảo vệ đánh giá các đầu vào không hợp lệ trước ➔ Phương thức trả về hoặc ném ngoại lệ ngay lập tức khi thất bại ➔ Logic nghiệp vụ cốt lõi tiến hành mà không cần các khối lồng nhau thụt lề ➔ Đồ thị luồng điều khiển phẳng được tạo ra trong bytecode ➔ Giảm tải nhận thức cho nhà phát triển & tối ưu hóa dự đoán nhánh của JIT
 ```
 
 ---
 
-## Liên Kết Tham Khảo (Reference Links)
+## Liên kết tham khảo
 
 - [Oracle Java Documentation](https://docs.oracle.com/javase/specs/jls/se21/html/index.html)
 - [Oracle Java SE Naming Conventions](https://docs.oracle.com/javase/specs/jls/se21/html/jls-6.html#jls-6.1)

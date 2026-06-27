@@ -1,99 +1,94 @@
-# Chú thích, Package và Import (Comments, Packages, And Imports)
+# Chú Thích, Gói, Và Câu Lệnh Import
 
-Chú thích (comments), gói (packages) và lệnh nhập khẩu (imports) thường không thay đổi trực tiếp logic nghiệp vụ (business logic) của chương trình, nhưng chúng giúp mã nguồn trở nên dễ hiểu và được tổ chức ngăn nắp hơn.
+Chú thích (comment), gói (package) và câu lệnh import thường không ảnh hưởng trực tiếp đến logic nghiệp vụ, nhưng chúng giúp code dễ hiểu và có tổ chức.
 
-## Chú Thích (Comments)
+## Chú Thích (Comment)
 
-Java hỗ trợ chú thích đơn dòng (single-line) và chú thích nhiều dòng (multi-line).
+Java hỗ trợ chú thích một dòng và nhiều dòng.
 
-Chú thích đơn dòng:
+Một dòng:
 
 ```java
-// This prints a greeting.
+// Đây là lệnh in ra lời chào.
 System.out.println("Hello");
 ```
 
-Chú thích nhiều dòng:
+Nhiều dòng:
 
 ```java
 /*
- This is a longer explanation.
- It can span multiple lines.
- */
+ Đây là giải thích dài hơn.
+ Có thể kéo dài trên nhiều dòng.
+*/
 ```
 
-Chú thích tài liệu (Javadoc):
+Chú thích tài liệu (documentation comment):
 
 ```java
 /**
- * Calculates the total price.
+ * Tính tổng giá tiền.
  */
 public double calculateTotal() {
     return 0;
 }
 ```
 
-Các chú thích tài liệu này có thể được các công cụ như `javadoc` sử dụng để tạo tài liệu kỹ thuật.
+Chú thích tài liệu có thể được các công cụ như `javadoc` sử dụng.
 
-## Cách Trình Biên Dịch Xử Lý Chú Thích (How Comments are Processed by the Compiler)
+## Cách Trình Biên Dịch Xử Lý Chú Thích
 
-Trong giai đoạn biên dịch, trình biên dịch (compiler) Java xử lý các chú thích theo các cách khác nhau tùy thuộc vào cú pháp của chúng. Khi bạn chạy `javac`, bộ phân tích từ vựng (lexical analyzer) sẽ phân tích cú pháp của file nguồn và loại bỏ tất cả các chú thích đơn dòng (`//`) và nhiều dòng (`/* ... */`), thay thế chúng bằng khoảng trắng. Các chú thích này hoàn toàn bị loại bỏ khỏi các file `.class` được tạo ra, nghĩa là chúng không chiếm bất kỳ dung lượng nào trong bộ nhớ JVM lúc runtime. Ngược lại, các chú thích tài liệu Javadoc (`/** ... */`) được cấu trúc để lưu trữ siêu thông tin (meta-information) và có thể được phân tích cú pháp bởi trình biên dịch hoặc các doclet API để xây dựng tài liệu tham khảo dạng HTML. Trừ khi các cờ trình biên dịch (compiler flags) được thiết lập để giữ lại siêu dữ liệu cụ thể, bytecode sau khi biên dịch chỉ chứa các lệnh thực thi.
+Trong quá trình biên dịch, trình biên dịch Java xử lý chú thích khác nhau tùy theo cú pháp. Khi bạn chạy `javac`, bộ phân tích từ vựng (lexical analyzer) đọc file nguồn và loại bỏ toàn bộ chú thích một dòng (`//`) và nhiều dòng (`/* ... */`), thay thế chúng bằng khoảng trắng. Các chú thích này hoàn toàn không xuất hiện trong file `.class` được sinh ra, tức là chúng không chiếm bộ nhớ JVM khi chạy. Ngược lại, chú thích tài liệu Javadoc (`/** ... */`) được thiết kế để chứa thông tin mô tả và có thể được trình biên dịch hoặc các Doclet API phân tích để tạo tài liệu HTML tham chiếu. Trừ khi được cấu hình đặc biệt, bytecode đã biên dịch chỉ chứa các lệnh thực thi.
 
-### Mô Hình Tư Duy: Bộ Lọc Của Trình Biên Dịch (Compiler Filter)
-Hãy nghĩ về trình biên dịch giống như một bộ lọc cà phê: bã cà phê (chú thích) được giữ lại trong bộ lọc (mã nguồn) để hướng dẫn người pha chế, nhưng chỉ có nước cà phê nguyên chất (bytecode) mới chảy xuống tách (file `.class`).
+### Mô Hình Tư Duy: Bộ Lọc Cà Phê
+
+Hãy nghĩ trình biên dịch như một cái phin cà phê: bã cà phê (chú thích) được giữ lại trong phin (source code) để hướng dẫn người pha, nhưng chỉ có nước cà phê thuần túy (bytecode) chảy qua vào tách (file `.class`).
 
 ```mermaid
 flowchart TD
-    A[Mã nguồn có kèm Chú thích] -->|Phân tích từ vựng| B[Trình biên dịch javac]
-    B -->|Loại bỏ chú thích // và /*| C[Bytecode sạch: HelloWorld.class]
-    B -->|Giữ lại chú thích /**| D[Công cụ Javadoc tạo tài liệu HTML API]
+    A[Source Code chứa chú thích] -->|Phân tích từ vựng| B[Trình biên dịch javac]
+    B -->|Loại bỏ chú thích // và /* */| C[Bytecode sạch - HelloWorld.class]
+    B -->|Giữ lại chú thích /**| D[Công cụ Javadoc tạo HTML API]
 ```
 
-### Ví dụ Code (Code Example)
+### Ví Dụ Code
 ```java
 public class CommentDemo {
     public static void main(String[] args) {
-        // Chú thích đơn dòng này bị trình biên dịch loại bỏ.
+        // Chú thích một dòng này bị trình biên dịch loại bỏ.
         /* Chú thích nhiều dòng này
-           cũng hoàn toàn bị loại bỏ. */
+           cũng bị loại bỏ hoàn toàn. */
         System.out.println("No comments exist in bytecode!");
-        // Kết quả: No comments exist in bytecode!
+        // Output: No comments exist in bytecode!
     }
 }
 ```
 
-### Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)
+### Chuỗi Nguyên Nhân - Kết Quả
 
-```text
-`Nhà phát triển viết chú thích`
-  → `Trình biên dịch phân tích các token trong file nguồn`
-  → `Bộ phân tích từ vựng thay thế các ký tự chú thích bằng khoảng trắng`
-  → `Bytecode của class được tạo ra chỉ chứa các lệnh thực thi mà không có nội dung chú thích`.
-```
+`Lập trình viên viết chú thích` → `Trình biên dịch phân tích token trong source file` → `Bộ phân tích từ vựng thay thế ký tự chú thích bằng khoảng trắng` → `Bytecode của class chỉ chứa các lệnh thực thi, không có nội dung chú thích`.
 
+## Chú Thích Tốt
 
-## Chú Thích Tốt (Good Comments)
-
-Chú thích tốt giải thích tại sao đoạn code đó tồn tại hoặc làm rõ các quyết định không rõ ràng.
+Chú thích tốt giải thích *lý do* code tồn tại hoặc làm rõ các quyết định không hiển nhiên.
 
 Hữu ích:
 
 ```java
-// Use BigDecimal because money calculations must avoid floating-point rounding issues.
+// Dùng BigDecimal vì tính toán tiền tệ phải tránh lỗi làm tròn dấu phẩy động.
 ```
 
 Không hữu ích:
 
 ```java
-// Add 1 to count
+// Cộng 1 vào count
 count = count + 1;
 ```
 
-Chú thích thứ hai chỉ lặp lại những gì code đã thể hiện.
+Chú thích thứ hai chỉ lặp lại những gì code đã nói.
 
-## Gói (Packages)
+## Gói (Package)
 
-Một gói (package) gom nhóm các class có liên quan lại với nhau và ngăn ngừa xung đột tên gọi.
+Gói nhóm các class liên quan lại và ngăn xung đột tên.
 
 Ví dụ:
 
@@ -101,66 +96,61 @@ Ví dụ:
 package com.example.learning;
 ```
 
-Tên package thường được viết bằng chữ thường và thường sử dụng kiểu đảo ngược tên miền (reverse domain name):
+Tên gói thường viết thường và thường dùng kiểu tên miền đảo ngược:
 
 ```text
 com.company.project.module
 ```
 
-## Tại Sao Tên Miền Ngược và Cấu Trúc Package Giúp Tránh Xung Đột (Why Reverse DNS and Package Structure Prevent Collisions)
+## Tại Sao DNS Ngược Và Cấu Trúc Gói Ngăn Xung Đột Tên
 
-Hệ thống tên miền (DNS) của internet được đảm bảo là duy nhất trên toàn cầu. Java tận dụng tính độc nhất này bằng cách khuyến nghị các nhà phát triển đặt tên package bằng tên miền của tổ chức theo thứ tự đảo ngược (ví dụ: `com.google` hoặc `org.apache`). Quy ước đặt tên này ngăn ngừa xung đột tên gọi khi tích hợp các thư viện của bên thứ ba vào một dự án. Nếu cả hai tổ chức cùng viết một class tên là `Parser`, package dạng DNS đảo ngược sẽ đảm bảo một class nằm ở `com.companyA.utils.Parser` trong khi class kia nằm ở `com.companyB.network.Parser`, cho phép JVM giải quyết (resolve) cả hai kiểu dữ liệu một cách an toàn trên classpath mà không xảy ra xung đột.
+Hệ thống tên miền (DNS - Domain Name System) của internet được đảm bảo là duy nhất toàn cầu. Java tận dụng tính duy nhất này bằng cách khuyến nghị các nhà phát triển đặt tên gói theo tên miền của tổ chức theo thứ tự đảo ngược (ví dụ: `com.google` hoặc `org.apache`). Quy ước đặt tên này ngăn xung đột khi tích hợp thư viện bên thứ ba. Nếu hai tổ chức cùng viết một class tên `Parser`, tên gói DNS ngược đảm bảo một class nằm tại `com.companyA.utils.Parser` còn class kia tại `com.companyB.network.Parser`, cho phép JVM phân giải an toàn cả hai kiểu trên classpath mà không xung đột.
 
-Hơn nữa, Java ánh xạ trực tiếp tên package với cấu trúc thư mục trên hệ thống tệp tin (filesystem). Một class được khai báo trong package `com.example.learning` phải nằm trong đường dẫn thư mục `com/example/learning/`. Điều này đảm bảo hệ thống tệp tin của hệ điều hành và trình tải lớp (class loader) của JVM đồng bộ với nhau, giữ cho các file mã nguồn luôn ngăn nắp và duy nhất.
+Hơn nữa, Java ánh xạ trực tiếp tên gói sang cấu trúc thư mục trên hệ thống tệp. Một class được khai báo trong gói `com.example.learning` phải nằm trong đường dẫn thư mục `com/example/learning/`. Điều này đảm bảo hệ điều hành và bộ tải class (class loader) của JVM luôn đồng bộ, giữ cho các file code có tổ chức và duy nhất.
 
-### Mô Hình Tư Duy: Địa Chỉ Bưu Điện (Post Office Addresses)
-Hãy nghĩ về package như địa chỉ bưu điện. Nếu bạn viết một lá thư gửi cho "John Smith", bưu điện không thể gửi nó đi nếu thiếu địa chỉ đường phố, thành phố và quốc gia cụ thể. Tương tự như vậy, Tên lớp đầy đủ (Fully Qualified Class Name - FQCN) đóng vai trò là địa chỉ bưu điện hoàn chỉnh cho lớp của bạn.
+### Mô Hình Tư Duy: Địa Chỉ Bưu Chính
+
+Hãy nghĩ gói như địa chỉ bưu chính. Nếu bạn viết thư cho "Nguyễn Văn A", bưu điện không thể giao thư nếu không có địa chỉ đường, thành phố và quốc gia đầy đủ. Tương tự, Tên Đầy Đủ Lớp (FQCN - Fully Qualified Class Name) đóng vai trò là địa chỉ hoàn chỉnh cho class của bạn.
 
 ```mermaid
 flowchart TD
-    A[Hệ thống đăng ký DNS toàn cầu] -->|Đảm bảo duy nhất tên miền| B[companyA.com]
-    A -->|Đảm bảo duy nhất tên miền| C[companyB.com]
+    A[Registry DNS toàn cầu] -->|Đảm bảo tên miền duy nhất| B[companyA.com]
+    A -->|Đảm bảo tên miền duy nhất| C[companyB.com]
     B -->|Ánh xạ ngược| D["package com.companyA.Parser"]
     C -->|Ánh xạ ngược| E["package com.companyB.Parser"]
 ```
 
-### Ví dụ Code (Code Example)
+### Ví Dụ Code
 ```java
-// Hai class có cùng tên ngắn được giải quyết bằng cách dùng Tên lớp đầy đủ (FQCN)
+// Hai class cùng tên đơn giản được phân giải bằng Tên Đầy Đủ Lớp (FQCN)
 package com.example.shop;
 
 public class NamespaceDemo {
     public static void main(String[] args) {
-        // Việc chỉ ra rõ ràng đường dẫn package giúp tránh mơ hồ
+        // Đặt tên đường dẫn gói đầy đủ ngăn sự nhập nhằng
         com.companyA.utils.Parser localParser = new com.companyA.utils.Parser();
         com.companyB.network.Parser remoteParser = new com.companyB.network.Parser();
         System.out.println("Both Parser classes loaded without collision.");
-        // Kết quả: Both Parser classes loaded without collision.
+        // Output: Both Parser classes loaded without collision.
     }
 }
 ```
 
-### Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)
+### Chuỗi Nguyên Nhân - Kết Quả
 
-```text
-`Các tổ chức đăng ký các tên miền internet duy nhất`
-  → `Các package Java sử dụng cấu trúc tên miền đảo ngược`
-  → `Các file class nằm trong các đường dẫn thư mục con duy nhất trên đĩa`
-  → `Trình tải classpath của JVM giải quyết các tên kiểu dữ liệu một cách rõ ràng bằng cách sử dụng Tên lớp đầy đủ`.
-```
+`Các tổ chức đăng ký tên miền internet duy nhất` → `Gói Java dùng cấu trúc tên miền đảo ngược` → `File class nằm trong đường dẫn thư mục con duy nhất trên đĩa` → `Bộ tải class của JVM phân giải tên kiểu sạch sẽ bằng Tên Đầy Đủ Lớp`.
 
+## Import
 
-## Nhập Khẩu (Imports)
+Câu lệnh import cho phép bạn dùng một class từ gói khác mà không cần viết tên đầy đủ mỗi lần.
 
-Một lệnh nhập khẩu (import) cho phép bạn sử dụng một class từ một package khác mà không cần phải viết tên đầy đủ của class đó mỗi lần sử dụng.
-
-Không dùng import:
+Không có import:
 
 ```java
 java.util.Scanner scanner = new java.util.Scanner(System.in);
 ```
 
-Có dùng import:
+Có import:
 
 ```java
 import java.util.Scanner;
@@ -168,37 +158,37 @@ import java.util.Scanner;
 Scanner scanner = new Scanner(System.in);
 ```
 
-## Nhập Khẩu Bằng Ký Tự Đại Diện (Wildcard Imports)
+## Import Ký Tự Đại Diện (Wildcard Import)
 
-Java cho phép import bằng ký tự đại diện (wildcard):
+Java cho phép import ký tự đại diện:
 
 ```java
 import java.util.*;
 ```
 
-Lệnh này import các class từ package `java.util`, nhưng không bao gồm các package con (subpackages) của nó. Người mới bắt đầu nên ưu tiên sử dụng import rõ ràng (explicit imports) vì chúng giúp mã nguồn rõ ràng hơn.
+Cách này import các class từ gói `java.util`, nhưng không bao gồm các gói con. Người mới bắt đầu nên dùng import rõ ràng vì nó rõ ràng hơn.
 
-## Lệnh Import Không Sao Chép Mã Nguồn (Import Does Not Copy Code)
+## Import Không Sao Chép Code
 
-Lệnh import không dán mã nguồn vào file của bạn. Nó chỉ cho trình biên dịch biết nơi để tìm một kiểu dữ liệu thông qua tên ngắn của nó.
+Câu lệnh import không dán code vào file của bạn. Nó chỉ báo cho trình biên dịch biết nơi tìm một kiểu dựa vào tên đơn giản của nó.
 
-## Các Lỗi Thường Gặp (Common Mistakes)
+## Lỗi Thường Gặp
 
-- Viết các lệnh import bên dưới khai báo class.
-- Sử dụng tên package có chữ in hoa.
-- Nghĩ rằng `import java.util.*` sẽ import các package con.
-- Thêm các chú thích lặp lại code một cách hiển nhiên.
+- Viết câu lệnh import bên dưới khai báo class.
+- Dùng chữ hoa trong tên gói.
+- Nghĩ rằng `import java.util.*` cũng import gói con.
+- Viết chú thích lặp lại code hiển nhiên.
 
-### Lỗi Thường Gặp: Import Dưới Khai Báo Class (Common Mistake: Import Below Class Declaration)
+### Lỗi Thường Gặp: Import Dưới Khai Báo Class
 
 ```java
 // Lỗi biên dịch: import phải xuất hiện trước khai báo class
 public class Demo {
-    import java.util.Scanner;   // ← vị trí sai
+    import java.util.Scanner;   // ← sai vị trí
 }
 ```
 
-Thứ tự đúng: `package` &rarr; `import` &rarr; `class`.
+Thứ tự đúng: `package` → `import` → `class`.
 
 ```java
 package com.example;
@@ -209,65 +199,65 @@ public class Demo {
 }
 ```
 
-### Lỗi Thường Gặp: Tên Package Có Chữ In Hoa (Common Mistake: Uppercase Package Name)
+### Lỗi Thường Gặp: Tên Gói Viết Hoa
 
 ```java
-package Com.Example.Learning;  // sai — phải viết hoàn toàn bằng chữ thường
+package Com.Example.Learning;  // sai — phải viết thường toàn bộ
 ```
 
 ```java
 package com.example.learning;  // đúng
 ```
 
-### Lỗi Thường Gặp: Kỳ Vọng Wildcard Sẽ Bao Gồm Cả Package Con (Common Mistake: Expecting Wildcard to Cover Subpackages)
+### Lỗi Thường Gặp: Nghĩ Wildcard Bao Gồm Gói Con
 
 ```java
 import java.util.*;  // import ArrayList, HashMap, v.v.
 // KHÔNG import java.util.concurrent.locks.Lock
-// Dòng dưới đây vẫn bị lỗi biên dịch:
+// Dòng dưới vẫn không biên dịch được:
 Lock lock = new ReentrantLock();  // lỗi: cannot find symbol
 ```
 
-Cách khắc phục: thêm `import java.util.concurrent.locks.Lock;` một cách rõ ràng.
+Cách sửa: thêm `import java.util.concurrent.locks.Lock;` rõ ràng.
 
-### Lỗi Thường Gặp: Chú Thích Lặp Lại Code (Common Mistake: Comment That Repeats Code)
+### Lỗi Thường Gặp: Chú Thích Lặp Lại Code
 
 ```java
-// Tệ — chỉ lặp lại những gì code thể hiện
+// Tệ — chỉ lặp lại những gì code đang làm
 count = count + 1;  // tăng count lên 1
 
 // Tốt — giải thích lý do nghiệp vụ
-count = count + 1;  // bộ đếm thử lại: số lần thử tối đa được định nghĩa bởi MAX_RETRY trong cấu hình
+count = count + 1;  // bộ đếm thử lại: số lần thử tối đa được định nghĩa bởi MAX_RETRY trong config
 ```
 
-## Case Study: Cấu Trúc File Chính Xác (Case Study: Correct File Structure)
+## Ví Dụ Thực Tế: Cấu Trúc File Đúng
 
 ```java
 // File: OrderService.java
-package com.example.shop;          // 1. package — dòng code đầu tiên không phải chú thích
+package com.example.shop;          // 1. package — dòng không phải chú thích đầu tiên
 
-import java.util.ArrayList;        // 2. các import — trước class
+import java.util.ArrayList;        // 2. import — trước class
 import java.util.List;
 
 /**
- * Manages customer orders.        // 3. chú thích javadoc cho class
- * Handles creation and retrieval.
+ * Quản lý đơn hàng khách hàng.   // 3. chú thích javadoc cho class
+ * Xử lý tạo và lấy đơn hàng.
  */
 public class OrderService {        // 4. class — tên khớp với tên file
 
     /**
-     * Returns all pending orders.
-     * @return list of order IDs
+     * Trả về tất cả đơn hàng đang chờ xử lý.
+     * @return danh sách ID đơn hàng
      */
     public List<Integer> getPendingOrders() {
-        // Sử dụng ArrayList — truy cập ngẫu nhiên nhanh, chấp nhận được cho tập đơn hàng nhỏ
+        // Dùng ArrayList — truy cập ngẫu nhiên nhanh, phù hợp với tập đơn hàng nhỏ
         return new ArrayList<>();
     }
 }
 ```
 
-## Liên Kết Tham Khảo (Reference Links)
+## Liên Kết Tham Khảo
 
-- https://docs.oracle.com/javase/specs/jls/se21/html/jls-3.html#jls-3.7 (JLS Lexical Structure - Comments)
-- https://docs.oracle.com/javase/specs/jls/se21/html/jls-7.html#jls-7.3 (JLS Packages - Compilation Units)
-- https://docs.oracle.com/javase/specs/jls/se21/html/jls-7.html#jls-7.5 (JLS Packages - Import Declarations)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-3.html#jls-3.7 (JLS Cấu Trúc Từ Vựng - Chú Thích)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-7.html#jls-7.3 (JLS Gói - Đơn Vị Biên Dịch)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-7.html#jls-7.5 (JLS Gói - Khai Báo Import)

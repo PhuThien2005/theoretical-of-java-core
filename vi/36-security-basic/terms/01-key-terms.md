@@ -1,73 +1,59 @@
-# Thuật ngữ Bảo mật cơ bản (Basic Security Terms)
+# Thuật Ngữ Bảo Mật Cơ Bản (Basic Security Terms)
 
-Hãy sử dụng tài liệu này khi một từ ngữ trong phần lý thuyết có vẻ quá cô đọng. Mỗi thuật ngữ đều đi kèm ý nghĩa, tầm quan trọng, sự nhầm lẫn phổ biến và một ví dụ nhỏ.
+Sử dụng file này khi một từ trong phần lý thuyết có cảm giác quá ngắn gọn. Mỗi thuật ngữ đều đi kèm với ý nghĩa, tầm quan trọng, điểm dễ gây nhầm lẫn và một ví dụ nhỏ.
 
-## Lập trình an toàn (Secure coding)
+## Lập Trình An Toàn (Secure Coding)
 
-Lập trình an toàn (Secure coding) là việc viết phần mềm nhằm giảm thiểu tối đa các lỗ hổng (vulnerabilities) bảo mật bằng cách kiểm thực dữ liệu đầu vào, bảo vệ dữ liệu nhạy cảm, sử dụng các API an toàn và tuân thủ các nguyên tắc đặc quyền tối thiểu (least-privilege principles).
+Lập trình an toàn (secure coding) là hoạt động viết phần mềm nhằm giảm thiểu tối đa các lỗ hổng bảo mật bằng cách xác thực đầu vào, bảo vệ dữ liệu nhạy cảm, sử dụng các API an toàn, và tuân thủ các nguyên tắc đặc quyền tối thiểu.
 
-**Tại sao nó quan trọng**: Hầu hết các vụ vi phạm bảo mật (security breaches) đều khai thác các lỗi lập trình (chèn mã (injection), tràn bộ đệm (buffer overflows), giải tuần tự hóa không an toàn (insecure deserialization)). Lập trình an toàn ngăn chặn những điều này ngay từ cấp độ mã nguồn, chứ không chỉ ở vành đai mạng (network perimeter).
-
-**Sự nhầm lẫn phổ biến**: Các lập trình viên thường nghĩ rằng bảo mật chỉ xoay quanh tường lửa (firewalls) hoặc cấu hình mạng, mà không nhận ra rằng hầu hết các lỗi bảo mật phổ biến CVE (Common Vulnerabilities and Exposures) đều bắt nguồn từ lỗi mã nguồn ở tầng ứng dụng.
-
-**Ví dụ nhỏ**: Việc sử dụng `PreparedStatement` thay vì `Statement` cho các truy vấn SQL giúp loại bỏ lỗi chèn mã SQL (SQL injection) ngay ở cấp độ mã nguồn.
+- **Tại sao điều này quan trọng**: Hầu hết các vụ xâm nhập bảo mật đều khai thác các lỗi lập trình (chèn mã - injection, tràn bộ đệm - buffer overflow, giải tuần tự hóa không an sau - insecure deserialization). Lập trình an toàn giúp ngăn chặn các lỗi này ngay từ cấp độ mã nguồn, chứ không chỉ ở vành đai mạng.
+- **Nhầm lẫn phổ biến**: Các nhà phát triển thường nghĩ rằng bảo mật chỉ là về tường lửa hoặc cấu hình mạng, mà không nhận ra rằng hầu hết các lỗi CVE (Lỗi và Lỗ hổng Phổ biến) đều do các lỗi mã nguồn ở tầng ứng dụng gây ra.
+- **Ví dụ nhỏ**: Việc sử dụng `PreparedStatement` thay vì `Statement` cho các truy vấn SQL giúp loại bỏ hoàn toàn lỗi tấn công chèn mã SQL ở cấp độ code.
 
 ## Băm (Hashing)
 
-Một hàm băm mã hóa (cryptographic hash function) là một hàm toán học một chiều (one-way) ánh xạ dữ liệu đầu vào có kích thước bất kỳ thành một giá trị băm (digest) có kích thước cố định. Khi đã có giá trị băm, về mặt tính toán là không thể khôi phục lại dữ liệu đầu vào ban đầu.
+Một hàm băm mật mã (cryptographic hash function) là một hàm toán học một chiều giúp ánh xạ dữ liệu đầu vào có kích thước tùy ý thành một chuỗi đại diện (digest) có kích thước cố định. Từ chuỗi đại diện này, việc khôi phục lại dữ liệu đầu vào ban đầu là bất khả thi về mặt tính toán.
 
-**Tại sao nó quan trọng**: Băm (Hashing) cho phép lưu trữ mật khẩu (password storage) mà không cần lưu trữ dưới dạng văn bản rõ (plaintext) (lưu giá trị băm, so sánh giá trị băm), kiểm tra tính toàn vẹn dữ liệu (mã hash kiểm tra tệp - checksum) và chữ ký số (băm rồi ký).
+- **Tại sao điều này quan trọng**: Hàm băm cho phép lưu trữ mật khẩu mà không cần lưu trữ văn bản thuần túy (lưu mã băm, so sánh mã băm), kiểm tra tính toàn vẹn của dữ liệu (mã checksum của tệp), và chữ ký số (băm rồi ký).
+- **Nhầm lẫn phổ biến**: Băm không phải là mã hóa. Băm được thiết kế để không thể đảo ngược (không thể giải mã). Mã hóa có thể đảo ngược bằng cách sử dụng khóa. Hàm băm của `HashMap` KHÔNG phải là băm mật mã — nó được thiết kế để phân phối các phần tử, chứ không phải cho bảo mật.
+- **Ví dụ nhỏ**: `MessageDigest.getInstance("SHA-256").digest("password".getBytes())` tạo ra một chuỗi băm đại diện dài 32 byte.
 
-**Sự nhầm lẫn phổ biến**: Băm không phải là mã hóa (encryption). Băm được thiết kế để không thể đảo ngược (bất khả nghịch). Mã hóa có thể đảo ngược bằng cách sử dụng một khóa (key). Hàm băm của `HashMap` KHÔNG phải là hàm băm mã hóa — nó được thiết kế để phân bổ dữ liệu vào các bucket chứ không phải vì mục đích bảo mật.
+## Base64
 
-**Ví dụ nhỏ**: `MessageDigest.getInstance("SHA-256").digest("password".getBytes())` tạo ra một giá trị băm dài 32 byte.
+Base64 là một sơ đồ mã hóa chuyển đổi nhị phân sang văn bản (binary-to-text), chuyển đổi các byte nhị phân tùy ý thành bảng chữ cái ASCII gồm 64 ký tự (A–Z, a–z, 0–9, +, /).
 
-## Base64 (Base64)
+- **Tại sao điều này quan trọng**: Nhiều giao thức dựa trên văn bản (HTTP, JSON, email) không thể truyền tải trực tiếp các byte nhị phân thô. Base64 cho phép dữ liệu nhị phân (hình ảnh, chứng chỉ, khóa) được nhúng an toàn vào các payload văn bản.
+- **Nhầm lẫn phổ biến**: Base64 KHÔNG phải là mã hóa. Bất kỳ ai có dữ liệu được mã hóa đều có thể đảo ngược giải mã nó một cách cực kỳ dễ dàng. Việc sử dụng Base64 không giúp bảo vệ tính bảo mật của dữ liệu dưới bất kỳ hình thức nào.
+- **Ví dụ nhỏ**: `Base64.getEncoder().encodeToString("Hello".getBytes())` trả về `"SGVsbG8="` — và bất kỳ ai cũng có thể giải mã nó.
 
-Base64 là một lược đồ mã hóa nhị phân sang văn bản (binary-to-text encoding scheme) chuyển đổi các byte nhị phân tùy ý thành bảng chữ cái ASCII gồm 64 ký tự (A–Z, a–z, 0–9, +, /).
+## Mã Hóa (Encryption)
 
-**Tại sao nó quan trọng**: Nhiều giao thức dạng văn bản (text-based protocols) (HTTP, JSON, email) không thể truyền tải các byte nhị phân thô. Base64 cho phép nhúng dữ liệu nhị phân (hình ảnh, chứng chỉ, khóa) một cách an toàn vào các chuỗi dữ liệu dạng văn bản.
+Mã hóa là một chuyển đổi có thể đảo ngược từ văn bản thuần túy (plaintext) thành văn bản mật mã (ciphertext) bằng cách sử dụng thuật toán và khóa mật mã (như AES), sao cho chỉ những ai có khóa chính xác mới có thể giải mã văn bản mật mã trở lại văn bản thuần túy ban đầu.
 
-**Sự nhầm lẫn phổ biến**: Base64 KHÔNG phải là mã hóa bảo mật. Bất kỳ ai có dữ liệu được mã hóa này đều có thể đảo ngược nó một cách dễ dàng. Sử dụng Base64 không giúp bảo vệ tính bí mật (confidentiality) dưới bất kỳ hình thức nào.
+- **Tại sao điều này quan trọng**: Mã hóa bảo vệ tính bảo mật của dữ liệu trong quá trình truyền tải (TLS/HTTPS) và khi lưu trữ (cơ sở dữ liệu được mã hóa, tệp được mã hóa). Nếu không có mã hóa, bất kỳ ai giám sát mạng đều có thể đọc dữ liệu.
+- **Nhầm lẫn phổ biến**: Mã hóa thường bị nhầm lẫn với băm. Khác biệt chính: băm là một chiều và tạo ra một chuỗi đại diện có kích thước cố định; mã hóa là hai chiều và bảo toàn dữ liệu để người nhận có thể khôi phục lại.
+- **Ví dụ nhỏ**: `Cipher.getInstance("AES/CBC/PKCS5Padding")` triển khai mã hóa AES — cùng một khóa được sử dụng để mã hóa phải được sử dụng để giải mã.
 
-**Ví dụ nhỏ**: `Base64.getEncoder().encodeToString("Hello".getBytes())` trả về `"SGVsbG8="` — và bất kỳ ai cũng có thể giải mã nó.
+## KeyStore
 
-## Mã hóa (Encryption)
+`KeyStore` là kho lưu trữ an toàn của Java dành cho các khóa mật mã và chứng chỉ số. Nó có thể lưu trữ các khóa riêng tư (private key), các chứng chỉ khóa công khai (public key certificate), và các khóa bí mật (khóa đối xứng) dưới dạng mã hóa trên đĩa.
 
-Mã hóa (Encryption) là một phép biến đổi có thể đảo ngược của văn bản rõ (plaintext) thành văn bản mã hóa (ciphertext) bằng cách sử dụng một khóa mã hóa (cryptographic key) và thuật toán (như AES), sao cho chỉ những người có khóa chính xác mới có thể giải mã văn bản mã hóa trở lại thành văn bản rõ ban đầu.
+- **Tại sao điều này quan trọng**: Các ứng dụng sử dụng TLS/HTTPS cần lưu trữ các chứng chỉ SSL và các khóa riêng tư một cách an toàn. `KeyStore` cung cấp một kho lưu trữ được mã hóa và bảo vệ bằng mật khẩu mà `SSLContext` của JVM có thể sử dụng trực tiếp.
+- **Nhầm lẫn phổ biến**: Các nhà phát triển đôi khi viết cứng các khóa riêng tư trong mã nguồn dưới dạng chuỗi. `KeyStore` tồn tại chính xác để tránh điều này — các khóa được lưu trữ dưới dạng mã hóa và được tải thông qua một API bảo vệ bằng mật khẩu.
+- **Ví dụ nhỏ**: `KeyStore.getInstance("PKCS12")` tải một kho chứng chỉ `.p12` hoặc `.pfx` thường được sử dụng để xác thực máy khách và máy chủ TLS.
 
-**Tại sao nó quan trọng**: Mã hóa bảo vệ tính bí mật (confidentiality) của dữ liệu trong quá trình truyền tải (TLS/HTTPS) và khi lưu trữ (cơ sở dữ liệu được mã hóa, tệp được mã hóa). Không có mã hóa, bất kỳ ai giám sát mạng đều có thể đọc được dữ liệu.
+## TLS
 
-**Sự nhầm lẫn phổ biến**: Mã hóa thường bị nhầm lẫn với băm. Sự khác biệt chính: băm là một chiều và tạo ra một giá trị băm có kích thước cố định; mã hóa là hai chiều và giữ nguyên dữ liệu có thể khôi phục bởi người nhận.
+Bảo mật tầng truyền tải (Transport Layer Security - TLS) là một giao thức mật mã cung cấp tính năng xác thực, bảo mật và toàn vẹn cho các thông tin liên lạc mạng. HTTPS là HTTP chạy trên giao thức TLS.
 
-**Ví dụ nhỏ**: `Cipher.getInstance("AES/CBC/PKCS5Padding")` triển khai mã hóa AES — cùng một khóa được sử dụng để mã hóa thì phải được sử dụng để giải mã.
+- **Tại sao điều này quan trọng**: Nếu không có TLS, kẻ tấn công thực hiện cuộc tấn công xen giữa (man-in-the-middle) có thể đọc, chặn hoặc sửa đổi lưu lượng mạng dưới dạng văn bản rõ (cleartext). TLS ngăn chặn điều này bằng cách thiết lập một đường truyền mã hóa với việc xác thực chứng chỉ từ cả hai phía.
+- **Nhầm lẫn phổ biến**: TLS thường bị nhầm với SSL. SSL là tiền thân đã lỗi thời của TLS. Các hệ thống hiện đại sử dụng TLS 1.2 hoặc TLS 1.3. Việc nói "SSL" trong ngữ cảnh Java thường ám chỉ TLS 1.2+ thông qua `SSLContext`.
+- **Ví dụ nhỏ**: `SSLContext.getInstance("TLS")` khởi tạo một ngữ cảnh TLS để sử dụng trong `HttpsURLConnection` or `SSLSocket`.
 
-## KeyStore (KeyStore)
+## Xác Thực Đầu Vào (Input Validation)
 
-`KeyStore` là kho chứa an toàn của Java dành cho các khóa mã hóa (cryptographic keys) và chứng chỉ kỹ thuật số (digital certificates). Nó có thể lưu trữ các khóa riêng tư (private keys), chứng chỉ khóa công khai (public key certificates) và các khóa bí mật (secret/symmetric keys) dưới dạng mã hóa trên đĩa.
+Xác thực đầu vào (input validation) là hoạt động kiểm tra tất cả các đầu vào từ bên ngoài (dữ liệu người dùng, nội dung tệp, tin nhắn mạng, các biến môi trường) đối chiếu với các quy tắc được định nghĩa trước khi xử lý chúng.
 
-**Tại sao nó quan trọng**: Các ứng dụng sử dụng TLS/HTTPS cần lưu trữ các chứng chỉ SSL và khóa riêng tư một cách an toàn. `KeyStore` cung cấp một kho lưu trữ được mã hóa và bảo vệ bằng mật khẩu mà `SSLContext` của JVM có thể tiêu thụ trực tiếp.
-
-**Sự nhầm lẫn phổ biến**: Các lập trình viên đôi khi code cứng (hardcode) các khóa riêng tư trong mã nguồn dưới dạng chuỗi. `KeyStore` tồn tại chính xác để tránh điều này — các khóa được lưu trữ dưới dạng mã hóa và được tải thông qua một API được bảo vệ bằng mật khẩu.
-
-**Ví dụ nhỏ**: `KeyStore.getInstance("PKCS12")` tải một kho chứng chỉ `.p12` hoặc `.pfx` thường được sử dụng cho việc xác thực client và server trong TLS.
-
-## TLS (TLS)
-
-Bảo mật tầng truyền vận (Transport Layer Security - TLS) là một giao thức mã hóa cung cấp tính năng xác thực, tính bảo mật và tính toàn vẹn cho giao tiếp mạng. HTTPS là HTTP chạy trên nền TLS.
-
-**Tại sao nó quan trọng**: Không có TLS, kẻ tấn công thực hiện cuộc tấn công xen giữa (man-in-the-middle attack) có thể đọc, chặn hoặc sửa đổi lưu lượng mạng dưới dạng văn bản rõ. TLS ngăn chặn điều này bằng cách thiết lập một đường ống mã hóa với sự xác thực chứng chỉ lẫn nhau.
-
-**Sự nhầm lẫn phổ biến**: TLS thường bị nhầm lẫn với SSL. SSL là phiên bản tiền nhiệm đã lỗi thời của TLS. Các hệ thống hiện đại sử dụng TLS 1.2 hoặc TLS 1.3. Nói "SSL" trong ngữ cảnh Java thường có nghĩa là TLS 1.2+ thông qua `SSLContext`.
-
-**Ví dụ nhỏ**: `SSLContext.getInstance("TLS")` khởi tạo một ngữ cảnh TLS để sử dụng trong `HttpsURLConnection` hoặc `SSLSocket`.
-
-## Kiểm thực dữ liệu đầu vào (Input validation)
-
-Kiểm thực dữ liệu đầu vào (Input validation) là việc kiểm tra tất cả các dữ liệu đầu vào bên ngoài (dữ liệu người dùng, nội dung tệp, tin nhắn mạng, biến môi trường) với các quy tắc được định nghĩa trước khi xử lý chúng.
-
-**Tại sao nó quan trọng**: Hầu hết các cuộc tấn công chèn mã (SQL, XSS, LDAP, chèn lệnh hệ điều hành) thành công vì ứng dụng tin tưởng dữ liệu đầu vào không đáng tin cậy. Kiểm thực loại bỏ dữ liệu độc hại trước khi nó tiếp cận các tầng xử lý nhạy cảm.
-
-**Sự nhầm lẫn phổ biến**: Các lập trình viên thường chỉ kiểm thực ở tầng giao diện người dùng (UI) và bỏ qua việc kiểm thực phía server, giả định rằng UI đã thực thi các ràng buộc. Kẻ tấn công có thể dễ dàng vượt qua UI và gửi các yêu cầu HTTP thô với dữ liệu độc hại trực tiếp lên server.
-
-**Ví dụ nhỏ**: `if (input.matches("[a-zA-Z0-9]{1,50}")) { ... }` — kiểm thực bằng danh sách cho phép (allowlist) với biểu thức chính quy (regex) để từ chối bất kỳ dữ liệu nào không khớp với mẫu.
+- **Tại sao điều này quan trọng**: Hầu hết các cuộc tấn công chèn mã (SQL, XSS, LDAP, chèn lệnh) thành công là do các ứng dụng tin tưởng vào dữ liệu đầu vào không an toàn. Việc xác thực sẽ giúp loại bỏ dữ liệu độc hại trước khi nó tiếp cận các tầng xử lý nhạy cảm bên dưới.
+- **Nhầm lẫn phổ biến**: Các nhà phát triển thường chỉ xác thực ở tầng giao diện UI và bỏ qua xác thực phía máy chủ (server-side), giả định rằng UI đã thực thi các ràng buộc. Kẻ tấn công có thể bỏ qua UI và gửi các yêu cầu HTTP thô trực tiếp với các payload tùy ý.
+- **Ví dụ nhỏ**: `if (input.matches("[a-zA-Z0-9]{1,50}")) { ... }` — xác thực regex kiểu danh sách trắng (allowlist), từ chối mọi thứ không khớp với khuôn mẫu.

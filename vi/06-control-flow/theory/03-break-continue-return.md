@@ -1,10 +1,10 @@
-# break, continue, và return (break, continue, and return)
+# break, continue, và return
 
-Các từ khóa `break`, `continue`, và `return` làm thay đổi luồng thực thi thông thường của chương trình. Chúng là các công cụ hỗ trợ thoát sớm (early-exit), nhưng phạm vi thoát của mỗi từ khóa là khác nhau.
+`break`, `continue` và `return` làm thay đổi luồng thực thi thông thường. Chúng là các công cụ thoát sớm (early-exit tool), nhưng phạm vi thoát của chúng là khác nhau.
 
-## `break`
+## Từ Khóa `break`
 
-Từ khóa `break` dùng để thoát khỏi vòng lặp hoặc khối `switch` gần nhất chứa nó.
+`break` thoát khỏi vòng lặp hoặc câu lệnh `switch` gần nhất.
 
 ```java
 for (int i = 0; i < 10; i++) {
@@ -15,13 +15,13 @@ for (int i = 0; i < 10; i++) {
 }
 ```
 
-Đoạn code trên in ra `0`, `1`, và `2`, sau đó thoát khỏi vòng lặp.
+Đoạn code này in ra `0`, `1` và `2`, sau đó thoát khỏi vòng lặp.
 
-Trong câu lệnh `switch` truyền thống, `break` được dùng để ngăn chặn hiện tượng trôi qua (fall-through).
+Trong câu lệnh `switch` truyền thống, `break` ngăn chặn hiện tượng trôi qua các nhánh (fall-through).
 
-## `continue`
+## Từ Khóa `continue`
 
-Từ khóa `continue` dùng để bỏ qua phần còn lại của lần lặp (iteration) hiện tại và chuyển ngay đến lần lặp tiếp theo của vòng lặp.
+`continue` bỏ qua phần còn lại của lần lặp (iteration) hiện tại và chuyển sang lần lặp tiếp theo.
 
 ```java
 for (int i = 0; i < 5; i++) {
@@ -32,13 +32,13 @@ for (int i = 0; i < 5; i++) {
 }
 ```
 
-Đoạn code trên in ra `0`, `1`, `3`, và `4`.
+Đoạn code này in ra `0`, `1`, `3` và `4`.
 
-Trong vòng lặp `for`, lệnh `continue` vẫn sẽ đi đến bước cập nhật (update step) của vòng lặp trước khi thực hiện kiểm tra lại điều kiện lặp ở lượt tiếp theo.
+Trong vòng lặp `for`, `continue` vẫn sẽ nhảy tới bước cập nhật biến đếm trước khi kiểm tra lại điều kiện.
 
-## `return`
+## Từ Khóa `return`
 
-Từ khóa `return` dùng để thoát khỏi phương thức hiện tại.
+`return` thoát khỏi phương thức hiện tại.
 
 ```java
 int max(int a, int b) {
@@ -50,19 +50,19 @@ int max(int a, int b) {
 }
 ```
 
-Trong một phương thức phi-void (phương thức yêu cầu trả về giá trị), lệnh `return` bắt buộc phải đi kèm một giá trị tương thích với kiểu trả về của phương thức. Trong phương thức `void`, lệnh `return;` được dùng để thoát phương thức mà không kèm theo giá trị nào.
+Trong một phương thức không có kiểu trả về void (non-void method), `return` phải cung cấp một giá trị tương thích với kiểu trả về của phương thức. Trong phương thức `void`, `return;` thoát ra mà không cần trả về giá trị.
 
-## So Sánh Ba Từ Khóa (Comparing The Three)
+## So Sánh Ba Từ Khóa
 
-| Câu lệnh | Thoát khỏi cái gì? (Exits what?) | Cách dùng phổ biến (Common use) |
+| Câu lệnh | Thoát khỏi cái gì? | Cách dùng phổ biến |
 |---|---|---|
-| `break` | vòng lặp hoặc switch gần nhất | dừng tìm kiếm, ngăn chặn trôi qua switch |
-| `continue` | lần lặp hiện tại | bỏ qua phần tử hiện tại và tiếp tục lặp |
-| `return` | phương thức hiện tại | kết thúc sớm phương thức hoặc trả về kết quả |
+| `break` | vòng lặp hoặc switch gần nhất | dừng tìm kiếm, ngăn hiện tượng fall-through trong switch |
+| `continue` | lần lặp hiện tại của vòng lặp | bỏ qua một phần tử và tiếp tục vòng lặp |
+| `return` | phương thức hiện tại | kết thúc phương thức sớm hoặc trả về kết quả |
 
 ## Thoát Sớm Và Khả Năng Đọc Mã Nguồn (Early Exit And Readability)
 
-Thoát sớm có thể giúp mã nguồn trở nên rõ ràng hơn khi loại bỏ các khối mã lồng nhau (nesting) không cần thiết.
+Việc thoát sớm có thể làm cho mã nguồn rõ ràng hơn khi loại bỏ các khối lồng nhau (nesting) không cần thiết.
 
 ```java
 void process(User user) {
@@ -78,13 +78,13 @@ void process(User user) {
 }
 ```
 
-Đoạn code trên sử dụng các mệnh đề bảo vệ (guard clauses). Logic xử lý chính sẽ xuất hiện ngay sau khi các trường hợp không hợp lệ đã được xử lý xong ở phía trên.
+Đoạn code này sử dụng các điều kiện bảo vệ (guard clause). Hành động chính chỉ xuất hiện sau khi các trường hợp không hợp lệ đã được xử lý.
 
-Tuy nhiên, thoát sớm cũng có thể làm giảm khả năng đọc code nếu chúng được đặt rải rác một cách không thể dự đoán trước trong một phương thức quá dài. Hãy sử dụng chúng để làm sáng tỏ luồng đi của chương trình, chứ không phải để che giấu nó.
+Thoát sớm cũng có thể làm giảm khả năng đọc nếu chúng nằm rải rác một cách khó dự đoán trong một phương thức dài. Hãy sử dụng chúng để làm rõ luồng xử lý, chứ không phải để che giấu nó.
 
-## Vòng Lặp Lồng Nhau (Nested Loops)
+## Các Vòng Lặp Lồng Nhau (Nested Loops)
 
-Bên trong các vòng lặp lồng nhau, một câu lệnh `break` thông thường chỉ thoát khỏi vòng lặp gần nhất chứa nó.
+Bên trong các vòng lặp lồng nhau, từ khóa `break` thông thường chỉ thoát khỏi vòng lặp gần nhất chứa nó.
 
 ```java
 for (int row = 0; row < 3; row++) {
@@ -96,20 +96,20 @@ for (int row = 0; row < 3; row++) {
 }
 ```
 
-Nếu bạn cần thoát khỏi vòng lặp bên ngoài (outer loop), bạn có thể sử dụng một biến cờ hiệu (flag), tách đoạn code ra một phương thức riêng rồi dùng `return`, hoặc sử dụng một câu lệnh `break` có nhãn (labeled `break`).
+Nếu bạn cần thoát khỏi một vòng lặp bên ngoài, bạn có thể sử dụng một biến cờ hiệu (flag), tách thành phương thức khác rồi dùng `return`, hoặc sử dụng `break` có nhãn (labeled break).
 
-## Cơ Chế Bên Dưới: Cách JVM Xử Lý Labeled break và continue (Under the Hood: How the JVM Handles Labeled break and continue)
+## Bên Dưới Hệ Thống: Cách JVM Xử Lý Labeled break Và continue (Under the Hood)
 
-Các câu lệnh `break` và `continue` tiêu chuẩn trong Java hoạt động ngầm định trên vòng lặp hoặc cấu trúc switch trong cùng. Khi quản lý các vòng lặp lồng nhau phức tạp, nhà phát triển sử dụng các câu lệnh có nhãn (ví dụ: `labelName:`) để chỉ rõ vòng lặp bên ngoài nào sẽ là đối tượng tác động. Trong bytecode Java, các nhãn hoàn toàn không tồn tại dưới dạng các ký hiệu được đặt tên; chúng bị loại bỏ hoàn toàn sau khi biên dịch. Trình biên dịch Java (`javac`) xử lý nhãn bằng cách tính toán các độ dời bytecode (bytecode offsets) cho các chỉ lệnh cập nhật của vòng lặp đích (đối với `continue`) hoặc câu lệnh ngay sau vòng lặp đó (đối với `break`). Trình biên dịch sau đó thay thế câu lệnh có nhãn bằng một chỉ lệnh `goto` trực tiếp trỏ đến độ dời bytecode cụ thể đó, bỏ qua các quy tắc lồng nhau mặc định.
+Các câu lệnh `break` và `continue` tiêu chuẩn trong Java hoạt động ngầm định trên cấu trúc vòng lặp hoặc switch trong cùng. Khi quản lý các vòng lặp lồng nhau phức tạp, lập trình viên sử dụng các câu lệnh có nhãn (ví dụ: `labelName:`) để chỉ định vòng lặp bên ngoài nào cần nhắm tới. Trong mã bytecode của Java, các nhãn không tồn tại dưới dạng ký hiệu có tên; chúng hoàn toàn bị loại bỏ sau khi biên dịch. Trình biên dịch Java (`javac`) xử lý nhãn bằng cách tính toán các khoảng lệch bytecode (bytecode offset) cho các lệnh cập nhật của vòng lặp đích (đối với `continue`) hoặc câu lệnh ngay sau vòng lặp đó (đối với `break`). Trình biên dịch sau đó thay thế câu lệnh có nhãn bằng một lệnh `goto` trực tiếp nhắm đến khoảng lệch bytecode cụ thể đó, bỏ qua các quy tắc lồng nhau mặc định.
 
 ```mermaid
 graph TD
-    subgraph Outer Loop Frame [Khung Vòng Lặp Ngoài]
+    subgraph Outer Loop Frame ["Khung Vòng Lặp Ngoài"]
         outer_start["Bắt đầu Vòng lặp Ngoài (Offset 0)"] --> inner_start["Bắt đầu Vòng lặp Trong (Offset 10)"]
-        subgraph Inner Loop Frame [Khung Vòng Lặp Trong]
+        subgraph Inner Loop Frame ["Khung Vòng Lặp Trong"]
             inner_start --> check{"Kiểm tra: i == 1 && j == 1?"}
-            check -- "Đúng: break outer" --> outer_exit_goto["goto Offset 40 (Thoát Ngoài)"]
-            check -- "Đúng: continue outer" --> outer_update_goto["goto Offset 30 (Cập nhật Ngoài)"]
+            check -- "Có: break outer" --> outer_exit_goto["goto Offset 40 (Thoát Ngoài)"]
+            check -- "Có: continue outer" --> outer_update_goto["goto Offset 30 (Cập nhật Ngoài)"]
             check -- "Không" --> body["Thân Vòng lặp Trong"]
             body --> inner_update["j++ (Offset 20)"]
             inner_update --> inner_start
@@ -117,11 +117,12 @@ graph TD
         outer_update_goto --> outer_update["i++ (Offset 30)"]
         outer_update --> outer_start
     end
-    outer_exit_goto --> outer_end["Câu lệnh sau Vòng lặp Ngoài (Offset 40)"]
+    outer_exit_goto --> outer_end["Câu lệnh Sau Vòng Lặp Ngoài (Offset 40)"]
 ```
 
 ### Phân Tích Biên Dịch Bytecode
-Xét cấu trúc vòng lặp lồng nhau có sử dụng một lệnh break có nhãn sau:
+
+Xét cấu trúc vòng lặp lồng nhau có break có nhãn sau:
 
 ```java
 public void search() {
@@ -134,79 +135,73 @@ public void search() {
         }
     }
 }
-// Ở bên dưới cơ chế, javac dịch đoạn này thành các độ dời bytecode sau:
+// Bên dưới hệ thống, javac dịch đoạn này thành các offset bytecode sau:
 // 0: iconst_0
 // 1: istore_1          // i = 0
 // 2: iload_1
 // 3: iconst_3
-// 4: if_icmpge 28      // Nếu i >= 3, nhảy tới 28 (kết thúc vòng lặp outer)
+// 4: if_icmpge 28      // Nếu i >= 3, nhảy đến 28 (kết thúc vòng lặp outer)
 // 7: iconst_0
 // 8: istore_2          // j = 0
 // 9: iload_2
 // 10: iconst_3
-// 11: if_icmpge 22     // Nếu j >= 3, nhảy tới 22 (kết thúc vòng lặp inner)
+// 11: if_icmpge 22     // Nếu j >= 3, nhảy đến 22 (kết thúc vòng lặp inner)
 // 14: iload_1
 // 15: iconst_1
 // 16: if_icmpne 19     // Kiểm tra i == 1 và j == 1
-// 19: goto 28          // break outer: Nhảy trực tiếp đến lối thoát vòng lặp outer (offset 28)
+// 19: goto 28          // break outer: Nhảy trực tiếp đến điểm thoát vòng lặp outer (offset 28)
 // 22: iinc 1, 1        // i++ (cập nhật vòng lặp outer)
-// 25: goto 2           // Lặp lại bước kiểm tra vòng lặp outer
+// 25: goto 2           // Lặp lại kiểm tra vòng lặp outer
 // 28: return           // Thoát phương thức
 ```
 
 ### Chuỗi Nguyên Nhân - Kết Quả
 
-```text
-Trình biên dịch phân tích câu lệnh điều khiển có nhãn (`break outer`)
-  → Trình biên dịch ánh xạ nhãn tượng trưng với độ dời bytecode lối thoát của vòng lặp đích (offset 28)
-  → Trình biên dịch tạo ra chỉ lệnh `goto 28` trực tiếp
-  → JVM nhảy trực tiếp đến vị trí đích lúc runtime
-  → Tất cả các vòng lặp trung gian được thoát ra một cách sạch sẽ mà không yêu cầu các biến cờ hiệu hay các bước kiểm tra logic điều kiện.
-```
-
+Trình biên dịch phân tích cú pháp lệnh điều khiển có nhãn (`break outer`) $\rightarrow$ Trình biên dịch ánh xạ nhãn ký hiệu với offset bytecode thoát của vòng lặp đích (offset 28) $\rightarrow$ Trình biên dịch đưa ra lệnh `goto 28` trực tiếp $\rightarrow$ JVM nhảy trực tiếp đến vị trí đích lúc chạy $\rightarrow$ Tất cả các vòng lặp trung gian đều thoát ra một cách sạch sẽ mà không cần biến cờ hiệu hay kiểm tra logic điều kiện.
 
 ---
 
-## Các Lỗi Thường Gặp (Common Mistakes)
+## Các Sai Lầm Thường Gặp (Common Mistakes)
 
-### Lỗi 1 — Các câu lệnh không thể chạm tới (Unreachable statements)
+### Sai Lầm 1 — Các câu lệnh không thể chạm tới (unreachable statement)
 
-Việc viết code ngay sau một câu lệnh `break`, `continue`, hoặc `return` trong cùng một khối mã sẽ dẫn đến một lỗi ở thời điểm biên dịch (compile-time error).
+Việc viết code ngay sau câu lệnh `break`, `continue` hoặc `return` trong cùng một khối sẽ gây ra lỗi tại thời điểm biên dịch.
 
 ```java
 for (int i = 0; i < 5; i++) {
     if (i == 2) {
         continue;
-        // BUG: Lỗi biên dịch: unreachable statement
+        // LỖI: Lỗi biên dịch: câu lệnh không thể chạm tới (unreachable statement)
         System.out.println("Skipping 2"); 
     }
 }
 ```
 
-**Khắc phục**: Đảm bảo không có câu lệnh nào đứng ngay sau các từ khóa thoát sớm trong cùng một khối mã.
+**Cách khắc phục**: Đảm bảo không có câu lệnh nào đứng sau các từ khóa thoát sớm trong cùng một khối.
 
-## Tại Sao Java Ngăn Cấm Các Câu Lệnh Không Thể Chạm Tới và Cách Trình Biên Dịch Phát Hiện (Why Java Prohibits Unreachable Statements and How the Compiler Detects Them)
+## Tại Sao Java Cấm Các Câu Lệnh Không Thể Chạm Tới Và Trình Biên Dịch Phát Hiện Chúng Như Thế Nào
 
-Java không cho phép các câu lệnh tồn tại nếu chúng không thể được thực thi dưới bất kỳ điều kiện runtime nào. Để thực thi quy tắc này, trình biên dịch Java thực hiện phân tích tĩnh để xây dựng một Đồ thị Luồng Điều khiển (Control Flow Graph - CFG) của mã nguồn và áp dụng các quy tắc "hoàn thành chắc chắn" (chi tiết trong JLS 14.21). Nếu một khối chỉ lệnh kết thúc bằng một lệnh nhảy không điều kiện (chẳng hạn như `return`, `break`, `continue`, hoặc ném ra ngoại lệ), trình biên dịch sẽ đánh giá các câu lệnh tiếp theo trong khối đó là không có cạnh điều khiển đi vào (no incoming control edges). Thay vì chỉ cảnh báo nhà phát triển hoặc biên dịch ra bytecode chết (dead bytecode), trình biên dịch sẽ ném ra lỗi compile-time để ngăn chặn các lỗi logic tiềm ẩn, giảm thiểu kích thước bytecode và bắt buộc thiết kế luồng chương trình rõ ràng.
+Java không cho phép các câu lệnh tồn tại nếu chúng không thể được thực thi dưới bất kỳ điều kiện chạy nào. Để thực thi điều này, trình biên dịch Java thực hiện phân tích tĩnh (static analysis) để xây dựng một Đồ thị Luồng Điều khiển (Control Flow Graph - CFG) của mã nguồn và áp dụng các quy tắc "hoàn thành xác định" (definite completion, chi tiết tại JLS 14.21). Nếu một khối lệnh kết thúc bằng một lệnh nhảy không điều kiện (chẳng hạn như `return`, `break`, `continue`, hoặc một ngoại lệ được ném ra), trình biên dịch sẽ đánh giá các câu lệnh tiếp theo trong khối đó là không có cạnh điều khiển đi vào (incoming control edge). Thay vì cảnh báo lập trình viên hay biên dịch mã bytecode chết (dead bytecode), trình biên dịch sẽ ném ra lỗi thời điểm biên dịch để ngăn chặn các lỗi logic tiềm ẩn, giảm thiểu kích thước bytecode và bắt buộc thiết kế luồng rõ ràng.
 
 ```mermaid
 graph TD
-    start["Bắt đầu khối"] --> action["Thực thi Câu lệnh"]
-    action --> exit["Thoát không điều kiện: return / break / continue"]
-    exit --> dead_end["Ngõ cụt (Không luồng thực thi nào tới đây)"]
-    dead_end -.-> unreachable["Câu lệnh không thể chạm tới (Lỗi biên dịch)"]
+    start["Khối Bắt Đầu"] --> action["Thực Thi Câu Lệnh"]
+    action --> exit["Thoát Không Điều Kiện: return / break / continue"]
+    exit --> dead_end["Ngõ Cụt (Không đường thoát nào tới được đây)"]
+    dead_end -.-> unreachable["Câu lệnh Không Thể Chạm Tới (Lỗi Biên Dịch)"]
     style unreachable fill:#f9f,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
 ```
 
-### Ví dụ Code: Lỗi Biên Dịch Câu Lệnh Không Thể Chạm Tới
-Trong đoạn code dưới đây, một khi lệnh `return` được thực thi, câu lệnh tiếp theo sẽ bị coi là không thể chạm tới được.
+### Ví Dụ Code: Lỗi Biên Dịch Code Không Thể Chạm Tới
+
+Trong đoạn code dưới đây, một khi `return` được thực thi, câu lệnh phía sau nó sẽ bị coi là không thể chạm tới một cách tĩnh.
 
 ```java
 public int processScore(int score) {
     if (score < 0) {
         return 0;
-        // Dòng dưới đây sẽ gây ra một lỗi biên dịch!
-        // System.out.println("Invalid score reset"); // Lỗi biên dịch: unreachable statement
+        // Dòng sau đây sẽ gây ra lỗi biên dịch!
+        // System.out.println("Invalid score reset"); // Lỗi biên dịch: unreachable statement (câu lệnh không thể chạm tới)
     }
     return score;
 }
@@ -214,38 +209,32 @@ public int processScore(int score) {
 
 ### Chuỗi Nguyên Nhân - Kết Quả
 
-```text
-Nhà phát triển viết một câu lệnh ngay sau một lệnh chuyển điều khiển kết thúc khối
-  → Trình biên dịch xây dựng Đồ thị Luồng Điều khiển (CFG)
-  → Xác minh tĩnh rằng không có đường dẫn thực thi nào có thể rẽ nhánh tới câu lệnh đó
-  → Bước kiểm tra hoàn thành chắc chắn cho câu lệnh bị thất bại
-  → Trình biên dịch ném ra lỗi "unreachable statement" và dừng quá trình biên dịch.
-```
+Lập trình viên viết câu lệnh ngay sau một câu lệnh chuyển điều khiển kết thúc khối $\rightarrow$ Trình biên dịch xây dựng Đồ thị Luồng Điều khiển (CFG) $\rightarrow$ Xác minh tĩnh rằng không có đường thực thi nào có thể rẽ nhánh đến câu lệnh đó $\rightarrow$ Kiểm tra hoàn thành xác định cho câu lệnh thất bại $\rightarrow$ Trình biên dịch đưa ra lỗi biên dịch "unreachable statement" và dừng quá trình biên dịch.
 
+### Sai Lầm 2 — Nhầm Lẫn Giữa break Vòng Lặp Và break Trong Switch
 
-### Lỗi 2 — Nhầm lẫn break vòng lặp với break switch (Confusing loop break with switch break)
-Một câu lệnh `break` bên trong một khối `switch` lồng trong một vòng lặp sẽ chỉ thoát khỏi khối `switch` đó, chứ KHÔNG thoát khỏi vòng lặp chứa nó.
+Một câu lệnh `break` bên trong một khối `switch` lồng trong một vòng lặp chỉ thoát khỏi cấu trúc `switch`, chứ KHÔNG thoát khỏi vòng lặp.
 
 ```java
-// BUG: Ý định thoát khỏi vòng lặp khi status là 200, nhưng thực tế chỉ thoát khỏi switch
+// LỖI: Ý định là thoát khỏi vòng lặp khi status là 200, nhưng chỉ thoát khỏi switch
 while (true) {
     int status = getResponseCode();
     switch (status) {
         case 200:
-            break; // Chỉ thoát khối switch, vòng lặp vẫn chạy vô hạn!
+            break; // Thoát khỏi khối switch, vòng lặp tiếp tục vô hạn!
         case 500:
             System.out.println("Error");
             break;
     }
 }
 
-// KHẮC PHỤC: Sử dụng nhãn, biến cờ hiệu hoặc return để thoát vòng lặp
+// SỬA LỖI: Sử dụng nhãn, cờ hiệu hoặc return để thoát khỏi vòng lặp
 outerLoop:
 while (true) {
     int status = getResponseCode();
     switch (status) {
         case 200:
-            break outerLoop; // Thoát hoàn toàn khỏi vòng lặp while có nhãn 'outerLoop'
+            break outerLoop; // Thoát khỏi vòng lặp while có nhãn 'outerLoop'
         case 500:
             System.out.println("Error");
             break;
@@ -253,12 +242,13 @@ while (true) {
 }
 ```
 
-### Lỗi 3 — Lệnh `continue` gây ra vòng lặp vô hạn trong vòng lặp `while`
-Trong vòng lặp `for`, lệnh `continue` sẽ nhảy tới biểu thức cập nhật (ví dụ: `i++`). Nhưng trong vòng lặp `while` hoặc `do-while`, lệnh `continue` sẽ nhảy trực tiếp tới bước kiểm tra điều kiện lặp, bỏ qua mọi câu lệnh cập nhật được đặt bên dưới nó.
+### Sai Lầm 3 — `continue` Gây Ra Vòng Lặp Vô Hạn Trong Vòng Lặp `while`
+
+Trong vòng lặp `for`, `continue` nhảy đến biểu thức cập nhật (ví dụ: `i++`). Trong vòng lặp `while` hoặc `do-while`, `continue` nhảy trực tiếp đến bước kiểm tra điều kiện, bỏ qua bất kỳ câu lệnh cập nhật nào được đặt phía dưới nó.
 
 ```java
 int i = 0;
-// BUG: Vòng lặp vô hạn vì bước i++ bị bỏ qua khi i == 1
+// LỖI: Vòng lặp vô hạn vì i++ bị bỏ qua khi i == 1
 while (i < 5) {
     if (i == 1) {
         continue; 
@@ -267,7 +257,7 @@ while (i < 5) {
     i++;
 }
 
-// KHẮC PHỤC: Thực hiện cập nhật biến đếm trước khi gọi continue hoặc sử dụng vòng lặp for
+// SỬA LỖI: Thực hiện cập nhật trước continue hoặc sử dụng vòng lặp for
 int i = 0;
 while (i < 5) {
     if (i == 1) {
@@ -281,11 +271,11 @@ while (i < 5) {
 
 ---
 
-## Case Study — Dấu Vết Luồng Điều Khiển Có Nhãn Với Vòng Lặp Lồng Nhau (Labeled Control Flow with Nested Loop Tracing)
+## Ví Dụ Thực Tế — Theo Dõi Luồng Điều Khiển Có Nhãn Với Vòng Lặp Lồng Nhau
 
-Các câu lệnh có nhãn cho phép kiểm soát chi tiết luồng thực thi khi quản lý các vòng lặp lồng nhau. Nhãn sẽ đứng ngay trước vòng lặp đích (ví dụ: `labelName:`).
+Các câu lệnh có nhãn cho phép điều khiển chi tiết (fine-grained control) khi quản lý các vòng lặp lồng nhau. Nhãn đứng trước vòng lặp đích (ví dụ: `labelName:`).
 
-### Case Study: Lần theo dấu vết lệnh `continue` có nhãn
+### Ví Dụ Thực Tế Theo Dõi Labeled `continue`
 
 ```java
 outer:
@@ -299,23 +289,23 @@ for (int i = 1; i <= 3; i++) {
 }
 ```
 
-**Dấu vết thực thi từng bước (Step-by-Step Execution Trace):**
-1. **`i = 1`**: Vòng lặp outer bắt đầu.
+**Từng bước theo dõi thực thi:**
+1. **`i = 1`**: Vòng lặp ngoài bắt đầu.
    - **`j = 1`**: Điều kiện `i==2 && j==2` là false. In ra `i=1, j=1`.
-   - **`j = 2`**: Điều kiện false. In ra `i=1, j=2`.
-   - **`j = 3`**: Điều kiện false. In ra `i=1, j=3`.
-2. **`i = 2`**: Vòng lặp outer cập nhật giá trị `i` lên 2.
+   - **`j = 2`**: Điều kiện là false. In ra `i=1, j=2`.
+   - **`j = 3`**: Điều kiện là false. In ra `i=1, j=3`.
+2. **`i = 2`**: Vòng lặp ngoài cập nhật lên 2.
    - **`j = 1`**: Điều kiện `i==2 && j==1` là false. In ra `i=2, j=1`.
    - **`j = 2`**: Điều kiện `i==2 && j==2` là **true**.
-     - Lệnh `continue outer` được thực thi.
-     - Luồng thực thi nhảy lập tức đến bước cập nhật của vòng lặp `outer` (`i++`).
-     - Lần lặp trong của `j=3` hoàn toàn bị bỏ qua.
-3. **`i = 3`**: Vòng lặp outer cập nhật giá trị `i` lên 3.
-   - **`j = 1`**: Điều kiện false. In ra `i=3, j=1`.
-   - **`j = 2`**: Điều kiện false. In ra `i=3, j=2`.
-   - **`j = 3`**: Điều kiện false. In ra `i=3, j=3`.
+     - `continue outer` được thực thi.
+     - Thực thi nhảy ngay lập tức đến bước cập nhật của vòng lặp ngoài (`i++`).
+     - Lần lặp trong cho `j=3` bị bỏ qua hoàn toàn.
+3. **`i = 3`**: Vòng lặp ngoài cập nhật lên 3.
+   - **`j = 1`**: Điều kiện là false. In ra `i=3, j=1`.
+   - **`j = 2`**: Điều kiện là false. In ra `i=3, j=2`.
+   - **`j = 3`**: Điều kiện là false. In ra `i=3, j=3`.
 
-**Kết quả in ra (Output):**
+**Đầu ra:**
 ```text
 i=1, j=1
 i=1, j=2
@@ -328,7 +318,7 @@ i=3, j=3
 
 ---
 
-### Case Study: Lần theo dấu vết lệnh `break` có nhãn
+### Ví Dụ Thực Tế Theo Dõi Labeled `break`
 
 ```java
 outer:
@@ -342,19 +332,19 @@ for (int i = 1; i <= 3; i++) {
 }
 ```
 
-**Dấu vết thực thi từng bước (Step-by-Step Execution Trace):**
-1. **`i = 1`**: Vòng lặp outer bắt đầu.
+**Từng bước theo dõi thực thi:**
+1. **`i = 1`**: Vòng lặp ngoài bắt đầu.
    - **`j = 1`**: In ra `i=1, j=1`.
    - **`j = 2`**: In ra `i=1, j=2`.
    - **`j = 3`**: In ra `i=1, j=3`.
-2. **`i = 2`**: Vòng lặp outer cập nhật giá trị `i` lên 2.
+2. **`i = 2`**: Vòng lặp ngoài cập nhật lên 2.
    - **`j = 1`**: In ra `i=2, j=1`.
    - **`j = 2`**: Điều kiện `i==2 && j==2` là **true**.
-     - Lệnh `break outer` được thực thi.
-     - Luồng thực thi thoát hoàn toàn khỏi vòng lặp được đánh nhãn `outer`.
-     - Chương trình tiếp tục chạy các câu lệnh ngay sau khối vòng lặp outer.
+     - `break outer` được thực thi.
+     - Thực thi thoát hoàn toàn ra ngoài vòng lặp có nhãn `outer`.
+     - Chương trình tiếp tục tại câu lệnh ngay sau khối vòng lặp ngoài.
 
-**Kết quả in ra (Output):**
+**Đầu ra:**
 ```text
 i=1, j=1
 i=1, j=2
@@ -364,8 +354,8 @@ i=2, j=1
 
 ## Liên Kết Tham Khảo (Reference Links)
 
-- https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.7 (Các câu lệnh có nhãn trong Đặc tả Ngôn ngữ Java)
-- https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.15 (Câu lệnh break trong Đặc tả Ngôn ngữ Java)
-- https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.16 (Câu lệnh continue trong Đặc tả Ngôn ngữ Java)
-- https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.21 (Các câu lệnh không thể chạm tới trong Đặc tả Ngôn ngữ Java)
-- https://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html (Tài liệu hướng dẫn về các câu lệnh rẽ nhánh của Oracle Java)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.7 (Labeled Statements in the Java Language Specification)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.15 (The break Statement in the Java Language Specification)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.16 (The continue Statement in the Java Language Specification)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.21 (Unreachable Statements in the Java Language Specification)
+- https://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html (Oracle Java Branching Statements Tutorial)

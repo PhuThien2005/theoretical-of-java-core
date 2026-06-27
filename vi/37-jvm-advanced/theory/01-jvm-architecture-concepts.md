@@ -1,155 +1,155 @@
-# JVM nâng cao - Phần 1 (Advanced JVM - Part 1)
+# Kiến Trúc JVM Nâng Cao (Advanced JVM) - Phần 1
 
-## Mục tiêu học tập (Learning Goal)
+## Mục Tiêu Học Tập
 
-Tài liệu này bao gồm một phần trọng tâm của **JVM nâng cao (Advanced JVM)**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải là từ vựng rời rạc.
+File này đề cập đến một phần trọng tâm của **Kiến Trúc JVM Nâng Cao (Advanced JVM)**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải là những từ vựng rời rạc.
 
-## Phạm vi đề cương (Outline Coverage)
+## Đề Cương Khái Niệm
 
-| Khái niệm (Concept) | Những điều cần biết (What to know) |
+| Khái niệm | Những điều cần biết |
 | --- | --- |
-| `JVM architecture` | JVM thực thi bytecode và quản lý các dịch vụ thời gian chạy (runtime services) như bộ nhớ, JIT và GC. |
-| `Class Loader Subsystem` | Phân hệ nạp lớp (Class Loader Subsystem) là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại (failure mode) của nó thay vì chỉ nhớ tên. |
-| `Runtime Data Areas:` | Các vùng dữ liệu thời gian chạy (Runtime Data Areas) là một nhóm các quy tắc liên quan trong JVM nâng cao tập hợp nhiều chi tiết liên quan lại với nhau. |
-| `Heap` | Heap lưu trữ các đối tượng được tạo ra trong quá trình chạy ứng dụng. |
-| `Stack` | Stack lưu trữ các khung phương thức (method frames), các biến cục bộ và luồng (Thread) cuộc gọi cho mỗi luồng. |
-| `Method Area / Metaspace` | Metaspace lưu trữ siêu dữ liệu của lớp (class metadata) bên ngoài bộ nhớ heap thông thường của Java trong các JVM hiện đại. |
-| `PC Register` | Thanh ghi PC (PC Register) theo dõi lệnh JVM hiện tại của một luồng. |
-| `Native Method Stack` | Stack phương thức bản địa (Native Method Stack) lưu trữ các khung để thực thi các phương thức bản địa (không phải Java). |
+| `Kiến trúc JVM` | JVM thực thi bytecode và quản lý các dịch vụ thời gian chạy (runtime) như bộ nhớ, trình biên dịch JIT và bộ thu gom rác GC. |
+| `Phân hệ Class Loader` | Phân hệ Class Loader là một khái niệm cụ thể trong JVM nâng cao; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi. |
+| `Vùng dữ liệu thời gian chạy:` | Vùng dữ liệu thời gian chạy là một nhóm các quy tắc liên quan trong JVM nâng cao nhóm nhiều chi tiết liên quan. |
+| `Heap` | Heap lưu trữ các đối tượng được tạo ra tại thời điểm chạy. |
+| `Stack` | Stack lưu trữ các khung phương thức (method frame), các biến cục bộ và luồng cuộc gọi cho mỗi luồng. |
+| `Method Area / Metaspace` | Metaspace lưu trữ siêu dữ liệu lớp (class metadata) bên ngoài heap Java thông thường trong các JVM hiện đại. |
+| `Thanh ghi PC` | Thanh ghi PC theo dõi chỉ thị lệnh JVM hiện tại của một luồng. |
+| `Native Method Stack` | Native Method Stack lưu trữ các khung để thực thi các phương thức bản địa (native - không phải Java). |
 
-## Ghi chú chi tiết (Detailed Notes)
+## Ghi Chú Chi Tiết
 
-### Kiến trúc JVM (JVM architecture)
+### Kiến Trúc JVM (JVM Architecture)
 
-JVM thực thi bytecode và quản lý các dịch vụ thời gian chạy (runtime services) như bộ nhớ, JIT và GC.
+JVM thực thi bytecode và quản lý các dịch vụ thời gian chạy như bộ nhớ, JIT và GC.
 
-Nó quan trọng vì hành vi thời gian chạy giải thích hiệu suất, lỗi bộ nhớ, hành vi khi khởi động và nhiều câu hỏi phỏng vấn. Sự nhầm lẫn phổ biến là nhầm lẫn các khái niệm ở thời điểm biên dịch (compile-time) với các dịch vụ thời gian chạy của JVM.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `JVM architecture` trong một câu.
-- Nhận biết `JVM architecture` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến `JVM architecture`.
-
-Ví dụ nhỏ hoặc mô hình tư duy (mental model):
-
-- Khi đọc mã nguồn, hãy hỏi: `JVM architecture` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
-### Phân hệ nạp lớp (Class Loader Subsystem)
-
-Phân hệ nạp lớp (Class Loader Subsystem) là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ tên.
-
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại (failure mode). Đọc lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+Nó quan trọng vì hành vi runtime giải thích hiệu năng, lỗi bộ nhớ, hành vi khi khởi động và nhiều câu hỏi phỏng vấn. Một nhầm lẫn phổ biến là trộn lẫn các khái niệm tại thời điểm biên dịch với các dịch vụ thời gian chạy của JVM.
 
 Kiểm tra thực tế:
 
-- Định nghĩa `Class Loader Subsystem` trong một câu.
-- Nhận biết `Class Loader Subsystem` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến `Class Loader Subsystem`.
+- Định nghĩa `Kiến trúc JVM` trong một câu.
+- Nhận diện `Kiến trúc JVM` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến `Kiến trúc JVM`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc mã nguồn, hãy hỏi: `Class Loader Subsystem` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+- Khi đọc mã nguồn, hãy tự hỏi: `Kiến trúc JVM` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
-### Vùng dữ liệu thời gian chạy (Runtime Data Areas)
+### Phân Hệ Class Loader (Class Loader Subsystem)
 
-Các vùng dữ liệu thời gian chạy (Runtime Data Areas) là một nhóm các quy tắc liên quan trong JVM nâng cao tập hợp nhiều chi tiết liên quan lại với nhau.
+Phân hệ Class Loader là một khái niệm cụ thể trong JVM nâng cao; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
 
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại (failure mode). Đọc lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 
 Kiểm tra thực tế:
 
-- Định nghĩa `Runtime Data Areas:` trong một câu.
-- Nhận biết `Runtime Data Areas:` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến `Runtime Data Areas:`.
+- Định nghĩa `Phân hệ Class Loader` trong một câu.
+- Nhận diện `Phân hệ Class Loader` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `Phân hệ Class Loader`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc mã nguồn, hãy hỏi: `Runtime Data Areas:` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+- Khi đọc mã nguồn, hãy tự hỏi: `Phân hệ Class Loader` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
-### Vùng Heap (Heap)
+### Vùng Dữ Liệu Thời Gian Chạy (Runtime Data Areas)
 
-Heap lưu trữ các đối tượng được tạo ra trong quá trình chạy ứng dụng.
+Vùng dữ liệu thời gian chạy là một nhóm các quy tắc liên quan trong JVM nâng cao nhóm nhiều chi tiết liên quan.
 
-Nó quan trọng vì hành vi thời gian chạy giải thích hiệu suất, lỗi bộ nhớ, hành vi khi khởi động và nhiều câu hỏi phỏng vấn. Sự nhầm lẫn phổ biến là nhầm lẫn các khái niệm ở thời điểm biên dịch (compile-time) với các dịch vụ thời gian chạy của JVM.
+Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+
+Kiểm tra thực tế:
+
+- Định nghĩa `Vùng dữ liệu thời gian chạy` trong một câu.
+- Nhận diện `Vùng dữ liệu thời gian chạy` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `Vùng dữ liệu thời gian chạy`.
+
+Ví dụ nhỏ hoặc mô hình tư duy:
+
+- Khi đọc mã nguồn, hãy tự hỏi: `Vùng dữ liệu thời gian chạy` thay đổi, cho phép, từ chối hay làm rõ điều gì?
+
+### Heap
+
+Heap lưu trữ các đối tượng được tạo ra tại thời điểm chạy.
+
+Nó quan trọng vì hành vi runtime giải thích hiệu năng, lỗi bộ nhớ, hành vi khi khởi động và nhiều câu hỏi phỏng vấn. Một nhầm lẫn phổ biến là trộn lẫn các khái niệm tại thời điểm biên dịch với các dịch vụ thời gian chạy của JVM.
 
 Kiểm tra thực tế:
 
 - Định nghĩa `Heap` trong một câu.
-- Nhận biết `Heap` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến `Heap`.
+- Nhận diện `Heap` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `Heap`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc mã nguồn, hãy hỏi: `Heap` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+- Khi đọc mã nguồn, hãy tự hỏi: `Heap` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
-### Vùng Stack (Stack)
+### Stack
 
-Stack lưu trữ các khung phương thức (method frames), các biến cục bộ và luồng cuộc gọi cho mỗi luồng.
+Stack lưu trữ các khung phương thức (method frame), các biến cục bộ và luồng cuộc gọi cho mỗi luồng.
 
-Nó quan trọng vì hành vi thời gian chạy giải thích hiệu suất, lỗi bộ nhớ, hành vi khi khởi động và nhiều câu hỏi phỏng vấn. Sự nhầm lẫn phổ biến là nhầm lẫn các khái niệm ở thời điểm biên dịch (compile-time) với các dịch vụ thời gian chạy của JVM.
+Nó quan trọng vì hành vi runtime giải thích hiệu năng, lỗi bộ nhớ, hành vi khi khởi động và nhiều câu hỏi phỏng vấn. Một nhầm lẫn phổ biến là trộn lẫn các khái niệm tại thời điểm biên dịch với các dịch vụ thời gian chạy của JVM.
 
 Kiểm tra thực tế:
 
 - Định nghĩa `Stack` trong một câu.
-- Nhận biết `Stack` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến `Stack`.
+- Nhận diện `Stack` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `Stack`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc mã nguồn, hãy hỏi: `Stack` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+- Khi đọc mã nguồn, hãy tự hỏi: `Stack` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
-### Vùng phương thức / Metaspace (Method Area / Metaspace)
+### Method Area / Metaspace
 
-Metaspace lưu trữ siêu dữ liệu của lớp (class metadata) bên ngoài bộ nhớ heap thông thường của Java trong các JVM hiện đại.
+Metaspace lưu trữ siêu dữ liệu lớp (class metadata) bên ngoài heap Java thông thường trong các JVM hiện đại.
 
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại (failure mode). Đọc lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 
 Kiểm tra thực tế:
 
 - Định nghĩa `Method Area / Metaspace` trong một câu.
-- Nhận biết `Method Area / Metaspace` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến `Method Area / Metaspace`.
+- Nhận diện `Method Area / Metaspace` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `Method Area / Metaspace`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc mã nguồn, hãy hỏi: `Method Area / Metaspace` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+- Khi đọc mã nguồn, hãy tự hỏi: `Method Area / Metaspace` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
-### Thanh ghi PC (PC Register)
+### Thanh Ghi PC (PC Register)
 
-Thanh ghi PC (PC Register) theo dõi lệnh JVM hiện tại của một luồng.
+Thanh ghi PC theo dõi chỉ thị lệnh JVM hiện tại của một luồng.
 
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại (failure mode). Đọc lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 
 Kiểm tra thực tế:
 
-- Định nghĩa `PC Register` trong một câu.
-- Nhận biết `PC Register` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến `PC Register`.
+- Định nghĩa `Thanh ghi PC` trong một câu.
+- Nhận diện `Thanh ghi PC` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `Thanh ghi PC`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc mã nguồn, hãy hỏi: `PC Register` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+- Khi đọc mã nguồn, hãy tự hỏi: `Thanh ghi PC` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
-### Stack phương thức bản địa (Native Method Stack)
+### Native Method Stack
 
-Stack phương thức bản địa (Native Method Stack) lưu trữ các khung để thực thi các phương thức bản địa (native - không phải Java), chẳng hạn như các hàm JNI được viết bằng C hoặc C++.
+Native Method Stack lưu trữ các khung để thực thi các phương thức bản địa (native - không phải Java), chẳng hạn như các hàm JNI viết bằng C hoặc C++.
 
-Nó quan trọng vì khi mã Java gọi mã bản địa (như thư viện mật mã bản địa hoặc API nền tảng), ngữ cảnh thực thi của luồng sẽ chuyển sang stack này. Việc tràn stack (stack overflow) ở đây có thể làm hỏng toàn bộ tiến trình JVM mà không ném ra ngoại lệ `java.lang.StackOverflowError` thông thường của Java.
+Nó quan trọng vì khi mã Java gọi mã bản địa (như thư viện mật mã bản địa hoặc các API nền tảng), ngữ cảnh thực thi của luồng sẽ chuyển sang stack này. Việc tràn ngăn xếp ở đây có thể làm sụp đổ toàn bộ tiến trình JVM mà không ném ra lỗi StackOverflowError tiêu chuẩn của Java.
 
 Kiểm tra thực tế:
 
 - Định nghĩa `Native Method Stack` trong một câu.
-- Nhận biết `Native Method Stack` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến `Native Method Stack`.
+- Nhận diện `Native Method Stack` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `Native Method Stack`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc mã nguồn, hãy hỏi: `Native Method Stack` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+- Khi đọc mã nguồn, hãy tự hỏi: `Native Method Stack` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
-## Các ví dụ code (Code Examples)
+## Các Ví Dụ Mã Nguồn
 
-### Truy vấn thông tin bộ nhớ bằng mã nguồn (Querying Memory Information Programmatically)
+### Truy Vấn Thông Tin Bộ Nhớ Bằng Mã Lệnh
 ```java
 Runtime runtime = Runtime.getRuntime();
 long maxMemory = runtime.maxMemory();   // Equivalent to -Xmx
@@ -159,49 +159,41 @@ long freeMemory = runtime.freeMemory();   // Free space in current heap
 System.out.println("Max Heap: " + (maxMemory / 1024 / 1024) + " MB");
 ```
 
-## Các lỗi thường gặp (Common Mistakes)
+## Các Lỗi Thường Gặp
 
-- **Giả định StackOverflowError liên quan đến Heap**: Ngoại lệ `StackOverflowError` xảy ra trong Stack của luồng khi các khung cuộc gọi vượt quá giới hạn bộ nhớ của stack (thường do đệ quy vô hạn). Điều này hoàn toàn không liên quan đến Heap.
-- **Nhầm lẫn Metaspace với Heap**: Siêu dữ liệu lớp được lưu trữ trong Metaspace (bộ nhớ bản địa ngoài heap - off-heap) kể từ Java 8. Nó không tranh giành không gian Heap với các đối tượng Java, nhưng vẫn có thể làm cạn kiệt bộ nhớ bản địa của hệ thống nếu có quá nhiều lớp được nạp.
+- **Giả định StackOverflowError liên quan đến Heap**: Lỗi `StackOverflowError` xảy ra trong Thread Stack (ngăn xếp luồng) khi các khung cuộc gọi vượt quá giới hạn bộ nhớ ngăn xếp (thường là do đệ quy vô hạn). Điều này không liên quan đến Heap.
+- **Lầm lẫn Metaspace với Heap**: Siêu dữ liệu lớp được lưu trữ trong Metaspace (ngoài heap / bộ nhớ bản địa) kể từ Java 8. Nó không cạnh tranh không gian Heap với các đối tượng Java, nhưng vẫn có thể làm cạn kiệt bộ nhớ bản địa nếu có quá nhiều lớp được tải lên.
 
-## Câu hỏi ôn tập phổ biến (Common Review Prompts)
+## Các Câu Hỏi Ôn Tập Thường Gặp
 
-- Khái niệm nào ở đây là quy tắc ở thời điểm biên dịch (compile-time)?
-- Khái niệm nào ở đây ảnh hưởng đến hành vi lúc chạy (runtime)?
-- Khái niệm nào ở đây dễ là bẫy phỏng vấn (interview traps)?
+- Những khái niệm nào ở đây là quy tắc tại thời điểm biên dịch?
+- Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy?
+- Những khái niệm nào ở đây có khả năng là bẫy phỏng vấn?
 
----
+## Tại Sao Việc Tải Lớp Có Ba Giai Đoạn Riêng Biệt
 
-## Tại sao Quá trình nạp lớp có ba giai đoạn riêng biệt (Why Class Loading Has Three Distinct Phases)
+Phân hệ class loading của JVM chia việc tải lớp thành ba giai đoạn riêng biệt (Loading - Tải, Linking - Liên kết, và Initializing - Khởi tạo) để thực thi bảo mật, xác thực tính toàn vẹn cấu trúc và tối ưu hóa việc cấp phát bộ nhớ trước khi thực thi mã nguồn. Trong giai đoạn **Tải (Loading)**, JVM xác định vị trí biểu diễn nhị phân của một lớp (thường là tệp `.class`) và nhập nó vào Method Area/Metaspace, tạo ra một đối tượng `java.lang.Class`. Trong giai đoạn **Liên kết (Linking)**, JVM thực hiện Xác thực (Verification - quan trọng đối với bảo mật, kiểm tra định dạng, các ràng buộc bytecode và các quy tắc kiểu dữ liệu để ngăn chặn các hoạt động khai thác độc hại), Chuẩn bị (Preparation - cấp phát bộ nhớ cho các trường static và khởi tạo chúng về các giá trị mặc định), và Phân giải (Resolution - tùy chọn phân giải các tham chiếu tượng trưng thành các tham chiếu trực tiếp). Cuối cùng, trong giai đoạn **Khởi tạo (Initialization)**, JVM thực thi các khối khởi tạo tĩnh và gán các giá trị thực tế được khai báo trong code cho các biến static thông qua phương thức `<clinit>` do trình biên dịch tự động tạo ra.
 
-Phân hệ nạp lớp (class loading subsystem) của JVM chia việc nạp lớp thành ba giai đoạn riêng biệt (Nạp (Loading), Liên kết (Linking), và Khởi tạo (Initializing)) để thực thi bảo mật, xác minh tính toàn vẹn cấu trúc và tối ưu hóa phân bổ bộ nhớ trước khi thực thi mã nguồn.
-
-Trong giai đoạn **Nạp (Loading)**, JVM xác định vị trí biểu diễn nhị phân của một lớp (thường là tệp `.class`) và nạp nó vào Vùng phương thức (Method Area) / Metaspace, tạo ra một đối tượng `java.lang.Class`.
-
-Trong giai đoạn **Liên kết (Linking)**, JVM thực hiện Xác thực (Verification - cực kỳ quan trọng cho bảo mật, kiểm tra định dạng, các ràng buộc bytecode và quy tắc kiểu dữ liệu để ngăn chặn khai thác độc hại), Chuẩn bị (Preparation - phân bổ bộ nhớ cho các trường tĩnh và khởi tạo chúng về giá trị mặc định của kiểu dữ liệu), và Phân giải (Resolution - tùy chọn giải quyết các tham chiếu tượng trưng (symbolic references) thành các tham chiếu trực tiếp (direct references)).
-
-Cuối cùng, trong giai đoạn **Khởi tạo (Initialization)**, JVM thực thi các khối khởi tạo tĩnh (static initialization blocks) và gán các giá trị thực tế được khai báo trong code cho các biến tĩnh thông qua phương thức `<clinit>` do trình biên dịch tạo ra.
-
-### Mô hình tư duy: Các giai đoạn nạp lớp (Mental Model: Class Loading Phases)
+### Các giai đoạn tải lớp (Mental Model)
 
 ```text
 +-------------------------------------------------------------------------------+
-|                               NẠP LỚP (CLASS LOADING)                         |
-|-------------------------------------------------------------------------------|
-|  1. NẠP (LOADING)    |  2. LIÊN KẾT (LINKING)                      | 3. KHỞI TẠO|
-|                      |  a. Xác thực -> b. Chuẩn bị -> c. Phân giải | (INIT)     |
-|  [Tìm bytecode]      |  [Kiểm tra an toàn] [Cấp bộ nhớ] [Giải quyết]| [<clinit>  |
-|  tệp .class -> JVM   |  Kiểm tra kiểu dữ liệu tĩnh x = 0  kết nối   |  x = 42]   |
+|                        QUÁ TRÌNH TẢI LỚP (CLASS LOADING)                      |
++-------------------------------------------------------------------------------+
+|  1. TẢI (LOADING)    |  2. LIÊN KẾT (LINKING)                      |  3. KHỞI TẠO|
+|                      |  a. Xác thực -> b. Chuẩn bị -> c. Phân giải |    (INIT)   |
+|  [Tìm bytecode]      |  [Xác thực an toàn] [Cấp phát mặc định]     | [<clinit>   |
+|  file .class -> JVM  |  Kiểm tra kiểu      static x = 0  symbols   |  x = 42]    |
 +-------------------------------------------------------------------------------+
 ```
 
-### Ví dụ Code (Code Example)
+### Ví Dụ Mã Nguồn
 
 ```java
 package theory;
 
 public class ClassLoaderDemo {
-    // Phân bổ bộ nhớ tĩnh xảy ra trong bước Chuẩn bị, nhưng việc gán giá trị xảy ra trong bước Khởi tạo
+    // Allocation of static memory occurs in Preparation, but value assignment occurs in Initialization
     public static final int CONSTANT_VAL = 42; 
     public static int mutableVal = 99;
 
@@ -211,9 +203,9 @@ public class ClassLoaderDemo {
     }
 
     public static void main(String[] args) {
-        // Việc truy cập CONSTANT_VAL (một giá trị hằng số ở thời điểm biên dịch) KHÔNG kích hoạt quá trình khởi tạo đầy đủ
+        // Accessing CONSTANT_VAL (a constant compile-time value) does NOT trigger full initialization
         System.out.println("Constant: " + ClassLoaderDemo.CONSTANT_VAL);
-        // Việc truy cập mutableVal kích hoạt thực thi khối tĩnh static (Khởi tạo)
+        // Accessing mutableVal triggers static block execution (Initialization)
         System.out.println("Mutable Value: " + ClassLoaderDemo.mutableVal);
     }
 }
@@ -224,18 +216,10 @@ Mutable Value: 100
 */
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
+### Chuỗi Nguyên Nhân - Kết Quả
 
+Classloader đọc luồng byte `.class` &rarr; Xác thực chạy các kiểm tra kiểu &rarr; Chuẩn bị cấp phát bộ nhớ với các giá trị mặc định &rarr; Khởi tạo chạy phương thức `<clinit>` &rarr; Lớp đã sẵn sàng hoàn toàn để sử dụng bởi ứng dụng.
 
-```text
-ClassLoader đọc luồng byte `.class`
-  → Quá trình xác thực chạy kiểm tra kiểu dữ liệu
-  → Quá trình chuẩn bị phân bổ bộ nhớ với các giá trị mặc định
-  → Quá trình khởi tạo chạy phương thức `<clinit>`
-  → Lớp đã sẵn sàng hoàn toàn để ứng dụng sử dụng.
-```
+## Liên Kết Tham Khảo (Reference Links)
 
-
-## Liên kết tham khảo (Reference Links)
-
-- https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html (Chapter 5. Loading, Linking, and Initializing)
+- https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html (Chương 5. Tải, Liên kết, và Khởi tạo)

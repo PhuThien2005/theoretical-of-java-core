@@ -1,25 +1,25 @@
-# Đặt Tên, Từ Khóa, Khối Mã Và Phạm Vi (Naming, Keywords, Blocks, And Scope)
+# Đặt Tên, Từ Khóa, Khối, Và Phạm Vi
 
-Mã nguồn Java dễ đọc phụ thuộc rất nhiều vào việc đặt tên nhất quán và xác định phạm vi (scope) rõ ràng.
+Code Java dễ đọc phụ thuộc nhiều vào việc đặt tên nhất quán và phạm vi rõ ràng.
 
 ## Quy Ước Đặt Tên (Naming Conventions)
 
-Các quy ước đặt tên trong Java không chỉ đơn thuần là vấn đề phong cách (style). Chúng giúp các nhà phát triển khác dễ dàng hiểu được một tên đại diện cho cái gì.
+Quy ước đặt tên trong Java không chỉ là phong cách. Chúng giúp các nhà phát triển khác hiểu được ý nghĩa của một tên.
 
 | Thành phần | Quy ước | Ví dụ |
 | --- | --- | --- |
-| Class (Lớp) | PascalCase | `StudentService` |
-| Interface (Giao diện) | PascalCase | `Runnable` |
-| Method (Phương thức) | camelCase | `calculateTotal` |
-| Variable (Biến) | camelCase | `studentName` |
-| Constant (Hằng số) | UPPER_SNAKE_CASE | `MAX_RETRY_COUNT` |
-| Package (Gói) | lowercase (chữ thường) | `com.example.learning` |
+| Class | PascalCase | `StudentService` |
+| Interface | PascalCase | `Runnable` |
+| Method | camelCase | `calculateTotal` |
+| Biến | camelCase | `studentName` |
+| Hằng số | UPPER_SNAKE_CASE | `MAX_RETRY_COUNT` |
+| Package | chữ thường | `com.example.learning` |
 
-## Đặt Tên Tốt (Good Names)
+## Tên Biến Tốt
 
-Đặt tên tốt là phải mô tả được ý nghĩa, chứ không chỉ mô tả kiểu dữ liệu.
+Tên tốt mô tả ý nghĩa, không chỉ kiểu dữ liệu.
 
-Tên chưa tốt:
+Yếu:
 
 ```java
 int x = 18;
@@ -31,7 +31,7 @@ Tốt hơn:
 int age = 18;
 ```
 
-Tên chưa tốt:
+Yếu:
 
 ```java
 String s = "Alice";
@@ -43,7 +43,7 @@ Tốt hơn:
 String studentName = "Alice";
 ```
 
-Tên ngắn có thể được chấp nhận trong các phạm vi rất nhỏ, chẳng hạn như các biến đếm vòng lặp:
+Tên ngắn vẫn chấp nhận được trong phạm vi hẹp, chẳng hạn như biến đếm vòng lặp:
 
 ```java
 for (int i = 0; i < 10; i++) {
@@ -53,7 +53,7 @@ for (int i = 0; i < 10; i++) {
 
 ## Từ Khóa (Keywords)
 
-Từ khóa (keywords) là các từ được dành riêng trong Java. Bạn không thể sử dụng chúng làm tên biến, tên phương thức hoặc tên class.
+Từ khóa là các từ được Java dành riêng. Bạn không thể dùng chúng làm tên biến, phương thức hoặc class.
 
 Ví dụ:
 
@@ -69,7 +69,7 @@ int class = 10;
 
 ## Phạm Vi (Scope)
 
-Phạm vi (scope) chỉ vùng mã nguồn mà một biến hoặc một tên có thể được truy cập.
+Phạm vi xác định nơi một biến hoặc tên có thể được truy cập.
 
 Ví dụ:
 
@@ -77,49 +77,50 @@ Ví dụ:
 public class ScopeDemo {
     public static void main(String[] args) {
         int outer = 10;
- 
+
         if (outer > 5) {
             int inner = 20;
             System.out.println(inner);
         }
- 
+
         System.out.println(outer);
         // System.out.println(inner); // không biên dịch được
     }
 }
 ```
 
-`inner` chỉ tồn tại bên trong khối mã `if`.
+`inner` chỉ tồn tại bên trong khối `if`.
 
-## Sơ Đồ Phạm Vi (Scope Diagram)
+## Sơ Đồ Phạm Vi
 
 ```mermaid
 flowchart TD
-    A[Khối phương thức main] --> B[Biến outer hiển thị]
+    A[Khối phương thức main] --> B[Biến outer nhìn thấy được]
     A --> C[Khối if]
-    C --> D[Biến inner chỉ hiển thị ở đây]
+    C --> D[Biến inner chỉ nhìn thấy ở đây]
 ```
 
-## Tại Sao Phạm Vi Của Biến Bị Giới Hạn Trong Khối Mã (Why Variable Scopes are Restricted to Blocks)
+## Tại Sao Phạm Vi Biến Bị Giới Hạn Trong Khối
 
-Việc giới hạn phạm vi của biến cục bộ (local variables) trong các khối mã cụ thể `{}` là một quyết định thiết kế quan trọng trong Java nhằm đảm bảo an toàn bộ nhớ và hiệu năng.
+Giới hạn phạm vi biến cục bộ trong các khối code `{}` cụ thể là một lựa chọn thiết kế quan trọng trong Java vì tính an toàn bộ nhớ và hiệu quả.
 
-*   **Quản lý bộ nhớ (Cấp phát ngăn xếp - Stack Allocation):** Các biến cục bộ được lưu trữ trên ngăn xếp thực thi của luồng (thread execution Stack). Khi JVM đi vào một khối mã, nó điều chỉnh con trỏ ngăn xếp để cấp phát không gian cho các biến được khai báo bên trong khối mã đó. Khi thoát khỏi khối mã, con trỏ khung ngăn xếp (stack frame pointer) sẽ được điều chỉnh trở lại, tự động thu hồi phần bộ nhớ đó. Bằng cách giữ cho các phạm vi nhỏ gọn, các biến sẽ không tiêu thụ bộ nhớ ngăn xếp lâu hơn mức cần thiết.
-*   **An toàn và Tái cấu trúc (Refactoring):** Giới hạn khả năng hiển thị của biến đảm bảo rằng các biến không thể bị đọc hoặc sửa đổi một cách vô tình bởi các đoạn code bên ngoài phạm vi hoạt động dự kiến của chúng. Điều này hạn chế tác dụng phụ (side effects) và ngăn ngừa lỗi (bugs).
-*   **Ngăn ngừa hiện tượng che khuất biến (Preventing Variable Shadowing):** Nếu một biến hiển thị ở mọi nơi, việc khai báo một biến khác cùng tên trong một khối mã lồng nhau có thể dẫn đến sự nhầm lẫn hoặc lỗi che khuất (shadowing). Quy tắc phạm vi khối mã nghiêm ngặt giúp ranh giới giữa các biến luôn rõ ràng, không mập mờ.
+*   **Quản lý bộ nhớ (Stack Allocation - Cấp phát Stack):** Biến cục bộ được lưu trên Stack thực thi của luồng. Khi JVM vào một khối, nó điều chỉnh con trỏ stack để cấp phát không gian cho các biến được khai báo trong khối đó. Khi khối kết thúc, con trỏ frame stack được điều chỉnh lại, tự động thu hồi bộ nhớ đó. Bằng cách giữ phạm vi nhỏ, biến không chiếm bộ nhớ stack lâu hơn cần thiết.
+*   **An toàn và tái cấu trúc:** Giới hạn tầm nhìn của biến đảm bảo rằng biến không thể bị đọc hoặc sửa đổi do nhầm lẫn bởi code ngoài phạm vi dự kiến. Điều này hạn chế tác dụng phụ và ngăn lỗi.
+*   **Ngăn che khuất biến (Variable Shadowing):** Nếu một biến hiển thị ở khắp nơi, việc khai báo biến khác cùng tên trong khối lồng nhau có thể gây nhầm lẫn hoặc lỗi che khuất. Quy tắc phạm vi khối nghiêm ngặt giúp ranh giới không mơ hồ.
 
-### Mô Hình Tư Duy: Vòng Đời Bộ Nhớ Ngăn Xếp (Stack Memory Lifecycle)
-Hãy nghĩ về phạm vi khối mã giống như việc ghi chú trên bảng trắng trong một cuộc họp: khi cuộc họp (khối mã) kết thúc, bảng sẽ bị xóa (các biến bị loại bỏ - pop khỏi Stack) để cuộc họp tiếp theo có thể sử dụng không gian sạch sẽ đó.
+### Mô Hình Tư Duy: Vòng Đời Bộ Nhớ Stack
+
+Hãy nghĩ phạm vi khối như viết ghi chú trên bảng trắng trong cuộc họp: khi cuộc họp (khối) kết thúc, bảng được xóa (biến bị pop khỏi Stack) để cuộc họp tiếp theo có thể dùng không gian sạch.
 
 ```mermaid
 flowchart TD
     A[Vào phương thức main] -->|Stack Frame: push outer| B[Thực thi các câu lệnh main]
     B -->|Vào khối if| C[Stack Frame: push inner]
-    C -->|Thoát khối if| D[Stack Frame: pop inner / thu hồi bộ nhớ]
-    D -->|Chỉ còn outer hiển thị| E[Thoát phương thức main]
+    C -->|Thoát khối if| D[Stack Frame: pop inner - bộ nhớ được thu hồi]
+    D -->|Chỉ outer còn hiển thị| E[Thoát phương thức main]
 ```
 
-### Ví dụ Code (Code Example)
+### Ví Dụ Code
 ```java
 public class BlockScopeWhy {
     public static void main(String[] args) {
@@ -127,47 +128,41 @@ public class BlockScopeWhy {
         if (outerValue > 50) {
             int blockValue = 50; // blockValue được cấp phát trên stack
             System.out.println(blockValue + outerValue); // 150
-        } // blockValue nằm ngoài phạm vi, không gian stack được thu hồi
+        } // blockValue ra ngoài phạm vi, không gian stack được thu hồi
         
-        // System.out.println(blockValue); // Lỗi biên dịch: không tìm thấy ký hiệu 'blockValue'
+        // System.out.println(blockValue); // Lỗi biên dịch: cannot find symbol 'blockValue'
     }
 }
 ```
 
-### Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)
+### Chuỗi Nguyên Nhân - Kết Quả
 
-```text
-`Biến được khai báo bên trong khối mã`
-  → `Trình biên dịch giới hạn quyền truy cập vào các token nằm giữa các dấu ngoặc nhọn`
-  → `Runtime JVM điều chỉnh con trỏ ngăn xếp khi thoát khỏi khối mã`
-  → `Bộ nhớ được thu hồi ngay lập tức và các lỗi truy cập vô ý bị ngăn chặn`.
-```
+`Biến được khai báo trong khối` → `Trình biên dịch giới hạn truy cập trong phạm vi dấu ngoặc nhọn` → `JVM runtime điều chỉnh con trỏ stack khi khối kết thúc` → `Bộ nhớ được thu hồi ngay lập tức và lỗi truy cập ngoài ý muốn được ngăn chặn`.
 
+## Lỗi Thường Gặp
 
-## Các Lỗi Thường Gặp (Common Mistakes)
+- Tái sử dụng tên mơ hồ như `data`, `temp`, hay `value` ở khắp nơi.
+- Khai báo biến trong khối rồi cố dùng nó bên ngoài.
+- Dùng từ khóa Java làm tên.
+- Dùng kiểu đặt tên hằng số cho biến thông thường.
 
-- Tái sử dụng các tên mơ hồ như `data`, `temp`, hoặc `value` ở mọi nơi.
-- Khai báo một biến bên trong một khối mã rồi cố gắng sử dụng nó ở bên ngoài.
-- Sử dụng các từ khóa Java làm tên.
-- Sử dụng kiểu đặt tên hằng số cho các biến thông thường.
-
-### Lỗi Thường Gặp: Tên Biến Mơ Hồ (Common Mistake: Vague Variable Names)
+### Lỗi Thường Gặp: Tên Biến Mơ Hồ
 
 ```java
-// Khó hiểu khi đọc nhanh
+// Khó hiểu ngay lập tức
 int data = getUserInput();
 String temp = formatForDisplay(data);
 System.out.println(temp);
 ```
 
 ```java
-// Tự giải thích rõ ràng (Self-documenting)
+// Tự giải thích nghĩa
 int userAge = getUserInput();
 String formattedAge = formatForDisplay(userAge);
 System.out.println(formattedAge);
 ```
 
-### Lỗi Thường Gặp: Biến Được Sử Dụng Bên Ngoài Khối Mã Của Nó (Common Mistake: Variable Used Outside Its Block)
+### Lỗi Thường Gặp: Dùng Biến Ngoài Khối Của Nó
 
 ```java
 public class ScopeError {
@@ -180,7 +175,7 @@ public class ScopeError {
 }
 ```
 
-Cách khắc phục: khai báo `result` trước khối mã `if`:
+Cách sửa: khai báo `result` trước khối `if`:
 
 ```java
 public class ScopeFixed {
@@ -194,54 +189,54 @@ public class ScopeFixed {
 }
 ```
 
-### Lỗi Thường Gặp: Sử Dụng Kiểu Đặt Tên Hằng Số Cho Biến Thường (Common Mistake: Using Constant Style for Normal Variables)
+### Lỗi Thường Gặp: Dùng Kiểu Đặt Tên Hằng Số Cho Biến Thường
 
 ```java
 // Sai: đặt tên kiểu hằng số cho biến thông thường
-int CURRENT_AGE = 18;    // ám chỉ rằng nó không bao giờ thay đổi
+int CURRENT_AGE = 18;    // ngầm hiểu là không bao giờ thay đổi
 
-// Đúng: sử dụng camelCase cho các biến có thể thay đổi (mutable)
+// Đúng: dùng camelCase cho biến có thể thay đổi
 int currentAge = 18;
 
-// Đúng: UPPER_SNAKE_CASE chỉ dành cho các hằng số thực sự
+// Đúng: UPPER_SNAKE_CASE chỉ dùng cho hằng số thật sự
 static final int MAX_AGE = 120;
 ```
 
-### Lỗi Thường Gặp: Vi Phạm Cả Ba Quy Ước Trong Một Class (Common Mistake: Three Convention Violations in One Class)
+### Lỗi Thường Gặp: Ba Vi Phạm Quy Ước Trong Một Class
 
 ```java
 // Biên dịch được nhưng vi phạm tất cả quy ước:
-public class order_service {                   // nên là OrderService
-    public static final int maxretrycount = 3; // nên là MAX_RETRY_COUNT
-    public void Calculate_Total() {}           // nên là calculateTotal
+public class order_service {                   // phải là OrderService
+    public static final int maxretrycount = 3; // phải là MAX_RETRY_COUNT
+    public void Calculate_Total() {}           // phải là calculateTotal
 }
 ```
 
-## Case Study: Lớp Được Đặt Tên Tốt (Case Study: Well-Named Class)
+## Ví Dụ Thực Tế: Class Đặt Tên Đúng
 
 ```java
 package com.example.shop;
 
 /**
- * Service that manages product orders.
+ * Service quản lý đơn hàng sản phẩm.
  */
-public class OrderService {  // Lớp viết theo PascalCase
+public class OrderService {  // PascalCase cho class
 
-    public static final int MAX_RETRY_COUNT = 3;  // Hằng số viết theo UPPER_SNAKE_CASE
+    public static final int MAX_RETRY_COUNT = 3;  // UPPER_SNAKE_CASE cho hằng số
 
-    private String ownerName;  // Biến thực thể viết theo camelCase
+    private String ownerName;  // camelCase cho biến instance
 
-    public double calculateTotal(double price, int quantity) {  // Phương thức viết theo camelCase
-        int retryAttempts = 0;  // Biến cục bộ viết theo camelCase
-        // logic thử lại (retry) sẽ ở đây
+    public double calculateTotal(double price, int quantity) {  // camelCase cho method
+        int retryAttempts = 0;  // camelCase cho biến cục bộ
+        // logic thử lại sẽ ở đây
         return price * quantity;
     }
 }
 ```
 
-Mỗi định danh ở đây đều biểu thị rõ kiểu thành phần của nó khi nhìn thoáng qua: class, hằng số, biến, phương thức.
+Mỗi định danh ở đây thể hiện ngay kiểu của nó khi nhìn lướt: class, hằng số, biến, phương thức.
 
-## Liên Kết Tham Khảo (Reference Links)
+## Liên Kết Tham Khảo
 
-- https://docs.oracle.com/javase/specs/jls/se21/html/jls-6.html#jls-6.3 (JLS Declarations - Scope of a Declaration)
-- https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.2 (JLS Blocks, Statements, and Patterns)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-6.html#jls-6.3 (JLS Khai Báo - Phạm Vi Của Khai Báo)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.2 (JLS Khối, Câu Lệnh, Và Mẫu)

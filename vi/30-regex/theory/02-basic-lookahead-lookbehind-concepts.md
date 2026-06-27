@@ -1,35 +1,35 @@
-# Biểu thức chính quy (Regular Expression) - Phần 2
+# Biểu Thức Chính Quy (Regular Expression) - Phần 2
 
-## Mục tiêu học tập (Learning Goal)
+## Mục Tiêu Học Tập
 
-Tệp này bao gồm một phần tập trung của **Biểu thức chính quy (Regular Expression)**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, không phải là từ vựng cô lập.
+Tài liệu này tập trung vào một phần chuyên sâu của **Biểu Thức Chính Quy (Regular Expression)**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc thực tế trong Java, không chỉ đơn thuần là lý thuyết từ vựng.
 
-## Đề cương chi tiết (Outline Coverage)
+## Tóm Tắt Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Những điều cần biết (What to know) |
+| Khái niệm (Concept) | Điều cần biết (What to know) |
 | --- | --- |
-| `Basic lookahead / lookbehind` | Lookahead (nhìn trước) và lookbehind (nhìn sau) là các khẳng định độ rộng bằng không (zero-width assertions) nhằm khớp với một vị trí mà không tiêu thụ ký tự nào. |
-| `Validate email, phone, password` | Các mẫu xác thực biểu mẫu bằng regex, nhấn mạnh việc kiểm tra độ mạnh của mật khẩu với lookarounds. |
-| `Replace using regex` | Thay thế các chuỗi con bằng regex thông qua `replaceAll()`, tham chiếu ngược (backreferences), và các phương thức thay thế của `Matcher`. |
-| `Split using regex` | Phân tách các chuỗi bằng regex và xử lý các chuỗi trống ở cuối bằng tham số giới hạn (limit). |
+| `Basic lookahead / lookbehind` | Lookahead và lookbehind là các khẳng định có độ rộng bằng không nhằm so khớp một vị trí mà không tiêu thụ các ký tự. |
+| `Validate email, phone, password` | Các mẫu xác thực biểu mẫu bằng biểu thức chính quy, nhấn mạnh việc kiểm tra độ mạnh mật khẩu bằng lookaround. |
+| `Replace using regex` | Thay thế chuỗi con bằng biểu thức chính quy thông qua `replaceAll()`, tham chiếu ngược (backreference) và các phương thức thay thế của Matcher. |
+| `Split using regex` | Tách các chuỗi bằng biểu thức chính quy và xử lý các chuỗi rỗng ở cuối bằng cách sử dụng tham số limit. |
 
 ---
 
-## Chi tiết tài liệu học tập (Detailed Notes)
+## Ghi Chú Chi Tiết
 
-### Lookahead / lookbehind cơ bản
+### Khái niệm Lookahead / Lookbehind Cơ bản
 
-Lookarounds (gồm lookahead và lookbehind) là các **khẳng định độ rộng bằng không (zero-width assertions)**. Chúng khớp với một vị trí cụ thể trong văn bản (như ranh giới `^` hoặc `$`), xác thực một điều kiện mà không thực sự tiêu thụ (di chuyển con trỏ qua) bất kỳ ký tự nào.
+Lookaround (bao gồm lookahead và lookbehind) là các **khẳng định có độ rộng bằng không (Zero-width assertion)**. Chúng so khớp một vị trí cụ thể trong văn bản (giống như các biên `^` hoặc `$`), xác minh một điều kiện mà không thực sự tiêu thụ (di chuyển con trỏ qua) bất kỳ ký tự nào.
 
-- **Lookahead (Nhìn trước)**:
-  - **Positive Lookahead (Nhìn trước khẳng định) `(?=pattern)`**: Khẳng định rằng phần theo sau ngay lập tức là `pattern`.
-  - **Negative Lookahead (Nhìn trước phủ định) `(?!pattern)`**: Khẳng định rằng phần theo sau ngay lập tức KHÔNG phải là `pattern`.
-- **Lookbehind (Nhìn sau)**:
-  - **Positive Lookbehind (Nhìn sau khẳng định) `(?<=pattern)`**: Khẳng định rằng phần đi trước ngay lập tức là `pattern`.
-  - **Negative Lookbehind (Nhìn sau phủ định) `(?<!pattern)`**: Khẳng định rằng phần đi trước ngay lập tức KHÔNG phải là `pattern`.
-- **Giới hạn Lookbehind trong Java (Java Lookbehind Limitation)**: Trong công cụ regex của Java, lookbehinds bị hạn chế về độ dài. Không giống như lookaheads vốn có thể có độ dài tùy ý, các mẫu lookbehind phải có **độ dài tối đa** có thể xác định được tại thời điểm biên dịch (ví dụ: bạn không thể sử dụng các bộ định lượng không giới hạn như `*` hoặc `+`, nhưng bạn có thể sử dụng độ dài cố định hoặc các bộ định lượng có giới hạn như `{1,5}`).
+- **Lookahead (Nhìn về phía trước)**:
+  - **Positive Lookahead `(?=pattern)` (Khẳng định nhìn về phía trước)**: Khẳng định rằng những gì theo sau ngay lập tức là `pattern`.
+  - **Negative Lookahead `(?!pattern)` (Phủ định nhìn về phía trước)**: Khẳng định rằng những gì theo sau ngay lập tức KHÔNG phải là `pattern`.
+- **Lookbehind (Nhìn về phía sau)**:
+  - **Positive Lookbehind `(?<=pattern)` (Khẳng định nhìn về phía sau)**: Khẳng định rằng những gì đi trước ngay lập tức là `pattern`.
+  - **Negative Lookbehind `(?<!pattern)` (Phủ định nhìn về phía sau)**: Khẳng định rằng những gì đi trước ngay lập tức KHÔNG phải là `pattern`.
+- **Hạn chế của Lookbehind trong Java**: Trong công cụ regex của Java, lookbehind có hạn chế về độ dài. Không giống như lookahead có thể có độ dài tùy ý, các mẫu lookbehind phải có **độ dài tối đa** có thể xác định được tại thời điểm biên dịch (ví dụ: bạn không thể sử dụng các bộ định lượng không giới hạn như `*` hoặc `+`, nhưng bạn có thể sử dụng độ dài cố định hoặc bộ định lượng có giới hạn như `{1,5}`).
 
-#### Ví dụ mã nguồn: Trích xuất các số đi sau ký hiệu tiền tệ (Code Example: Extracting Numbers Preceded by Currency Symbols)
+#### Ví dụ Code: Trích xuất các số có ký hiệu tiền tệ đi trước
 ```java
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
@@ -52,30 +52,30 @@ public class LookaroundExample {
 }
 ```
 
-#### Sai lầm thường gặp: Sử dụng các bộ định lượng không giới hạn bên trong Lookbehinds (Common Mistake: Using unbounded quantifiers inside Lookbehinds)
+#### Lỗi thường gặp: Sử dụng bộ định lượng không giới hạn bên trong Lookbehind
 ```java
-// BAD: Triggers PatternSyntaxException at compile time!
-// Lookbehinds cannot have unbounded quantifiers like '*' or '+'
+// SAI: Kích hoạt ngoại lệ PatternSyntaxException tại thời điểm biên dịch!
+// Lookbehind không được có các bộ định lượng không giới hạn như '*' hoặc '+'
 Pattern p = Pattern.compile("(?<=prefix.*)digits"); 
 ```
 
-## Tại sao Lookarounds là các khẳng định độ rộng bằng không (Why Lookarounds are Zero-Width Assertions)
+## Tại sao Lookaround là các Khẳng định có Độ rộng bằng Không (Zero-Width Assertion)
 
-Các khẳng định nhìn trước (lookahead) và nhìn sau (lookbehind) được gọi là "độ rộng bằng không" (zero-width) vì chúng không tiêu thụ các ký tự trong luồng đầu vào khi thực thi. Thay vào đó, chúng hoạt động như các mỏ neo ảo hoặc các điểm kiểm tra logic để kiểm tra các ký tự sắp tới hoặc đi trước từ con trỏ khớp hiện tại. Một khi khẳng định thành công, con trỏ khớp của công cụ regex vẫn giữ nguyên ở vị trí trước khi khẳng định bắt đầu. Điều này cho phép nhiều điều kiện được xác thực tại cùng một vị trí ký tự, điều này cực kỳ hữu ích cho việc kiểm tra các quy tắc phức tạp của mật khẩu.
+Các khẳng định lookahead và lookbehind được gọi là "độ rộng bằng không" vì chúng không tiêu thụ các ký tự trong chuỗi đầu vào trong quá trình thực thi. Thay vào đó, chúng hoạt động như các mỏ neo ảo hoặc các chốt kiểm tra logic để kiểm tra các ký tự sắp tới hoặc trước đó từ con trỏ so khớp hiện tại. Khi khẳng định thành công, con trỏ so khớp của công cụ regex vẫn giữ nguyên ở vị trí trước khi bắt đầu khẳng định. Điều này cho phép nhiều điều kiện được xác thực tại cùng một vị trí ký tự, điều này đặc biệt hữu ích cho việc kiểm tra các quy tắc phức tạp của mật khẩu.
 
-#### Mô hình tư duy: Điều hướng độ rộng bằng không (Zero-Width Navigation)
+#### Mô hình tư duy: Điều hướng Độ rộng bằng Không
 
 ```mermaid
 sequenceDiagram
-    Note over Regex Engine: Con trỏ ở vị trí 3 (giữa 'a' và '1')
-    Note over Regex Engine: Đầu vào: 'java17'
-    Regex Engine->>Lookahead: Kiểm tra xem (?=\d) có khớp không
-    Lookahead->>Regex Engine: Có (khớp '1')
-    Note over Regex Engine: Con trỏ giữ nguyên ở vị trí 3 (độ rộng = 0)
-    Regex Engine->>Matcher: Tiếp tục khớp mã thông báo mẫu tiếp theo
+    Note over Engine Regex: Con trỏ ở vị trí 3 (giữa 'a' và '1')
+    Note over Engine Regex: Đầu vào: 'java17'
+    Engine Regex->>Lookahead: Kiểm tra xem (?=\d) có khớp
+    Lookahead->>Engine Regex: Có (khớp với '1')
+    Note over Engine Regex: Con trỏ vẫn ở vị trí 3 (độ rộng = 0)
+    Engine Regex->>Matcher: Tiếp tục khớp phần tử tiếp theo của mẫu
 ```
 
-#### Ví dụ mã nguồn: Khẳng định mà không tiêu thụ ký tự (Asserting Without Consuming)
+#### Ví dụ Code: Khẳng định Không Tiêu thụ Ký tự
 
 ```java
 import java.util.regex.*;
@@ -94,47 +94,39 @@ public class ZeroWidthDemo {
 }
 ```
 
-#### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
+#### Chuỗi Nguyên nhân - Kết quả
 
+Công cụ regex đạt đến nhóm lookaround `(?=pattern)` &rarr; Tạm thời rẽ nhánh để đánh giá mẫu &rarr; Mẫu khớp thành công &rarr; Công cụ loại bỏ trạng thái của các ký tự đã khớp và khôi phục con trỏ &rarr; Tiếp tục so khớp regex chính từ vị trí ban đầu.
 
-```text
-Công cụ tiếp cận nhóm lookaround `(?=pattern)`
-  → Tạm thời rẽ nhánh để đánh giá mẫu
-  → Mẫu khớp thành công
-  → Công cụ loại bỏ trạng thái của các ký tự đã khớp và khôi phục con trỏ
-  → Tiếp tục khớp regex chính từ vị trí ban đầu.
-```
+## Tại sao Lookbehind trong Java có Hạn chế về Độ rộng
 
+Không giống như lookahead đọc về phía trước vào chuỗi chưa tiêu thụ còn lại, lookbehind yêu cầu công cụ regex phải lùi lại một bước trong bộ đệm đầu vào. Để triển khai thao tác lùi bước này một cách hiệu quả, trình biên dịch regex của Java phải tính toán trước phạm vi ký tự chính xác cần nhìn lại. Nếu mẫu lookbehind có độ rộng không giới hạn (chẳng hạn như sử dụng `*` hoặc `+`), công cụ sẽ không thể xác định tại thời điểm biên dịch số bước cần tua lại. Để ngăn ngừa hiệu năng chạy không thể đoán trước và các vấn đề điều hướng bộ đệm, công cụ regex của Java thực thi quy tắc độ dài cố định hoặc độ dài có giới hạn cho các biểu thức lookbehind, ném ra ngoại lệ `PatternSyntaxException` cho các lookbehind không giới hạn.
 
-## Tại sao Lookbehinds trong Java có giới hạn độ rộng (Why Java Lookbehinds Have Width Limitations)
-
-Không giống như lookaheads đọc tiếp vào phần chuỗi chưa được tiêu thụ phía trước, lookbehinds yêu cầu công cụ regex lùi lại trong bộ đệm đầu vào. Để triển khai thao tác lùi lại này một cách hiệu quả, trình biên dịch regex của Java phải tính toán trước phạm vi chính xác của các ký tự mà nó cần lùi lại để kiểm tra. Nếu mẫu lookbehind có độ rộng không giới hạn (như sử dụng `*` hoặc `+`), công cụ không thể xác định tại thời điểm biên dịch xem cần tua lại bao nhiêu bước. Để ngăn ngừa hiệu suất lúc chạy không thể dự đoán và các vấn đề điều hướng bộ đệm, công cụ regex của Java áp đặt một quy tắc độ dài cố định hoặc độ dài có giới hạn cho các biểu thức lookbehind, ném ra ngoại lệ `PatternSyntaxException` đối với các lookbehind không giới hạn.
-
-#### Mô hình tư duy: Hướng của Lookahead so với Lookbehind (Lookahead vs. Lookbehind Directions)
+#### Mô hình tư duy: Hướng đi của Lookahead so với Lookbehind
 
 ```
-Lookahead (?=abc)  ---> Khớp về phía trước trong luồng còn lại (độ dài tùy ý OK)
-Input: [x][y][z][a][b][c]
+Lookahead (?=abc)  ---> So khớp về phía trước trong chuỗi còn lại (chấp nhận độ dài tùy ý)
+Đầu vào: [x][y][z][a][b][c]
                ^-- (Con trỏ đánh giá về phía trước)
 
-Lookbehind (?<=abc) <-- Lùi lại trong bộ đệm (yêu cầu độ rộng cố định hoặc có giới hạn)
-Input: [a][b][c][x][y][z]
+Lookbehind (?<=abc) <-- Lùi lại các bước trong bộ đệm (yêu cầu độ rộng cố định hoặc có giới hạn)
+Đầu vào: [a][b][c][x][y][z]
                ^-- (Con trỏ đánh giá về phía sau)
 ```
 
-#### Ví dụ mã nguồn: Lookbehind có giới hạn so với không giới hạn (Bounded vs. Unbounded Lookbehinds)
+#### Ví dụ Code: Lookbehind Có giới hạn so với Không giới hạn
 
 ```java
 import java.util.regex.*;
 
 public class LookbehindLimitDemo {
     public static void main(String[] args) {
-        // Bounded lookbehinds work in Java (length range is known: 1 to 5)
+        // Lookbehind có giới hạn hoạt động trong Java (phạm vi độ dài đã biết: 1 đến 5)
         Pattern bounded = Pattern.compile("(?<=id=\\d{1,5})\\w+");
         System.out.println(bounded.matcher("id=123active").find()); // true
         
         try {
-            // Unbounded lookbehinds (using + or *) will fail compilation
+            // Lookbehind không giới hạn (sử dụng + hoặc *) sẽ thất bại khi biên dịch
             Pattern.compile("(?<=id=\\d+)\\w+");
         } catch (PatternSyntaxException e) {
             System.out.println("Compilation failed: " + e.getDescription()); // Look-behind group does not have an obvious maximum length
@@ -143,37 +135,30 @@ public class LookbehindLimitDemo {
 }
 ```
 
-#### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
+#### Chuỗi Nguyên nhân - Kết quả
 
-
-```text
-Mẫu lookbehind được biên dịch
-  → Công cụ kiểm tra xem độ rộng mẫu có bị giới hạn không
-  → Nếu không giới hạn (`*` hoặc `+`), kích thước lùi lại tối đa là vô hạn/không xác định
-  → Ném ra `PatternSyntaxException` tại thời điểm biên dịch để ngăn chặn việc quét bộ nhớ kém hiệu quả.
-```
-
+Mẫu lookbehind được biên dịch &rarr; Công cụ kiểm tra xem độ rộng của mẫu có bị giới hạn hay không &rarr; Nếu không giới hạn (`*` hoặc `+`), kích thước bước lùi tối đa là vô hạn/không xác định &rarr; Ném ra `PatternSyntaxException` tại thời điểm biên dịch để ngăn chặn việc quét bộ nhớ không hiệu quả.
 
 ---
 
-### Xác thực email, số điện thoại, mật khẩu (Validate email, phone, password)
+### Xác thực email, số điện thoại, mật khẩu
 
-Xác thực là một trong những ứng dụng phổ biến nhất của biểu thức chính quy. Tuy nhiên, việc viết các mẫu quá lỏng lẻo hoặc quá nghiêm ngặt là một lỗi kỹ thuật thường gặp.
+Xác thực là một trong những ứng dụng phổ biến nhất của biểu thức chính quy. Tuy nhiên, viết các mẫu quá lỏng lẻo hoặc quá nghiêm ngặt là một sai lầm kỹ thuật phổ biến.
 
-- **Độ phức tạp của mật khẩu (Password Complexity)**: Lookaheads rất hoàn hảo cho việc xác thực mật khẩu vì chúng cho phép bạn kiểm tra nhiều điều kiện độc lập (ví dụ: chứa chữ hoa, chữ thường, chữ số) trên cùng một chuỗi bắt đầu từ đầu.
-- **Xác thực Email (Email Validation)**: Việc xác thực email thực tế (RFC 5322) quá phức tạp đối với regex tiêu chuẩn. Thông thường, các ứng dụng production sử dụng các regex đơn giản hơn để kiểm tra cấu trúc `@` cơ bản, để lại việc kiểm tra phân phát chính xác cho các email xác thực.
+- **Độ phức tạp của Mật khẩu**: Lookahead là lựa chọn hoàn hảo để xác thực mật khẩu vì chúng cho phép bạn kiểm tra nhiều điều kiện độc lập (ví dụ: chứa chữ hoa, chữ thường, chữ số) trên cùng một chuỗi bắt đầu từ điểm khởi đầu.
+- **Xác thực Email**: Việc xác thực email thực tế (RFC 5322) quá phức tạp đối với regex tiêu chuẩn. Thông thường, các ứng dụng thực tế sử dụng các regex đơn giản hơn để kiểm tra cấu trúc `@` cơ bản, và để việc kiểm tra phân phát chính xác cho thư xác nhận.
 
-#### Tình huống nghiên cứu: Xác thực độ mạnh của mật khẩu thông qua Lookahead (Case Study: Password Strength Validation via Lookahead)
+#### Ví Dụ Thực Tế: Xác thực Độ mạnh Mật khẩu qua Lookahead
 ```java
 import java.util.regex.Pattern;
 
 public class PasswordValidator {
-    // Password rules:
-    // - Must be at least 8 characters long
-    // - Must contain at least one digit (?=.*[0-9])
-    // - Must contain at least one lowercase letter (?=.*[a-z])
-    // - Must contain at least one uppercase letter (?=.*[A-Z])
-    // - Must contain at least one special character (?=.*[@#$%^&+=])
+    // Quy tắc mật khẩu:
+    // - Phải dài ít nhất 8 ký tự
+    // - Phải chứa ít nhất một chữ số (?=.*[0-9])
+    // - Phải chứa ít nhất một chữ thường (?=.*[a-z])
+    // - Phải chứa ít nhất một chữ hoa (?=.*[A-Z])
+    // - Phải chứa ít nhất một ký tự đặc biệt (?=.*[@#$%^&+=])
     private static final Pattern PASSWORD_PATTERN = Pattern.compile(
         "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$"
     );
@@ -184,8 +169,8 @@ public class PasswordValidator {
     }
 
     public static void main(String[] args) {
-        System.out.println(isValidPassword("Weak12"));       // false (too short)
-        System.out.println(isValidPassword("NoSpecial123")); // false (no special char)
+        System.out.println(isValidPassword("Weak12"));       // false (quá ngắn)
+        System.out.println(isValidPassword("NoSpecial123")); // false (thiếu ký tự đặc biệt)
         System.out.println(isValidPassword("Str0ng#pass"));  // true
     }
 }
@@ -193,28 +178,28 @@ public class PasswordValidator {
 
 ---
 
-### Thay thế bằng regex (Replace using regex)
+### Thay thế bằng biểu thức chính quy (Replace using regex)
 
 Java hỗ trợ thay thế các chuỗi con khớp với một regex thông qua các phương thức của String và Matcher.
 
 - **`String.replaceAll(regex, replacement)`**: Thay thế mọi chuỗi con khớp với `regex` bằng `replacement`.
-- **`String.replace(target, replacement)`**: **Không** sử dụng regex; nó thực hiện tìm kiếm và thay thế chính xác (literal) trên các chuỗi ký tự.
-- **Tham chiếu ngược khi thay thế (Backreferences in Replacement)**: Bạn có thể tham chiếu đến các nhóm đã thu giữ trong chuỗi thay thế bằng cách sử dụng `$groupNumber` (ví dụ: `$1`).
-- **Thay thế nâng cao (`appendReplacement`/`appendTail`)**: `Matcher` cung cấp cơ chế thay thế dựa trên vòng lặp để tính toán động nội dung thay thế (ví dụ: chuyển văn bản thành chữ hoa, đánh giá các biểu thức toán học).
+- **`String.replace(target, replacement)`**: **Không** sử dụng regex; nó thực hiện tìm kiếm và thay thế chuỗi ký tự thuần túy.
+- **Tham chiếu ngược trong Thay thế**: Bạn có thể tham chiếu các nhóm đã chụp trong chuỗi thay thế bằng ký tự `$groupNumber` (ví dụ: `$1`).
+- **Thay thế Nâng cao (`appendReplacement`/`appendTail`)**: Lớp `Matcher` cung cấp cơ chế thay thế dựa trên vòng lặp để tính toán động các chuỗi thay thế (ví dụ: chuyển văn bản thành chữ hoa, tính toán các biểu thức toán học).
 
-#### Ví dụ mã nguồn: Hoán đổi từ bằng cách sử dụng tham chiếu ngược nhóm thu giữ (Code Example: Swapping Words using Capturing Group Backreferences)
+#### Ví dụ Code: Hoán đổi từ bằng cách sử dụng Tham chiếu ngược của Nhóm chụp
 ```java
 public class ReplaceGroup {
     public static void main(String[] args) {
         String text = "John Doe, Jane Smith";
-        // Swaps FirstName LastName to LastName, FirstName
+        // Hoán đổi Ten Ho thành Ho, Ten
         String result = text.replaceAll("(\\w+)\\s+(\\w+)", "$2, $1");
         System.out.println(result); // Output: "Doe, John, Smith, Jane"
     }
 }
 ```
 
-#### Ví dụ mã nguồn: Thay thế động với appendReplacement (Code Example: Dynamic Replacements with appendReplacement)
+#### Ví dụ Code: Thay thế Động với appendReplacement
 ```java
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
@@ -238,16 +223,16 @@ public class DynamicReplacement {
 
 ---
 
-### Phân tách bằng regex (Split using regex)
+### Tách chuỗi bằng biểu thức chính quy (Split using regex)
 
-`String.split(regex)` phân tách chuỗi đầu vào xung quanh các kết quả khớp của biểu thức chính quy.
+`String.split(regex)` tách chuỗi đầu vào xung quanh các kết quả khớp của biểu thức chính quy.
 
-- **Điểm lưu ý về chuỗi trống ở cuối (Trailing Empty Strings Gotcha)**: Theo mặc định, `String.split(regex)` hoặc `String.split(regex, 0)` loại bỏ tất cả các chuỗi trống ở cuối.
-- **Tham chiếu giới hạn (Limit)**:
-  - `limit > 0`: Phân tách chuỗi tối đa `limit - 1` lần; phần tử cuối cùng chứa toàn bộ văn bản chưa phân tách còn lại.
-  - `limit < 0`: Phân tách chuỗi nhiều lần nhất có thể, bảo toàn tất cả các chuỗi trống ở cuối.
+- **Lỗi Chuỗi rỗng ở Cuối**: Theo mặc định, `String.split(regex)` hoặc `String.split(regex, 0)` sẽ loại bỏ toàn bộ các chuỗi rỗng ở cuối.
+- **Tham số Limit**:
+  - `limit > 0`: Tách chuỗi tối đa `limit - 1` lần; phần tử cuối cùng chứa toàn bộ văn bản chưa tách còn lại.
+  - `limit < 0`: Tách chuỗi nhiều lần nhất có thể, bảo toàn mọi chuỗi rỗng ở cuối.
 
-#### Ví dụ mã nguồn: Hành vi của tham số giới hạn Split (Code Example: Split Limit Behaviors)
+#### Ví dụ Code: Các hành vi của Split Limit
 ```java
 import java.util.Arrays;
 
@@ -255,17 +240,17 @@ public class SplitDemo {
     public static void main(String[] args) {
         String data = "apple,banana,,orange,,";
         
-        // Default split (limit = 0): trailing empty strings are discarded
+        // Tách mặc định (limit = 0): các chuỗi rỗng ở cuối bị loại bỏ
         String[] splitDefault = data.split(",");
         System.out.println("Default: " + Arrays.toString(splitDefault));
         // Output: [apple, banana, , orange] (length 4, trailing commas ignored)
         
-        // Negative limit: preserves all trailing empty strings
+        // Limit âm: bảo toàn tất cả các chuỗi rỗng ở cuối
         String[] splitAll = data.split(",", -1);
         System.out.println("Limit < 0: " + Arrays.toString(splitAll));
         // Output: [apple, banana, , orange, , ] (length 6)
         
-        // Positive limit: splits into at most 2 elements
+        // Limit dương: tách tối đa thành 2 phần tử
         String[] splitTwo = data.split(",", 2);
         System.out.println("Limit = 2: " + Arrays.toString(splitTwo));
         // Output: [apple, banana,,orange,,] (length 2)
@@ -273,36 +258,36 @@ public class SplitDemo {
 }
 ```
 
-#### Sai lầm thường gặp: Phân tách dựa trên các ký tự đặc biệt của regex mà không thoát ký tự (Common Mistake: Splitting on regex special characters without escaping)
-Phân tách dựa trên các ký tự đặc biệt như dấu chấm `.`, gạch đứng `|`, hoặc dấu chấm hỏi `?` trực tiếp mà không thoát ký tự, vì chúng là các siêu ký tự (metacharacters) regex đang hoạt động.
+#### Lỗi thường gặp: Tách chuỗi theo các ký tự đặc biệt của regex mà không escape
+Tách chuỗi theo dấu chấm `.`, dấu gạch đứng `|`, hoặc dấu hỏi `?` trực tiếp mà không escape, vì chúng là các ký tự đặc biệt đang hoạt động của regex.
 ```java
 String ip = "192.168.1.1";
-// BAD: splits on "any character", returning an empty array!
+// SAI: tách theo "bất kỳ ký tự nào", trả về mảng rỗng!
 String[] bad = ip.split("."); 
 
-// CORRECT: escape the dot
+// ĐÚNG: escape dấu chấm
 String[] good = ip.split("\\."); 
 ```
 
-## Tại sao String.split loại bỏ các chuỗi trống ở cuối (Why String.split Discards Trailing Empty Strings)
+## Tại sao String.split Loại bỏ các Chuỗi rỗng ở Cuối
 
-Theo mặc định, phương thức `String.split(regex)` hoặc `String.split(regex, 0)` của Java được thiết kế để mang lại sự tiện lợi, giả định rằng các phân đoạn trống ở cuối do các bộ phân tách liên tiếp tạo ra là các dữ liệu nhiễu không mong muốn (ví dụ: phân tích cú pháp các danh sách phân tách bằng dấu phẩy có các dấu phẩy ở cuối). Để làm được điều này, công cụ regex sẽ phân tách hoàn toàn chuỗi, nhưng sau đó thực hiện một bước dọn dẹp hậu xử lý để cắt bớt bất kỳ chuỗi trống nào ở cuối khỏi mảng kết quả. Khi bạn cần bảo toàn tất cả các trường — chẳng hạn như khi phân tích cú pháp các bản ghi CSV nơi chuỗi trống ở cuối đại diện cho một ô cơ sở dữ liệu trống — bạn phải truyền một tham số giới hạn âm (như `-1`). Giới hạn âm này hướng dẫn công cụ phân tách nhiều lần nhất có thể và bỏ qua bước cắt bớt chuỗi trống ở cuối.
+Theo mặc định, phương thức `String.split(regex)` hoặc `String.split(regex, 0)` của Java được thiết kế để mang lại sự tiện lợi, giả định rằng các đoạn trống ở cuối do các dấu phân cách liên tiếp tạo ra là nhiễu không mong muốn (ví dụ: phân tích cú pháp danh sách phân tách bằng dấu phẩy có dấu phẩy ở cuối). Để làm điều này, công cụ regex tách chuỗi hoàn toàn, nhưng sau đó thực hiện một bước dọn dẹp hậu xử lý để cắt bỏ bất kỳ chuỗi rỗng nào ở cuối khỏi mảng kết quả. Khi bạn cần bảo toàn tất cả các trường—chẳng hạn như khi phân tích cú pháp các bản ghi CSV nơi một chuỗi rỗng ở cuối đại diện cho một ô cơ sở dữ liệu trống—bạn phải truyền một tham số giới hạn âm (chẳng hạn như `-1`). Giới hạn âm này hướng dẫn công cụ tách nhiều lần nhất có thể và bỏ qua bước cắt bỏ chuỗi trống ở cuối.
 
-#### Mô hình tư duy: Giới hạn mặc định so với Giới hạn âm (Default Limit vs. Negative Limit)
+#### Mô hình tư duy: Limit Mặc định so với Limit Âm
 
 ```
-Input: "A,B,,"
+Đầu vào: "A,B,,"
 
-Phân tách mặc định split(",") hoặc split(",", 0):
-Bước 1: Khớp bộ phân tách -> ["A", "B", "", ""]
-Bước 2: Dọn dẹp các phần tử trống ở cuối -> ["A", "B"]
+Tách mặc định split(",") hoặc split(",", 0):
+Bước 1: Khớp các dấu phân cách -> ["A", "B", "", ""]
+Bước 2: Dọn dẹp các phần tử rỗng ở cuối -> ["A", "B"]
 
-Giới hạn âm split(",", -1):
-Bước 1: Khớp bộ phân tách -> ["A", "B", "", ""]
+Tách với limit âm split(",", -1):
+Bước 1: Khớp các dấu phân cách -> ["A", "B", "", ""]
 Bước 2: Trả về trực tiếp mảng -> ["A", "B", "", ""]
 ```
 
-#### Ví dụ mã nguồn: So sánh mảng phân tách (Split Array Comparison)
+#### Ví dụ Code: So sánh Mảng được Tách
 
 ```java
 import java.util.Arrays;
@@ -311,43 +296,35 @@ public class SplitExplanation {
     public static void main(String[] args) {
         String input = "name,age,,";
         
-        // Discards trailing empty elements
+        // Loại bỏ các phần tử rỗng ở cuối
         String[] defaultSplit = input.split(",");
         System.out.println(Arrays.toString(defaultSplit)); // [name, age]
         
-        // Preserves all empty elements
+        // Bảo toàn tất cả các phần tử rỗng
         String[] rawSplit = input.split(",", -1);
         System.out.println(Arrays.toString(rawSplit)); // [name, age, , ]
     }
 }
 ```
 
-#### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
+#### Chuỗi Nguyên nhân - Kết quả
 
-
-```text
-Bộ phân tách khớp ở cuối đầu vào
-  → Công cụ tạo phần tử mảng chuỗi trống
-  → Giới hạn mặc định (`0`) kích hoạt quét sau phân tách
-  → Cắt bớt các chuỗi trống liên tiếp ở cuối
-  → Giới hạn âm (`-1`) bỏ qua quét sau phân tách
-  → Tất cả các phần tử mảng được bảo toàn.
-```
-
-
-## Liên kết tham khảo (Reference Links)
-
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html#split(java.lang.String,int) (String.split Java Documentation)
-- https://docs.oracle.com/javase/tutorial/essential/regex/bounds.html (Boundary Matchers Oracle Java Tutorial)
-
+Dấu phân cách khớp ở cuối đầu vào &rarr; Công cụ tạo phần tử mảng chuỗi rỗng &rarr; Limit mặc định (`0`) kích hoạt quét sau khi tách &rarr; Cắt bỏ các chuỗi rỗng liên tiếp ở cuối &rarr; Limit âm (`-1`) bỏ qua quét sau khi tách &rarr; Toàn bộ các phần tử mảng được bảo toàn.
 
 ---
 
-## Các câu hỏi ôn tập thường gặp (Common Review Prompts)
+## Liên kết Tham khảo
 
-- **Lookarounds ảnh hưởng đến hiệu suất khớp như thế nào?**
-  Lạm dụng các lookaround lồng nhau có thể gây giảm hiệu suất vì công cụ phải kiểm tra các khẳng định tại mọi vị trí chỉ số tiềm năng. Hãy giữ các lookaround đơn giản.
-- **Tại sao lookbehinds bị giới hạn ở độ dài cố định trong Java?**
-  Khác với lookaheads (tìm kiếm về phía trước vào văn bản chưa đọc), nhìn sau yêu cầu lùi lại vào bộ đệm khớp. Để giữ điều này hiệu quả, trình biên dịch regex phải biết chính xác mức độ cần lùi lại, ngăn chặn việc sử dụng các bộ định lượng regex tùy ý như `*` hoặc `+`.
-- **Làm thế nào để bảo toàn tất cả các trường trống khi phân tách dữ liệu CSV bằng split?**
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html#split(java.lang.String,int) (Tài liệu String.split Java)
+- https://docs.oracle.com/javase/tutorial/essential/regex/bounds.html (Tài liệu Boundary Matchers Oracle Java Tutorial)
+
+---
+
+## Các Câu Hỏi Ôn Tập Thường Gặp
+
+- **Lookaround ảnh hưởng đến hiệu năng so khớp như thế nào?**
+  Việc sử dụng quá nhiều lookaround lồng nhau có thể gây suy giảm hiệu năng vì công cụ phải kiểm tra các khẳng định tại mọi chỉ số ứng viên. Hãy giữ cho lookaround đơn giản.
+- **Tại sao lookbehind bị giới hạn ở độ rộng có giới hạn trong Java?**
+  Không giống như lookahead (tìm kiếm về phía trước trong văn bản chưa đọc), việc nhìn về phía sau yêu cầu lùi lại trong bộ đệm so khớp. Để giữ hiệu quả, trình biên dịch regex phải biết chính xác khoảng cách cần nhìn lại, ngăn chặn các bộ định lượng regex tùy ý như `*` hoặc `+`.
+- **Làm thế nào chúng ta có thể bảo toàn tất cả các trường trống khi phân tích cú pháp dữ liệu CSV bằng split?**
   Truyền một số nguyên giới hạn âm (ví dụ: `-1`) làm đối số thứ hai cho `String.split(regex, limit)`.

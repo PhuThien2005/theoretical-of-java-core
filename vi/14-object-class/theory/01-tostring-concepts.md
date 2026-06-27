@@ -1,37 +1,37 @@
-# Lớp Object (Object Class) - Phần 1
+# Lớp Object - Phần 1
 
-## Mục tiêu học tập (Learning Goal)
+## Mục Tiêu Học Tập
 
-Tập tin này bao gồm một phần trọng tâm về **Lớp Object (Object Class)**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, không phải là từ vựng riêng lẻ.
+Tài liệu này bao gồm một phần trọng tâm về **lớp Object (Object class)**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc thực tế trong Java, không chỉ đơn thuần là lý thuyết từ vựng.
 
-## Khái quát nội dung (Outline Coverage)
+## Tóm Tắt Nội Dung (Outline Coverage)
 
 | Khái niệm (Concept) | Điều cần biết (What to know) |
 | --- | --- |
-| `toString()` | toString() trả về một biểu diễn văn bản dễ đọc đối với con người của một đối tượng. |
-| `equals()` | equals() định nghĩa sự bằng nhau về mặt logic giữa các đối tượng. |
-| `hashCode()` | hashCode() trả về một mã băm kiểu số nguyên được sử dụng bởi các bộ sưu tập dựa trên bảng băm. |
-| `getClass()` | getClass() trả về đối tượng Class của một thực thể ở thời gian chạy. |
-| `clone()` | clone() tạo ra một bản sao theo từng trường khi việc nhân bản được hỗ trợ, nhưng nó thường bị tránh trong thiết kế Java hiện đại. |
-| `finalize() deprecated` | Hàm finalize() bị loại bỏ (Lưu ý: Mô tả gốc tiếng Anh mô tả sai từ khóa final, nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể). |
-| `wait()` | wait() giải phóng một khóa giám sát đối tượng và tạm dừng luồng (Thread) hiện tại cho đến khi nhận được thông báo hoặc hết thời gian chờ. |
-| `notify()` | notify() đánh thức một luồng đang chờ trên cùng một khóa giám sát đối tượng. |
-| `notifyAll()` | notifyAll() đánh thức tất cả các luồng đang chờ trên cùng một khóa giám sát đối tượng. |
-| `Why overriding equals() means you should also override hashCode()` | equals() định nghĩa sự bằng nhau về mặt logic giữa các đối tượng. |
+| `toString()` | `toString()` trả về một chuỗi văn bản biểu diễn đối tượng dưới dạng con người có thể đọc được. |
+| `equals()` | `equals()` định nghĩa sự bằng nhau mang tính logic (logical equality) giữa các đối tượng. |
+| `hashCode()` | `hashCode()` trả về một số nguyên băm (hash value) được sử dụng bởi các tập hợp dựa trên mã băm (hash-based collection). |
+| `getClass()` | `getClass()` trả về đối tượng `Class` tại thời điểm chạy (runtime) của một thể hiện. |
+| `clone()` | `clone()` tạo ra một bản sao sao chép từng trường (field-by-field copy) khi việc sao chép được hỗ trợ, nhưng phương thức này thường bị tránh dùng trong thiết kế Java hiện đại. |
+| `finalize() (đã bị loại bỏ)` | Từ khóa final có nghĩa là biến, phương thức, lớp, hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể. |
+| `wait()` | `wait()` giải phóng bộ giám sát đối tượng (object monitor) và tạm dừng luồng (thread) hiện tại cho đến khi nhận được thông báo hoặc hết thời gian chờ. |
+| `notify()` | `notify()` đánh thức một luồng đang chờ trên cùng bộ giám sát đối tượng đó. |
+| `notifyAll()` | `notifyAll()` đánh thức tất cả các luồng đang chờ trên cùng bộ giám sát đối tượng đó. |
+| `Tại sao ghi đè equals() đồng nghĩa với việc bạn cũng phải ghi đè hashCode()` | `equals()` định nghĩa sự bằng nhau mang tính logic giữa các đối tượng. |
 
-## Ghi chú chi tiết (Detailed Notes)
+## Ghi Chú Chi Tiết
 
 ### toString()
 
-`toString()` trả về một biểu diễn văn bản dễ đọc đối với con người của một đối tượng. Theo mặc định, `Object.toString()` trả về tên lớp, theo sau bởi ký tự `@` và biểu diễn thập lục phân (hexadecimal) không dấu của mã băm của đối tượng:
+`toString()` trả về một chuỗi văn bản biểu diễn đối tượng dưới dạng con người có thể đọc được. Theo mặc định, `Object.toString()` trả về tên lớp, theo sau là ký tự `@`, và biểu diễn thập lục phân không dấu của mã băm (hash code) của đối tượng đó:
 ```java
 public String toString() {
     return getClass().getName() + "@" + Integer.toHexString(hashCode());
 }
 ```
-Thực hành tốt nhất là ghi đè (override) `toString()` để trả về một biểu diễn ngắn gọn, nhiều thông tin về trạng thái của đối tượng, điều này cực kỳ hữu ích cho việc ghi log và gỡ lỗi.
+Việc ghi đè `toString()` là một thói quen lập trình tốt để trả về một chuỗi mô tả ngắn gọn nhưng đầy đủ thông tin về trạng thái của đối tượng, điều này cực kỳ hữu ích cho việc ghi log và gỡ lỗi (debugging).
 
-#### Ví dụ: Ghi đè `toString()` (Example: Overriding toString())
+#### Ví dụ: Ghi đè `toString()`
 ```java
 public class User {
     private final int id;
@@ -49,9 +49,9 @@ public class User {
 }
 ```
 
-## Tại sao toString được gọi tự động và các Tham chiếu vòng gây lỗi tràn ngăn xếp như thế nào (Why toString is Auto-Invoked and How Circular References Cause Stack Overflow)
+## Tại sao toString được Tự động Gọi và Cách Tham chiếu Vòng gây ra lỗi Tràn Ngăn Xếp
 
-Trong Java, phương thức `toString()` được gọi ngầm định bởi trình biên dịch trong quá trình nối chuỗi (string concatenation) và bởi các luồng đầu ra tiêu chuẩn như `System.out.println()`. Khi biên dịch mã nguồn như `"User: " + user`, trình biên dịch sẽ tạo ra bytecode gọi `String.valueOf(user)`, phương thức này kiểm tra xem tham chiếu đối tượng có phải là `null` hay không, và nếu không, nó sẽ gọi `user.toString()`. Một lỗ hổng thời gian chạy nghiêm trọng xảy ra khi hai đối tượng chứa các tham chiếu vòng (circular reference) đến nhau và các triển khai `toString()` của chúng in trạng thái của nhau. Khi `toString()` được gọi trên đối tượng thứ nhất, nó sẽ gọi `toString()` trên đối tượng thứ hai, đối tượng thứ hai sau đó lại gọi `toString()` trên đối tượng thứ nhất, dẫn đến đệ quy vô hạn. Đệ quy này nhanh chóng tiêu thụ hết dung lượng khung ngăn xếp (stack frame) thực thi của luồng, cuối cùng ném ra một `StackOverflowError` và làm sập ứng dụng.
+Trong Java, phương thức `toString()` được trình biên dịch gọi ngầm trong quá trình nối chuỗi (String concatenation) và bởi các luồng xuất chuẩn như `System.out.println()`. Khi biên dịch đoạn mã kiểu `"User: " + user`, trình biên dịch sẽ tạo ra mã byte gọi phương thức `String.valueOf(user)`, phương thức này kiểm tra xem tham chiếu đối tượng có `null` hay không, và nếu không, nó sẽ gọi `user.toString()`. Một lỗ hổng nghiêm trọng xảy ra tại thời điểm chạy khi hai đối tượng chứa tham chiếu vòng (Circular reference) lẫn nhau và các triển khai `toString()` của chúng in trạng thái của nhau. Khi `toString()` được gọi trên đối tượng thứ nhất, nó sẽ gọi `toString()` trên đối tượng thứ hai, và đối tượng thứ hai lại tiếp tục gọi `toString()` trên đối tượng thứ nhất, dẫn đến đệ quy vô hạn. Đệ quy này nhanh chóng làm cạn kiệt dung lượng khung ngăn xếp thực thi (execution stack frame) của luồng, cuối cùng ném ra lỗi `StackOverflowError` và làm sập ứng dụng.
 
 ```mermaid
 sequenceDiagram
@@ -59,13 +59,13 @@ sequenceDiagram
     participant NodeA as Node A
     participant NodeB as Node B
     Main->>NodeA: toString()
-    NodeA->>NodeB: toString() (accesses circular field)
-    NodeB->>NodeA: toString() (accesses circular field)
-    NodeA->>NodeB: toString() (accesses circular field)
-    Note over NodeA,NodeB: Infinite Recursion -> StackOverflowError
+    NodeA->>NodeB: toString() (truy cập trường vòng lặp)
+    NodeB->>NodeA: toString() (truy cập trường vòng lặp)
+    NodeA->>NodeB: toString() (truy cập trường vòng lặp)
+    Note over NodeA,NodeB: Đệ quy vô hạn -> StackOverflowError
 ```
 
-### Ví dụ mã nguồn: Tràn ngăn xếp do tham chiếu vòng (Circular Reference Stack Overflow)
+### Ví dụ Thực Tế: Tràn Ngăn Xếp do Tham Chiếu Vòng
 
 ```java
 public class CircularNode {
@@ -98,21 +98,21 @@ public class CircularNode {
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả của việc gọi toString() vòng lặp (Cause-Effect Chain of Circular toString())
+### Chuỗi Nguyên nhân - Kết quả của Circular toString()
 
 ```text
-Nối chuỗi / in dữ liệu kích hoạt việc gọi ngầm định String.valueOf() 
+Phép nối chuỗi / in ra kích hoạt việc gọi ngầm String.valueOf() 
   ↳ valueOf() gọi phương thức toString() do người dùng định nghĩa 
-  ↳ toString() gọi đệ quy toString() trên đối tượng liên kết vòng lặp 
-  ↳ Dung lượng khung ngăn xếp thực thi bị vượt quá 
+  ↳ toString() gọi đệ quy toString() trên đối tượng có liên kết vòng 
+  ↳ Khung ngăn xếp thực thi (Stack frame) vượt quá dung lượng cho phép 
   ↳ JVM ném ra StackOverflowError và chấm dứt luồng thực thi
 ```
 
 ### equals()
 
-`equals()` định nghĩa sự bằng nhau về mặt logic giữa các đối tượng. Theo mặc định, triển khai `Object.equals(Object obj)` kiểm tra sự bằng nhau về mặt tham chiếu (`this == obj`). Nếu bạn muốn so sánh các đối tượng dựa trên trạng thái của chúng (sự bằng nhau về mặt logic), bạn phải ghi đè `equals()`.
+`equals()` định nghĩa sự bằng nhau mang tính logic giữa các đối tượng. Theo mặc định, triển khai `Object.equals(Object obj)` kiểm tra sự bằng nhau về mặt tham chiếu (`this == obj`). Nếu bạn muốn so sánh các đối tượng dựa trên trạng thái của chúng (sự bằng nhau về logic), bạn phải ghi đè `equals()`.
 
-#### Ví dụ: Ghi đè `equals()` (Example: Overriding equals())
+#### Ví dụ: Ghi đè `equals()`
 ```java
 @Override
 public boolean equals(Object obj) {
@@ -123,25 +123,25 @@ public boolean equals(Object obj) {
 }
 ```
 
-## Tại sao việc Nạp chồng equals thay vì Ghi đè lại dẫn đến lỗi âm thầm (Why Overloading equals Instead of Overriding It Fails Silently)
+## Tại sao Nạp chồng equals Thay vì Ghi đè lại Gây lỗi Ngầm mà không có Cảnh báo
 
-Một sai lầm phổ biến và nguy hiểm trong Java là nạp chồng (overload) `equals()` bằng cách khai báo một phương thức như `public boolean equals(User other)` thay vì ghi đè (override) `public boolean equals(Object other)`. Trình biên dịch xem phương thức nạp chồng đó là một chữ ký phương thức hoàn toàn riêng biệt và biên dịch thành công mà không có bất kỳ cảnh báo nào. Tuy nhiên, việc phân giải phương thức của Java liên kết (bind) các tham số một cách tĩnh tại thời điểm biên dịch đối với các phương thức nạp chồng, trong khi nó liên kết động ở thời gian chạy đối với các phương thức ghi đè. Các bộ sưu tập Java tiêu chuẩn như `HashMap` và `ArrayList` là generic và hoạt động trên kiểu `Object`, nghĩa là chúng biên dịch các cuộc gọi đến `equals(Object)`. Do đó, khi các bộ sưu tập cố gắng kiểm tra sự bằng nhau, chúng sẽ bỏ qua phương thức nạp chồng `equals(User)` và chạy phương thức mặc định `Object.equals(Object)` thay thế, dẫn đến lỗi âm thầm nơi các khóa bằng nhau không được nhận diện.
+Một lỗi phổ biến và nguy hiểm trong Java là nạp chồng `equals()` bằng cách khai báo một phương thức như `public boolean equals(User other)` thay vì ghi đè `public boolean equals(Object other)`. Trình biên dịch coi phương thức nạp chồng này là một chữ ký phương thức hoàn toàn riêng biệt và biên dịch thành công mà không đưa ra bất kỳ cảnh báo nào. Tuy nhiên, cơ chế giải quyết phương thức của Java liên kết các tham số một cách tĩnh (Statically) tại thời điểm biên dịch đối với các phương thức nạp chồng, trong khi nó liên kết động (Dynamically) tại thời điểm chạy đối với các phương thức ghi đè. Các tập hợp tiêu chuẩn trong Java như `HashMap` và `ArrayList` có tính tổng quát (Generic) và hoạt động trên kiểu dữ liệu `Object`, nghĩa là chúng biên dịch các lệnh gọi `equals(Object)`. Do đó, khi các tập hợp này cố gắng kiểm tra sự bằng nhau, chúng sẽ bỏ qua phương thức nạp chồng `equals(User)` của bạn và chạy phương thức mặc định `Object.equals(Object)` thay thế, dẫn đến việc kiểm tra thất bại ngầm khi các khóa bằng nhau không được nhận diện.
 
 ```mermaid
 flowchart TD
-    subgraph Collection [ArrayList / HashMap Internals]
+    subgraph Collection [Bên trong ArrayList / HashMap]
         Call["elements[i].equals(searchKey)"]
     end
-    subgraph UserClass [User Class]
+    subgraph UserClass [Lớp User]
         Overload["equals(User other)"]
-        Default["equals(Object other) - Inherited from Object"]
+        Default["equals(Object other) - Kế thừa từ Object"]
     end
-    Call -->|Statically bound to Object type| Default
-    Default -->|Checks reference equality ==| Result["false (Different instances)"]
+    Call -->|Liên kết tĩnh với kiểu Object| Default
+    Default -->|Kiểm tra sự bằng nhau về tham chiếu ==| Result["false (Các thực thể khác nhau)"]
     style Overload fill:#faa,stroke:#333
 ```
 
-### Ví dụ mã nguồn: Lỗi bộ sưu tập âm thầm (Silent Collection Failure)
+### Ví dụ Thực Tế: Thất bại Ngầm của Tập Hợp
 
 ```java
 import java.util.ArrayList;
@@ -171,21 +171,21 @@ public class OverloadedUser {
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả của việc nạp chồng equals() (Cause-Effect Chain of Overloaded equals())
+### Chuỗi Nguyên nhân - Kết quả của phương thức equals() bị nạp chồng
 
 ```text
-Khai báo equals(User other) nạp chồng phương thức thay vì ghi đè equals(Object)
-  ↳ Các lớp bộ sưu tập gọi equals(Object) trên phần tử
+Khai báo equals(User other) nạp chồng thay vì ghi đè equals(Object)
+  ↳ Lớp tập hợp (Collection) gọi phương thức equals(Object) trên phần tử
   ↳ Java khớp chữ ký phương thức với Object.equals(Object) một cách tĩnh
-  ↳ Sự bằng nhau về tham chiếu mặc định (==) được thực thi thay vì so sánh giá trị tùy chỉnh
-  ↳ Quá trình tìm kiếm của bộ sưu tập thất bại âm thầm (trả về false)
+  ↳ Sự bằng nhau về mặt tham chiếu mặc định (==) được thực thi thay vì so sánh giá trị tùy chỉnh
+  ↳ Phép tìm kiếm trong tập hợp thất bại ngầm (trả về false)
 ```
 
 ### hashCode()
 
-`hashCode()` trả về một giá trị băm kiểu số nguyên cho đối tượng, được sử dụng bởi các bộ sưu tập dựa trên bảng băm như `HashMap`, `HashSet`, và `Hashtable` để xác định vị trí thùng (bucket location) để lưu trữ và truy xuất các khóa.
+`hashCode()` trả về một giá trị băm kiểu số nguyên cho đối tượng, được sử dụng bởi các tập hợp dựa trên mã băm như `HashMap`, `HashSet`, và `Hashtable` để xác định vị trí ngăn chứa (Bucket location) nhằm lưu trữ và truy xuất các khóa.
 
-#### Ví dụ: Ghi đè `hashCode()` (Example: Overriding hashCode())
+#### Ví dụ: Ghi đè `hashCode()`
 ```java
 @Override
 public int hashCode() {
@@ -195,11 +195,11 @@ public int hashCode() {
 
 ### getClass()
 
-`getClass()` là một phương thức final trong lớp `Object` trả về đối tượng runtime `java.lang.Class` đại diện cho lớp của thực thể đối tượng.
+`getClass()` là một phương thức chung cuộc (Final method) trong lớp `Object` dùng để trả về đối tượng lớp `java.lang.Class` tại thời điểm chạy biểu diễn lớp của thể hiện đó.
 
-#### `getClass()` so với `instanceof` (`getClass()` vs `instanceof`)
-- `instanceof` đánh giá thành `true` nếu đối tượng thuộc kiểu được chỉ định hoặc bất kỳ kiểu con (subtype) nào của nó. Nó cho phép kiểm tra đa hình.
-- `getClass()` cho phép khớp kiểu chính xác. Ví dụ: `obj.getClass() == User.class` kiểm tra xem đối tượng có chính xác là một `User` hay không (và không phải là một lớp con).
+#### `getClass()` so với `instanceof`
+- Toán tử `instanceof` đánh giá là `true` nếu đối tượng thuộc kiểu được chỉ định hoặc bất kỳ kiểu con nào của nó. Nó cho phép thực hiện các kiểm tra đa hình.
+- `getClass()` cho phép so sánh kiểu khớp chính xác. Ví dụ, `obj.getClass() == User.class` kiểm tra xem đối tượng có chính xác là một `User` hay không (và không phải là một lớp con nào khác).
 
 ```java
 class AdminUser extends User {
@@ -213,12 +213,12 @@ boolean isExact = user.getClass() == User.class; // false (runtime class is Admi
 
 ### clone()
 
-`clone()` tạo ra và trả về một bản sao theo từng trường (field-by-field copy) của đối tượng. 
-- Lớp đó phải triển khai interface đánh dấu (marker interface) `java.lang.Cloneable`, nếu không `super.clone()` sẽ ném ra `CloneNotSupportedException` ở thời gian chạy.
-- Theo mặc định, `Object.clone()` thực hiện một **bản sao nông (shallow copy)**. Nó sao chép tất cả các trường nguyên thủy và các tham chiếu của các trường đối tượng. Nó không nhân bản các đối tượng được tham chiếu.
-- Một **bản sao sâu (deep copy)** yêu cầu nhân bản thủ công các đối tượng có thể thay đổi (mutable object) được tham chiếu bởi các trường.
+`clone()` tạo và trả về một bản sao sao chép từng trường của đối tượng. 
+- Lớp muốn hỗ trợ sao chép phải triển khai giao diện đánh dấu (Marker interface) `java.lang.Cloneable`, nếu không `super.clone()` sẽ ném ra ngoại lệ `CloneNotSupportedException` tại thời điểm chạy.
+- Theo mặc định, `Object.clone()` thực hiện một **bản sao nông (Shallow copy)**. Nó sao chép tất cả các trường kiểu nguyên thủy và tham chiếu của các trường đối tượng. Nó không sao chép các đối tượng được tham chiếu.
+- Một **bản sao sâu (Deep copy)** yêu cầu sao chép thủ công các đối tượng có thể thay đổi (Mutable object) được tham chiếu bởi các trường.
 
-#### Ví dụ: Sao chép Nông so với Sao chép Sâu (Example: Shallow vs Deep Cloning)
+#### Ví dụ: Bản sao Nông so với Bản sao Sâu
 ```java
 class Address implements Cloneable {
     String city;
@@ -254,27 +254,27 @@ class Person implements Cloneable {
 }
 ```
 
-### finalize() bị loại bỏ (finalize() deprecated)
+### finalize() (đã bị loại bỏ)
 
-Trong lịch sử, `finalize()` được gọi bởi bộ thu gom rác (Garbage collection) trên một đối tượng khi GC xác định rằng không còn tham chiếu nào đến đối tượng đó nữa. Nó được thiết kế để dọn dẹp các tài nguyên không phải Java (như trình xử lý tệp hoặc kết nối cơ sở dữ liệu) trước khi đối tượng bị thu hồi.
+Trong lịch sử, `finalize()` được gọi bởi bộ thu gom rác (Garbage collector) trên một đối tượng khi GC xác định rằng không còn bất kỳ tham chiếu nào đến đối tượng đó nữa. Nó được thiết kế để dọn dẹp các tài nguyên không thuộc Java (như mô tả tệp - File handle hoặc kết nối cơ sở dữ liệu) trước khi đối tượng bị thu hồi.
 
-**Tại sao nó bị loại bỏ (kể từ Java 9):**
-1. **Không có sự đảm bảo**: Không có gì đảm bảo khi nào (hoặc thậm chí liệu) `finalize()` sẽ chạy, điều này có thể dẫn đến rò rỉ tài nguyên.
-2. **Ảnh hưởng hiệu năng**: Ghi đè `finalize()` làm chậm quá trình thu gom rác vì các đối tượng phải được xếp hàng và xử lý trong một hàng đợi finalization.
-3. **Sự hồi sinh & Lỗi finalize attack**: Một đối tượng có thể "hồi sinh" chính nó bên trong `finalize()` bằng cách gán `this` cho một tham chiếu static. Ngoài ra, nếu một hàm dựng ném ra một ngoại lệ, đối tượng được khởi tạo một phần vẫn đủ điều kiện để chạy finalize, cho phép mã độc chạy `finalize()` và truy cập vào trạng thái chưa khởi tạo của nó.
-4. **Các giải pháp thay thế hiện đại**: Sử dụng interface `AutoCloseable` với `try-with-resources`, hoặc sử dụng `java.lang.ref.Cleaner` / `PhantomReference` cho các hành động dọn dẹp.
+**Tại sao nó bị loại bỏ (từ Java 9):**
+1. **Không có Đảm bảo**: Không có gì đảm bảo thời điểm (hoặc thậm chí là liệu) `finalize()` có chạy hay không, điều này có thể dẫn đến rò rỉ tài nguyên.
+2. **Ảnh hưởng Hiệu năng**: Việc ghi đè `finalize()` làm chậm bộ thu gom rác (GC) vì các đối tượng phải được xếp hàng và xử lý trong một hàng đợi hủy (Finalization queue).
+3. **Sự Hồi sinh Đối tượng & Tấn công thông qua Phương thức Hủy**: Một đối tượng có thể tự "hồi sinh" bên trong `finalize()` bằng cách gán `this` cho một tham chiếu tĩnh. Ngoài ra, nếu hàm khởi tạo (Constructor) ném ra một ngoại lệ, đối tượng được khởi tạo một phần vẫn có đủ điều kiện để chạy phương thức hủy, cho phép mã độc hại chạy `finalize()` và truy cập vào trạng thái chưa được khởi tạo của nó.
+4. **Các giải pháp thay thế Hiện modern**: Sử dụng giao diện `AutoCloseable` với khối lệnh `try-with-resources`, hoặc sử dụng `java.lang.ref.Cleaner` / `PhantomReference` cho các hoạt động dọn dẹp.
 
 ### wait(), notify(), và notifyAll()
 
-Các phương thức này là các phương thức final của lớp `Object` được sử dụng để đồng bộ hóa luồng. Chúng cho phép các luồng phối hợp các hoạt động trên một khóa giám sát tài nguyên dùng chung (monitor/lock).
+Các phương thức này là các phương thức chung cuộc của lớp `Object` được sử dụng để đồng bộ hóa luồng (Thread synchronization). Chúng cho phép các luồng phối hợp hoạt động trên một bộ giám sát tài nguyên dùng chung (khóa - lock).
 
-- `wait()`: Giải phóng khóa trên monitor của đối tượng và làm cho luồng hiện tại chờ cho đến khi một luồng khác thông báo (notify) cho nó hoặc nó bị gián đoạn.
-- `notify()`: Đánh thức một luồng duy nhất đang chờ trên monitor của đối tượng.
-- `notifyAll()`: Đánh thức tất cả các luồng đang chờ trên monitor của đối tượng.
+- `wait()`: Giải phóng khóa trên bộ giám sát đối tượng và khiến luồng hiện tại chờ cho đến khi một luồng khác thông báo cho nó hoặc bị ngắt quãng.
+- `notify()`: Đánh thức một luồng đơn lẻ đang chờ trên bộ giám sát của đối tượng.
+- `notifyAll()`: Đánh thức tất cả các luồng đang chờ trên bộ giám sát của đối tượng.
 
 #### Quy tắc:
-1. Phải được gọi từ một ngữ cảnh **synchronized** (sở hữu monitor của đối tượng), nếu không chúng sẽ ném ra `IllegalMonitorStateException`.
-2. `wait()` nên luôn luôn được gọi trong một vòng lặp kiểm tra điều kiện đang được chờ đợi, để bảo vệ chống lại **các lần thức giấc giả (spurious wakeup)**.
+1. Phải được gọi từ một ngữ cảnh **đồng bộ hóa (Synchronized)** (sở hữu bộ giám sát của đối tượng), nếu không chúng sẽ ném ra ngoại lệ `IllegalMonitorStateException`.
+2. Phương thức `wait()` phải luôn được gọi trong một vòng lặp kiểm tra điều kiện đang chờ, nhằm bảo vệ chống lại các lần **đánh thức giả (Spurious wakeup)**.
 
 ```java
 public class QueueMonitor {
@@ -300,19 +300,19 @@ public class QueueMonitor {
 }
 ```
 
-### Tại sao việc ghi đè equals() đồng nghĩa với việc bạn cũng nên ghi đè hashCode() (Why overriding equals() means you should also override hashCode())
+### Tại sao ghi đè equals() đồng nghĩa với việc bạn cũng phải ghi đè hashCode()
 
-Đây là một trong những hợp đồng (contract) quan trọng nhất trong Java. Nếu bạn ghi đè `equals(Object)`, bạn **bắt buộc** phải ghi đè `hashCode()`.
-- Nếu hai đối tượng bằng nhau theo `equals(Object)`, chúng phải trả về cùng một số nguyên từ `hashCode()`.
-- Nếu bạn ghi đè `equals()` nhưng không ghi đè `hashCode()`, hai đối tượng bằng nhau về mặt logic sẽ kế thừa phương thức `Object.hashCode()` mặc định, trả về các số nguyên khác nhau (dựa trên vị trí bộ nhớ).
-- Khi các đối tượng này được sử dụng làm khóa trong một `HashMap` hoặc phần tử trong một `HashSet`, bộ sưu tập sẽ lưu trữ chúng ở các thùng (bucket) khác nhau. Do đó, việc truy xuất một đối tượng bằng cách sử dụng một khóa bằng nhau về mặt logic sẽ trả về `null` vì `HashMap` tìm kiếm ở sai thùng băm.
+Đây là một trong những ràng buộc (Contract) quan trọng nhất trong Java. Nếu bạn ghi đè `equals(Object)`, bạn **phải** ghi đè `hashCode()`.
+- Nếu hai đối tượng bằng nhau theo phương thức `equals(Object)`, chúng phải trả về cùng một giá trị số nguyên từ phương thức `hashCode()`.
+- Nếu bạn ghi đè `equals()` nhưng không ghi đè `hashCode()`, hai đối tượng bằng nhau về mặt logic sẽ kế thừa phương thức `Object.hashCode()` mặc định, phương thức này trả về các số nguyên khác nhau (dựa trên địa chỉ bộ nhớ).
+- Khi các đối tượng này được sử dụng làm khóa trong một `HashMap` hoặc phần tử trong một `HashSet`, tập hợp sẽ lưu trữ chúng ở các ngăn chứa (Bucket) khác nhau. Do đó, việc truy xuất một đối tượng bằng cách sử dụng một khóa tương đương logic sẽ trả về `null` vì `HashMap` tìm kiếm ở sai ngăn chứa.
 
 ---
 
-## Các lỗi thường gặp (Common Mistakes)
+## Các lỗi thường gặp
 
-### 1. Nạp chồng thay vì Ghi đè equals() (Overloading instead of Overriding equals())
-Một lỗi phổ biến là khai báo `equals(MyClass other)` thay vì `equals(Object other)`. Bởi vì Java khớp các chữ ký phương thức một cách tĩnh tại thời điểm biên dịch, các cuộc gọi từ mã framework hoặc API bộ sưu tập (vốn mong đợi `equals(Object)`) sẽ bỏ qua phương thức tùy chỉnh của bạn và chạy `Object.equals(Object)` mặc định.
+### 1. Nạp chồng thay vì Ghi đè `equals()`
+Một lỗi phổ biến là khai báo `equals(MyClass other)` thay vì `equals(Object other)`. Vì Java khớp các chữ ký phương thức một cách tĩnh tại thời điểm biên dịch, các cuộc gọi từ mã nguồn khung công tác hoặc API của tập hợp (vốn mong đợi nhận vào `equals(Object)`) sẽ bỏ qua phương thức tùy chỉnh của bạn và chạy phương thức mặc định `Object.equals(Object)`.
 ```java
 // WRONG: Overloads equals()
 public boolean equals(User other) {
@@ -330,23 +330,23 @@ public boolean equals(Object obj) {
 }
 ```
 
-### 2. Sửa đổi trạng thái bên trong equals(), hashCode(), hoặc toString() (Modifying state inside equals(), hashCode(), or toString())
-Các phương thức này nên là các hàm thuần túy (pure function) không gây ra tác dụng phụ (side-effect-free). Việc sửa đổi các biến thực thể bên trong chúng sẽ dẫn đến các lỗi không thể đoán trước.
+### 2. Thay đổi trạng thái bên trong `equals()`, `hashCode()`, hoặc `toString()`
+Các phương thức này phải là các hàm thuần túy và không có tác dụng phụ (Side-effect-free). Việc sửa đổi các biến thể hiện bên trong chúng dẫn đến các lỗi không thể lường trước được.
 
-### 3. Gọi các phương thức monitor bên ngoài khối synchronized (Calling monitor methods outside synchronized blocks)
-Việc gọi `wait()`, `notify()`, hoặc `notifyAll()` mà không giữ khóa giám sát của đối tượng (ví dụ: bên ngoài một khối/phương thức `synchronized` tương ứng với đối tượng đó) sẽ ném ra `IllegalMonitorStateException`.
+### 3. Gọi các phương thức giám sát bên ngoài các khối đồng bộ hóa
+Việc gọi `wait()`, `notify()`, hoặc `notifyAll()` mà không nắm giữ khóa giám sát đối tượng (ví dụ: bên ngoài một khối/phương thức `synchronized` tương ứng với đối tượng) sẽ ném ra ngoại lệ `IllegalMonitorStateException`.
 
-### 4. Dựa vào finalize() để dọn dẹp tài nguyên (Relying on finalize() for resource cleanup)
-Bởi vì việc thực thi GC là không xác định, việc sử dụng `finalize()` để đóng tệp hoặc socket sẽ dẫn đến cạn kiệt tài nguyên. Thay vào đó, hãy sử dụng `try-with-resources`.
+### 4. Dựa vào `finalize()` để dọn dẹp tài nguyên
+Vì hoạt động của bộ thu gom rác (GC) không mang tính xác định, việc sử dụng `finalize()` để đóng các tệp hoặc socket sẽ dẫn đến việc cạn kiệt tài nguyên. Thay vào đó, hãy sử dụng `try-with-resources`.
 
-## Liên kết tham khảo (Reference Links)
+## Liên kết Tham khảo
 
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object) (Java SE 21 Object.equals Contract)
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#toString() (Java SE 21 Object.toString Contract)
-- https://docs.oracle.com/javase/specs/jls/se21/html/jls-15.html#jls-15.18.1 (JLS 21 String Concatenation Operator +)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object) (Hợp đồng Java SE 21 Object.equals)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#toString() (Hợp đồng Java SE 21 Object.toString)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-15.html#jls-15.18.1 (JLS 21 Toán tử nối chuỗi +)
 
-## Các câu hỏi ôn tập thường gặp (Common Review Prompts)
+## Các Câu Hỏi Ôn Tập Thường Gặp
 
-- Khái niệm nào ở đây là quy tắc thời gian biên dịch (compile-time rule)?
-- Khái niệm nào ở đây ảnh hưởng đến hành vi thời gian chạy (runtime behavior)?
-- Khái niệm nào ở đây dễ là bẫy phỏng vấn?
+- Những khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch?
+- Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy?
+- Những khái niệm nào ở đây dễ trở thành bẫy khi phỏng vấn?

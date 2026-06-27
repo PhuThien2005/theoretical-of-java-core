@@ -1,37 +1,37 @@
 # Đóng Gói (Encapsulation)
 
-Đóng gói (encapsulation) là nguyên lý OOP thực hiện gom nhóm dữ liệu (các trường thực thể - instance fields) và các phương thức thao tác trên dữ liệu đó vào một đơn vị duy nhất (một lớp - class), đồng thời giới hạn quyền truy cập trực tiếp vào một số thành phần của đối tượng. Khái niệm này còn được gọi là **ẩn giấu dữ liệu (data hiding)**.
+Đóng gói (encapsulation) là một nguyên lý của lập trình hướng đối tượng (OOP) nhằm gộp dữ liệu (các trường thể hiện - instance fields) và các phương thức hoạt động trên dữ liệu đó thành một khối duy nhất (một lớp - class), đồng thời giới hạn quyền truy cập trực tiếp vào một số thành phần của đối tượng. Khái niệm này còn được gọi là **ẩn giấu dữ liệu (data hiding)**.
 
 ---
 
-## Các Bổ Từ Truy Cập Và Các Cấp Độ Phạm Vi (Access Modifiers and Scope Levels)
+## Các Từ Khóa Đặc Tả Truy Cập và Các Cấp Độ Phạm Vi (Access Modifiers and Scope Levels)
 
-Java cung cấp các bổ từ truy cập (access modifiers) để giới hạn phạm vi hiển thị ở hai cấp độ:
-1. **Cấp độ lớp (Class-level):** Một lớp ngoài cùng (top-level class) chỉ có thể được khai báo là `public` hoặc mặc định (default / package-private). Lớp ngoài cùng không được phép khai báo là `private` hoặc `protected` (ngoại trừ các lớp lồng nhau / lớp nội bộ - nested/inner classes).
-2. **Cấp độ thành viên (Member-level):** Các trường dữ liệu, phương thức và constructor có thể sử dụng cả bốn cấp độ hiển thị.
+Java cung cấp các từ khóa đặc tả truy cập (access modifier) để giới hạn khả năng hiển thị ở hai cấp độ:
+1. **Cấp độ lớp (Class-level):** Một lớp cấp cao nhất (top-level class) chỉ có thể được khai báo là `public` hoặc mặc định (package-private). Nó không thể được khai báo là `private` hoặc `protected` (ngoại trừ các lớp lồng nhau/lớp nội bộ).
+2. **Cấp độ thành viên (Member-level):** Các trường, phương thức và hàm khởi dựng (constructor) có thể sử dụng cả bốn cấp độ hiển thị.
 
-| Bổ từ truy cập (Modifier) | Bên trong cùng Class | Bên trong cùng Package | Lớp con ở Package khác | Mọi nơi (World) |
+| Từ khóa đặc tả truy cập | Bên trong cùng lớp | Bên trong cùng package | Lớp con ở package khác | Mọi nơi (World) |
 | :--- | :---: | :---: | :---: | :---: |
 | **`private`** | Có | Không | Không | Không |
-| **`default`** (không bổ từ) | Có | Có | Không | Không |
-| **`protected`** | Có | Có | Có (qua kế thừa) | Không |
+| **`default`** (không khai báo) | Có | Có | Không | Không |
+| **`protected`** | Có | Có | Có (thông qua kế thừa) | Không |
 | **`public`** | Có | Có | Có | Có |
 
-### Chi Tiết Về Các Phạm Vi Key:
-- **`private`:** Giới hạn quyền truy cập nghiêm ngặt chỉ dành cho các thành viên bên trong lớp định nghĩa nó. Đây là cấp độ được khuyến nghị hàng đầu cho tất cả các biến thực thể.
+### Giải Thích Các Phạm Vi Chính:
+- **`private`:** Giới hạn quyền truy cập nghiêm ngặt chỉ trong các thành viên của lớp định nghĩa nó. Khuyến nghị sử dụng cho tất cả các biến thể hiện.
 - **`default` (package-private):** Các thành viên chỉ có thể được truy cập bởi các lớp nằm trong cùng một package.
-- **`protected`:** Có thể được truy cập bởi các lớp trong cùng package, và bởi các lớp con (subclasses) nằm ở các package khác.
-  *Lưu ý:* Một lớp con ở package khác chỉ có thể truy cập thành viên `protected` của lớp cha thông qua cơ chế kế thừa (sử dụng biến tham chiếu thuộc kiểu lớp con), chứ không thể truy cập qua biến tham chiếu thuộc kiểu lớp cha.
-- **`public`:** Quyền truy cập hoàn toàn không bị giới hạn.
+- **`protected`:** Có thể truy cập được bởi các lớp nằm trong cùng package, và bởi các lớp con (subclass) nằm ở các package khác.
+  *Lưu ý:* Một lớp con ở package khác chỉ có thể truy cập thành viên `protected` của lớp cha thông qua cơ chế kế thừa (sử dụng biến tham chiếu thuộc kiểu lớp con), chứ không thể thông qua biến tham chiếu thuộc kiểu lớp cha.
+- **`public`:** Quyền truy cập không giới hạn.
 
 ---
 
-## Các Mẫu Thiết Kế Getter Và Setter (Getter and Setter Design Patterns)
+## Mẫu Thiết Kế Getter và Setter (Getter and Setter Design Patterns)
 
-Để tương tác với các trường dữ liệu private, các lớp sẽ bộc lộ các phương thức truy cập công khai (getters - accessor methods) và các phương thức thiết lập công khai (setters - mutator methods).
+Để tương tác với các trường private, các lớp sẽ cung cấp các phương thức truy xuất công khai (getter) và phương thức thay đổi trạng thái (setter).
 
-### Ví dụ Đóng Gói Tiêu Chuẩn
-Dưới đây là một lớp minh họa cấu trúc đóng gói tiêu chuẩn: các trường dữ liệu private, một parameterized constructor, và các phương thức getter/setter công khai để truy cập và sửa đổi trạng thái một cách có kiểm soát.
+### Ví Dụ Về Đóng Gói Tiêu Chuẩn
+Dưới đây là một lớp minh họa tính đóng gói tiêu chuẩn: các trường private, một hàm khởi dựng có tham số, và các phương thức getter/setter công khai để truy cập và sửa đổi trạng thái một cách có kiểm soát.
 
 ```java
 public class Employee {
@@ -40,7 +40,7 @@ public class Employee {
 
     public Employee(String name, double salary) {
         this.name = name;
-        setSalary(salary); // Bắt buộc kiểm tra hợp lệ ngay khi tạo đối tượng
+        setSalary(salary); // Bắt buộc kiểm chứng dữ liệu trong quá trình tạo đối tượng
     }
 
     public String getName() {
@@ -59,16 +59,16 @@ public class Employee {
         if (salary >= 0) {
             this.salary = salary;
         } else {
-            throw new IllegalArgumentException("Lương không được phép bị âm.");
+            throw new IllegalArgumentException("Lương không thể là số âm.");
         }
     }
 }
 ```
 
-Mẫu thiết kế này mang lại nhiều lợi ích thiết kế phần mềm:
+Mẫu thiết kế này đem lại nhiều lợi ích cho việc thiết kế phần mềm:
 
-### 1. Kiểm Tra Tính Hợp Lệ Dữ Liệu (Data Validation)
-Các phương thức Setter có thể chặn các đầu vào không hợp lệ để ngăn chặn trạng thái đối tượng bị sai lệch:
+### 1. Kiểm Chứng Dữ Liệu (Data Validation)
+Các phương thức setter có thể kiểm tra dữ liệu đầu vào để ngăn chặn các trạng thái không hợp lệ của đối tượng:
 ```java
 public void setAge(int age) {
     if (age >= 0 && age <= 120) {
@@ -80,39 +80,39 @@ public void setAge(int age) {
 ```
 
 ### 2. Kiểm Soát Chỉ Đọc (Read-Only) và Chỉ Ghi (Write-Only)
-- **Lớp Chỉ Đọc (Read-Only Class):** Chỉ bộc lộ các phương thức getter và không cung cấp setter. Rất hữu ích để tạo ra các container chứa trạng thái bất biến.
-- **Lớp Chỉ Ghi (Write-Only Class):** Chỉ bộc lộ các phương thức setter và không cung cấp getter (ví dụ: cập nhật thông tin mật khẩu bảo mật hoặc hệ thống ghi log chỉ ghi).
+- **Lớp Chỉ Đọc (Read-Only):** Cung cấp các phương thức getter nhưng không cung cấp setter. Hữu ích cho việc tạo ra các vùng chứa trạng thái có tính chất bất biến.
+- **Lớp Chỉ Ghi (Write-Only):** Cung cấp các phương thức setter nhưng không cung cấp getter (ví dụ: cập nhật mật khẩu cơ sở dữ liệu chỉ ghi hoặc hệ thống ghi log).
 
-### 3. Sao Chép Phòng Thủ (Defensive Copying - Cực kỳ quan trọng đối với kiểu tham chiếu)
-Việc bộc lộ các getter cho các đối tượng khả biến (như mảng hoặc danh sách list) sẽ phá vỡ tính đóng gói vì bên gọi có thể sửa đổi trực tiếp đối tượng thông qua tham chiếu được trả về. Các getter nên trả về các bản sao phòng thủ (defensive copies):
+### 3. Sao Chép Phòng Thủ (Defensive Copying - Quan Trọng Với Kiểu Tham Chiếu)
+Việc cung cấp getter cho các đối tượng có thể thay đổi (như danh sách ArrayList hoặc mảng) làm phá vỡ tính đóng gói vì bên gọi có thể sửa đổi trực tiếp đối tượng thông qua tham chiếu được trả về. Các phương thức getter nên trả về các bản sao phòng thủ (defensive copy):
 
 ```java
 class Team {
     private List<String> members = new ArrayList<>();
 
     // Getter dễ bị tổn thương:
-    // public List<String> getMembers() { return this.members; } // Bên gọi có thể chạy lệnh getMembers().clear()!
+    // public List<String> getMembers() { return this.members; } // Bên gọi có thể gọi getMembers().clear()!
 
-    // Getter được đóng gói an toàn:
+    // Getter đã đóng gói:
     public List<String> getMembers() {
-        return new ArrayList<>(this.members); // Trả về một bản sao độc lập
+        return new ArrayList<>(this.members); // Trả về một bản sao
     }
 }
 ```
 
 ---
 
-## Lợi Ích Của Tính Đóng Gói (Benefits of Encapsulation)
+## Lợi Ích Của Đóng Gói
 
-1. **Tính Linh Hoạt và Dễ Bảo Trì (Flexibility and Maintainability):** Bạn có thể thay đổi cấu trúc dữ liệu nội bộ của một lớp mà không làm ảnh hưởng đến mã nguồn bên ngoài đang phụ thuộc vào nó. Ví dụ, việc thay đổi một trường từ `private int age` thành `private LocalDate birthDate` hoàn toàn có thể thực hiện được trong khi chữ ký phương thức `getAge()` vẫn hoạt động bình thường bằng cách tính toán tuổi động ngay khi gọi.
-2. **Liên Kết Lỏng Lẻo (Loose Coupling):** Giảm thiểu sự phụ thuộc lẫn nhau giữa các lớp, giúp các thành phần trở nên mô-đun hóa và dễ thực hiện kiểm thử đơn vị (unit test) hơn.
-3. **Bảo Mật (Security):** Bảo vệ các trường dữ liệu khỏi các sửa đổi tùy tiện ngoài ý muốn từ bên ngoài lớp.
+1. **Tính Linh Hoạt và Dễ Bảo Trì:** Bạn có thể thay đổi cấu trúc dữ liệu nội bộ của một lớp mà không làm ảnh hưởng đến mã nguồn bên ngoài đang phụ thuộc vào nó. Ví dụ, việc thay đổi một trường từ `private int age` thành `private LocalDate birthDate` hoàn toàn có thể thực hiện được trong khi vẫn giữ nguyên chữ ký phương thức `getAge()` bằng cách tính toán số tuổi trực tiếp tại thời điểm gọi.
+2. **Liên Kết Lỏng Lẻo (Loose Coupling):** Giảm thiểu sự phụ thuộc giữa các lớp, giúp các thành phần trở nên mô-đun hóa và dễ dàng viết unit test hơn.
+3. **Bảo Mật:** Bảo vệ các trường thông tin khỏi các sửa đổi tùy tiện từ bên ngoài lớp.
 
-## Đi Sâu: Đóng Gói Không Chỉ Đơn Thuần Là Viết Getters Và Setters (Deep Review: Encapsulation Is More Than Getters And Setters)
+## Đi Sâu: Đóng Gói Không Chỉ Đơn Thuần Là Viết Getter Và Setter
 
-Đóng gói không phải là thói quen tự động tạo ra các phương thức getter và setter cho mọi trường dữ liệu. Nó là thói quen bảo vệ các bất biến (invariants) của đối tượng đằng sau một API được thiết kế có chủ đích.
+Đóng gói không phải là thói quen tự động tạo ra getter và setter cho mọi trường dữ liệu. Nó là thói quen bảo vệ các bất biến của đối tượng (object invariant) đằng sau một API được thiết kế có chủ đích.
 
-Một thiết kế yếu kém sẽ bộc lộ gián tiếp mọi trường dữ liệu ra ngoài:
+Một thiết kế yếu sẽ để lộ mọi trường dữ liệu một cách gián tiếp:
 
 ```java
 class User {
@@ -122,7 +122,7 @@ class User {
 }
 ```
 
-Một thiết kế mạnh mẽ hơn sẽ bộc lộ hành vi thay vì bộc lộ trạng thái thô:
+Một thiết kế mạnh mẽ hơn sẽ thể hiện hành vi thay vì trạng thái thô:
 
 ```java
 class User {
@@ -143,80 +143,80 @@ class User {
 
 ---
 
-## Các Lỗi Thường Gặp (Common Mistakes)
+## Lỗi Thường Gặp
 
-### 1. Nhắm Mắt Tạo Getters/Setters Cho Mọi Trường
-Việc tự động tạo getter và setter công khai cho tất cả các trường dữ liệu biến lớp đó trở thành một túi chứa trạng thái toàn cục, cho phép mã nguồn bên ngoài phá vỡ các quy tắc của đối tượng. Setter chỉ nên tồn tại nếu việc sửa đổi đó được cho phép về mặt logic và được kiểm tra hợp lệ.
+### 1. Vô Tư Tiết Lộ Mọi Trường Bằng Getter/Setter
+Việc tự động tạo getter và setter công khai cho tất cả các trường biến lớp đó thành một túi chứa trạng thái toàn cục (global state bag), cho phép mã bên ngoài vi phạm các quy tắc của đối tượng. Các phương thức setter chỉ nên tồn tại nếu việc sửa đổi được phép về mặt logic và đã được kiểm chứng.
 
-### 2. Rò Rỉ Tham Chiếu Nội Bộ (Leaking Internal References - Phá vỡ tính đóng gói)
-Bộc lộ các getter trả về trực tiếp tham chiếu của các cấu trúc khả biến nội bộ (ví dụ: `List`, `Map`, mảng) cho phép bên gọi thay đổi trực tiếp các tập hợp này từ bên ngoài.
+### 2. Làm Rò Rỉ Tham Chiếu Nội Bộ (Phá Vỡ Tính Đóng Gói)
+Việc cung cấp các phương thức getter cho các cấu trúc dữ liệu có thể thay đổi được bên trong (ví dụ: `List`, `Map`, mảng) cho phép bên gọi thay đổi trực tiếp các bộ sưu tập nội bộ đó.
 ```java
 class Wallet {
     private List<Coin> coins = new ArrayList<>();
-    // Lỗi: trả về trực tiếp tham chiếu nội bộ
+    // Sai lầm: trả về tham chiếu trực tiếp
     public List<Coin> getCoins() { return coins; } 
 }
-// Bên gọi có thể làm: wallet.getCoins().clear(); // Bỏ qua hoàn toàn sự kiểm soát của Wallet!
+// Bên gọi có thể thực hiện: wallet.getCoins().clear(); // vượt qua sự kiểm soát của Wallet!
 ```
-**Khắc phục:** Trả về một lớp bao bọc không thể sửa đổi (unmodifiable wrapper) hoặc một bản sao phòng thủ:
+**Khắc phục:** Trả về một wrapper không thể sửa đổi (unmodifiable wrapper) hoặc một bản sao phòng thủ:
 ```java
 public List<Coin> getCoins() { return Collections.unmodifiableList(coins); }
 ```
 
-### 3. Để Các Trường Ở Phạm Vi Package-Private (Quên bổ từ `private`)
-Việc bỏ qua bổ từ truy cập sẽ đưa biến về phạm vi mặc định package-private, cho phép bất kỳ lớp nào khác trong cùng package sửa đổi trực tiếp các trường dữ liệu đó. Hãy luôn khai báo các trường là `private` theo mặc định.
+### 3. Để Các Trường Ở Trạng Tính Package-Private (Quên Từ Khóa `private`)
+Việc bỏ qua các từ khóa đặc tả truy cập sẽ khiến chúng mặc định là package-private, cho phép bất kỳ lớp nào khác trong cùng package sửa đổi trực tiếp các trường. Luôn khai báo các trường là `private` theo mặc định.
 ```java
 class Account {
-    double balance; // Thiếu private! Bất kỳ lớp nào trong package đều có thể ghi account.balance = -9999;
+    double balance; // Thiếu private! Bất kỳ lớp nào trong package cũng có thể ghi account.balance = -9999;
 }
 ```
 
-### Danh Sách Kiểm Tra Đóng Gói (Encapsulation Checklist)
+### Bảng Kiểm Tra Tính Đóng Gói (Encapsulation Checklist)
 
-- Luôn khai báo các trường dữ liệu là private theo mặc định.
-- Bộc lộ các phương thức mô tả hành vi, chứ không chỉ mô tả nơi lưu trữ.
-- Kiểm tra tính hợp lệ của dữ liệu đầu vào trước khi thay đổi trạng thái đối tượng.
-- Trả về các bản sao phòng thủ đối với các đối tượng khả biến nội bộ.
-- Tránh viết các setter có thể đưa đối tượng vào trạng thái không hợp lệ.
+- Giữ các trường ở trạng thái private theo mặc định.
+- Cung cấp các phương thức mô tả hành vi, chứ không chỉ mô tả nơi lưu trữ dữ liệu.
+- Kiểm chứng dữ liệu đầu vào trước khi thay đổi trạng thái đối tượng.
+- Trả về các bản sao phòng thủ đối với các đối tượng nội bộ có thể thay đổi được.
+- Tránh các setter có thể đưa đối tượng vào trạng thái không hợp lệ.
 - Ưu tiên sử dụng các đối tượng bất biến khi trạng thái không cần phải thay đổi.
 
-## Liên Kết Tham Khảo (Reference Links)
+### Liên Kết Tham Chiếu
 
-- Tài liệu hướng dẫn Oracle Java - Các khái niệm OOP: https://docs.oracle.com/javase/tutorial/java/concepts/
-- Tài liệu hướng dẫn Oracle Java - Lớp và Đối tượng: https://docs.oracle.com/javase/tutorial/java/javaOO/index.html
-- Tài liệu Dev.java - Tổng quan OOP: https://dev.java/learn/oop/
+- Hướng dẫn của Oracle Java - Các khái niệm OOP: https://docs.oracle.com/javase/tutorial/java/concepts/
+- Hướng dẫn của Oracle Java - Lớp và Đối tượng: https://docs.oracle.com/javase/tutorial/java/javaOO/index.html
+- Tổng quan về OOP trên Dev.java: https://dev.java/learn/oop/
 
 ---
 
-## Tại Sao Các Biến Thực Thể Nên Khai Báo Private (Why Instance Variables Should Be Private)
+## Tại Sao Các Biến Thể Hiện Nên Để Ở Trạng Thái Private
 
-Khi một biến thực thể được khai báo là `private`, trình biên dịch Java sẽ thực thi một ranh giới truy cập nghiêm ngặt ngay ở cấp độ mã nguồn: mọi nỗ lực đọc hoặc ghi trường dữ liệu đó từ bên ngoài lớp khai báo đều tạo ra một lỗi ở thời điểm biên dịch trước khi bất kỳ byte bytecode nào được tạo ra. Đây là một sự đảm bảo ở cấp độ ngôn ngữ lập trình, chứ không phải cấp độ JVM — bản thân JVM không ngăn chặn quyền truy cập trường dữ liệu bằng bytecode; nó chỉ kiểm tra các cờ truy cập (access flags) được mã hóa trong file `.class` khi lớp đó được tải và liên kết. Trong thực tế, cơ chế Reflection (`Field.setAccessible(true)`) hoàn toàn có thể bỏ qua các cờ này và truy cập vào các trường `private` lúc runtime, nghĩa là JVM không thực sự ngăn chặn tất cả mọi quyền truy cập — nó chỉ từ chối truy cập qua các cách gọi thông thường. Những gì ngôn ngữ lập trình bắt buộc là không có file lớp được biên dịch hợp lệ nào có thể tham chiếu trực tiếp đến một trường `private` của lớp khác mà không gây ra lỗi biên dịch; chỉ có bytecode được cố ý tạo tác hoặc sử dụng reflection mới vượt qua được điều này. Việc khai báo các trường là `private` do đó giúp khóa chặt con đường phát triển thông thường: mọi sự thay đổi trạng thái bắt buộc phải đi qua các phương thức do bạn chủ động bộc lộ, cho phép bạn kiểm tra dữ liệu đầu vào, duy trì các bất biến và thay đổi biểu diễn nội bộ mà không làm ảnh hưởng đến bất kỳ mã nguồn bên gọi nào.
+Khi một biến thể hiện (instance variable) được khai báo là `private`, trình biên dịch Java sẽ bắt buộc giới hạn truy cập ở cấp độ mã nguồn: bất kỳ nỗ lực nào nhằm đọc hoặc ghi trường đó từ bên ngoài lớp định nghĩa nó đều tạo ra lỗi biên dịch (compile-time error) trước khi bất kỳ byte mã bytecode nào được tạo ra. Đây là sự đảm bảo ở cấp độ ngôn ngữ lập trình, chứ không phải đảm bảo ở cấp độ JVM — bản thân JVM không ngăn cản việc truy cập trường thông qua bytecode; nó chỉ kiểm tra các cờ truy cập (access flags) được mã hóa trong file `.class` khi lớp đó được tải và liên kết. Trong thực tế, cơ chế phản chiếu (reflection) (`Field.setAccessible(true)`) có thể bỏ qua các cờ đó và tiếp cận các trường `private` tại thời điểm chạy (runtime), nghĩa là JVM không thực sự ngăn chặn hoàn toàn mọi truy cập — nó chỉ từ chối truy cập thông qua cách gọi thông thường. Những gì ngôn ngữ bắt buộc là không có file class được biên dịch hợp lệ nào có thể tham chiếu đến một trường `private` của một lớp khác mà không gây ra lỗi trình biên dịch; chỉ có mã bytecode được tạo thủ công hoặc mã phản chiếu có chủ đích mới có thể vượt qua điều này. Do đó, việc đặt các trường ở trạng thái `private` sẽ khóa lại luồng phát triển thông thường: mọi sự thay đổi trạng thái phải đi qua các phương thức mà bạn chủ động cung cấp, cho phép bạn kiểm chứng dữ liệu đầu vào, duy trì các bất biến và thay đổi biểu diễn nội bộ mà không cần chạm vào bất kỳ mã gọi nào bên ngoài.
 
-### Mô Hình Khái Niệm
+### Mô Hình Tư Duy
 
 ```
-[Mã nguồn bên ngoài]            [Lớp Account]
-     |                              |
-     |  account.balance = -999;     |
-     |----------------------------> X  <-- Lỗi Biên dịch (bắt buộc ở cấp ngôn ngữ)
-     |                              |
-     |  account.setBalance(-999);   |
-     |----------------------------> [setBalance()]
-     |                              |  if (amount >= 0) this.balance = amount;
-     |                              |  else throw IllegalArgumentException
-     |                              |
-     |  // Vượt qua bằng Reflection:|
-     |  f.setAccessible(true);      |
-     |  f.set(acc, -999); --------> [JVM: kiểm tra cờ AccessibleObject]
-     |                              |  cờ == true → JVM cho phép ghi
-     |                              |  (JVM KHÔNG ngăn chặn; ngôn ngữ đã ngăn chặn từ lúc biên dịch)
+[Mã Bên Ngoài]                 [Lớp Account]
+      |                              |
+      |  account.balance = -999;     |
+      |----------------------------> X  <-- Lỗi Biên Dịch (bắt buộc ở cấp ngôn ngữ)
+      |                              |
+      |  account.setBalance(-999);   |
+      |----------------------------> [setBalance()]
+      |                              |  if (amount >= 0) this.balance = amount;
+      |                              |  else throw IllegalArgumentException
+      |                              |
+      |  // Vượt qua bằng Phản Chiếu: |
+      |  f.setAccessible(true);      |
+      |  f.set(acc, -999);      ---> [JVM: kiểm tra cờ AccessibleObject]
+      |                              |  cờ == true → JVM cho phép ghi
+      |                              |  (JVM không ngăn cản; ngôn ngữ đã ngăn chặn khi biên dịch)
 ```
 
-### Ví Dụ Code Minh Họa
+### Ví Dụ Mã Nguồn
 
 ```java
 public class Account {
-    private double balance; // private: trình biên dịch bắt buộc giới hạn quyền truy cập
+    private double balance; // private: trình biên dịch bắt buộc giới hạn truy cập
 
     public Account(double openingBalance) {
         setBalance(openingBalance);
@@ -230,7 +230,7 @@ public class Account {
         if (amount >= 0) {
             this.balance = amount;
         } else {
-            throw new IllegalArgumentException("Số dư không được phép bị âm: " + amount);
+            throw new IllegalArgumentException("Số dư không thể âm: " + amount);
         }
     }
 }
@@ -239,25 +239,26 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Account acc = new Account(500.0);
 
-        // acc.balance = -999; // Lỗi biên dịch: balance has private access in Account
+        // acc.balance = -999; // Lỗi Biên Dịch: balance có quyền truy cập private trong Account
 
         acc.setBalance(200.0);
-        System.out.println(acc.getBalance()); // Kết quả: 200.0
+        System.out.println(acc.getBalance()); // Đầu ra: 200.0
 
-        // Vượt qua kiểm tra bằng Reflection (JVM không ngăn chặn lúc runtime nếu setAccessible được dùng)
+        // Vượt qua giới hạn bằng phản chiếu (JVM không ngăn cản ở runtime nếu dùng setAccessible)
         java.lang.reflect.Field f = Account.class.getDeclaredField("balance");
         f.setAccessible(true);
-        f.set(acc, -999.0); // JVM cho phép thao tác này — lớp bảo vệ của ngôn ngữ đã không còn tác dụng
-        System.out.println(acc.getBalance()); // Kết quả: -999.0  ← bất biến đã bị phá vỡ!
+        f.set(acc, -999.0); // JVM cho phép — giới hạn của ngôn ngữ không còn tác dụng ở đây
+        System.out.println(acc.getBalance()); // Đầu ra: -999.0  ← bất biến bị vi phạm!
     }
 }
 ```
 
-### Chuỗi Nguyên Nhân - Kết Quả
-Trường dữ liệu được khai báo `private`
-&rarr; Trình biên dịch Java từ chối mọi truy cập dạng `obj.field` từ bên ngoài lớp ngay tại thời điểm biên dịch
-&rarr; Tất cả các thay đổi từ bên ngoài bắt buộc phải đi qua các phương thức setter công khai
-&rarr; Các phương thức setter có thể kiểm tra tính hợp lệ của đầu vào và duy trì tính toàn vẹn của lớp
-&rarr; Cấu trúc biểu diễn nội bộ có thể tự do thay đổi mà không làm lỗi các bên gọi
-&rarr; Các cờ truy cập JVM trong file `.class` ghi nhận thuộc tính `private`, nhưng lệnh `setAccessible(true)` thông qua reflection sẽ vượt qua chúng lúc runtime
-&rarr; Sự bắt buộc của ngôn ngữ (lúc biên dịch) mới là lớp bảo vệ thực sự; sự bắt buộc của JVM là một bước kiểm tra runtime mềm hơn mà reflection có thể ghi đè.
+### Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)
+
+Trường dữ liệu được khai báo là `private`
+→ Trình biên dịch Java từ chối mọi truy cập `obj.field` từ bên ngoài lớp tại thời điểm biên dịch
+→ Tất cả các thay đổi từ bên ngoài bắt buộc phải đi qua các phương thức setter công khai
+→ Các phương thức setter có thể kiểm chứng dữ liệu đầu vào và đảm bảo các bất biến của lớp
+→ Cấu trúc biểu diễn nội bộ có thể thay đổi tự do mà không làm hỏng mã nguồn của các lớp gọi nó
+→ Các cờ truy cập JVM trong file `.class` ghi nhận trạng thái `private`, nhưng `setAccessible(true)` qua phản chiếu có thể bỏ qua chúng tại thời điểm chạy
+→ Sự bắt buộc của ngôn ngữ (tại thời điểm biên dịch) là lớp bảo vệ thực sự; sự bắt buộc của JVM là một kiểm tra mềm hơn tại thời điểm chạy mà cơ chế phản chiếu có thể ghi đè.

@@ -1,53 +1,53 @@
-# Các Thuật Ngữ Về Biểu Thức Lambda (Lambda Expression Terms)
+# Các Thuật Ngữ Biểu Thức Lambda (Lambda Expression Terms)
 
-Sử dụng tài liệu này khi một từ ngữ trong phần lý thuyết có vẻ quá ngắn gọn. Mỗi thuật ngữ đều có định nghĩa, tầm quan trọng, điểm dễ nhầm lẫn và một ví dụ nhỏ đi kèm.
+Sử dụng tài liệu này khi một từ ngữ trong phần lý thuyết có vẻ quá ngắn gọn. Mỗi thuật ngữ đều đi kèm ý nghĩa, tầm quan trọng, hiểu lầm phổ biến và một ví dụ nhỏ.
 
-## lambda
+## Biểu thức Lambda (Lambda)
 
-Một biểu thức lambda là một khối giống như hàm nhỏ gọn được sử dụng ở những nơi mong đợi một interface chức năng (functional interface).
+Một biểu thức lambda là một khối mã dạng hàm ngắn gọn được sử dụng ở những nơi yêu cầu một giao diện chức năng (Functional interface).
 
-Tại sao nó quan trọng: Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống (pipeline) kiểu hàm. Một sự nhầm lẫn phổ biến là quên mất thao tác nào là lười biếng (lazy evaluation) và thao tác nào thực sự kích hoạt việc thực thi.
+**Tại sao điều này quan trọng:** Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống xử lý dạng hàm (Function-style pipeline). Một hiểu lầm phổ biến là quên mất thao tác nào là lười (lazy) và thao tác nào thực sự kích hoạt quá trình thực thi.
 
-Điểm dễ nhầm lẫn: Người học thường ghi nhớ từ `lambda` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
+**Hiểu lầm phổ biến:** Người học thường ghi nhớ từ `lambda` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.
 
-Ví dụ nhỏ: `n -> n > 0` là một lambda được sử dụng làm vị từ (predicate).
+**Ví dụ nhỏ:** `n -> n > 0` là một biểu thức lambda được sử dụng làm điều kiện lọc (Predicate).
 
-## kiểu mục tiêu (target typing)
+## Suy luận kiểu đích (Target typing)
 
-Kiểu mục tiêu (Target typing) là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và lỗi thường gặp của nó thay vì chỉ biết mỗi tên gọi.
+Suy luận kiểu đích là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại thay vì chỉ ghi nhớ tên gọi của nó.
 
-Tại sao nó quan trọng: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và lỗi thường gặp. Hãy ôn tập nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+**Tại sao điều này quan trọng:** Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 
-Điểm dễ nhầm lẫn: Người học thường ghi nhớ từ `target typing` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
+**Hiểu lầm phổ biến:** Người học thường ghi nhớ từ `suy luận kiểu đích` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.
 
-Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `target typing` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+**Ví dụ nhỏ:** Khi đọc mã nguồn, hãy tự hỏi: `suy luận kiểu đích` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-## tham chiếu phương thức (method reference)
+## Tham chiếu phương thức (Method reference)
 
-Tham chiếu phương thức (Method reference) là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và lỗi thường gặp của nó thay vì chỉ biết mỗi tên gọi.
+Tham chiếu phương thức là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại thay vì chỉ ghi nhớ tên gọi của nó.
 
-Tại sao nó quan trọng: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và lỗi thường gặp. Hãy ôn tập nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+**Tại sao điều này quan trọng:** Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 
-Điểm dễ nhầm lẫn: Người học thường ghi nhớ từ `method reference` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
+**Hiểu lầm phổ biến:** Người học thường ghi nhớ từ `tham chiếu phương thức` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.
 
-Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `method reference` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+**Ví dụ nhỏ:** Khi đọc mã nguồn, hãy tự hỏi: `tham chiếu phương thức` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-## chụp biến (variable capture)
+## Bắt giữ biến (Variable capture)
 
-Chụp biến (Variable capture) là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và lỗi thường gặp của nó thay vì chỉ biết mỗi tên gọi.
+Bắt giữ biến là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại thay vì chỉ ghi nhớ tên gọi của nó.
 
-Tại sao nó quan trọng: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và lỗi thường gặp. Hãy ôn tập nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+**Tại sao điều này quan trọng:** Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 
-Điểm dễ nhầm lẫn: Người học thường ghi nhớ từ `variable capture` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
+**Hiểu lầm phổ biến:** Người học thường ghi nhớ từ `bắt giữ biến` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.
 
-Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `variable capture` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+**Ví dụ nhỏ:** Khi đọc mã nguồn, hãy tự hỏi: `bắt giữ biến` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-## hiệu dụng final (effectively final)
+## Chung cuộc trên thực tế (Effectively final)
 
-Hiệu dụng final (Effectively final) có nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể.
+Chung cuộc (Final) có nghĩa là biến, phương thức, lớp, hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể.
 
-Tại sao nó quan trọng: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và lỗi thường gặp. Hãy ôn tập nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+**Tại sao điều này quan trọng:** Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 
-Điểm dễ nhầm lẫn: Người học thường ghi nhớ từ `effectively final` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
+**Hiểu lầm phổ biến:** Người học thường ghi nhớ từ `chung cuộc trên thực tế` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.
 
-Ví dụ nhỏ: `final int limit = 10;` không thể bị gán lại giá trị khác.
+**Ví dụ nhỏ:** `final int limit = 10;` không thể bị gán lại giá trị khác.

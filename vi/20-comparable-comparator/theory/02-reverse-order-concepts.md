@@ -1,93 +1,93 @@
-# Comparable và Comparator - Phần 2 (Comparable and Comparator - Part 2)
+# Comparable và Comparator - Phần 2
 
 ## Mục Tiêu Học Tập (Learning Goal)
 
-Tài liệu này đề cập đến một phần trọng tâm của **Comparable và Comparator**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải là những thuật ngữ riêng lẻ.
+Tài liệu này trình bày một phần trọng tâm về **Comparable và Comparator**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải là những từ vựng rời rạc.
 
-## Phạm Vi Outline (Outline Coverage)
+## Phạm Vi Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Những điều cần biết (What to know) |
+| Khái niệm | Thông tin cần biết |
 | --- | --- |
-| `Reverse order` | Đảo ngược thứ tự (Reverse order) là một khái niệm cụ thể trong `Comparable` và `Comparator`; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và lỗi thường gặp của nó thay vì chỉ biết mỗi tên gọi. |
-| `Null handling:` | Xử lý giá trị null (Null handling) là một nhóm các quy tắc liên quan trong `Comparable` và `Comparator` nhóm lại một số chi tiết liên quan. |
-| `nullsFirst` | `nullsFirst` là một khái niệm cụ thể trong `Comparable` và `Comparator`; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và lỗi thường gặp của nó thay vì chỉ biết mỗi tên gọi. |
-| `nullsLast` | `nullsLast` là một khái niệm cụ thể trong `Comparable` và `Comparator`; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và lỗi thường gặp của nó thay vì chỉ biết mỗi tên gọi. |
+| `Reverse order` |Thứ tự đảo ngược (Reverse order) là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và các lỗi thường gặp của nó thay vì chỉ nhớ mỗi tên gọi. |
+| `Null handling:` |Xử lý giá trị null (Null handling) là một nhóm các quy tắc liên quan trong Comparable và Comparator, tập hợp nhiều chi tiết liên quan lại với nhau. |
+| `nullsFirst` |nullsFirst là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và các lỗi thường gặp của nó thay vì chỉ nhớ mỗi tên gọi. |
+| `nullsLast` |nullsLast là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và các lỗi thường gặp của nó thay vì chỉ nhớ mỗi tên gọi. |
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 
-### Đảo ngược thứ tự (Reverse order)
+### Thứ tự đảo ngược (Reverse order)
 
-Đảo ngược thứ tự cho phép sắp xếp các phần tử theo trình tự ngược lại với trình tự thông thường của chúng.
+Thứ tự đảo ngược cho phép sắp xếp các phần tử theo trình tự ngược lại với trình tự thông thường của chúng.
 
-#### Giải thích chi tiết (Enriched Explanation)
+#### Giải Thích Chi Tiết (Enriched Explanation)
 Có hai cách chính để đảo ngược thứ tự sắp xếp trong Java 8+:
-1. `Comparator.reverseOrder()`: Một phương thức tiện ích tĩnh trả về một bộ so sánh áp dụng thứ tự đảo ngược của **thứ tự tự nhiên (natural ordering)** trên các đối tượng `Comparable`.
-2. `comparator.reversed()`: Một phương thức mặc định trên một thực thể `Comparator` hiện có để trả về một bộ so sánh mới áp dụng thứ tự đảo ngược của bộ so sánh ban đầu.
+1. `Comparator.reverseOrder()`: Một phương thức tiện ích tĩnh (static utility method) trả về một bộ so sánh áp đặt thứ tự ngược lại với thứ tự tự nhiên (natural ordering) trên các đối tượng `Comparable`.
+2. `comparator.reversed()`: Một phương thức mặc định (default method) trên một thể hiện `Comparator` hiện có, trả về một bộ so sánh mới áp đặt thứ tự đảo ngược của bộ so sánh ban đầu.
 
-#### Ví dụ mã nguồn (Code Example)
+#### Ví Dụ Mã Nguồn (Code Example)
 ```java
 List<String> list = new ArrayList<>(List.of("A", "C", "B"));
-// Đảo ngược thứ tự tự nhiên
-list.sort(Comparator.reverseOrder()); // [C, B, A]Custom
+// Reversing natural ordering
+list.sort(Comparator.reverseOrder()); // [C, B, A]
 
-// Đảo ngược thứ tự tùy biến (theo độ dài)
+// Reversing custom ordering (by length)
 Comparator<String> lenComp = Comparator.comparingInt(String::length);
 list.sort(lenComp.reversed());
 ```
 
-#### Lỗi thường gặp & Chế độ thất bại (Gotchas & Failure Modes)
-- **Bẫy đảo ngược chuỗi so sánh (Chaining Reversal Trap)**: Một lỗi rất phổ biến là đảo ngược một bộ so sánh chuỗi (chained comparator) không chính xác.
+#### Điểm Cần Lưu Ý & Các Trường Hợp Lỗi (Gotchas & Failure Modes)
+- **Bẫy đảo ngược chuỗi (Chaining Reversal Trap)**: Một lỗi cực kỳ phổ biến là đảo ngược một bộ so sánh chuỗi (chained comparator) không đúng cách.
   ```java
-  // BỊ LỖI: Lệnh này đảo ngược TOÀN BỘ chuỗi (cả phòng ban và lương)
+  // Trapped: This reverses the ENTIRE chain (both department and salary)
   Comparator<Employee> comp = Comparator.comparing(Employee::getDepartment)
                                         .thenComparingDouble(Employee::getSalary)
                                         .reversed();
   ```
-  Nếu bạn chỉ muốn lương được sắp xếp theo thứ tự giảm dần trong khi phòng ban vẫn giữ thứ tự tăng dần, hãy áp dụng phép đảo ngược cụ thể cho bộ so sánh lương:
+  Nếu bạn chỉ muốn sắp xếp lương theo thứ tự giảm dần trong khi phòng ban vẫn giữ nguyên thứ tự tăng dần, hãy áp dụng phép đảo ngược cụ thể cho bộ so sánh lương:
   ```java
-  // ĐÃ SỬA: Chỉ có lương bị đảo ngược
+  // Corrected: Only salary is reversed
   Comparator<Employee> comp = Comparator.comparing(Employee::getDepartment)
                                         .thenComparing(Comparator.comparingDouble(Employee::getSalary).reversed());
   ```
 
 ### Xử lý giá trị null (Null handling)
 
-Xử lý giá trị null là cực kỳ quan trọng vì các hoạt động so sánh mặc định sẽ ném ra `NullPointerException` khi gặp các giá trị null.
+Xử lý giá trị null đóng vai trò rất quan trọng vì các phép toán so sánh mặc định sẽ ném ra ngoại lệ `NullPointerException` khi gặp các giá trị `null`.
 
-#### Giải thích chi tiết (Enriched Explanation)
-Theo mặc định, việc so sánh các giá trị `null` bằng cách sử dụng `compareTo` hoặc các bộ so sánh tiêu chuẩn sẽ ném ra `NullPointerException`. Java 8 giới thiệu các bộ trang trí tiện ích (utility decorators) `Comparator.nullsFirst` và `Comparator.nullsLast` để giúp bất kỳ bộ so sánh nào trở nên an toàn với null (null-safe) bằng cách chỉ định các giá trị null sẽ được sắp xếp lên đầu hoặc xuống cuối collection.
+#### Giải Thích Chi Tiết (Enriched Explanation)
+Theo mặc định, việc so sánh các giá trị `null` bằng cách sử dụng `compareTo` hoặc các bộ so sánh tiêu chuẩn sẽ ném ra `NullPointerException`. Java 8 đã giới thiệu các trình trang trí tiện ích (utility decorator) `Comparator.nullsFirst` và `Comparator.nullsLast` để giúp mọi bộ so sánh trở nên an toàn với giá trị null (null-safe) bằng cách chỉ định xem các giá trị null nên được xếp vào đầu hay cuối tập hợp.
 
-#### Ví dụ mã nguồn (Code Example)
+#### Ví Dụ Mã Nguồn (Code Example)
 ```java
 List<String> list = Arrays.asList("Apple", null, "Banana");
-// Nếu không xử lý null, lệnh này sẽ ném ra NPE:
+// Without null handling, this throws NPE:
 // list.sort(Comparator.naturalOrder()); 
 
-// Xử lý null an toàn:
+// Safe null handling:
 list.sort(Comparator.nullsFirst(Comparator.naturalOrder())); // [null, Apple, Banana]
 ```
 
-#### Lỗi thường gặp & Chế độ thất bại (Gotchas & Failure Modes)
-- **Bộ so sánh hạ nguồn bị Null (Null Downstream Comparator)**: Nếu bạn truyền `null` vào `nullsFirst` hoặc `nullsLast` (ví dụ: `Comparator.nullsFirst(null)`), tất cả các giá trị phi null sẽ được coi là bằng nhau, dẫn đến thứ tự tương đối của chúng được giữ nguyên (hoặc hoàn toàn không được sắp xếp), trong khi các giá trị null bị đẩy về biên.
+#### Điểm Cần Lưu Ý & Các Trường Hợp Lỗi (Gotchas & Failure Modes)
+- **Bộ so sánh hạ nguồn Null (Null Downstream Comparator)**: Nếu bạn truyền `null` vào `nullsFirst` hoặc `nullsLast` (ví dụ: `Comparator.nullsFirst(null)`), tất cả các giá trị không null sẽ được coi là bằng nhau, dẫn đến việc thứ tự tương đối của chúng được giữ nguyên (hoặc hoàn toàn không được sắp xếp), trong khi các giá trị null bị đẩy về biên tập hợp.
 
 ### nullsFirst
 
-`nullsFirst` là một công cụ tiện ích để sắp xếp các giá trị null đứng trước các giá trị phi null.
+`nullsFirst` là một tiện ích để sắp xếp các giá trị null trước các giá trị không null.
 
-#### Giải thích chi tiết (Enriched Explanation)
-`Comparator.nullsFirst(Comparator<? super T> downstream)` trả về một bộ so sánh thân thiện với null (null-friendly) coi các giá trị `null` nhỏ hơn các giá trị phi null. Nếu cả hai phần tử được so sánh đều khác null, nó sẽ ủy quyền (delegate) cho bộ so sánh `downstream` được cung cấp.
+#### Giải Thích Chi Tiết (Enriched Explanation)
+`Comparator.nullsFirst(Comparator<? super T> downstream)` trả về một bộ so sánh thân thiện với null (null-friendly) coi các giá trị `null` nhỏ hơn các giá trị không null. Nếu cả hai phần tử được so sánh đều khác null, nó sẽ ủy quyền cho bộ so sánh hạ nguồn (downstream) được cung cấp.
 
-#### Ví dụ mã nguồn (Code Example)
+#### Ví Dụ Mã Nguồn (Code Example)
 ```java
 List<Integer> list = Arrays.asList(5, null, 2, null, 8);
 list.sort(Comparator.nullsFirst(Comparator.naturalOrder()));
 System.out.println(list); // [null, null, 2, 5, 8]
 ```
 
-#### Lỗi thường gặp & Chế độ thất bại (Gotchas & Failure Modes)
-- **Lỗi NPE khi trích xuất không được trang trí (NPE on Un-Decorated Extraction)**: Nếu bạn sử dụng `Comparator.comparing(Employee::getName)` và thuộc tính name là `null`, `nullsFirst` được đặt bên ngoài bộ so sánh ngoài cùng sẽ KHÔNG ngăn chặn được NPE nếu bản thân hàm trích xuất khóa trả về `null`. Bạn phải làm cho việc so sánh khóa trở nên an toàn với null:
+#### Điểm Cần Lưu Ý & Các Trường Hợp Lỗi (Gotchas & Failure Modes)
+- **Lỗi NPE khi trích xuất không được trang trí (NPE on Un-Decorated Extraction)**: Nếu bạn sử dụng `Comparator.comparing(Employee::getName)` và thuộc tính tên bị `null`, việc đặt `nullsFirst` bọc ngoài bộ so sánh sẽ KHÔNG ngăn được lỗi NPE nếu bản thân bộ trích xuất khóa (key extractor) trả về giá trị `null`. Bạn phải đảm bảo phép so sánh khóa được an toàn với giá trị null:
   ```java
-  // Cách an toàn để xử lý tên bị null:
+  // Safe way to handle null names:
   Comparator<Employee> comp = Comparator.comparing(
       Employee::getName, 
       Comparator.nullsFirst(Comparator.naturalOrder())
@@ -96,42 +96,42 @@ System.out.println(list); // [null, null, 2, 5, 8]
 
 ### nullsLast
 
-`nullsLast` là một công cụ tiện ích để sắp xếp các giá trị null đứng sau các giá trị phi null.
+`nullsLast` là một tiện ích để sắp xếp các giá trị null sau các giá trị không null.
 
-#### Giải thích chi tiết (Enriched Explanation)
-`Comparator.nullsLast(Comparator<? super T> downstream)` trả về một bộ so sánh thân thiện với null coi các giá trị `null` lớn hơn các giá trị phi null. Nếu cả hai phần tử đều khác null, nó sẽ ủy quyền cho bộ so sánh `downstream`.
+#### Giải Thích Chi Tiết (Enriched Explanation)
+`Comparator.nullsLast(Comparator<? super T> downstream)` trả về một bộ so sánh thân thiện với null coi các giá trị `null` lớn hơn các giá trị không null. Nếu cả hai phần tử đều khác null, nó sẽ ủy quyền cho bộ so sánh hạ nguồn.
 
-#### Ví dụ mã nguồn (Code Example)
+#### Ví Dụ Mã Nguồn (Code Example)
 ```java
 List<Integer> list = Arrays.asList(5, null, 2, null, 8);
 list.sort(Comparator.nullsLast(Comparator.naturalOrder()));
 System.out.println(list); // [2, 5, 8, null, null]
 ```
 
-#### Lỗi thường gặp & Chế độ thất bại (Gotchas & Failure Modes)
-- **Đóng hộp kiểu nguyên thủy so với Kiểu bao bọc (Wrapper vs Primitive Boxing)**: Nếu bộ so sánh hạ nguồn sử dụng so sánh kiểu nguyên thủy (như `comparingInt`), việc sắp xếp một danh sách chứa các đối tượng bao bọc (wrapper object) bị `null` có thể gây ra `NullPointerException` trong quá trình tự động mở hộp (auto-unboxing) trước khi bộ so sánh có thể chạy. Hãy đảm bảo collection của bạn chứa các đối tượng và sử dụng các bộ so sánh dựa trên đối tượng với lớp bọc an toàn với null.
+#### Điểm Cần Lưu Ý & Các Trường Hợp Lỗi (Gotchas & Failure Modes)
+- **Đóng hộp giữa lớp bọc và kiểu nguyên thủy (Wrapper vs Primitive Boxing)**: Nếu bộ so sánh hạ nguồn sử dụng các phép so sánh nguyên thủy (như `comparingInt`), việc sắp xếp một danh sách chứa các đối tượng bọc (wrapper object) bị `null` có thể gây ra lỗi `NullPointerException` trong quá trình tự động giải bọc (auto-unboxing) trước khi bộ so sánh có thể chạy. Hãy đảm bảo tập hợp của bạn chứa các đối tượng và sử dụng các bộ so sánh dựa trên đối tượng được bọc an toàn với giá trị null.
 
-## Tại Sao Java Sử Dụng Dual-Pivot Quicksort Cho Kiểu Nguyên Thủy Nhưng Sử Dụng TimSort Cho Đối Tượng (Why Java Uses Dual-Pivot Quicksort for Primitives but TimSort for Objects)
+## Tại sao Java Sử dụng Dual-Pivot Quicksort cho Kiểu Nguyên Thủy nhưng dùng TimSort cho Đối Tượng (Why Java Uses Dual-Pivot Quicksort for Primitives but TimSort for Objects)
 
-Java phân tách các thuật toán sắp xếp mảng dựa trên việc đầu vào chứa các giá trị nguyên thủy (primitive) hay các tham chiếu đối tượng (object reference). Các kiểu nguyên thủy là các kiểu giá trị thuần túy không có định danh riêng biệt, nghĩa là tính ổn định của sắp xếp (sorting stability) — việc bảo toàn thứ tự đầu vào tương đối của các phần tử bằng nhau — là không phù hợp vì một giá trị nguyên thủy `7` hoàn toàn không thể phân biệt được với một giá trị `7` khác. Để tối ưu hóa hiệu suất, JDK sử dụng **Dual-Pivot Quicksort** cho các mảng nguyên thủy vì nó hiệu quả cao về bộ nhớ đệm (cache-efficient), yêu cầu không gian ngăn xếp phụ trợ nhỏ $O(\log N)$ và thực thi nhanh hơn trên bộ nhớ thô. Ngược lại, các đối tượng có định danh, tham chiếu và thuộc tính riêng biệt, nghĩa là tính ổn định của sắp xếp là bắt buộc để đảm bảo rằng việc sắp xếp các phần tử theo tiêu chí phụ không làm xáo trộn thứ tự đã được thiết lập bởi lượt sắp xếp chính trước đó. Do đó, Java sử dụng **TimSort** (sự kết hợp giữa sắp xếp trộn - merge sort và sắp xếp chèn - insertion sort) cho các mảng đối tượng, giúp đảm bảo hiệu suất trường hợp xấu nhất ổn định là $O(N \log N)$ và thích ứng hiệu quả với các đoạn đã được sắp xếp trước, mặc dù nó yêu cầu bộ nhớ lưu trữ phụ trợ $O(N)$ để quản lý các đoạn chạy.
+Java phân chia các thuật toán sắp xếp mảng dựa trên việc dữ liệu đầu vào chứa các giá trị nguyên thủy hay các tham chiếu đối tượng. Các kiểu dữ liệu nguyên thủy (primitive) là các kiểu giá trị thuần túy không có định danh (identity) riêng biệt, nghĩa là tính ổn định khi sắp xếp (sorting stability) — việc bảo toàn thứ tự đầu vào tương đối của các phần tử bằng nhau — là không cần thiết vì kiểu nguyên thủy `7` này hoàn toàn không thể phân biệt được với kiểu nguyên thủy `7` khác. Để tối ưu hóa hiệu năng, JDK sử dụng thuật toán **Dual-Pivot Quicksort** cho các mảng nguyên thủy vì nó có hiệu quả bộ nhớ đệm (cache-efficient) cao, chỉ yêu cầu không gian ngăn xếp phụ trợ (auxiliary stack space) $O(\log N)$ nhỏ và thực thi nhanh hơn trên bộ nhớ thô. Ngược lại, các đối tượng có định danh, tham chiếu và thuộc tính riêng biệt, nghĩa là tính ổn định khi sắp xếp là bắt buộc để đảm bảo rằng việc sắp xếp các phần tử theo tiêu chí phụ không làm xáo trộn thứ tự đã được thiết lập bởi lượt sắp xếp chính trước đó. Do đó, Java sử dụng thuật toán **TimSort** (sự kết hợp giữa sắp xếp trộn (merge sort) và sắp xếp chèn (insertion sort)) cho các mảng đối tượng, giúp đảm bảo hiệu năng trong trường hợp xấu nhất (worst-case performance) là $O(N \log N)$ ổn định và thích ứng hiệu quả với các đoạn đã sắp xếp trước (run), mặc dù nó đòi hỏi không gian lưu trữ phụ trợ $O(N)$ để quản lý các đoạn run này.
 
-### Mô hình tư duy: Sắp xếp ổn định (TimSort) so với Sắp xếp không ổn định (Quicksort) (Mental Model: Stable Sort (TimSort) vs Unstable Sort (Quicksort))
+### Mô hình Tư duy: Sắp xếp ổn định (TimSort) so với Sắp xếp không ổn định (Quicksort) (Mental Model: Stable Sort (TimSort) vs Unstable Sort (Quicksort))
 Giả sử chúng ta có một danh sách các lá bài và muốn sắp xếp chúng theo giá trị.
 Đầu vào: `[5♣, 5♥]` trong đó `5♣` xuất hiện trước `5♥`.
 
 ```text
-Sắp xếp ổn định (TimSort):     [5♣, 5♥] (thứ tự tương đối của các giá trị bằng nhau được đảm bảo bảo toàn)
-Sắp xếp không ổn định (Quicksort): [5♥, 5♣] (các giá trị bằng nhau có thể bị tráo đổi thứ tự tương đối)
+Stable Sort (TimSort):     [5♣, 5♥] (relative order of equal values is guaranteed to be preserved)
+Unstable Sort (Quicksort): [5♥, 5♣] (equal values may have their relative order swapped)
 ```
 
-| Tiêu chí | Dual-Pivot Quicksort (Kiểu Nguyên Thủy) | TimSort (Đối Tượng) |
+| Tiêu chí | Dual-Pivot Quicksort (Kiểu nguyên thủy) | TimSort (Đối tượng) |
 |---|---|---|
-| **Tính ổn định (Stability)** | Không ổn định | Ổn định |
-| **Thời gian trường hợp xấu nhất** | $O(N^2)$ (hiếm gặp) / $O(N \log N)$ | $O(N \log N)$ |
-| **Thời gian trường hợp tốt nhất** | $O(N)$ (nếu đã sắp xếp hoặc đồng nhất) | $O(N)$ (nếu phần tử nằm trong các đoạn đã sắp xếp trước) |
-| **Độ phức tạp không gian** | $O(\log N)$ (ngăn xếp đệ quy tại chỗ) | $O(N)$ (yêu cầu mảng tạm để theo dõi các đoạn) |
+| **Tính ổn định** | Không ổn định | Ổn định |
+| **Thời gian trong trường hợp xấu nhất** | $O(N^2)$ (hiếm gặp) / $O(N \log N)$ | $O(N \log N)$ |
+| **Thời gian trong trường hợp tốt nhất** | $O(N)$ (nếu đã được sắp xếp hoặc đồng nhất) | $O(N)$ (nếu các phần tử nằm trong các đoạn đã sắp xếp trước - run) |
+| **Độ phức tạp không gian** | $O(\log N)$ (ngăn xếp đệ quy tại chỗ) | $O(N)$ (yêu cầu mảng tạm thời để lưu các đoạn run) |
 
-### Ví dụ mã nguồn: Minh họa tầm quan trọng của Sắp xếp ổn định cho đối tượng (Code Example: Illustrating the Importance of Stable Sorting for Objects)
+### Ví Dụ Mã Nguồn: Minh họa Tầm quan trọng của Sắp xếp ổn định cho Đối tượng (Code Example: Illustrating the Importance of Stable Sorting for Objects)
 ```java
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -161,38 +161,38 @@ public class SortingStabilityDemo {
             new LogEntry("INFO",  103)
         ));
 
-        // 1. Sắp xếp theo dấu thời gian (đã theo thứ tự)
+        // 1. Sort by timestamp (already in order)
         logs.sort(Comparator.comparingInt(l -> l.timestamp));
 
-        // 2. Sắp xếp theo mức độ nghiêm trọng (severity). TimSort đảm bảo rằng đối với cùng mức độ nghiêm trọng,
-        // thứ tự dấu thời gian ban đầu vẫn được bảo toàn.
+        // 2. Sort by severity. TimSort guarantees that for the same severity,
+        // the original timestamp order is preserved.
         logs.sort(Comparator.comparing(l -> l.severity));
         System.out.println(logs);
-        // Kết quả: [ERROR@100, ERROR@102, INFO@101, INFO@103]
-        // Lưu ý: ERROR@100 vẫn đứng trước ERROR@102, và INFO@101 đứng trước INFO@103.
+        // Output: [ERROR@100, ERROR@102, INFO@101, INFO@103]
+        // Note: ERROR@100 still precedes ERROR@102, and INFO@101 precedes INFO@103.
     }
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-Sắp xếp mảng kiểu nguyên thủy $\rightarrow$ Các phần tử riêng lẻ là các giá trị thuần túy không có định danh $\rightarrow$ Tính ổn định là không cần thiết $\rightarrow$ Sử dụng Dual-Pivot Quicksort để tối đa hóa tính cục bộ của bộ nhớ đệm CPU và tránh cấp phát bộ nhớ heap phụ trợ.
+### Chuỗi Nguyên nhân - Kết quả (Cause-Effect Chain)
+Sắp xếp mảng kiểu nguyên thủy $\rightarrow$ Các phần tử riêng lẻ là các giá trị thuần túy không có định danh $\rightarrow$ Tính ổn định là không cần thiết $\rightarrow$ Sử dụng Dual-Pivot Quicksort để tối đa hóa tính cục bộ của bộ nhớ đệm CPU (CPU cache locality) và tránh cấp phát bộ nhớ heap phụ trợ.
+Sắp xếp mảng đối tượng $\rightarrow$ Các phần tử riêng lẻ là các tham chiếu mà thứ tự tương đối phải được bảo toàn $\rightarrow$ Tính ổn định là bắt buộc để sắp xếp nhiều khóa (multi-key sorting) một cách chính xác $\rightarrow$ Sử dụng TimSort để đảm bảo sắp xếp ổn định với chi phí cấp phát thêm bộ nhớ theo dõi đoạn run.
 
-Sắp xếp mảng đối tượng $\rightarrow$ Các phần tử riêng lẻ là các tham chiếu nơi thứ tự tương đối phải được bảo toàn $\rightarrow$ Tính ổn định là bắt buộc để sắp xếp nhiều khóa chính xác $\rightarrow$ Sử dụng TimSort để đảm bảo sắp xếp ổn định với chi phí cấp phát thêm bộ nhớ theo dõi đoạn chạy.
+## Các Sai lầm Thường gặp với Phép đảo ngược và Giá trị null (Common Mistakes with Reversal and Nulls)
 
-## Các Lỗi Thường Gặp với Phép Đảo Ngược và Giá Trị Null (Common Mistakes with Reversal and Nulls)
+1. **Đảo ngược các bộ so sánh nguyên thủy không đúng cách**: Việc đảo ngược một bộ so sánh nguyên thủy bằng cách sử dụng phép trừ lambda tự chế `(a, b) -> b - a` rất dễ gây ra lỗi tràn số (overflow bug) (ví dụ: `Integer.MIN_VALUE` so với `1`). Hãy luôn sử dụng `Comparator.reverseOrder()` hoặc `Comparator.comparingInt(...).reversed()`.
+2. **Đảo ngược kép (Double Reversal)**: Việc sử dụng `comparator.reversed().reversed()` chỉ đơn giản là trả về thứ tự ban đầu nhưng lại làm tăng thêm chi phí thực thi do các lớp bọc.
+3. **Lỗi NPE do tự động giải bọc ngầm định (Implicit unboxing NPE)**: Khi sắp xếp các lớp bọc bằng `nullsLast` hoặc `nullsFirst`, hãy đảm bảo bộ trích xuất trả về đối tượng lớp bọc (như `Integer`) chứ không phải kiểu nguyên thủy (`int`), nếu không JVM sẽ cố gắng tự động giải bọc giá trị `null` thành kiểu nguyên thủy trước khi truyền nó đi, dẫn đến lỗi `NullPointerException`.
 
-1. **Đảo ngược các bộ so sánh kiểu nguyên thủy không chính xác**: Đảo ngược bộ so sánh kiểu nguyên thủy bằng cách sử dụng phép trừ lambda tùy biến `(a, b) -> b - a` rất dễ xảy ra lỗi tràn số (ví dụ: `Integer.MIN_VALUE` so với `1`). Luôn sử dụng `Comparator.reverseOrder()` hoặc `Comparator.comparingInt(...).reversed()`.
-2. **Đảo ngược hai lần (Double Reversal)**: Sử dụng `comparator.reversed().reversed()` chỉ đơn giản là trả về thứ tự ban đầu nhưng thêm chi phí thực thi do các lớp bọc trung gian.
-3. **Lỗi NPE mở hộp ngầm định (Implicit unboxing NPE)**: Khi sắp xếp các lớp bao bọc (wrapper class) với `nullsLast` hoặc `nullsFirst`, hãy đảm bảo hàm trích xuất trả về đối tượng bao bọc (như `Integer`) chứ không phải kiểu nguyên thủy (`int`), nếu không JVM sẽ cố gắng tự động mở hộp giá trị `null` thành kiểu nguyên thủy trước khi truyền đi, gây ra `NullPointerException`.
 
-## Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)
+## Câu hỏi Ôn tập Thường gặp (Common Review Prompts)
 
-- Những khái niệm nào ở đây là quy tắc tại thời điểm biên dịch (compile-time)?
-- Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy (runtime)?
-- Những khái niệm nào ở đây có khả năng là bẫy khi phỏng vấn?
+- Những khái niệm nào ở đây là các quy tắc thời gian biên dịch (compile-time rules)?
+- Những khái niệm nào ở đây ảnh hưởng đến hành vi thời gian chạy (runtime behavior)?
+- Những khái niệm nào ở đây có khả năng là các bẫy phỏng vấn (interview traps)?
 
-## Liên Kết Tham Khảo (Reference Links)
+## Đường dẫn Tham khảo (Reference Links)
 
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Comparator.html (Comparator nullsFirst/nullsLast specification)
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Arrays.html#sort(int%5B%5D) (Dual-Pivot Quicksort specification)
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Arrays.html#sort(java.lang.Object%5B%5D) (TimSort specification)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Comparator.html (Đặc tả nullsFirst/nullsLast của Comparator)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Arrays.html#sort(int%5B%5D) (Đặc tả Dual-Pivot Quicksort)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Arrays.html#sort(java.lang.Object%5B%5D) (Đặc tả TimSort)

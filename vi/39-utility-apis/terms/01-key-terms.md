@@ -1,67 +1,83 @@
-# Thuật ngữ các API Tiện ích Thông dụng (Some Common Utility APIs Terms)
+# Thuật Ngữ — Một Số Utility API Thông Dụng
 
-Sử dụng tài liệu này khi một từ ngữ trong lý thuyết có vẻ quá cô đọng. Mỗi thuật ngữ đều có ý nghĩa, tầm quan trọng, điểm dễ nhầm lẫn và một ví dụ nhỏ.
+Dùng file này khi một từ trong phần lý thuyết cảm thấy quá súc tích. Mỗi thuật ngữ có ý nghĩa, tầm quan trọng, điểm dễ nhầm và ví dụ nhỏ.
 
 ## Math
 
-Math là một khái niệm cụ thể trong các API Tiện ích Thông dụng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi.
+`Math` là lớp chứa các phương thức tĩnh (static methods) thực hiện các phép toán cơ bản như căn bậc hai, giá trị tuyệt đối, làm tròn số.
 
-- **Tầm quan trọng**: Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được cho phép, và chế độ thất bại. Hãy xem lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
-- **Nhầm lẫn thường gặp**: Người học thường ghi nhớ `Math` như một từ ngữ nhưng không thể giải thích nó giải quyết vấn đề gì hoặc thay đổi quy tắc nào.
-- **Ví dụ nhỏ**: Khi đọc code, hãy hỏi: `Math` thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
+Tại sao quan trọng: Dùng để dự đoán đúng quy tắc Java, dạng hợp lệ và chế độ thất bại. Ôn lại với ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
+
+Điểm dễ nhầm: Người học hay ghi nhớ `Math` như một từ nhưng không thể giải thích vấn đề nó giải quyết hay quy tắc nó thay đổi.
+
+Ví dụ nhỏ: Khi đọc code, hỏi: `Math` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## Random
 
-Random là một khái niệm cụ thể trong các API Tiện ích Thông dụng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi.
+`Random` là lớp tạo số giả ngẫu nhiên (pseudorandom numbers) sử dụng thuật toán LCG (Linear Congruential Generator).
 
-- **Tầm quan trọng**: Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được cho phép, và chế độ thất bại. Hãy xem lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
-- **Nhầm lẫn thường gặp**: Người học thường ghi nhớ `Random` như một từ ngữ nhưng không thể giải thích nó giải quyết vấn đề gì hoặc thay đổi quy tắc nào.
-- **Ví dụ nhỏ**: Khi đọc code, hãy hỏi: `Random` thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
+Tại sao quan trọng: Dùng để dự đoán đúng quy tắc Java, dạng hợp lệ và chế độ thất bại. Ôn lại với ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
+
+Điểm dễ nhầm: Người học hay ghi nhớ `Random` như một từ nhưng không thể giải thích vấn đề nó giải quyết hay quy tắc nó thay đổi.
+
+Ví dụ nhỏ: Khi đọc code, hỏi: `Random` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## BigDecimal
 
-BigDecimal đại diện cho các số thập phân một cách chính xác và thường được sử dụng cho tiền tệ.
+`BigDecimal` biểu diễn số thập phân chính xác và thường được dùng cho tính toán tiền tệ (money).
 
-- **Tầm quan trọng**: Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được cho phép, và chế độ thất bại. Hãy xem lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
-- **Nhầm lẫn thường gặp**: Người học thường ghi nhớ `BigDecimal` như một từ ngữ nhưng không thể giải thích nó giải quyết vấn đề gì hoặc thay đổi quy tắc nào.
-- **Ví dụ nhỏ**: Khi đọc code, hãy hỏi: `BigDecimal` thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
+Tại sao quan trọng: Dùng để dự đoán đúng quy tắc Java, dạng hợp lệ và chế độ thất bại. Ôn lại với ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
+
+Điểm dễ nhầm: Người học hay ghi nhớ `BigDecimal` như một từ nhưng không thể giải thích vấn đề nó giải quyết hay quy tắc nó thay đổi.
+
+Ví dụ nhỏ: Khi đọc code, hỏi: `BigDecimal` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## UUID
 
-UUID là một khái niệm cụ thể trong các API Tiện ích Thông dụng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi.
+`UUID` là khái niệm cụ thể trong nhóm Utility API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại thay vì chỉ ghi nhớ tên.
 
-- **Tầm quan trọng**: Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được cho phép, và chế độ thất bại. Hãy xem lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
-- **Nhầm lẫn thường gặp**: Người học thường ghi nhớ `UUID` như một từ ngữ nhưng không thể giải thích nó giải quyết vấn đề gì hoặc thay đổi quy tắc nào.
-- **Ví dụ nhỏ**: Khi đọc code, hãy hỏi: `UUID` thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
+Tại sao quan trọng: Dùng để dự đoán đúng quy tắc Java, dạng hợp lệ và chế độ thất bại. Ôn lại với ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
+
+Điểm dễ nhầm: Người học hay ghi nhớ `UUID` như một từ nhưng không thể giải thích vấn đề nó giải quyết hay quy tắc nó thay đổi.
+
+Ví dụ nhỏ: Khi đọc code, hỏi: `UUID` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## Objects
 
-Objects là một khái niệm cụ thể trong các API Tiện ích Thông dụng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi.
+`Objects` là khái niệm cụ thể trong nhóm Utility API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại thay vì chỉ ghi nhớ tên.
 
-- **Tầm quan trọng**: Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được cho phép, và chế độ thất bại. Hãy xem lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
-- **Nhầm lẫn thường gặp**: Người học thường ghi nhớ `Objects` như một từ ngữ nhưng không thể giải thích nó giải quyết vấn đề gì hoặc thay đổi quy tắc nào.
-- **Ví dụ nhỏ**: Khi đọc code, hãy hỏi: `Objects` thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
+Tại sao quan trọng: Dùng để dự đoán đúng quy tắc Java, dạng hợp lệ và chế độ thất bại. Ôn lại với ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
+
+Điểm dễ nhầm: Người học hay ghi nhớ `Objects` như một từ nhưng không thể giải thích vấn đề nó giải quyết hay quy tắc nó thay đổi.
+
+Ví dụ nhỏ: Khi đọc code, hỏi: `Objects` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## System
 
-System là một khái niệm cụ thể trong các API Tiện ích Thông dụng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi.
+`System` là khái niệm cụ thể trong nhóm Utility API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại thay vì chỉ ghi nhớ tên.
 
-- **Tầm quan trọng**: Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được cho phép, và chế độ thất bại. Hãy xem lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
-- **Nhầm lẫn thường gặp**: Người học thường ghi nhớ `System` như một từ ngữ nhưng không thể giải thích nó giải quyết vấn đề gì hoặc thay đổi quy tắc nào.
-- **Ví dụ nhỏ**: Khi đọc code, hãy hỏi: `System` thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
+Tại sao quan trọng: Dùng để dự đoán đúng quy tắc Java, dạng hợp lệ và chế độ thất bại. Ôn lại với ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
+
+Điểm dễ nhầm: Người học hay ghi nhớ `System` như một từ nhưng không thể giải thích vấn đề nó giải quyết hay quy tắc nó thay đổi.
+
+Ví dụ nhỏ: Khi đọc code, hỏi: `System` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## Properties
 
-Properties là một khái niệm cụ thể trong các API Tiện ích Thông dụng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi.
+`Properties` là khái niệm cụ thể trong nhóm Utility API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại thay vì chỉ ghi nhớ tên.
 
-- **Tầm quan trọng**: Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được cho phép, và chế độ thất bại. Hãy xem lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
-- **Nhầm lẫn thường gặp**: Người học thường ghi nhớ `Properties` như một từ ngữ nhưng không thể giải thích nó giải quyết vấn đề gì hoặc thay đổi quy tắc nào.
-- **Ví dụ nhỏ**: Khi đọc code, hãy hỏi: `Properties` thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
+Tại sao quan trọng: Dùng để dự đoán đúng quy tắc Java, dạng hợp lệ và chế độ thất bại. Ôn lại với ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
+
+Điểm dễ nhầm: Người học hay ghi nhớ `Properties` như một từ nhưng không thể giải thích vấn đề nó giải quyết hay quy tắc nó thay đổi.
+
+Ví dụ nhỏ: Khi đọc code, hỏi: `Properties` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## Locale
 
-Locale là một khái niệm cụ thể trong các API Tiện ích Thông dụng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi.
+`Locale` là khái niệm cụ thể trong nhóm Utility API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại thay vì chỉ ghi nhớ tên.
 
-- **Tầm quan trọng**: Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được cho phép, và chế độ thất bại. Hãy xem lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
-- **Nhầm lẫn thường gặp**: Người học thường ghi nhớ `Locale` như một từ ngữ nhưng không thể giải thích nó giải quyết vấn đề gì hoặc thay đổi quy tắc nào.
-- **Ví dụ nhỏ**: Khi đọc code, hãy hỏi: `Locale` thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
+Tại sao quan trọng: Dùng để dự đoán đúng quy tắc Java, dạng hợp lệ và chế độ thất bại. Ôn lại với ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
+
+Điểm dễ nhầm: Người học hay ghi nhớ `Locale` như một từ nhưng không thể giải thích vấn đề nó giải quyết hay quy tắc nó thay đổi.
+
+Ví dụ nhỏ: Khi đọc code, hỏi: `Locale` thay đổi, cho phép, từ chối hay làm rõ điều gì?

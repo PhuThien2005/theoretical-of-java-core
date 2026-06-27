@@ -1,84 +1,84 @@
-# Quản lý bộ nhớ Java (Java Memory Management) - Phần 1
+# Quản Lý Bộ Nhớ Java (Java Memory Management) - Phần 1
 
-## Mục tiêu học tập (Learning Goal)
+## Mục Tiêu Học Tập
 
-Tập tin này bao gồm một phần trọng tâm về **Quản lý bộ nhớ Java (Java Memory Management)**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, không phải là từ vựng riêng lẻ.
+File này tập trung vào một phần cụ thể của **Quản Lý Bộ Nhớ Java**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tiễn, không phải từ vựng đơn thuần.
 
-## Khái quát nội dung (Outline Coverage)
+## Các Khái Niệm Được Đề Cập
 
-| Khái niệm (Concept) | Điều cần biết (What to know) |
+| Khái niệm | Cần biết |
 | --- | --- |
-| `Stack` | Stack lưu trữ các khung phương thức (method frame), các biến cục bộ, và luồng gọi (call flow) cho mỗi luồng. |
-| `Heap` | Heap lưu trữ các đối tượng được tạo ra ở thời gian chạy. |
-| `Method Area / Metaspace` | Metaspace lưu trữ siêu dữ liệu lớp bên ngoài heap Java thông thường trong các JVM hiện đại. |
-| `PC Register` | Thanh ghi PC theo dõi lệnh JVM hiện tại của một luồng. |
-| `Native Method Stack` | Ngăn xếp lưu trữ các khung phương thức, biến cục bộ và luồng cuộc gọi cho mỗi luồng. |
-| `Object lifecycle` | Vòng đời đối tượng bao gồm việc tạo ra, khả năng tiếp cận, sử dụng và cuối cùng là thu gom rác (Garbage collection). |
-| `Reference variable` | Một biến tham chiếu lưu trữ một tham chiếu đến một đối tượng, chứ không phải dữ liệu của chính đối tượng đó. |
-| `Strong reference` | Một tham chiếu mạnh giữ cho một đối tượng có thể tiếp cận được và ngăn nó bị thu gom rác. |
+| `Stack` | Stack lưu trữ khung phương thức, biến cục bộ và luồng gọi cho mỗi luồng. |
+| `Heap` | Heap lưu trữ các đối tượng được tạo lúc chạy. |
+| `Vùng Phương Thức / Metaspace` | Metaspace lưu siêu dữ liệu lớp bên ngoài Java heap thông thường trong các JVM hiện đại. |
+| `PC Register` | PC Register theo dõi lệnh JVM hiện tại đang thực thi của một luồng. |
+| `Native Method Stack` | Stack lưu trữ khung phương thức, biến cục bộ và luồng gọi cho mỗi luồng. |
+| `Vòng đời đối tượng` | Vòng đời đối tượng bao gồm tạo, khả năng truy cập, sử dụng và cuối cùng là thu gom rác. |
+| `Biến tham chiếu` | Biến tham chiếu lưu trữ tham chiếu đến đối tượng, không phải bản thân dữ liệu đối tượng. |
+| `Tham chiếu mạnh` | Tham chiếu mạnh giữ đối tượng có thể truy cập và ngăn nó bị thu gom rác. |
 
-## Ghi chú chi tiết (Detailed Notes)
+## Ghi Chú Chi Tiết
 
-### Ngăn xếp (Stack)
+### Stack (Ngăn Xếp)
 
-Bộ nhớ Stack là riêng tư của từng luồng (thread-private) và được sử dụng để lưu trữ các khung thực thi phương thức (method execution frame), các biến cục bộ, các tham số và luồng gọi của một luồng duy nhất.
+Bộ nhớ Stack là riêng của từng luồng (thread-private), dùng để lưu trữ khung thực thi phương thức, biến cục bộ, tham số, và luồng gọi của một luồng đơn.
 
-#### Quy tắc JVM
-- Mỗi khi một luồng gọi một phương thức, một **Stack Frame** (Khung ngăn xếp) mới sẽ được đẩy (push) lên ngăn xếp của luồng đó.
-- Khi phương thức hoàn thành (bằng lệnh `return` hoặc bằng cách ném ra một ngoại lệ không được xử lý), khung ngăn xếp của nó sẽ bị lấy ra (pop).
-- Các biến cục bộ thuộc kiểu nguyên thủy (ví dụ: `int`, `double`, `boolean`) và các tham chiếu đến các đối tượng trên heap nằm trực tiếp trong khung ngăn xếp.
-- Bộ nhớ Stack được phân bổ và giải phóng tự động theo thứ tự Vào sau - Ra trước (LIFO). Nó cực kỳ nhanh nhưng có kích thước cố định (được cấu hình qua `-Xss`).
+#### Quy Tắc JVM
+- Mỗi khi một luồng gọi phương thức, một **Stack Frame** mới được đẩy lên stack của luồng đó.
+- Khi phương thức hoàn thành (qua `return` hoặc ném ngoại lệ chưa được xử lý), stack frame của nó được lấy ra.
+- Biến cục bộ kiểu nguyên thủy (ví dụ: `int`, `double`, `boolean`) và tham chiếu đến đối tượng trên heap nằm trực tiếp trong stack frame.
+- Bộ nhớ Stack được phân bổ và thu hồi tự động theo thứ tự LIFO (Last-In-First-Out). Nó cực kỳ nhanh nhưng có kích thước cố định (được cấu hình qua `-Xss`).
 
-#### Ví dụ mã nguồn: Vòng đời của khung ngăn xếp (Code Example: Stack Frame Lifecycle)
+#### Ví Dụ Code: Vòng Đời Stack Frame
 ```java
 public class StackDemo {
     public static void main(String[] args) {
-        int a = 10; // Stored in main's stack frame
-        int b = 20; // Stored in main's stack frame
-        int result = add(a, b); // Pushes a new frame for add()
+        int a = 10; // Lưu trong stack frame của main
+        int b = 20; // Lưu trong stack frame của main
+        int result = add(a, b); // Đẩy một frame mới cho add()
         System.out.println(result);
-    } // main's frame is popped, stack is empty
+    } // Frame của main được lấy ra, stack rỗng
 
     private static int add(int x, int y) {
-        int sum = x + y; // Stored in add's stack frame
+        int sum = x + y; // Lưu trong stack frame của add
         return sum; 
-    } // add's frame is popped, sum, x, and y are reclaimed
+    } // Frame của add được lấy ra, sum, x, y được thu hồi
 }
 ```
 
-### Heap (Vùng nhớ Heap)
+### Heap (Vùng Nhớ Heap)
 
-Bộ nhớ Heap là vùng dữ liệu chạy thời gian chạy dùng chung (shared runtime data area) nơi JVM phân bổ không gian cho tất cả các thực thể lớp (đối tượng) và mảng.
+Bộ nhớ Heap là vùng dữ liệu runtime được chia sẻ, nơi JVM phân bổ không gian cho tất cả các thực thể lớp (đối tượng) và mảng.
 
-#### Quy tắc JVM
-- Tất cả các đối tượng Java, bất kể chúng được tạo ra ở đâu, đều nằm trên Heap.
-- Bộ nhớ heap được chia sẻ giữa tất cả các luồng, nghĩa là các đối tượng có thể được truy cập đồng thời (điều này yêu cầu đồng bộ hóa để đảm bảo an toàn luồng - thread-safety).
-- Khác với bộ nhớ stack, việc phân bổ trên heap là động và không tuân theo LIFO.
-- Các đối tượng trên heap không được thu hồi ngay lập tức khi một phương thức kết thúc. Thay vào đó, chúng vẫn tồn tại trên heap cho đến khi chúng không còn có thể tiếp cận được và Bộ thu gom rác (Garbage Collector - GC) thu hồi chúng.
-- Kích thước Heap được cấu hình bằng các cờ JVM như `-Xms` (kích thước ban đầu) và `-Xmx` (kích thước tối đa). Việc vượt quá kích thước này dẫn đến lỗi `java.lang.OutOfMemoryError: Java heap space`.
+#### Quy Tắc JVM
+- Tất cả các đối tượng Java, bất kể được tạo ở đâu, đều nằm trên Heap.
+- Bộ nhớ Heap được chia sẻ giữa tất cả các luồng, có nghĩa là các đối tượng có thể được truy cập đồng thời (điều này đòi hỏi đồng bộ hóa để đảm bảo an toàn luồng — thread-safety).
+- Không giống bộ nhớ stack, phân bổ heap là động và không theo thứ tự LIFO.
+- Các đối tượng trên heap không bị thu hồi ngay khi phương thức thoát. Thay vào đó, chúng vẫn ở trên heap cho đến khi không còn đến được và Bộ Thu Gom Rác thu hồi chúng.
+- Kích thước Heap được cấu hình bằng các flag JVM như `-Xms` (kích thước ban đầu) và `-Xmx` (kích thước tối đa). Vượt quá giới hạn sẽ dẫn đến `java.lang.OutOfMemoryError: Java heap space`.
 
-#### Ví dụ mã nguồn: Phân bổ Stack so với Heap (Code Example: Stack vs. Heap Allocation)
+#### Ví Dụ Code: Phân Bổ Stack và Heap
 ```java
 public class MemoryAllocationDemo {
     public static void main(String[] args) {
-        int localPrimitive = 42; // Value 42 is stored on the Stack
+        int localPrimitive = 42; // Giá trị 42 được lưu trên Stack
         
-        // The reference variable 'customer' is on the Stack.
-        // The actual 'Customer' object is allocated on the Heap.
+        // Biến tham chiếu 'customer' nằm trên Stack.
+        // Đối tượng 'Customer' thực sự được phân bổ trên Heap.
         Customer customer = new Customer("Alice", 30);
         
         modifyCustomer(customer);
     }
 
     private static void modifyCustomer(Customer cust) {
-        // 'cust' is a copy of the reference variable, pointing to the same heap object.
-        cust.setAge(31); // Mutates the object on the Heap
+        // 'cust' là bản sao của biến tham chiếu, trỏ đến cùng một đối tượng trên heap.
+        cust.setAge(31); // Thay đổi trạng thái đối tượng trên Heap
     }
 }
 
 class Customer {
-    private String name; // Reference to String object on Heap
-    private int age;     // Primitive field, stored on Heap as part of the Customer object
+    private String name; // Tham chiếu đến đối tượng String trên Heap
+    private int age;     // Trường nguyên thủy, lưu trên Heap như một phần của đối tượng Customer
 
     public Customer(String name, int age) {
         this.name = name;
@@ -89,136 +89,136 @@ class Customer {
 }
 ```
 
-### Vùng phương thức / Metaspace (Method Area / Metaspace)
+### Vùng Phương Thức (Method Area) / Metaspace
 
-Vùng phương thức (Method Area) là vùng bộ nhớ JVM dùng chung lưu trữ siêu dữ liệu cấp lớp (class-level metadata). Trong các JVM HotSpot hiện đại (Java 8+), vùng này được triển khai dưới dạng **Metaspace**.
+Vùng Phương Thức là vùng bộ nhớ JVM được chia sẻ, lưu trữ siêu dữ liệu cấp lớp. Trong các JVM HotSpot hiện đại (Java 8+), vùng này được triển khai dưới dạng **Metaspace**.
 
-#### Quy tắc JVM
-- Metaspace lưu trữ thông tin cấu trúc lớp: định nghĩa lớp, bytecode của phương thức, mã hàm dựng, bể hằng số thời gian chạy (runtime constant pool), các chú thích và bảng phương thức.
-- Từ Java 8, Metaspace được phân bổ ngoài bộ nhớ gốc native memory (off-heap) thay vì heap Java tiêu chuẩn. Điều này ngăn ngừa các vấn đề về giới hạn tải lớp vốn phổ biến với PermGen trước đây.
-- Mặc dù theo mặc định nó có thể tự động tăng dung lượng, kích thước của nó vẫn có thể bị hạn chế bằng cách sử dụng `-XX:MaxMetaspaceSize`.
-- Khi các trình nạp lớp (classloader) được thu gom rác, siêu dữ liệu lớp tương ứng của chúng trong Metaspace cũng sẽ được hủy tải (unload).
+#### Quy Tắc JVM
+- Metaspace lưu thông tin cấu trúc lớp: định nghĩa lớp, bytecode phương thức, code constructor, bộ nhớ hằng số runtime, annotation, và bảng phương thức.
+- Kể từ Java 8, Metaspace được phân bổ trong bộ nhớ native (ngoài heap) thay vì Java heap tiêu chuẩn. Điều này ngăn các vấn đề giới hạn nạp lớp phổ biến với PermGen.
+- Mặc dù có thể tự động mở rộng theo mặc định, kích thước của nó có thể bị giới hạn bằng `-XX:MaxMetaspaceSize`.
+- Khi các class loader bị thu gom rác, siêu dữ liệu lớp tương ứng của chúng trong Metaspace sẽ được gỡ bỏ.
 
-### Thanh ghi PC (PC Register)
+### PC Register (Thanh Ghi Bộ Đếm Chương Trình)
 
-Mỗi luồng có một Thanh ghi Bộ đếm Chương trình (Program Counter - PC) riêng biệt.
+Mỗi luồng có Thanh Ghi PC (Program Counter) riêng.
 
-#### Quy tắc JVM
-- Nếu luồng đang thực thi một phương thức Java phi bản địa (non-native), Thanh ghi PC sẽ giữ địa chỉ của lệnh JVM hiện đang được thực thi.
-- Nếu luồng đang thực thi một phương thức bản địa (native method), giá trị của Thanh ghi PC là không xác định (undefined).
-- Thanh ghi PC rất nhẹ và không tăng dung lượng. Nó cực kỳ quan trọng cho việc lập lịch luồng (thread scheduling) và chuyển đổi ngữ cảnh (context switching), cho phép các luồng tiếp tục thực thi từ chính xác lệnh nơi chúng bị tạm dừng.
+#### Quy Tắc JVM
+- Nếu luồng đang thực thi một phương thức Java không phải native, PC Register chứa địa chỉ của lệnh JVM đang được thực thi.
+- Nếu luồng đang thực thi một phương thức native, giá trị PC Register không xác định.
+- PC Register nhẹ và không tự mở rộng. Nó quan trọng cho lập lịch luồng và chuyển ngữ cảnh, cho phép luồng tiếp tục thực thi từ đúng lệnh mà chúng đã dừng lại.
 
-### Ngăn xếp phương thức bản địa (Native Method Stack)
+### Native Method Stack (Ngăn Xếp Phương Thức Gốc)
 
-Ngăn xếp phương thức bản địa là một ngăn xếp riêng tư của từng luồng dành cho các phương thức được viết bằng các ngôn ngữ không phải Java (thường là C hoặc C++) được gọi thông qua Giao diện Bản địa Java (Java Native Interface - JNI).
+Native Method Stack là ngăn xếp riêng của từng luồng, dành riêng cho các phương thức viết bằng ngôn ngữ không phải Java (thường là C hoặc C++) được gọi qua Java Native Interface (JNI).
 
-#### Quy tắc JVM
-- Khi một phương thức Java gọi một phương thức native, ngữ cảnh thực thi sẽ chuyển sang Ngăn xếp phương thức bản địa.
-- Tương tự như stack Java, nó là riêng tư của từng luồng và có thể ném ra `StackOverflowError` nếu vượt quá độ sâu gọi phương thức native.
+#### Quy Tắc JVM
+- Khi một phương thức Java gọi một phương thức native, ngữ cảnh thực thi chuyển sang Native Method Stack.
+- Giống như Java stack, nó là riêng của từng luồng và có thể ném `StackOverflowError` nếu độ sâu gọi native vượt quá giới hạn.
 
-### Vòng đời đối tượng (Object lifecycle)
+### Vòng Đời Đối Tượng (Object Lifecycle)
 
-Vòng đời của một đối tượng bao gồm các giai đoạn riêng biệt sau:
+Vòng đời của một đối tượng bao gồm nhiều giai đoạn khác nhau:
 
-1. **Khởi tạo (Creation)**: Bộ nhớ được phân bổ trên heap, các biến thực thể được khởi tạo và hàm dựng (constructor) được thực thi.
-2. **Khả năng tiếp cận (Reachability)**: Đối tượng có thể được sử dụng bởi ứng dụng miễn là có một chuỗi các tham chiếu từ một luồng đang hoạt động (GC Root) đến đối tượng đó.
-3. **Không thể tiếp cận / Đủ điều kiện nhận GC (Unreachability / GC Eligibility)**: Khi đối tượng không còn có thể tiếp cận được từ bất kỳ GC Root nào, nó trở nên đủ điều kiện để bị thu gom rác.
-4. **Chạy phương thức hủy (Finalization)** (Đã bị loại bỏ - Deprecated): Nếu đối tượng định nghĩa phương thức `finalize()`, phương thức này có thể được chạy trước khi thu hồi.
-5. **Thu hồi (Reclamation)**: Bộ thu gom rác thu hồi bộ nhớ trên heap.
+1. **Tạo (Creation)**: Bộ nhớ được phân bổ trên heap, biến thực thể được khởi tạo, constructor thực thi.
+2. **Khả năng truy cập (Reachability)**: Đối tượng có thể được ứng dụng sử dụng miễn là có chuỗi tham chiếu từ luồng đang hoạt động (GC Root) đến đối tượng.
+3. **Không thể truy cập / Đủ điều kiện GC**: Khi đối tượng không còn đến được từ bất kỳ GC Root nào, nó trở nên đủ điều kiện để Thu Gom Rác.
+4. **Finalization (Deprecated — Không dùng nữa)**: Nếu đối tượng định nghĩa phương thức `finalize()`, nó có thể được chạy trước khi thu hồi.
+5. **Thu hồi (Reclamation)**: Bộ Thu Gom Rác thu hồi bộ nhớ trên heap.
 
-### Biến tham chiếu (Reference variable)
+### Biến Tham Chiếu (Reference Variable)
 
-Một biến tham chiếu là một biến lưu trữ địa chỉ bộ nhớ (tham chiếu) của một đối tượng trên heap, chứ không phải bản thân đối tượng đó.
+Biến tham chiếu là biến lưu trữ địa chỉ bộ nhớ (tham chiếu) của một đối tượng trên heap, thay vì bản thân đối tượng.
 
-#### Quy tắc JVM
-- Khai báo một biến tham chiếu (ví dụ: `Customer c;`) sẽ dành chỗ trên stack hoặc heap cho một con trỏ, được khởi tạo thành `null`.
-- Java hoàn toàn là **truyền tham trị (pass-by-value)**. Khi một tham chiếu đối tượng được truyền vào một phương thức, chính tham chiếu đó (con trỏ địa chỉ bộ nhớ) sẽ được sao chép. Biến tham chiếu ban đầu của bên gọi không thể bị thay đổi bởi phương thức, nhưng trạng thái của đối tượng mà nó trỏ tới thì có thể bị sửa đổi.
+#### Quy Tắc JVM
+- Khai báo biến tham chiếu (ví dụ: `Customer c;`) dành không gian trên stack hoặc heap cho một con trỏ, được khởi tạo bằng `null`.
+- Java hoàn toàn là **pass-by-value** (truyền theo giá trị). Khi tham chiếu đối tượng được truyền vào phương thức, bản thân tham chiếu (con trỏ địa chỉ bộ nhớ) được sao chép. Biến tham chiếu của caller không thể bị gán lại bởi phương thức, nhưng trạng thái của đối tượng mà nó trỏ đến có thể bị thay đổi.
 
 ```java
 public class PassByValueDemo {
     public static void main(String[] args) {
         Customer c1 = new Customer("Bob", 25);
         reassign(c1);
-        System.out.println(c1.getName()); // Prints "Bob" - original reference was not changed
+        System.out.println(c1.getName()); // In "Bob" - tham chiếu gốc không bị thay đổi
         
         modify(c1);
-        System.out.println(c1.getName()); // Prints "Charlie" - object state was mutated
+        System.out.println(c1.getName()); // In "Charlie" - trạng thái đối tượng đã bị thay đổi
     }
 
     private static void reassign(Customer c) {
-        c = new Customer("Dave", 40); // Only changes the local copied parameter 'c'
+        c = new Customer("Dave", 40); // Chỉ thay đổi tham số 'c' cục bộ đã sao chép
     }
 
     private static void modify(Customer c) {
-        c.setName("Charlie"); // Modifies the object pointed to by the reference
+        c.setName("Charlie"); // Thay đổi đối tượng được trỏ đến bởi tham chiếu
     }
 }
 ```
 
-### Tham chiếu mạnh (Strong reference)
+### Tham Chiếu Mạnh (Strong Reference)
 
-Một tham chiếu mạnh là kiểu tham chiếu mặc định trong Java. Bất kỳ đối tượng nào được tạo bằng phép gán tiêu chuẩn (ví dụ: `Object obj = new Object();`) đều được tham chiếu mạnh.
+Tham chiếu mạnh là kiểu tham chiếu mặc định trong Java. Bất kỳ đối tượng nào được tạo bằng phép gán thông thường (ví dụ: `Object obj = new Object();`) đều được tham chiếu mạnh.
 
-#### Quy tắc JVM
-- Miễn là một đối tượng còn có thể tiếp cận được thông qua ít nhất một đường dẫn chứa các tham chiếu mạnh bắt đầu từ một GC Root, nó sẽ **không bao giờ** bị thu gom rác.
-- Ngay cả khi JVM đang chạy trong tình trạng cực kỳ thiếu bộ nhớ và chuẩn bị ném ra `OutOfMemoryError`, nó cũng không thu hồi các đối tượng được tham chiếu mạnh.
+#### Quy Tắc JVM
+- Chừng nào đối tượng còn đến được thông qua ít nhất một đường tham chiếu mạnh bắt đầu từ GC Root, nó sẽ **không bao giờ** bị thu gom rác.
+- Kể cả khi JVM đang thiếu bộ nhớ nghiêm trọng và sắp ném `OutOfMemoryError`, nó vẫn không thu hồi các đối tượng được tham chiếu mạnh.
 
 ---
 
-## Các lỗi thường gặp (Common Mistakes)
+## Lỗi Thường Gặp
 
-### 1. Nghĩ rằng các kiểu nguyên thủy luôn nằm trên Stack (Thinking Primitives Always Live on the Stack)
-Một cái bẫy phỏng vấn rất phổ biến là phát biểu rằng tất cả các biến kiểu nguyên thủy đều nằm trên stack.
-**Quy tắc:** Vị trí của một biến nguyên thủy được quyết định hoàn toàn bởi *nơi* nó được khai báo:
-- **Biến nguyên thủy cục bộ** (khai báo bên trong phương thức) nằm trên **Stack**.
-- **Biến nguyên thủy thực thể** (khai báo làm trường của lớp) nằm trên **Heap** như một phần của đối tượng chứa nó.
-- **Biến nguyên thủy tĩnh** (khai báo làm trường static) nằm trên **Heap** bên trong đối tượng `java.lang.Class`.
+### 1. Nghĩ Rằng Biến Nguyên Thủy Luôn Nằm Trên Stack
+Một bẫy phỏng vấn rất phổ biến là khẳng định rằng tất cả biến nguyên thủy đều nằm trên stack.
+**Quy tắc:** Vị trí của biến nguyên thủy được xác định bởi *nơi* nó được khai báo:
+- **Biến nguyên thủy cục bộ** (khai báo trong phương thức) nằm trên **Stack**.
+- **Biến nguyên thủy thực thể** (khai báo là trường lớp) nằm trên **Heap** như một phần của đối tượng chứa chúng.
+- **Biến nguyên thủy static** (khai báo là trường static) nằm trên **Heap** bên trong đối tượng `java.lang.Class`.
 
-### 2. Giả định `obj = null` giải phóng bộ nhớ ngay lập tức (Assuming obj = null Instantly Frees Memory)
-Việc gán một biến tham chiếu thành `null` không kích hoạt việc thu gom rác ngay lập tức.
-**Quy tắc:** Gán lại một tham chiếu thành `null` chỉ đơn giản là cắt đứt kết nối tham chiếu cụ thể đó. Nếu đó là tham chiếu mạnh cuối cùng dẫn đến đối tượng trên heap, đối tượng đó sẽ trở nên *đủ điều kiện* để bị GC thu gom. GC sẽ thu hồi bộ nhớ một cách bất đồng bộ vào một thời điểm không thể đoán trước trong tương lai.
+### 2. Giả Sử `obj = null` Giải Phóng Bộ Nhớ Ngay Lập Tức
+Đặt biến tham chiếu thành `null` không kích hoạt thu gom rác ngay lập tức.
+**Quy tắc:** Gán lại tham chiếu thành `null` chỉ đơn giản là phá vỡ kết nối tham chiếu đó. Nếu đó là tham chiếu mạnh cuối cùng đến đối tượng trên heap, đối tượng trở thành *đủ điều kiện* để GC. GC sẽ thu hồi bộ nhớ bất đồng bộ vào một thời điểm không xác định trong tương lai.
 
-### 3. Nhầm lẫn StackOverflowError với OutOfMemoryError (Confusing StackOverflowError with OutOfMemoryError)
-- **StackOverflowError**: Gây ra bởi sự cạn kiệt ngăn xếp của luồng (thường gặp khi đệ quy vô hạn). Kích thước stack khá nhỏ (thường là 1MB) và xử lý các khung cuộc gọi phương thức.
-- **OutOfMemoryError: Java heap space**: Gây ra bởi sự cạn kiệt bộ nhớ heap (tạo ra quá nhiều đối tượng đang hoạt động). Kích thước heap lớn hơn rất nhiều và xử lý việc lưu trữ dữ liệu.
+### 3. Nhầm Lẫn StackOverflowError với OutOfMemoryError
+- **StackOverflowError**: Gây ra bởi cạn kiệt stack luồng (thường do đệ quy vô hạn). Kích thước stack nhỏ (thường 1MB) và xử lý các khung gọi.
+- **OutOfMemoryError: Java heap space**: Gây ra bởi cạn kiệt heap (tạo quá nhiều đối tượng đang hoạt động). Kích thước heap lớn hơn nhiều và xử lý lưu trữ dữ liệu.
 
-### 4. Tin rằng các trường tĩnh nằm trong Metaspace (Believing Static Fields Live in Metaspace)
-Từ Java 8, các biến tĩnh (cả kiểu nguyên thủy và tham chiếu đối tượng) được phân bổ trên Java Heap, cụ thể là bên trong thực thể `java.lang.Class` của lớp đó. Metaspace chỉ lưu trữ siêu dữ liệu mô tả bản thân lớp đó, chứ không lưu trữ các giá trị thực tế hoặc thực thể của các biến tĩnh.
+### 4. Tin Rằng Trường Static Nằm Trong Metaspace
+Kể từ Java 8, biến static (cả nguyên thủy và tham chiếu đối tượng) được phân bổ trên Java Heap, cụ thể là bên trong thực thể `java.lang.Class` của lớp đó. Metaspace chỉ lưu siêu dữ liệu mô tả bản thân lớp, không phải giá trị thực tế hoặc thực thể của biến static.
 
-## Các câu hỏi ôn tập thường gặp (Common Review Prompts)
+## Câu Hỏi Ôn Tập Phổ Biến
 
-- Khái niệm nào ở đây là quy tắc thời gian biên dịch (compile-time rule)?
-- Khái niệm nào ở đây ảnh hưởng đến hành vi thời gian chạy (runtime behavior)?
-- Khái niệm nào ở đây dễ là bẫy phỏng vấn?
+- Những khái niệm nào ở đây là quy tắc tại thời điểm biên dịch (compile-time)?
+- Những khái niệm nào ảnh hưởng đến hành vi lúc chạy (runtime)?
+- Những khái niệm nào có khả năng là bẫy trong phỏng vấn?
 
-## Tại sao các kiểu Nguyên thủy nằm trên Stack hoặc Heap (Why Primitives Live on the Stack or Heap)
+## Tại Sao Kiểu Nguyên Thủy Sống Trên Stack Hay Heap
 
-JVM quyết định phân bổ bộ nhớ vật lý của các biến nguyên thủy hoàn toàn dựa trên phạm vi khai báo (scope) của chúng chứ không phải kiểu dữ liệu của chúng. Các biến nguyên thủy cục bộ được khai báo bên trong một phương thức được lưu trữ trực tiếp bên trong khung ngăn xếp của luồng đó vì vòng đời LIFO của stack gắn liền với việc thực thi phương thức, cho phép phân bổ và giải phóng bộ nhớ tức thời. Ngược lại, các biến nguyên thủy thực thể được khai báo là các trường của một lớp sẽ nằm trên Heap bên trong khối bộ nhớ được phân bổ cho đối tượng cha. Tương tự, các biến nguyên thủy tĩnh là các trường cấp lớp và được phân bổ bên trong đối tượng siêu dữ liệu Lớp (Class metadata object) nằm trên Heap. Vòng đời dựa trên khung ngăn xếp của stack tránh được chi phí Thu gom rác cho các biến cục bộ, nhưng các biến được phân bổ trên heap phải tồn tại qua các lần gọi phương thức và do đó dựa vào Bộ thu gom rác để dọn dẹp.
+JVM xác định vị trí phân bổ bộ nhớ vật lý của biến nguyên thủy hoàn toàn dựa trên phạm vi khai báo của chúng chứ không phải kiểu dữ liệu. Biến nguyên thủy cục bộ được khai báo trong một phương thức được lưu trực tiếp trong stack frame của luồng đó vì vòng đời LIFO của stack gắn liền với thực thi phương thức, cho phép phân bổ và thu hồi ngay lập tức. Ngược lại, biến nguyên thủy thực thể được khai báo là trường của lớp nằm trên Heap bên trong khối bộ nhớ được phân bổ cho đối tượng cha. Tương tự, biến nguyên thủy static là trường cấp lớp và được phân bổ trong đối tượng siêu dữ liệu Class nằm trên Heap. Vòng đời dựa trên frame của stack tránh được chi phí Thu Gom Rác cho biến cục bộ, nhưng các biến được phân bổ trên heap phải tồn tại xuyên suốt các lần gọi phương thức và do đó phụ thuộc vào Bộ Thu Gom Rác để dọn dẹp.
 
-### Mô hình tư duy (Mental Model)
+### Mô Hình Tư Duy
 ```
 +-------------------------------------------------------------+
 | Thread Stack Frame (LIFO)                                   |
 | [ main() frame: localPrimitive = 100 ]                     |
 | [ process() frame: tempVal = 42 ]                          |
 +-------------------------------------------------------------+
-                                | (References heap object)
+                                | (Tham chiếu đến đối tượng trên heap)
                                 v
 +-------------------------------------------------------------+
-| Heap Memory (Dynamic Lifecycle)                            |
-| [ Container Object ] -------> [ instancePrimitive = 200 ]   |
-| [ Class Metadata Object ] --> [ staticPrimitive = 300 ]     |
+| Heap Memory (Vòng đời động)                                |
+| [ Container Object ] -------> [ instancePrimitive = 200 ]  |
+| [ Class Metadata Object ] --> [ staticPrimitive = 300 ]    |
 +-------------------------------------------------------------+
 ```
 
-### Ví dụ mã nguồn (Code Example)
+### Ví Dụ Code
 ```java
 public class PrimitiveAllocation {
-    static int staticPrimitive = 300; // Allocated on the Heap (inside Class object)
-    int instancePrimitive = 200;      // Allocated on the Heap (inside object payload)
+    static int staticPrimitive = 300; // Phân bổ trên Heap (trong đối tượng Class)
+    int instancePrimitive = 200;      // Phân bổ trên Heap (trong phần dữ liệu đối tượng)
 
     public void methodScope() {
-        int localPrimitive = 100;     // Allocated on the Stack (inside current frame)
+        int localPrimitive = 100;     // Phân bổ trên Stack (trong frame hiện tại)
         System.out.println(localPrimitive);      // Output: 100
         System.out.println(instancePrimitive);   // Output: 200
         System.out.println(staticPrimitive);     // Output: 300
@@ -226,23 +226,14 @@ public class PrimitiveAllocation {
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
+### Chuỗi Nguyên Nhân - Kết Quả
+Phương thức được gọi → Stack frame được đẩy lên → Biến nguyên thủy cục bộ được phân bổ trên Stack → Phương thức thoát → Stack frame được lấy ra → Bộ nhớ cục bộ được thu hồi ngay lập tức không cần GC.
 
-```text
-Phương thức được gọi
-  → Khung ngăn xếp được đẩy (push)
-  → Biến nguyên thủy cục bộ được phân bổ trên Stack
-  → Phương thức thoát
-  → Khung ngăn xếp được lấy ra (pop)
-  → Bộ nhớ cục bộ được thu hồi ngay lập tức mà không tốn chi phí GC.
-```
+## Tại Sao Java Hoàn Toàn Là Pass-by-Value
 
+Java hoàn toàn triển khai truyền theo giá trị (pass-by-value), nghĩa là JVM luôn sao chép giá trị thực sự được lưu trong một biến khi truyền nó làm tham số cho phương thức. Với kiểu dữ liệu nguyên thủy, giá trị được truyền là bản sao trực tiếp của các bit biểu diễn dữ liệu đó. Với biến tham chiếu (đối tượng), giá trị được truyền là bản sao của địa chỉ con trỏ (địa chỉ bộ nhớ) tham chiếu đến đối tượng trên heap. Do đó, gán lại tham số bên trong phương thức chỉ ghi đè bản sao cục bộ của con trỏ trên stack frame, không ảnh hưởng đến biến gốc của caller. Tuy nhiên, vì cả biến của caller và bản sao tham số đều trỏ đến cùng một vị trí đối tượng trên heap, việc thay đổi các trường của đối tượng bên trong phương thức sẽ thay đổi trạng thái heap được chia sẻ.
 
-## Tại sao Java hoàn toàn là Truyền tham trị (Why Java Is Strictly Pass-by-Value)
-
-Java thực thi cơ chế truyền tham trị (pass-by-value) một cách nghiêm ngặt, nghĩa là JVM luôn sao chép giá trị thực tế được lưu trữ trong một biến khi truyền nó làm tham số cho một phương thức. Đối với các kiểu dữ liệu nguyên thủy, giá trị được truyền là một bản sao trực tiếp của các bit đại diện cho chính dữ liệu đó. Đối với các biến tham chiếu (đối tượng), giá trị được truyền là một bản sao của địa chỉ con trỏ (địa chỉ bộ nhớ) tham chiếu đến đối tượng trên heap. Do đó, việc gán lại tham số bên trong phương thức chỉ đơn thuần là ghi đè lên bản sao cục bộ của con trỏ trên khung ngăn xếp, không ảnh hưởng đến biến ban đầu của bên gọi. Tuy nhiên, vì cả biến của bên gọi và bản sao tham số đều trỏ đến cùng một vị trí đối tượng trên heap, việc đột biến (mutate) các trường của đối tượng bên trong phương thức sẽ làm thay đổi trạng thái heap được chia sẻ chung.
-
-### Mô hình tư duy (Mental Model)
+### Mô Hình Tư Duy
 ```
 Stack Frame: main()               Stack Frame: modify()
 +-----------------------+         +-----------------------+
@@ -259,7 +250,7 @@ Stack Frame: main()               Stack Frame: modify()
                              +---------------------------+
 ```
 
-### Ví dụ mã nguồn (Code Example)
+### Ví Dụ Code
 ```java
 public class PassByValueEx {
     public static void main(String[] args) {
@@ -273,8 +264,8 @@ public class PassByValueEx {
     }
     static void modifyPrimitive(int x) { x = 20; }
     static void modifyObject(Customer cust) {
-        cust.name = "Bob"; // Mutates heap object
-        cust = new Customer("Charlie"); // Reassigns local stack copy
+        cust.name = "Bob"; // Thay đổi đối tượng trên heap
+        cust = new Customer("Charlie"); // Gán lại bản sao cục bộ trên stack
     }
     static class Customer {
         String name;
@@ -283,19 +274,10 @@ public class PassByValueEx {
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
+### Chuỗi Nguyên Nhân - Kết Quả
+Tham chiếu được truyền vào phương thức → JVM sao chép giá trị con trỏ vào stack frame mới → Tham số cục bộ được gán lại → Bản sao con trỏ thay đổi sang địa chỉ mới → Con trỏ của caller vẫn ở địa chỉ gốc → Tham chiếu gốc không bị ảnh hưởng.
 
-```text
-Tham chiếu được truyền vào phương thức
-  → JVM sao chép giá trị con trỏ lên khung ngăn xếp mới
-  → Tham số cục bộ được gán lại
-  → Con trỏ sao chép thay đổi sang địa chỉ mới
-  → Con trỏ của bên gọi vẫn ở địa chỉ ban đầu
-  → Tham chiếu ban đầu không bị ảnh hưởng.
-```
+## Liên Kết Tham Khảo
 
-
-## Liên kết tham khảo (Reference Links)
-
-- https://docs.oracle.com/javase/specs/jls/se21/html/jls-4.html#jls-4.12.2 (Variables of Reference Type)
-- https://docs.oracle.com/javase/specs/jls/se21/html/jls-8.html#jls-8.4.1 (Formal Parameters)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-4.html#jls-4.12.2 (Biến kiểu tham chiếu)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-8.html#jls-8.4.1 (Tham số hình thức)

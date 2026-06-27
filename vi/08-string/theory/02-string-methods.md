@@ -1,30 +1,30 @@
-# Các Phương Thức Chuỗi Và Định Dạng (String Methods and Formatting)
+# Các phương thức và Định dạng Chuỗi (String Methods and Formatting)
 
-Lớp `String` cung cấp một tập hợp phong phú các phương thức có sẵn. Vì chuỗi là bất biến (immutable), không có phương thức nào trong số này chỉnh sửa trực tiếp đối tượng chuỗi hiện tại; chúng luôn luôn trả về một đối tượng chuỗi mới.
+Lớp `String` cung cấp một tập hợp phong phú các phương thức tích hợp sẵn (built-in methods). Vì chuỗi (string) có tính chất bất biến (immutable), không có phương thức nào trong số này sửa đổi đối tượng chuỗi hiện tại; chúng luôn trả về một chuỗi mới.
 
 ---
 
-## Tham Chiếu Phương Thức Chi Tiết (Detailed Method Reference)
+## Tài Liệu Tham Khảo Chi Tiết Về Phương Thức (Detailed Method Reference)
 
-Dưới đây là tài liệu tham khảo toàn diện về các phương thức cốt lõi của `String`, giải thích rõ hành vi và các trường hợp đặc biệt của chúng.
+Dưới đây là tài liệu tham khảo toàn diện về các phương thức cốt lõi của `String`, giải thích hành vi và các trường hợp đặc biệt (edge cases) của chúng.
 
 ### 1. `length()` và `isEmpty()` / `isBlank()`
-- `length()`: Trả về số lượng đơn vị mã Unicode (Unicode code units - tương đương số ký tự) trong chuỗi.
+- `length()`: Trả về số lượng đơn vị mã Unicode (Unicode code units) (ký tự) trong chuỗi.
 - `isEmpty()` (Java 6+): Trả về `true` nếu `length() == 0`.
-- `isBlank()` (Java 11+): Trả về `true` nếu chuỗi bị rỗng hoặc chỉ chứa các ký tự khoảng trắng (hỗ trợ kiểm tra toàn diện các khoảng trắng Unicode).
+- `isBlank()` (Java 11+): Trả về `true` nếu chuỗi trống hoặc chỉ chứa các ký tự khoảng trắng (whitespace) tương thích với Unicode (Unicode-aware).
   ```java
   "  ".isEmpty(); // false
   "  ".isBlank(); // true
   ```
 
-### 2. Tra Cứu Ký Tự: `charAt(int index)`
-- Trả về giá trị `char` tại vị trí chỉ số (index) được chỉ định.
-- Giới hạn chỉ số là từ `0` đến `length() - 1`.
-- Ném ra ngoại lệ `StringIndexOutOfBoundsException` nếu chỉ số bị âm hoặc lớn hơn hoặc bằng `length()`.
+### 2. Tìm Kiếm Ký Tự (Character Lookup): `charAt(int index)`
+- Trả về giá trị `char` tại chỉ mục (index) được chỉ định.
+- Giới hạn chỉ mục nằm trong khoảng từ `0` đến `length() - 1`.
+- Ném ra ngoại lệ `StringIndexOutOfBoundsException` nếu chỉ mục âm hoặc lớn hơn hoặc bằng `length()`.
 
-### 3. Trích Xuất Phân Đoạn: `substring(int beginIndex)` và `substring(int beginIndex, int endIndex)`
-- `substring(beginIndex)`: Trả về một chuỗi con bắt đầu từ `beginIndex` cho đến hết chuỗi.
-- `substring(beginIndex, endIndex)`: Trả về một chuỗi con bắt đầu từ `beginIndex` (bao gồm) đến `endIndex` (loại trừ).
+### 3. Trích Xuất (Extracting): `substring(int beginIndex)` và `substring(int beginIndex, int endIndex)`
+- `substring(beginIndex)`: Trả về một chuỗi con (substring) bắt đầu từ `beginIndex` cho đến hết.
+- `substring(beginIndex, endIndex)`: Trả về một chuỗi con bắt đầu từ `beginIndex` (bao gồm (inclusive)) đến `endIndex` (loại trừ (exclusive)).
   $$\text{Độ dài chuỗi con} = \text{endIndex} - \text{beginIndex}$$
 - Ném ra ngoại lệ `StringIndexOutOfBoundsException` nếu `beginIndex < 0`, `endIndex > length()`, hoặc `beginIndex > endIndex`.
 
@@ -36,15 +36,15 @@ System.out.println(sub1); // World
 System.out.println(sub2); // Hello
 ```
 
-### 4. Tìm Kiếm và Xác Định Vị Trí: `indexOf()` và `lastIndexOf()`
-- Xác định vị trí của một ký tự hoặc một chuỗi con. Trả về `-1` nếu không tìm thấy.
+### 4. Tìm Kiếm và Định Vị (Search and Location): `indexOf()` và `lastIndexOf()`
+- Định vị một ký tự hoặc chuỗi con. Trả về `-1` nếu không tìm thấy.
 - `indexOf(String str)`: Tìm vị trí xuất hiện đầu tiên.
-- `indexOf(String str, int fromIndex)`: Bắt đầu tìm kiếm từ vị trí `fromIndex`.
-- `lastIndexOf(String str)`: Tìm vị trí xuất hiện cuối cùng (tìm kiếm ngược từ cuối về đầu).
+- `indexOf(String str, int fromIndex)`: Bắt đầu tìm kiếm từ `fromIndex`.
+- `lastIndexOf(String str)`: Tìm vị trí xuất hiện cuối cùng (tìm kiếm ngược).
 
-### 5. Các Phép Kiểm Tra Xác Thực: `contains()`, `startsWith()`, `endsWith()`
-- `contains(CharSequence s)`: Trả về `true` nếu chuỗi con được tìm kiếm tồn tại trong chuỗi.
-- `startsWith(String prefix)` / `endsWith(String suffix)`: Kiểm tra xem chuỗi có bắt đầu hoặc kết thúc bằng tiền tố/hậu tố cụ thể hay không. Việc truyền vào đối số `null` sẽ ném ra ngoại lệ `NullPointerException`.
+### 5. Kiểm Tra Tính Hợp Lệ (Validation Checks): `contains()`, `startsWith()`, `endsWith()`
+- `contains(CharSequence s)`: Trả về `true` nếu chuỗi ký tự tồn tại.
+- `startsWith(String prefix)` / `endsWith(String suffix)`: Khớp với phần bắt đầu hoặc kết thúc. Đầu vào có giá trị `null` sẽ ném ra ngoại lệ `NullPointerException`.
 
 ```java
 String text = "Java Programming";
@@ -54,161 +54,150 @@ System.out.println(hasJava);   // true
 System.out.println(hasKotlin); // false
 ```
 
-### 6. Loại Bỏ Khoảng Trắng: `trim()` so với `strip()` (Whitespace Cleanup: trim() vs. strip())
-- `trim()`: Loại bỏ các ký tự khoảng trắng ở đầu và cuối chuỗi có giá trị mã code point nhỏ hơn hoặc bằng ký tự khoảng trắng ASCII (`U+0020`). Nó thất bại trong việc dọn dẹp các khoảng trắng Unicode đặc biệt (như khoảng trắng không ngắt `\u00A0` - non-breaking space).
-- `strip()` (Java 11+): Sử dụng phương thức `Character.isWhitespace()` để nhận diện và loại bỏ tất cả các khoảng trắng tuân thủ chuẩn Unicode.
-- `stripLeading()` / `stripTrailing()` (Java 11+): Chỉ dọn dẹp khoảng trắng ở một đầu tương ứng (đầu hoặc cuối) của chuỗi.
+### 6. Loại Bỏ Khoảng Trắng (Whitespace Cleanup): `trim()` so với `strip()`
+- `trim()`: Loại bỏ các ký tự ở đầu/cuối có điểm mã (code point) nhỏ hơn hoặc bằng khoảng trắng ASCII (`U+0020`). Phương thức này không thể loại bỏ các khoảng trắng Unicode (như khoảng trắng không ngắt (non-breaking space) `\u00A0`).
+- `strip()` (Java 11+): Sử dụng `Character.isWhitespace()` để xác định và loại bỏ tất cả các khoảng trắng tuân thủ tiêu chuẩn Unicode (Unicode-compliant).
+- `stripLeading()` / `stripTrailing()` (Java 11+): Chỉ loại bỏ khoảng trắng ở một đầu của chuỗi.
 
-### Đi Sâu: Sự Khác Biệt Cơ Chế Giữa trim() và strip() (Deep-Dive: Mechanical Differences Between trim() and strip())
+### Phân Tích Sâu: Sự Khác Biệt Về Cơ Chế Giữa trim() và strip() (Deep-Dive: Mechanical Differences Between trim() and strip())
 
-Sự khác biệt về mặt cơ chế giữa `String.trim()` và `String.strip()` nằm ở cách chúng định nghĩa và nhận diện các ký tự khoảng trắng. Phương thức kế thừa `trim()`, được thiết kế từ thời Java 1.0, xác định khoảng trắng một cách nghiêm ngặt bằng cách kiểm tra xem giá trị Unicode code point của ký tự có nhỏ hơn hoặc bằng ký tự khoảng trắng ASCII (`U+0020`) hay không. Do đó, nó hoàn toàn bỏ qua mọi ký tự khoảng trắng chuẩn Unicode hiện đại có giá trị code point cao hơn, chẳng hạn như khoảng trắng không ngắt (`U+00A0` - non-breaking space) hoặc khoảng trắng rộng (`U+2003` - em space). Ngược lại, phương thức `strip()` giới thiệu từ Java 11 sẽ gọi phương thức `Character.isWhitespace(int)`, thực hiện kiểm tra ký tự đối chiếu với cơ sở dữ liệu tiêu chuẩn Unicode chính thức. Điều này giúp `strip()` nhận biết đầy đủ các ký tự Unicode, đảm bảo rằng các ứng dụng quốc tế hóa hiện đại dọn dẹp chính xác các ký tự khoảng trắng ngoài hệ ASCII mà phương thức `trim()` sẽ âm thầm bỏ qua.
+Sự khác biệt về cơ chế (mechanical differences) giữa `String.trim()` and `String.strip()` nằm ở cách chúng định nghĩa và xác định các ký tự khoảng trắng. Phương thức kế thừa (legacy) `trim()`, được thiết kế từ Java 1.0, xác định khoảng trắng một cách nghiêm ngặt bằng cách kiểm tra xem giá trị điểm mã của ký tự đó có nhỏ hơn hoặc bằng ký tự khoảng trắng ASCII (`U+0020`) hay không. Do đó, nó không thể loại bỏ bất kỳ ký tự khoảng trắng hiện đại nào được định nghĩa bởi Unicode có điểm mã cao hơn, chẳng hạn như khoảng trắng không ngắt (`U+00A0`) hoặc khoảng trắng em space (em space) (`U+2003`). Ngược lại, phương thức `strip()` được giới thiệu trong Java 11 sẽ truy vấn phương thức `Character.isWhitespace(int)`, phương thức này đối chiếu ký tự với cơ sở dữ liệu tiêu chuẩn Unicode chính thức. Điều này giúp `strip()` hoàn toàn tương thích với Unicode, đảm bảo các ứng dụng quốc tế hóa (internationalized) hiện đại dọn dẹp chính xác các ký tự khoảng trắng không phải ASCII mà `trim()` sẽ âm thầm bỏ qua.
 
-#### Bảng So Sánh Các Khoảng Trắng (Whitespace Comparison Matrix)
+#### Bảng So Sánh Khoảng Trắng (Whitespace Comparison Matrix)
 
-| Ký tự khoảng trắng | Mã Code Point | Hành động của trim() | Hành động của strip() | Lý do kỹ thuật |
+| Ký tự khoảng trắng | Điểm mã (Code Point) | Hành động của trim() | Hành động của strip() | Lý do kỹ thuật |
 | :--- | :--- | :--- | :--- | :--- |
-| Khoảng trắng ASCII (ASCII Space) | `U+0020` | Loại bỏ | Loại bỏ | Code point $\le$ `U+0020` |
-| Phím Tab (`\t`) | `U+0009` | Loại bỏ | Loại bỏ | Code point $\le$ `U+0020` |
-| Khoảng trắng không ngắt (Non-Breaking Space) | `U+00A0` | **Bỏ qua** | **Loại bỏ** | Code point > `U+0020`, nhưng được nhận diện là khoảng trắng bởi Unicode |
-| Khoảng trắng rộng (Em Space) | `U+2003` | **Bỏ qua** | **Loại bỏ** | Code point > `U+0020`, nhưng được nhận diện là khoảng trắng bởi Unicode |
+| Khoảng trắng ASCII | `U+0020` | Loại bỏ | Loại bỏ | Điểm mã $\le$ `U+0020` |
+| Tab (`\t`) | `U+0009` | Loại bỏ | Loại bỏ | Điểm mã $\le$ `U+0020` |
+| Khoảng trắng không ngắt | `U+00A0` | **Bỏ qua** | **Loại bỏ** | Điểm mã > `U+0020`, nhưng được Unicode công nhận là khoảng trắng |
+| Khoảng trắng em space | `U+2003` | **Bỏ qua** | **Loại bỏ** | Điểm mã > `U+0020`, nhưng được Unicode công nhận là khoảng trắng |
 
-#### Ví Dụ Code Minh Họa Khoảng Trắng Unicode (Unicode Whitespace Demonstration Code Example)
+#### Ví Dụ Mã Nguồn Minh Họa Khoảng Trắng Unicode (Unicode Whitespace Demonstration Code Example)
 
 ```java
-// Chuỗi chứa ký tự khoảng trắng rộng Unicode Em Space (\u2003)
+// String containing Unicode Em Space (\u2003)
 String input = "\u2003Java Core\u2003";
 
-System.out.println("Độ dài ban đầu: " + input.length()); // Kết quả: 11
-System.out.println("Độ dài sau trim(): " + input.trim().length()); // Kết quả: 11 (bị bỏ qua!)
-System.out.println("Độ dài sau strip(): " + input.strip().length()); // Kết quả: 9 (được loại bỏ!)
+System.out.println("Original length: " + input.length()); // Output: 11
+System.out.println("trim() length: " + input.trim().length()); // Output: 11 (ignored!)
+System.out.println("strip() length: " + input.strip().length()); // Output: 9 (removed!)
 ```
 
-#### Chuỗi Nguyên Nhân - Kết Quả Xử Lý Khoảng Trắng Unicode
+#### Chuỗi Nguyên Nhân - Kết Quả Trong Xử Lý Khoảng Trắng Unicode (Cause-Effect Chain of Unicode Whitespace Processing)
+Ký tự Unicode `\u2003` (Khoảng trắng em space, giá trị `0x2003`) $\rightarrow$ Được đánh giá bởi `trim()` $\rightarrow$ Kiểm tra xem `0x2003 <= 0x20` (cho kết quả là `false`) $\rightarrow$ `trim()` bỏ qua ký tự $\rightarrow$ Được đánh giá bởi `strip()` $\rightarrow$ Gọi `Character.isWhitespace(0x2003)` $\rightarrow$ Trả về `true` dựa trên các thuộc tính Unicode $\rightarrow$ `strip()` loại bỏ ký tự.
 
-```text
-Ký tự Unicode `\u2003` (Em Space, giá trị `0x2003`)
-  → Được đánh giá bởi `trim()`
-  → Kiểm tra xem `0x2003 <= 0x20` (trả về `false`)
-  → `trim()` bỏ qua ký tự
-  → Được đánh giá bởi `strip()`
-  → Gọi `Character.isWhitespace(0x2003)`
-  → Trả về `true` dựa trên các thuộc tính Unicode
-  → `strip()` loại bỏ ký tự thành công.
-```
+### 7. Chuyển Đổi (Conversions): `toLowerCase()` và `toUpperCase()`
+- Chuyển đổi các ký tự bằng cách sử dụng các quy tắc đặc thù của từng vùng (locale-specific). Hãy cẩn thận: `"title".toUpperCase()` trong vùng cài đặt (locale) Thổ Nhĩ Kỳ sẽ tạo ra `TİTLE` thay vì `TITLE`.
 
-
-### 7. Chuyển Đổi: `toLowerCase()` và `toUpperCase()`
-- Chuyển đổi các ký tự viết thường/viết hoa sử dụng các quy tắc đặc thù theo ngôn ngữ (locale-specific rules). Hãy cẩn thận: `"title".toUpperCase()` trong cấu hình ngôn ngữ Thổ Nhĩ Kỳ sẽ tạo ra chuỗi `TİTLE` thay vì `TITLE`.
-
-### 8. Thay Thế: `replace()` so với `replaceAll()` (Replacement: replace() vs. replaceAll())
-- `replace(char oldChar, char newChar)`: Thay thế tất cả các lượt xuất hiện của một ký tự.
-- `replace(CharSequence target, CharSequence replacement)`: Thay thế tất cả các chuỗi con khớp giá trị. **Hoàn toàn không sử dụng biểu thức chính quy (regular expressions).**
-- `replaceAll(String regex, String replacement)`: Thay thế các phần khớp với một **biểu thức chính quy**.
-- `replaceFirst(String regex, String replacement)`: Chỉ thay thế phần khớp đầu tiên của một biểu thức chính quy.
+### 8. Thay Thế (Replacement): `replace()` so với `replaceAll()`
+- `replace(char oldChar, char newChar)`: Thay thế tất cả các lần xuất hiện của một ký tự.
+- `replace(CharSequence target, CharSequence replacement)`: Thay thế tất cả các chuỗi con khớp. **Không sử dụng biểu thức chính quy (regular expressions).**
+- `replaceAll(String regex, String replacement)`: Thay thế các kết quả khớp của một **biểu thức chính quy**.
+- `replaceFirst(String regex, String replacement)`: Chỉ thay thế kết quả khớp đầu tiên của một biểu thức chính quy.
 
 ```java
 String src = "apple.orange.banana";
 
-// replace() đối xử "." như một chuỗi ký tự thông thường
+// replace() treats "." as a literal string
 String r1 = src.replace(".", "-"); 
-System.out.println(r1); // Kết quả: apple-orange-banana
+System.out.println(r1); // Output: apple-orange-banana
 
-// replaceAll() đối xử "." như một ký tự đại diện regex (khớp với mọi ký tự)
+// replaceAll() treats "." as a regex wildcard (matches any character)
 String r2 = src.replaceAll(".", "-"); 
-System.out.println(r2); // Kết quả: -------------------
+System.out.println(r2); // Output: -------------------
 ```
 
-### 9. Cắt Tách Chuỗi: `split(String regex)` và `split(String regex, int limit)`
-Cắt tách chuỗi dựa trên các điểm khớp của biểu thức chính quy.
-- `split(regex)`: Tự động loại bỏ các chuỗi rỗng ở cuối mảng kết quả.
+### 9. Tách Chuỗi (Splitting): `split(String regex)` và `split(String regex, int limit)`
+Tách chuỗi dựa trên các kết quả khớp với biểu thức chính quy.
+- `split(regex)`: Loại bỏ các chuỗi trống ở cuối.
 - `split(regex, limit)`:
-  - Nếu `limit > 0`: Biểu thức chính quy được áp dụng tối đa `limit - 1` lần, dẫn đến độ dài tối đa của mảng kết quả là `limit`.
-  - Nếu `limit < 0`: Biểu thức chính quy được áp dụng nhiều lần nhất có thể, và các chuỗi rỗng ở cuối mảng **không** bị loại bỏ.
-  - Nếu `limit == 0`: Tương đương với `split(regex)` (các chuỗi rỗng ở cuối mảng bị loại bỏ).
+  - Nếu `limit > 0`: Mẫu tìm kiếm (pattern) được áp dụng tối đa `limit - 1` lần, dẫn đến kích thước mảng tối đa là `limit`.
+  - Nếu `limit < 0`: Mẫu tìm kiếm được áp dụng nhiều lần nhất có thể, và các chuỗi trống ở cuối **không** bị loại bỏ.
+  - Nếu `limit == 0`: Tương tự như `split(regex)` (các chuỗi trống ở cuối bị loại bỏ).
 
 ```java
 String s = "a:b:c::";
-s.split(":").length;    // 3 -> {"a", "b", "c"} (chuỗi rỗng ở cuối bị loại bỏ)
-s.split(":", -1).length; // 5 -> {"a", "b", "c", "", ""} (giữ lại các chuỗi rỗng)
-s.split(":", 2).length;  // 2 -> {"a", "b:c::"} (giới hạn tối đa 2 phần tử)
+s.split(":").length;    // 3 -> {"a", "b", "c"} (trailing empty strings discarded)
+s.split(":", -1).length; // 5 -> {"a", "b", "c", "", ""} (empty strings preserved)
+s.split(":", 2).length;  // 2 -> {"a", "b:c::"} (capped at 2 splits)
 ```
 
-### 10. Chuyển Đổi Thành Mảng Ký Tự: `toCharArray()`
-- Trả về một mảng ký tự mới được cấp phát có độ dài bằng với độ dài chuỗi, chứa trình tự các ký tự đại diện bởi chuỗi đó.
+### 10. Chuyển Đổi Sang Mảng Ký Tự (Converting to Character Array): `toCharArray()`
+- Trả về một mảng ký tự mới được cấp phát có độ dài bằng độ dài của chuỗi này, chứa chuỗi ký tự được biểu diễn bởi chuỗi đó.
 
 ```java
 String word = "Java";
 char[] chars = word.toCharArray();
 for (char c : chars) {
-    System.out.print(c + " "); // Kết quả: J a v a 
+    System.out.print(c + " "); // Output: J a v a 
 }
 System.out.println();
 ```
 
 ---
 
-## Nối Chuỗi Và Các Tối Ưu Hóa Của Trình Biên Dịch (String Concatenation and Compiler Optimizations)
+## Phép Cộng Chuỗi và Các Tối Ưu Hóa Của Trình Biên Dịch (String Concatenation and Compiler Optimizations)
 
-### Đánh Giá Lúc Biên Dịch (Compile-time Evaluation)
-Nếu bạn thực hiện nối các hằng chuỗi (literals), trình biên dịch sẽ tự động tính toán chúng tại thời điểm biên dịch và đặt chuỗi kết quả cuối cùng trực tiếp vào file bytecode:
+### Đánh Giá Tại Thời Điểm Biên Dịch (Compile-time Evaluation)
+Nếu bạn cộng các chuỗi hằng (literals), trình biên dịch sẽ đánh giá chúng tại thời điểm biên dịch và đặt chuỗi cuối cùng trực tiếp vào mã bytecode (bytecode):
 ```java
-String s = "a" + "b" + "c"; // Được biên dịch tương đương: String s = "abc";
+String s = "a" + "b" + "c"; // Compiled as: String s = "abc";
 ```
 
-### Đánh Giá Động (Dynamic Evaluation - Sử Dụng Biến)
-Nếu biểu thức nối chuỗi chứa các biến số, Java bắt buộc phải đánh giá chúng lúc runtime:
-- **Java 8 trở về trước:** Được biên dịch dịch chuyển thành cấu trúc `new StringBuilder().append(a).append(b).toString()`.
-- **Java 9 trở đi:** Sử dụng lệnh `invokedynamic` để gọi phương thức `StringConcatFactory.makeConcatWithTemplate()`. Cơ chế này tách biệt chiến lược nối chuỗi ra khỏi bytecode, cho phép JVM tối ưu hóa thao tác một cách linh hoạt lúc runtime.
+### Đánh Giá Động (Dynamic Evaluation) (Biến)
+Nếu biểu thức chứa các biến, Java sẽ đánh giá chúng tại thời điểm chạy (runtime):
+- **Java 8 trở về trước:** Được chuyển đổi thành `new StringBuilder().append(a).append(b).toString()`.
+- **Java 9 trở về sau:** Sử dụng `invokedynamic` để gọi `StringConcatFactory.makeConcatWithTemplate()`. Điều này tách biệt chiến lược cộng chuỗi khỏi bytecode, cho phép máy ảo Java (JVM) tối ưu hóa hoạt động này một cách động.
 
 ---
 
 ## Các Tùy Chọn Định Dạng Chi Tiết (Detailed Formatting Options)
 
-Các phương thức `String.format()` và `System.out.printf()` định dạng chuỗi dựa trên một mẫu (pattern).
+`String.format()` và `System.out.printf()` định dạng chuỗi dựa trên một mẫu.
 
-### Cú Pháp:
+### Cú Pháp (Syntax):
 $$\%[\text{argument\_index}\$][\text{flags}][\text{width}][.\text{precision}]\text{conversion}$$
 
-### Các Ký Tự Chuyển Đổi Phổ Biến (Common Conversions):
-- `%s`: Biểu diễn chuỗi (String)
-- `%d`: Số nguyên (Integer)
-- `%f`: Số thực dấu phẩy động (Floating-point)
-- `%tF`: Ngày tháng định dạng YYYY-MM-DD (Date)
-- `%n`: Ký tự xuống dòng đặc thù theo hệ điều hành (Platform-specific newline)
+### Các Chuyển Đổi Phổ Biến (Common Conversions):
+- `%s`: Biểu diễn chuỗi
+- `%d`: Số nguyên
+- `%f`: Số dấu phẩy động (Floating-point)
+- `%tF`: Ngày tháng theo định dạng YYYY-MM-DD
+- `%n`: Ký tự xuống dòng đặc thù của nền tảng (platform-specific)
 
-### Các Cờ Định Dạng Và Độ Chính Xác (Formatting Flags and Precision):
-- `%-15s`: Căn lề trái cho chuỗi bên trong một vùng hiển thị rộng 15 ký tự.
-- `%05d`: Đệm thêm các số 0 ở đầu để số có độ dài hiển thị là 5 chữ số.
-- `%.2f`: Giới hạn hiển thị số thực dấu phẩy động đến 2 chữ số thập phân sau dấu phẩy.
+### Các Cờ Định Dạng và Độ Chính Xác (Formatting Flags and Precision):
+- `%-15s`: Căn lề trái chuỗi bên trong một trường có độ rộng 15 ký tự.
+- `%05d`: Thêm các chữ số 0 ở đầu số để tạo thành số có 5 chữ số.
+- `%.2f`: Giới hạn số dấu phẩy động ở 2 chữ số thập phân.
 
 ```java
 String.format("|%-10s|", "Java"); // "|Java      |"
-String.format("%.3f", 3.14159);    // "3.142" (được làm tròn)
+String.format("%.3f", 3.14159);    // "3.142" (rounded)
 String.format("%04d", 42);          // "0042"
 
-// Ví dụ định dạng chi tiết:
+// Detailed Formatting Example:
 String name = "Alice";
 int age = 30;
 double gpa = 3.8567;
 
 String formatted = String.format("Name: %s, Age: %d, GPA: %.2f", name, age, gpa);
-System.out.println(formatted); // Kết quả: Name: Alice, Age: 30, GPA: 3.86
+System.out.println(formatted); // Output: Name: Alice, Age: 30, GPA: 3.86
 ```
 
 ---
 
-## Khối Văn Bản (Text Blocks - Java 15+)
+## Khối Văn Bản (Text Blocks) (Java 15+)
 
-Khối văn bản (Text Blocks) là cú pháp khai báo hằng chuỗi nhiều dòng được bao bọc bởi ba dấu ngoặc kép `"""`.
+Khối văn bản là các chuỗi hằng nhiều dòng được bao bọc trong dấu nháy kép ba `"""`.
 
 ### Thuật Toán Loại Bỏ Khoảng Trắng (Whitespace Stripping Algorithm)
-1. **Khoảng trắng ngẫu nhiên (Incidental Whitespace):** Trình biên dịch tính toán khoảng trắng thụt lề chung nhỏ nhất trên tất cả các dòng và tự động loại bỏ nó.
-2. **Khoảng trắng cốt lõi (Essential Whitespace):** Các phần thụt lề vượt quá giới hạn chung nhỏ nhất nói trên sẽ được giữ lại.
-3. Ký tự đóng `"""` quyết định mức thụt lề tối thiểu. Việc di chuyển ký tự đóng này sang bên trái sẽ giúp giữ lại các khoảng trắng thụt lề ở đầu dòng.
+1. **Khoảng Trắng Phát Sinh (Incidental Whitespace):** Trình biên dịch tính toán khoảng trắng ở đầu chung giữa tất cả các dòng và loại bỏ nó.
+2. **Khoảng Trắng Cần Thiết (Essential Whitespace):** Thụt lề (indentation) vượt quá ngưỡng chung sẽ được giữ lại.
+3. Dấu `"""` đóng xác định độ thụt lề tối thiểu. Việc di chuyển nó sang bên trái sẽ giữ lại các khoảng trống ở đầu.
 
-### Các Ký Tự Escape Đặc Biệt Trong Khối Văn Bản
-- `\` (Line Continuation - Tiếp tục dòng): Ngăn chặn việc chèn ký tự xuống dòng ở cuối dòng hiện tại.
-- `\s` (Trailing Space - Giữ khoảng trắng cuối): Giữ lại các ký tự khoảng trắng ở cuối dòng (vốn dĩ theo mặc định sẽ bị tự động loại bỏ).
+### Các Chuỗi Thoát Đặc Biệt Trong Khối Văn Bản (Special Escape Sequences in Text Blocks)
+- `\` (Nối dòng (Line Continuation)): Ngăn việc chèn ký tự xuống dòng ở cuối dòng.
+- `\s` (Khoảng trắng ở cuối (Trailing Space)): Giữ lại các khoảng trắng ở cuối dòng đó (những khoảng trắng này theo mặc định sẽ bị loại bỏ).
 
 ```java
 String html = """
@@ -219,46 +208,48 @@ String html = """
               </html>
               """;
 ```
-- Dòng chứa thẻ `<p>` sẽ được nối liền với dòng tiếp theo nhờ ký tự `\`.
-- Đoạn `\s\s` ở cuối thẻ `<p>` giúp giữ lại chính xác hai ký tự khoảng trắng ở cuối dòng.
+- Dòng chứa thẻ `<p>` sẽ được gộp với dòng tiếp theo do ký tự `\`.
+- Ký tự `\s\s` ở cuối dòng chứa thẻ `<p>` giữ lại hai khoảng trắng ở cuối.
 
 ---
 
 ## Các Lỗi Thường Gặp (Common Mistakes)
 
-### 1. Ngoại lệ `StringIndexOutOfBoundsException` với `charAt` và `substring`
-Chuỗi trong Java tính chỉ số bắt đầu từ số 0. Giới hạn chỉ số của `charAt(index)` là từ `0` đến `length() - 1`. Chỉ số kết thúc `endIndex` của `substring(beginIndex, endIndex)` là loại trừ, nhưng không được phép lớn hơn `length()`.
+### 1. Ngoại Lệ `StringIndexOutOfBoundsException` Với `charAt` và `substring`
+Chuỗi trong Java có chỉ mục bắt đầu từ 0 (zero-indexed). Giới hạn cho `charAt(index)` là từ `0` đến `length() - 1`. Chỉ mục `endIndex` của `substring(beginIndex, endIndex)` là loại trừ, nhưng không được vượt quá `length()`.
 ```java
 String s = "hello";
-char c = s.charAt(5); // Throws StringIndexOutOfBoundsException (độ dài là 5, chỉ số lớn nhất là 4)
-String sub = s.substring(2, 6); // Throws StringIndexOutOfBoundsException (chỉ số kết thúc 6 vượt quá độ dài)
+char c = s.charAt(5); // StringIndexOutOfBoundsException (length is 5, max index is 4)
+String sub = s.substring(2, 6); // StringIndexOutOfBoundsException (endIndex 6 exceeds length)
 ```
 
-### 2. Cắt tách dựa trên các ký tự đặc biệt của Regex (Metacharacters)
-Sử dụng trực tiếp các ký tự đặc biệt của biểu thức chính quy như `.`, `|`, `+`, `*`, `?` trong phương thức `split()` hoặc `replaceAll()` mà quên escape chúng.
+### 2. Tách Chuỗi Theo Các Ký Tự Đặc Biệt Của Biểu Thức Chính Quy (Splitting on Regex Metacharacters)
+Sử dụng trực tiếp các ký tự đặc biệt của biểu thức chính quy như `.`, `|`, `+`, `*`, `?` trong `split()` hoặc `replaceAll()` mà không thoát ký tự (escaping) cho chúng.
 ```java
 String data = "a.b.c";
-String[] parts = data.split("."); // Sai! Ký tự "." khớp với mọi ký tự.
-System.out.println(parts.length); // In ra 0 vì tất cả ký tự đã khớp và bị cắt đi mất.
+String[] parts = data.split("."); // Incorrect! "." matches any character.
+System.out.println(parts.length); // Prints 0 because it matched and split everything away.
 
-// Đúng: Escape dấu chấm bằng cách dùng hai dấu gạch chéo ngược
+// Correct: Escape the dot using a double backslash
 String[] correctParts = data.split("\\.");
-System.out.println(correctParts.length); // In ra 3
+System.out.println(correctParts.length); // Prints 3
 ```
 
-### 3. Nhầm lẫn giữa `replace` và `replaceAll`
-Giả định rằng `replace(CharSequence, CharSequence)` chỉ thay thế vị trí đầu tiên xuất hiện hoặc không thay thế hết. Thực tế, `replace()` thay thế TẤT CẢ các vị trí khớp hằng chuỗi, trong khi `replaceAll()` cũng làm điều tương tự nhưng đối xử chuỗi tìm kiếm như một biểu thức chính quy (regex).
+### 3. Nhầm Lẫn Giữa `replace` và `replaceAll` (Mixing up replace and replaceAll)
+Giả định rằng `replace(CharSequence, CharSequence)` chỉ thay thế lần xuất hiện đầu tiên hoặc không thay thế tất cả. Trên thực tế, `replace()` thay thế TẤT CẢ các lần xuất hiện của chuỗi hằng mục tiêu, trong khi `replaceAll()` cũng thực hiện tương tự nhưng coi mục tiêu đó là một biểu thức chính quy.
 ```java
 String sentence = "I love Java. Java is fun.";
-// Cả hai lệnh đều thay thế tất cả vị trí khớp, nhưng replace() chạy nhanh và an toàn hơn cho văn bản thường:
+// Both replace all occurrences, but replace() is faster/safer for plain text:
 System.out.println(sentence.replace("Java", "Kotlin")); 
 System.out.println(sentence.replaceAll("Java", "Kotlin"));
 ```
 
 ---
 
-## Liên Kết Tham Khảo (Reference Links)
+## Các Liên Kết Tham Khảo (Reference Links)
 
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html#trim() (Tài liệu Javadoc của String.trim() trong Oracle Java API)
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html#strip() (Tài liệu Javadoc của String.strip() trong Oracle Java API)
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Character.html#isWhitespace(int) (Tài liệu Javadoc của Character.isWhitespace() trong Oracle Java API)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html#trim() (Oracle Java API: String.trim())
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html#strip() (Oracle Java API: String.strip())
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Character.html#isWhitespace(int) (Oracle Java API: Character.isWhitespace())
+
+---

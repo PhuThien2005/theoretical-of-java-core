@@ -1,63 +1,63 @@
-# Modern Java Concepts To Know Terms
+# Thuật Ngữ Các Khái Niệm Java Hiện Đại Cần Biết
 
-Use this file when a word in the theory feels too compressed. Each term has meaning, importance, confusion, and a small example.
+Dùng file này khi một từ trong lý thuyết cảm thấy quá ngắn gọn. Mỗi thuật ngữ đều có nghĩa, tầm quan trọng, điểm gây nhầm lẫn và một ví dụ nhỏ.
 
 ## record
 
-A record is a compact Java class for immutable data carriers.
+Một record (bản ghi) là lớp Java compact dùng để lưu trữ dữ liệu bất biến (immutable data carrier).
 
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+Tại sao quan trọng: Dùng để dự đoán quy tắc Java chính xác, dạng được phép và trường hợp thất bại. Ôn lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
 
-Common confusion: learners often memorize `record` as a word but cannot explain what problem it solves or what rule it changes.
+Nhầm lẫn phổ biến: Người học thường ghi nhớ `record` như một từ khóa nhưng không giải thích được vấn đề nó giải quyết hay quy tắc nó thay đổi.
 
-Small example: When reading code, ask: what does `record` change, allow, reject, or clarify?
+Ví dụ nhỏ: Khi đọc code, hãy hỏi: `record` thay đổi, cho phép, từ chối, hay làm rõ điều gì?
 
 ## sealed class
 
-A sealed class restricts which classes may extend or implement it.
+Một sealed class (lớp kín) giới hạn những lớp nào có thể kế thừa (extend) hoặc triển khai (implement) nó.
 
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+Tại sao quan trọng: Dùng để dự đoán quy tắc Java chính xác, dạng được phép và trường hợp thất bại. Ôn lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
 
-Common confusion: learners often memorize `sealed class` as a word but cannot explain what problem it solves or what rule it changes.
+Nhầm lẫn phổ biến: Người học thường ghi nhớ `sealed class` như một từ khóa nhưng không giải thích được vấn đề nó giải quyết hay quy tắc nó thay đổi.
 
-Small example: When reading code, ask: what does `sealed class` change, allow, reject, or clarify?
+Ví dụ nhỏ: Khi đọc code, hãy hỏi: `sealed class` thay đổi, cho phép, từ chối, hay làm rõ điều gì?
 
 ## pattern matching
 
-pattern matching is a specific concept in Modern Java Concepts To Know; learn its Java rule, valid use cases, and failure mode rather than only its name.
+Pattern matching (khớp mẫu) là một khái niệm cụ thể trong các tính năng Java hiện đại; hãy học quy tắc Java, các trường hợp dùng hợp lệ, và trường hợp thất bại thay vì chỉ ghi nhớ tên.
 
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+Tại sao quan trọng: Dùng để dự đoán quy tắc Java chính xác, dạng được phép và trường hợp thất bại. Ôn lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
 
-Common confusion: learners often memorize `pattern matching` as a word but cannot explain what problem it solves or what rule it changes.
+Nhầm lẫn phổ biến: Người học thường ghi nhớ `pattern matching` như một từ khóa nhưng không giải thích được vấn đề nó giải quyết hay quy tắc nó thay đổi.
 
-Small example: When reading code, ask: what does `pattern matching` change, allow, reject, or clarify?
+Ví dụ nhỏ: Khi đọc code, hãy hỏi: `pattern matching` thay đổi, cho phép, từ chối, hay làm rõ điều gì?
 
 ## text block
 
-text block is a specific concept in Modern Java Concepts To Know; learn its Java rule, valid use cases, and failure mode rather than only its name.
+Text block (khối văn bản) là một khái niệm cụ thể trong các tính năng Java hiện đại; hãy học quy tắc Java, các trường hợp dùng hợp lệ, và trường hợp thất bại thay vì chỉ ghi nhớ tên.
 
-Why it matters: It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
+Tại sao quan trọng: Quan trọng vì code đồng thời (concurrent) có thể trông đúng trong kiểm thử đơn luồng (single-thread) nhưng lại thất bại khi có áp lực về thời gian. Nhầm lẫn phổ biến là cho rằng visibility, ordering, và atomicity là cùng một đảm bảo.
 
-Common confusion: learners often memorize `text block` as a word but cannot explain what problem it solves or what rule it changes.
+Nhầm lẫn phổ biến: Người học thường ghi nhớ `text block` như một từ khóa nhưng không giải thích được vấn đề nó giải quyết hay quy tắc nó thay đổi.
 
-Small example: When reading code, ask: what does `text block` change, allow, reject, or clarify?
+Ví dụ nhỏ: Khi đọc code, hãy hỏi: `text block` thay đổi, cho phép, từ chối, hay làm rõ điều gì?
 
 ## virtual thread
 
-A thread is a path of execution inside a process.
+Một thread (luồng) là một đường thực thi bên trong một process (tiến trình).
 
-Why it matters: It matters because concurrent code can look correct in single-thread tests but fail under timing pressure. A common confusion is assuming visibility, ordering, and atomicity are the same guarantee.
+Tại sao quan trọng: Quan trọng vì code đồng thời có thể trông đúng trong kiểm thử đơn luồng nhưng lại thất bại khi có áp lực về thời gian. Nhầm lẫn phổ biến là cho rằng visibility, ordering, và atomicity là cùng một đảm bảo.
 
-Common confusion: learners often memorize `virtual thread` as a word but cannot explain what problem it solves or what rule it changes.
+Nhầm lẫn phổ biến: Người học thường ghi nhớ `virtual thread` (luồng ảo) như một từ khóa nhưng không giải thích được vấn đề nó giải quyết hay quy tắc nó thay đổi.
 
-Small example: `new Thread(task).start()` starts work on another thread.
+Ví dụ nhỏ: `new Thread(task).start()` khởi động công việc trên một thread khác.
 
 ## sequenced collection
 
-A collection is an object that groups multiple elements under a common API.
+Một collection (tập hợp) là đối tượng nhóm nhiều phần tử lại dưới một API chung.
 
-Why it matters: It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
+Tại sao quan trọng: Quan trọng vì việc chọn sai cấu trúc dữ liệu thay đổi tính đúng đắn, hiệu suất và hành vi xử lý phần tử trùng lặp. Nhầm lẫn phổ biến là ghi nhớ tên lớp mà không hiểu thứ tự tra cứu, quy tắc bằng nhau, hay hành vi duyệt.
 
-Common confusion: learners often memorize `sequenced collection` as a word but cannot explain what problem it solves or what rule it changes.
+Nhầm lẫn phổ biến: Người học thường ghi nhớ `sequenced collection` (tập hợp có thứ tự) như một từ khóa nhưng không giải thích được vấn đề nó giải quyết hay quy tắc nó thay đổi.
 
-Small example: When reading code, ask: what does `sequenced collection` change, allow, reject, or clarify?
+Ví dụ nhỏ: Khi đọc code, hãy hỏi: `sequenced collection` thay đổi, cho phép, từ chối, hay làm rõ điều gì?

@@ -1,77 +1,77 @@
-# Interface Chức Năng - Phần 1 (Functional Interface - Part 1)
+# Giao Diện Chức Năng (Functional Interface) - Phần 1
 
-## Mục Tiêu Học Tập (Learning Goal)
+## Mục Tiêu Học Tập
 
-Tài liệu này đề cập đến một phần trọng tâm của **Interface Chức Năng**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải là những thuật ngữ riêng lẻ.
+Tài liệu này tập trung vào một phần chuyên sâu của **Giao Diện Chức Năng (Functional Interface)**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc thực tế trong Java, không chỉ đơn thuần là lý thuyết từ vựng.
 
-## Phạm Vi Outline (Outline Coverage)
+## Tóm Tắt Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Những điều cần biết (What to know) |
+| Khái niệm (Concept) | Điều cần biết (What to know) |
 | --- | --- |
-| `Predicate<T>` | `Predicate<T>` là một khái niệm cụ thể trong Interface chức năng; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và lỗi thường gặp của nó thay vì chỉ biết mỗi tên gọi. |
-| `Function<T, R>` | `Function<T, R>` là một khái niệm cụ thể trong Interface chức năng; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và lỗi thường gặp của nó thay vì chỉ biết mỗi tên gọi. |
-| `Consumer<T>` | `Consumer<T>` là một khái niệm cụ thể trong Interface chức năng; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và lỗi thường gặp của nó thay vì chỉ biết mỗi tên gọi. |
-| `Supplier<T>` | `Supplier<T>` là một khái niệm cụ thể trong Interface chức năng; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và lỗi thường gặp của nó thay vì chỉ biết mỗi tên gọi. |
-| `UnaryOperator<T>` | `UnaryOperator<T>` là một khái niệm cụ thể trong Interface chức năng; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và lỗi thường gặp của nó thay vì chỉ biết mỗi tên gọi. |
-| `BinaryOperator<T>` | `BinaryOperator<T>` là một khái niệm cụ thể trong Interface chức năng; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và lỗi thường gặp của nó thay vì chỉ biết mỗi tên gọi. |
-| `BiPredicate<T, U>` | `BiPredicate<T, U>` là một khái niệm cụ thể trong Interface chức năng; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và lỗi thường gặp của nó thay vì chỉ biết mỗi tên gọi. |
-| `BiFunction<T, U, R>` | `BiFunction<T, U, R>` là một khái niệm cụ thể trong Interface chức năng; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và lỗi thường gặp của nó thay vì chỉ biết mỗi tên gọi. |
-| `BiConsumer<T, U>` | `BiConsumer<T, U>` là một khái niệm cụ thể trong Interface chức năng; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và lỗi thường gặp của nó thay vì chỉ biết mỗi tên gọi. |
-| `What is the input?` | Đầu vào là gì (What is the input) là một câu hỏi then chốt để hiểu về Interface chức năng. |
+| `Predicate<T>` | `Predicate<T>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
+| `Function<T, R>` | `Function<T, R>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
+| `Consumer<T>` | `Consumer<T>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
+| `Supplier<T>` | `Supplier<T>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
+| `UnaryOperator<T>` | `UnaryOperator<T>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
+| `BinaryOperator<T>` | `BinaryOperator<T>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
+| `BiPredicate<T, U>` | `BiPredicate<T, U>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
+| `BiFunction<T, U, R>` | `BiFunction<T, U, R>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
+| `BiConsumer<T, U>` | `BiConsumer<T, U>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
+| `Đầu vào là gì?` | Đầu vào là gì? là một câu hỏi cốt lõi để thấu hiểu Giao Diện Chức Năng. |
 
-## Ghi Chú Chi Tiết (Detailed Notes)
+## Ghi Chú Chi Tiết
 
-### Annotation @FunctionalInterface (The @FunctionalInterface Annotation)
+### Chú thích @FunctionalInterface
 
-Một interface chức năng (functional interface) trong Java là một interface chứa **đúng một phương thức trừu tượng** (Single Abstract Method - SAM). Nó có thể chứa bất kỳ số lượng phương thức `default` hoặc `static` nào.
+Một giao diện chức năng trong Java là một giao diện chứa **chính xác một phương thức trừu tượng (SAM - Single Abstract Method)**. Nó có thể chứa bất kỳ số lượng phương thức mặc định (`default`) hoặc phương thức tĩnh (`static`) nào.
 
-Annotation `@FunctionalInterface` là tùy chọn nhưng được khuyến nghị mạnh mẽ. Nó thông báo cho trình biên dịch xác thực rằng interface được chú thích có đúng một phương thức trừu tượng. Nếu không thỏa mãn, lỗi biên dịch sẽ xảy ra.
+Chú thích `@FunctionalInterface` là tùy chọn nhưng được khuyến khích mạnh mẽ. Nó thông báo cho trình biên dịch xác thực xem giao diện được chú thích có đúng một phương thức trừu tượng hay không. Nếu không, lỗi biên dịch sẽ xảy ra.
 
-#### Ghi Đè Các Phương Thức Của Object (Overriding Object Methods)
-Một interface có thể khai báo các phương thức trừu tượng ghi đè các phương thức public của `java.lang.Object` (như `equals`, `hashCode`, hoặc `toString`). Những khai báo này **không** được tính vào số lượng duy nhất của phương thức trừu tượng.
+#### Ghi đè các Phương thức của Lớp Object
+Một giao diện có thể khai báo các phương thức trừu tượng ghi đè các phương thức công khai của lớp `java.lang.Object` (như `equals`, `hashCode`, hoặc `toString`). Những khai báo này **không** được tính vào số lượng phương thức trừu tượng duy nhất.
 
 ```java
 @FunctionalInterface
 public interface SimpleCalculator {
-    int calculate(int a, int b); // Phương thức trừu tượng duy nhất (SAM)
+    int calculate(int a, int b); // Single Abstract Method (SAM)
 
-    // Các phương thức mặc định (default) được phép
+    // Default methods are allowed
     default int add(int a, int b) {
         return a + b;
     }
 
-    // Các phương thức tĩnh (static) được phép
+    // Static methods are allowed
     static boolean isPositive(int val) {
         return val > 0;
     }
 
-    // Ghi đè phương thức của Object được phép và KHÔNG tính là trừu tượng
+    // Overriding Object methods is allowed and does NOT count as abstract
     @Override
     boolean equals(Object obj);
 }
 ```
 
-## Tại Sao Nên Sử Dụng Annotation @FunctionalInterface (Why Use the @FunctionalInterface Annotation)
+## Tại sao nên sử dụng chú thích @FunctionalInterface
 
-Annotation `@FunctionalInterface` là một chú thích hướng dẫn trình biên dịch để tài liệu hóa rõ ràng ý định thiết kế của một interface. Mặc dù Java cho phép bất kỳ interface nào chứa đúng một phương thức trừu tượng hoạt động như một đích đến cho biểu thức lambda hoặc tham chiếu phương thức, việc bỏ qua annotation này có thể dẫn đến các lỗi không mong muốn trong tương lai. Nếu một lập trình viên vô tình thêm phương thức trừu tượng thứ hai vào một interface chức năng mà không có chú thích này, lỗi biên dịch sẽ hiển thị tại các nơi sử dụng (nơi viết biểu thức lambda) chứ không phải tại chính khai báo interface, làm cho việc gỡ lỗi trở nên khó khăn hơn. Việc sử dụng `@FunctionalInterface` đảm bảo trình biên dịch kiểm tra hợp đồng phương thức trừu tượng duy nhất (SAM) ngay lập tức tại nơi khai báo, ngăn chặn việc vô tình thêm các phương thức trừu tượng khác.
+Chú thích `@FunctionalInterface` là một chú thích định hướng trình biên dịch, nhằm tài liệu hóa rõ ràng ý định thiết kế của một giao diện. Mặc dù Java cho phép bất kỳ giao diện nào chứa chính xác một phương thức trừu tượng đóng vai trò là kiểu đích (Target type) cho các biểu thức lambda hoặc tham chiếu phương thức, việc bỏ qua chú thích này sẽ khiến mã nguồn dễ gặp lỗi trong tương lai. Nếu một lập trình viên vô tình thêm một phương thức trừu tượng thứ hai vào một giao diện chức năng mà không có chú thích này, lỗi biên dịch sẽ biểu hiện tại nơi sử dụng (nơi viết biểu thức lambda) thay vì tại chính khai báo giao diện, khiến cho việc gỡ lỗi trở nên khó khăn hơn. Sử dụng `@FunctionalInterface` đảm bảo trình biên dịch kiểm tra ràng buộc phương thức trừu tượng duy nhất (SAM) ngay tại nơi khai báo, ngăn chặn việc vô tình thêm vào các phương thức trừu tượng khác.
 
 ```mermaid
 graph TD
-    A[Lập trình viên sửa đổi Interface] -->|Thêm phương thức trừu tượng thứ 2| B{Có chú thích @FunctionalInterface?}
-    B -->|Có| C[Lỗi biên dịch tại định nghĩa interface: 'Multiple non-overriding abstract methods']
-    B -->|Không| D[Interface biên dịch thành công]
-    D --> E[Lỗi biên dịch tại các nơi sử dụng lambda: 'Target type is not a functional interface']
+    A[Lập trình viên sửa đổi Giao diện] -->|Thêm phương thức trừu tượng thứ 2| B{Được chú thích với @FunctionalInterface?}
+    B -->|Có| C[Lỗi biên dịch tại định nghĩa giao diện: 'Multiple non-overriding abstract methods']
+    B -->|Không| D[Giao diện biên dịch thành công]
+    D --> E[Lỗi biên dịch tại nơi sử dụng lambda: 'Target type is not a functional interface']
 ```
 
-### Ví dụ mã nguồn: Bắt buộc kiểm tra bằng chú thích (Code Example: Annotation Enforcement)
+### Ví dụ Thực Tế: Thực thi Ràng buộc của Chú thích
 
 ```java
-// Cách dùng đúng: trình biên dịch kiểm tra khai báo
+// Correct usage: compiler checks declaration
 @FunctionalInterface
 interface StringTransformer {
     String transform(String input);
     
-    // Nếu bỏ chú thích dòng bên dưới, trình biên dịch sẽ báo lỗi ngay lập tức:
+    // If we uncomment the line below, compiler complains immediately:
     // "StringTransformer is not a functional interface"
     // void anotherMethod(); 
 }
@@ -79,72 +79,73 @@ interface StringTransformer {
 public class AnnotationDemo {
     public static void main(String[] args) {
         StringTransformer upper = String::toUpperCase;
-        System.out.println(upper.transform("hello")); // Kết quả: HELLO
+        System.out.println(upper.transform("hello")); // Output: HELLO
     }
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-- **Được chú thích với `@FunctionalInterface`** $\rightarrow$ Trình biên dịch bắt buộc kiểm tra ràng buộc phương thức trừu tượng duy nhất tại nơi khai báo $\rightarrow$ Ngăn chặn việc vô tình thêm mới các phương thức trừu tượng $\rightarrow$ Tránh lỗi biên dịch tại các nơi sử dụng lambda hạ nguồn.
+### Chuỗi Nguyên nhân - Kết quả
+- **Được chú thích với `@FunctionalInterface`** $\rightarrow$ Trình biên dịch thực thi ràng buộc phương thức trừu tượng duy nhất tại khai báo &rarr; Ngăn chặn việc vô tình thêm phương thức trừu tượng mới &rarr; Tránh lỗi biên dịch tại các vị trí sử dụng lambda phía hạ nguồn.
 
 ---
 
-## Quy Chuẩn JLS Đếm Số Lượng Phương Thức Trừu Tượng Và Xử Lý Việc Ghi Đè java.lang.Object (How the JLS Counts Abstract Methods and Treats java.lang.Object Overrides)
+## Cách JLS Đếm các Phương thức Trừu tượng và Xử lý việc Ghi đè java.lang.Object
 
-Quy chuẩn Ngôn ngữ Java (JLS §9.8) định nghĩa một interface chức năng là một interface có đúng một phương thức chức năng, tức là một phương thức trừu tượng duy nhất không bị ghi đè. Khi xác định số lượng phương thức trừu tượng, bất kỳ phương thức trừu tượng nào được khai báo trong interface mà ghi đè một phương thức public của lớp `java.lang.Object` (chẳng hạn như `equals(Object)`, `hashCode()`, hoặc `toString()`) đều được loại trừ khỏi lượt đếm. Việc loại trừ này tồn tại bởi vì bất kỳ lớp nào triển khai interface này sẽ tự động kế thừa các triển khai của các phương thức này từ `java.lang.Object` (trực tiếp hoặc thông qua phân cấp lớp cha), nghĩa là lớp triển khai không cần cung cấp một triển khai mới cho chúng. Nếu một phương thức trong interface ghi đè một phương thức phi-public của `Object` (chẳng hạn như `clone()`), hoặc nếu nó khai báo một phương thức trừu tượng không có trong `Object`, nó sẽ được tính vào giới hạn phương thức trừu tượng duy nhất.
+Đặc tả Ngôn ngữ Java (Java Language Specification - JLS §9.8) định nghĩa một giao diện chức năng là một giao diện có chính xác một phương thức chức năng, tức là một phương thức trừu tượng duy nhất không bị ghi đè. Khi xác định số lượng phương thức trừu tượng, bất kỳ phương thức trừu tượng nào được khai báo trong giao diện mà ghi đè một phương thức công khai của lớp `java.lang.Object` (như `equals(Object)`, `hashCode()`, hoặc `toString()`) đều được loại trừ khỏi lượt đếm. Việc loại trừ này tồn tại vì bất kỳ lớp nào triển khai giao diện này sẽ tự động kế thừa các triển khai của các phương thức này từ `java.lang.Object` (trực tiếp hoặc qua phân cấp lớp cha), nghĩa là lớp triển khai không cần cung cấp triển khai mới cho chúng. Nếu một phương thức trong giao diện ghi đè một phương thức không công khai của `Object` (chẳng hạn như `clone()`), hoặc nếu nó khai báo một phương thức trừu tượng không có mặt trong `Object`, nó sẽ được tính vào giới hạn phương thức trừu tượng duy nhất.
 
 ```mermaid
 flowchart TD
-    A[Kiểm tra các phương thức của Interface] --> B{Phương thức có trừu tượng?}
-    B -->|Không: default/static| C[Loại khỏi SAM count]
-    B -->|Có| D{Có khớp chữ ký phương thức public của java.lang.Object?}
-    D -->|Có| E[Loại khỏi SAM count]
-    D -->|Không| F[Tính vào SAM count]
-    F --> G{Tổng SAM count == 1?}
-    G -->|Có| H[Interface chức năng hợp lệ]
-    G -->|Không| I[Interface chức năng không hợp lệ]
+    A[Kiểm tra các Phương thức của Giao diện] --> B{Phương thức có trừu tượng?}
+    B -->|Không: default/static| C[Loại khỏi lượt đếm SAM]
+    B -->|Có| D{Có khớp chữ ký phương thức công khai của java.lang.Object?}
+    D -->|Có| E[Loại khỏi lượt đếm SAM]
+    D -->|Không| F[Tính vào lượt đếm SAM]
+    F --> G{Tổng số SAM == 1?}
+    G -->|Có| H[Giao diện Chức năng Hợp lệ]
+    G -->|Không| I[Giao diện Chức năng Không hợp lệ]
 ```
 
-### Ví dụ mã nguồn: Ghi đè phương thức của Object (Code Example: Object Overrides)
+### Ví dụ Thực Tế: Ghi đè Lớp Object
 
 ```java
 @FunctionalInterface
 interface CustomComparator<T> {
-    // 1. Tính là phương thức trừu tượng duy nhất (SAM)
+    // 1. Counts as the single abstract method (SAM)
     int compare(T o1, T o2);
 
-    // 2. Ghi đè phương thức public của java.lang.Object: KHÔNG tính
+    // 2. Overrides public java.lang.Object method: NOT counted
     @Override
     boolean equals(Object obj);
 
-    // 3. Ghi đè phương thức public của java.lang.Object: KHÔNG tính
+    // 3. Overrides public java.lang.Object method: NOT counted
     @Override
     String toString();
     
-    // 4. Ghi đè phương thức protected/phi-public của Object là KHÔNG được phép nếu không muốn tính vào SAM.
-    // Object clone(); // Nếu bỏ chú thích, nó sẽ tính là phương thức trừu tượng thứ hai và lỗi biên dịch!
+    // 4. Overriding protected/non-public Object method is NOT allowed as a non-counted method.
+    // Object clone(); // If uncommented, counts as second abstract method and fails compilation!
 }
 
 public class JlsChecksDemo {
     public static void main(String[] args) {
         CustomComparator<String> lengthComp = (s1, s2) -> Integer.compare(s1.length(), s2.length());
-        System.out.println(lengthComp.compare("apple", "banana")); // Kết quả: -1
-        System.out.println(lengthComp.equals(lengthComp));         // Kết quả: true
+        System.out.println(lengthComp.compare("apple", "banana")); // Output: -1
+        System.out.println(lengthComp.equals(lengthComp));         // Output: true
     }
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-- **Khai báo phương thức public của `Object` là trừu tượng** $\rightarrow$ Trình biên dịch nhận dạng chữ ký khớp với phương thức public của `Object` $\rightarrow$ Phương thức bị loại trừ khỏi bộ đếm phương thức trừu tượng của interface chức năng $\rightarrow$ Interface biên dịch thành công dưới dạng một `@FunctionalInterface` hợp lệ.
+### Chuỗi Nguyên nhân - Kết quả
+- **Khai báo phương thức public của `Object` dưới dạng abstract** $\rightarrow$ Trình biên dịch nhận biết chữ ký phương thức khớp với phương thức public của `Object` $\rightarrow$ Phương thức được loại trừ khỏi số lượng phương thức trừu tượng của giao diện chức năng $\rightarrow$ Giao diện biên dịch thành công dưới dạng một `@FunctionalInterface` hợp lệ.
 
 ---
 
 ### Predicate<T>
 
-`Predicate<T>` đại diện cho một hàm nhận một đối số và trả về giá trị kiểu `boolean`.
-- **Phương thức chức năng**: `boolean test(T t)`
-- **Trường hợp sử dụng phổ biến**: Lọc (filtering) các phần tử từ Stream hoặc Collection.
+`Predicate<T>` đại diện cho một hàm nhận vào một đối số và trả về giá trị kiểu `boolean`.
+- **Phương thức Chức năng**: `boolean test(T t)`
+- **Trường hợp Sử dụng Phổ biến**: Lọc các phần tử từ một Stream hoặc Collection.
 
+#### Giải thích Chi tiết và Ví dụ Code
 ```java
 import java.util.function.Predicate;
 import java.util.List;
@@ -160,7 +161,7 @@ public class PredicateExample {
                                      .collect(Collectors.toList());
         System.out.println(filtered); // [Charlie]
         
-        // Liên kết chuỗi: and(), or(), negate()
+        // Chaining: and(), or(), negate()
         Predicate<String> startsWithC = s -> s.startsWith("C");
         Predicate<String> combined = isLong.and(startsWithC);
         System.out.println(combined.test("Charlie")); // true
@@ -169,8 +170,8 @@ public class PredicateExample {
 }
 ```
 
-#### Các phiên bản kiểu nguyên thủy (Primitive Variants)
-Để tránh chi phí đóng hộp và mở hộp các kiểu nguyên thủy (ví dụ: `int` thành `Integer`), Java cung cấp các predicate chuyên biệt cho kiểu nguyên thủy:
+#### Các Biến thể Kiểu Nguyên thủy
+Để tránh chi phí đóng hộp và mở hộp các kiểu nguyên thủy (ví dụ: từ `int` thành `Integer`), Java cung cấp các điều kiện lọc chuyên biệt cho kiểu nguyên thủy:
 - `IntPredicate`: `boolean test(int value)`
 - `LongPredicate`: `boolean test(long value)`
 - `DoublePredicate`: `boolean test(double value)`
@@ -181,7 +182,7 @@ import java.util.function.IntPredicate;
 public class PrimitivePredicateExample {
     public static void main(String[] args) {
         IntPredicate isEven = value -> value % 2 == 0;
-        System.out.println(isEven.test(42)); // true (không có tự động đóng hộp)
+        System.out.println(isEven.test(42)); // true (no autoboxing)
     }
 }
 ```
@@ -190,10 +191,11 @@ public class PrimitivePredicateExample {
 
 ### Function<T, R>
 
-`Function<T, R>` chuyển đổi một đầu vào kiểu `T` thành một kết quả kiểu `R`.
-- **Phương thức chức năng**: `R apply(T t)`
-- **Trường hợp sử dụng phổ biến**: Ánh xạ (mapping) các đối tượng từ dạng này sang dạng khác.
+`Function<T, R>` chuyển đổi một đầu vào kiểu `T` thành kết quả kiểu `R`.
+- **Phương thức Chức năng**: `R apply(T t)`
+- **Trường hợp Sử dụng Phổ biến**: Ánh xạ (map) các đối tượng từ dạng này sang dạng khác.
 
+#### Giải thích Chi tiết và Ví dụ Code
 ```java
 import java.util.function.Function;
 
@@ -202,26 +204,26 @@ public class FunctionExample {
         Function<String, Integer> stringLength = s -> s.length();
         System.out.println(stringLength.apply("Java")); // 4
 
-        // Liên kết chuỗi: andThen(), compose()
+        // Chaining: andThen(), compose()
         Function<Integer, Integer> multiplyBy2 = n -> n * 2;
         
-        // andThen: áp dụng stringLength trước, sau đó áp dụng multiplyBy2
+        // andThen: apply stringLength first, then multiplyBy2
         Function<String, Integer> lengthDouble = stringLength.andThen(multiplyBy2);
         System.out.println(lengthDouble.apply("Java")); // 8
 
-        // compose: áp dụng multiplyBy2 trước, sau đó áp dụng stringLength (cần khớp kiểu đầu vào của stringLength)
+        // compose: apply multiplyBy2 first, then stringLength (needs to match input type of stringLength)
         Function<Integer, Integer> addThree = n -> n + 3;
-        Function<Integer, Integer> pipeline = addThree.compose(multiplyBy2); // multiplyBy2 trước rồi đến addThree
+        Function<Integer, Integer> pipeline = addThree.compose(multiplyBy2); // multiplyBy2 then addThree
         System.out.println(pipeline.apply(5)); // 5 * 2 + 3 = 13
     }
 }
 ```
 
-#### Các phiên bản kiểu nguyên thủy (Primitive Variants)
-Việc sử dụng `Function<T, R>` với các kiểu nguyên thủy yêu cầu đóng hộp. Java cung cấp các Function chuyên biệt cho kiểu nguyên thủy để tránh điều này:
-- **Đầu vào kiểu nguyên thủy**: `IntFunction<R>` (`R apply(int)`), `LongFunction<R>`, `DoubleFunction<R>`.
-- **Đầu ra kiểu nguyên thủy**: `ToIntFunction<T>` (`int applyAsInt(T)`), `ToLongFunction<T>`, `ToDoubleFunction<T>`.
-- **Nguyên thủy sang nguyên thủy**: `IntToDoubleFunction` (`double applyAsDouble(int)`), `IntToLongFunction`, `LongToIntFunction`, `LongToDoubleFunction`, `DoubleToIntFunction`, `DoubleToLongFunction`.
+#### Các Biến thể Kiểu Nguyên thủy
+Sử dụng `Function<T, R>` với các kiểu nguyên thủy đòi hỏi phải đóng hộp. Java cung cấp các Function chuyên biệt cho kiểu nguyên thủy để tránh điều này:
+- **Đầu vào Nguyên thủy**: `IntFunction<R>` (`R apply(int)`), `LongFunction<R>`, `DoubleFunction<R>`.
+- **Đầu ra Nguyên thủy**: `ToIntFunction<T>` (`int applyAsInt(T)`), `ToLongFunction<T>`, `ToDoubleFunction<T>`.
+- **Nguyên thủy sang Nguyên thủy**: `IntToDoubleFunction` (`double applyAsDouble(int)`), `IntToLongFunction`, `LongToIntFunction`, `LongToDoubleFunction`, `DoubleToIntFunction`, `DoubleToLongFunction`.
 
 ```java
 import java.util.function.IntToDoubleFunction;
@@ -229,7 +231,7 @@ import java.util.function.IntToDoubleFunction;
 public class PrimitiveFunctionExample {
     public static void main(String[] args) {
         IntToDoubleFunction half = val -> val / 2.0;
-        System.out.println(half.applyAsDouble(5)); // 2.5 (không đóng hộp)
+        System.out.println(half.applyAsDouble(5)); // 2.5 (no boxing)
     }
 }
 ```
@@ -239,9 +241,10 @@ public class PrimitiveFunctionExample {
 ### Consumer<T>
 
 `Consumer<T>` thực hiện một thao tác trên một đầu vào kiểu `T` và không trả về kết quả (trả về `void`).
-- **Phương thức chức năng**: `void accept(T t)`
-- **Trường hợp sử dụng phổ biến**: In ấn, ghi vào cơ sở dữ liệu, hoặc sửa đổi trạng thái nội bộ của một đối tượng.
+- **Phương thức Chức năng**: `void accept(T t)`
+- **Trường hợp Sử dụng Phổ biến**: In dữ liệu, ghi vào cơ sở dữ liệu, hoặc sửa đổi trạng thái nội bộ của một đối tượng.
 
+#### Giải thích Chi tiết và Ví dụ Code
 ```java
 import java.util.function.Consumer;
 
@@ -250,15 +253,15 @@ public class ConsumerExample {
         Consumer<String> printUpper = s -> System.out.println(s.toUpperCase());
         printUpper.accept("hello"); // HELLO
 
-        // Liên kết chuỗi: andThen()
+        // Chaining: andThen()
         Consumer<String> printLength = s -> System.out.println(s.length());
         Consumer<String> combined = printUpper.andThen(printLength);
-        combined.accept("java"); // JAVA sau đó in 4
+        combined.accept("java"); // JAVA then 4
     }
 }
 ```
 
-#### Các phiên bản kiểu nguyên thủy (Primitive Variants)
+#### Các Biến thể Kiểu Nguyên thủy
 - `IntConsumer`: `void accept(int value)`
 - `LongConsumer`: `void accept(long value)`
 - `DoubleConsumer`: `void accept(double value)`
@@ -268,7 +271,7 @@ import java.util.function.IntConsumer;
 
 public class PrimitiveConsumerExample {
     public static void main(String[] args) {
-        IntConsumer printInt = val -> System.out.println("Giá trị: " + val);
+        IntConsumer printInt = val -> System.out.println("Value: " + val);
         printInt.accept(100);
     }
 }
@@ -278,10 +281,11 @@ public class PrimitiveConsumerExample {
 
 ### Supplier<T>
 
-`Supplier<T>` không nhận đối số nào và trả về một kết quả kiểu `T`.
-- **Phương thức chức năng**: `T get()`
-- **Trường hợp sử dụng phổ biến**: Tạo giá trị lười biếng (lazy generation), các nhà máy (factory), hoặc cung cấp giá trị mặc định.
+`Supplier<T>` không nhận vào tham số nào và trả về một kết quả kiểu `T`.
+- **Phương thức Chức năng**: `T get()`
+- **Trường hợp Sử dụng Phổ biến**: Tạo giá trị trì hoãn (lazy generation), các nhà máy (factory), hoặc cung cấp các giá trị mặc định.
 
+#### Giải thích Chi tiết và Ví dụ Code
 ```java
 import java.util.function.Supplier;
 import java.time.LocalDateTime;
@@ -294,7 +298,7 @@ public class SupplierExample {
 }
 ```
 
-#### Các phiên bản kiểu nguyên thủy (Primitive Variants)
+#### Các Biến thể Kiểu Nguyên thủy
 - `IntSupplier`: `int getAsInt()`
 - `LongSupplier`: `long getAsLong()`
 - `DoubleSupplier`: `double getAsDouble()`
@@ -315,10 +319,11 @@ public class PrimitiveSupplierExample {
 
 ### UnaryOperator<T>
 
-`UnaryOperator<T>` là một `Function<T, T>` chuyên biệt trong đó kiểu đầu vào và đầu ra giống nhau.
-- **Phương thức chức năng**: `T apply(T t)`
-- **Trường hợp sử dụng phổ biến**: Sửa đổi một giá trị tại chỗ hoặc thay thế các phần tử trong một danh sách.
+`UnaryOperator<T>` là một `Function<T, T>` chuyên biệt, trong đó kiểu dữ liệu của đầu vào và đầu ra là giống nhau.
+- **Phương thức Chức năng**: `T apply(T t)`
+- **Trường hợp Sử dụng Phổ biến**: Sửa đổi trực tiếp một giá trị hoặc thay thế các phần tử trong một danh sách.
 
+#### Giải thích Chi tiết và Ví dụ Code
 ```java
 import java.util.function.UnaryOperator;
 import java.util.ArrayList;
@@ -336,7 +341,7 @@ public class UnaryOperatorExample {
 }
 ```
 
-#### Các phiên bản kiểu nguyên thủy (Primitive Variants)
+#### Các Biến thể Kiểu Nguyên thủy
 - `IntUnaryOperator`: `int applyAsInt(int)`
 - `LongUnaryOperator`: `long applyAsLong(long)`
 - `DoubleUnaryOperator`: `double applyAsDouble(double)`
@@ -356,10 +361,11 @@ public class PrimitiveUnaryOperatorExample {
 
 ### BinaryOperator<T>
 
-`BinaryOperator<T>` là một `BiFunction<T, T, T>` chuyên biệt trong đó hai kiểu đầu vào và kiểu đầu ra đều có chung kiểu `T`.
-- **Phương thức chức năng**: `T apply(T t1, T t2)`
-- **Trường hợp sử dụng phổ biến**: Rút gọn (reducing) collection hoặc gộp hai giá trị.
+`BinaryOperator<T>` là một `BiFunction<T, T, T>` chuyên biệt, trong đó hai đầu vào và kết quả trả về đều chia sẻ chung một kiểu dữ liệu `T`.
+- **Phương thức Chức năng**: `T apply(T t1, T t2)`
+- **Trường hợp Sử dụng Phổ biến**: Gom nhóm (reducing) các tập hợp hoặc tính toán gộp từ hai giá trị.
 
+#### Giải thích Chi tiết và Ví dụ Code
 ```java
 import java.util.function.BinaryOperator;
 
@@ -368,14 +374,14 @@ public class BinaryOperatorExample {
         BinaryOperator<Integer> sum = (a, b) -> a + b;
         System.out.println(sum.apply(10, 20)); // 30
 
-        // Các phương thức tĩnh hỗ trợ: minBy, maxBy
+        // Các phương thức trợ giúp tĩnh: minBy, maxBy
         BinaryOperator<Integer> min = BinaryOperator.minBy(Integer::compareTo);
         System.out.println(min.apply(15, 8)); // 8
     }
 }
 ```
 
-#### Các phiên bản kiểu nguyên thủy (Primitive Variants)
+#### Các Biến thể Kiểu Nguyên thủy
 - `IntBinaryOperator`: `int applyAsInt(int, int)`
 - `LongBinaryOperator`: `long applyAsLong(long, long)`
 - `DoubleBinaryOperator`: `double applyAsDouble(double, double)`
@@ -395,10 +401,11 @@ public class PrimitiveBinaryOperatorExample {
 
 ### BiPredicate<T, U>
 
-`BiPredicate<T, U>` nhận hai đối số có kiểu `T` và `U` và trả về một giá trị kiểu boolean.
-- **Phương thức chức năng**: `boolean test(T t, U u)`
-- **Trường hợp sử dụng phổ biến**: Kiểm tra mối quan hệ giữa hai đối tượng khác nhau.
+`BiPredicate<T, U>` nhận vào hai đối số thuộc các kiểu `T` và `U`, sau đó trả về một giá trị kiểu boolean.
+- **Phương thức Chức năng**: `boolean test(T t, U u)`
+- **Trường hợp Sử dụng Phổ biến**: Kiểm tra mối quan hệ giữa hai đối tượng khác nhau.
 
+#### Giải thích Chi tiết và Ví dụ Code
 ```java
 import java.util.function.BiPredicate;
 
@@ -414,10 +421,11 @@ public class BiPredicateExample {
 
 ### BiFunction<T, U, R>
 
-`BiFunction<T, U, R>` nhận hai đối số có kiểu `T` và `U` và tạo ra một kết quả có kiểu `R`.
-- **Phương thức chức năng**: `R apply(T t, U u)`
-- **Trường hợp sử dụng phổ biến**: Kết hợp hai đầu vào khác nhau thành một dạng biểu diễn thứ ba.
+`BiFunction<T, U, R>` nhận vào hai đối số thuộc các kiểu `T` và `U`, sau đó tạo ra một kết quả kiểu `R`.
+- **Phương thức Chức năng**: `R apply(T t, U u)`
+- **Trường hợp Sử dụng Phổ biến**: Kết hợp hai đầu vào riêng biệt thành một biểu diễn thứ ba.
 
+#### Giải thích Chi tiết và Ví dụ Code
 ```java
 import java.util.function.BiFunction;
 
@@ -433,10 +441,11 @@ public class BiFunctionExample {
 
 ### BiConsumer<T, U>
 
-`BiConsumer<T, U>` nhận hai đối số có kiểu `T` và `U` và không trả về kết quả (`void`).
-- **Phương thức chức năng**: `void accept(T t, U u)`
-- **Trường hợp sử dụng phổ biến**: Duyệt qua các phần tử của một Map sử dụng `Map.forEach`.
+`BiConsumer<T, U>` nhận vào hai đối số thuộc các kiểu `T` và `U` và không trả về kết quả (`void`).
+- **Phương thức Chức năng**: `void accept(T t, U u)`
+- **Trường hợp Sử dụng Phổ biến**: Duyệt qua các phần tử của một Map bằng cách sử dụng `Map.forEach`.
 
+#### Giải thích Chi tiết và Ví dụ Code
 ```java
 import java.util.function.BiConsumer;
 import java.util.HashMap;
@@ -448,7 +457,7 @@ public class BiConsumerExample {
         map.put("Apple", 10);
         map.put("Banana", 20);
 
-        BiConsumer<String, Integer> printer = (key, value) -> System.out.println(key + " có số lượng " + value);
+        BiConsumer<String, Integer> printer = (key, value) -> System.out.println(key + " has quantity " + value);
         map.forEach(printer);
     }
 }
@@ -458,46 +467,47 @@ public class BiConsumerExample {
 
 ### Đầu vào là gì? (What is the input?)
 
-Đầu vào là gì (What is the input) là một câu hỏi then chốt để hiểu về Interface chức năng.
+Đầu vào là gì? là một câu hỏi cốt lõi để thấu hiểu Giao Diện Chức Năng.
 
-Khi thiết kế hoặc lựa chọn một functional interface, hãy luôn luôn phân tích:
-1. **Có bao nhiêu đầu vào?** (Không có, Một, hoặc Hai)
-2. **Kiểu đầu vào là gì?** (Các đối tượng generic `T`, `U`, hoặc các kiểu nguyên thủy như `int`, `double`, `long`).
+#### Giải thích Chi tiết và Ví dụ Code
+Khi thiết kế hoặc lựa chọn một giao diện chức năng, hãy luôn phân tích:
+1. **Có bao nhiêu đầu vào?** (Không, Một, hoặc Hai)
+2. **Các kiểu đầu vào là gì?** (Các đối tượng kiểu chung `T`, `U`, hoặc các kiểu nguyên thủy như `int`, `double`, `long`).
 
 Ví dụ:
 - `Supplier<T>` có **không** đầu vào.
 - `Function<T, R>` có **một** đầu vào.
 - `BiFunction<T, U, R>` có **hai** đầu vào.
-- `IntConsumer` có **một** đầu vào kiểu nguyên thủy `int`.
+- `IntConsumer` có **một** đầu vào là kiểu nguyên thủy `int`.
 
 ---
 
-## Tại Sao Các Phiên Bản Chuyên Biệt Cho Kiểu Nguyên Thủy Giúp Ngăn Ngừa Chi Phí Đóng Hộp (Why Primitive Specializations Prevent Boxing Overhead)
+## Tại sao các Triển khai Chuyên biệt cho Kiểu Nguyên thủy Ngăn ngừa Chi phí Đóng hộp
 
-Các kiểu generic trong Java phải tuân theo cơ chế xóa kiểu (type erasure), nghĩa là JVM chỉ hoạt động trên các tham chiếu có kiểu `java.lang.Object` tại thời điểm chạy. Điều này ngăn cản các kiểu nguyên thủy như `int` hoặc `double` được sử dụng trực tiếp làm đối số kiểu (type argument). Khi sử dụng các functional interface tiêu chuẩn như `Predicate<Integer>`, bất kỳ giá trị nguyên thủy `int` nào được truyền dưới dạng đối số đều phải được bọc trong một đối tượng `Integer` được cấp phát trên heap thông qua cơ chế tự động đóng hộp (autoboxing). Quá trình đóng hộp này cấp phát bộ nhớ trên heap, tăng áp lực lên trình thu gom rác (garbage collection - GC), và yêu cầu giải tham chiếu (dereferencing) để truy xuất giá trị nguyên thủy trong quá trình thực thi phương thức. Để giải quyết vấn đề hiệu năng này, Java cung cấp các phiên bản chuyên biệt cho kiểu nguyên thủy như `IntPredicate` hoặc `DoubleConsumer` định nghĩa các phương thức trừu tượng nhận trực tiếp các đối số kiểu nguyên thủy (ví dụ: `test(int value)`). Việc sử dụng các phiên bản chuyên biệt này giúp loại bỏ việc cấp phát trên heap, tránh chi phí bộ nhớ, và cho phép JVM thực thi các hoạt động với chi phí tối thiểu bên trong các vòng lặp tần suất cao.
+Các kiểu generic trong Java phải trải qua quá trình xóa kiểu, nghĩa là JVM chỉ hoạt động trên các tham chiếu có kiểu `java.lang.Object` tại thời điểm chạy. Điều này ngăn cản các kiểu nguyên thủy như `int` hoặc `double` được sử dụng trực tiếp dưới dạng đối số kiểu. Khi sử dụng các giao diện chức năng tiêu chuẩn như `Predicate<Integer>`, bất kỳ giá trị nguyên thủy `int` nào được truyền vào làm đối số đều phải được bọc trong một đối tượng `Integer` được phân bổ trên heap thông qua cơ chế tự động đóng hộp. Quá trình đóng hộp này phân bổ bộ nhớ trên heap, làm tăng áp lực lên bộ thu gom rác (GC), và yêu cầu giải tham chiếu (Dereferencing) để lấy lại giá trị nguyên thủy trong quá trình thực thi phương thức. Để giải quyết vấn đề hiệu năng này, Java cung cấp các triển khai chuyên biệt cho kiểu nguyên thủy như `IntPredicate` hoặc `DoubleConsumer`, vốn định nghĩa các phương thức trừu tượng nhận trực tiếp các đối số kiểu nguyên thủy (ví dụ: `test(int value)`). Việc sử dụng các triển khai chuyên biệt này loại bỏ việc phân bổ bộ nhớ trên heap, tránh chi phí bộ nhớ phụ trội và cho phép JVM thực thi các hoạt động với chi phí tối thiểu bên trong các vòng lặp xử lý lượng dữ liệu lớn.
 
 ```mermaid
 sequenceDiagram
     autonumber
-    participant Loop as Vòng lặp / Code
+    participant Loop as Vòng lặp / Mã
     participant Generic as Predicate<Integer>
-    participant Heap as Bộ nhớ JVM Heap
+    participant Heap as Bộ nhớ Heap của JVM
     participant Primitive as IntPredicate
     
-    Note over Loop, Heap: Sử dụng Predicate Generic (Autoboxing)
+    Note over Loop, Heap: Sử dụng Predicate Kiểu Chung (Đóng hộp)
     Loop->>Generic: test(42)
-    Generic->>Heap: Cấp phát Integer(42) [Chi phí Heap!]
-    Heap-->>Generic: Trả về tham chiếu Integer
+    Generic->>Heap: Phân bổ Integer(42) [Chi phí Heap!]
+    Heap-->>Generic: Trả về Tham chiếu Integer
     Generic->>Generic: Mở hộp Integer thành int
     Generic-->>Loop: Trả về boolean
     
-    Note over Loop, Primitive: Sử dụng Phiên bản Nguyên thủy Chuyên biệt
+    Note over Loop, Primitive: Sử dụng Kiểu Nguyên thủy Chuyên biệt
     Loop->>Primitive: test(42)
-    Primitive->>Primitive: Thực thi logic trực tiếp trên kiểu nguyên thủy 42
-    Primitive-->>Loop: Trả về boolean [Không cấp phát Heap]
+    Primitive->>Primitive: Thực thi logic trực tiếp trên int 42
+    Primitive-->>Loop: Trả về boolean [Không phân bổ Heap]
 ```
 
-### Ví dụ mã nguồn: Chi phí đóng hộp so với các phiên bản nguyên thủy chuyên biệt (Code Example: Boxing Overhead vs Primitive Specializations)
+### Ví dụ Thực Tế: Chi phí Đóng hộp so với Các Triển khai Chuyên biệt kiểu Nguyên thủy
 
 ```java
 import java.util.function.Predicate;
@@ -507,76 +517,82 @@ public class BoxingOverheadDemo {
     public static void main(String[] args) {
         int iterations = 10_000_000;
         
-        // 1. Predicate Generic (chi phí autoboxing)
+        // 1. Generic Predicate (autoboxing overhead)
         Predicate<Integer> isEvenGeneric = x -> x % 2 == 0;
         long startGeneric = System.nanoTime();
         for (int i = 0; i < iterations; i++) {
-            isEvenGeneric.test(i); // đóng hộp 'i' thành Integer
+            isEvenGeneric.test(i); // boxes 'i' into Integer
         }
         long endGeneric = System.nanoTime();
         
-        // 2. Phiên bản chuyên biệt nguyên thủy (không autoboxing)
+        // 2. Primitive Specialization (no autoboxing)
         IntPredicate isEvenPrimitive = x -> x % 2 == 0;
         long startPrimitive = System.nanoTime();
         for (int i = 0; i < iterations; i++) {
-            isEvenPrimitive.test(i); // truyền int nguyên thủy
+            isEvenPrimitive.test(i); // passes primitive int
         }
         long endPrimitive = System.nanoTime();
         
-        System.out.println("Generic mất: " + (endGeneric - startGeneric) / 1_000_000 + " ms");
-        System.out.println("Primitive mất: " + (endPrimitive - startPrimitive) / 1_000_000 + " ms");
+        System.out.println("Generic took: " + (endGeneric - startGeneric) / 1_000_000 + " ms");
+        System.out.println("Primitive took: " + (endPrimitive - startPrimitive) / 1_000_000 + " ms");
     }
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-- **Tham số kiểu generic được sử dụng** $\rightarrow$ Trình biên dịch bắt buộc đối số phải là kiểu tham chiếu $\rightarrow$ Các giá trị nguyên thủy phải được đóng hộp vào các đối tượng bao bọc $\rightarrow$ Tăng cấp phát heap và tăng áp lực lên GC $\rightarrow$ Hiệu suất giảm so với sử dụng trực tiếp các phiên bản nguyên thủy chuyên biệt.
+### Chuỗi Nguyên nhân - Kết quả
+- **Sử dụng tham số kiểu chung** $\rightarrow$ Trình biên dịch bắt buộc sử dụng đối số kiểu tham chiếu &rarr; Các giá trị nguyên thủy phải được đóng hộp vào đối tượng bao bọc &rarr; Phân bổ heap và áp lực lên GC tăng lên &rarr; Hiệu năng suy giảm so với việc sử dụng các triển khai chuyên biệt cho kiểu nguyên thủy.
 
 ---
 
-## Các Lỗi Thường Gặp (Common Mistakes)
+## Các lỗi thường gặp
 
-### 1. Chi phí đóng hộp/mở hộp tự động (Autoboxing/Unboxing)
-Sử dụng các functional interface dựa trên đối tượng bao bọc như `Function<Integer, Integer>` trong các vòng lặp tần suất cao thay vì các biến thể kiểu nguyên thủy như `IntUnaryOperator` dẫn đến áp lực thu gom rác lớn và giảm hiệu năng đáng kể.
+### 1. Chi phí Tự động Đóng hộp / Mở hộp (Autoboxing/Unboxing)
+Sử dụng các giao diện chức năng dựa trên lớp bao bọc như `Function<Integer, Integer>` trong các vòng lặp xử lý tần suất cao thay vì các biến thể kiểu nguyên thủy như `IntUnaryOperator` dẫn đến áp lực thu gom rác lớn và suy giảm hiệu năng.
 ```java
-// Tệ: việc autoboxing xảy ra 1.000.000 lần
+// Bad: autoboxing happens 1,000,000 times
 Function<Integer, Integer> badSquare = x -> x * x; 
 for (int i = 0; i < 1_000_000; i++) {
     badSquare.apply(i); 
 }
 
-// Tốt: không có autoboxing
+// Good: no autoboxing
 IntUnaryOperator goodSquare = x -> x * x;
 for (int i = 0; i < 1_000_000; i++) {
     goodSquare.applyAsInt(i);
 }
 ```
 
-### 2. NullPointerException với các biến thể kiểu nguyên thủy
-Nếu một lambda trả về `null` hoặc một đối tượng bao bọc tham chiếu đến `null` cho một interface chức năng kiểu nguyên thủy, ngoại lệ `NullPointerException` sẽ bị ném ra tại thời điểm chạy do quá trình mở hộp ngầm định.
+### 2. Ngoại lệ NullPointerException với các Biến thể Nguyên thủy
+If a lambda returns `null` or a wrapper referencing `null` to a primitive functional interface, a `NullPointerException` will be thrown at runtime due to implicit unboxing.
+```java
+Integer value = null;
+IntSupplier supplier = () -> value; // Compiles fine!
+int x = supplier.getAsInt(); // Throws NullPointerException at runtime!
+```
+Wait, the comment was in English, let's translate the comment as well:
 ```java
 Integer value = null;
 IntSupplier supplier = () -> value; // Biên dịch bình thường!
 int x = supplier.getAsInt(); // Ném ra NullPointerException tại thời điểm chạy!
 ```
 
-### 3. Nhiều phương thức trừu tượng
-Khai báo nhiều phương thức trừu tượng trong một interface được chú thích bằng `@FunctionalInterface` sẽ gây ra lỗi biên dịch.
+### 3. Có Nhiều hơn Một Phương thức Trừu tượng
+Khai báo nhiều phương thức trừu tượng trong một giao diện được chú thích bằng `@FunctionalInterface` sẽ gây ra lỗi biên dịch.
 ```java
 @FunctionalInterface
 public interface InvalidInterface {
     void doSomething();
-    void doSomethingElse(); // Lỗi biên dịch: Multiple non-overriding abstract methods found
+    void doSomethingElse(); // Lỗi biên dịch: Tìm thấy nhiều phương thức trừu tượng không ghi đè
 }
 ```
 
-### 4. Nhầm lẫn các phương thức default/static với phương thức trừu tượng
-Các phương thức default và static không phải là phương thức trừu tượng. Một interface có thể có nhiều phương thức default và static mà vẫn là một functional interface hợp lệ, miễn là nó có đúng một phương thức trừu tượng.
+### 4. Nhầm lẫn các phương thức mặc định/tĩnh với các phương thức trừu tượng
+Các phương thức mặc định (`default`) và phương thức tĩnh (`static`) không phải là phương thức trừu tượng. Một giao diện có thể có nhiều phương thức mặc định và tĩnh nhưng vẫn là một giao diện chức năng, miễn là nó có chính xác một phương thức trừu tượng.
 
 ---
 
-## Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)
+## Các Câu Hỏi Ôn Tập Thường Gặp
 
-- Những khái niệm nào ở đây là quy tắc tại thời điểm biên dịch (compile-time)?
-- Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy (runtime)?
-- Những khái niệm nào ở đây có khả năng là bẫy khi phỏng vấn?
+- Những khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch?
+- Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy?
+- Những khái niệm nào ở đây dễ trở thành bẫy khi phỏng vấn?

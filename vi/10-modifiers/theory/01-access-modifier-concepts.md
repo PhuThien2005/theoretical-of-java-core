@@ -1,41 +1,39 @@
-# Trình sửa đổi trong Java - Phần 1 (Modifiers in Java - Part 1)
+# Các bổ từ trong Java (Modifiers in Java) - Phần 1
 
-## Mục tiêu học tập (Learning Goal)
+## Mục Tiêu Học Tập
 
-Tài liệu này bao gồm một phần nội dung trọng tâm về **Trình sửa đổi trong Java (Modifiers in Java)**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc thực tế trong Java, chứ không chỉ là từ vựng rời rạc.
+Tài liệu này trình bày một phần trọng tâm của **các bổ từ trong Java (Modifiers in Java)**. Hãy nghiên cứu từng khái niệm dưới dạng một quy tắc Java thực tế, thay vì chỉ học từ vựng riêng lẻ.
 
-## Các khái niệm bao phủ (Outline Coverage)
+## Nội Dung Tổng Quan
 
-| Khái niệm | Những điều cần biết |
+| Khái niệm | Điều cần biết |
 | --- | --- |
-| `Access modifier:` | Trình sửa đổi truy cập (phạm vi truy cập) là một nhóm quy tắc liên quan trong Trình sửa đổi trong Java để nhóm một số chi tiết cụ thể. |
-| `public` | public cho phép truy cập từ bất kỳ package nào khi lớp hoặc thành viên đó có thể nhìn thấy. |
-| `protected` | protected cho phép truy cập từ cùng một package và từ các lớp con, kèm theo quy tắc truy cập của lớp con giữa các package. |
-| `default` | Quyền truy cập mặc định (default access), còn gọi là package-private, chỉ cho phép truy cập bên trong cùng một package. |
+| `Access modifier:` | Bổ từ truy cập (Access modifier) là một nhóm các quy tắc liên quan đến các bổ từ trong Java dùng để gom nhóm một số chi tiết liên quan. |
+| `public` | public cho phép truy cập từ bất kỳ gói (package) nào khi lớp hoặc thành viên đó có quyền hiển thị. |
+| `protected` | protected cho phép truy cập từ cùng một gói và từ các lớp con (subclass), kèm theo các quy tắc truy cập lớp con giữa các gói khác nhau. |
+| `default` | Quyền truy cập mặc định (Default access), hay còn gọi là package-private, chỉ cho phép truy cập bên trong cùng một gói. |
 | `private` | private giới hạn quyền truy cập chỉ trong phạm vi lớp khai báo. |
-| `Non-access modifier:` | Trình sửa đổi phi truy cập là một nhóm quy tắc liên quan trong Trình sửa đổi trong Java để nhóm một số chi tiết cụ thể. |
-| `static` | Static có nghĩa là thành viên thuộc về lớp hơn là thuộc về một đối tượng cụ thể nào đó. |
-| `final` | Final có nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau này theo một cách cụ thể. |
+| `Non-access modifier:` | Bổ từ phi truy cập (Non-access modifier) là một nhóm các quy tắc liên quan đến các bổ từ trong Java dùng để gom nhóm một số chi tiết liên quan. |
+| `static` | static có nghĩa là thành viên thuộc về lớp chứ không phải một đối tượng cụ thể nào. |
+| `final` | final có nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể. |
 
----
+## Ghi Chú Chi Tiết
 
-## Ghi chú chi tiết (Detailed Notes)
+### Bổ từ truy cập (Access modifier):
 
-### Trình sửa đổi truy cập (Access modifier)
+Bổ từ truy cập (Access modifier) là một nhóm các quy tắc liên quan đến các bổ từ trong Java dùng để gom nhóm một số chi tiết liên quan.
 
-Trình sửa đổi truy cập là một nhóm quy tắc liên quan trong Trình sửa đổi trong Java để nhóm một số chi tiết cụ thể.
+Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép, và các trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và cơ chế phát hiện lỗi. Ôn tập bằng ví dụ nhỏ thay vì chỉ ghi nhớ nhãn định nghĩa.
-
-#### Bảng mức độ hiển thị của Trình sửa đổi truy cập (Access Modifier Visibility Table)
-| Trình sửa đổi | Cùng Lớp | Cùng Package | Lớp con (Khác Package) | Thế giới bên ngoài (Khác Package) |
+#### Bảng Phạm Vi Hiển Thị Của Bổ Từ Truy Cập
+| Bổ từ | Cùng Lớp | Cùng Gói | Lớp con (Khác Gói) | Bên ngoài (Khác Gói) |
 | --- | --- | --- | --- | --- |
 | `public` | Có | Có | Có | Có |
-| `protected` | Có | Có | Có (chỉ qua kế thừa) | Không |
+| `protected` | Có | Có | Có (chỉ qua kế thừa (inheritance)) | Không |
 | `default` (không từ khóa) | Có | Có | Không | Không |
 | `private` | Có | Không | Không | Không |
 
-#### Ví dụ Code Trình sửa đổi truy cập (Access Modifier Code Example)
+#### Ví Dụ Mã Nguồn Bổ Từ Truy Cập
 ```java
 // File: access/AccessControlDemo.java
 package access;
@@ -58,20 +56,20 @@ public class AccessControlDemo {
 Kiểm tra thực tế:
 
 - Định nghĩa `Access modifier:` trong một câu.
-- Nhận biết `Access modifier:` trong code, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), hạn chế hoặc sự đánh đổi liên quan đến `Access modifier:`.
+- Nhận biết `Access modifier:` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `Access modifier:`.
 
 Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc code, hãy hỏi: `Access modifier:` thay đổi, cho phép, từ chối hay làm rõ điều gì?
+- Khi đọc mã nguồn, hãy hỏi: `Access modifier:` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ### public
 
-public cho phép truy cập từ bất kỳ package nào khi lớp hoặc thành viên đó có thể nhìn thấy.
+public cho phép truy cập từ bất kỳ gói nào khi lớp hoặc thành viên đó có quyền hiển thị.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và cơ chế phát hiện lỗi. Ôn tập bằng ví dụ nhỏ thay vì chỉ ghi nhớ nhãn định nghĩa.
+Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép, và các trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
-#### Ví dụ Code public (public Code Example)
+#### Ví Dụ Mã Nguồn public
 ```java
 // File: packages/PublicClass.java
 package packages;
@@ -83,26 +81,26 @@ public class PublicClass {
 }
 ```
 
-#### Lỗi thường gặp - Không khớp mức độ hiển thị giữa Lớp và Thành viên (Common Mistake - Mismatched Class and Member Visibility)
-Khai báo một thành viên `public` bên trong một lớp package-private (mặc định) làm cho nó trông như có thể truy cập ở mọi nơi. Tuy nhiên, vì chính lớp đó không thể được import bên ngoài package của nó, thành viên `public` đó vẫn không thể truy cập được.
+#### Sai Lầm Thường Gặp - Sự không khớp giữa độ hiển thị của Lớp và Thành viên
+Khai báo một thành viên là `public` bên trong một lớp package-private (mặc định) làm cho nó trông như thể có thể truy cập được ở mọi nơi. Tuy nhiên, vì bản thân lớp đó không thể được import bên ngoài gói của nó, thành viên `public` đó vẫn không thể truy cập được.
 
 Kiểm tra thực tế:
 
 - Định nghĩa `public` trong một câu.
-- Nhận biết `public` trong code, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `public`.
+- Nhận biết `public` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `public`.
 
 Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc code, hãy hỏi: `public` thay đổi, cho phép, từ chối hay làm rõ điều gì?
+- Khi đọc mã nguồn, hãy hỏi: `public` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ### protected
 
-protected cho phép truy cập từ cùng một package và từ các lớp con, kèm theo quy tắc truy cập của lớp con giữa các package.
+protected cho phép truy cập từ cùng một gói và từ các lớp con, đi kèm với các quy tắc truy cập lớp con giữa các gói khác nhau.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và cơ chế phát hiện lỗi. Ôn tập bằng ví dụ nhỏ thay vì chỉ ghi nhớ nhãn định nghĩa.
+Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép, và các trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
-#### Ví dụ Code protected (protected Code Example)
+#### Ví Dụ Mã Nguồn protected
 ```java
 // File: p1/Parent.java
 package p1;
@@ -126,26 +124,26 @@ public class Child extends Parent {
 }
 ```
 
-#### Lỗi thường gặp - Truy cập thành viên protected qua tham chiếu của Lớp cha (Common Mistake - Accessing protected members via Parent reference)
-Các lớp con ở package khác chỉ có thể truy cập các thành viên `protected` của lớp cha thông qua kế thừa (`this.familySecret` hoặc `super.familySecret`). Chúng không thể truy cập chúng bằng cách sử dụng một biến tham chiếu của lớp cha.
+#### Sai Lầm Thường Gặp - Truy cập các thành viên protected thông qua tham chiếu lớp Cha
+Các lớp con ở gói khác chỉ có thể truy cập các thành viên `protected` của lớp cha thông qua kế thừa (`this.familySecret` hoặc `super.familySecret`). Chúng không thể truy cập các thành viên này bằng một biến tham chiếu của lớp cha.
 
 Kiểm tra thực tế:
 
 - Định nghĩa `protected` trong một câu.
-- Nhận biết `protected` trong code, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `protected`.
+- Nhận biết `protected` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `protected`.
 
 Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc code, hãy hỏi: `protected` thay đổi, cho phép, từ chối hay làm rõ điều gì?
+- Khi đọc mã nguồn, hãy hỏi: `protected` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ### default
 
-Quyền truy cập mặc định (default access), còn gọi là package-private, chỉ cho phép truy cập bên trong cùng một package.
+Quyền truy cập mặc định (Default access), hay còn gọi là package-private, chỉ cho phép truy cập bên trong cùng một gói.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và cơ chế phát hiện lỗi. Ôn tập bằng ví dụ nhỏ thay vì chỉ ghi nhớ nhãn định nghĩa.
+Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép, và các trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
-#### Ví dụ Code Phạm vi mặc định (default Access Code Example)
+#### Ví Dụ Mã Nguồn Phạm Vi default
 ```java
 // File: p1/DefaultClass.java
 package p1;
@@ -157,26 +155,26 @@ class DefaultClass { // package-private class
 }
 ```
 
-#### Lỗi thường gặp - Sử dụng từ khóa 'default' làm trình sửa đổi truy cập (Common Mistake - Using 'default' keyword as an access modifier)
-Mức độ truy cập mặc định được chỉ định bằng cách loại bỏ hoàn toàn trình sửa đổi. Việc viết `default class MyClass {}` hoặc `default int x;` bên trong một lớp là một lỗi biên dịch. Từ khóa `default` chỉ hợp lệ bên trong các giao diện (interface) để khai báo các phương thức mặc định, hoặc trong các khối lệnh switch.
+#### Sai Lầm Thường Gặp - Sử dụng từ khóa 'default' làm bổ từ truy cập
+Mức độ truy cập mặc định được thể hiện bằng việc lược bỏ hoàn toàn bổ từ truy cập. Việc viết `default class MyClass {}` hoặc `default int x;` bên trong một lớp là lỗi biên dịch. Từ khóa `default` chỉ hợp lệ bên trong các giao diện (interface) để khai báo các phương thức mặc định (default method), hoặc trong các khối lệnh switch.
 
 Kiểm tra thực tế:
 
 - Định nghĩa `default` trong một câu.
-- Nhận biết `default` trong code, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `default`.
+- Nhận biết `default` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `default`.
 
 Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc code, hãy hỏi: `default` thay đổi, cho phép, từ chối hay làm rõ điều gì?
+- Khi đọc mã nguồn, hãy hỏi: `default` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ### private
 
-private giới hạn quyền truy cập chỉ trong phạm vi lớp khai báo.
+private giới hạn quyền truy cập chỉ trong lớp khai báo.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và cơ chế phát hiện lỗi. Ôn tập bằng ví dụ nhỏ thay vì chỉ ghi nhớ nhãn định nghĩa.
+Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép, và các trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
-#### Ví dụ Code private (private Code Example)
+#### Ví Dụ Mã Nguồn private
 ```java
 public class SecureVault {
     private String passcode = "1234";
@@ -195,44 +193,42 @@ public class SecureVault {
 }
 ```
 
-#### Lỗi thường gặp - Các phương thức private không tham gia vào đa hình (Common Mistake - Private methods do not participate in polymorphism)
-Nếu một lớp con định nghĩa một phương thức có cùng chữ ký với một phương thức `private` trong lớp cha, nó không ghi đè phương thức đó. Nó được coi là một phương thức hoàn toàn riêng biệt, và cơ chế liên kết động (dynamic binding) sẽ không điều phối cuộc gọi đến phiên bản của lớp con.
+#### Sai Lầm Thường Gặp - Các phương thức private không tham gia vào tính đa hình
+Nếu một lớp con định nghĩa một phương thức có cùng chữ ký (signature) với một phương thức `private` trong lớp cha, nó sẽ không ghi đè (override) phương thức đó. Nó được coi là một phương thức hoàn toàn tách biệt, và liên kết động (dynamic binding) sẽ không chuyển hướng gọi phương thức đến phiên bản của lớp con.
 
 Kiểm tra thực tế:
 
 - Định nghĩa `private` trong một câu.
-- Nhận biết `private` trong code, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `private`.
+- Nhận biết `private` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `private`.
 
 Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc code, hãy hỏi: `private` thay đổi, cho phép, từ chối hay làm rõ điều gì?
+- Khi đọc mã nguồn, hãy hỏi: `private` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
----
+## Tại Sao Private Giới Hạn Truy Cập Và Hỗ Trợ Đóng Gói (Encapsulation)
 
-## Tại sao Private hạn chế truy cập và hỗ trợ tính Đóng gói (Why Private Restricts Access and Supports Encapsulation)
+Bổ từ `private` là mức độ giới hạn truy cập mạnh nhất trong Java, giới hạn quyền truy cập duy nhất trong lớp khai báo (bao gồm cả các lớp lồng nhau của nó). Bằng cách hạn chế truy cập, `private` ngăn chặn các lớp bên ngoài và lớp con trực tiếp đọc hoặc thay đổi trạng thái nội bộ của một đối tượng. Điều này thiết lập một ranh giới nghiêm ngặt, nơi trạng thái của một đối tượng chỉ có thể bị thay đổi thông qua các phương thức công khai có kiểm tra tính hợp lệ của đầu vào, từ đó ngăn đối tượng rơi vào trạng thái không nhất quán hoặc không hợp lệ. Hơn nữa, vì các lớp con không thể truy cập trực tiếp vào các trường private của lớp cha, mã nguồn lớp con không thể phụ thuộc vào chi tiết triển khai nội bộ của lớp cha, giúp duy trì tính độc lập (decoupling) và ngăn các thay đổi ở lớp con làm phá vỡ các ràng buộc bất biến (invariant) của lớp cha.
 
-Trình sửa đổi `private` là giới hạn truy cập mạnh nhất trong Java, chỉ cho phép truy cập duy nhất bên trong lớp khai báo (bao gồm cả các lớp lồng nhau của nó). Bằng cách hạn chế truy cập, `private` ngăn các lớp bên ngoài và các lớp con đọc hoặc sửa đổi trực tiếp trạng thái bên trong của đối tượng. Điều này thực thi một ranh giới nghiêm ngặt nơi trạng thái của một đối tượng chỉ có thể bị thay đổi thông qua các phương thức public thực hiện kiểm tra đầu vào, từ đó ngăn đối tượng rơi vào trạng thái không nhất quán hoặc không hợp lệ. Hơn nữa, vì các lớp con không thể truy cập trực tiếp các trường private của lớp cha, mã của lớp con không thể phụ thuộc vào chi tiết triển khai bên trong của lớp cha, giúp duy trì tính độc lập (decoupling) và ngăn các sửa đổi ở lớp con phá vỡ các bất biến (invariants) của lớp cha.
-
-### Mô hình ranh giới đóng gói (Encapsulation Boundary Model)
+### Mô Hình Ranh Giới Đóng Gói
 
 ```mermaid
 graph TD
-    subgraph External_World [Các Lớp bên ngoài / Lớp con]
-        Client[Mã khách hàng]
-        Sub[Mã của lớp con]
+    subgraph External_World [Các lớp bên ngoài / Lớp con]
+        Client[Mã nguồn Client]
+        Sub[Mã nguồn Lớp con]
     end
-    subgraph Class_Boundary [Ranh giới lớp được Đóng gói]
-        PublicAPI[Các phương thức Public: getBalance / deposit]
-        PrivateState[Trường Private: balance]
+    subgraph Class_Boundary [Ranh giới Lớp được Đóng gói]
+        PublicAPI[Các phương thức công khai: getBalance / deposit]
+        PrivateState[Trường private: balance]
     end
     Client -- Không thể truy cập trực tiếp --> PrivateState
     Sub -- Không thể truy cập trực tiếp --> PrivateState
-    Client -- "Truy cập được ủy quyền" --> PublicAPI
+    Client -- "Truy cập được cấp phép" --> PublicAPI
     PublicAPI -- "Thay đổi có kiểm soát" --> PrivateState
 ```
 
-### Ví dụ Code: Ngăn chặn các sửa đổi không hợp lệ (Code Example: Preventing Invalid Modifications)
+### Ví Dụ Mã Nguồn: Ngăn Chặn Thay Đổi Không Hợp Lệ
 ```java
 public class SecureBankAccount {
     private double balance = 100.0;
@@ -258,21 +254,20 @@ class Client {
 }
 ```
 
-### Chuỗi Nguyên nhân - Kết quả của tính Đóng gói (Cause-Effect Chain of Encapsulation)
-- **Kích hoạt (Trigger)**: Trường dữ liệu được đánh dấu bằng trình sửa đổi `private`.
-- **Hiệu ứng tức thời (Immediate Effect)**: Trình biên dịch từ chối mọi truy cập đọc hoặc ghi trực tiếp bên ngoài vào trường này.
-- **Hiệu ứng gián tiếp (Secondary Effect)**: Khả năng thay đổi được chuyển hướng duy nhất thông qua các API phương thức public để thực thi các quy tắc kiểm tra logic nghiệp vụ.
-- **Kết quả cuối cùng (Ultimate Outcome)**: Đối tượng tự đảm bảo các bất biến trạng thái của chính nó, tách biệt hoàn toàn khỏi các lớp khách hàng.
+### Chuỗi Nguyên Nhân - Kết Quả Của Tính Đóng Gói
+- **Tác nhân kích hoạt (Trigger)**: Trường được đánh dấu bằng bổ từ `private`.
+- **Ảnh hưởng tức thời (Immediate Effect)**: Trình biên dịch từ chối mọi hành vi đọc hoặc ghi trực tiếp từ bên ngoài vào trường đó.
+- **Ảnh hưởng gián tiếp (Secondary Effect)**: Khả năng thay đổi giá trị được điều hướng duy nhất qua các API phương thức công khai để áp dụng các quy tắc kiểm tra logic nghiệp vụ.
+- **Kết quả cuối cùng (Ultimate Outcome)**: Đối tượng tự đảm bảo các tính chất bất biến của trạng thái của nó, giữ độc lập với các lớp máy khách (client class).
 
----
 
-### Trình sửa đổi phi truy cập (Non-access modifier)
+### Bổ từ phi truy cập (Non-access modifier):
 
-Trình sửa đổi phi truy cập là một nhóm quy tắc liên quan trong Trình sửa đổi trong Java để nhóm một số chi tiết cụ thể.
+Bổ từ phi truy cập (Non-access modifier) là một nhóm các quy tắc liên quan đến các bổ từ trong Java dùng để gom nhóm một số chi tiết liên quan.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và cơ chế phát hiện lỗi. Ôn tập bằng ví dụ nhỏ thay vì chỉ ghi nhớ nhãn định nghĩa.
+Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép, và các trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
-#### Ví dụ Code Trình sửa đổi phi truy cập (Non-access modifier Code Example)
+#### Ví Dụ Mã Nguồn Bổ Từ Phi Truy Cập
 ```java
 public class NonAccessDemo {
     public static final double GRAVITY = 9.81;
@@ -285,20 +280,20 @@ public class NonAccessDemo {
 Kiểm tra thực tế:
 
 - Định nghĩa `Non-access modifier:` trong một câu.
-- Nhận biết `Non-access modifier:` trong code, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `Non-access modifier:`.
+- Nhận biết `Non-access modifier:` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `Non-access modifier:`.
 
 Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc code, hãy hỏi: `Non-access modifier:` thay đổi, cho phép, từ chối hay làm rõ điều gì?
+- Khi đọc mã nguồn, hãy hỏi: `Non-access modifier:` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ### static
 
-Static có nghĩa là thành viên thuộc về lớp hơn là thuộc về một đối tượng cụ thể nào đó.
+static có nghĩa là thành viên thuộc về lớp chứ không phải một đối tượng cụ thể nào.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và cơ chế phát hiện lỗi. Ôn tập bằng ví dụ nhỏ thay vì chỉ ghi nhớ nhãn định nghĩa.
+Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép, và các trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
-#### Ví dụ Code static (static Code Example)
+#### Ví Dụ Mã Nguồn static
 ```java
 public class Counter {
     public static int count = 0; // Class-level variable
@@ -309,8 +304,8 @@ public class Counter {
 }
 ```
 
-#### Lỗi thường gặp - Truy cập các thành viên static thông qua tham chiếu null (Common Mistake - Accessing static members on a null reference)
-Java cho phép gọi các phương thức tĩnh hoặc truy cập các biến tĩnh trên một tham chiếu đối tượng, ngay cả khi tham chiếu đó là `null`. JVM không ném ra `NullPointerException` vì trình biên dịch giải quyết cuộc gọi dựa trên kiểu tĩnh của tham chiếu chứ không phải đối tượng lúc chạy. Điều này cực kỳ không khuyến khích vì nó gây hiểu lầm cho người đọc rằng đó là một lời gọi phương thức thể hiện.
+#### Sai Lầm Thường Gặp - Truy cập các thành viên static thông qua tham chiếu null
+Java cho phép gọi các phương thức static hoặc truy cập các biến static thông qua một tham chiếu đối tượng, ngay cả khi tham chiếu đó là `null`. JVM sẽ không ném ra ngoại lệ chỉ mục null `NullPointerException` vì trình biên dịch giải quyết lượt gọi bằng cách sử dụng kiểu static của tham chiếu chứ không phải đối tượng tại thời điểm chạy (runtime object). Việc này cực kỳ không được khuyến khích vì nó gây hiểu lầm cho người đọc rằng đó là một lượt gọi phương thức thể hiện (instance method).
 ```java
 Counter obj = null;
 obj.increment(); // Compiles and runs fine! No NullPointerException.
@@ -319,20 +314,20 @@ obj.increment(); // Compiles and runs fine! No NullPointerException.
 Kiểm tra thực tế:
 
 - Định nghĩa `static` trong một câu.
-- Nhận biết `static` trong code, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `static`.
+- Nhận biết `static` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `static`.
 
 Ví dụ nhỏ hoặc mô hình tư duy:
 
-- `ClassName.member` truy cập vào một thành viên cấp lớp.
+- `ClassName.member` truy cập một thành viên ở cấp độ lớp.
 
 ### final
 
-Final có nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau này theo một cách cụ thể.
+final có nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và cơ chế phát hiện lỗi. Ôn tập bằng ví dụ nhỏ thay vì chỉ ghi nhớ nhãn định nghĩa.
+Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép, và các trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
-#### Ví dụ Code final (final Code Example)
+#### Ví Dụ Mã Nguồn final
 ```java
 public final class ImmutableConfig {
     public final double limit = 100.0;
@@ -343,8 +338,8 @@ public final class ImmutableConfig {
 }
 ```
 
-#### Lỗi thường gặp - Tham chiếu final so với Đối tượng final (Common Mistake - Final reference vs Final object)
-Việc khai báo một tham chiếu đối tượng là `final` ngăn bản thân tham chiếu đó bị gán lại cho một đối tượng khác, nhưng nó KHÔNG làm cho đối tượng được tham chiếu trở nên bất biến. Các trường nội bộ của đối tượng vẫn có thể sửa đổi được.
+#### Sai Lầm Thường Gặp - Tham chiếu final so với Đối tượng final
+Việc khai báo một tham chiếu đối tượng là `final` ngăn bản thân tham chiếu đó bị gán lại cho một đối tượng khác, nhưng nó KHÔNG làm cho đối tượng được tham chiếu trở nên bất biến (immutable). Các trường nội bộ của đối tượng vẫn có thể bị thay đổi.
 ```java
 final java.util.List<String> list = new java.util.ArrayList<>();
 list.add("allowed"); // OK! The list object is modified
@@ -354,19 +349,17 @@ list.add("allowed"); // OK! The list object is modified
 Kiểm tra thực tế:
 
 - Định nghĩa `final` trong một câu.
-- Nhận biết `final` trong code, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `final`.
+- Nhận biết `final` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `final`.
 
 Ví dụ nhỏ hoặc mô hình tư duy:
 
-- `final int limit = 10;` không thể gán lại giá trị.
+- `final int limit = 10;` không thể bị gán lại giá trị.
 
----
+## Ví Dụ Thực Tế: Tại sao việc công khai trường làm phá vỡ tính đóng gói — ví dụ tài khoản ngân hàng
 
-## Case Study: Tại sao khai báo một trường dữ liệu public lại phá vỡ tính đóng gói — ví dụ tài khoản ngân hàng (Case Study: Why making a field public breaks encapsulation — bank account example)
-
-### Vấn đề: Trường dữ liệu Public (The Problem: Public Fields)
-Hãy xem xét một lớp `BankAccount` đơn giản có trường balance được khai báo là `public`:
+### Vấn Đề: Các trường công khai
+Hãy xem xét một lớp `BankAccount` đơn giản có trường số dư `balance` được khai báo là `public`:
 
 ```java
 public class BankAccount {
@@ -374,7 +367,7 @@ public class BankAccount {
 }
 ```
 
-Bây giờ, bất kỳ lớp bên ngoài nào cũng có thể đọc và ghi trực tiếp vào trường này mà lớp `BankAccount` không hề biết hoặc không thể kiểm tra tính hợp lệ của sự thay đổi đó:
+Giờ đây, bất kỳ lớp bên ngoài nào cũng có thể trực tiếp đọc và ghi vào trường này mà lớp `BankAccount` không hề biết hoặc không thể kiểm tra tính hợp lệ của thay đổi đó:
 
 ```java
 BankAccount account = new BankAccount();
@@ -382,10 +375,10 @@ account.balance = -1000.0; // Problem 1: Invalid state (negative balance)
 account.balance = 9999999.0; // Problem 2: Unauthorized modifications
 ```
 
-Bằng cách khai báo `balance` là public, chúng ta đã phá vỡ **tính đóng gói (encapsulation)**. Lớp này không có quyền kiểm soát trạng thái nội bộ của chính nó, và chúng ta không thể đảm bảo các bất biến của nó (ví dụ: số dư không thể âm).
+Bằng cách công khai `balance`, chúng ta đã phá vỡ **tính đóng gói (encapsulation)**. Lớp này không có quyền kiểm soát trạng thái nội bộ của chính nó, và chúng ta không thể đảm bảo các tính chất bất biến của nó (ví dụ: số dư không thể âm).
 
-### Giải pháp: Trường dữ liệu Private với các Phương thức Getter và Mutator (Tính đóng gói) (The Solution: Private Fields with Getter and Mutator Methods (Encapsulation))
-Để khắc phục điều này, chúng ta hạn chế quyền truy cập vào `balance` bằng cách khai báo nó là `private` và cung cấp các điểm truy cập có kiểm soát thông qua các phương thức:
+### Giải Pháp: Trường private với Phương thức Getter và Setter (Đóng gói)
+Để khắc phục điều này, chúng ta giới hạn quyền truy cập vào `balance` bằng cách khai báo nó là `private` và cung cấp các điểm truy cập được kiểm soát thông qua các phương thức:
 
 ```java
 public class SecureBankAccount {
@@ -419,15 +412,13 @@ public class SecureBankAccount {
 }
 ```
 
-### Các hệ quả của tính Đóng gói (Consequences of Encapsulation)
-1. **Kiểm tra tính hợp lệ và Kiểm soát (Validation and Control)**: Lớp `SecureBankAccount` giờ đây tự thực thi các quy tắc của nó. Phía gọi không thể đặt số dư âm hoặc rút nhiều hơn số tiền hiện có.
-2. **Quyền truy cập Chỉ đọc / Chỉ ghi (Read-Only / Write-Only Access)**: Chúng ta có thể tạo trường chỉ đọc với thế giới bên ngoài bằng cách chỉ cung cấp getter mà không có setter trực tiếp (việc gửi và rút tiền được điều khiển bởi hành vi chứ không phải thay đổi trạng thái trực tiếp).
-3. **Tính độc lập của biểu diễn nội bộ (Internal Representation Independence)**: Nếu chúng ta quyết định thay đổi kiểu dữ liệu nội bộ của `balance` từ `double` sang `java.math.BigDecimal` (để tính toán tiền tệ chính xác hơn), chúng ta có thể thực hiện mà không làm hỏng bất kỳ mã khách hàng nào vì API public (các phương thức) vẫn được giữ nguyên.
+### Hệ Quả Của Tính Đóng Gói
+1. **Kiểm tra tính hợp lệ và Kiểm soát**: Lớp `SecureBankAccount` giờ đây có thể thực thi các quy tắc. Mã nguồn bên ngoài không thể thiết lập số dư âm hoặc rút nhiều hơn số tiền họ có.
+2. **Truy cập Chỉ đọc / Chỉ ghi (Read-Only / Write-Only)**: Chúng ta có thể đặt trường này ở chế độ chỉ đọc đối với bên ngoài bằng cách chỉ cung cấp getter mà không có setter trực tiếp (việc gửi và rút tiền được điều khiển bằng hành vi phương thức, không phải thay đổi trạng thái trực tiếp).
+3. **Tính độc lập của cấu trúc lưu trữ nội bộ (Internal Representation Independence)**: Nếu chúng ta quyết định thay đổi kiểu dữ liệu nội bộ của `balance` từ `double` sang `java.math.BigDecimal` (để chính xác hơn về mặt tiền tệ), chúng ta có thể thực hiện việc này mà không làm hỏng bất kỳ mã nguồn client nào vì API công khai (các phương thức) vẫn giữ nguyên.
 
----
+## Các Câu Hỏi Ôn Tập Thường Gặp
 
-## Các câu hỏi ôn tập phổ biến (Common Review Prompts)
-
-- Khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch?
-- Khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy?
-- Khái niệm nào ở đây dễ là những bẫy câu hỏi phỏng vấn?
+- Những khái niệm nào ở đây là quy tắc trong thời gian biên dịch (compile-time)?
+- Những khái niệm nào ở đây ảnh hưởng đến hành vi khi chạy ứng dụng (runtime)?
+- Những khái niệm nào ở đây có khả năng là bẫy phỏng vấn?

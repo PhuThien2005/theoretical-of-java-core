@@ -1,43 +1,43 @@
-# Thuật Ngữ Về Biến (Variable Terms)
+# Các Thuật ngữ về Biến (Variable Terms)
 
 ## Thuật ngữ: Phạm vi (Scope)
 
-### Định nghĩa ngắn (Short Definition)
+### Định nghĩa Ngắn gọn
 
-Phạm vi (scope) là vùng mã nguồn mà một biến hoặc tên định danh có thể được truy cập.
+Phạm vi là vùng mã nguồn mà tại đó một tên gọi có thể truy cập được.
 
-### Tại sao điều này quan trọng (Why It Matters)
+### Lý do Quan trọng
 
-Phạm vi ngăn các biến tạm thời bị rò rỉ (leak) sang các vùng mã không liên quan.
+Phạm vi giúp ngăn chặn các biến tạm thời rò rỉ vào các phần mã nguồn không liên quan.
 
-### Nhầm lẫn phổ biến (Common Confusion)
+### Nhầm lẫn Phổ biến
 
-Phạm vi (scope) không giống như vòng đời (lifetime). Phạm vi đề cập đến nơi một biến hiển thị; vòng đời đề cập đến việc nó tồn tại trong bao lâu.
+Phạm vi không giống với vòng đời (Lifetime). Phạm vi quyết định nơi một biến hiển thị; trong khi vòng đời quyết định thời gian tồn tại của biến đó.
 
 ## Thuật ngữ: Vòng đời (Lifetime)
 
-### Định nghĩa ngắn (Short Definition)
+### Định nghĩa Ngắn gọn
 
-Vòng đời (lifetime) là khoảng thời gian tồn tại của một biến hoặc đối tượng.
+Vòng đời là khoảng thời gian tồn tại của một biến hoặc đối tượng (object).
 
-### Tại sao điều này quan trọng (Why It Matters)
+### Lý do Quan trọng
 
-Vòng đời giúp giải thích lý do tại sao các biến cục bộ biến mất sau khi phương thức thực thi xong và tại sao các trường dữ liệu (fields) của đối tượng vẫn tồn tại khi đối tượng còn tồn tại.
+Vòng đời giúp giải thích lý do tại sao các biến cục bộ (local variable) biến mất sau khi phương thức (method) kết thúc thực thi, và tại sao các trường (field) của đối tượng vẫn được giữ lại khi đối tượng đó tồn tại.
 
-### Nhầm lẫn phổ biến (Common Confusion)
+### Nhầm lẫn Phổ biến
 
-Một biến có thể nằm ngoài phạm vi hoạt động trước khi đối tượng mà nó tham chiếu thực sự bị bộ thu gom rác (garbage collector) dọn dẹp.
+Một biến có thể đã nằm ngoài phạm vi trước khi đối tượng mà nó tham chiếu (reference) đến bị thu hồi.
 
 ## Thuật ngữ: Số ma thuật (Magic Number)
 
-### Định nghĩa ngắn (Short Definition)
+### Định nghĩa Ngắn gọn
 
-Số ma thuật (magic number) là một hằng số số học được sử dụng trực tiếp trong code mà không có tên định danh giải thích ý nghĩa của nó.
+Số ma thuật là một giá trị số trực tiếp (literal number) được sử dụng trực tiếp trong mã nguồn mà không có tên gọi giải thích ý nghĩa của nó.
 
-### Tại sao điều này quan trọng (Why It Matters)
+### Lý do Quan trọng
 
-Các số ma thuật làm cho mã nguồn trở nên khó đọc và khó bảo trì hơn.
+Các số ma thuật làm cho mã nguồn trở nên khó đọc và khó bảo trì (maintain) hơn.
 
-### Ví dụ (Example)
+### Ví dụ
 
-Hằng số `MAX_RETRY_COUNT` rõ ràng hơn việc viết số `3` ở nhiều nơi trong chương trình.
+`MAX_RETRY_COUNT` rõ nghĩa hơn là viết `3` ở nhiều nơi.

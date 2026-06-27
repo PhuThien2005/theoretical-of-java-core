@@ -1,34 +1,34 @@
-# Xử lý ngoại lệ (Exception Handling) - Phần 4
+# Xử Lý Ngoại Lệ (Exception Handling) - Phần 4
 
-## Mục tiêu học tập (Learning Goal)
+## Mục Tiêu Học Tập
 
-Tập tin này bao gồm một phần trọng tâm về **Xử lý ngoại lệ (Exception Handling)**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, không phải là từ vựng riêng lẻ.
+File này tập trung vào một phần cụ thể của **Xử Lý Ngoại Lệ**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tiễn, không phải từ vựng đơn thuần.
 
-## Khái quát nội dung (Outline Coverage)
+## Các Khái Niệm Được Đề Cập
 
-| Khái niệm (Concept) | Điều cần biết (What to know) |
+| Khái niệm | Cần biết |
 | --- | --- |
-| `FileNotFoundException` | Lớp con của IOException, được ném ra khi việc mở tệp thất bại do tệp không tồn tại hoặc các vấn đề truy cập. |
-| `SQLException` | Ngoại lệ kiểm tra đại diện cho các lỗi kết nối cơ sở dữ liệu hoặc thực thi truy vấn. |
-| `Best practices when handling exceptions` | Các nguyên tắc kỹ thuật cốt lõi để xử lý ngoại lệ một cách mạnh mẽ và giữ cho mã nguồn dễ bảo trì. |
+| `FileNotFoundException` | Lớp con của IOException, ném ra khi mở tệp thất bại do tệp không tồn tại hoặc vấn đề quyền truy cập. |
+| `SQLException` | Ngoại lệ đã kiểm tra (checked exception) biểu thị lỗi kết nối cơ sở dữ liệu hoặc lỗi thực thi truy vấn. |
+| `Các thực tiễn tốt nhất khi xử lý ngoại lệ` | Hướng dẫn kỹ thuật cốt lõi để xử lý ngoại lệ chắc chắn và giữ code dễ bảo trì. |
 
-## Ghi chú chi tiết (Detailed Notes)
+## Ghi Chú Chi Tiết
 
 ### FileNotFoundException
 
-Một ngoại lệ kiểm tra (checked exception), lớp con của `IOException`, được ném ra khi một tệp có đường dẫn được chỉ định không thể tìm thấy, hoặc không thể mở để đọc/ghi (ví dụ: cố gắng ghi vào một thư mục, hoặc quyền truy cập bị từ chối).
+Một ngoại lệ đã kiểm tra (checked exception), lớp con của `IOException`, được ném ra khi không thể tìm thấy tệp với đường dẫn được chỉ định, hoặc không thể mở tệp để đọc/ghi (ví dụ: cố ghi vào một thư mục, hoặc bị từ chối quyền truy cập).
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tiễn:
 
 - Định nghĩa `FileNotFoundException` trong một câu.
-- Nhận diện `FileNotFoundException` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), hạn chế hoặc sự đánh đổi liên quan đến `FileNotFoundException`.
+- Nhận biết `FileNotFoundException` trong code, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, giới hạn, hoặc đánh đổi liên quan đến `FileNotFoundException`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- `new FileReader("does_not_exist.txt")` sẽ ném ra `FileNotFoundException`.
+- `new FileReader("does_not_exist.txt")` ném `FileNotFoundException`.
 
-#### Ví dụ mã nguồn chạy được: Kích hoạt và Xử lý (Runnable Code Example: Triggering and Handling)
+#### Ví Dụ Code Chạy Được: Kích Hoạt và Xử Lý
 ```java
 import java.io.File;
 import java.io.FileReader;
@@ -48,19 +48,19 @@ public class FileNotFoundDemo {
 
 ### SQLException
 
-Một ngoại lệ kiểm tra cung cấp thông tin về lỗi truy cập cơ sở dữ liệu hoặc các lỗi khác liên quan đến tương tác với cơ sở dữ liệu quan hệ.
+Một ngoại lệ đã kiểm tra (checked exception) cung cấp thông tin về lỗi truy cập cơ sở dữ liệu hoặc các lỗi khác liên quan đến tương tác với cơ sở dữ liệu quan hệ.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tiễn:
 
 - Định nghĩa `SQLException` trong một câu.
-- Nhận diện `SQLException` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), hạn chế hoặc sự đánh đổi liên quan đến `SQLException`.
+- Nhận biết `SQLException` trong code, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, giới hạn, hoặc đánh đổi liên quan đến `SQLException`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Kết nối tới cơ sở dữ liệu với thông tin đăng nhập không hợp lệ.
+- Kết nối đến cơ sở dữ liệu với thông tin đăng nhập không hợp lệ.
 
-#### Ví dụ mã nguồn chạy được: Kích hoạt và Xử lý (mô phỏng) (Runnable Code Example: Triggering and Handling (Simulated))
+#### Ví Dụ Code Chạy Được: Kích Hoạt và Xử Lý (Mô phỏng)
 ```java
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -70,7 +70,7 @@ public class SQLDemo {
     public static void main(String[] args) {
         String dbUrl = "jdbc:mysql://localhost:3306/non_existent_db";
         try {
-            // Attempting connection (will throw SQLException if DB or driver is not set up)
+            // Thử kết nối (sẽ ném SQLException nếu DB hoặc driver chưa được thiết lập)
             Connection conn = DriverManager.getConnection(dbUrl, "user", "password");
         } catch (SQLException e) {
             System.out.println("Caught SQLException!");
@@ -82,68 +82,68 @@ public class SQLDemo {
 }
 ```
 
-### Thực hành tốt nhất khi xử lý ngoại lệ (Best practices when handling exceptions)
+### Các Thực Tiễn Tốt Nhất Khi Xử Lý Ngoại Lệ (Best Practices)
 
-Xử lý ngoại lệ mạnh mẽ đảm bảo ứng dụng có thể phục hồi từ các lỗi không mong muốn một cách suôn sẻ, ghi nhật ký (log) các chi tiết có liên quan để phục vụ gỡ lỗi và giải phóng tài nguyên một cách thích hợp.
+Xử lý ngoại lệ chắc chắn đảm bảo ứng dụng có thể phục hồi từ các lỗi bất ngờ một cách duyên dáng, ghi lại thông tin chi tiết để gỡ lỗi, và giải phóng tài nguyên đúng cách.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tiễn:
 
-- Định nghĩa `Best practices when handling exceptions` trong một câu.
-- Nhận diện `Best practices when handling exceptions` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), hạn chế hoặc sự đánh đổi liên quan đến `Best practices when handling exceptions`.
+- Định nghĩa "thực tiễn tốt nhất khi xử lý ngoại lệ" trong một câu.
+- Nhận biết các thực tiễn tốt nhất trong code, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, giới hạn, hoặc đánh đổi liên quan đến xử lý ngoại lệ không đúng cách.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Luôn đóng tài nguyên bằng try-with-resources; không bao giờ bắt `Throwable` khi bạn có thể bắt các ngoại lệ cụ thể hơn.
+- Luôn đóng tài nguyên bằng try-with-resources; không bao giờ bắt `Throwable` khi có thể bắt ngoại lệ cụ thể.
 
-#### Các thực hành tốt nhất cốt lõi khi xử lý ngoại lệ (Key Exception Handling Best Practices)
-1. **Không bao giờ nuốt ngoại lệ (Never swallow exceptions)**: Một khối `catch` trống sẽ che giấu các lỗi. Luôn ghi log lại lỗi hoặc bọc nó và ném lại.
-2. **Bắt các ngoại lệ cụ thể (Catch specific exceptions)**: Tránh bắt kiểu `Exception` hoặc `Throwable` chung chung. Hãy bắt các lớp con cụ thể để bạn không vô tình xử lý các lỗi thời gian chạy (như NPE) vốn đại diện cho lỗi logic trong mã nguồn.
-3. **Sử dụng Try-with-Resources**: Tránh dọn dẹp tài nguyên thủ công trong các khối `finally`, vốn rất dài dòng và dễ phát sinh ngoại lệ thứ cấp khi đóng tài nguyên.
-4. **Bảo toàn dấu vết ngăn xếp (Preserve Stack Traces)**: Khi bọc một ngoại lệ cấp thấp vào một ngoại lệ tùy chỉnh, luôn truyền ngoại lệ ban đầu vào hàm dựng để bảo toàn nguyên nhân gốc rễ.
-5. **Không dùng ngoại lệ để điều khiển luồng (Do not use exceptions for flow control)**: Việc tạo ngoại lệ rất tốn kém hiệu năng do phải tạo dấu vết ngăn xếp (stack trace). Hãy sử dụng các câu lệnh điều kiện thay thế.
+#### Các Thực Tiễn Tốt Nhất Khi Xử Lý Ngoại Lệ
+1. **Không nuốt ngoại lệ**: Một khối `catch` rỗng che giấu lỗi. Luôn ghi lại thất bại hoặc gói lại và ném lên.
+2. **Bắt ngoại lệ cụ thể**: Tránh bắt `Exception` hoặc `Throwable` chung. Bắt các lớp con cụ thể để không vô tình xử lý lỗi runtime (như NPE) vốn là bug logic.
+3. **Dùng Try-with-Resources**: Tránh dọn dẹp tài nguyên thủ công trong khối `finally`, vốn dài dòng và dễ gây lỗi khi đóng tài nguyên thứ cấp.
+4. **Bảo tồn Stack Trace**: Khi bọc ngoại lệ cấp thấp trong ngoại lệ tùy chỉnh, luôn truyền ngoại lệ gốc vào constructor để nguyên nhân gốc rễ được giữ lại.
+5. **Không dùng ngoại lệ để điều khiển luồng**: Việc tạo ngoại lệ tốn kém do phải tạo stack trace. Hãy dùng câu lệnh điều kiện thay thế.
 
 ```java
-// GOOD: Exception chaining preserves the original source stack trace
+// ĐÚNG: Xâu chuỗi ngoại lệ (exception chaining) giữ lại stack trace nguồn gốc ban đầu
 try {
-    // ... file reading
+    // ... đọc file
 } catch (IOException e) {
     throw new CustomBusinessException("Failed to read user data", e);
 }
 
-// BAD: Original exception is discarded, stack trace starts here
+// SAI: Ngoại lệ gốc bị loại bỏ, stack trace bắt đầu từ đây
 try {
-    // ... file reading
+    // ... đọc file
 } catch (IOException e) {
     throw new CustomBusinessException("Failed to read user data: " + e.getMessage());
 }
 ```
 
-## Các lỗi thường gặp (Common Mistakes)
+## Lỗi Thường Gặp
 
-### 1. Sử dụng Ngoại lệ để điều khiển luồng (Using Exceptions for Flow Control)
-Sử dụng các ngoại lệ để điều khiển đường dẫn thực thi của một chương trình là một anti-pattern lớn. Các ngoại lệ chỉ nên được dành riêng cho các điều kiện bất thường, không mong muốn.
+### 1. Dùng Ngoại Lệ Để Điều Khiển Luồng
+Dùng ngoại lệ để điều khiển đường đi thực thi của chương trình là một phản mẫu (anti-pattern) lớn. Ngoại lệ chỉ nên dành riêng cho các điều kiện bất thường, không mong đợi.
 ```java
-// BAD: Using Exception to exit a loop
+// SAI: Dùng Exception để thoát vòng lặp
 try {
     int i = 0;
     while (true) {
         System.out.println(array[i++]);
     }
 } catch (ArrayIndexOutOfBoundsException e) {
-    // Loop finished
+    // Vòng lặp kết thúc
 }
 
-// GOOD: Clean loop condition
+// ĐÚNG: Điều kiện vòng lặp rõ ràng
 for (int i = 0; i < array.length; i++) {
     System.out.println(array[i]);
 }
 ```
 
-### 2. Bắt Throwable (Catching Throwable)
-Bắt `Throwable` sẽ bắt cả `Exception` và `Error`. Việc bắt các lỗi hệ thống như `OutOfMemoryError` hoặc `InternalError` là rất nguy hiểm vì JVM có thể không ở trong trạng thái ổn định để tiếp tục thực thi.
+### 2. Bắt Throwable
+Bắt `Throwable` sẽ bắt cả `Exception` và `Error`. Bắt các lỗi như `OutOfMemoryError` hoặc `InternalError` rất nguy hiểm vì JVM có thể không ở trạng thái ổn định để tiếp tục thực thi.
 ```java
-// DANGEROUS: Catching system-level errors
+// NGUY HIỂM: Bắt lỗi cấp hệ thống
 try {
     process();
 } catch (Throwable t) { 
@@ -151,20 +151,20 @@ try {
 }
 ```
 
-### 3. Ghi log rồi ném lại ngoại lệ (Logging and Rethrowing)
-Ghi log một ngoại lệ và sau đó ném lại ngay lập tức dẫn đến việc ghi log trùng lặp ở mọi cấp của ngăn xếp cuộc gọi, làm đầy nhật ký với các thông tin nhiễu.
+### 3. Ghi Log Rồi Ném Lại
+Ghi log một ngoại lệ rồi ngay lập tức ném lại nó dẫn đến log trùng lặp ở mỗi cấp của call stack, làm log đầy tiếng ồn.
 ```java
-// BAD: Duplicate logging
+// SAI: Ghi log trùng lặp
 try {
     readFile();
 } catch (IOException e) {
-    logger.error("Failed to read file", e); // Logged here
-    throw e; // Logged again by the caller!
+    logger.error("Failed to read file", e); // Ghi log ở đây
+    throw e; // Ghi log lại bởi caller!
 }
 ```
 
-## Các câu hỏi ôn tập thường gặp (Common Review Prompts)
+## Câu Hỏi Ôn Tập Phổ Biến
 
-- Khái niệm nào ở đây là quy tắc thời gian biên dịch (compile-time rule)?
-- Khái niệm nào ở đây ảnh hưởng đến hành vi thời gian chạy (runtime behavior)?
-- Khái niệm nào ở đây dễ là bẫy phỏng vấn?
+- Những khái niệm nào ở đây là quy tắc tại thời điểm biên dịch (compile-time)?
+- Những khái niệm nào ảnh hưởng đến hành vi lúc chạy (runtime)?
+- Những khái niệm nào có khả năng là bẫy trong phỏng vấn?

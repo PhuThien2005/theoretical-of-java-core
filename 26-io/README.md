@@ -1,22 +1,22 @@
-# 26 - IO in Java
+# 26 - IO trong Java
 
-This topic follows the master outline in [outline.md](../outline.md). The goal is to understand each concept deeply enough to explain it, recognize it in code, and answer interview-style questions.
+Chủ đề này tuân theo đề cương chính trong [outline.md](../outline.md). Mục tiêu là hiểu từng khái niệm đủ sâu để có thể giải thích, nhận diện trong code và trả lời các câu hỏi phỏng vấn.
 
-## Study Order
+## Thứ Tự Học
 
-- [File Concepts](theory/01-file-concepts.md)
-- [Bufferedinputstream Concepts](theory/02-bufferedinputstream-concepts.md)
-- [Serialization Concepts](theory/03-serialization-concepts.md)
-- [Key Terms](terms/01-key-terms.md)
+- [Khái Niệm về File](theory/01-file-concepts.md)
+- [Khái Niệm về BufferedInputStream](theory/02-bufferedinputstream-concepts.md)
+- [Khái Niệm về Tuần Tự Hóa](theory/03-serialization-concepts.md)
+- [Thuật Ngữ Chính](terms/01-key-terms.md)
 
-## Outline Checklist
+## Danh Sách Kiểm Tra Theo Đề Cương
 
 - File
-- Create file
-- Delete file
-- Check existence
-- Read file metadata
-- Create directory
+- Tạo file
+- Xóa file
+- Kiểm tra sự tồn tại
+- Đọc metadata của file
+- Tạo thư mục
 - InputStream
 - OutputStream
 - FileInputStream
@@ -31,8 +31,8 @@ This topic follows the master outline in [outline.md](../outline.md). The goal i
 - BufferedWriter
 - ObjectInputStream
 - ObjectOutputStream
-- Serialization
-- Deserialization
+- Tuần tự hóa (Serialization)
+- Giải tuần tự hóa (Deserialization)
 - Serializable
 - serialVersionUID
 - transient
@@ -41,33 +41,33 @@ This topic follows the master outline in [outline.md](../outline.md). The goal i
 - System.out
 - System.err
 
-## Anki Cards
+## Thẻ Anki
 
 - [Basic](anki/basic.tsv)
 - [Basic Extra](anki/basic-extra.tsv)
 - [Cloze](anki/cloze.tsv)
 - [Code Question](anki/code-question.tsv)
 
-## Self-Check
+## Tự Kiểm Tra
 
-Before moving to the next topic, verify that you can answer these questions:
-1. Why does Java distinguish between byte streams and character streams, and how do encoding charsets mapping apply under the hood?
-2. Why does `BufferedInputStream` / `BufferedOutputStream` significantly outperform raw stream operations, and how does the JVM buffer sizing interact with OS disk page caching?
-3. Why does Java serialization require `serialVersionUID`, and what compile-time or runtime compatibility issues occur if it is missing or mismatched during class evolution?
-4. Why are `transient` fields excluded from serialization, and what happens to transient fields during deserialization (do constructor rules or zero-value initialization rules apply)?
-5. Why is the default Java serialization mechanism considered a security liability, and what are modern alternatives or mitigation strategies?
+Trước khi chuyển sang chủ đề tiếp theo, hãy xác nhận bạn có thể trả lời các câu hỏi sau:
+1. Tại sao Java phân biệt giữa luồng byte (byte stream) và luồng ký tự (character stream), và bộ ký tự mã hóa (encoding charset) được ánh xạ như thế nào ở tầng bên dưới?
+2. Tại sao `BufferedInputStream` / `BufferedOutputStream` vượt trội hẳn so với thao tác luồng thô (raw stream), và kích thước buffer của JVM tương tác như thế nào với bộ nhớ đệm trang đĩa (disk page caching) của hệ điều hành?
+3. Tại sao tuần tự hóa Java yêu cầu `serialVersionUID`, và những vấn đề tương thích nào xảy ra ở thời gian biên dịch hoặc thời gian chạy nếu nó bị thiếu hoặc không khớp trong quá trình phát triển lớp?
+4. Tại sao các trường `transient` bị loại trừ khỏi quá trình tuần tự hóa, và điều gì xảy ra với chúng trong quá trình giải tuần tự hóa (có áp dụng quy tắc constructor hay khởi tạo giá trị mặc định)?
+5. Tại sao cơ chế tuần tự hóa mặc định của Java bị coi là rủi ro bảo mật, và đâu là các phương án thay thế hiện đại hay chiến lược giảm thiểu?
 
-## Mermaid Overview
+## Tổng Quan Mermaid
 
 ```mermaid
 flowchart TD
-    A[IO in Java] --> B[Definitions]
-    A --> C[Rules and syntax]
-    A --> D[Common mistakes]
-    A --> E[Interview recall]
+    A[IO trong Java] --> B[Định nghĩa]
+    A --> C[Quy tắc và cú pháp]
+    A --> D[Lỗi thường gặp]
+    A --> E[Ôn tập phỏng vấn]
 ```
 
-## Reference Links
+## Liên Kết Tham Khảo
 
 - https://docs.oracle.com/javase/tutorial/essential/io/
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/package-summary.html

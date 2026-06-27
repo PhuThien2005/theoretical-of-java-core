@@ -1,14 +1,14 @@
-# 40 - Modern Java Concepts To Know
+# 40 - Các Khái Niệm Java Hiện Đại Cần Biết
 
-This topic follows the master outline in [outline.md](../outline.md). The goal is to understand each concept deeply enough to explain it, recognize it in code, and answer interview-style questions.
+Chủ đề này theo dõi đề cương tổng thể trong [outline.md](../outline.md). Mục tiêu là hiểu sâu từng khái niệm để có thể giải thích, nhận ra trong code, và trả lời các câu hỏi phỏng vấn.
 
-## Study Order
+## Thứ Tự Học
 
-- [Var Concepts](theory/01-var-concepts.md)
-- [Sequenced Collections Concepts](theory/02-sequenced-collections-concepts.md)
-- [Key Terms](terms/01-key-terms.md)
+- [Khái Niệm var](theory/01-var-concepts.md)
+- [Khái Niệm Sequenced Collections](theory/02-sequenced-collections-concepts.md)
+- [Thuật Ngữ Chính](terms/01-key-terms.md)
 
-## Outline Checklist
+## Danh Sách Kiểm Tra Đề Cương
 
 - var
 - Records
@@ -16,45 +16,45 @@ This topic follows the master outline in [outline.md](../outline.md). The goal i
 - Pattern matching for instanceof
 - Switch expression
 - Text blocks
-- Enhanced NullPointerException message
+- Thông báo lỗi NullPointerException được cải thiện
 - Virtual Threads
-- Basic Structured Concurrency
+- Cơ bản về Structured Concurrency
 - Pattern matching for switch
 - Sequenced Collections
-- String templates were once preview; currently they should not be used as a stable feature
+- String templates từng là tính năng xem trước; hiện tại không nên dùng như một tính năng ổn định
 
-## Anki Cards
+## Thẻ Anki
 
 - [Basic](anki/basic.tsv)
 - [Basic Extra](anki/basic-extra.tsv)
 - [Cloze](anki/cloze.tsv)
 - [Code Question](anki/code-question.tsv)
 
-## Self-Check
+## Tự Kiểm Tra
 
-Before moving to the next topic, verify that you can answer these questions:
-1. Why does `var` perform compile-time type inference rather than runtime dynamic typing, and what four locations where `var` is forbidden reveal how static typing is preserved?
-   &rarr; See [Why var Is Compile-Time Inference Not Dynamic Typing](theory/01-var-concepts.md#why-var-is-compile-time-inference-not-dynamic-typing)
-2. Why are Java Records immutable by design, and how does the compiler-generated canonical constructor enforce field finality?
-   &rarr; See [Why Records Enforce Immutability Through Compiler-Generated Code](theory/01-var-concepts.md#why-records-enforce-immutability-through-compiler-generated-code)
-3. Why do Sealed Classes enable exhaustive pattern matching in switch expressions, and what is the compiler safety guarantee they provide over open class hierarchies?
-   &rarr; See [Why Sealed Classes Enable Safe Exhaustive Pattern Matching](theory/01-var-concepts.md#why-sealed-classes-enable-safe-exhaustive-pattern-matching)
-4. Why does Pattern Matching for Switch require guarded patterns in order from most-specific to most-general, and what dominance rule prevents unreachable cases?
-   &rarr; See [Why Pattern Matching for Switch Requires Ordering by Specificity](theory/01-var-concepts.md#why-pattern-matching-for-switch-requires-ordering-by-specificity)
-5. Why do Virtual Threads pin their carrier OS thread when blocked inside `synchronized`, and why is `ReentrantLock` the fix?
-   &rarr; See [Why Virtual Threads Pin Carrier Threads in Synchronized Blocks](theory/01-var-concepts.md#why-virtual-threads-pin-carrier-threads-in-synchronized-blocks)
+Trước khi chuyển sang chủ đề tiếp theo, hãy xác nhận bạn có thể trả lời các câu hỏi sau:
+1. Tại sao `var` thực hiện suy luận kiểu tại thời điểm biên dịch (compile-time type inference) thay vì kiểu động (dynamic typing) tại runtime, và bốn vị trí mà `var` bị cấm tiết lộ điều gì về việc giữ nguyên kiểu tĩnh (static typing)?
+   &rarr; Xem [Tại sao var là Suy Luận Tại Thời Điểm Biên Dịch Chứ Không Phải Kiểu Động](theory/01-var-concepts.md#why-var-is-compile-time-inference-not-dynamic-typing)
+2. Tại sao Java Records bất biến (immutable) theo thiết kế, và constructor chính (canonical constructor) do trình biên dịch tự tạo thực thi tính bất biến của field như thế nào?
+   &rarr; Xem [Tại sao Records Đảm Bảo Tính Bất Biến Thông Qua Code Do Trình Biên Dịch Tạo Ra](theory/01-var-concepts.md#why-records-enforce-immutability-through-compiler-generated-code)
+3. Tại sao Sealed Classes (lớp kín) cho phép pattern matching toàn diện (exhaustive) trong switch expression, và đảm bảo an toàn của trình biên dịch so với hệ thống phân cấp lớp mở là gì?
+   &rarr; Xem [Tại sao Sealed Classes Cho Phép Pattern Matching An Toàn Toàn Diện](theory/01-var-concepts.md#why-sealed-classes-enable-safe-exhaustive-pattern-matching)
+4. Tại sao Pattern Matching for Switch yêu cầu sắp xếp các guarded pattern từ cụ thể nhất đến tổng quát nhất, và quy tắc dominance nào ngăn chặn các case không thể tiếp cận?
+   &rarr; Xem [Tại sao Pattern Matching for Switch Yêu Cầu Sắp Xếp Theo Độ Cụ Thể](theory/01-var-concepts.md#why-pattern-matching-for-switch-requires-ordering-by-specificity)
+5. Tại sao Virtual Threads ghim (pin) carrier thread hệ điều hành khi bị block bên trong `synchronized`, và tại sao `ReentrantLock` là giải pháp?
+   &rarr; Xem [Tại sao Virtual Threads Ghim Carrier Threads trong Synchronized Blocks](theory/01-var-concepts.md#why-virtual-threads-pin-carrier-threads-in-synchronized-blocks)
 
-## Mermaid Overview
+## Tổng Quan Mermaid
 
 ```mermaid
 flowchart TD
-    A[Modern Java Concepts To Know] --> B[Definitions]
-    A --> C[Rules and syntax]
-    A --> D[Common mistakes]
-    A --> E[Interview recall]
+    A[Các Khái Niệm Java Hiện Đại] --> B[Định Nghĩa]
+    A --> C[Quy tắc và cú pháp]
+    A --> D[Lỗi phổ biến]
+    A --> E[Ôn tập phỏng vấn]
 ```
 
-## Reference Links
+## Liên Kết Tham Khảo
 
 - https://dev.java/learn/
 - https://openjdk.org/jeps/0

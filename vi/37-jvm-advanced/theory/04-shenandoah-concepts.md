@@ -1,197 +1,197 @@
-# JVM Nâng Cao - Phần 4 (Advanced JVM - Part 4)
+# JVM nâng cao (Advanced JVM) - Phần 4
 
-## Mục Tiêu Học Tập (Learning Goal)
+## Mục Tiêu Học Tập
 
-Tài liệu này trình bày một phần trọng tâm của **JVM Nâng cao (Advanced JVM)**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, không chỉ là các từ vựng rời rạc.
+Tài liệu này trình bày một phần trọng tâm của **JVM nâng cao (Advanced JVM)**. Hãy nghiên cứu từng khái niệm dưới dạng một quy tắc Java thực tế, thay vì chỉ học từ vựng riêng lẻ.
 
-## Khái Quát Nội Dung (Outline Coverage)
+## Nội Dung Tổng Quan
 
-| Khái niệm (Concept) | Điều cần biết (What to know) |
+| Khái niệm | Điều cần biết |
 | --- | --- |
-| `Shenandoah` | Shenandoah là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi. |
-| `Stop-the-world` | Stop-the-world (dừng thế giới) là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi. |
-| `Minor GC` | Minor GC (dọn rác nhỏ) là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi. |
-| `Major GC` | Major GC (dọn rác lớn) là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi. |
-| `Full GC` | Full GC (dọn rác toàn phần) là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi. |
-| `Basic JVM tuning:` | JVM thực thi mã bytecode và quản lý các dịch vụ thời gian chạy (runtime services) như bộ nhớ, JIT, và bộ dọn rác (Garbage Collector - GC). |
-| `-Xms` | -Xms là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi. |
-| `-Xmx` | -Xmx là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi. |
+| `Shenandoah` | `Shenandoah` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
+| `Stop-the-world` | `Stop-the-world` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
+| `Minor GC` | `Minor GC` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
+| `Major GC` | `Major GC` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
+| `Full GC` | `Full GC` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
+| `Basic JVM tuning:` | Tinh chỉnh JVM cơ bản (Basic JVM tuning) là một nhóm các quy tắc dùng để tối ưu hóa cách JVM thực thi mã byte và quản lý các dịch vụ thời gian chạy như bộ nhớ, JIT và GC. |
+| `-Xms` | `-Xms` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
+| `-Xmx` | `-Xmx` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
 
-## Ghi Chú Chi Tiết (Detailed Notes)
+## Ghi Chú Chi Tiết
 
 ### Shenandoah
 
-Shenandoah là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi.
+`Shenandoah` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
 
-Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được cho phép, và chế độ thất bại. Hãy xem lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `Shenandoah` trong một câu.
-- Nhận biết `Shenandoah` trong code, câu lệnh, tài liệu, hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi (tradeoff) liên quan đến `Shenandoah`.
+- Nhận biết `Shenandoah` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `Shenandoah`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc code, hãy hỏi: `Shenandoah` thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
+- Khi đọc mã nguồn, hãy hỏi: `Shenandoah` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ### Stop-the-world
 
-Stop-the-world (dừng thế giới) là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi.
+`Stop-the-world` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
 
-Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được cho phép, và chế độ thất bại. Hãy xem lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `Stop-the-world` trong một câu.
-- Nhận biết `Stop-the-world` trong code, câu lệnh, tài liệu, hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi (tradeoff) liên quan đến `Stop-the-world`.
+- Nhận biết `Stop-the-world` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `Stop-the-world`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc code, hãy hỏi: `Stop-the-world` thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
+- Khi đọc mã nguồn, hãy hỏi: `Stop-the-world` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ### Minor GC
 
-Minor GC (dọn rác nhỏ) là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi.
+`Minor GC` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
 
-Khái niệm này quan trọng vì hành vi thời gian chạy giải thích hiệu năng, lỗi bộ nhớ, hành vi khởi động, và nhiều câu hỏi phỏng vấn. Một sự nhầm lẫn phổ biến là trộn lẫn các khái niệm biên dịch (compile-time) với các dịch vụ thời gian chạy của JVM.
+Khái niệm này rất quan trọng vì hành vi thời gian chạy sẽ giải thích các vấn đề về hiệu năng, lỗi bộ nhớ, hành vi khi khởi động và nhiều câu hỏi phỏng vấn. Hiểu lầm phổ biến là trộn lẫn các khái niệm biên dịch (compile-time) với các dịch vụ thời gian chạy của JVM.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `Minor GC` trong một câu.
-- Nhận biết `Minor GC` trong code, câu lệnh, tài liệu, hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi (tradeoff) liên quan đến `Minor GC`.
+- Nhận biết `Minor GC` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `Minor GC`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc code, hãy hỏi: `Minor GC` thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
+- Khi đọc mã nguồn, hãy hỏi: `Minor GC` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ### Major GC
 
-Major GC (dọn rác lớn) là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi.
+`Major GC` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
 
-Khái niệm này quan trọng vì hành vi thời gian chạy giải thích hiệu năng, lỗi bộ nhớ, hành vi khởi động, và nhiều câu hỏi phỏng vấn. Một sự nhầm lẫn phổ biến là trộn lẫn các khái niệm biên dịch (compile-time) với các dịch vụ thời gian chạy của JVM.
+Khái niệm này rất quan trọng vì hành vi thời gian chạy sẽ giải thích các vấn đề về hiệu năng, lỗi bộ nhớ, hành vi khi khởi động và nhiều câu hỏi phỏng vấn. Hiểu lầm phổ biến là trộn lẫn các khái niệm biên dịch (compile-time) với các dịch vụ thời gian chạy của JVM.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `Major GC` trong một câu.
-- Nhận biết `Major GC` trong code, câu lệnh, tài liệu, hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi (tradeoff) liên quan đến `Major GC`.
+- Nhận biết `Major GC` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `Major GC`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc code, hãy hỏi: `Major GC` thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
+- Khi đọc mã nguồn, hãy hỏi: `Major GC` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ### Full GC
 
-Full GC (dọn rác toàn phần) là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi.
+`Full GC` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
 
-Khái niệm này quan trọng vì hành vi thời gian chạy giải thích hiệu năng, lỗi bộ nhớ, hành vi khởi động, và nhiều câu hỏi phỏng vấn. Một sự nhầm lẫn phổ biến là trộn lẫn các khái niệm biên dịch (compile-time) với các dịch vụ thời gian chạy của JVM.
+Khái niệm này rất quan trọng vì hành vi thời gian chạy sẽ giải thích các vấn đề về hiệu năng, lỗi bộ nhớ, hành vi khi khởi động và nhiều câu hỏi phỏng vấn. Hiểu lầm phổ biến là trộn lẫn các khái niệm biên dịch (compile-time) với các dịch vụ thời gian chạy của JVM.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `Full GC` trong một câu.
-- Nhận biết `Full GC` trong code, câu lệnh, tài liệu, hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi (tradeoff) liên quan đến `Full GC`.
+- Nhận biết `Full GC` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `Full GC`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc code, hãy hỏi: `Full GC` thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
+- Khi đọc mã nguồn, hãy hỏi: `Full GC` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-### Tối ưu hóa JVM cơ bản (Basic JVM tuning)
+### Tinh chỉnh JVM cơ bản (Basic JVM tuning):
 
-JVM thực thi mã bytecode và quản lý các dịch vụ thời gian chạy (runtime services) như bộ nhớ, JIT, và bộ dọn rác (Garbage Collector - GC).
+Tinh chỉnh JVM cơ bản (Basic JVM tuning) là một nhóm các quy tắc dùng để tối ưu hóa cách JVM thực thi mã byte và quản lý các dịch vụ thời gian chạy như bộ nhớ, JIT và GC.
 
-Khái niệm này quan trọng vì hành vi thời gian chạy giải thích hiệu năng, lỗi bộ nhớ, hành vi khởi động, và nhiều câu hỏi phỏng vấn. Một sự nhầm lẫn phổ biến là trộn lẫn các khái niệm biên dịch (compile-time) với các dịch vụ thời gian chạy của JVM.
+Khái niệm này rất quan trọng vì hành vi thời gian chạy sẽ giải thích các vấn đề về hiệu năng, lỗi bộ nhớ, hành vi khi khởi động và nhiều câu hỏi phỏng vấn. Hiểu lầm phổ biến là trộn lẫn các khái niệm biên dịch (compile-time) với các dịch vụ thời gian chạy của JVM.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `Basic JVM tuning:` trong một câu.
-- Nhận biết `Basic JVM tuning:` trong code, câu lệnh, tài liệu, hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi (tradeoff) liên quan đến `Basic JVM tuning:`.
+- Nhận biết `Basic JVM tuning:` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `Basic JVM tuning:`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc code, hãy hỏi: `Basic JVM tuning:` thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
+- Khi đọc mã nguồn, hãy hỏi: `Basic JVM tuning:` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ### -Xms
 
--Xms là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi.
+`-Xms` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
 
-Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được cho phép, và chế độ thất bại. Hãy xem lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `-Xms` trong một câu.
-- Nhận biết `-Xms` trong code, câu lệnh, tài liệu, hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi (tradeoff) liên quan đến `-Xms`.
+- Nhận biết `-Xms` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `-Xms`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc code, hãy hỏi: `Xms` thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
+- Khi đọc mã nguồn, hãy hỏi: `Xms` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ### -Xmx
 
--Xmx là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi.
+`-Xmx` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
 
-Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được cho phép, và chế độ thất bại. Hãy xem lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `-Xmx` trong một câu.
-- Nhận biết `-Xmx` trong code, câu lệnh, tài liệu, hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi (tradeoff) liên quan đến `-Xmx`.
+- Nhận biết `-Xmx` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `-Xmx`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc code, hãy hỏi: `Xmx` thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
+- Khi đọc mã nguồn, hãy hỏi: `Xmx` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-## Ví Dụ Code (Code Examples)
+## Các Ví Dụ Mã Nguồn
 
-### JVM Tuning Flags Example
+### Ví dụ về các cờ tinh chỉnh JVM
 ```bash
-# Set initial heap to 1GB, max heap to 2GB, and target a 50ms GC pause time
+# Thiết lập heap ban đầu là 1GB, heap tối đa là 2GB và mục tiêu thời gian tạm dừng GC là 50ms
 java -Xms1g -Xmx2g -XX:MaxGCPauseMillis=50 -jar app.jar
 ```
 
-## Các Sai Lầm Thường Gặp (Common Mistakes)
+## Sai Lầm Thường Gặp
 
-- **Không khớp -Xms và -Xmx**: Nếu `-Xms` nhỏ hơn `-Xmx`, JVM sẽ tự động thay đổi kích thước vùng nhớ Heap (Heap memory). Việc thay đổi kích thước này gây ra các khoảng dừng GC và chi phí hiệu năng (performance overhead). Thiết lập chúng bằng nhau là thực hành tốt nhất (best practice) cho môi trường sản xuất (production).
-- **Thiết lập MaxGCPauseMillis quá thấp**: Thiết lập một mục tiêu không thực tế (ví dụ: 5ms) có thể khiến GC chạy liên tục, làm các luồng ứng dụng bị đói tài nguyên CPU.
+- **Sử dụng -Xms và -Xmx không khớp nhau**: Nếu `-Xms` nhỏ hơn `-Xmx`, JVM sẽ tự động thay đổi kích thước của vùng Heap (dynamic resizing). Việc thay đổi kích thước này gây ra các khoảng dừng GC và phát sinh thêm chi phí hiệu năng. Việc đặt hai tham số này bằng nhau là phương pháp tốt nhất trong môi trường thực tế (production).
+- **Đặt MaxGCPauseMillis quá thấp**: Đặt tham số này ở một mục tiêu không thực tế (ví dụ: 5ms) có thể khiến GC chạy liên tục, làm đói các luồng ứng dụng do cạn kiệt tài nguyên CPU.
 
-## Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)
+## Các Câu Hỏi Ôn Tập Thường Gặp
 
-- Khái niệm nào ở đây là quy tắc biên dịch (compile-time)?
-- Khái niệm nào ở đây ảnh hưởng đến hành vi thời gian chạy (runtime)?
-- Khái niệm nào ở đây dễ là bẫy phỏng vấn?
+- Những khái niệm nào ở đây là quy tắc trong thời gian biên dịch (compile-time)?
+- Những khái niệm nào ở đây ảnh hưởng đến hành vi khi chạy ứng dụng (runtime)?
+- Những khái niệm nào ở đây có khả năng là bẫy phỏng vấn?
 
-## Tại sao Shenandoah GC Đạt Được Thời Gian Dừng Cực Thấp (Why Shenandoah GC Achieves Ultra-Low Pause Times)
+## Tại Sao Shenandoah GC Đạt Được Thời Gian Tạm Dừng Cực Thấp
 
-Shenandoah GC đạt được thời gian dừng cực thấp, không phụ thuộc vào kích thước vùng chứa Heap, bằng cách thực hiện giai đoạn nén bộ nhớ (compaction phase) đồng thời (concurrently) với việc chạy các luồng ứng dụng Java (application threads). Không giống như các bộ dọn rác truyền thống như G1 hoặc Parallel GC, vốn dừng tất cả các luồng ứng dụng (Stop-The-World) để sao chép đối tượng và nén các vùng nhớ, Shenandoah thực hiện bước nén này một cách đồng thời. Để ngăn chặn tình trạng tranh chấp dữ liệu (race conditions) khi các luồng ứng dụng đọc hoặc ghi vào các đối tượng đang trong quá trình di chuyển, Shenandoah sử dụng một cơ chế gọi là **Brooks Pointers** (trong các phiên bản JDK cũ) hoặc **Load/Write Barriers** (rào cản tải/ghi - trong các phiên bản mới hơn). Mỗi đối tượng trên Heap được thêm một trường tham chiếu trỏ đến chính nó (Brooks Pointer). Khi luồng GC đồng thời sao chép một đối tượng sang một vùng nhớ mới, nó sử dụng một lệnh so sánh và tráo đổi (Compare-And-Swap - CAS) để cập nhật con trỏ Brooks Pointer của đối tượng cũ trỏ đến bản sao mới, giúp tất cả các luồng ứng dụng đang thực thi rào cản tải chuyển hướng một cách minh bạch các thao tác đọc và ghi sang vị trí đối tượng mới.
+Shenandoah GC đạt được thời gian tạm dừng cực thấp độc lập với kích thước vùng Heap bằng cách thực hiện giai đoạn nén (compaction phase) đồng thời với việc chạy các luồng ứng dụng Java. Không giống như các bộ dọn rác truyền thống như G1 hoặc Parallel GC, vốn sẽ tạm dừng tất cả các luồng ứng dụng (Stop-The-World) để sao chép đối tượng và nén các vùng nhớ, Shenandoah thực hiện bước nén này một cách đồng thời. Để ngăn chặn các tình trạng tranh chấp (race condition) khi các luồng ứng dụng đọc hoặc ghi vào các đối tượng đang trong quá trình di chuyển, Shenandoah sử dụng một cơ chế gọi là **Brooks Pointer** (trong các phiên bản JDK cũ) hoặc các rào cản tải/ghi (**Load/Write Barrier** - trong các phiên bản mới hơn). Mỗi đối tượng trên vùng Heap được tiền tố hóa một trường tham chiếu trỏ đến chính nó (Brooks Pointer). Khi luồng GC đồng thời sao chép một đối tượng sang một vùng nhớ mới, nó sử dụng một chỉ lệnh Compare-And-Swap (CAS) để cập nhật Brooks Pointer của đối tượng cũ trỏ đến bản sao mới, giúp tất cả các luồng ứng dụng đang thực thi rào cản tải chuyển hướng các hoạt động đọc và ghi sang vị trí đối tượng mới một cách minh bạch.
 
-### Mô Hình Tư Duy: Nén Đồng Thời và Con Trỏ Brooks (Mental Model: Concurrent Compaction and Brooks Pointer)
+### Mô Hình Tư Duy: Nén Đồng Thời và Brooks Pointer
 
 ```text
-  1. Before Copy (Normal State):
-     [ Application Reference ] ---> [ Object Header | Brooks Pointer ---> Self | Data ]
+  1. Trước khi sao chép (Trạng thái bình thường):
+     [ Tham chiếu ứng dụng ] ---> [ Object Header | Brooks Pointer ---> Chính nó | Dữ liệu ]
   
-  2. During Concurrent Copy:
-     [ GC Thread copies Object to new region ]
-     Old Object (From-Space):      [ Object Header | Brooks Pointer ---> Self | Data ]
-     New Object (To-Space):        [ Object Header | Brooks Pointer ---> Self | Data ]
+  2. Trong quá trình sao chép đồng thời:
+     [ Luồng GC sao chép đối tượng sang vùng mới ]
+     Đối tượng cũ (From-Space):      [ Object Header | Brooks Pointer ---> Chính nó      | Dữ liệu ]
+     Đối tượng mới (To-Space):        [ Object Header | Brooks Pointer ---> Chính nó      | Dữ liệu ]
      
-  3. After CAS Pointer Update:
-     Old Object (From-Space):      [ Object Header | Brooks Pointer ---> To-Space Copy | Data ]
-     New Object (To-Space):        [ Object Header | Brooks Pointer ---> Self           | Data ]
+  3. Sau khi cập nhật con trỏ bằng CAS:
+     Đối tượng cũ (From-Space):      [ Object Header | Brooks Pointer ---> Bản sao đích  | Dữ liệu ]
+     Đối tượng mới (To-Space):        [ Object Header | Brooks Pointer ---> Chính nó      | Dữ liệu ]
      
-  4. Redirection:
-     [ Application Reference ] ---> Old Object ---> [ Redirected via Brooks Pointer to To-Space Copy ]
+  4. Chuyển hướng:
+     [ Tham chiếu ứng dụng ] ---> Đối tượng cũ ---> [ Chuyển hướng qua Brooks Pointer đến Bản sao vùng đích ]
 ```
 
-### Ví Dụ Code (Code Example)
+### Ví Dụ Mã Nguồn
 
-Dưới đây là một ví dụ minh họa việc phân bổ bộ nhớ và chạy trong một vòng lặp để kích hoạt hoạt động dọn rác GC. Chạy chương trình này với Shenandoah GC sẽ thấy thời gian dừng gần như bằng không.
+Dưới đây là một minh họa về việc phân bổ bộ nhớ và chạy trong một vòng lặp để kích hoạt hoạt động của GC. Chạy đoạn mã này với Shenandoah GC cho thấy thời gian tạm dừng gần như bằng không.
 
 ```java
 package theory;
@@ -203,7 +203,7 @@ public class ConcurrentGcDemo {
         System.out.println("Starting allocation loop...");
         long start = System.currentTimeMillis();
         
-        // Loop designed to produce continuous garbage to trigger concurrent collection
+        // Vòng lặp được thiết kế để liên tục tạo rác nhằm kích hoạt dọn rác đồng thời
         for (int i = 0; i < 500_000; i++) {
             String temp = UUID.randomUUID().toString();
             if (i % 100_000 == 0) {
@@ -223,20 +223,10 @@ Allocated: 400000 items. Elapsed: 180ms
 */
 ```
 
-### Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)
+### Chuỗi Nguyên Nhân - Kết Quả
 
+GC lựa chọn vùng nhớ để nén &rarr; GC phân bổ bản sao trong vùng đích (to-space) &rarr; GC thực hiện CAS để cập nhật Brooks Pointer của vùng nguồn (from-space) trỏ đến bản sao của vùng đích &rarr; Các luồng ứng dụng chặn tham chiếu đối tượng qua rào cản tải (load barrier) &rarr; Tham chiếu được chuyển hướng đến bản sao đối tượng mới &rarr; Vùng nhớ cũ được thu hồi an toàn &rarr; Thời gian tạm dừng vẫn ở mức dưới một mili giây.
 
-```text
-GC chọn vùng nhớ để nén
-  → GC phân bổ bản sao trong to-space
-  → GC thực hiện lệnh CAS để cập nhật Brooks Pointer của from-space trỏ tới bản sao của to-space
-  → Các luồng ứng dụng chặn tham chiếu đối tượng qua rào cản tải (load barrier)
-  → Tham chiếu được chuyển hướng đến bản sao đối tượng mới
-  → Vùng nhớ cũ được thu hồi an toàn
-  → Thời gian dừng vẫn ở mức dưới một mili giây (sub-millisecond).
-```
+## Liên Kết Tham Khảo
 
-
-## Liên Kết Tham Khảo (Reference Links)
-
-- https://openjdk.org/jeps/189 (JEP 189: Shenandoah: Bộ dọn rác với thời gian tạm dừng ngắn)
+- https://openjdk.org/jeps/189 (JEP 189: Shenandoah: A Low-Pause-Time Garbage Collector)

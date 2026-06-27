@@ -1,117 +1,123 @@
-# Biểu Thức Lambda - Phần 2 (Lambda Expression - Part 2)
+# Biểu Thức Lambda (Lambda Expression) - Phần 2
 
-## Mục Tiêu Học Tập (Learning Goal)
+## Mục Tiêu Học Tập
 
-Tài liệu này đề cập đến một phần trọng tâm của **Biểu Thức Lambda**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải là những thuật ngữ riêng lẻ.
+Tệp (File) này cung cấp một phần trọng tâm về **biểu thức Lambda**. Hãy học từng khái niệm như một quy tắc Java thực tế, chứ không phải như các từ vựng riêng lẻ.
 
-## Phạm Vi Outline (Outline Coverage)
+## Nội Dung Tóm Tắt
 
-| Khái niệm (Concept) | Những điều cần biết (What to know) |
+| Khái niệm | Những điều cần biết |
 | --- | --- |
-| `Lambda with Collection` | Một collection là một đối tượng nhóm nhiều phần tử dưới một API chung. |
-| `Lambda with Thread` | Một biểu thức lambda là một khối giống như hàm nhỏ gọn được sử dụng ở những nơi mong đợi một interface chức năng (functional interface). |
-| `Lambda with Comparator` | `Comparator` định nghĩa thứ tự tùy biến từ bên ngoài cho các đối tượng. |
+| `Lambda with Collection` | Một bộ sưu tập (Collection) là một đối tượng nhóm nhiều phần tử lại với nhau dưới một giao diện lập trình ứng dụng (API) chung. |
+| `Lambda with Thread` | Một biểu thức Lambda là một khối tương tự như hàm ngắn gọn được sử dụng ở những nơi mong đợi một giao diện chức năng (Functional Interface). |
+| `Lambda with Comparator` | Comparator định nghĩa việc sắp xếp tùy chỉnh bên ngoài cho các đối tượng (Object). |
 
-## Ghi Chú Chi Tiết (Detailed Notes)
+## Ghi Chú Chi Tiết
 
 ### Lambda với Collection (Lambda with Collection)
 
-Một collection là một đối tượng nhóm nhiều phần tử dưới một API chung.
+Một bộ sưu tập là một đối tượng nhóm nhiều phần tử lại với nhau dưới một API chung.
 
-Nó quan trọng vì việc chọn sai cấu trúc dữ liệu sẽ làm thay đổi tính chính xác, hiệu suất và hành vi xử lý trùng lặp. Một sự nhầm lẫn phổ biến là ghi nhớ tên lớp mà không biết thứ tự tìm kiếm, quy tắc so sánh bằng hay hành vi lặp.
+Điều này quan trọng vì việc lựa chọn sai cấu trúc dữ liệu (Data Structure) sẽ làm thay đổi tính chính xác, hiệu năng (Performance) và hành vi xử lý phần tử trùng lặp. Một sự nhầm lẫn phổ biến là việc ghi nhớ tên các lớp (Class) mà không biết rõ thứ tự tra cứu (Lookup Order), quy tắc so sánh bằng (Equality Rules) hay hành vi duyệt (Iteration Behavior).
 
-Kiểm tra thực tế:
-- Định nghĩa `Lambda với Collection` trong một câu.
-- Nhận biết `Lambda với Collection` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `Lambda với Collection`.
+Kiểm tra thực tế (Practical Check):
 
-Ví dụ nhỏ hoặc mô hình tư duy:
-- `n -> n > 0` là một lambda được sử dụng làm vị từ (predicate).
+- Định nghĩa `Lambda with Collection` trong một câu.
+- Nhận biết `Lambda with Collection` trong mã nguồn (Code), câu lệnh (Command), tài liệu (Documentation) hoặc các câu hỏi phỏng vấn (Interview Prompt).
+- Giải thích một lỗi (Bug), hạn chế (Limitation) hoặc sự đánh đổi (Tradeoff) liên quan đến `Lambda with Collection`.
 
-#### Ví dụ mã nguồn: Các phương thức của Collection nhận Lambda (Code Example: Collection methods accepting Lambdas)
+Ví dụ nhỏ hoặc mô hình tư duy (Mental Model):
+
+- `n -> n > 0` là một biểu thức Lambda được sử dụng làm hàm vị từ (Predicate).
+
+#### Ví dụ mã nguồn (Code Example): Các phương thức của Collection chấp nhận Lambda
 ```java
 java.util.List<String> list = new java.util.ArrayList<>(java.util.List.of("apple", "banana", "cherry"));
 
-// 1. Duyệt qua các phần tử với Consumer
+// 1. Iteration with Consumer
 list.forEach(item -> System.out.println(item));
 
-// 2. Lọc phần tử tại chỗ với Predicate
-list.removeIf(item -> item.startsWith("b")); // xóa "banana"
+// 2. Inline filtering with Predicate
+list.removeIf(item -> item.startsWith("b")); // removes "banana"
 
-// 3. Thay thế phần tử tại chỗ với UnaryOperator
-list.replaceAll(item -> item.toUpperCase()); // thay thế các phần tử còn lại thành "APPLE", "CHERRY"
+// 3. Inline replacing with UnaryOperator
+list.replaceAll(item -> item.toUpperCase()); // replaces remaining with "APPLE", "CHERRY"
 ```
 
-#### Lỗi Thường Gặp: Sửa đổi các Collection Bất Biến tại thời điểm chạy (Common Mistake: Modifying Unmodifiable Collections at Runtime)
-Các phương thức như `List.of()`, `Map.of()`, hoặc `Collections.unmodifiableList()` tạo ra các collection bất biến (unmodifiable). Việc truyền một lambda vào `removeIf()` hoặc `replaceAll()` trên các danh sách này vẫn biên dịch bình thường nhưng sẽ ném ra ngoại lệ `UnsupportedOperationException` tại thời điểm chạy.
+#### Sai lầm thường gặp (Common Mistake): Sửa đổi các bộ sưu tập không thể sửa đổi (Unmodifiable Collections) tại thời điểm chạy (Runtime)
+Các phương thức như `List.of()`, `Map.of()`, hoặc `Collections.unmodifiableList()` tạo ra các bộ sưu tập không thể sửa đổi. Việc truyền một biểu thức Lambda vào `removeIf()` hoặc `replaceAll()` trên các danh sách này vẫn biên dịch (Compile) bình thường nhưng sẽ ném ra ngoại lệ `UnsupportedOperationException` tại thời điểm chạy.
 ```java
 java.util.List<String> fixedList = java.util.List.of("a", "b");
-// Ném ra UnsupportedOperationException tại thời điểm chạy!
+// Throws UnsupportedOperationException at runtime!
 fixedList.removeIf(s -> s.equals("a")); 
 ```
 
 ### Lambda với Thread (Lambda with Thread)
 
-Một biểu thức lambda là một khối giống như hàm nhỏ gọn được sử dụng ở những nơi mong đợi một interface chức năng (functional interface).
+Một biểu thức Lambda là một khối tương tự như hàm ngắn gọn được sử dụng ở những nơi mong đợi một giao diện chức năng.
 
-Nó quan trọng vì mã nguồn bất đồng bộ (concurrent code) có vẻ hoạt động đúng trong các kiểm thử đơn luồng (single-thread tests) nhưng lại thất bại dưới áp lực về thời gian thực thi (timing pressure). Một sự nhầm lẫn phổ biến là giả định rằng tính hiển thị (visibility), tính thứ tự (ordering) và tính nguyên tử (atomicity) là những sự đảm bảo giống nhau.
+Điều này quan trọng vì mã nguồn đồng thời (Concurrent Code) có thể trông có vẻ chính xác trong các bài kiểm tra đơn luồng (Single-thread) nhưng lại thất bại dưới áp lực về thời gian phản hồi. Một sự nhầm lẫn phổ biến là giả định rằng tính hiển thị (Visibility), tính tuần tự (Ordering) và tính nguyên tử (Atomicity) là cùng một sự đảm bảo.
 
 Kiểm tra thực tế:
-- Định nghĩa `Lambda với Thread` trong một câu.
-- Nhận biết `Lambda với Thread` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `Lambda với Thread`.
+
+- Định nghĩa `Lambda with Thread` trong một câu.
+- Nhận biết `Lambda with Thread` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `Lambda with Thread`.
 
 Ví dụ nhỏ hoặc mô hình tư duy:
-- `n -> n > 0` là một lambda được sử dụng làm vị từ (predicate).
 
-#### Ví dụ mã nguồn: Chạy các tác vụ bất đồng bộ (Code Example: Running Tasks Asynchronously)
-Bởi vì `Runnable` là một functional interface (chỉ có duy nhất phương thức trừu tượng `run()`), chúng ta có thể sử dụng biểu thức lambda để định nghĩa các tác vụ cho luồng (thread task) hoặc đệ trình lên dịch vụ thực thi (executor service submit).
+- `n -> n > 0` là một biểu thức Lambda được sử dụng làm hàm vị từ.
+
+#### Ví dụ mã nguồn: Chạy các tác vụ bất đồng bộ (Asynchronously)
+Bởi vì `Runnable` là một giao diện chức năng (chỉ có duy nhất phương thức trừu tượng (Abstract Method) `run()`), chúng ta có thể sử dụng các biểu thức Lambda để định nghĩa các tác vụ luồng (Thread Task) hoặc gửi tác vụ cho dịch vụ thực thi (Executor Service).
 ```java
-// 1. Constructor Thread
-new Thread(() -> System.out.println("Chạy bất đồng bộ (Async run)")).start();
+// 1. Thread constructor
+new Thread(() -> System.out.println("Async run")).start();
 
-// 2. Đệ trình ExecutorService
+// 2. ExecutorService submission
 java.util.concurrent.ExecutorService executor = java.util.concurrent.Executors.newSingleThreadExecutor();
-executor.submit(() -> System.out.println("Tác vụ Executor"));
+executor.submit(() -> System.out.println("Executor task"));
 executor.shutdown();
 ```
 
 ### Lambda với Comparator (Lambda with Comparator)
 
-`Comparator` định nghĩa thứ tự tùy biến từ bên ngoài cho các đối tượng.
+Comparator định nghĩa việc sắp xếp tùy chỉnh bên ngoài cho các đối tượng.
 
-Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống (pipeline) kiểu hàm. Một sự nhầm lẫn phổ biến là quên mất thao tác nào là lười biếng (lazy evaluation) và thao tác nào thực sự kích hoạt việc thực thi.
+Điều này quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống xử lý kiểu hàm (Function-style Pipeline). Một sự nhầm lẫn phổ biến là việc quên mất thao tác nào là lười (Lazy) và thao tác nào thực sự kích hoạt quá trình thực thi.
 
 Kiểm tra thực tế:
-- Định nghĩa `Lambda với Comparator` trong một câu.
-- Nhận biết `Lambda với Comparator` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `Lambda với Comparator`.
+
+- Định nghĩa `Lambda with Comparator` trong một câu.
+- Nhận biết `Lambda with Comparator` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `Lambda with Comparator`.
 
 Ví dụ nhỏ hoặc mô hình tư duy:
-- `n -> n > 0` là một lambda được sử dụng làm vị từ (predicate).
 
-#### Ví dụ mã nguồn: Logic sắp xếp tùy biến (Code Example: Custom sorting logic)
+- `n -> n > 0` là một biểu thức Lambda được sử dụng làm hàm vị từ.
+
+#### Ví dụ mã nguồn: Logic sắp xếp tùy chỉnh
 ```java
 java.util.List<String> names = new java.util.ArrayList<>(java.util.List.of("Charles", "Bob", "Alice"));
 
-// Sắp xếp sử dụng bộ so sánh lambda tùy biến (sắp xếp theo độ dài)
+// Sorting using custom lambda comparator (sorts by length)
 names.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
 
-// Sắp xếp sử dụng phương thức tiện ích của Comparator và tham chiếu phương thức
+// Sorting using Comparator utility methods and method references
 names.sort(java.util.Comparator.comparingInt(String::length));
 ```
 
-#### Lỗi Thường Gặp: Tràn số nguyên trong Bộ so sánh phép trừ (Common Mistake: Integer Overflow in Subtraction Comparator)
+#### Sai lầm thường gặp: Tràn số nguyên (Integer Overflow) trong bộ so sánh sử dụng phép trừ (Subtraction Comparator)
 Một sai lầm kinh điển khi so sánh các giá trị số nguyên là sử dụng phép trừ thay vì `Integer.compare()`.
 ```java
-// An toàn khi biên dịch nhưng dễ xảy ra lỗi tràn số nguyên!
+// Compile-safe but prone to integer overflow bugs!
 names.sort((s1, s2) -> s1.length() - s2.length()); 
-// Nếu s1.length() là Integer.MAX_VALUE và s2.length() là -1, phép trừ sẽ bị tràn số!
-// Cách tiếp cận chính xác là luôn luôn sử dụng Integer.compare(x, y).
+// If s1.length() is Integer.MAX_VALUE and s2.length() is -1, subtraction overflows!
+// Correct approach is to always use Integer.compare(x, y).
 ```
 
 ## Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)
 
-- Những khái niệm nào ở đây là quy tắc tại thời điểm biên dịch (compile-time)?
-- Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy (runtime)?
-- Những khái niệm nào ở đây có khả năng là bẫy khi phỏng vấn?
+- Những khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch (Compile-time)?
+- Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy?
+- Những khái niệm nào ở đây dễ là bẫy phỏng vấn?

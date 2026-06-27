@@ -1,30 +1,28 @@
-# Collections Framework - Phần 4 (Collections Framework - Part 4)
+# Khung bộ sưu tập (Collections Framework) - Phần 4
 
-## Mục tiêu học tập (Learning Goal)
+## Mục Tiêu Học Tập
 
-Tài liệu này bao gồm một phần nội dung trọng tâm về **Collections Framework** bao gồm các thao tác với hàng đợi (Queue), các triển khai bản đồ (Map) (`HashMap`, `LinkedHashMap`, `TreeMap`, `Hashtable`), và các hành vi FIFO/LIFO.
+Tài liệu này trình bày một phần trọng tâm của **Khung bộ sưu tập (Collections Framework)** bao gồm các hoạt động của Hàng đợi (Queue), các triển khai Map (`HashMap`, `LinkedHashMap`, `TreeMap`, `Hashtable`), và các hành vi FIFO/LIFO.
 
-## Các khái niệm bao phủ (Outline Coverage)
+## Nội Dung Tổng Quan
 
-| Khái niệm | Những điều cần biết |
+| Khái niệm | Điều cần biết |
 | --- | --- |
-| `LinkedList as Queue` | LinkedList triển khai giao diện Queue, cung cấp một hàng đợi FIFO tiêu chuẩn được hỗ trợ bởi một danh sách liên kết kép. |
-| `FIFO` | Thứ tự vào trước ra trước (First-In-First-Out) nơi các phần tử được chèn ở cuối (tail) và được xóa ở đầu (head). |
-| `LIFO` | Thứ tự vào sau ra trước (Last-In-First-Out) (hành vi của Stack) nơi các phần tử được thêm và xóa ở cùng một đầu. |
-| `HashMap` | Bảng băm dựa trên xô (bucket) cây đỏ đen và danh sách liên kết ánh xạ các khóa tới các giá trị. Không có thứ tự, cho phép chứa một khóa null. |
-| `LinkedHashMap` | Triển khai bảng băm và danh sách liên kết kép của giao diện Map, bảo toàn thứ tự chèn hoặc thứ tự truy cập. |
-| `TreeMap` | Triển khai NavigableMap dựa trên cây Đỏ Đen, sắp xếp các khóa theo thứ tự tự nhiên hoặc qua một Comparator tùy chỉnh. |
-| `Hashtable` | Bản đồ đồng bộ hóa cũ (legacy synchronized map). Từ chối các khóa và giá trị null. Đã lỗi thời. |
+| `LinkedList as Queue` | LinkedList triển khai giao diện Queue, cung cấp một hàng đợi FIFO tiêu chuẩn được hỗ trợ bởi một danh sách liên kết kép (doubly-linked list). |
+| `FIFO` | Thứ tự Vào trước - Ra trước (First-In-First-Out) trong đó các phần tử được chèn vào phần đuôi (tail) và lấy ra từ phần đầu (head). |
+| `LIFO` | Thứ tự Vào sau - Ra trước (Last-In-First-Out) (hành vi ngăn xếp - Stack) trong đó các phần tử được thêm vào và lấy ra từ cùng một đầu. |
+| `HashMap` | Bảng băm dựa trên cây đỏ-đen (Red-black tree) và danh sách liên kết ánh xạ khóa (key) sang giá trị (value). Không có thứ tự, cho phép một khóa null. |
+| `LinkedHashMap` | Triển khai giao diện Map dựa trên bảng băm và danh sách liên kết kép, giúp bảo toàn thứ tự chèn hoặc thứ tự truy cập. |
+| `TreeMap` | Triển khai NavigableMap dựa trên cây đỏ-đen, sắp xếp các khóa theo thứ tự tự nhiên hoặc thông qua một Bộ so sánh (Comparator) tùy chỉnh. |
+| `Hashtable` | Lớp map đồng bộ cũ (legacy synchronized map). Từ chối các khóa null và giá trị null. Đã lỗi thời (obsolete). |
 
----
+## Ghi Chú Chi Tiết
 
-## Ghi chú chi tiết (Detailed Notes)
+### LinkedList dưới dạng Hàng đợi (LinkedList as Queue)
 
-### LinkedList làm Queue (LinkedList as Queue)
+`LinkedList` triển khai `Queue`, cho phép nó hoạt động như một cấu trúc FIFO. Vì nó là một danh sách liên kết kép, việc xếp hàng (`offer()`) và hủy xếp hàng (`poll()`) là các hoạt động cực kỳ hiệu quả với độ phức tạp thời gian `O(1)`.
 
-`LinkedList` triển khai giao diện `Queue`, cho phép nó hoạt động như một cấu trúc FIFO. Vì nó là một danh sách liên kết kép, việc thêm vào hàng đợi (`offer()`) và lấy ra khỏi hàng đợi (`poll()`) là các thao tác `O(1)` cực kỳ hiệu quả.
-
-**Ví dụ Code có thể chạy (Runnable Code Example):**
+**Ví Dụ Mã Nguồn Có Thể Chạy Được:**
 ```java
 import java.util.LinkedList;
 import java.util.Queue;
@@ -50,12 +48,12 @@ public class QueueDemo {
 }
 ```
 
-### FIFO so với LIFO (FIFO vs LIFO)
+### FIFO so với LIFO
 
-- **FIFO (First-In-First-Out)**: Các phần tử được xử lý theo đúng thứ tự chúng được đưa vào. Được sử dụng cho lập lịch công việc (job scheduling), bộ đệm (buffering), v.v.
-- **LIFO (Last-In-First-Out)**: Phần tử mới nhất sẽ được xử lý trước. Được sử dụng cho ngăn xếp cuộc gọi (call stacks), bộ đệm hoàn tác/làm lại (undo/redo buffers). Trong Java, hãy sử dụng `Deque` (ví dụ: `ArrayDeque`) cho các ngăn xếp LIFO thay vì lớp `Stack` cũ.
+- **FIFO (Vào trước - Ra trước)**: Các phần tử được xử lý theo đúng thứ tự khi chúng đến. Được sử dụng để lên lịch tác vụ, bộ đệm, v.v.
+- **LIFO (Vào sau - Ra trước)**: Phần tử mới nhất được xử lý trước tiên. Được sử dụng cho các ngăn xếp cuộc gọi (call stack), bộ đệm hoàn tác/làm lại (undo/redo). Trong Java, hãy sử dụng `Deque` (ví dụ: `ArrayDeque`) cho các ngăn xếp LIFO thay vì lớp cũ `Stack`.
 
-**Ví dụ Code có thể chạy (Runnable Code Example):**
+**Ví Dụ Mã Nguồn Có Thể Chạy Được:**
 ```java
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -79,11 +77,11 @@ public class LifoFifoDemo {
 
 ### HashMap
 
-`HashMap` lưu trữ các cặp khóa-giá trị bằng bảng băm.
-- **Cấu trúc nội bộ**: Một mảng chứa các xô (buckets) dạng Node/Entry. Khi xảy ra xung đột băm (collisions), các mục nhập được lưu trữ trong một danh sách liên kết. Kể từ Java 8+, nếu kích thước của một xô vượt quá 8 và tổng dung lượng bảng tối thiểu là 64, danh sách liên kết sẽ được chuyển đổi thành Cây Đỏ Đen ("cấu trúc cây - treeified") để cải thiện hiệu năng trong trường hợp xấu nhất từ `O(N)` về `O(log N)`.
-- **Duyệt qua**: Không đảm bảo thứ tự.
+`HashMap` lưu trữ các cặp khóa-giá trị bằng cách sử dụng bảng băm (hash table).
+- **Cấu trúc nội bộ**: Một mảng gồm các ngăn chứa (bucket) kiểu Node/Entry. Khi xảy ra xung đột băm (collision), các phần tử được lưu trữ trong một danh sách liên kết. Từ Java 8 trở đi, nếu kích thước của một bucket vượt quá 8 và tổng dung lượng bảng tối thiểu là 64, danh sách liên kết sẽ được chuyển đổi thành Cây đỏ-đen (\"cây hóa\" - treeify) để cải thiện hiệu năng trong trường hợp xấu nhất từ `O(N)` thành `O(log N)`.
+- **Duyệt phần tử (Iteration)**: Không đảm bảo thứ tự.
 
-**Ví dụ Code có thể chạy (Runnable Code Example):**
+**Ví Dụ Mã Nguồn Có Thể Chạy Được:**
 ```java
 import java.util.HashMap;
 import java.util.Map;
@@ -102,12 +100,12 @@ public class HashMapDemo {
 
 ### LinkedHashMap
 
-`LinkedHashMap` kế thừa `HashMap` nhưng duy trì một danh sách liên kết kép chạy qua tất cả các mục nhập (entries) của nó.
-- **Các chế độ sắp xếp**:
-  1. **Thứ tự chèn (Insertion Order)**: Thứ tự lặp khớp với trình tự chèn các phần tử (mặc định).
-  2. **Thứ tự truy cập (Access Order)**: Thứ tự lặp khớp với trình tự truy cập gần nhất (từ phần tử ít được truy cập nhất đến phần tử được truy cập gần đây nhất). Rất hữu ích để xây dựng bộ nhớ đệm (caches).
+`LinkedHashMap` kế thừa từ `HashMap` nhưng duy trì một danh sách liên kết kép đi qua tất cả các phần tử của nó.
+- **Các chế độ sắp xếp thứ tự**:
+  1. **Thứ tự chèn (Insertion Order)**: Việc duyệt phần tử khớp với trình tự chèn (mặc định).
+  2. **Thứ tự truy cập (Access Order)**: Việc duyệt phần tử khớp với thứ tự của lần truy cập gần nhất (từ phần tử ít được truy cập nhất đến phần tử được truy cập gần đây nhất). Hữu ích cho việc xây dựng bộ nhớ đệm (cache).
 
-**Ví dụ Code có thể chạy (Runnable Code Example):**
+**Ví Dụ Mã Nguồn Có Thể Chạy Được:**
 ```java
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -130,11 +128,11 @@ public class LinkedHashMapDemo {
 
 ### TreeMap
 
-`TreeMap` là một triển khai Cây Đỏ Đen của giao diện `NavigableMap`.
-- **Thứ tự**: Được sắp xếp theo thứ tự tự nhiên của các khóa hoặc theo một `Comparator` tùy chỉnh.
-- **Hạn chế**: Các khóa phải có khả năng so sánh được với nhau và không được phép là `null`.
+`TreeMap` là một triển khai Cây đỏ-đen của `NavigableMap`.
+- **Thứ tự**: Được sắp xếp theo thứ tự tự nhiên của các khóa hoặc thông qua một bộ so sánh `Comparator` tùy chỉnh.
+- **Hạn chế**: Các khóa phải có khả năng so sánh được với nhau và không được là `null`.
 
-**Ví dụ Code có thể chạy (Runnable Code Example):**
+**Ví Dụ Mã Nguồn Có Thể Chạy Được:**
 ```java
 import java.util.TreeMap;
 
@@ -154,16 +152,16 @@ public class TreeMapDemo {
 
 ### Hashtable
 
-`Hashtable` là một lớp bản đồ đồng bộ hóa cũ.
-- **Đồng bộ hóa**: Sử dụng đồng bộ hóa thô (coarse-grained synchronization) trên mọi phương thức.
-- **An toàn với Null**: Ném ra `NullPointerException` nếu có bất kỳ khóa hoặc giá trị nào là `null`.
-- **Lỗi thời**: Tránh sử dụng lớp này. Hãy sử dụng `ConcurrentHashMap` cho các bản đồ cần xử lý đồng thời, hoặc `HashMap` cho các bản đồ không cần đồng thời.
+`Hashtable` là lớp map đồng bộ cũ (legacy synchronized map class).
+- **Đồng bộ hóa**: Sử dụng đồng bộ hóa thô (coarse-grained) trên mọi phương thức.
+- **An toàn null (Null Safety)**: Ném ra ngoại lệ `NullPointerException` nếu có bất kỳ khóa hoặc giá trị nào là `null`.
+- **Lỗi thời**: Tránh sử dụng nó. Hãy sử dụng `ConcurrentHashMap` cho các bản đồ đồng thời (concurrent map), hoặc `HashMap` cho các bản đồ không đồng thời.
 
 ---
 
-## Case Study: Thiết kế Bộ nhớ đệm Ít được Sử dụng Gần đây (LRU) (Case Study: Designing a Least Recently Used (LRU) Cache)
+## Ví Dụ Thực Tế: Thiết kế bộ nhớ đệm LRU (Least Recently Used Cache)
 
-Một bộ nhớ đệm LRU sẽ loại bỏ các phần tử ít được sử dụng gần đây nhất trước tiên khi đạt đến giới hạn dung lượng. Chúng ta có thể triển khai điều này một cách dễ dàng bằng cách kế thừa `LinkedHashMap` và ghi đè phương thức `removeEldestEntry()`.
+Bộ nhớ đệm LRU sẽ loại bỏ các phần tử ít được truy cập nhất trước khi dung lượng đạt giới hạn tối đa. Chúng ta có thể triển khai điều này một cách dễ dàng bằng cách kế thừa `LinkedHashMap` và ghi đè phương thức `removeEldestEntry()`.
 
 ```java
 import java.util.LinkedHashMap;
@@ -203,47 +201,45 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> {
 
 ---
 
-## Các lỗi thường gặp (Common Mistakes)
+## Sai Lầm Thường Gặp
 
-### 1. Nhầm lẫn phương thức Queue: poll() so với remove() (Queue method confusion: poll() vs remove())
-Việc gọi `remove()` trên một Queue trống sẽ ném ra ngoại lệ `NoSuchElementException`. Ngược lại, `poll()` trả về `null`. Các tình huống hàng đợi rỗng có thể gây sập chương trình nếu nhà phát triển sử dụng nhầm lẫn các phương thức này.
+### 1. Nhầm lẫn phương thức Queue: `poll()` so với `remove()`
+Gọi phương thức `remove()` trên một Queue trống sẽ ném ra ngoại lệ `NoSuchElementException`. Ngược lại, `poll()` trả về `null`. Các trường hợp hàng đợi trống có thể làm hỏng chương trình nếu lập trình viên nhầm lẫn giữa hai phương thức này.
 
-### 2. Sửa đổi khóa trong một HashMap (Modifying keys in a HashMap)
-Nếu các thuộc tính của khóa bị thay đổi sau khi chèn vào bản đồ khiến `hashCode()` của khóa thay đổi, mục nhập đó sẽ không thể truy xuất được nữa. Bản đồ sẽ tìm kiếm nó ở nhầm xô (bucket) và trả về `null`.
+### 2. Thay đổi các khóa trong một HashMap
+Nếu các thuộc tính của khóa bị thay đổi sau khi chèn phần tử sao cho giá trị `hashCode()` của khóa thay đổi, phần tử đó sẽ trở nên không thể truy cập được. Bản đồ sẽ tìm kiếm nó trong một bucket sai và trả về `null`.
 
-### 3. Giả định rằng LinkedHashMap được sắp xếp (Assuming LinkedHashMap is sorted)
-Các nhà phát triển đôi khi nhầm lẫn `LinkedHashMap` (duy trì thứ tự chèn/truy cập) với `TreeMap` (duy trì thứ tự sắp xếp theo chữ cái/tự nhiên).
+### 3. Giả định rằng `LinkedHashMap` được sắp xếp
+Các lập trình viên đôi khi nhầm lẫn `LinkedHashMap` (duy trì thứ tự chèn/truy cập) với `TreeMap` (duy trì thứ tự sắp xếp/thứ tự từ điển).
 
 ---
 
-## Các câu hỏi ôn tập phổ biến (Common Review Prompts)
+## Các Câu Hỏi Ôn Tập Thường Gặp
 
-- Triển khai map nào từ chối khóa null? (TreeMap, Hashtable)
+- Những triển khai map nào từ chối khóa null? (TreeMap, Hashtable)
 - Sự khác biệt giữa `peek()` và `element()` là gì? (`peek()` trả về null khi hàng đợi trống, `element()` ném ra ngoại lệ)
-- HashMap xử lý xung đột băm như thế nào kể từ Java 8? (Sử dụng danh sách liên kết tối đa 8 phần tử, sau đó chuyển thành cây đỏ đen nếu dung lượng bảng >= 64)
+- HashMap xử lý xung đột băm như thế nào kể từ Java 8? (Danh sách liên kết lên đến 8 phần tử, sau đó chuyển thành cây đỏ-đen nếu dung lượng bảng tối thiểu là 64)
 
----
+## Tại Sao Phải Ghi Đè Đồng Thời Equals Và HashCode
 
-## Tại sao Equals và HashCode phải được ghi đè cùng nhau (Why Equals and HashCode Must Be Overridden Together)
+Trong khung bộ sưu tập của Java, các cấu trúc dựa trên băm như `HashMap` và `HashSet` dựa vào một hợp đồng nghiêm ngặt giữa `equals()` và `hashCode()` để lưu trữ và truy xuất các phần tử. Theo hợp đồng được định nghĩa trong `java.lang.Object`, nếu hai đối tượng bằng nhau theo phương thức `equals(Object)`, chúng phải tạo ra kết quả số nguyên hoàn toàn giống nhau từ `hashCode()`. Khi bạn ghi đè `equals()` nhưng không ghi đè `hashCode()`, JVM sẽ sử dụng triển khai mặc định từ lớp `Object`, lớp này tạo ra mã băm thường dựa trên địa chỉ bộ nhớ của đối tượng. Do đó, hai thể hiện khóa tương đương về mặt logic sẽ tạo ra các mã băm khác nhau và được ánh xạ tới các chỉ mục bucket khác nhau trong bảng nội bộ. Khi cố gắng truy xuất một giá trị bằng cách sử dụng một thể hiện khóa bằng nhau về mặt logic nhưng là đối tượng khác, `HashMap.get(key)` sẽ tính toán một chỉ mục bucket khác, khiến nó tìm kiếm trong một bucket sai và trả về `null`, dẫn đến các khóa bị trùng lặp, mất dữ liệu và rò rỉ bộ nhớ ngầm.
 
-Trong collections framework của Java, các cấu trúc dựa trên băm như `HashMap` và `HashSet` dựa vào một hợp đồng nghiêm ngặt giữa `equals()` và `hashCode()` để lưu trữ và truy xuất các phần tử. Theo hợp đồng được định nghĩa trong lớp `java.lang.Object`, nếu hai đối tượng bằng nhau theo phương thức `equals(Object)`, chúng bắt buộc phải tạo ra cùng một kết quả số nguyên từ phương thức `hashCode()`. Khi bạn ghi đè `equals()` nhưng không ghi đè `hashCode()`, JVM sẽ sử dụng triển khai mặc định từ lớp `Object`, vốn tạo ra mã băm thường dựa trên địa chỉ bộ nhớ của đối tượng. Do đó, hai thực thể khóa giống nhau về mặt logic sẽ tạo ra các mã băm khác nhau và được ánh xạ tới các chỉ mục xô (bucket indices) khác nhau trong bảng nội bộ. Khi cố gắng truy xuất một giá trị bằng cách sử dụng một thực thể khóa tương đương về mặt logic nhưng là đối tượng khác, `HashMap.get(key)` tính toán một chỉ mục xô khác, khiến nó tìm kiếm nhầm xô và trả về `null`, dẫn đến việc trùng lặp khóa, mất dữ liệu và rò rỉ bộ nhớ một cách âm thầm.
+### Mô Hình Tư Duy
 
-### Mô hình tư duy (Mental Model)
-
-Nếu không ghi đè `hashCode()`, hai đối tượng bằng nhau về mặt logic sẽ kết thúc ở các xô khác nhau:
+Nếu không ghi đè `hashCode()`, hai đối tượng bằng nhau về mặt logic sẽ kết thúc ở các bucket khác nhau:
 ```text
-Key A ("John", ID 5) -> hashCode() = 9876 -> ánh xạ tới Bucket 2
-Key B ("John", ID 5) -> hashCode() = 5432 -> ánh xạ tới Bucket 7
+Khóa A ("John", ID 5) -> hashCode() = 9876 -> ánh xạ tới Bucket 2
+Khóa B ("John", ID 5) -> hashCode() = 5432 -> ánh xạ tới Bucket 7
 
-Bảng HashMap Nội bộ:
-Bucket 2: [ Key A ("John", ID 5) -> "Value X" ]
-Bucket 7: [ Key B ("John", ID 5) -> "Value Y" ] (Khóa trùng lặp được tạo!)
+Bảng HashMap nội bộ:
+Bucket 2: [ Khóa A ("John", ID 5) -> "Value X" ]
+Bucket 7: [ Khóa B ("John", ID 5) -> "Value Y" ] (Khóa trùng lặp được tạo ra!)
 
-HashMap.get(Key B) tìm kiếm Bucket 7.
-Nếu chúng ta chỉ lưu trữ Key A, get(Key B) tìm kiếm trong Bucket 7, không thấy gì, và trả về null!
+HashMap.get(Khóa B) tìm kiếm ở Bucket 7.
+Nếu chúng ta chỉ lưu trữ Khóa A, get(Khóa B) sẽ tìm trong Bucket 7, không thấy gì và trả về null!
 ```
 
-### Ví dụ Code (Code Example)
+### Ví Dụ Mã Nguồn
 
 ```java
 import java.util.HashMap;
@@ -285,20 +281,13 @@ public class EqualsHashCodeContractDemo {
 }
 ```
 
-### Chuỗi Nguyên nhân - Kết quả (Cause-Effect Chain)
-
+### Chuỗi Nguyên Nhân - Kết Quả
 
 ```text
-Chỉ ghi đè `equals()`
-  → Các đối tượng khóa giống nhau về mặt logic tạo ra các mã băm khác nhau
-  → `map.put()` và `map.get()` tính toán các chỉ mục xô khác nhau
-  → `HashMap` tìm kiếm ở các xô khác nhau cho cùng một khóa logic
-  → `get()` trả về null và `put()` chèn các phần tử trùng lặp
-  → Gây ra sai lệch cấu trúc dữ liệu và rò rỉ dữ liệu trong Map.
+Chỉ ghi đè equals() → Các đối tượng khóa bằng nhau về mặt logic tạo ra các mã băm khác nhau → map.put() và map.get() tính toán các chỉ mục bucket khác nhau → HashMap tìm kiếm ở các bucket khác nhau cho cùng một khóa logic → get() trả về null và put() chèn các phần tử trùng lặp → Xảy ra lỗi cấu trúc và rò rỉ dữ liệu trong Map
 ```
 
+## Liên Kết Tham Khảo
 
-## Liên kết tham khảo (Reference Links)
-
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#hashCode() (Hợp đồng Object.hashCode)
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/HashMap.html (Tài liệu về HashMap)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#hashCode() (Object.hashCode contract)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/HashMap.html (HashMap documentation)

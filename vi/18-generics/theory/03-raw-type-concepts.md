@@ -1,8 +1,8 @@
-# Generics – Phần 3: Kiểu thô và Các hạn chế của Generic (Generics – Part 3: Raw Types and Generic Limitations)
+# Generics (Kiểu Chung) - Phần 3: Kiểu Nguyên Bản (Raw Type) và Hạn Chế của Kiểu Chung
 
-## 1. Kiểu thô (Raw Types)
+## 1. Kiểu Nguyên Bản (Raw Type)
 
-**Định nghĩa:** Một kiểu thô (raw type) là tên của một lớp hoặc giao diện generic được sử dụng **không đi kèm** bất kỳ đối số kiểu nào.
+**Định nghĩa:** Kiểu nguyên bản (Raw type) là một lớp hoặc giao diện kiểu chung (Generic class/interface) được sử dụng **không** đi kèm với bất kỳ đối số kiểu (Type argument) nào.
 
 ```java
 // Generic (correct)
@@ -12,9 +12,9 @@ List<String> names = new ArrayList<>();
 List rawList = new ArrayList();
 ```
 
-**Cách hoạt động:** Trình biên dịch xử lý kiểu thô như thể tất cả các tham số kiểu được thay thế bằng kiểu `Object`. Mọi cơ chế an toàn của generic đều bị vô hiệu hóa.
+**Cách thức hoạt động:** Trình biên dịch đối xử với kiểu nguyên bản như thể tất cả các tham số kiểu (Type parameter) được thay thế bằng `Object`. Toàn bộ tính năng an toàn kiểu (Type safety) của generic đều bị vô hiệu hóa.
 
-**Ảnh hưởng đối với code:**
+**Ảnh hưởng đối với mã nguồn:**
 ```java
 List rawList = new ArrayList();
 rawList.add("hello");
@@ -22,29 +22,29 @@ rawList.add(42);            // no compile error — anything goes
 String s = (String) rawList.get(1);  // ClassCastException at runtime!
 ```
 
-**Cảnh báo của trình biên dịch:** Sử dụng kiểu thô sẽ kích hoạt các cảnh báo `unchecked`:
+**Cảnh báo của trình biên dịch:** Sử dụng kiểu nguyên bản kích hoạt các cảnh báo chưa được kiểm tra (Unchecked warning):
 ```
 Note: MyClass.java uses unchecked or unsafe operations.
 ```
 
-**Khi nào kiểu thô xuất hiện một cách hợp lệ:**
-1. Tương tác với các API cũ trước thời kỳ Java 5 vốn không có các phiên bản generic.
-2. Bên trong các phép kiểm tra `instanceof` (dù sao bạn cũng không thể sử dụng `instanceof List<String>`):
+**Khi kiểu nguyên bản xuất hiện hợp lệ:**
+1. Tương tác với các API cũ từ trước phiên bản Java 5 không hỗ trợ kiểu chung.
+2. Bên trong các phép kiểm tra `instanceof` (dù thế nào bạn cũng không thể sử dụng `instanceof List<String>`):
    ```java
    if (obj instanceof List) {         // raw — necessary here
        List<?> list = (List<?>) obj;  // immediately switch to wildcard
    }
    ```
 
-**Quy tắc then chốt:** Ngay khi bạn gán một kiểu thô cho một biến, hãy sử dụng `List<?>` (thay vì kiểu thô) cho phần còn lại của mã nguồn.
+**Quy tắc mấu chốt:** Ngay sau khi bạn gán một kiểu nguyên bản cho một biến, hãy sử dụng `List<?>` (thay vì kiểu nguyên bản) cho phần còn lại của mã nguồn.
 
 ---
 
-## 2. Các hạn chế của Generic (Generic Limitations)
+## 2. Hạn Chế của Kiểu Chung (Generic Limitations)
 
-Generics trong Java có một số hạn chế tích hợp sẵn, hầu hết đều do cơ chế **xóa bỏ kiểu (type erasure)** gây ra.
+Kiểu chung trong Java có một số hạn chế được thiết kế sẵn, hầu hết đều do cơ chế **xóa kiểu (Type erasure)** gây ra.
 
-### 2.1 Không thể Khởi tạo Thực thể từ Tham số kiểu (Cannot Instantiate Type Parameters)
+### 2.1 Không thể Khởi tạo Tham số Kiểu
 
 ```java
 class Container<T> {
@@ -52,7 +52,7 @@ class Container<T> {
 }
 ```
 
-**Giải pháp thay thế:** Truyền vào một token lớp `Class<T>`:
+**Giải pháp:** Truyền vào một mã nhận diện `Class<T>` (Class token):
 ```java
 class Container<T> {
     T value;
@@ -64,16 +64,16 @@ class Container<T> {
 
 ---
 
-### 2.2 Không thể Tạo mảng Generic (Cannot Create Generic Arrays)
+### 2.2 Không thể Tạo Mảng của Kiểu Chung
 
 ```java
 T[] arr = new T[10];              // COMPILE ERROR
 List<String>[] lists = new ArrayList<String>[3];  // COMPILE ERROR
 ```
 
-**Tại sao:** Các mảng mang theo kiểu thành phần của chúng tại thời điểm chạy (ví dụ: `String[]` biết nó là một `String[]`). Sau khi xóa bỏ kiểu, `T[]` chỉ đơn thuần là `Object[]`, làm phá vỡ tính an toàn kiểu của mảng.
+**Tại sao:** Mảng mang thông tin kiểu thành phần của chúng tại thời điểm chạy (mảng `String[]` biết nó là một mảng `String[]`). Sau khi xóa kiểu, `T[]` chỉ đơn thuần là `Object[]`, làm phá vỡ tính an toàn kiểu của mảng.
 
-**Giải pháp thay thế:**
+**Giải pháp:**
 ```java
 // Option 1: use List<T>
 List<T> list = new ArrayList<>();
@@ -88,26 +88,26 @@ T[] arr = (T[]) Array.newInstance(clazz, 10);
 
 ---
 
-### 2.3 Không thể Sử dụng các Đối số kiểu Nguyên thủy (Cannot Use Primitive Type Arguments)
+### 2.3 Không thể Dùng Kiểu Nguyên Thủy làm Đối số Kiểu
 
 ```java
 List<int> nums = new ArrayList<>();   // COMPILE ERROR
 ```
 
-**Tại sao:** Generics được triển khai thông qua các tham chiếu `Object`; kiểu nguyên thủy không phải là các đối tượng.
+**Tại sao:** Kiểu chung được triển khai thông qua các tham chiếu `Object`; kiểu nguyên thủy (Primitive type) không phải là đối tượng.
 
-**Giải pháp thay thế:** Sử dụng các lớp bao bọc (wrapper classes). Cơ chế autoboxing khiến việc này diễn ra gần như tự động:
+**Giải pháp:** Sử dụng các lớp bao bọc đối tượng (Wrapper class). Cơ chế tự động đóng hộp (Autoboxing) giúp quá trình này diễn ra khá tự nhiên:
 ```java
 List<Integer> nums = new ArrayList<>();
 nums.add(1);            // autoboxed to Integer
 int n = nums.get(0);    // unboxed to int
 ```
 
-**Lưu ý hiệu năng:** Cơ chế autoboxing có phát sinh chi phí hiệu năng. Đối với các mã nguồn yêu cầu hiệu năng cực cao, hãy cân nhắc sử dụng `int[]` hoặc các thư viện tập hợp nguyên thủy của bên thứ ba.
+**Lưu ý hiệu năng:** Tự động đóng hộp có chi phí bổ sung. Đối với mã nguồn yêu cầu hiệu năng cực cao, hãy cân nhắc sử dụng `int[]` hoặc các thư viện tập hợp kiểu nguyên thủy của bên thứ ba.
 
 ---
 
-### 2.4 Không thể có các Trường tĩnh kiểu Tham số kiểu (Cannot Have Static Fields of Type Parameter Type)
+### 2.4 Không thể Có Trường Tĩnh thuộc Kiểu của Tham số Kiểu
 
 ```java
 class Bag<T> {
@@ -115,13 +115,13 @@ class Bag<T> {
 }
 ```
 
-**Tại sao:** Các trường tĩnh `static` được chia sẻ giữa tất cả các thực thể của `Bag`. `Bag<String>` và `Bag<Integer>` dùng chung một lớp đã được tải, vì vậy việc có một trường `T` tĩnh duy nhất là vô nghĩa.
+**Tại sao:** Các trường tĩnh (`static`) được chia sẻ giữa toàn bộ các thực thể của lớp `Bag`. `Bag<String>` và `Bag<Integer>` dùng chung một định nghĩa lớp duy nhất, nên việc có một trường tĩnh `T` dùng chung là vô nghĩa.
 
-**Giải pháp thay thế:** Chuyển trường đó thành phi tĩnh (non-static), hoặc sử dụng một tham số `Class<T>` riêng biệt.
+**Giải pháp:** Chuyển trường đó thành không tĩnh (non-static), hoặc sử dụng một tham số `Class<T>` riêng biệt.
 
 ---
 
-### 2.5 Không thể Bắt hoặc Ném ra các Ngoại lệ Generic (Cannot Catch or Throw Generic Exceptions)
+### 2.5 Không thể Catch hoặc Throw Ngoại lệ thuộc Kiểu Chung
 
 ```java
 class MyException<T> extends Exception { ... }   // COMPILE ERROR (extends Throwable)
@@ -131,11 +131,11 @@ class MyException<T> extends Exception { ... }   // COMPILE ERROR (extends Throw
 try { } catch (T e) { }                             // COMPILE ERROR in catch
 ```
 
-**Tại sao:** JVM khớp các kiểu ngoại lệ tại thời điểm chạy; các kiểu bị xóa bỏ không thể được sử dụng trong khối `catch`.
+**Tại sao:** JVM khớp các kiểu ngoại lệ tại thời điểm chạy; các kiểu bị xóa thông tin không thể sử dụng trong mệnh đề `catch`.
 
 ---
 
-### 2.6 Không thể Nạp chồng các Phương thức có Danh sách tham số Xóa về cùng một Chữ ký (Cannot Overload Methods Whose Parameter Lists Erase to the Same Signature)
+### 2.6 Không thể Nạp chồng các Phương thức có Danh sách Tham số Bị xóa thành Cùng một Chữ ký
 
 ```java
 void print(List<String> list) { }
@@ -144,7 +144,7 @@ void print(List<Integer> list) { }  // COMPILE ERROR — both erase to print(Lis
 
 ---
 
-### 2.7 Không thể Sử dụng instanceof với các Kiểu được tham số hóa (Cannot Use instanceof with Parameterized Types)
+### 2.7 Không thể Sử dụng `instanceof` với các Kiểu được Tham số hóa
 
 ```java
 if (obj instanceof List<String>) { }   // COMPILE ERROR — type info erased
@@ -154,35 +154,35 @@ if (obj instanceof List)         { }   // OK — raw type check
 
 ---
 
-## Bảng tổng hợp (Summary Table)
+## Bảng Tóm Tắt
 
-| Hạn chế | Nguyên nhân | Giải pháp thay thế |
-|------------|-------|-------------|
-| `new T()` | Xóa bỏ kiểu | Token `Class<T>` + phản chiếu |
-| `new T[n]` | Tính cụ thể hóa của kiểu mảng (Reification) | `List<T>` hoặc `(T[]) new Object[n]` |
-| `List<int>` | Kiểu nguyên thủy không phải là đối tượng | `List<Integer>` + autoboxing |
-| `static T field` | Tĩnh (static) dùng chung giữa các tham số kiểu | Trường phi tĩnh (non-static field) |
+| Hạn chế (Limitation) | Nguyên nhân (Cause) | Giải pháp (Work-around) |
+|---|---|---|
+| `new T()` | Xóa kiểu | Sử dụng mã nhận diện `Class<T>` + Phản chiếu |
+| `new T[n]` | Hiện thực hóa kiểu mảng (Reification) | Sử dụng `List<T>` hoặc `(T[]) new Object[n]` |
+| `List<int>` | Kiểu nguyên thủy không phải đối tượng | Sử dụng `List<Integer>` + Tự động đóng hộp |
+| `static T field` | Trường tĩnh dùng chung giữa các kiểu | Trường không tĩnh |
 | `catch (T e)` | JVM cần kiểu dữ liệu cụ thể | Kiểu ngoại lệ cụ thể |
-| Nạp chồng các phương thức có cùng kiểu xóa bỏ | Cùng chữ ký mã byte (bytecode) | Đổi tên phương thức |
-| `instanceof List<String>` | Kiểu bị xóa bỏ | Sử dụng `List<?>` hoặc kiểu thô |
+| Nạp chồng phương thức có cùng kiểu xóa | Trùng chữ ký bytecode | Đổi tên phương thức |
+| `instanceof List<String>` | Kiểu bị xóa thông tin | Sử dụng `List<?>` hoặc kiểu nguyên bản |
 
-## Tại sao Kiểu thô Tồn tại và Các nguy cơ của chúng (Why Raw Types Exist and Their Dangers)
+## Tại sao Kiểu Nguyên Bản Tồn tại và Mối Nguy hiểm của Chúng
 
-Các kiểu thô tồn tại trong ngôn ngữ Java duy nhất để hỗ trợ tính tương thích ngược với các mã nguồn cũ được viết trước Java 5. Trước khi có generics, các tập hợp (collections) chỉ đơn thuần chứa các tham chiếu `Object`, và kiểu thô cho phép đoạn mã cũ này biên dịch và chạy trên các môi trường chạy hiện đại mà không cần sửa đổi. Tuy nhiên, việc sử dụng các kiểu thô trong mã nguồn mới sẽ bỏ qua tất cả các kiểm tra an toàn kiểu generic của trình biên dịch. Vì trình biên dịch không thực hiện kiểm tra kiểu trên các tập hợp thô, nó cho phép nhà phát triển chèn các kiểu dữ liệu không khớp vào tập hợp mà không có bất kỳ cảnh báo nào lúc biên dịch. Việc vi phạm an toàn kiểu thực tế sau đó sẽ bị hoãn lại cho đến khi chạy chương trình, nơi việc đọc một phần tử và cố gắng ép nó sang kiểu không chính xác sẽ kích hoạt một lỗi `ClassCastException` và làm sập ứng dụng.
+Kiểu nguyên bản chỉ tồn tại trong ngôn ngữ Java nhằm mục đích duy nhất là duy trì khả năng tương thích ngược với mã nguồn cũ được viết trước phiên bản Java 5. Trước khi kiểu chung được giới thiệu, các tập hợp chỉ nắm giữ các tham chiếu `Object`, và kiểu nguyên bản cho phép đoạn mã cũ này biên dịch và chạy trên các môi trường chạy hiện đại mà không cần sửa đổi. Tuy nhiên, việc sử dụng kiểu nguyên bản trong mã mới sẽ bỏ qua mọi hoạt động xác minh an toàn kiểu của trình biên dịch. Do trình biên dịch không thực hiện kiểm tra kiểu trên các tập hợp nguyên bản, nó cho phép lập trình viên chèn các kiểu không khớp vào tập hợp mà không đưa ra bất kỳ cảnh báo biên dịch nào. Vi phạm an toàn kiểu thực tế sau đó sẽ bị đẩy xuống thời điểm chạy, nơi việc đọc một phần tử và cố gắng ép kiểu nó sang một kiểu không chính xác sẽ ném ra ngoại lệ `ClassCastException` và làm sập ứng dụng.
 
-### Mô hình tư duy (Mental Model)
+### Mô hình Tư duy
 
 ```text
-Ý định của nhà phát triển: List của String
-[List rawList] = new ArrayList() ---> Chấp nhận "Hello" (OK)
-                                 ---> Chấp nhận 123 (Không kiểm tra: OK!)
+Ý định của Lập trình viên: Danh sách các Chuỗi (Strings)
+[List rawList] = new ArrayList() ---> Chấp nhận "Hello" (Hợp lệ)
+                                 ---> Chấp nhận 123 (Chưa kiểm tra: Hợp lệ!)
 
-Đọc lúc chạy:
+Đọc lúc Chạy:
 String s = (String) rawList.get(1) ---> Ép kiểu Integer (123) sang String
-                                   ---> BỊ CRASH: ClassCastException
+                                    ---> SẬP: ClassCastException
 ```
 
-### Ví dụ Code (Code Example)
+### Ví dụ Thực Tế
 
 ```java
 import java.util.ArrayList;
@@ -209,36 +209,27 @@ public class RawTypeDanger {
 }
 ```
 
-### Chuỗi Nguyên nhân - Kết quả (Cause-Effect Chain)
+### Chuỗi Nguyên nhân - Kết quả
 
+Sử dụng kiểu nguyên bản &rarr; Trình biên dịch vô hiệu hóa kiểm tra kiểu chung &rarr; Các đối tượng không khớp kiểu được đưa vào tập hợp &rarr; Mã nguồn biên dịch thành công không có lỗi &rarr; Lập trình viên cố gắng đọc và ép kiểu đối tượng tại thời điểm chạy &rarr; JVM ném ra lỗi ClassCastException.
 
-```text
-Sử dụng kiểu thô
-  → Trình biên dịch vô hiệu hóa kiểm tra kiểu generic
-  → Các đối tượng không khớp kiểu bị chèn vào tập hợp
-  → Mã nguồn biên dịch không lỗi
-  → Nhà phát triển cố gắng đọc và ép kiểu đối tượng đó khi chạy
-  → JVM ném ra ClassCastException.
-```
+## Tại sao Kiểu Chung không Hỗ trợ Kiểu Nguyên Thủy
 
+Do cơ chế xóa kiểu tại thời điểm biên dịch, tất cả các tham số kiểu chung trong Java đều bị xóa về cận trái nhất của chúng, thường là `Object` nếu không có giới hạn (unbounded). Trong Máy ảo Java (JVM), các tham chiếu đến đối tượng được biểu diễn trong mã byte bởi các ô tham chiếu (Reference slot) (sử dụng tiền tố `a` trong các lệnh bytecode như `aload` và `astore`). Các kiểu nguyên thủy, như `int` hoặc `char`, không kế thừa từ `java.lang.Object` và được lưu trữ bằng các kích thước nhị phân và các lệnh bytecode khác nhau (như `iload` cho số nguyên). Do JVM không thể lưu trữ trực tiếp một kiểu nguyên thủy trong một ô nhớ được chỉ định cho các tham chiếu đối tượng, kiểu chung không thể hỗ trợ kiểu nguyên thủy một cách tự nhiên. Kết quả là, Java yêu cầu các lớp bao bọc đối tượng (như `Integer`) và sử dụng cơ chế chuyển đổi tự động (tự động đóng hộp) để bọc các kiểu nguyên thủy vào các đối tượng được phân bổ trên heap khi lưu trữ chúng trong các cấu trúc kiểu chung.
 
-## Tại sao Generics không Hỗ trợ các kiểu Nguyên thủy (Why Generics Do Not Support Primitives)
-
-Do cơ chế xóa bỏ kiểu thời điểm biên dịch, tất cả các tham số kiểu generic trong Java đều bị xóa thành giới hạn ngoài cùng bên trái của chúng, thường là kiểu `Object` nếu không có giới hạn. Trong Máy ảo Java (JVM), các tham chiếu đến đối tượng được biểu diễn trong mã byte bởi các ô tham chiếu (sử dụng tiền tố `a` trong các lệnh mã byte như `aload` và `astore`). Các kiểu nguyên thủy, như `int` hoặc `char`, không kế thừa từ `java.lang.Object` và được lưu trữ bằng các kích thước nhị phân và các lệnh mã byte khác nhau (như `iload` cho số nguyên). Bởi vì JVM không thể lưu trữ trực tiếp một kiểu nguyên thủy trong một ô nhớ được chỉ định cho các tham chiếu đối tượng, generics không thể hỗ trợ các kiểu nguyên thủy một cách tự nhiên. Do đó, Java yêu cầu các lớp bao bọc (như `Integer`) và sử dụng chuyển đổi tự động (autoboxing) để bọc các kiểu nguyên thủy trong các đối tượng được cấp phát trên heap khi lưu trữ trong các cấu trúc generic.
-
-### Mô hình tư duy (Mental Model)
+### Mô hình Tư duy
 
 ```text
 Biểu diễn bộ nhớ trong JVM:
-Box<T> Generic (Bị xóa thành tham chiếu Object):
-[ Ô chứa tham chiếu (4/8 bytes) ] ---> Trỏ tới Đối tượng trên Heap: [ Integer (123) ]
-                                                                     (Lớp bao bọc Autoboxed)
+Generic Box<T> (Bị xóa thành tham chiếu Object):
+[ Ô tham chiếu (4/8 bytes) ] ---> Trỏ tới Đối tượng Heap: [ Integer (123) ]
+                                                           (Lớp bao đóng hộp)
 
-Không thể lưu trữ kiểu nguyên thủy trực tiếp:
-[ Ô chứa tham chiếu (4/8 bytes) ] -x-> Không thể chứa số int nhị phân 32-bit thô [ 123 ]
+Không thể lưu trữ trực tiếp kiểu nguyên thủy:
+[ Ô tham chiếu (4/8 bytes) ] -x-> Không thể chứa kiểu int nhị phân 32-bit [ 123 ]
 ```
 
-### Ví dụ Code (Code Example)
+### Ví dụ Thực Tế
 
 ```java
 import java.util.ArrayList;
@@ -261,36 +252,27 @@ public class PrimitiveGenericsLimit {
 }
 ```
 
-### Chuỗi Nguyên nhân - Kết quả (Cause-Effect Chain)
+### Chuỗi Nguyên nhân - Kết quả
 
+Kiểu chung trải qua quá trình Xóa kiểu &rarr; Các tham số kiểu bị xóa thành tham chiếu Object &rarr; JVM biểu diễn các tham chiếu khác với kiểu nguyên thủy &rarr; Kiểu nguyên thủy không thể chiếm dụng các ô nhớ chỉ dành cho tham chiếu &rarr; Khai báo List<int> bị cấm &rarr; Bắt buộc phải sử dụng List<Integer> với cơ chế đóng hộp.
 
-```text
-Generics trải qua quá trình Xóa bỏ kiểu
-  → Các tham số kiểu bị xóa thành tham chiếu Object
-  → JVM biểu diễn tham chiếu khác với kiểu nhị phân nguyên thủy
-  → Kiểu nguyên thủy không thể chiếm dụng các ô nhớ chỉ dành cho tham chiếu
-  → Cấm List<int>
-  → Bắt buộc phải sử dụng List<Integer> kèm theo boxing.
-```
+## Tại sao Việc Tạo Mảng Kiểu Chung và Kiểm tra Kiểu lúc Chạy bị Cấm
 
+Trong Java, các mảng được hiện thực hóa kiểu (Reified), nghĩa là chúng giữ đầy đủ thông tin về kiểu phần tử của chúng tại thời điểm chạy và thực thi tính an toàn kiểu thông qua các kiểm tra của JVM. Nếu bạn cố gắng lưu trữ một phần tử không tương thích vào một mảng, JVM sẽ ngay lập tức ném ra ngoại lệ `ArrayStoreException` tại thời điểm chạy. Ngược lại, kiểu chung bị xóa kiểu (Erased), nghĩa là tất cả thông tin tham số kiểu đều bị loại bỏ sau khi biên dịch. Nếu việc tạo mảng kiểu chung như `new T[10]` hoặc `new List<String>[10]` được cho phép, JVM sẽ không có cách nào để thực thi đúng kiểu phần tử tại thời điểm chạy vì kiểu thành phần thực tế đã bị xóa về `Object[]`. Vì những lý do tương tự, các kiểm tra kiểu tại thời điểm chạy như `instanceof List<String>` bị cấm, vì tham số kiểu bị thiếu tại thời điểm chạy, khiến JVM chỉ có thể kiểm tra kiểu nguyên bản `instanceof List`.
 
-## Tại sao việc Tạo mảng Generic và Kiểm tra kiểu lúc chạy bị Cấm (Why Generic Array Creation and Runtime Type Checks Are Forbidden)
-
-Trong Java, các mảng được cụ thể hóa (reified), nghĩa là chúng giữ đầy đủ thông tin về kiểu phần tử của chúng lúc chạy và thực thi tính an toàn kiểu thông qua các kiểm tra của JVM. Nếu bạn cố gắng lưu trữ một phần tử không tương thích vào một mảng, JVM sẽ lập tức ném ra một ngoại lệ `ArrayStoreException` lúc chạy. Ngược lại, generics bị xóa bỏ kiểu, nghĩa là tất cả các thông tin tham số kiểu bị loại bỏ sau khi biên dịch. Nếu việc tạo mảng generic như `new T[10]` hoặc `new List<String>[10]` được cho phép, JVM sẽ không có cách nào để thực thi đúng kiểu phần tử tại thời điểm chạy bởi vì kiểu thành phần thực tế khi đó đã bị xóa thành `Object[]`. Vì những lý do tương tự, các kiểm tra thời điểm chạy như `instanceof List<String>` bị cấm, bởi vì tham số kiểu bị thiếu lúc chạy, khiến JVM chỉ có khả năng kiểm tra kiểu thô `instanceof List`.
-
-### Mô hình tư duy (Mental Model)
+### Mô hình Tư duy
 
 ```text
-Mảng (Được cụ thể hóa - Biết kiểu lúc chạy):
-String[] strings = new String[5]; ---> JVM biết đây là kiểu [Ljava.lang.String;
-strings[0] = "hello";             ---> OK
-((Object[]) strings)[1] = 123;    ---> JVM kiểm tra kiểu lúc chạy ---> Ném ra ArrayStoreException
+Mảng (Được hiện thực hóa kiểu - Biết kiểu tại thời điểm chạy):
+String[] strings = new String[5]; ---> JVM biết đây là [Ljava.lang.String;
+strings[0] = "hello";             ---> Hợp lệ
+((Object[]) strings)[1] = 123;    ---> JVM kiểm tra kiểu lúc chạy ---> Ném ArrayStoreException
 
-Generics (Bị xóa - Mất kiểu lúc chạy):
+Kiểu chung (Bị xóa kiểu - Mất kiểu tại thời điểm chạy):
 List<String> list = new ArrayList<>(); ---> JVM chỉ biết đây là List
 ```
 
-### Ví dụ Code (Code Example)
+### Ví dụ Thực Tế
 
 ```java
 import java.util.ArrayList;
@@ -313,15 +295,14 @@ public class ArrayAndInstanceofLimit {
 }
 ```
 
-### Chuỗi Nguyên nhân - Kết quả (Cause-Effect Chain)
+### Chuỗi Nguyên nhân - Kết quả
 
+Mảng được hiện thực hóa kiểu &rarr; Mảng thực thi chính xác kiểu phần tử tại thời điểm chạy qua JVM &rarr; Kiểu chung bị xóa kiểu &rarr; Tham số kiểu chung bị mất tại thời điểm chạy &rarr; JVM không thể thực thi tính an toàn kiểu của Mảng Kiểu Chung tại thời điểm chạy &rarr; Việc tạo mảng kiểu chung bị cấm.
 
-```text
-Các mảng được cụ thể hóa
-  → Mảng thực thi kiểu phần tử chính xác của chúng lúc chạy thông qua JVM
-  → Generics bị xóa bỏ kiểu
-  → Tham số kiểu generic bị mất lúc chạy
-  → JVM không thể thực thi tính an toàn kiểu của Mảng Generic lúc chạy
-  → Việc tạo mảng generic bị cấm.
-```
+## Liên kết Tham khảo
 
+- https://docs.oracle.com/javase/tutorial/java/generics/restrictions.html
+- https://docs.oracle.com/javase/tutorial/java/generics/erasure.html
+- https://docs.oracle.com/javase/tutorial/java/generics/rawTypes.html
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-4.html#jls-4.8 (Kiểu Nguyên Bản)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-10.html (Mảng)

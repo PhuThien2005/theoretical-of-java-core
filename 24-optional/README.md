@@ -1,17 +1,17 @@
 # 24 - Optional
 
-This topic follows the master outline in [outline.md](../outline.md). The goal is to understand each concept deeply enough to explain it, recognize it in code, and answer interview-style questions.
+Chủ đề này tuân theo đề cương chính trong [outline.md](../outline.md). Mục tiêu là hiểu từng khái niệm đủ sâu để có thể giải thích, nhận diện trong code và trả lời các câu hỏi phỏng vấn.
 
-## Study Order
+## Thứ Tự Học
 
-- [What Is Optional T Concepts](theory/01-what-is-optional-t-concepts.md)
-- [Map Concepts](theory/02-map-concepts.md)
-- [Key Terms](terms/01-key-terms.md)
+- [Khái Niệm về Optional T](theory/01-what-is-optional-t-concepts.md)
+- [Khái Niệm về Map](theory/02-map-concepts.md)
+- [Thuật Ngữ Chính](terms/01-key-terms.md)
 
-## Outline Checklist
+## Danh Sách Kiểm Tra Theo Đề Cương
 
-- What is Optional<T>?
-- Avoid NullPointerException
+- Optional<T> là gì?
+- Tránh NullPointerException
 - Optional.of
 - Optional.ofNullable
 - Optional.empty
@@ -23,37 +23,37 @@ This topic follows the master outline in [outline.md](../outline.md). The goal i
 - map
 - flatMap
 - filter
-- Do not overuse Optional
-- Optional in return type
+- Không lạm dụng Optional
+- Optional trong kiểu trả về
 
-## Self-Check
+## Tự Kiểm Tra
 
-1. Why is Optional designed as a wrapper rather than a replacement for null in fields or parameters?
-2. What is the performance overhead of using Optional in loops or fields?
-3. What is the difference between orElse() and orElseGet() in terms of eager vs lazy evaluation?
-4. Why does returning null from an Optional-returning method violate its design API contract?
-5. What is the key difference between Optional's map() and flatMap() methods in terms of signature and wrapping behavior?
-6. Why can flatMap() throw a NullPointerException when the mapping function returns null, while map() does not?
-7. Why is Optional not Serializable, and what are the implications of this for Java class design?
+1. Tại sao `Optional` được thiết kế như một lớp bao bọc thay vì là phương án thay thế hoàn toàn cho `null` trong các trường và tham số?
+2. Chi phí hiệu năng khi sử dụng `Optional` trong vòng lặp hoặc các trường là gì?
+3. Sự khác biệt giữa `orElse()` và `orElseGet()` về mặt đánh giá tức thì (eager) và lười biếng (lazy) là gì?
+4. Tại sao việc trả về `null` từ một phương thức khai báo kiểu trả về `Optional` lại vi phạm hợp đồng thiết kế API?
+5. Sự khác biệt then chốt giữa `map()` và `flatMap()` của `Optional` về chữ ký và hành vi bao bọc là gì?
+6. Tại sao `flatMap()` có thể ném `NullPointerException` khi hàm ánh xạ trả về `null`, trong khi `map()` thì không?
+7. Tại sao `Optional` không triển khai `Serializable`, và điều này ảnh hưởng như thế nào đến thiết kế lớp Java?
 
 
-## Anki Cards
+## Thẻ Anki
 
 - [Basic](anki/basic.tsv)
 - [Basic Extra](anki/basic-extra.tsv)
 - [Cloze](anki/cloze.tsv)
 - [Code Question](anki/code-question.tsv)
 
-## Mermaid Overview
+## Tổng Quan Mermaid
 
 ```mermaid
 flowchart TD
-    A[Optional] --> B[Definitions]
-    A --> C[Rules and syntax]
-    A --> D[Common mistakes]
-    A --> E[Interview recall]
+    A[Optional] --> B[Định nghĩa]
+    A --> C[Quy tắc và cú pháp]
+    A --> D[Lỗi thường gặp]
+    A --> E[Ôn tập phỏng vấn]
 ```
 
-## Reference Links
+## Liên Kết Tham Khảo
 
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html

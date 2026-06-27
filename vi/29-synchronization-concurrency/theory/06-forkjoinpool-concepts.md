@@ -1,25 +1,25 @@
-# Đồng bộ hóa và Đồng thời - Phần 6 (Synchronization and Concurrency - Part 6)
+# Đồng bộ hóa và Đồng thời - Phần 6
 
-## Mục tiêu học tập (Learning Goal)
+## Mục Tiêu Học Tập
 
-Tệp này bao gồm khung công tác Fork/Join (`ForkJoinPool`, `RecursiveTask`, `RecursiveAction`) và các chi tiết thực thi của Luồng (Thread) song song (Parallel Streams). Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, không phải là từ vựng cô lập.
+Tài liệu này trình bày về khung Fork/Join (`ForkJoinPool`, `RecursiveTask`, `RecursiveAction`) và các chi tiết thực thi của Luồng song song (Parallel Stream). Hãy nghiên cứu từng khái niệm dưới dạng một quy tắc Java thực tế, thay vì chỉ học từ vựng riêng lẻ.
 
-## Đề cương chi tiết (Outline Coverage)
+## Nội Dung Tổng Quan
 
-| Khái niệm (Concept) | Những điều cần biết (What to know) |
+| Khái niệm | Điều cần biết |
 | --- | --- |
-| `ForkJoinPool` | Một nhóm thực thi chuyên biệt được thiết kế cho các tác vụ chia để trị (divide-and-conquer) bằng cách sử dụng thuật toán trộm công việc (work-stealing algorithm). |
-| `Parallel Stream` | Một chế độ thực thi luồng dữ liệu (stream) giúp phân chia dữ liệu luồng và thực thi các giai đoạn xử lý song song, sử dụng `ForkJoinPool` chung. |
+| `ForkJoinPool` | Một bể chứa trình thực thi (executor pool) chuyên dụng được thiết kế cho các tác vụ chia để trị (divide-and-conquer) bằng cách sử dụng thuật toán trộm công việc (work-stealing algorithm). |
+| `Parallel Stream` | Một chế độ thực thi luồng chia nhỏ dữ liệu của luồng và thực thi song song các giai đoạn xử lý, sử dụng `ForkJoinPool` chung. |
 
-## Chi tiết tài liệu học tập (Detailed Notes)
+## Ghi Chú Chi Tiết
 
-### ForkJoinPool và Cơ chế trộm công việc (ForkJoinPool and Work-Stealing)
-The `ForkJoinPool` triển khai một **thuật toán trộm công việc (work-stealing algorithm)**.
-* Mỗi luồng làm việc duy trì hàng đợi hai đầu (deque) riêng của các tác vụ.
-* Khi một luồng làm việc hết tác vụ, nó sẽ trộm các tác vụ con đang chờ xử lý từ **phía sau** (back) của hàng đợi thuộc về một luồng bận rộn khác. Điều này giúp tất cả các nhân CPU hoạt động tối đa với sự tranh chấp tối thiểu.
+### ForkJoinPool và Trộm công việc (Work-Stealing)
+`ForkJoinPool` triển khai một **thuật toán trộm công việc (work-stealing algorithm)**.
+* Mỗi luồng công việc (worker thread) duy trì hàng đợi hai đầu (deque) các tác vụ của riêng nó.
+* Khi một luồng công việc hết tác vụ, nó sẽ trộm các tác vụ con đang chờ từ phía **sau (back/tail)** của deque của một luồng đang bận khác. Điều này giúp tất cả các lõi CPU hoạt động hết công suất với mức độ tranh chấp tối thiểu.
 * Các tác vụ con được định nghĩa bằng cách sử dụng:
-  1. `RecursiveAction`: cho các tác vụ không trả về kết quả (`void`).
-  2. `RecursiveTask<V>`: cho các tác vụ trả về kết quả kiểu `V`.
+  1. `RecursiveAction`: dành cho các tác vụ không trả về kết quả (`void`).
+  2. `RecursiveTask<V>`: dành cho các tác vụ trả về kết quả kiểu `V`.
 
 ```java
 import java.util.concurrent.RecursiveTask;
@@ -47,9 +47,9 @@ public class SumTask extends RecursiveTask<Long> {
             SumTask left = new SumTask(array, start, mid);
             SumTask right = new SumTask(array, mid, end);
             
-            left.fork(); // Run left subtask asynchronously
-            long rightResult = right.compute(); // Run right subtask synchronously
-            long leftResult = left.join(); // Wait for left subtask result
+            left.fork(); // Chạy tác vụ con bên trái một cách bất đồng bộ
+            long rightResult = right.compute(); // Chạy tác vụ con bên phải một cách đồng bộ
+            long leftResult = left.join(); // Chờ kết quả từ tác vụ con bên trái
             
             return leftResult + rightResult;
         }
@@ -57,20 +57,20 @@ public class SumTask extends RecursiveTask<Long> {
 }
 ```
 
-### Luồng song song và Nhóm luồng chung (Parallel Streams and the Common Pool)
-Gọi `.parallelStream()` hoặc `.parallel()` trên một luồng dữ liệu hiện có sẽ chia tách các phần tử của luồng thành các khối (chunks) bằng cách sử dụng `Spliterator` và xử lý chúng đồng thời.
-* **Cơ chế hoạt động**: Tất cả các luồng song song đều chạy trên một nhóm chung dùng chung toàn JVM: `ForkJoinPool.commonPool()`.
-* **Quan trọng**: Vì nhóm luồng này được chia sẻ trên toàn JVM, bất kỳ thao tác chặn (blocking) hoặc chậm chạp nào được thực thi bên trong một luồng song song sẽ làm các luồng song song khác trong ứng dụng bị thiếu tài nguyên.
+### Luồng song song và Bể chứa chung (Common Pool)
+Gọi `.parallelStream()` hoặc `.parallel()` trên một luồng hiện có sẽ chia nhỏ các phần tử của luồng thành các khúc (chunk) bằng cách sử dụng một `Spliterator` và xử lý chúng một cách đồng thời.
+* **Dưới nền tảng**: Tất cả các luồng song song chạy trên một bể chứa chung trong toàn bộ JVM: `ForkJoinPool.commonPool()`.
+* **Quan trọng**: Vì bể chứa này được chia sẻ trên toàn bộ JVM, bất kỳ hoạt động chặn (blocking) hoặc chậm chạp nào được thực thi bên trong một luồng song song sẽ làm đói (starve) *tất cả* các luồng song song khác trong ứng dụng.
 
 ---
 
-## Tình huống nghiên cứu: Tổng song song của một mảng lớn (Case Study: Parallel Sum of Large Array)
+## Ví Dụ Thực Tế: Tính Tổng Mảng Lớn Song Song
 
-### Vấn đề (Problem)
-Tính tổng một mảng gồm 100 triệu số nguyên. Một vòng lặp đơn luồng tốn quá nhiều thời gian, còn việc tự tạo luồng thủ công lại tạo ra quá nhiều chi phí điều phối.
+### Vấn đề
+Tính tổng một mảng gồm 100 triệu số nguyên. Một vòng lặp đơn luồng tốn quá nhiều thời gian, và việc tự tạo luồng thủ công lại phát sinh quá nhiều chi phí điều phối.
 
-### Giải pháp (Solution)
-Sử dụng `ForkJoinPool` với `RecursiveTask` để chia nhỏ và tính tổng mảng song song.
+### Giải pháp
+Sử dụng ForkJoinPool với RecursiveTask để chia nhỏ và tính tổng mảng một cách song song.
 ```java
 import java.util.concurrent.ForkJoinPool;
 
@@ -90,43 +90,43 @@ public class ParallelSum {
 
 ---
 
-## Các sai lầm thường gặp (Common Mistakes)
+## Sai Lầm Thường Gặp
 
-### 1. Chặn nhóm ForkJoinPool chung
-Chạy các truy vấn cơ sở dữ liệu bị chặn, các cuộc gọi HTTP, hoặc các thao tác đọc tệp bên trong một luồng song song.
+### 1. Chặn Bể Chứa ForkJoinPool Chung
+Chạy các truy vấn cơ sở dữ liệu chặn, các cuộc gọi HTTP, hoặc đọc tệp chặn bên trong một luồng song song.
 ```java
-// BUG: Starves the JVM's shared pool!
+// LỖI: Làm đói bể chứa dùng chung của JVM!
 list.parallelStream().forEach(url -> {
     try {
-        HttpConnection.fetch(url); // Blocks worker thread
+        HttpConnection.fetch(url); // Chặn luồng công việc
     } catch (Exception e) {}
 });
 ```
-* **Sửa lỗi**: Sử dụng một nhóm luồng chuyên biệt (thông qua một `ExecutorService` tùy chỉnh) cho các tác vụ I/O chặn. Giữ các luồng song song hoàn toàn cho các tính toán tốn nhiều tài nguyên CPU.
+* **Cách khắc phục**: Sử dụng một bể chứa luồng chuyên dụng (thông qua một `ExecutorService` tùy chỉnh) cho các tác vụ I/O chặn. Hãy giữ luồng song song duy nhất cho các tính toán chuyên sâu về CPU.
 
-### 2. Giả định rằng luồng song song luôn nhanh hơn
-Các luồng song song gây ra thêm chi phí (chia nhỏ nguồn dữ liệu, quản lý hàng đợi tác vụ, hợp nhất các kết quả con). Đối với các tập hợp nhỏ hoặc các tập hợp tốn kém chi phí để chia tách (như `LinkedList`), các luồng song song có thể chậm hơn đáng kể so với một vòng lặp tuần tự tiêu chuẩn.
+### 2. Giả định rằng Luồng Song Song Luôn Nhanh Hơn
+Luồng song song phát sinh thêm chi phí (chia tách nguồn dữ liệu, quản lý các deque tác vụ, gộp các kết quả con). Đối với các bộ sưu tập nhỏ, hoặc các bộ sưu tập tốn nhiều chi phí để chia nhỏ (như `LinkedList`), luồng song song có thể chậm hơn đáng kể so với một vòng lặp tuần tự tiêu chuẩn.
 * **Quy tắc**: Chỉ sử dụng luồng song song khi:
-  1. Kích thước dữ liệu lớn (N) và tính toán trên mỗi phần tử tốn nhiều chi phí (Q), sao cho $N \times Q$ lớn.
-  2. Tập hợp dữ liệu dễ chia tách (như `ArrayList` hoặc các mảng, không giống như `LinkedList` hoặc `BufferedReader.lines()`).
+  1. Kích thước dữ liệu lớn (N) và tính toán trên mỗi phần tử tốn kém (Q), sao cho tích $N \times Q$ là lớn.
+  2. Bộ sưu tập dễ dàng chia nhỏ (như `ArrayList` hoặc mảng, trái ngược với `LinkedList` hoặc `BufferedReader.lines()`).
 
-## Tại sao ForkJoinPool sử dụng cơ chế trộm công việc (Why ForkJoinPool Uses Work-Stealing)
+## Tại Sao ForkJoinPool Sử Dụng Trộm Công Việc (Work-Stealing)
 
-`ForkJoinPool` được tối ưu hóa cho xử lý chia để trị (divide-and-conquer) bằng cách sử dụng thuật toán trộm công việc (work-stealing) nhằm tối đa hóa hiệu suất sử dụng nhân CPU. Trong các nhóm luồng tiêu chuẩn, một hàng đợi đơn lẻ có thể trở thành điểm nghẽn tranh chấp khóa, và các luồng có thể rảnh rỗi nếu các tác vụ được chỉ định của chúng hoàn thành sớm. Để ngăn chặn điều này, `ForkJoinPool` cấp cho mỗi luồng làm việc hàng đợi hai đầu (deque) riêng tư của nó. Một luồng làm việc xử lý các tác vụ của chính nó bằng cách đẩy các tác vụ con mới vào đầu, và lấy các tác vụ ra khỏi đầu của hàng đợi deque (hoạt động như một ngăn xếp LIFO). Khi một luồng làm việc hết tác vụ, nó sẽ trộm một tác vụ từ cuối hàng đợi của luồng khác (hoạt động như hàng đợi FIFO), giảm thiểu tranh chấp khóa và giữ cho tất cả các luồng hoạt động.
+ForkJoinPool được tối ưu hóa cho xử lý chia để trị bằng cách sử dụng thuật toán trộm công việc (work-stealing) để tối đa hóa việc tận dụng các lõi CPU. Trong các bể chứa luồng tiêu chuẩn, một hàng đợi đơn lẻ có thể trở thành nút thắt cổ chai về tranh chấp khóa, và các luồng có thể rơi vào trạng thái rảnh rỗi nếu các tác vụ được giao hoàn thành sớm. Để ngăn chặn điều này, ForkJoinPool chỉ định cho mỗi luồng công việc một hàng đợi hai đầu (deque) riêng của nó. Một luồng công việc xử lý các tác vụ của chính nó bằng cách đẩy (push) các tác vụ con mới vào và lấy (pop) các tác vụ ra khỏi phần đầu (head) của deque (hoạt động giống như ngăn xếp LIFO). Khi một luồng công việc hết tác vụ, nó sẽ trộm một tác vụ từ phần đuôi (tail) của deque của một luồng khác (hoạt động giống như hàng đợi FIFO), giúp giảm thiểu tranh chấp và giữ cho tất cả các luồng luôn hoạt động.
 
-### Mô hình tư duy: Hàng đợi trộm công việc (Mental Model: Work-Stealing Deques)
+### Mô Hình Tư Duy: Hàng Đợi Hai Đầu Trộm Công Việc
 ```
-Worker 1 (Busy)                       Worker 2 (Idle)
+Luồng công việc 1 (Đang bận)          Luồng công việc 2 (Rảnh rỗi)
    │                                     │
-   ▼ (Push/Pop Head)                     ▼ (Out of work)
+   ▼ (Đẩy/Lấy từ phần Đầu)               ▼ (Hết việc)
 ┌────────────┐                        ┌────────────┐
 │ Task A [H] │                        │   Empty    │
-│────────────│                        └────────────┘
-│ Task B [T] │ ◄─────────────────────────┘ (Steals Task B from tail)
+├────────────┤                        └────────────┘
+│ Task B [T] │ ◄─────────────────────────┘ (Trộm Task B từ phần đuôi)
 └────────────┘
 ```
 
-### Ví dụ mã nguồn (Code Example)
+### Ví Dụ Mã Nguồn
 ```java
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
@@ -140,8 +140,8 @@ public class WorkStealingDemo {
             int mid = (start + end) / 2;
             Sum left = new Sum(start, mid);
             Sum right = new Sum(mid, end);
-            left.fork(); // Pushed to deque head
-            return right.compute() + left.join(); // May steal here
+            left.fork(); // Được đẩy vào đầu deque
+            return right.compute() + left.join(); // Có thể trộm công việc ở đây
         }
     }
     public static void main(String[] args) {
@@ -152,17 +152,5 @@ public class WorkStealingDemo {
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-
-```text
-Tác vụ con được rẽ nhánh (forked)
-  → Được đẩy vào đầu hàng đợi deque của luồng
-  → Luồng thực thi các tác vụ riêng theo cơ chế LIFO
-  → Một luồng khác hoàn thành các tác vụ của nó và trở nên rảnh rỗi
-  → Luồng rảnh rỗi quét các hàng đợi khác
-  → Trộm tác vụ từ cuối hàng đợi deque của luồng đang bận rộn theo cơ chế FIFO
-  → Sự tranh chấp nhân được giảm thiểu
-  → Các luồng phần cứng luôn được bận rộn
-  → Tốc độ xử lý được tối đa hóa.
-```
-
+### Chuỗi Nguyên Nhân - Kết Quả
+Tác vụ con được phân nhánh (fork) &rarr; Được đẩy vào đầu deque của luồng &rarr; Luồng thực thi các tác vụ của chính nó theo thứ tự LIFO &rarr; Một luồng khác hoàn thành các tác vụ của nó và trở nên rảnh rỗi &rarr; Luồng rảnh rỗi quét các hàng đợi khác &rarr; Trộm tác vụ từ đuôi deque của luồng bận theo thứ tự FIFO &rarr; Giảm thiểu tranh chấp lõi &rarr; Các luồng phần cứng luôn bận rộn &rarr; Tối đa hóa tốc độ xử lý.

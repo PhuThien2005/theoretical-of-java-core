@@ -1,33 +1,33 @@
-# Các mẫu thiết kế cơ bản thường thấy trong Java - Phần 2 (Basic Design Patterns Commonly Seen in Java - Part 2)
+# Các Mẫu Thiết Kế Cơ Bản Thường Gặp Trong Java - Phần 2
 
-## Mục tiêu học tập (Learning Goal)
+## Mục Tiêu Học Tập
 
-Tài liệu này bao gồm các mẫu thiết kế hành vi (behavioral patterns) GoF và các mẫu thiết kế kiến trúc (MVC, DAO, DTO, Repository, Service Layer) tiêu chuẩn trong mã nguồn Java doanh nghiệp. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế.
+File này đề cập đến các mẫu thiết kế hành vi (behavioral pattern) thuộc nhóm GoF và các mẫu kiến trúc (architectural pattern - MVC, DAO, DTO, Repository, Service Layer) tiêu chuẩn trong mã nguồn doanh nghiệp Java. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế.
 
-## Phạm vi đề cương (Outline Coverage)
+## Đề Cương Khái Niệm
 
-| Khái niệm (Concept) | Những điều cần biết (What to know) |
+| Khái niệm | Những điều cần biết |
 | --- | --- |
-| `Observer` | Mô hình đăng ký cho phép nhiều đối tượng lắng nghe (listeners) phản ứng với những thay đổi trạng thái của chủ thể (subject). |
-| `Template Method` | Định nghĩa bộ khung của một thuật toán trong một phương thức trừu tượng (Abstraction), nhường các bước triển khai cho các lớp con. |
-| `Command` | Bao đóng các yêu cầu dưới dạng các đối tượng, hỗ trợ ghi nhật ký hoạt động, lập hàng đợi và hoàn tác (undo). |
-| `Iterator` | Duyệt tuần tự qua một bộ sưu tập (collection) mà không làm lộ cấu trúc bên trong của nó. |
-| `State` | Cho phép một đối tượng thay đổi hành vi của nó khi trạng thái nội bộ của nó thay đổi (các trạng thái hoạt động như các lớp). |
-| `MVC` | Mẫu kiến trúc tách biệt các mối quan tâm thành Model (dữ liệu), View (giao diện người dùng) và Controller (logic xử lý). |
-| `DAO` | Trừu tượng hóa đối tượng truy cập dữ liệu (Data Access Object) tách biệt các truy vấn DB cấp thấp khỏi logic nghiệp vụ. |
-| `DTO` | Đối tượng chuyển dữ liệu (Data Transfer Object) mang dữ liệu qua các ranh giới tiến trình/mạng (không chứa logic nghiệp vụ). |
-| `Repository` | Mẫu thiết kế hướng miền (domain-driven) mô phỏng một bộ sưu tập trong bộ nhớ ánh xạ tới việc lưu trữ cơ sở dữ liệu. |
-| `Service Layer` | Ranh giới bao đóng cho các giao dịch nghiệp vụ cốt lõi (core business transactions). |
+| `Observer` | Mô hình đăng ký cho phép nhiều đối tượng lắng nghe phản ứng với các thay đổi trạng thái của đối tượng chính. |
+| `Template Method` | Định nghĩa khung của một thuật toán trong một phương thức abstract, nhường các bước triển khai cho các lớp con. |
+| `Command` | Đóng gói các yêu cầu thành các đối tượng, hỗ trợ ghi log hoạt động, xếp hàng và hoàn tác. |
+| `Iterator` | Duyệt tuần tự qua một collection trong khi ẩn đi cấu trúc nội bộ của nó. |
+| `State` | Cho phép một đối tượng thay đổi hành vi của nó khi trạng thái nội bộ thay đổi (các trạng thái đóng vai trò là các lớp). |
+| `MVC` | Mẫu phân tách kiến trúc gồm Model (dữ liệu), View (giao diện người dùng) và Controller (logic). |
+| `DAO` | Trừu tượng hóa Data Access Object phân tách các truy vấn DB cấp thấp khỏi logic nghiệp vụ. |
+| `DTO` | Data Transfer Object vận chuyển dữ liệu qua các ranh giới tiến trình/mạng (không chứa logic nghiệp vụ). |
+| `Repository` | Mẫu thiết kế hướng miền (domain-driven) mô phỏng một collection trên bộ nhớ ánh xạ tới việc lưu trữ cơ sở dữ liệu. |
+| `Service Layer` | Ranh giới đóng gói cho các giao dịch nghiệp vụ cốt lõi. |
 
 ---
 
-## Ghi chú chi tiết (Detailed Notes)
+## Ghi Chú Chi Tiết
 
 ### Observer
 
-Định nghĩa một mối quan hệ phụ thuộc một-nhiều sao cho khi một đối tượng (Chủ thể - Subject) thay đổi trạng thái, tất cả các đối tượng phụ thuộc của nó (Observers) sẽ được thông báo và cập nhật tự động.
+Định nghĩa một mối quan hệ phụ thuộc một-nhiều trong đó khi một đối tượng (Subject - Đối tượng chính) thay đổi trạng thái, tất cả các đối tượng phụ thuộc của nó (Observer) sẽ được thông báo và cập nhật tự động.
 
-- **Ví dụ có thể chạy được**:
+- **Ví dụ chạy được**:
   ```java
   public interface Observer { void update(String event); }
   
@@ -51,9 +51,9 @@ Tài liệu này bao gồm các mẫu thiết kế hành vi (behavioral patterns
 
 ### Template Method
 
-Định nghĩa bộ khung của một thuật toán trong một phương thức, chuyển giao một số bước cho các lớp con. Template Method cho phép các lớp con định nghĩa lại các bước nhất định của thuật toán mà không làm thay đổi cấu trúc của thuật toán đó.
+Định nghĩa khung của một thuật toán trong một phương thức, trì hoãn một số bước cho các lớp con. Template Method cho phép các lớp con định nghĩa lại một số bước nhất định của một thuật toán mà không làm thay đổi cấu trúc của thuật toán.
 
-- **Ví dụ có thể chạy được**:
+- **Ví dụ chạy được**:
   ```java
   public abstract class NetworkDataImporter {
       // Template Method defining the execution flow
@@ -74,9 +74,9 @@ Tài liệu này bao gồm các mẫu thiết kế hành vi (behavioral patterns
 
 ### Command
 
-Bao đóng một yêu cầu dưới dạng một đối tượng, từ đó cho phép bạn tham số hóa các client với các yêu cầu khác nhau, lập hàng đợi hoặc ghi nhật ký các yêu cầu, và hỗ trợ các thao tác có thể hoàn tác.
+Đóng gói một yêu cầu thành một đối tượng, từ đó cho phép bạn tham số hóa các client với các yêu cầu khác nhau, xếp hàng hoặc ghi log các yêu cầu, và hỗ trợ các hoạt động có thể hoàn tác.
 
-- **Ví dụ có thể chạy được**:
+- **Ví dụ chạy được**:
   ```java
   public interface Command { void execute(); }
 
@@ -97,9 +97,9 @@ Bao đóng một yêu cầu dưới dạng một đối tượng, từ đó cho 
 
 ### Iterator
 
-Cung cấp một cách để truy cập tuần tự các phần tử của một đối tượng tổng hợp (aggregate object) mà không làm lộ cấu trúc bên dưới của nó.
+Cung cấp một cách thức để truy cập tuần tự các phần tử của một đối tượng tập hợp mà không để lộ cấu trúc bên dưới của nó.
 
-- **Ví dụ có thể chạy được**:
+- **Ví dụ chạy được**:
   ```java
   List<String> list = List.of("a", "b", "c");
   Iterator<String> iterator = list.iterator();
@@ -110,15 +110,15 @@ Cung cấp một cách để truy cập tuần tự các phần tử của một
   }
   ```
 
-- **Sai lầm thường gặp**: Sửa đổi cấu trúc của một bộ sưu tập (ví dụ: `list.remove()`) khi đang duyệt qua nó bằng một iterator bên ngoài, gây ra ngoại lệ `ConcurrentModificationException`. Luôn luôn sử dụng `iterator.remove()` nếu cần sửa đổi cấu trúc trong quá trình duyệt.
+- **Sai lầm phổ biến**: Thay đổi cấu trúc của một collection (ví dụ: `list.remove()`) trong khi đang duyệt bằng một iterator ngoài, gây ra lỗi `ConcurrentModificationException`. Luôn luôn sử dụng `iterator.remove()` nếu cần sửa đổi.
 
 ---
 
 ### State
 
-Cho phép một đối tượng thay đổi hành vi của nó khi trạng thái nội bộ của nó thay đổi. Đối tượng sẽ trông giống như thay đổi lớp của nó.
+Cho phép một đối tượng thay đổi hành vi của nó khi trạng thái nội bộ của nó thay đổi. Đối tượng sẽ có vẻ như thay đổi lớp của nó.
 
-- **Ví dụ có thể chạy được**:
+- **Ví dụ chạy được**:
   ```java
   public interface State { void handleRequest(); }
 
@@ -138,18 +138,18 @@ Cho phép một đối tượng thay đổi hành vi của nó khi trạng thái
 
 ### MVC (Model-View-Controller)
 
-Một mẫu thiết kế kiến trúc phân tách các mối quan tâm thành ba module:
-- **Model**: Đại diện cho các schema cơ sở dữ liệu, các thực thể và logic dữ liệu.
-- **View**: Hiển thị các thành phần giao diện người dùng (UI) cho người dùng xem.
-- **Controller**: Lắng nghe các dữ liệu đầu vào của người dùng, cập nhật Model và làm mới View.
+Một mẫu kiến trúc phân tách các mối quan tâm thành ba module:
+- **Model**: Đại diện cho các lược đồ cơ sở dữ liệu, các thực thể và logic dữ liệu.
+- **View**: Kết xuất các thành phần UI để hiển thị cho người dùng.
+- **Controller**: Lắng nghe các đầu vào của người dùng, cập nhật Model và làm mới View.
 
 ---
 
 ### DAO (Data Access Object)
 
-Mẫu DAO cô lập tầng ứng dụng/nghiệp vụ khỏi tầng lưu trữ (thường là các thao tác cơ sở dữ liệu) bằng cách sử dụng một interface trừu tượng.
+Mẫu thiết kế DAO tách biệt tầng ứng dụng/nghiệp vụ khỏi tầng lưu trữ (thường là các hoạt động cơ sở dữ liệu) bằng cách sử dụng một interface trừu tượng.
 
-- **Ví dụ có thể chạy được**:
+- **Ví dụ chạy được**:
   ```java
   public interface UserDao {
       User findById(long id);
@@ -161,9 +161,9 @@ Mẫu DAO cô lập tầng ứng dụng/nghiệp vụ khỏi tầng lưu trữ (
 
 ### DTO (Data Transfer Object)
 
-DTO là một đối tượng mang dữ liệu giữa các tiến trình (ví dụ: qua các REST API, microservices, hoặc từ các thực thể DB tới tầng hiển thị) để giảm số lượng cuộc gọi phương thức hoặc cuộc gọi mạng. DTO là các container đơn giản; chúng không chứa logic nghiệp vụ.
+Một DTO là một đối tượng vận chuyển dữ liệu giữa các tiến trình (ví dụ: qua các REST API, microservice, hoặc từ các thực thể DB tới các tầng hiển thị) nhằm giảm số lượng cuộc gọi phương thức hoặc cuộc gọi mạng. Các DTO là những vật chứa đơn giản; chúng không chứa bất kỳ logic nghiệp vụ nào.
 
-- **Ví dụ có thể chạy được**:
+- **Ví dụ chạy được**:
   ```java
   // In modern Java, records are perfect DTO carriers
   public record UserDto(String username, String email) implements Serializable {}
@@ -171,42 +171,40 @@ DTO là một đối tượng mang dữ liệu giữa các tiến trình (ví d�
 
 ---
 
-### Repository (Repository)
+### Repository
 
-Repository là một mẫu Thiết kế hướng miền (Domain-Driven Design - DDD) làm trung gian giữa miền và các tầng ánh xạ dữ liệu, hoạt động giống như một bộ sưu tập trong bộ nhớ của các đối tượng miền.
+Một Repository là một mẫu thiết kế hướng miền (Domain-Driven Design - DDD) làm trung gian giữa tầng miền và tầng ánh xạ dữ liệu, hoạt động giống như một collection của các đối tượng miền trên bộ nhớ.
 
-- **Sự khác biệt so với DAO**: Trong khi DAO ánh xạ chặt chẽ với các bảng/hoạt động cơ sở dữ liệu đơn lẻ, Repository ánh xạ tới một Tổng hợp miền (Domain Aggregate) cấp cao hơn, điều phối các truy vấn trên nhiều DAO/bảng và quản lý trạng thái giao dịch (transactional state).
-
----
-
-### Service Layer (Service Layer)
-
-Tầng dịch vụ (Service Layer) bao đóng các quy tắc nghiệp vụ cốt lõi và các giao dịch của một ứng dụng. Nó nằm giữa tầng hiển thị (Controllers) và tầng lưu trữ (Repositories/DAOs), điều phối logic của mô hình miền.
+- **Điểm khác biệt so với DAO**: Trong khi một DAO ánh xạ chặt chẽ tới các bảng cơ sở dữ liệu riêng lẻ, một Repository ánh xạ tới một Domain Aggregate (Tập hợp Miền) cấp cao hơn, điều phối các truy vấn trên nhiều DAO/bảng và quản lý trạng thái giao dịch.
 
 ---
 
-## Tại sao mẫu Observer giúp tách rời chủ thể khỏi các Observer (Why the Observer Pattern Decouples Subjects from Observers)
+### Tầng Dịch Vụ (Service Layer)
 
-Mẫu Observer định nghĩa một mối quan hệ phụ thuộc một-nhiều giúp tách rời chủ thể (nguồn phát sự kiện) khỏi các observer của nó (nguồn tiêu thụ sự kiện) bằng cách sử dụng các interface Java.
+Tầng Dịch vụ (Service Layer) đóng gói các quy tắc nghiệp vụ cốt lõi và các giao dịch của một ứng dụng. Nó nằm giữa tầng hiển thị (các Controller) và tầng lưu trữ dữ liệu (các Repository/DAO), điều phối logic mô hình miền.
 
-Trong một hệ thống liên kết chặt chẽ (tightly coupled), chủ thể sẽ duy trì các tham chiếu trực tiếp đến các lớp observer cụ thể và gọi các phương thức cụ thể của chúng. Điều này buộc chủ thể phải thay đổi bất cứ khi nào một kiểu observer mới được giới thiệu, vi phạm Nguyên tắc Đóng/Mở. Bằng cách lập trình hướng interface, chủ thể chỉ tương tác với một chữ ký chung, chẳng hạn như `update()`.
+---
 
-Tại thời điểm chạy, chủ thể lưu trữ các observer trong một bộ sưu tập (ví dụ: `ArrayList<Observer>`). Khi có sự thay đổi trạng thái xảy ra, chủ thể lặp qua bộ sưu tập này và gọi `update()` trên mỗi phần tử. Động cơ thực thi của JVM sẽ phân phát động mỗi cuộc gọi đến đúng lớp observer cụ thể bằng cách sử dụng các bảng phương thức ảo (vtable). Do đó, chủ thể không có phụ thuộc ở thời điểm biên dịch nào vào các observer cụ thể, cho phép lập trình viên thêm, bớt hoặc hoán đổi các trình lắng nghe (listeners) tại thời điểm chạy mà không cần sửa đổi triển khai của chủ thể.
+## Tại Sao Mẫu Observer Giúp Giảm Phụ Thuộc Giữa Đối Tượng Chính Và Các Observer
 
-### Mô hình tư duy (Mental Model)
+Mẫu thiết kế Observer định nghĩa một mối quan hệ phụ thuộc một-nhiều giúp giảm phụ thuộc (decouple) đối tượng chính (subject - nguồn sự kiện) khỏi các observer (người tiêu thụ sự kiện) bằng cách sử dụng các interface Java. Trong một hệ thống liên kết chặt chẽ, một subject sẽ giữ các tham chiếu trực tiếp đến các lớp observer cụ thể và gọi các phương thức cụ thể của chúng. Điều này buộc subject phải thay đổi mỗi khi một loại observer mới được đưa vào, vi phạm Nguyên tắc Đóng/Mở. Bằng cách lập trình hướng tới interface, subject chỉ tương tác duy nhất với một chữ ký generic, chẳng hạn như `update()`.
+
+Tại thời điểm chạy, subject lưu trữ các observer trong một collection (ví dụ: `ArrayList<Observer>`). Khi có sự thay đổi trạng thái xảy ra, subject lặp qua collection này và gọi `update()` trên từng phần tử. Trình thực thi của JVM điều phối một cách động từng cuộc gọi tới lớp observer cụ thể tương ứng bằng cách sử dụng bảng phương thức ảo (vtable). Do đó, subject không có bất kỳ sự phụ thuộc nào tại thời điểm biên dịch vào các observer cụ thể, cho phép các nhà phát triển thêm, xóa hoặc hoán đổi các bộ lắng nghe tại thời điểm chạy mà không cần sửa đổi triển khai của subject.
+
+### Sơ đồ điều phối sự kiện (Mental Model)
+```text
+     Subject (duy trì List<Observer>) 
+       |
+       +---notify()---> [ Vòng lặp: Observer.update() ]
+                             |
+         +-------------------+-------------------+
+         |                                       |
+         v                                       v
+   ConcreteObserverA (update)             ConcreteObserverB (update)
+   (Vẽ đồ thị)                            (Gửi email)
 ```
-      Chủ thể (Subject) (duy trì List<Observer>) 
-        |
-        +---notify()---> [ Vòng lặp: Observer.update() ]
-                              |
-          +-------------------+-------------------+
-          |                                       |
-          v                                       v
-    ConcreteObserverA (update)             ConcreteObserverB (update)
-    (Vẽ sơ đồ)                             (Gửi email)
-```
 
-### Ví dụ Code (Code Example)
+### Ví Dụ Mã Nguồn
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -234,14 +232,10 @@ public class Main {
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
+### Chuỗi Nguyên Nhân - Kết Quả
+Subject trực tiếp tham chiếu tới các lớp observer cụ thể &rarr; Liên kết chặt chẽ và phụ thuộc tại thời điểm biên dịch vào mọi loại observer &rarr; Định nghĩa interface Observer trừu tượng &rarr; Subject duy trì các tham chiếu bằng kiểu interface Observer &rarr; Điều phối phương thức động của JVM phân giải các lớp con cụ thể tại thời điểm chạy &rarr; Các observer mới được thêm vào một cách động mà không cần thay đổi mã nguồn Subject.
 
-```text
-Chủ thể tham chiếu trực tiếp các lớp observer cụ thể
-  → Liên kết chặt chẽ và phụ thuộc ở thời điểm biên dịch vào mọi kiểu observer
-  → Định nghĩa interface Observer trừu tượng
-  → Chủ thể duy trì các tham chiếu bằng cách sử dụng kiểu giao diện Observer
-  → Phân phát phương thức động của JVM giải quyết các lớp con cụ thể tại thời điểm chạy
-  → Các observer mới được thêm vào một cách năng động mà không làm thay đổi mã nguồn của Chủ thể.
-```
+## Liên Kết Tham Khảo (Reference Links)
 
+- https://refactoring.guru/design-patterns (Mẫu thiết kế Refactoring Guru)
+- https://docs.oracle.com/javase/tutorial/java/concepts/ (Tài liệu khái niệm Java của Oracle)

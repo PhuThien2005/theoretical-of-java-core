@@ -1,119 +1,105 @@
-# Các Thuật Ngữ Về Stream API (Stream API Terms)
+# Thuật ngữ về Stream API (Stream API Terms)
 
-Sử dụng tài liệu này khi một từ ngữ trong phần lý thuyết có vẻ quá ngắn gọn. Mỗi thuật ngữ đều có định nghĩa, tầm quan trọng, điểm dễ nhầm lẫn và một ví dụ nhỏ đi kèm.
+Sử dụng tài liệu này khi một từ khóa trong phần lý thuyết có vẻ quá cô đọng. Mỗi thuật ngữ đều có định nghĩa, tầm quan trọng, hiểu lầm thường gặp và một ví dụ nhỏ.
 
-## đường ống stream (stream pipeline)
+## đường ống luồng (stream pipeline)
 
-Một đường ống stream là một chuỗi các bước xử lý bao gồm một nguồn (chẳng hạn như một collection, một mảng, một hàm tạo, hoặc một kênh I/O), theo sau bởi không hoặc nhiều thao tác trung gian, và đúng một thao tác cuối. Nó hoạt động như một bộ dựng truy vấn khai báo (declarative query builder) chứ không phải là một vòng lặp chủ động.
+Một đường ống luồng (stream pipeline) là một chuỗi các bước xử lý bao gồm một nguồn dữ liệu (chẳng hạn như một bộ sưu tập, một mảng, một hàm tạo, hoặc một kênh I/O), theo sau bởi không hoặc nhiều thao tác trung gian, và duy nhất một thao tác kết thúc. Nó hoạt động như một trình xây dựng truy vấn mang tính khai báo thay vì một vòng lặp chủ động.
 
-Tại sao nó quan trọng: Nó cho phép các lập trình viên thể hiện logic chuyển đổi dữ liệu phức tạp một cách dễ đọc và khai báo, bảo vệ họ khỏi các cơ chế lặp cấp thấp. Bằng cách tách biệt việc xây dựng đường ống với việc thực thi, nó tối ưu hóa các bước tính toán và tránh lưu trữ tạm thời các cấu trúc trung gian.
-
-Điểm dễ nhầm lẫn: Các lập trình viên thường nghĩ rằng một đường ống được thực thi từng bước một cho toàn bộ collection (ví dụ: thực thi filter trên tất cả các phần tử, sau đó ánh xạ tất cả các phần tử). Trên thực tế, các phần tử chạy dọc theo đường ống lần lượt từng cái một chỉ khi được kéo bởi thao tác cuối.
-
-Ví dụ nhỏ:
-```java
-// Một đường ống bao gồm: Nguồn List -> filter -> map -> collect (thao tác cuối)
-List<String> activeNames = users.stream()
-                                .filter(User::isActive)
-                                .map(User::getName)
-                                .collect(Collectors.toList());
-```
+* **Tầm quan trọng**: Nó cho phép các nhà phát triển thể hiện logic biến đổi dữ liệu phức tạp một cách dễ đọc và mang tính khai báo, bảo vệ họ khỏi các cơ chế lặp cấp thấp. Bằng cách tách biệt việc xây dựng đường ống với việc thực thi, nó tối ưu hóa các bước tính toán và tránh lưu trữ tạm thời các cấu trúc trung gian.
+* **Hiểu lầm thường gặp**: Các nhà phát triển thường nghĩ rằng một đường ống được thực thi từng bước một cho toàn bộ bộ sưu tập (ví dụ: thực thi bộ lọc filter trên tất cả các phần tử, sau đó ánh xạ map tất cả các phần tử). Trên thực tế, các phần tử chảy dọc theo đường ống từng phần tử một chỉ khi được kéo bởi thao tác kết thúc.
+* **Ví dụ nhỏ**:
+  ```java
+  // A pipeline consisting of: List source -> filter -> map -> collect (terminal)
+  List<String> activeNames = users.stream()
+                                  .filter(User::isActive)
+                                  .map(User::getName)
+                                  .collect(Collectors.toList());
+  ```
 
 ## thao tác trung gian (intermediate operation)
 
-Một thao tác trung gian là một thao tác trên stream (như `filter`, `map`, `flatMap`, `sorted`, hoặc `distinct`) chuyển đổi một stream thành một stream khác. Các thao tác này luôn luôn lười biếng (lazy) và không thực hiện bất kỳ xử lý nào trên các phần tử nguồn.
+Một thao tác trung gian (intermediate operation) là một thao tác luồng (như `filter`, `map`, `flatMap`, `sorted`, hoặc `distinct`) biến đổi một luồng này thành một luồng khác. Các thao tác này luôn luôn lười biếng (lazy) và không thực hiện bất kỳ xử lý nào trên các phần tử nguồn.
 
-Tại sao nó quan trọng: Chúng cho phép đường ống được xây dựng dần dần, kích hoạt việc đánh giá lười biếng và tối ưu hóa. Nếu không có chúng, mỗi giai đoạn chuyển đổi sẽ yêu cầu các collection trung gian, dẫn đến việc cấp phát heap cao và các vòng lặp dư thừa.
+* **Tầm quan trọng**: Chúng cho phép đường ống được xây dựng tăng dần, kích hoạt tính năng đánh giá lười biếng và tối ưu hóa. Nếu không có chúng, mọi giai đoạn biến đổi sẽ yêu cầu các bộ sưu tập trung gian, dẫn đến việc cấp phát bộ nhớ heap cao và các vòng lặp dư thừa.
+* **Hiểu lầm thường gặp**: Nghĩ rằng việc gọi một thao tác trung gian sẽ lập tức xử lý các phần tử. Nếu không có thao tác kết thúc ở cuối đường ống, các thao tác trung gian hoàn toàn không chạy.
+* **Ví dụ nhỏ**:
+  ```java
+  // No output is printed because filter is an intermediate operation and the stream is not terminated!
+  Stream.of("apple", "banana")
+        .filter(s -> {
+            System.out.println(s);
+            return true;
+        });
+  ```
 
-Điểm dễ nhầm lẫn: Nghĩ rằng việc gọi một thao tác trung gian sẽ xử lý các phần tử ngay lập tức. Nếu không có thao tác cuối ở cuối đường ống, các thao tác trung gian sẽ hoàn toàn không chạy.
+## thao tác kết thúc (terminal operation)
 
-Ví dụ nhỏ:
-```java
-// Không có kết quả nào được in ra vì filter là một thao tác trung gian và stream chưa được kết thúc!
-Stream.of("apple", "banana")
-      .filter(s -> {
-          System.out.println(s);
-          return true;
-      });
-```
+Một thao tác kết thúc (terminal operation) là thao tác cuối cùng trong một đường ống luồng (chẳng hạn như `collect`, `forEach`, `reduce`, `count`, `min`, `max`, `anyMatch`, hoặc `toList`) kích hoạt quá trình duyệt qua đường ống và tạo ra kết quả (hoặc tác dụng phụ).
 
-## thao tác cuối (terminal operation)
-
-Một thao tác cuối là thao tác cuối cùng trong một đường ống stream (như `collect`, `forEach`, `reduce`, `count`, `min`, `max`, `anyMatch`, hoặc `toList`) để kích hoạt việc duyệt qua đường ống và tạo ra một kết quả (hoặc tác dụng phụ).
-
-Tại sao nó quan trọng: Nó đóng đường ống stream, bắt đầu duyệt phần tử, đẩy các phần tử qua các thao tác đã đăng ký và thu thập kết quả đầu ra cuối cùng. Một khi thao tác cuối được gọi, stream được coi là đã tiêu thụ và không thể tái sử dụng.
-
-Điểm dễ nhầm lẫn: Cố gắng gọi nhiều thao tác cuối trên cùng một thực thể stream. Làm như vậy sẽ ném ra một `IllegalStateException` vì stream bị đóng sau thao tác cuối đầu tiên.
-
-Ví dụ nhỏ:
-```java
-Stream<String> stream = Stream.of("a", "b");
-long count = stream.count(); // Thao tác cuối thực thi thành công
-// stream.forEach(System.out::println); // Ném ra IllegalStateException!
-```
+* **Tầm quan trọng**: Nó đóng đường ống luồng, bắt đầu quá trình duyệt qua phần tử, đẩy các phần tử qua các thao tác đã đăng ký, và thu thập đầu ra cuối cùng. Khi một thao tác kết thúc được gọi, luồng được coi là đã tiêu thụ và không thể tái sử dụng.
+* **Hiểu lầm thường gặp**: Cố gắng gọi nhiều thao tác kết thúc trên cùng một thực thể luồng. Làm như vậy sẽ ném ra ngoại lệ `IllegalStateException` vì luồng đã bị đóng sau thao tác kết thúc đầu tiên.
+* **Ví dụ nhỏ**:
+  ```java
+  Stream<String> stream = Stream.of("a", "b");
+  long count = stream.count(); // Terminal operation executes successfully
+  // stream.forEach(System.out::println); // Throws IllegalStateException!
+  ```
 
 ## đánh giá lười biếng (lazy evaluation)
 
-Đánh giá lười biếng là một chiến lược tối ưu hóa của trình biên dịch/thời gian chạy, trong đó việc tính toán được trì hoãn cho đến khi kết quả của nó thực sự được yêu cầu bởi một thao tác cuối.
+Đánh giá lười biếng (lazy evaluation) là một chiến lược tối ưu hóa của trình biên dịch/thời gian chạy trong đó tính toán được trì hoãn cho đến khi kết quả của nó thực sự được yêu cầu bởi một thao tác kết thúc.
 
-Tại sao nó quan trọng: Nó giảm thiểu chu kỳ CPU và dung lượng bộ nhớ bằng cách ngăn chặn các tính toán không cần thiết. Nó cũng cho phép stream xử lý các nguồn vô hạn (như các bộ tạo chuỗi) vì các phần tử chỉ được đánh giá khi có yêu cầu.
+* **Tầm quan trọng**: Nó giảm thiểu chu kỳ CPU và dung lượng bộ nhớ bằng cách ngăn chặn các tính toán không cần thiết. Nó cũng cho phép các luồng xử lý các nguồn vô hạn (như các hàm tạo chuỗi) vì các phần tử chỉ được đánh giá theo nhu cầu.
+* **Hiểu lầm thường gặp**: Tin rằng đánh giá lười biếng giống hệt như thực thi bất đồng bộ. Các thao tác lười biếng hoàn toàn đồng bộ nhưng được trì hoãn; chúng thực thi trên luồng gọi trừ khi được song song hóa.
+* **Ví dụ nhỏ**:
+  ```java
+  // Elements are only processed up to the first match because of lazy evaluation combined with limit
+  Stream.iterate(1, i -> i + 1)
+        .filter(i -> i % 2 == 0)
+        .limit(1)
+        .forEach(System.out::println); // Prints: 2
+  ```
 
-Điểm dễ nhầm lẫn: Tin rằng đánh giá lười biếng giống hệt với thực thi bất đồng bộ. Các thao tác lười biếng hoàn toàn là đồng bộ nhưng được trì hoãn; chúng thực thi trên luồng (Thread) gọi trừ khi được song song hóa.
+## ngắt mạch (short-circuiting)
 
-Ví dụ nhỏ:
-```java
-// Các phần tử chỉ được xử lý cho đến khi khớp phần tử đầu tiên nhờ đánh giá lười biếng kết hợp với limit
-Stream.iterate(1, i -> i + 1)
-      .filter(i -> i % 2 == 0)
-      .limit(1)
-      .forEach(System.out::println); // In ra: 2
-```
+Một thao tác ngắt mạch (short-circuiting operation) là một thao tác luồng có thể tạo ra kết quả hữu hạn hoặc chấm dứt thực thi ngay cả khi gặp phải đầu vào vô hạn. Các ví dụ bao gồm các thao tác trung gian như `limit()` và các thao tác kết thúc như `findFirst()`, `anyMatch()`, `allMatch()`, và `noneMatch()`.
 
-## ngắn mạch (short-circuiting)
+* **Tầm quan trọng**: Nó cho phép tối ưu hóa hiệu năng mạnh mẽ bằng cách tạm dừng xử lý luồng ngay lập tức sau khi đáp ứng điều kiện phù hợp hoặc giới hạn kích thước, tránh công việc CPU vô ích cho phần còn lại của tập dữ liệu.
+* **Hiểu lầm thường gặp**: Nghĩ rằng các thao tác ngắt mạch luôn xử lý phần tử đầu tiên. Trong các luồng song song, các thao tác ngắt mạch có thể đánh giá nhiều phần tử đồng thời và có thể chấm dứt dựa trên kết quả của luồng nhanh nhất.
+* **Ví dụ nhỏ**:
+  ```java
+  // Stops as soon as any element matches, rather than checking the rest of the stream
+  boolean hasMatch = Stream.of("apple", "banana", "cherry")
+                           .anyMatch(s -> {
+                               System.out.println("Checking: " + s);
+                               return s.startsWith("b");
+                           }); // Prints "Checking: apple", "Checking: banana", then halts.
+  ```
 
-Một thao tác ngắn mạch là một thao tác trên stream có thể tạo ra một kết quả hữu hạn hoặc kết thúc thực thi ngay cả khi nhận vào một nguồn vô hạn. Các ví dụ bao gồm các thao tác trung gian như `limit()` và các thao tác cuối như `findFirst()`, `anyMatch()`, `allMatch()`, và `noneMatch()`.
+## bộ thu thập (collector)
 
-Tại sao nó quan trọng: Nó cho phép tối ưu hóa hiệu năng cực lớn bằng cách dừng xử lý stream ngay lập tức sau khi đạt điều kiện khớp hoặc giới hạn kích thước, tránh việc lãng phí CPU cho phần còn lại của tập dữ liệu.
+Một bộ thu thập (collector) là một triển khai của giao diện `Collector` (thường thu được thông qua lớp tiện ích `Collectors`) được sử dụng làm đối số cho thao tác kết thúc `collect()` để tích lũy các phần tử luồng vào một vùng chứa có thể thay đổi (mutable container).
 
-Điểm dễ nhầm lẫn: Nghĩ rằng các thao tác ngắn mạch luôn luôn xử lý phần tử đầu tiên. Trong stream song song, các thao tác ngắn mạch có thể đánh giá nhiều phần tử đồng thời và có thể kết thúc dựa trên kết quả của luồng chạy nhanh nhất.
+* **Tầm quan trọng**: Nó định nghĩa cách các phần tử luồng sẽ được tổng hợp vào các cấu trúc dữ liệu (như List, Set, hoặc Map) hoặc tóm tắt (nối chuỗi, tính tổng, gom nhóm, phân vùng). Nó xử lý việc khởi tạo vùng chứa, tích lũy phần tử, hợp nhất song song, và biến đổi cuối cùng.
+* **Hiểu lầm thường gặp**: Nhầm lẫn `Collectors.toList()` (trả về một bộ bao bọc ArrayList có thể thay đổi) với `Stream.toList()` (từ Java 16+, trả về một List không thể sửa đổi và nhanh hơn vì nó tránh được chi phí của bộ thu thập).
+* **Ví dụ nhỏ**:
+  ```java
+  // Grouping words by length into a Map using a collector
+  Map<Integer, List<String>> groups = Stream.of("a", "bb", "c")
+      .collect(Collectors.groupingBy(String::length)); // {1=[a, c], 2=[bb]}
+  ```
 
-Ví dụ nhỏ:
-```java
-// Dừng lại ngay khi có bất kỳ phần tử nào khớp, thay vì kiểm tra phần còn lại của stream
-boolean hasMatch = Stream.of("apple", "banana", "cherry")
-                         .anyMatch(s -> {
-                             System.out.println("Đang kiểm tra: " + s);
-                             return s.startsWith("b");
-                         }); // In "Đang kiểm tra: apple", "Đang kiểm tra: banana", sau đó dừng.
-```
+## luồng song song (parallel stream)
 
-## bộ thu gom (collector)
+Một luồng song song (parallel stream) là một chế độ thực thi luồng chia nhỏ đường ống luồng thành nhiều tác vụ, thực thi chúng đồng thời bằng cách sử dụng `ForkJoinPool.commonPool()` chung của JVM.
 
-Một bộ thu gom là một triển khai của interface `Collector` (thường thu được thông qua lớp tiện ích `Collectors`) được sử dụng làm đối số cho thao tác cuối `collect()` để tích lũy các phần tử stream vào một container khả biến.
-
-Tại sao nó quan trọng: Nó định nghĩa cách các phần tử stream được tổng hợp vào các cấu trúc dữ liệu (như List, Set, hoặc Map) hoặc được tổng hợp thông số (nối chuỗi, tính tổng, phân nhóm, phân vùng). Nó xử lý việc khởi tạo container, tích lũy phần tử, trộn song song và chuyển đổi cuối cùng.
-
-Điểm dễ nhầm lẫn: Nhầm lẫn giữa `Collectors.toList()` (trả về một ArrayList khả biến bọc ngoài) với `Stream.toList()` (Java 16+, trả về một List bất biến và nhanh hơn vì tránh được chi phí của bộ thu gom).
-
-Ví dụ nhỏ:
-```java
-// Phân nhóm các từ theo độ dài vào một Map sử dụng một bộ thu gom
-Map<Integer, List<String>> groups = Stream.of("a", "bb", "c")
-    .collect(Collectors.groupingBy(String::length)); // {1=[a, c], 2=[bb]}
-```
-
-## stream song song (parallel stream)
-
-Một stream song song là một chế độ thực thi stream phân chia đường ống stream thành nhiều tác vụ, thực thi chúng đồng thời bằng cách sử dụng chung `ForkJoinPool.commonPool()` dùng chung của JVM.
-
-Tại sao nó quan trọng: Nó cho phép thực thi đa luồng dễ dàng, khai báo để tận dụng các CPU đa nhân cho các tập dữ liệu lớn, có khả năng làm giảm thời gian thực thi cho các tác vụ tính toán chuyên sâu (CPU-intensive).
-
-Điểm dễ nhầm lẫn: Giả định rằng stream song song luôn luôn tăng tốc thực thi. Đối với các tập dữ liệu nhỏ, các nguồn không thể phân tách (như LinkedList), hoặc các tác vụ bị nghẽn I/O, stream song song thực tế có thể chạy chậm hơn do chi phí quản lý luồng và tình trạng đói tài nguyên luồng trong pool.
-
-Ví dụ nhỏ:
-```java
-// Tính tổng đồng thời trên nhiều luồng
-long sum = LongStream.rangeClosed(1, 100_000)
-                     .parallel()
-                     .sum();
-```
+* **Tầm quan trọng**: Nó cho phép thực thi đa luồng một cách dễ dàng và mang tính khai báo để tận dụng CPU nhiều lõi cho các tập dữ liệu lớn, có tiềm năng giảm thời gian thực thi cho các tác vụ tốn nhiều tài nguyên CPU.
+* **Hiểu lầm thường gặp**: Giả định rằng các luồng song song sẽ luôn tăng tốc độ thực thi. Đối với các tập dữ liệu nhỏ, các nguồn không thể tách phân tách (như LinkedList), hoặc các tác vụ bị giới hạn bởi I/O, các luồng song song thực tế có thể chạy chậm hơn do chi phí quản lý luồng và sự cạn kiệt tài nguyên của bể luồng (pool starvation).
+* **Ví dụ nhỏ**:
+  ```java
+  // Computes sum concurrently on multiple threads
+  long sum = LongStream.rangeClosed(1, 100_000)
+                       .parallel()
+                       .sum();
+  ```

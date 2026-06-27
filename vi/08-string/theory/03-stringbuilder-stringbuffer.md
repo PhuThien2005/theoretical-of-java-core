@@ -1,45 +1,45 @@
-# StringBuilder và StringBuffer (StringBuilder and StringBuffer)
+# StringBuilder và StringBuffer
 
-Khi thực hiện các thao tác nối chuỗi thường xuyên (chẳng hạn như bên trong các vòng lặp), tính chất bất biến (immutable) của lớp `String` sẽ dẫn đến chi phí bộ nhớ rất lớn vì mỗi thay đổi đều tạo ra một đối tượng mới trên Heap. Để giải quyết vấn đề này, Java cung cấp các lớp quản lý chuỗi ký tự khả biến (mutable): `StringBuilder` và `StringBuffer`.
+Khi thực hiện các thao tác thường xuyên trên chuỗi (chẳng hạn như bên trong các vòng lặp), tính chất bất biến (immutable) của lớp `String` sẽ dẫn đến chi phí bộ nhớ (memory overhead) rất lớn vì mỗi lần sửa đổi đều tạo ra một đối tượng mới trên Heap. Để giải quyết vấn đề này, Java cung cấp các chuỗi ký tự có thể thay đổi được (mutable character sequences): `StringBuilder` và `StringBuffer`.
 
 ---
 
-## Case Study: Tại Sao Phép Nối Chuỗi Trong Vòng Lặp Có Độ Phức Tạp $O(n^2)$ (Case Study: Why String Concatenation in a Loop is $O(n^2)$)
+## Ví Dụ Thực Tế: Tại Sao Việc Nối Chuỗi Trong Vòng Lặp Có Độ Phức Tạp $O(n^2)$
 
-### Vấn Đề: Phép Nối Chuỗi Ngây Thơ (The Problem: Naive Concatenation)
+### Vấn Đề: Phép Nối Chuỗi Cơ Bản (Naive Concatenation)
 
-Xét một vòng lặp xây dựng một chuỗi gồm $n$ con số:
+Hãy xem xét một vòng lặp xây dựng một chuỗi gồm $n$ số:
 
 ```java
-// KHÔNG NÊN LÀM THẾ NÀY trong code thực tế
+// KHÔNG NÊN LÀM THẾ NÀY trong mã nguồn thực tế
 String s = "";
 for (int i = 0; i < n; i++) {
     s += i; // Hoặc s = s + i;
 }
 ```
 
-Ở bên dưới, trình biên dịch dịch chuyển lệnh `s += i` tương đương với:
+Bên dưới, trình biên dịch dịch câu lệnh `s += i` thành:
 ```java
 s = new StringBuilder().append(s).append(i).toString();
 ```
 
 Trong mỗi lần lặp:
 1. Một đối tượng `StringBuilder` mới được khởi tạo.
-2. Toàn bộ nội dung của chuỗi hiện tại `s` được sao chép từng ký tự vào đối tượng builder mới tạo.
-3. Ký tự/số nguyên mới được thêm vào cuối (append).
-4. Phương thức `toString()` được gọi, thực hiện sao chép mảng ký tự của builder để cấu tạo nên một đối tượng `String` mới.
+2. Toàn bộ nội dung của chuỗi hiện tại `s` được sao chép từng ký tự một vào đối tượng builder mới này.
+3. Số nguyên/ký tự mới được thêm vào sau cùng (append).
+4. Phương thức `toString()` được gọi, nó sẽ sao chép mảng ký tự của builder để xây dựng một đối tượng `String` mới.
 
-Nếu vòng lặp chạy $n$ lần và mỗi lần lặp thực hiện nối thêm một chuỗi nhỏ, độ dài của chuỗi `s` sẽ tăng tuyến tính. Ở lần lặp thứ $k$, JVM sao chép $k$ ký tự.
-Tổng số lượng ký tự bị sao chép qua tất cả các lần lặp là:
-$$\text{Tổng số ký tự sao chép} = 1 + 2 + 3 + \dots + n = \frac{n(n + 1)}{2} = O(n^2)$$
+Nếu vòng lặp chạy $n$ lần và mỗi lần lặp lại thêm vào một chuỗi nhỏ, độ dài của chuỗi `s` sẽ tăng tuyến tính. Ở lần lặp thứ $k$, JVM sao chép $k$ ký tự.
+Tổng số ký tự được sao chép qua tất cả các lần lặp là:
+$$\text{Tổng số bản sao} = 1 + 2 + 3 + \dots + n = \frac{n(n + 1)}{2} = O(n^2)$$
 
 Điều này dẫn đến:
-- **Độ phức tạp thời gian bậc hai ($O(n^2)$):** Thời gian chạy chương trình tăng theo hàm bậc hai của $n$.
-- **Hao phí bộ nhớ / Áp lực GC (Memory Churn / GC Pressure):** Có $n$ đối tượng `StringBuilder` tạm thời và $n$ đối tượng `String` tạm thời được cấp phát rồi ngay lập tức bị vứt bỏ, kích hoạt các đợt tạm dừng thu gom rác (garbage collection) liên tục.
+- **Độ phức tạp thời gian bậc hai ($O(n^2)$):** Thời gian thực thi tăng theo cấp số nhân (bậc hai) so với $n$.
+- **Rác bộ nhớ / Áp lực GC (Memory Churn / GC Pressure):** $n$ đối tượng `StringBuilder` tạm thời và $n$ đối tượng `String` tạm thời được cấp phát rồi bị loại bỏ, gây ra các khoảng dừng thu gom rác (garbage collection) thường xuyên.
 
-### Giải Pháp: Sử Dụng `StringBuilder`
+### Giải Pháp: `StringBuilder`
 
-Bằng cách khởi tạo một đối tượng `StringBuilder` duy nhất bên ngoài vòng lặp, chúng ta tránh việc tạo ra các đối tượng tạm thời và các thao tác sao chép mảng dư thừa:
+Bằng cách khởi tạo một đối tượng `StringBuilder` duy nhất bên ngoài vòng lặp, chúng ta tránh được việc tạo ra các đối tượng tạm thời và việc sao chép mảng dư thừa:
 
 ```java
 StringBuilder sb = new StringBuilder();
@@ -50,71 +50,71 @@ String s = sb.toString();
 ```
 
 Tại đây:
-1. Chỉ có duy nhất **một** đối tượng `StringBuilder` được cấp phát.
-2. Phương thức `append()` thực hiện sửa đổi trực tiếp (in-place) trên mảng buffer `byte[]`/`char[]` nội bộ của nó.
-3. Thao tác sao chép mảng chỉ xảy ra khi mảng buffer hiện tại bị hết dung lượng. Nhờ chiến lược nhân đôi dung lượng (`(dung_lượng_cũ * 2) + 2`), việc thay đổi kích thước mảng xảy ra theo thang logarit ($O(\log n)$ lần).
-4. Độ phức tạp khấu hao (amortized complexity) của mỗi lệnh `append()` là $O(1)$.
-5. Tổng độ phức tạp thời gian của toàn bộ vòng lặp giảm xuống còn **$O(n)$**.
-6. Chỉ có duy nhất **một** đối tượng `String` cuối cùng được tạo ra khi gọi phương thức `.toString()` ở cuối chương trình.
+1. Chỉ có **một** đối tượng `StringBuilder` duy nhất được cấp phát.
+2. Phương thức `append()` sửa đổi trực tiếp bộ đệm `byte[]`/`char[]` nội bộ ngay tại chỗ (in-place).
+3. Việc sao chép mảng chỉ xảy ra khi bộ đệm hết dung lượng. Nhờ chiến lược nhân đôi dung lượng (`(dung_lượng_cũ * 2) + 2`), việc thay đổi kích thước mảng diễn ra theo cơ số logarit ($O(\log n)$ lần).
+4. Độ phức tạp khấu hao (amortized complexity) của mỗi phương thức `append()` là $O(1)$.
+5. Tổng độ phức tạp thời gian cho toàn bộ vòng lặp là **$O(n)$**.
+6. Chỉ có **một** đối tượng `String` cuối cùng được tạo ra khi gọi `.toString()` ở cuối vòng lặp.
 
 ---
 
-## Dung Lượng Và Bộ Đệm Nội Bộ (Internal Buffer and Capacity)
+## Bộ Đệm Nội Bộ và Dung Lượng (Internal Buffer and Capacity)
 
-Cả `StringBuilder` và `StringBuffer` đều kế thừa từ một lớp cha trừu tượng ở phạm vi package-private là `AbstractStringBuilder`.
-- Chúng quản lý một mảng byte/char buffer khả biến để lưu trữ các ký tự.
-- **Length (Độ dài):** Số lượng ký tự thực tế đang được lưu trữ trong buffer.
-- **Capacity (Dung lượng):** Tổng kích thước của mảng buffer được cấp phát. Theo mặc định, một đối tượng builder mới tạo có dung lượng ban đầu là **16 ký tự** cộng với độ dài của chuỗi được dùng để khởi tạo nó.
+Cả `StringBuilder` và `StringBuffer` đều kế thừa từ một lớp cha trừu tượng package-private gọi là `AbstractStringBuilder`.
+- Chúng quản lý một bộ đệm mảng byte/char có thể thay đổi được để lưu trữ các ký tự.
+- **Length (Độ dài):** Số lượng ký tự thực tế đang được lưu trữ trong bộ đệm.
+- **Capacity (Dung lượng):** Tổng kích thước của mảng bộ đệm được cấp phát. Theo mặc định, một builder mới có dung lượng ban đầu là **16 ký tự** cộng với độ dài của chuỗi được sử dụng để khởi tạo nó.
 
 ### Thuật Toán Thay Đổi Kích Thước (Resizing Algorithm)
-Khi bạn thực hiện append một nội dung vượt quá dung lượng hiện tại, JVM sẽ cấp phát một mảng mới lớn hơn và sao chép nội dung cũ sang. Công thức tăng dung lượng là:
+Khi bạn thêm nội dung vượt quá dung lượng hiện tại, JVM sẽ cấp phát một mảng lớn hơn và sao chép các nội dung cũ sang. Công thức mở rộng dung lượng là:
 $$\text{Dung lượng mới} = (\text{Dung lượng cũ} \times 2) + 2$$
-Nếu dung lượng mới tính theo công thức này vẫn không đủ chứa, JVM sẽ thiết lập dung lượng mới bằng chính xác độ dài của nội dung mới cần lưu.
+Nếu dung lượng mới này vẫn không đủ, JVM sẽ thiết lập dung lượng bằng đúng độ dài của nội dung mới cần lưu trữ.
 
 ---
 
-## So Sánh Các Đặc Tính Chi Tiết (Detailed Feature Comparison)
+## So Sánh Chi Tiết Các Đặc Tính
 
-| Đặc tính (Feature) | `String` | `StringBuilder` (Java 5+) | `StringBuffer` (Java 1.0) |
+| Đặc tính | `String` | `StringBuilder` (Java 5+) | `StringBuffer` (Java 1.0) |
 | :--- | :--- | :--- | :--- |
-| **Tính khả biến** | Bất biến (Immutable) | Khả biến (Mutable) | Khả biến (Mutable) |
-| **An toàn đa luồng** | **An toàn** (nhờ tính bất biến) | **Không an toàn** | **An toàn** (Được đồng bộ) |
-| **Hiệu năng** | Chậm nhất (khi thao tác) | **Nhanh nhất** | Chậm (do chi phí khóa) |
-| **Vùng lưu trữ** | Heap & String Pool | Heap | Heap |
+| **Tính Thay Đổi Được** | Bất biến (Immutable) | Thay đổi được (Mutable) | Thay đổi được (Mutable) |
+| **An Toàn Đa Luồng** | **An toàn** (do tính bất biến) | **Không an toàn** | **An toàn** (Đồng bộ hóa - Synchronized) |
+| **Hiệu Năng** | Chậm nhất (khi thao tác chuỗi) | **Nhanh nhất** | Chậm (do chi phí khóa đồng bộ hóa) |
+| **Vùng Lưu Trữ** | Heap & String Pool | Heap | Heap |
 
 ---
 
-## An Toàn Đa Luồng Và Tranh Chấp Khóa (Thread Safety and Lock Contention)
+## An Toàn Đa Luồng và Tranh Chấp Khóa (Thread Safety and Lock Contention)
 
-- **`StringBuffer`:** Tất cả các phương thức ghi/sửa đổi dữ liệu (như `append()`, `insert()`, `delete()`) đều được đánh dấu bằng từ khóa `synchronized`. Điều này đảm bảo rằng chỉ có duy nhất một luồng có thể sửa đổi buffer tại một thời điểm. Tuy nhiên, cơ chế đồng bộ hóa này tiêu tốn chi phí hiệu năng đáng kể:
-  - Ngay cả trong một chương trình đơn luồng, việc yêu cầu và giải phóng khóa monitor (monitor locks) vẫn gây ra chi phí đồng bộ luồng.
-  - Trong môi trường đa luồng, nếu nhiều luồng cùng cố gắng ghi dữ liệu vào một đối tượng `StringBuffer` đồng thời, nó sẽ gây ra **tranh chấp khóa (lock contention)**, làm chặn (blocking) các luồng và làm suy giảm hiệu năng hệ thống.
-- **`StringBuilder`:** Loại bỏ hoàn toàn từ khóa `synchronized`. Nó không an toàn luồng. Nếu nhiều luồng cùng ghi dữ liệu vào một thực thể `StringBuilder` đồng thời, nó sẽ dẫn đến sai lệch dữ liệu hoặc các lỗi chỉ số mảng vượt quá giới hạn. Tuy nhiên, đối với các biến cục bộ khai báo bên trong một phương thức, `StringBuilder` luôn luôn là sự lựa chọn được ưu tiên tối đa vì các biến cục bộ vốn dĩ được giới hạn hoạt động trong một luồng duy nhất (thread-confined).
+- **`StringBuffer`:** Tất cả các phương thức thay đổi (như `append()`, `insert()`, `delete()`) đều được đánh dấu bằng từ khóa `synchronized`. Điều này đảm bảo rằng tại một thời điểm chỉ có một luồng (thread) có thể sửa đổi bộ đệm. Tuy nhiên, sự đồng bộ hóa này đi kèm với chi phí hiệu năng:
+  - Ngay cả trong chương trình đơn luồng, việc yêu cầu và giải phóng các khóa giám sát (monitor lock) vẫn tạo ra chi phí đồng bộ hóa luồng.
+  - Trong môi trường đa luồng, nếu nhiều luồng cố gắng ghi vào cùng một đối tượng `StringBuffer` đồng thời, nó sẽ gây ra hiện tượng **tranh chấp khóa (lock contention)**, chặn đứng các luồng và làm giảm hiệu năng.
+- **`StringBuilder`:** Loại bỏ hoàn toàn các từ khóa `synchronized`. Nó không an toàn đa luồng. Nếu nhiều luồng ghi vào một thực thể `StringBuilder` duy nhất cùng một lúc, kết quả sẽ là dữ liệu bị sai lệch hoặc ném ra các ngoại lệ vượt quá chỉ mục mảng. Tuy nhiên, đối với các biến cục bộ bên trong một phương thức, `StringBuilder` luôn là lựa chọn được ưu tiên vì các biến cục bộ được giới hạn trong luồng (thread-confined).
 
-### Đi Sâu: Chi Phí Đồng Bộ Hóa Và Cơ Chế Tranh Chấp Khóa (Deep-Dive: Synchronization Overhead and Lock Contention Mechanics)
+### Đi Sâu: Chi Phí Đồng Bộ Hóa và Cơ Chế Tranh Chấp Khóa
 
-Sự chênh lệch hiệu năng giữa `StringBuilder` và `StringBuffer` bắt nguồn hoàn toàn từ chi phí runtime của cơ chế đồng bộ hóa luồng. Trong `StringBuffer`, mọi phương thức thay đổi trạng thái đều được khai báo với từ khóa `synchronized`, yêu cầu luồng đang thực thi phải chiếm giữ khóa monitor của đối tượng trước khi chạy phương thức và giải phóng khóa đó sau khi hoàn thành. Quá trình này liên quan đến các bước kiểm tra của JVM và hệ điều hành, tạo ra độ trễ ngay cả trong môi trường đơn luồng. Khi nhiều luồng cùng truy cập đồng thời vào một thực thể `StringBuffer` duy nhất, chúng sẽ gặp hiện tượng tranh chấp khóa, khiến các luồng bị chặn và phải thực hiện chuyển cảnh (context-switch), làm giảm nghiêm trọng thông lượng của ứng dụng. Vì `StringBuilder` hoàn toàn không đồng bộ hóa, nó tránh được tất cả các chi phí yêu cầu khóa và thực hiện các thao tác trực tiếp trên mảng buffer nội bộ của nó, giúp nó trở thành lựa chọn vượt trội cho các tác vụ đơn luồng và các biến cục bộ giới hạn trong luồng.
+Sự chênh lệch hiệu năng giữa `StringBuilder` và `StringBuffer` hoàn toàn xuất phát từ chi phí runtime của việc đồng bộ hóa luồng. Trong `StringBuffer`, mọi phương thức thay đổi trạng thái đều được khai báo với từ khóa `synchronized`, yêu cầu luồng đang thực thi phải giành được khóa giám sát (monitor lock) của đối tượng trước khi thực hiện và giải phóng khóa đó sau khi hoàn thành. Quá trình này liên quan đến các bước kiểm tra ở cấp độ JVM và hệ điều hành, gây ra độ trễ ngay cả trong môi trường hoàn toàn đơn luồng. Khi nhiều luồng truy cập đồng thời vào một thực thể `StringBuffer` duy nhất, chúng sẽ gặp hiện tượng tranh chấp khóa, khiến các luồng bị chặn và phải chuyển đổi ngữ cảnh (context-switch), làm giảm nghiêm trọng băng thông ứng dụng (application throughput). Do `StringBuilder` hoàn toàn không đồng bộ hóa, nó tránh được tất cả các chi phí tranh chấp khóa và thực hiện các thao tác trực tiếp trên bộ đệm nội bộ của nó, khiến nó trở thành lựa chọn vượt trội cho các tác vụ đơn luồng và các biến cục bộ giới hạn trong một luồng đơn.
 
-#### Mô Hình So Sánh Tranh Chấp Luồng (Thread Contention Comparison Model)
+#### Mô Hình So Sánh Tranh Chấp Luồng
 
 ```mermaid
 graph TD
-    subgraph StringBuffer [StringBuffer (Đồng bộ - Synchronized)]
-        sb[Khóa Monitor của StringBuffer]
-        t1[Luồng 1] -->|Chiếm Khóa| sb
-        t2[Luồng 2] -->|Bị chặn / Chờ| sb
+    subgraph StringBuffer (Đồng bộ hóa)
+        sb[Khóa giám sát StringBuffer Monitor Lock]
+        t1[Thread 1] -->|Yêu cầu khóa| sb
+        t2[Thread 2] -->|Bị chặn / Đang chờ| sb
     end
-    subgraph StringBuilder [StringBuilder (Không đồng bộ)]
-        sbuilder[Bộ đệm StringBuilder]
-        t3[Luồng 3] -->|Ghi Trực tiếp| sbuilder
-        t4[Luồng 4] -->|Ghi Trực tiếp / Nguy cơ Race Condition| sbuilder
+    subgraph StringBuilder (Không đồng bộ hóa)
+        sbuilder[Bộ đệm StringBuilder Buffer]
+        t3[Thread 3] -->|Ghi trực tiếp| sbuilder
+        t4[Thread 4] -->|Ghi trực tiếp / Nguy cơ Race Condition| sbuilder
     end
 ```
 
-#### Ví Dụ Code Minh Họa Bất Đồng Bộ Không An Toàn (Unsafe Concurrency Demonstration Code Example)
+#### Ví Dụ Mã Nguồn Minh Họa Sự Đồng Thời Không An Toàn
 
 ```java
-// Thao tác ghi đồng thời không an toàn vào StringBuilder
+// Ghi đồng thời không an toàn vào StringBuilder
 StringBuilder sb = new StringBuilder();
 Runnable task = () -> {
     for (int i = 0; i < 1000; i++) {
@@ -133,35 +133,26 @@ try {
     e.printStackTrace();
 }
 
-// Có thể ném ra lỗi ArrayIndexOutOfBoundsException hoặc in ra độ dài nhỏ hơn 2000!
+// Có thể ném ra lỗi ArrayIndexOutOfBoundsException or in ra độ dài nhỏ hơn 2000!
 System.out.println("Expected: 2000, Actual Length: " + sb.length()); 
 ```
 
-#### Chuỗi Nguyên Nhân - Kết Quả Bất Đồng Bộ StringBuilder Không An Toàn
-
-```text
-Ghi dữ liệu đồng thời vào `StringBuilder`
-  → Nhiều luồng cùng đọc chung chỉ số ghi nội bộ tại một thời điểm
-  → Các luồng cùng ghi đè ký tự vào chung một ô chỉ số mảng
-  → Lệnh ghi của luồng này đè lên luồng kia
-  → Bộ theo dõi kích thước nội bộ tăng lên không đồng bộ
-  → Tạo ra giới hạn mảng bị sai lệch hoặc ném ra ngoại lệ `ArrayIndexOutOfBoundsException`.
-```
-
+#### Chuỗi Nguyên Nhân - Kết Quả Của Việc Sử Dụng StringBuilder Đồng Thời Không An Toàn
+Ghi đồng thời vào `StringBuilder` $\rightarrow$ Nhiều luồng đọc cùng một chỉ số ghi nội bộ tại cùng một thời điểm $\rightarrow$ Các luồng ghi các ký tự vào cùng một vị trí chỉ số $\rightarrow$ Dữ liệu ghi của một luồng bị ghi đè bởi luồng khác $\rightarrow$ Bộ đếm kích thước nội bộ được tăng lên không nhất quán $\rightarrow$ Dẫn đến vượt quá giới hạn mảng hoặc ném ra ngoại lệ `ArrayIndexOutOfBoundsException`.
 
 ---
 
-## Các Phương Thức API Quan Trọng (Key API Methods)
+## Các Phương Thức API Quan Trọng
 
 ### 1. `append()`
-Thực hiện nối thêm biểu diễn chuỗi của bất kỳ kiểu dữ liệu nào vào cuối chuỗi hiện tại. Hỗ trợ cơ chế gọi chuỗi phương thức (method chaining).
+Thêm biểu diễn chuỗi của bất kỳ kiểu dữ liệu nào vào cuối chuỗi hiện tại. Hỗ trợ cơ chế chuỗi phương thức (method chaining).
 ```java
 StringBuilder sb = new StringBuilder("Base");
-sb.append("-").append(12.34).append(true); // Kết quả: "Base-12.34true"
+sb.append("-").append(12.34).append(true); // "Base-12.34true"
 ```
 
 ### 2. `insert(int offset, Object obj)`
-Chèn chuỗi ký tự tại vị trí chỉ số (index) được chỉ định.
+Chèn các ký tự tại vị trí chỉ mục (index) được chỉ định.
 ```java
 StringBuilder sb = new StringBuilder("Jva");
 sb.insert(1, "a"); // sb bây giờ là "Java"
@@ -169,47 +160,47 @@ sb.insert(1, "a"); // sb bây giờ là "Java"
 - Ném ra ngoại lệ `StringIndexOutOfBoundsException` nếu `offset < 0` hoặc `offset > length()`.
 
 ### 3. `delete(int start, int end)` và `deleteCharAt(int index)`
-- `delete()`: Loại bỏ các ký tự từ chỉ số `start` (bao gồm) đến `end` (loại trừ).
-- `deleteCharAt()`: Loại bỏ một ký tự tại chỉ số cụ thể.
+- `delete()`: Loại bỏ các ký tự từ vị trí `start` (bao gồm) đến `end` (không bao gồm).
+- `deleteCharAt()`: Loại bỏ một ký tự duy nhất tại vị trí chỉ định.
 ```java
 StringBuilder sb = new StringBuilder("012345");
-sb.delete(2, 4); // Loại bỏ các chỉ số 2 và 3 -> sb bây giờ là "0145"
+sb.delete(2, 4); // Loại bỏ các chỉ mục 2 và 3 -> sb bây giờ là "0145"
 ```
 
 ### 4. `replace(int start, int end, String str)`
-Thay thế các ký tự từ chỉ số `start` đến `end` bằng chuỗi `str`.
+Thay thế các ký tự từ vị trí `start` đến `end` bằng chuỗi `str`.
 ```java
 StringBuilder sb = new StringBuilder("Hello World");
 sb.replace(6, 11, "Java"); // sb bây giờ là "Hello Java"
 ```
 
 ### 5. `reverse()`
-Đảo ngược thứ tự chuỗi ký tự.
+Đảo ngược chuỗi ký tự.
 ```java
 StringBuilder sb = new StringBuilder("live");
 sb.reverse(); // sb bây giờ là "evil"
 ```
 
 ### 6. `setLength(int newLength)`
-Thiết lập độ dài mới cho chuỗi ký tự:
-- Nếu `newLength` nhỏ hơn độ dài hiện tại, chuỗi ký tự sẽ bị cắt ngắn.
-- Nếu `newLength` lớn hơn, mảng buffer sẽ được đệm thêm các ký tự null (`\u0000`).
+Thiết lập độ dài của chuỗi ký tự:
+- Nếu `newLength` nhỏ hơn độ dài hiện tại, chuỗi ký tự sẽ bị cắt ngắn đi.
+- Nếu `newLength` lớn hơn, bộ đệm sẽ được đệm thêm bằng các ký tự rỗng (`\u0000`).
 ```java
 StringBuilder sb = new StringBuilder("Java");
 sb.setLength(2); // sb bây giờ là "Ja"
 ```
 
 ### 7. `ensureCapacity(int minimumCapacity)`
-Bắt buộc mảng buffer cấp phát bộ nhớ đủ để chứa tối thiểu `minimumCapacity` ký tự, giúp ngăn chặn việc thay đổi kích thước mảng liên tục nếu bạn đã biết trước kích thước chuỗi kết quả cuối cùng.
+Bắt buộc bộ đệm phải cấp phát không gian cho ít nhất `minimumCapacity` ký tự, giúp ngăn chặn nhiều lần thay đổi kích thước mảng nếu bạn biết trước kích thước nội dung cuối cùng.
 
 ---
 
-## Các Lỗi Thường Gặp (Common Mistakes)
+## Lỗi Thường Gặp
 
-### 1. Khởi tạo lại `StringBuilder` ngay bên trong vòng lặp
-Việc tạo mới một đối tượng `StringBuilder` bên trong vòng lặp sẽ phá vỡ mục đích sử dụng của nó. Đoạn code vẫn phải chịu độ phức tạp sao chép mảng $O(n^2)$ và chi phí thu gom rác.
+### 1. Khởi Tạo Lại `StringBuilder` Bên Trong Vòng Lặp
+Tạo một đối tượng `StringBuilder` mới bên trong vòng lặp làm mất đi mục đích tối ưu hóa của nó. Mã nguồn vẫn chịu ảnh hưởng bởi việc sao chép mảng với độ phức tạp $O(n^2)$ và chi phí thu gom rác cao.
 ```java
-// TỆ: StringBuilder vẫn bị tạo mới trong mọi lần lặp!
+// SAI: StringBuilder vẫn được tạo mới trong mỗi lần lặp!
 String s = "";
 for (int i = 0; i < 1000; i++) {
     StringBuilder sb = new StringBuilder();
@@ -217,7 +208,7 @@ for (int i = 0; i < 1000; i++) {
     s = sb.toString();
 }
 
-// TỐT: Khởi tạo một StringBuilder duy nhất ở ngoài vòng lặp
+// ĐÚNG: Khởi tạo một StringBuilder duy nhất bên ngoài vòng lặp
 StringBuilder sb = new StringBuilder();
 for (int i = 0; i < 1000; i++) {
     sb.append(i);
@@ -225,47 +216,48 @@ for (int i = 0; i < 1000; i++) {
 String s = sb.toString();
 ```
 
-### 2. Sử dụng `append()` kết hợp với phép nối chuỗi
-Viết `sb.append(a + b)` thay vì `sb.append(a).append(b)`. Cách viết trước thực hiện phép nối chuỗi tạo ra chuỗi mới *trước* khi truyền kết quả cho phương thức `append()`, tạo ra một đối tượng `String` tạm thời gây lãng phí bộ nhớ.
+### 2. Sử Dụng `append()` Với Phép Nối Chuỗi
+Viết `sb.append(a + b)` thay vị `sb.append(a).append(b)`. Cách viết trước thực hiện một phép nối chuỗi *prước khi* chuyển kết quả cho phương thức `append()`, tạo ra một đối tượng `String` tạm thời và lãng phí bộ nhớ.
 ```java
 String first = "John";
 String last = "Doe";
 StringBuilder sb = new StringBuilder();
 
-// TỆ: Tạo ra một chuỗi tạm thời "John Doe"
+// SAI: Tạo ra một chuỗi tạm thời "John Doe"
 sb.append(first + " " + last);
 
-// TỐT: Sử dụng chuỗi phương thức giúp tránh cấp phát tạm thời
+// ĐÚNG: Sử dụng chuỗi phương thức giúp tránh cấp phát đối tượng tạm thời
 sb.append(first).append(" ").append(last);
 ```
 
-### 3. Chia sẻ `StringBuilder` trong đa luồng
-Lớp `StringBuilder` KHÔNG an toàn luồng. Nếu nhiều luồng cùng gọi append vào một thực thể `StringBuilder` dùng chung đồng thời, các ký tự có thể ghi đè lên nhau hoặc ném ra ngoại lệ `ArrayIndexOutOfBoundsException`.
-Nếu yêu cầu an toàn luồng, hãy sử dụng `StringBuffer` (hoặc tự quản lý cơ chế khóa đồng bộ hóa ngoài).
+### 3. Chia Sẻ `StringBuilder` Đồng Thời Giữa Các Luồng
+`StringBuilder` KHÔNG an toàn đa luồng. Nếu nhiều luồng cùng gọi `append()` vào một `StringBuilder` được chia sẻ đồng thời, các ký tự có thể ghi đè lên nhau hoặc ném ra ngoại lệ `ArrayIndexOutOfBoundsException`.
+Nếu yêu cầu tính an toàn luồng, hãy sử dụng `StringBuffer` (hoặc quản lý đồng bộ hóa bên ngoài/sử dụng bộ đệm cục bộ của luồng - thread-local buffers).
 ```java
-// KHÔNG AN TOÀN: Nhiều luồng sửa đổi cùng một đối tượng builder
+// KHÔNG AN TOÀN: Nhiều luồng sửa đổi cùng một builder
 StringBuilder sharedBuilder = new StringBuilder();
 Runnable r = () -> {
     for (int i = 0; i < 100; i++) {
-        sharedBuilder.append("A"); // Xảy ra hiện tượng Race condition!
+        sharedBuilder.append("A"); // Xảy ra lỗi Race condition!
     }
 };
 ```
 
-### 4. Bỏ qua giá trị Dung lượng ban đầu (Initial Capacity)
-Nếu bạn đã biết trước chuỗi cuối cùng sẽ rất lớn (ví dụ: 100,000 ký tự), việc khởi tạo một `StringBuilder` với dung lượng mặc định là 16 sẽ bắt buộc JVM phải thực hiện thay đổi kích thước mảng buffer rất nhiều lần.
-Hãy luôn chỉ định một dung lượng khởi tạo ước tính nếu biết trước:
-```// Thay đổi kích thước nhiều lần: 16 -> 34 -> 70 -> 142 -> ...
+### 4. Bỏ Qua Dung Lượng Khởi Tạo Ban Đầu
+Nếu bạn biết chắc chắn rằng chuỗi kết quả cuối cùng sẽ rất lớn (ví dụ: 100.000 ký tự), việc khởi tạo một `StringBuilder` với dung lượng mặc định là 16 sẽ buộc JVM phải thay đổi kích thước mảng bộ đệm rất nhiều lần.
+Hãy luôn chỉ định dung lượng ban đầu ước tính nếu biết trước:
+```java
+// Thay đổi kích thước nhiều lần: 16 -> 34 -> 70 -> 142 -> ...
 StringBuilder sb1 = new StringBuilder(); 
 
-// Không cần thay đổi kích thước lần nào:
+// Thay đổi kích thước 0 lần:
 StringBuilder sb2 = new StringBuilder(100_000); 
 ```
 
 ---
 
-## Liên Kết Tham Khảo (Reference Links)
+## Liên Kết Tham Chiếu
 
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/StringBuilder.html (Tài liệu Javadoc của lớp StringBuilder trong Oracle Java API)
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/StringBuffer.html (Tài liệu Javadoc của lớp StringBuffer trong Oracle Java API)
-- https://docs.oracle.com/javase/specs/jls/se21/html/jls-17.html (Đặc tả Ngôn ngữ Java: Luồng và Khóa)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/StringBuilder.html (Tham khảo lớp StringBuilder từ Oracle Java API)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/StringBuffer.html (Tham khảo lớp StringBuffer từ Oracle Java API)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-17.html (Đặc tả Ngôn ngữ Java: Luồng và Khóa - Threads and Locks)

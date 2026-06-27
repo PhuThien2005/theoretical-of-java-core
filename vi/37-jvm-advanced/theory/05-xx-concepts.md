@@ -1,87 +1,87 @@
-# JVM Nâng Cao - Phần 5 (Advanced JVM - Part 5)
+# JVM nâng cao - Phần 5 (Advanced JVM - Part 5)
 
-## Mục Tiêu Học Tập (Learning Goal)
+## Mục tiêu học tập
 
-Tài liệu này trình bày một phần trọng tâm của **JVM Nâng cao (Advanced JVM)**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, không chỉ là các từ vựng rời rạc.
+Tài liệu này tập trung vào một phần trọng tâm của **JVM nâng cao (Advanced JVM)**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc Java thực tế, thay vì chỉ học các từ vựng rời rạc.
 
-## Khái Quát Nội Dung (Outline Coverage)
+## Đề cương chi tiết
 
-| Khái niệm (Concept) | Điều cần biết (What to know) |
+| Khái niệm | Điều cần biết |
 | --- | --- |
-| `-XX` | -XX là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi. |
-| `Basic profiling` | Phân tích hiệu năng cơ bản (Basic profiling) là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi. |
-| `Memory dump` | Sao chụp bộ nhớ (Memory dump) là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi. |
-| `Thread dump` | Sao chụp luồng (Thread dump) là một ảnh chụp nhanh (snapshot) về trạng thái và dấu vết ngăn xếp (stack trace) của tất cả các luồng đang hoạt động trong một JVM. |
+| `-XX` | -XX: -XX là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó. |
+| `Basic profiling` | Phân tích hiệu năng cơ bản (Basic profiling): Phân tích hiệu năng cơ bản là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó. |
+| `Memory dump` | Kết xuất bộ nhớ (Memory dump): Kết xuất bộ nhớ là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó. |
+| `Thread dump` | Kết xuất luồng (Thread dump): Kết xuất luồng là một bản chụp nhanh (snapshot) trạng thái và dấu vết ngăn xếp (stack trace) của tất cả các luồng đang hoạt động trong một JVM. |
 
-## Ghi Chú Chi Tiết (Detailed Notes)
+## Ghi chú chi tiết
 
 ### -XX
 
--XX là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi.
+-XX là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
 
-Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được cho phép, và chế độ thất bại. Hãy xem lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `-XX` trong một câu.
-- Nhận biết `-XX` trong code, câu lệnh, tài liệu, hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi (tradeoff) liên quan đến `-XX`.
+- Nhận diện `-XX` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `-XX`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc code, hãy hỏi: XX thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
+- Khi đọc mã nguồn, hãy hỏi: `XX` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ### Phân tích hiệu năng cơ bản (Basic profiling)
 
-Phân tích hiệu năng cơ bản (Basic profiling) là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi.
+Phân tích hiệu năng cơ bản là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
 
-Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được cho phép, và chế độ thất bại. Hãy xem lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `Basic profiling` trong một câu.
-- Nhận biết `Basic profiling` trong code, câu lệnh, tài liệu, hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi (tradeoff) liên quan đến `Basic profiling`.
+- Nhận diện `Basic profiling` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `Basic profiling`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc code, hãy hỏi: `Basic profiling` thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
+- Khi đọc mã nguồn, hãy hỏi: `Basic profiling` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-### Sao chụp bộ nhớ (Memory dump)
+### Kết xuất bộ nhớ (Memory dump)
 
-Sao chụp bộ nhớ (Memory dump) là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ thất bại thay vì chỉ nhớ mỗi tên gọi.
+Kết xuất bộ nhớ là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
 
-Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được cho phép, và chế độ thất bại. Hãy xem lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `Memory dump` trong một câu.
-- Nhận biết `Memory dump` trong code, câu lệnh, tài liệu, hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi (tradeoff) liên quan đến `Memory dump`.
+- Nhận diện `Memory dump` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `Memory dump`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc code, hãy hỏi: `Memory dump` thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
+- Khi đọc mã nguồn, hãy hỏi: `Memory dump` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-### Sao chụp luồng (Thread dump)
+### Kết xuất luồng (Thread dump)
 
-Sao chụp luồng (Thread dump) là một ảnh chụp nhanh (snapshot) của tất cả các luồng đang hoạt động bên trong JVM, hiển thị trạng thái (RUNNABLE, BLOCKED, WAITING) và dấu vết ngăn xếp (stack trace) đầy đủ cho mỗi luồng.
+Một bản kết xuất luồng (thread dump) là một ảnh chụp nhanh của tất cả các luồng đang hoạt động bên trong JVM, hiển thị trạng thái (RUNNABLE, BLOCKED, WAITING) và dấu vết ngăn xếp đầy đủ cho mỗi luồng.
 
-Khái niệm này quan trọng vì nó cho phép các lập trình viên chẩn đoán khóa chết (deadlock), tranh chấp luồng (thread contention), vòng lặp vô hạn, và khóa tài nguyên trong các ứng dụng đồng thời.
+It matters because it allows developers to diagnose deadlocks, thread contention, infinite loops, and resource locks in concurrent applications.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `Thread dump` trong một câu.
-- Nhận biết `Thread dump` trong code, câu lệnh, tài liệu, hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi (tradeoff) liên quan đến `Thread dump`.
+- Nhận diện `Thread dump` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `Thread dump`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
 - `new Thread(task).start()` bắt đầu công việc trên một luồng khác.
 
-## Ví Dụ Code (Code Examples)
+## Các ví dụ mã nguồn
 
-### CLI Command to capture thread/heap dumps
+### Lệnh CLI để chụp kết xuất luồng/bộ nhớ
 ```bash
 # Capture thread dump (PID: 1234)
 jstack 1234 > thread_dump.txt
@@ -90,41 +90,41 @@ jstack 1234 > thread_dump.txt
 jmap -dump:format=b,file=heap_dump.hprof 1234
 ```
 
-## Các Sai Lầm Thường Gặp (Common Mistakes)
+## Các lỗi thường gặp
 
-- **Phân tích thủ công heap dump**: Các tệp heap dump là các tệp nhị phân và có thể cực kỳ lớn. Không mở chúng bằng các trình soạn thảo văn bản thông thường. Luôn sử dụng các công cụ chuyên dụng như Eclipse Memory Analyzer (MAT) hoặc VisualVM.
-- **Không sao chụp luồng (thread dump) khi xảy ra deadlock**: Khi các luồng của ứng dụng bị treo, hãy ngay lập tức chụp từ 2 đến 3 thread dump cách nhau vài giây để xác định luồng nào đang bị chặn trên màn giám sát (monitor) nào.
+- **Phân tích kết xuất bộ nhớ bằng tay**: Kết xuất bộ nhớ (heap dump) là các tệp nhị phân và có thể rất lớn. Không mở chúng trong các trình biên tập văn bản thô. Luôn sử dụng các công cụ chuyên dụng như Eclipse Memory Analyzer (MAT) hoặc VisualVM.
+- **Không chụp kết xuất luồng khi xảy ra deadlock**: Khi các luồng ứng dụng bị treo, hãy chụp ngay 2-3 bản kết xuất luồng cách nhau vài giây để xác định luồng nào đang bị chặn trên bộ giám sát nào.
 
-## Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)
+## Câu hỏi ôn tập thường gặp
 
-- Khái niệm nào ở đây là quy tắc biên dịch (compile-time)?
-- Khái niệm nào ở đây ảnh hưởng đến hành vi thời gian chạy (runtime)?
-- Khái niệm nào ở đây dễ là bẫy phỏng vấn?
+- Khái niệm nào ở đây là quy tắc thời điểm biên dịch?
+- Khái niệm nào ở đây ảnh hưởng đến hành vi thời điểm chạy?
+- Khái niệm nào ở đây có khả năng là bẫy phỏng vấn?
 
-## Tại sao Phân loại Flag JVM tồn tại (Why JVM Flag Classifications Exist)
+## Tại sao các phân loại cờ JVM tồn tại
 
-JVM tổ chức các tùy chọn cấu hình dòng lệnh của mình thành ba loại riêng biệt—Tiêu chuẩn (Standard), Không tiêu chuẩn (`-X`), và Dành cho nhà phát triển/Thử nghiệm (`-XX`)—để quản lý tính ổn định của flag, khả năng di động giữa các nhà cung cấp (vendor portability), và các tính năng thử nghiệm. **Các tùy chọn tiêu chuẩn** (Standard options - ví dụ: `-classpath`, `-verbose:gc`) được đảm bảo sẽ được hỗ trợ trên tất cả các nhà cung cấp và phiên bản JVM tuân thủ tiêu chuẩn, đảm bảo tính ổn định cơ bản của dòng lệnh. **Các tùy chọn không tiêu chuẩn** (Non-Standard options - bắt đầu bằng tiền tố `-X`, chẳng hạn như `-Xms` và `-Xmx`) tùy chỉnh bố cục bộ nhớ hoặc cài đặt thực thi cụ thể cho HotSpot, nhưng không được đảm bảo hỗ trợ bởi các nhà cung cấp khác và có thể thay đổi mà không báo trước. **Các tùy chọn dành cho nhà phát triển, thử nghiệm hoặc không ổn định** (bắt đầu bằng tiền tố `-XX`, chẳng hạn như `-XX:NewRatio` hoặc `-XX:+UseG1GC`) cho phép tùy chỉnh sâu các thuật toán dọn rác GC, chính sách trình biên dịch JIT, và các phân vùng bộ nhớ con. Các flag này yêu cầu mở khóa rõ ràng (thông qua `-XX:+UnlockDiagnosticVMOptions` hoặc `-XX:+UnlockExperimentalVMOptions`) vì việc sử dụng không đúng cách có thể làm giảm hiệu năng nghiêm trọng, gây treo JVM, hoặc dẫn đến hành vi thời gian chạy không xác định.
+JVM tổ chức các tùy chọn cấu hình dòng lệnh của mình thành ba loại riêng biệt—Tiêu chuẩn (Standard), Không tiêu chuẩn (Non-Standard `-X`), và Nhà phát triển/Thử nghiệm (Developer/Experimental `-XX`)—để quản lý tính ổn định của cờ, khả năng di động giữa các nhà cung cấp, và các tính năng thử nghiệm. **Các tùy chọn tiêu chuẩn** (ví dụ: `-classpath`, `-verbose:gc`) được đảm bảo hỗ trợ trên tất cả các nhà cung cấp và phiên bản JVM tuân thủ tiêu chuẩn, đảm bảo tính ổn định cơ bản cho dòng lệnh. **Các tùy chọn không tiêu chuẩn** (bắt đầu bằng `-X`, chẳng hạn như `-Xms` và `-Xmx`) tùy chỉnh bố cục bộ nhớ hoặc cài đặt thực thi đặc thù của HotSpot, nhưng không đảm bảo được hỗ trợ bởi các nhà cung cấp khác và có thể thay đổi mà không báo trước. **Các tùy chọn dành cho nhà phát triển, thử nghiệm hoặc không ổn định** (bắt đầu bằng `-XX`, chẳng hạn như `-XX:NewRatio` hoặc `-XX:+UseG1GC`) cho phép tùy chỉnh sâu các thuật toán GC, các chính sách trình biên dịch JIT, và các ranh giới bộ nhớ phụ. Các cờ này yêu cầu mở khóa rõ ràng (thông qua `-XX:+UnlockDiagnosticVMOptions` hoặc `-XX:+UnlockExperimentalVMOptions`) vì việc sử dụng không đúng cách có thể làm giảm hiệu năng nghiêm trọng, gây treo JVM, hoặc dẫn đến các hành vi không xác định lúc chạy.
 
-### Mô Hình Tư Duy: Phân Loại Flag JVM và Tối Ưu Hóa Phân Vùng Heap (Mental Model: JVM Flag Categories and Heap Boundary Tuning)
+### Mô hình tư duy: Phổ các tùy chọn JVM và Tinh chỉnh Ranh giới Heap
 
 ```text
-  JVM Options Spectrum:
-  [ Standard: -cp, -version ]  ===> Supported universally, stable
-  [ Non-Standard: -Xms, -Xmx ] ===> HotSpot-specific heap sizing, subject to change
-  [ Experimental: -XX:NewRatio ]==> System developer parameters, unstable/requires unlock
+  Phổ các tùy chọn JVM:
+  [ Tiêu chuẩn: -cp, -version ]    ===> Được hỗ trợ phổ quát, ổn định
+  [ Không tiêu chuẩn: -Xms, -Xmx ] ===> Kích thước Heap đặc thù HotSpot, có thể thay đổi
+  [ Thử nghiệm: -XX:NewRatio ]    ===> Tham số phát triển hệ thống, không ổn định/cần mở khóa
   
-  Heap Sizing Flags Memory Layout:
-  |<---------------------------- -Xmx (Max Heap Size) ----------------------------->|
-  |<--------- -Xms (Initial Heap Size) --------->|
+  Bố cục bộ nhớ của các cờ kích thước Heap:
+  |<---------------------------- -Xmx (Kích thước Heap tối đa) --------------------->|
+  |<--------- -Xms (Kích thước Heap ban đầu) ---->|
   +----------------------------------------------+---------------------------------+
   |      Young Gen (Eden + S0 + S1)              |            Old Gen              |
-  |  (Proportion tuned via -XX:NewRatio)         |                                 |
+  |  (Tỷ lệ được tinh chỉnh qua -XX:NewRatio)     |                                 |
   +----------------------------------------------+---------------------------------+
 ```
 
-### Ví Dụ Code (Code Example)
+### Ví dụ mã nguồn
 
-Dưới đây là một chương trình Java có thể chạy được để truy vấn các tham số vùng nhớ Heap nhằm hiển thị cách các tùy chọn dòng lệnh thiết lập các ranh giới bộ nhớ.
+Dưới đây là một chương trình Java chạy được truy vấn các tham số Heap để chỉ ra cách các tùy chọn dòng lệnh thiết lập ranh giới bộ nhớ.
 
 ```java
 package theory;
@@ -145,25 +145,12 @@ public class HeapTuningInspection {
         System.out.println("Maximum Heap (-Xmx): " + (maxHeap / 1024 / 1024) + " MB");
     }
 }
-/* Output (Default or when run with -Xms256m -Xmx512m):
-Initial Heap (-Xms): 256 MB
-Maximum Heap (-Xmx): 512 MB
-*/
 ```
 
-### Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)
+### Chuỗi nguyên nhân - kết quả
 
+Cấu hình các cờ tiêu chuẩn &rarr; Đảm bảo khả năng di động giữa các nhà cung cấp &rarr; Thêm `-Xms` và `-Xmx` thiết lập giới hạn ranh giới trên Java Heap &rarr; Thêm `-XX:NewRatio=2` cấp phát không gian cho Thế hệ Già nhiều gấp đôi Thế hệ Trẻ &rarr; Mở khóa các cờ thử nghiệm `-XX` kích hoạt các tính năng nâng cao như Shenandoah &rarr; Đạt được hiệu năng JVM được tinh chỉnh tối ưu cho khối lượng công việc mục tiêu.
 
-```text
-Cấu hình các flag tiêu chuẩn
-  → Đảm bảo khả năng tương thích giữa các nhà cung cấp
-  → Thêm `-Xms` và `-Xmx` thiết lập giới hạn ranh giới trên vùng nhớ Heap của Java
-  → Thêm `-XX:NewRatio=2` phân bổ dung lượng cho Old Gen (Thế hệ cũ) gấp đôi Young Gen (Thế hệ trẻ)
-  → Mở khóa các flag thử nghiệm `-XX` kích hoạt các tính năng nâng cao như Shenandoah
-  → Đạt được hiệu năng JVM được tinh chỉnh tối ưu cho khối lượng công việc mục tiêu.
-```
+## Liên kết tham khảo
 
-
-## Liên Kết Tham Khảo (Reference Links)
-
-- https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html (Tài liệu tham khảo các tùy chọn công cụ dòng lệnh Java)
+- https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html (Java Command-Line Tool Options Reference)

@@ -1,39 +1,39 @@
-# Các nguyên tắc thiết kế cơ bản thường đi kèm với Java Core - Phần 1 (Basic Design Principles Often Paired With Java Core - Part 1)
+# Các Nguyên Tắc Thiết Kế Cơ Bản Thường Đi Kèm Với Java Core - Phần 1
 
-## Mục tiêu học tập (Learning Goal)
+## Mục Tiêu Học Tập
 
-Tài liệu này bao gồm các **Nguyên tắc thiết kế (Design Principles)** cơ bản đi kèm với phát triển Java Core (SOLID, DRY, KISS, YAGNI, coupling, cohesion và Clean Code). Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế.
+File này đề cập đến các **Nguyên tắc thiết kế (Design Principles)** cơ bản đi kèm với quá trình phát triển Java Core (SOLID, DRY, KISS, YAGNI, coupling, cohesion, và Clean Code). Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế.
 
-## Phạm vi đề cương (Outline Coverage)
+## Đề Cương Khái Niệm
 
-| Khái niệm (Concept) | Những điều cần biết (What to know) |
+| Khái niệm | Những điều cần biết |
 | --- | --- |
-| `SOLID` | Năm nguyên tắc thiết kế hướng đối tượng cốt lõi để xây dựng phần mềm dễ bảo trì và mở rộng. |
-| `DRY` | "Don't Repeat Yourself" (Đừng lặp lại chính mình) – tránh dư thừa trong mã nguồn và tri thức hệ thống. |
-| `KISS` | "Keep It Simple, Stupid" (Giữ mọi thứ đơn giản) – ưu tiên cấu trúc đơn giản, dễ đọc hơn là những trừu tượng (Abstraction) hóa phức tạp. |
-| `YAGNI` | "You Aren't Gonna Need It" (Bạn chưa cần nó đâu) – tránh triển khai các tính năng sớm cho đến khi chúng thực sự cần thiết. |
-| `Composition over inheritance` | Tái sử dụng hành vi bằng cách bao đóng các biến instance thay vì mở rộng (kế thừa) các lớp. |
-| `Coupling` | Mức độ phụ thuộc lẫn nhau giữa các lớp; mục tiêu là độ liên kết (coupling) lỏng lẻo (loose coupling). |
-| `Cohesion` | Mức độ tập trung của một lớp vào một tác vụ duy nhất; mục tiêu là độ gắn kết (cohesion) cao (high cohesion). |
-| `Basic Dependency Injection` | Tiêm các phụ thuộc từ bên ngoài thông qua các tham số của hàm khởi tạo hoặc phương thức để dễ dàng kiểm thử. |
-| `Defensive programming` | Kiểm thực các điều kiện tiên quyết, dữ liệu đầu vào và các giả định trạng thái để viết mã nguồn chống sập ứng dụng. |
-| `Basic Clean Code` | Viết mã nguồn Java dễ đọc, định dạng tốt và dễ dàng tái cấu trúc (refactoring). |
+| `SOLID` | Năm nguyên tắc thiết kế hướng đối tượng cốt lõi để xây dựng phần mềm dễ bảo trì và dễ mở rộng. |
+| `DRY` | "Don't Repeat Yourself" (Đừng lặp lại chính mình) – tránh sự dư thừa trong mã nguồn và tri thức hệ thống. |
+| `KISS` | "Keep It Simple, Stupid" (Giữ mọi thứ đơn giản) – ưu tiên các cấu trúc đơn giản, dễ đọc hơn là các trừu tượng hóa phức tạp. |
+| `YAGNI` | "You Aren't Gonna Need It" (Bạn chưa cần đến nó đâu) – tránh triển khai các tính năng sớm cho đến khi chúng thực sự cần thiết. |
+| `Ưu tiên thành phần hơn kế thừa` | Tái sử dụng hành vi bằng cách bao bọc các biến thực thể (instance variable) thay vì kế thừa các lớp. |
+| `Tính liên kết (Coupling)` | Mức độ phụ thuộc lẫn nhau giữa các lớp; mục tiêu là liên kết lỏng (loose coupling). |
+| `Tính gắn kết (Cohesion)` | Mức độ tập trung của một lớp vào một nhiệm vụ duy nhất; mục tiêu là gắn kết cao (high cohesion). |
+| `Tiêm phụ thuộc cơ bản` | Tiêm các phụ thuộc bên ngoài qua các tham số của hàm khởi tạo hoặc phương thức để tạo điều kiện thuận lợi cho việc kiểm thử. |
+| `Lập trình phòng thủ` | Xác thực các điều kiện tiên quyết, đầu vào và các giả định trạng thái để viết mã nguồn chống sụp đổ chương trình (crash-resistant). |
+| `Quy tắc viết code sạch cơ bản` | Viết mã nguồn Java dễ đọc, có định dạng và dễ dàng tái cấu trúc (refactoring). |
 
 ---
 
-## Ghi chú chi tiết (Detailed Notes)
+## Ghi Chú Chi Tiết
 
 ### SOLID
 
 SOLID đại diện cho năm nguyên tắc cốt lõi của thiết kế hướng đối tượng:
 
-1. **S**ingle Responsibility Principle (SRP - Nguyên tắc đơn trách nhiệm): Một lớp chỉ nên có một lý do duy nhất để thay đổi.
-2. **O**pen/Closed Principle (OCP - Nguyên tắc Đóng/Mở): Các thực thể phần mềm nên mở rộng để phát triển thêm nhưng đóng lại đối với việc sửa đổi trực tiếp.
-3. **L**iskov Substitution Principle (LSP - Nguyên tắc thay thế Liskov): Các lớp con (subtypes) phải có khả năng thay thế cho các lớp cha (base types) mà không làm thay đổi tính đúng đắn của chương trình.
-4. **I**nterface Segregation Principle (ISP - Nguyên tắc phân tách giao diện): Client không nên bị buộc phải phụ thuộc vào các phương thức mà họ không sử dụng (chia nhỏ các giao diện quá lớn - fat interfaces).
-5. **D**ependency Inversion Principle (DIP - Nguyên tắc đảo ngược phụ thuộc): Nên phụ thuộc vào trừu tượng (interfaces/abstract classes), không nên phụ thuộc vào các lớp cụ thể.
+1. Nguyên tắc Đơn trách nhiệm (**S**ingle Responsibility Principle - SRP): Một lớp chỉ nên có duy nhất một lý do để thay đổi.
+2. Nguyên tắc Đóng/Mở (**O**pen/Closed Principle - OCP): Các thực thể phần mềm nên được mở rộng cho việc phát triển nhưng đóng cho việc sửa đổi.
+3. Nguyên tắc Thay thế Liskov (**L**iskov Substitution Principle - LSP): Các kiểu con phải có khả năng thay thế cho các kiểu cha của chúng mà không làm thay đổi tính đúng đắn của chương trình.
+4. Nguyên tắc Phân tách Interface (**I**nterface Segregation Principle - ISP): Các client không nên bị buộc phải phụ thuộc vào các phương thức mà chúng không sử dụng (chia nhỏ các interface phình to).
+5. Nguyên tắc Đảo ngược Phụ thuộc (**D**ependency Inversion Principle - DIP): Hãy phụ thuộc vào các trừu tượng (interface), chứ không phải vào các lớp triển khai cụ thể.
 
-- **Ví dụ có thể chạy được (Đảo ngược phụ thuộc - Dependency Inversion)**:
+- **Ví dụ chạy được (Đảo ngược Phụ thuộc)**:
   ```java
   public interface MessageSender {
       void send(String msg);
@@ -44,9 +44,9 @@ SOLID đại diện cho năm nguyên tắc cốt lõi của thiết kế hướn
   }
 
   public class NotificationService {
-      private final MessageSender sender; // Phụ thuộc vào interface trừu tượng
+      private final MessageSender sender; // Depends on interface abstraction
 
-      public NotificationService(MessageSender sender) { // Được tiêm vào qua hàm khởi tạo
+      public NotificationService(MessageSender sender) { // Injected via constructor
           this.sender = sender;
       }
   }
@@ -54,15 +54,15 @@ SOLID đại diện cho năm nguyên tắc cốt lõi của thiết kế hướn
 
 ---
 
-### DRY (Don't Repeat Yourself)
+### DRY
 
-"Don't Repeat Yourself" (Đừng lặp lại chính mình) chỉ ra rằng mỗi phần logic của hệ thống phải có một biểu diễn duy nhất, không mơ hồ và có thẩm quyền trong mã nguồn.
+"Don't Repeat Yourself" (Đừng lặp lại chính mình) quy định rằng mỗi phần logic của hệ thống phải có một biểu diễn duy nhất, không mơ hồ và có thẩm quyền trong mã nguồn.
 
-- **Ví dụ có thể chạy được**:
+- **Ví dụ chạy được**:
   ```java
-  // TỒI: Copy-paste logic kiểm tra dữ liệu đầu vào trong nhiều controller
+  // BAD: Copy-pasting input verification logic in multiple controllers
   
-  // TỐT: Trích xuất việc kiểm thực vào một lớp tiện ích validator tĩnh thống nhất
+  // GOOD: Extract validation to a unified static validator utility
   public final class InputValidator {
       public static void validateEmail(String email) {
           if (email == null || !email.contains("@")) {
@@ -72,24 +72,24 @@ SOLID đại diện cho năm nguyên tắc cốt lõi của thiết kế hướn
   }
   ```
 
-- **Sai lầm thường gặp**: **Lạm dụng DRY (Over-DRYing)**. Chia sẻ mã nguồn giữa hai miền nghiệp vụ (business domains) vô tình trông giống hệt nhau hôm nay, nhưng phục vụ các nhu cầu nghiệp vụ hoàn toàn khác nhau. Nếu các yêu cầu của chúng phân rã vào ngày mai, bạn sẽ kết thúc với các lớp cực kỳ phức tạp chứa đầy các cờ điều kiện. Mã nguồn trùng lặp tốt hơn là một trừu tượng hóa sai lầm.
+- **Sai lầm phổ biến**: **Lạm dụng DRY (Over-DRYing)**. Chia sẻ mã nguồn giữa hai miền nghiệp vụ ngẫu nhiên trông giống hệt nhau ở hiện tại, nhưng thực tế phục vụ các nhu cầu nghiệp vụ hoàn toàn khác nhau. Nếu các yêu cầu của chúng phân kỳ vào ngày mai, bạn sẽ kết thúc với các lớp cực kỳ phức tạp chứa đầy các cờ điều kiện. Trùng lặp *mã nguồn* tốt hơn là một *trừu tượng hóa* sai.
 
 ---
 
-### KISS (Keep It Simple, Stupid)
+### KISS
 
-"Keep It Simple, Stupid" (Giữ mọi thứ đơn giản) yêu cầu mã nguồn nên được viết đơn giản và trực tiếp nhất có thể. Tránh việc thiết kế quá mức (over-engineering) với các mẫu thiết kế (design patterns) sớm, phân cấp kế thừa sâu hoặc reflection phức tạp khi logic đơn giản, dễ đọc là đủ để giải quyết vấn đề.
+"Keep It Simple, Stupid" (Giữ mọi thứ đơn giản) yêu cầu mã nguồn nên được viết đơn giản và trực tiếp nhất có thể. Tránh kỹ nghệ hóa quá mức (over-engineering) với các mẫu thiết kế sớm, phân cấp sâu hoặc phản xạ phức tạp khi một logic đơn giản, dễ đọc đã có thể hoạt động tốt.
 
-- **Ví dụ có thể chạy được**:
+- **Ví dụ chạy được**:
   ```java
-  // TỒI: Kiểm tra phức tạp quá mức
+  // BAD: Over-engineered check
   public boolean isPositive(int number) {
       return Optional.of(number)
                      .filter(n -> n > 0)
                      .isPresent();
   }
 
-  // TỐT: Đơn giản, trực tiếp và hiệu năng tốt hơn
+  // GOOD: Simple, direct, and performs better
   public boolean isPositive(int number) {
       return number > 0;
   }
@@ -97,25 +97,25 @@ SOLID đại diện cho năm nguyên tắc cốt lõi của thiết kế hướn
 
 ---
 
-### YAGNI (You Aren't Gonna Need It)
+### YAGNI
 
-"You Aren't Gonna Need It" (Bạn chưa cần nó đâu) quy định rằng bạn không nên triển khai các tính năng, lớp tiện ích hoặc các lớp có khả năng mở rộng dựa trên giả định rằng "chúng ta có thể cần chúng sau này".
+"You Aren't Gonna Need It" (Bạn chưa cần đến nó đâu) quy định rằng bạn không nên triển khai các tính năng, lớp tiện ích hoặc các tầng mở rộng dựa trên giả định rằng "chúng ta có thể cần chúng sau này".
 
-- **Sự đánh đổi**: Triển khai các tính năng suy đoán làm lãng phí thời gian của lập trình viên, làm phình các bài kiểm thử (tests), tăng bề mặt bảo trì ứng dụng và hạn chế tính linh hoạt trong tương lai. Chỉ viết mã nguồn bạn thực sự cần *ngày hôm nay*.
+- **Đánh đổi**: Việc triển khai các tính năng suy đoán làm lãng phí thời gian của nhà phát triển, làm phình to các bài test, tăng diện tích bề mặt bảo trì và hạn chế tính linh hoạt trong tương lai. Chỉ viết những đoạn mã bạn thực sự cần *hôm nay*.
 
 ---
 
-### Ưu tiên thành phần hơn kế thừa (Composition over inheritance)
+### Ưu Tiên Thành Phần Hơn Kế Thừa (Composition Over Inheritance)
 
-Đạt được hành vi đa hình (polymorphic) và tái sử dụng mã nguồn bằng cách nhóm các instance của lớp tiện ích helper ("has-a" - có một) thay vì tạo lớp con kế thừa lớp cha ("is-a" - là một).
+Đạt được hành vi đa hình và tái sử dụng mã nguồn bằng cách nhóm các thực thể của các lớp trợ giúp ("has-a" - có một) thay vì phân lớp từ các lớp cha ("is-a" - là một).
 
-- **Ví dụ có thể chạy được**:
+- **Ví dụ chạy được**:
   ```java
   public class Engine {
       public void start() {}
   }
 
-  // TỐT: Lớp Car bao đóng Engine để tái sử dụng hành vi khởi động
+  // GOOD: Car encloses Engine to reuse start behavior
   public class Car {
       private final Engine engine = new Engine();
 
@@ -128,34 +128,34 @@ SOLID đại diện cho năm nguyên tắc cốt lõi của thiết kế hướn
 
 ---
 
-### Độ liên kết (Coupling)
+### Tính Liên Kết (Coupling)
 
-Độ liên kết (Coupling) đo lường mức độ phụ thuộc lẫn nhau giữa hai lớp. Mục tiêu là **độ liên kết lỏng lẻo (loose coupling)** để việc sửa đổi lớp A không làm hỏng lớp B.
+Tính liên kết (coupling) đo lường mức độ phụ thuộc lẫn nhau giữa hai lớp. Mục tiêu là **liên kết lỏng (loose coupling)** để việc sửa đổi lớp A không làm gãy lớp B.
 
-- **Giảm thiểu**: Sử dụng các interface để định nghĩa ranh giới, khai báo các phụ thuộc một cách rõ ràng thông qua các tham số của hàm khởi tạo, và ẩn các chi tiết triển khai đằng sau các modifier private.
+- **Biện pháp giảm thiểu**: Sử dụng các interface để xác định ranh giới, khai báo các phụ thuộc một cách tường minh qua các tham số của hàm khởi tạo, và ẩn các chi tiết triển khai đằng sau các bổ từ truy cập private.
 
 ---
 
-### Độ gắn kết (Cohesion)
+### Tính Gắn Kết (Cohesion)
 
-Độ gắn kết (Cohesion) đo lường mức độ tập trung của các phương thức và biến trong một lớp vào một tác vụ logic duy nhất. Mục tiêu là **độ gắn kết cao (high cohesion)**.
+Tính gắn kết (cohesion) đo lường mức độ tập trung của các phương thức và biến bên trong một lớp vào một nhiệm vụ logic duy nhất. Mục tiêu là **gắn kết cao (high cohesion)**.
 
 - **Ví dụ**:
-  - **Độ gắn kết thấp**: Một lớp tiện ích `UserHelper` xử lý băm mật khẩu, tải cơ sở dữ liệu, tuần tự hóa JSON và gửi tin nhắn SMS xác thực.
-  - **Độ gắn kết cao**: Lớp `PasswordHasher` tập trung hoàn toàn vào việc mã hóa và xác thực các chuỗi băm.
+  - **Gắn kết thấp**: Một lớp tiện ích `UserHelper` xử lý cả băm mật khẩu, tải cơ sở dữ liệu, tuần tự hóa JSON và gửi SMS xác thực.
+  - **Gắn kết cao**: Một lớp `PasswordHasher` chỉ tập trung hoàn toàn vào việc mã hóa và xác thực các chuỗi băm.
 
 ---
 
-### Tiêm phụ thuộc cơ bản (Basic Dependency Injection)
+### Tiêm Phụ Thuộc Cơ Bản (Basic Dependency Injection)
 
-Các lớp nên nhận các phụ thuộc cần thiết của chúng từ bên ngoài (thường thông qua các đối số của hàm khởi tạo) thay vì tự khởi tạo chúng bên trong lớp.
+Các lớp nên nhận các phụ thuộc bắt buộc của chúng từ bên ngoài (thường qua các đối số của hàm khởi tạo) thay vì tự khởi tạo chúng ở bên trong.
 
-- **Ví dụ có thể chạy được**:
+- **Ví dụ chạy được**:
   ```java
   public class OrderService {
       private final PaymentClient paymentClient;
 
-      // Phụ thuộc được tiêm vào thay vì được tạo trực tiếp qua "new PaymentClient()"
+      // Dependency is injected rather than created via "new PaymentClient()"
       public OrderService(PaymentClient paymentClient) {
           this.paymentClient = paymentClient;
       }
@@ -164,68 +164,63 @@ Các lớp nên nhận các phụ thuộc cần thiết của chúng từ bên n
 
 ---
 
-### Lập trình phòng thủ (Defensive programming)
+### Lập Trình Phòng Thủ (Defensive Programming)
 
-Lập trình phòng thủ (Defensive programming) là việc thiết kế mã nguồn để ứng dụng tiếp tục thực thi hoặc thất bại một cách an toàn ngay cả khi gặp phải các dữ liệu đầu vào không mong muốn, trạng thái hệ thống không hợp lệ hoặc các cuộc gọi sai.
+Lập trình phòng thủ (defensive programming) là hoạt động thiết kế mã nguồn để tiếp tục thực thi hoặc thất bại một cách an toàn ngay cả khi gặp phải các đầu vào không mong đợi, trạng thái hệ thống bất thường hoặc các cuộc gọi không hợp lệ.
 
-- **Ví dụ có thể chạy được**:
+- **Ví dụ chạy được**:
   ```java
   public void registerUser(String username, int age) {
-      // Validate inputs early (fail fast - thất bại sớm)
+      // Validate inputs early (fail fast)
       Objects.requireNonNull(username, "Username cannot be null");
       if (age < 18) {
           throw new IllegalArgumentException("User must be at least 18 years old");
       }
-      // Tiếp tục quá trình đăng ký
+      // Continue registration
   }
   ```
 
 ---
 
-### Mã sạch cơ bản (Basic Clean Code)
+### Quy Tắc Viết Code Sạch Cơ Bản (Basic Clean Code)
 
-Mã sạch (Clean Code) là mã nguồn được viết chủ yếu để người khác dễ đọc và dễ hiểu.
+Mã nguồn sạch (clean code) được viết chủ yếu để dễ đọc và dễ hiểu bởi các nhà phát triển khác.
 
-- **Quy tắc cốt lõi**:
-  - Các hàm nên ngắn gọn và chỉ làm đúng một việc.
-  - Hạn chế độ sâu thụt lề (indentation) của phương thức (ví dụ: tránh các vòng lặp lồng nhau và kiểm tra `if` sâu quá 2 cấp; trả về sớm - return early - để giữ code phẳng).
-  - Viết tên mang tính mô tả, và không sử dụng các bình luận (comments) để giải thích cho mã nguồn tồi — hãy viết lại code cho rõ ràng.
+- **Các quy tắc chính**:
+  - Các hàm nên ngắn gọn và chỉ làm duy nhất một việc.
+  - Giới hạn độ sâu thụt lề phương thức (ví dụ: tránh các vòng lặp lồng nhau và các kiểm tra `if` sâu hơn 2 cấp; trả về sớm để giữ cho mã nguồn phẳng).
+  - Viết các tên có tính mô tả, và không sử dụng các comment để giải thích cho đoạn mã xấu — hãy viết lại đoạn mã đó cho rõ ràng.
 
 ---
 
-## Tại saọ Đơn trách nhiệm thúc đẩy Độ gắn kết cao (Why Single Responsibility Promotes High Cohesion)
+## Tại Sao Đơn Trách Nhiệm Thúc Đẩy Tính Gắn Kết Cao
 
-Trong JVM, các lớp là đơn vị cơ bản cho việc triển khai, nạp lớp (class loading) và thực thi. Khi một lớp có nhiều trách nhiệm, nó sẽ tích lũy các biến instance và phương thức không liên quan, làm giảm độ gắn kết của nó.
+Trong JVM, các lớp là đơn vị cơ bản của việc triển khai (deployment), tải lớp (class loading) và thực thi. Khi một lớp gánh vác nhiều trách nhiệm, nó tích lũy các biến thực thể và phương thức không liên quan, làm giảm tính gắn kết của nó. Một lớp có tính gắn kết cao có các trường và phương thức thống nhất về mặt khái niệm và chức năng, nghĩa là các phương thức của lớp hoạt động nhất quán trên các trường của nó. Khi nhiều trách nhiệm được đóng gói vào một lớp duy nhất, sự thay đổi trong các yêu cầu của một miền nghiệp vụ sẽ buộc toàn bộ lớp đó phải biên dịch lại và triển khai lại, ảnh hưởng đến các miền không liên quan khác. Điều này có thể gây phình to phụ thuộc classpath và tăng nguy cơ gây ra các tác dụng phụ (side effect), nơi các sửa đổi đối với một tính năng vô tình làm hỏng tính năng khác do trạng thái dùng chung. Bằng cách thực thi Nguyên tắc Đơn trách nhiệm, chúng ta đảm bảo rằng một lớp được tải lên bởi ClassLoader như một đơn vị thay đổi độc lập, cô lập với một mục đích duy nhất, từ đó giảm thiểu tính liên kết giữa các lớp và các phụ thuộc tại thời điểm biên dịch.
 
-Một lớp có độ gắn kết cao có các trường và phương thức thống nhất về mặt khái niệm và chức năng, nghĩa là các phương thức của lớp hoạt động nhất quán trên các trường của nó. Khi nhiều trách nhiệm được đóng gói vào một lớp duy nhất, việc thay đổi yêu cầu của một miền nghiệp vụ sẽ buộc toàn bộ lớp phải được biên dịch lại và triển khai lại, ảnh hưởng đến các miền nghiệp vụ khác không liên quan. Điều này có thể gây phình phụ thuộc classpath và tăng rủi ro tác dụng phụ (side effects), nơi các sửa đổi cho một tính năng vô tình làm hỏng tính năng khác do chia sẻ trạng thái.
-
-Bằng cách thực thi Nguyên tắc đơn trách nhiệm (SRP), chúng ta đảm bảo rằng một lớp được tải bởi ClassLoader như một đơn vị thay đổi duy nhất, cô lập với một mục đích duy nhất, từ đó giảm độ liên kết lớp (class coupling) và các phụ thuộc ở thời điểm biên dịch.
-
-### Mô hình tư duy (Mental Model)
+### Đơn Trách Nhiệm và Sự Phân Tách (Mental Model)
 ```text
-Độ gắn kết thấp (Lớp béo - Fat Class):
+Gắn kết thấp (Lớp phình to):
 +------------------------------------------+
 |                 UserClass                |
-|  [dữ liệu] name, email, hashedPassword   |
-|  [phương thức] saveToDb(), sendEmail()   |
+|  [data] name, email, hashedPassword      |
+|  [methods] saveToDb(), sendEmail()       |
 +------------------------------------------+
                   /         \
-         Thay đổi ở DB      Thay đổi ở Email API
+         Thay đổi DB      Thay đổi Email API
                   \         /
              Biên dịch lại toàn bộ lớp!
 
-
-Độ gắn kết cao (Tách biệt theo SRP):
+Gắn kết cao (Tách biệt theo SRP):
 +------------------+     +------------------+
 |    UserEntity    |     |   EmailService   |
-| [dữ liệu] name...|---->| [phương thức]    |
-+------------------+     | sendEmail()      |
-                         +------------------+
+| [data] name, etc |---->|  [methods]       |
+|                  |     |  sendEmail()     |
++------------------+     +------------------+
 ```
 
-### Ví dụ Code (Code Example)
+### Ví Dụ Mã Nguồn
 ```java
-// Thiết kế tuân thủ SRP
+// SRP Compliant Design
 class User {
     private final String username;
     private final String email;
@@ -255,44 +250,29 @@ public class Main {
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-
-```text
-Đơn trách nhiệm cho một lớp
-  → Tất cả các phương thức tập trung vào một tác vụ duy nhất
-  → Các trường và phương thức liên quan chặt chẽ với nhau (Độ gắn kết cao)
-  → Sửa đổi một yêu cầu chỉ thay đổi lớp tương ứng
-  → Phần còn lại của hệ thống không bị ảnh hưởng
-  → Độ liên kết lỏng lẻo được bảo toàn.
-```
-
+### Chuỗi Nguyên Nhân - Kết Quả
+Đơn trách nhiệm cho một lớp &rarr; Tất cả các phương thức tập trung vào một nhiệm vụ duy nhất &rarr; Các trường và phương thức liên quan chặt chẽ với nhau (Gắn kết cao) &rarr; Việc sửa đổi một yêu cầu chỉ thay đổi lớp tương ứng của nó &rarr; Phần còn lại của hệ thống không bị ảnh hưởng &rarr; Duy trì liên kết lỏng.
 
 ---
 
-## Tại sao Nguyên tắc Đóng/Mở bảo vệ Mã nguồn hiện có (Why Open/Closed Principle Protects Existing Code)
+## Tại Sao Nguyên Tắc Đóng/Mở Bảo Vệ Mã Nguồn Hiện Có
 
-Nguyên tắc Đóng/Mở (OCP) tận dụng các cơ chế hướng đối tượng của Java về đa hình (polymorphism) và liên kết động (dynamic binding) để cho phép khả năng mở rộng phần mềm.
+Nguyên tắc Đóng/Mở (OCP) tận dụng các cơ chế hướng đối tượng của Java như tính đa hình (polymorphism) và liên kết động (dynamic binding) để cho phép khả năng mở rộng của phần mềm. Khi hành vi được mở rộng thông qua việc phân lớp hoặc triển khai các interface, các chỉ thị `invokevirtual` and `invokeinterface` của JVM sẽ thực hiện điều phối phương thức động (dynamic method dispatch) tại thời điểm chạy, phân giải lời gọi phương thức dựa trên kiểu đối tượng thực tế thay vì kiểu tham chiếu. Việc sửa đổi trực tiếp các lớp đã biên dịch hiện có là cực kỳ rủi ro vì nó đòi hỏi phải chỉnh sửa mã nguồn đã được xác thực, kiểm thử kỹ càng, điều này có thể đưa vào các lỗi hồi quy (regression bug) và phá vỡ tính tương thích nhị phân hiện có. Bằng cách thiết kế các hệ thống sử dụng các lớp trừu tượng hoặc các hợp đồng interface, logic cơ sở vẫn được giữ nguyên và đóng lại với việc sửa đổi, trong khi các tính năng mới được thêm dưới dạng các lớp mới (mở cho việc mở rộng). Sự tách biệt tại thời điểm biên dịch này đảm bảo rằng bytecode hiện tại không cần phải biên dịch lại hoặc xác thực lại bởi JVM, giúp ổn định hóa đáng kể việc triển khai phần mềm doanh nghiệp.
 
-Khi hành vi được mở rộng thông qua kế thừa (subclassing) hoặc triển khai các interface, các lệnh `invokevirtual` và `invokeinterface` của JVM sẽ thực hiện phân phát phương thức động (dynamic method dispatch) tại thời điểm chạy, giải quyết cuộc gọi phương thức dựa trên kiểu đối tượng thực tế chứ không phải kiểu tham chiếu.
-
-Việc sửa đổi trực tiếp các lớp đã biên dịch hiện có là rất rủi ro vì nó yêu cầu chỉnh sửa mã nguồn đã được xác thực, kiểm thử, có thể gây ra lỗi hồi quy (regression bugs) và phá hỏng khả năng tương thích nhị phân (binary compatibility) hiện có. Bằng cách thiết kế hệ thống sử dụng các lớp trừu tượng hoặc các hợp đồng giao diện (interface contracts), logic cơ bản vẫn nguyên vẹn và đóng lại với việc sửa đổi, trong khi các tính năng mới được thêm dưới dạng các lớp mới (mở để mở rộng).
-
-Sự tách biệt ở thời điểm biên dịch này đảm bảo rằng bytecode hiện tại không cần phải biên dịch lại hoặc xác thực lại bởi JVM, giúp ổn định đáng kể các hoạt động triển khai phần mềm doanh nghiệp.
-
-### Mô hình tư duy (Mental Model)
+### Đóng để Sửa đổi so với Mở để Mở rộng (Mental Model)
 ```text
 Không có OCP (Sửa đổi lớp hiện có):
 Client ---> [ PaymentProcessor ]  <-- (Sửa đổi lớp này để thêm phương thức mới)
-              (Nguy cơ làm hỏng xử lý Visa hiện tại!)
+             (Nguy cơ làm hỏng quy trình xử lý Visa hiện tại!)
 
 Có OCP (Mở rộng qua Interface):
 Client ---> [ PaymentProcessor (Interface) ]
                     ^                  ^
                     |                  |
-            [ VisaProcessor ]   [ PayPalProcessor ] <-- Lớp mới, không rủi ro cho Visa!
+            [ VisaProcessor ]   [ PayPalProcessor ] <-- Lớp mới, không có rủi ro đối với Visa!
 ```
 
-### Ví dụ Code (Code Example)
+### Ví Dụ Mã Nguồn
 ```java
 interface Payment {
     void process();
@@ -328,29 +308,16 @@ public class Main {
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-
-```text
-Chương trình phụ thuộc vào các giao diện
-  → Các tính năng mới được triển khai bằng cách thêm các lớp mới
-  → Không sửa đổi các lớp hiện có
-  → Các lớp cũ không cần biên dịch lại hoặc kiểm thử lại
-  → Tránh được các rủi ro hồi quy
-  → Hệ thống duy trì tính ổn định.
-```
-
+### Chuỗi Nguyên Nhân - Kết Quả
+Chương trình phụ thuộc vào các interface &rarr; Các tính năng mới được thực hiện bằng cách thêm các lớp mới &rarr; Không sửa đổi các lớp hiện có &rarr; Các lớp cũ vẫn được biên dịch sẵn và không bị ảnh hưởng &rarr; Tránh được các rủi ro hồi quy (regression risk) &rarr; Hệ thống duy trì tính ổn định.
 
 ---
 
-## Tại sao Nguyên tắc thay thế Liskov thực thi các Hợp đồng hành vi (Why Liskov Substitution Principle Enforces Behavioral Contracts)
+## Tại Sao Nguyên Tắc Thay Thế Liskov Thực Thi Các Hợp Đồng Hành Vi
 
-Đa hình kiểu con (Subtype polymorphism) trong Java cho phép một biến tham chiếu của một lớp cha hoặc kiểu interface trỏ đến bất kỳ instance nào của lớp con. Nguyên tắc thay thế Liskov (LSP) đảm bảo rằng sự thay thế này là an toàn bằng cách yêu cầu các lớp con phải tuân thủ hợp đồng hành vi (behavioral contract) được xác định bởi lớp cha.
+Đa hình kiểu con (subtype polymorphism) trong Java cho phép một biến tham chiếu thuộc kiểu lớp cha hoặc kiểu interface trỏ tới bất kỳ thực thể lớp con nào. Nguyên tắc Thay thế Liskov (LSP) đảm bảo rằng sự thay thế này là an toàn bằng cách yêu cầu các lớp con phải tuân thủ hợp đồng hành vi (behavioral contract) được định nghĩa bởi lớp cha. Trong Java, mặc dù trình biên dịch thực thi an toàn kiểu tĩnh (chẳng hạn như chữ ký phương thức và tính hiệp biến của kiểu trả về), nó không thể thực thi các bất biến hành vi (behavioral invariant) tại thời điểm chạy. Các lớp con vi phạm LSP khi chúng tăng cường các điều kiện tiên quyết (ví dụ: ném ra một ngoại lệ checked mới hoặc yêu cầu các tham số đầu vào đáp ứng các ràng buộc chặt chẽ hơn) hoặc làm yếu đi các điều kiện sau (chẳng hạn như trả về một tham chiếu null khi hợp đồng lớp cha đảm bảo một đối tượng non-null, hoặc sửa đổi trạng thái kế thừa theo cách phá vỡ các bất biến của lớp cha). Khi các hợp đồng hành vi thời gian chạy này bị vi phạm, tính đa hình sẽ thất bại vì mã nguồn của client được thiết kế để hoạt động với lớp cha sẽ hành xử không thể đoán trước hoặc ném ra các ngoại lệ runtime khi gặp phải lớp con.
 
-Trong Java, mặc dù trình biên dịch thực thi tính an toàn kiểu tĩnh (static type safety - chẳng hạn như chữ ký phương thức và tính đồng biến của kiểu trả về), nó không thể thực thi các bất biến hành vi (behavioral invariants) tại thời điểm chạy. Các lớp con vi phạm LSP khi chúng tăng cường các điều kiện tiên quyết (chẳng hạn như ném ra một ngoại lệ checked mới hoặc yêu cầu các tham số đầu vào đáp ứng các ràng buộc chặt chẽ hơn) hoặc làm yếu đi các điều kiện sau (như trả về một tham chiếu null khi hợp đồng lớp cha đảm bảo một đối tượng không null, hoặc sửa đổi trạng thái kế thừa theo cách phá hỏng các bất biến của lớp cha).
-
-Khi các hợp đồng hành vi tại thời điểm chạy này bị vi phạm, tính đa hình sẽ thất bại vì mã client được thiết kế để hoạt động với lớp cha sẽ hành xử không thể đoán trước hoặc ném ra các ngoại lệ runtime khi gặp phải lớp con.
-
-### Mô hình tư duy (Mental Model)
+### Hợp đồng hành vi Liskov (Mental Model)
 ```text
 Lớp cha (Hợp đồng: trả về số nguyên dương)
     [ MathHelper ] -> getValue() trả về >= 1
@@ -360,10 +327,10 @@ Lớp con A (Tuân thủ LSP)
 
 Lớp con B (Vi phạm LSP)
     [ BadHelper ] -> getValue() trả về 0 hoặc số âm (Vi phạm hợp đồng!)
-    Client mong đợi số nguyên dương sẽ bị lỗi (ví dụ: chia cho 0)!
+    Client mong đợi số nguyên dương bị crash do chia cho 0!
 ```
 
-### Ví dụ Code (Code Example)
+### Ví Dụ Mã Nguồn
 ```java
 class Rectangle {
     protected int width;
@@ -397,36 +364,23 @@ public class Main {
 
     public static void main(String[] args) {
         verifyRectangle(new Rectangle()); // Output: Expected Area: 50, Actual: 50
-        verifyRectangle(new Square());    // Output: Expected Area: 50, Actual: 100 (Vi phạm LSP!)
+        verifyRectangle(new Square());    // Output: Expected Area: 50, Actual: 100 (LSP Violation!)
     }
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-
-```text
-Lớp con ghi đè phương thức lớp cha
-  → Lớp con thắt chặt các điều kiện trước hoặc làm lỏng lẻo các điều kiện sau
-  → Mã client giữ tham chiếu lớp cha
-  → Mã client thực thi phương thức lớp con qua phân phát động
-  → Lớp con vi phạm các giả định hành vi của lớp cha
-  → Xảy ra lỗi runtime hoặc logic không chính xác.
-```
-
+### Chuỗi Nguyên Nhân - Kết Quả
+Lớp con ghi đè phương thức lớp cha &rarr; Lớp con tăng cường điều kiện tiên quyết hoặc làm yếu đi điều kiện sau &rarr; Mã nguồn client giữ tham chiếu kiểu cha &rarr; Mã nguồn client thực thi phương thức lớp con qua điều phối động &rarr; Lớp con vi phạm các giả định hành vi của lớp cha &rarr; Xảy ra lỗi crash khi chạy hoặc logic bị sai lệch.
 
 ---
 
-## Tại sao Phân tách giao diện ngăn chặn Độ liên kết giao diện béo (Why Interface Segregation Prevents Fat Interface Coupling)
+## Tại Sao Phân Tách Interface Ngăn Chặn Liên Kết Interface Phình To
 
-Trong JVM, khi một lớp triển khai một giao diện (interface), nó phải cung cấp triển khai cụ thể cho tất cả các phương thức không phải mặc định (non-default) được định nghĩa bởi giao diện đó, hoặc nếu không lớp đó phải được khai báo là abstract.
+Trong JVM, khi một lớp triển khai một interface, nó phải cung cấp các triển khai cụ thể cho tất cả các phương thức không phải default được định nghĩa bởi interface đó, hoặc nếu không thì phải được khai báo là abstract. Một interface "phình to" (fat interface) chứa các phương thức dành cho các client khác nhau, không liên quan sẽ buộc mọi lớp triển khai phải phụ thuộc vào và hiện thực hóa các phương thức mà nó không yêu cầu, thường dẫn đến các thân phương thức trống hoặc giả lập ném ra `UnsupportedOperationException`. Thiết kế này liên kết các thành phần không liên quan lại với nhau tại thời điểm biên dịch: nếu một chữ ký phương thức trong một interface phình to thay đổi, tất cả các lớp triển khai phải được biên dịch lại và liên kết lại bởi JVM, ngay cả khi chúng chưa từng gọi hoặc sử dụng phương thức đó. Bằng cách phân tách một interface cồng kềnh thành các interface nhỏ, phục vụ riêng cho từng client, chúng ta giảm thiểu kích thước tham chiếu bảng interface (`itable`) được phân giải trong các lời gọi `invokeinterface`. Do đó, các client chỉ phụ thuộc vào các phương thức cụ thể mà chúng thực sự thực thi, giúp loại bỏ các phụ thuộc không cần thiết tại thời điểm biên dịch, chi phí tải lớp và tính mong manh của mã nguồn thời gian chạy.
 
-Một giao diện "béo" (fat interface) chứa các phương thức dành cho các client khác nhau, không liên quan đến nhau sẽ buộc mọi lớp triển khai phải phụ thuộc vào và triển khai các phương thức mà nó không yêu cầu, thường dẫn đến các thân phương thức rỗng hoặc giả lập ném ra ngoại lệ `UnsupportedOperationException`. Thiết kế này liên kết các thành phần không liên quan lại với nhau tại thời điểm biên dịch: nếu chữ ký phương thức trong giao diện béo thay đổi, tất cả các lớp triển khai phải được biên dịch lại và liên kết lại bởi JVM, ngay cả khi chúng chưa bao giờ gọi hoặc sử dụng phương thức đó.
-
-Bằng cách phân tách một giao diện phình to thành các giao diện nhỏ, đặc trưng cho từng client, chúng ta giảm thiểu kích thước của các tham chiếu bảng giao diện (interface table - `itable`) được phân giải trong các cuộc gọi `invokeinterface`. Do đó, client chỉ phụ thuộc vào các phương thức cụ thể mà họ thực sự thực thi, điều này loại bỏ các phụ thuộc biên dịch không cần thiết, chi phí nạp lớp và tính mong manh của mã nguồn lúc chạy.
-
-### Mô hình tư duy (Mental Model)
+### Interface phình to so với Interface phân tách (Mental Model)
 ```text
-Giao diện béo (Fat Interface - liên kết các client không liên quan):
+Interface phình to (Liên kết các client không liên quan):
 +-------------------------------+
 |        MultiFunction          |
 |  print(), scan(), fax()       |
@@ -434,20 +388,19 @@ Giao diện béo (Fat Interface - liên kết các client không liên quan):
         ^               ^
         |               |
   SimplePrinter     SuperOfficeJet (Cần tất cả)
-  (bị buộc phải ném UnsupportedOperationException trên fax()!)
+  (buộc phải ném UnsupportedOperationException đối với fax()!)
 
-
-Giao diện phân tách (Nhỏ gọn, đặc trưng cho client):
+Các interface được phân tách (Tinh gọn, dành riêng cho client):
 +-------------+   +-------------+
 |   Printer   |   |   Scanner   |
 |   print()   |   |   scan()    |
 +-------------+   +-------------+
-        ^                 ^
-        |                 |
-        +--- SimplePrinter+
+       ^                 ^
+       |                 |
+       +--- SimplePrinter+
 ```
 
-### Ví dụ Code (Code Example)
+### Ví Dụ Mã Nguồn
 ```java
 interface Printer {
     void print();
@@ -488,43 +441,29 @@ public class Main {
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-
-```text
-Giao diện béo chứa các phương thức không liên quan
-  → Các lớp triển khai bị buộc phải viết các triển khai rỗng/giả lập
-  → Việc sửa đổi chữ ký phương thức không sử dụng xảy ra
-  → Phải biên dịch lại và liên kết lại tất cả các lớp triển khai
-  → Tăng độ liên kết ở thời điểm biên dịch và rủi ro xảy ra lỗi runtime.
-```
-
+### Chuỗi Nguyên Nhân - Kết Quả
+Interface phình to chứa các phương thức không liên quan &rarr; Các lớp triển khai bị buộc phải viết các triển khai trống/giả lập &rarr; Sửa đổi chữ ký phương thức không dùng &rarr; Biên dịch lại và liên kết lại tất cả các lớp triển khai &rarr; Tăng liên kết tại thời điểm biên dịch và rủi ro xảy ra các ngoại lệ khi chạy.
 
 ---
 
-## Tại sao Đảo ngược phụ thuộc giúp tách biệt các Module (Why Dependency Inversion Decouples Modules)
+## Tại Sao Đảo Ngược Phụ Thuộc Giúp Tách Biệt Các Module
 
-Nguyên tắc đảo ngược phụ thuộc (DIP) đảo ngược dòng phụ thuộc từ trên xuống truyền thống của các hệ thống phần mềm bằng cách tuyên bố rằng các module cấp cao không nên phụ thuộc vào các triển khai cụ thể cấp thấp.
+Nguyên tắc Đảo ngược Phụ thuộc (DIP) đảo ngược luồng phụ thuộc từ trên xuống truyền thống của các hệ thống phần mềm bằng cách tuyên bố rằng các module cấp cao không nên phụ thuộc vào các triển khai cụ thể cấp thấp. Dưới mô hình phụ thuộc trực tiếp, các mối quan hệ tại thời điểm biên dịch được liên kết trực tiếp với các lớp cụ thể, có nghĩa là các lớp cấp cao không thể biên dịch hoặc kiểm thử độc lập với các module cấp thấp như cơ sở dữ liệu hoặc các API bên ngoài. Bằng cách giới thiệu các interface làm các trừu tượng hóa ở giữa các tầng này, cả module cấp cao và cấp thấp đều phụ thuộc vào interface trừu tượng đó. Tại thời điểm biên dịch, lớp cấp cao hoàn toàn dựa vào kiểu interface, điều này được xác thực bởi trình kiểm tra kiểu tĩnh của Java. Tại thời điểm chạy, các triển khai cụ thể được tiêm vào lớp cấp cao bằng cách sử dụng Tiêm phụ thuộc (DI) qua hàm khởi tạo hoặc setter, và JVM sẽ phân giải các cuộc gọi phương thức động thông qua tính đa hình. Điều này tách biệt mối quan hệ tại thời điểm biên dịch, cho phép dễ dàng thay thế mock để kiểm thử đơn vị và cho phép các nhà phát triển hoán đổi các lớp cơ sở hạ tầng cấp thấp mà không làm thay đổi logic nghiệp vụ cốt lõi.
 
-Theo mô hình phụ thuộc trực tiếp, các mối quan hệ ở thời điểm biên dịch bị ràng buộc trực tiếp vào các lớp cụ thể, nghĩa là các lớp cấp cao không thể được biên dịch hoặc kiểm thử độc lập với các module cấp thấp như cơ sở dữ liệu hoặc API bên ngoài. Bằng cách giới thiệu các interface làm lớp trừu tượng ở giữa các tầng này, cả module cấp cao và cấp thấp đều phụ thuộc vào giao diện trừu tượng đó.
-
-Ở thời điểm biên dịch, lớp cấp cao hoàn toàn dựa vào kiểu interface, được xác thực bởi trình kiểm tra kiểu tĩnh của Java. Tại thời điểm chạy, các triển khai cụ thể được tiêm vào lớp cấp cao bằng cách sử dụng Tiêm phụ thuộc (Dependency Injection - DI) thông qua các hàm khởi tạo hoặc setter, và JVM giải quyết các cuộc gọi phương thức động thông qua tính đa hình.
-
-Điều này tách biệt mối quan hệ ở thời điểm biên dịch, cho phép thay thế giả lập (mock substitution) dễ dàng cho việc kiểm thử đơn vị (unit testing) và cho phép các lập trình viên hoán đổi các lớp cơ sở hạ tầng cấp thấp mà không cần thay đổi logic nghiệp vụ cốt lõi.
-
-### Mô hình tư duy (Mental Model)
+### Phụ thuộc trực tiếp so với Đảo ngược phụ thuộc (Mental Model)
 ```text
-Phụ thuộc trực tiếp (Liên kết chặt chẽ - Tight Coupling):
-[ High-Level Service ] ---> [ Concrete MySQLDatabase ]
-(Service bị code cứng với MySQL; không thể test nếu database không chạy!)
+Phụ thuộc trực tiếp (Liên kết chặt chẽ):
+[ Service cấp cao ] ---> [ MySQLDatabase cụ thể ]
+(Service được viết cứng với MySQL; không thể test nếu không chạy database!)
 
-Đảo ngược phụ thuộc (Liên kết lỏng lẻo - Loose Coupling):
-[ High-Level Service ] ---> [ Database (Interface) ]
+Đảo ngược phụ thuộc (Liên kết lỏng):
+[ Service cấp cao ] ---> [ Database (Interface) ]
                                    ^
                                    |
-                       [ Concrete MySQLDatabase ] hoặc [ MockDatabase ]
+                       [ MySQLDatabase cụ thể ] hoặc [ MockDatabase ]
 ```
 
-### Ví dụ Code (Code Example)
+### Ví Dụ Mã Nguồn
 ```java
 interface Database {
     void save(String data);
@@ -568,19 +507,10 @@ public class Main {
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
+### Chuỗi Nguyên Nhân - Kết Quả
+Module cấp cao tham chiếu tới interface trừu tượng &rarr; Các triển khai cụ thể cấp thấp kế thừa cùng interface &rarr; Tiêm phụ thuộc cung cấp thực thể cụ thể tại thời điểm chạy &rarr; Tham chiếu tại thời điểm biên dịch vẫn liên kết với sự trừu tượng hóa &rarr; Các thay đổi ở cấp thấp không yêu cầu biên dịch lại mã nguồn cấp cao &rarr; Các thành phần hệ thống được liên kết lỏng và dễ kiểm thử.
 
-```text
-Module cấp cao tham chiếu giao diện trừu tượng
-  → Các triển khai cụ thể cấp thấp triển khai cùng một giao diện
-  → Dependency Injection cung cấp thực thể cụ thể tại thời điểm chạy
-  → Tham chiếu ở thời điểm biên dịch vẫn gắn liền với sự trừu tượng
-  → Thay đổi cấp thấp không yêu cầu biên dịch lại mã cấp cao
-  → Các thành phần hệ thống liên kết lỏng lẻo và có thể kiểm thử được.
-```
-
-
-## Liên kết tham khảo (Reference Links)
+## Liên Kết Tham Khảo (Reference Links)
 
 - https://docs.oracle.com/javase/tutorial/java/concepts/
 - https://docs.oracle.com/javase/specs/jls/se21/html/index.html

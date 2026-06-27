@@ -1,61 +1,61 @@
-# Lập trình mạng - Phần 2 (Networking - Part 2)
+# Lập Trình Mạng (Networking) - Phần 2
 
-## Mục tiêu học tập (Learning Goal)
+## Mục Tiêu Học Tập
 
-Tài liệu này bao gồm một phần trọng tâm của **Lập trình mạng (Networking)**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải là từ vựng rời rạc.
+Tài liệu này tập trung vào một phần chuyên sâu của **Lập Trình Mạng (Networking)**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc thực tế trong Java, không chỉ đơn thuần là lý thuyết từ vựng.
 
-## Phạm vi đề cương (Outline Coverage)
+## Tóm Tắt Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Những điều cần biết (What to know) |
+| Khái niệm (Concept) | Điều cần biết (What to know) |
 | --- | --- |
-| `HttpURLConnection` | Lớp HTTP client cũ (legacy HTTP client class), hoạt động chặn (blocking), thiếu hỗ trợ giao thức hiện đại, yêu cầu cấu hình thời gian chờ (timeout) rõ ràng. |
-| `Java 11 HttpClient` | HttpClient hiện đại, không chặn (non-blocking) hỗ trợ HTTP/2, WebSockets và các thao tác bất đồng bộ (asynchronous operations). |
-| `Client-server model` | Kiến trúc phân tán (distributed architecture) nơi các client khởi tạo các yêu cầu (requests) và các server xử lý và phản hồi (respond) lại chúng. |
+| `HttpURLConnection` | Lớp HTTP client kế thừa, gây chặn (blocking), thiếu hỗ trợ giao thức hiện đại, yêu cầu cấu hình thời gian chờ (timeout) rõ ràng. |
+| `Java 11 HttpClient` | Máy khách HTTP hiện đại, không gây chặn (non-blocking) hỗ trợ HTTP/2, WebSockets, và các hoạt động bất đồng bộ. |
+| `Client-server model` | Kiến trúc phân tán nơi các máy khách (client) khởi tạo yêu cầu và các máy chủ (server) xử lý và phản hồi chúng. |
 
-## Ghi chú chi tiết (Detailed Notes)
+## Ghi Chú Chi Tiết
 
 ### HttpURLConnection
 
-`HttpURLConnection` là API HTTP client cũ của Java, được giới thiệu trong JDK 1.1. Nó đại diện cho một kết nối trực tiếp đến một máy chủ web từ xa qua HTTP/HTTPS. Một đặc điểm quan trọng của `HttpURLConnection` là nó hoạt động hoàn toàn theo cơ chế chặn (blocking): bất kỳ thao tác nhập hoặc xuất (input/output) nào đều tạm dừng luồng gọi (calling thread) cho đến khi thao tác mạng hoàn thành.
+`HttpURLConnection` là API máy khách HTTP kế thừa của Java, được giới thiệu từ JDK 1.1. Nó đại diện cho một kết nối trực tiếp đến một máy chủ web từ xa thông qua giao thức HTTP/HTTPS. Đặc điểm chính của `HttpURLConnection` là nó hoàn toàn gây chặn (blocking): bất kỳ hoạt động vào hoặc ra nào cũng sẽ đình chỉ luồng gọi cho đến khi hoạt động mạng hoàn tất.
 
-Hơn nữa, nó không thiết lập thời gian chờ kết nối (connect timeout) hoặc thời gian chờ đọc (read timeout) theo mặc định (chúng là vô hạn), điều này có thể khiến các luồng bị treo vô tận nếu máy chủ từ xa không phản hồi. Để ngăn chặn rò rỉ tài nguyên, lập trình viên phải gọi `disconnect()` một cách rõ ràng trên instance, hoặc đảm bảo các luồng vào/ra (input/output streams) được đóng kỹ càng thông qua try-with-resources.
+Hơn nữa, theo mặc định nó không thiết lập thời gian chờ kết nối (connect timeout) hoặc thời gian chờ đọc (read timeout) (chúng là vô hạn), điều này có thể khiến các luồng bị treo vô thời hạn nếu máy chủ từ xa không phản hồi. Để ngăn chặn rò rỉ tài nguyên, lập trình viên phải gọi phương thức `disconnect()` một cách tường minh trên thực thể, hoặc đảm bảo các luồng vào/ra được đóng hoàn toàn thông qua cấu trúc try-with-resources.
 
-### HttpClient trong Java 11 (Java 11 HttpClient)
+### Java 11 HttpClient
 
-Được giới thiệu trong Java 11 (JEP 321), `HttpClient` thay thế `HttpURLConnection` cũ để trở thành API HTTP client tiêu chuẩn. Nó được thiết kế để bất biến (immutable), an toàn đa luồng (thread-safe), và có khả năng tái sử dụng cao, nghĩa là một instance client duy nhất nên được chia sẻ trong toàn bộ ứng dụng để tối đa hóa việc gom nhóm kết nối (connection pooling) và tái sử dụng luồng (thread reuse).
+Được giới thiệu từ Java 11 (JEP 321), `HttpClient` thay thế cho `HttpURLConnection` kế thừa để trở thành API HTTP client tiêu chuẩn. Nó được thiết kế bất biến (immutable), an sau luồng (thread-safe), và có khả năng tái sử dụng cao, nghĩa là một thực thể client duy nhất nên được chia sẻ trong toàn bộ ứng dụng để tối đa hóa hiệu quả gom nhóm kết nối (connection pooling) và tái sử dụng luồng (thread reuse).
 
-Nó hỗ trợ các phiên bản giao thức HTTP/1.1 và HTTP/2, cơ chế dự phòng (fallback mechanics), và hoàn toàn không chặn (non-blocking). Nó tích hợp tự nhiên với mô hình lập trình bất đồng bộ của Java, trả về các đối tượng `CompletableFuture` từ các lệnh gọi bất đồng bộ của nó, và sử dụng API `Flow` (Luồng phản ứng - Reactive Streams) để xử lý phần thân của yêu cầu và phản hồi (request and response body).
+Nó hỗ trợ các phiên bản giao thức HTTP/1.1 và HTTP/2, cơ chế dự phòng (fallback), và hoàn toàn không gây chặn (non-blocking). Nó tích hợp tự nhiên với mô hình lập trình bất đồng bộ của Java, trả về các đối tượng `CompletableFuture` từ các cuộc gọi bất đồng bộ của nó, và sử dụng API `Flow` (Dòng phản ứng - Reactive Streams) để xử lý thân yêu cầu (request body) và thân phản hồi (response body).
 
-### Mô hình client-server (Client-server model)
+### Mô hình khách-chủ (Client-server model)
 
-Mô hình client-server là một kiến trúc ứng dụng phân tán phân chia các tác vụ hoặc khối lượng công việc giữa các nhà cung cấp tài nguyên hoặc dịch vụ, được gọi là server (máy chủ), và những thực thể yêu cầu dịch vụ, được gọi là client (máy khách). Các client khởi tạo các phiên giao tiếp với server bằng cách gửi các yêu cầu, và server chờ đợi các yêu cầu đến, xử lý chúng và gửi lại các phản hồi.
+Mô hình khách-chủ là một kiến trúc ứng dụng phân tán phân chia các tác vụ hoặc khối lượng công việc giữa các bên cung cấp tài nguyên hoặc dịch vụ, được gọi là máy chủ (server), và các bên yêu cầu dịch vụ, được gọi là máy khách (client). Máy khách khởi tạo các phiên truyền thông với máy chủ bằng cách gửi các yêu cầu, và máy chủ chờ đợi các yêu cầu đến, xử lý chúng, và gửi lại các phản hồi.
 
-Trong lập trình mạng Java, client sử dụng các lớp như `Socket` hoặc `HttpClient` để khởi tạo các yêu cầu, trong khi server sử dụng `ServerSocket` hoặc các framework máy chủ HTTP để liên kết với một cổng (port) và lắng nghe các kết nối từ client. Kiến trúc này thường không lưu trạng thái (stateless) ở tầng vận chuyển, nghĩa là mỗi chu kỳ yêu cầu-phản hồi được xử lý như một giao dịch độc lập.
+Trong lập trình mạng Java, máy khách sử dụng các lớp như `Socket` hoặc `HttpClient` to initiate requests, whereas servers use `ServerSocket` or HTTP server frameworks to bind to a port and listen for client connections. Kiến trúc này thường không lưu trạng thái (stateless) ở tầng truyền vận, nghĩa là mỗi chu kỳ yêu cầu-phản hồi được xử lý như một giao dịch độc lập.
 
 ---
 
-## Tại sao HttpClient trong Java 11 thay thế HttpURLConnection (Why Java 11 HttpClient Supersedes HttpURLConnection)
+## Tại sao Java 11 HttpClient Thay thế HttpURLConnection
 
-`HttpURLConnection` là API HTTP client cũ của Java, được giới thiệu trong JDK 1.1. Nó có một số hạn chế nghiêm trọng:
-1. **Các API chặn (Blocking APIs)**: Tất cả các yêu cầu và xử lý phản hồi đều chặn luồng gọi. Không có hỗ trợ tích hợp cho các yêu cầu bất đồng bộ, yêu cầu lập trình viên phải tạo luồng thủ công hoặc sử dụng `ExecutorService`.
-2. **Giá trị mặc định vô hạn**: Theo mặc định, thời gian chờ kết nối và thời gian chờ đọc là vô hạn, điều này có thể dễ dàng dẫn đến việc ứng dụng bị treo nếu không được cấu hình rõ ràng.
-3. **Quản lý tài nguyên phức tạp**: Việc đóng các luồng dữ liệu (streams) không phải lúc nào cũng tự động đóng kết nối hoặc giải phóng các bộ mô tả socket bên dưới trong mọi trường hợp, thường đòi hỏi phải gọi `disconnect()` một cách rõ ràng.
-4. **Không hỗ trợ HTTP/2**: Nó được code cứng (hardcoded) cho HTTP/1.1 và không hỗ trợ các tối ưu hóa hiệu năng hiện đại như ghép kênh yêu cầu/phản hồi (request/response multiplexing) hoặc nén tiêu đề (header compression).
+`HttpURLConnection` là API máy khách HTTP kế thừa của Java, được giới thiệu từ JDK 1.1. Nó có một số hạn chế nghiêm trọng:
+1. **Các API gây chặn**: Tất cả các yêu cầu và quá trình xử lý phản hồi đều chặn luồng gọi. Không có hỗ trợ tích hợp sẵn cho các yêu cầu bất đồng bộ, buộc lập trình viên phải tạo luồng thủ công hoặc sử dụng `ExecutorService`.
+2. **Giá trị mặc định vô hạn**: Theo mặc định, thời gian chờ kết nối và thời gian chờ đọc là vô hạn, điều này dễ dẫn đến việc ứng dụng bị treo nếu không được cấu hình rõ ràng.
+3. **Quản lý tài nguyên phức tạp**: Việc đóng các luồng dữ liệu không tự động đóng kết nối hoặc giải phóng các bộ mô tả socket bên dưới trong mọi trường hợp, thường đòi hỏi phải gọi phương thức `disconnect()` một cách tường minh.
+4. **Không hỗ trợ HTTP/2**: Nó được mã hóa cứng cho HTTP/1.1 và không hỗ trợ các tối ưu hóa hiệu năng hiện đại như ghép kênh yêu cầu/phản hồi (multiplexing) hoặc nén tiêu đề (header compression).
 
-Được giới thiệu trong Java 11, `HttpClient` thiết kế lại hoàn toàn việc giao tiếp HTTP trong Java. Nó không chặn (non-blocking), được xây dựng xung quanh các luồng phản ứng tiêu chuẩn, và hỗ trợ cả các thao tác đồng bộ và bất đồng bộ một cách tự nhiên bằng cách sử dụng `CompletableFuture`. Nó có hỗ trợ tích hợp cho HTTP/2 (tự động chuyển về HTTP/1.1 nếu cần) và WebSockets, chia sẻ tài nguyên trên một công cụ chia sẻ duy nhất. Nó được thiết kế để bất biến, an toàn đa luồng, và có thể tái sử dụng trong suốt vòng đời của ứng dụng.
+Được giới thiệu từ Java 11, `HttpClient` thiết kế lại hoàn toàn cơ chế giao tiếp HTTP trong Java. Nó không gây chặn, được xây dựng xung quanh các dòng phản ứng tiêu chuẩn, và hỗ trợ tự nhiên cả các hoạt động đồng bộ và bất đồng bộ bằng cách sử dụng `CompletableFuture`. Nó tích hợp sẵn hỗ trợ cho HTTP/2 (với cơ chế tự động chuyển hướng về HTTP/1.1 khi cần) và WebSockets, chia sẻ tài nguyên trên một công cụ dùng chung duy nhất. Nó được thiết kế bất biến, an sau luồng, và có thể tái sử dụng trong suốt vòng đời của ứng dụng.
 
-### Mô hình tư duy: HttpURLConnection chặn so với HttpClient phản ứng (Mental Model: Blocking HttpURLConnection vs Reactive HttpClient)
+### Mô hình tư duy: HttpURLConnection gây Chặn so với HttpClient Phản ứng
 ```
-[HttpURLConnection (Chặn trên mỗi luồng yêu cầu - Thread-per-Request Blocking)]
-Luồng gọi ---> Gửi yêu cầu ---> Chặn luồng ---> Nhận phản hồi ---> Giải phóng
+[HttpURLConnection (Chặn Luồng trên Mỗi Yêu cầu)]
+Luồng Gọi ---> Gửi Yêu cầu ---> Chặn Luồng ---> Nhận Phản hồi ---> Giải phóng
 
-[HttpClient (Vòng lặp sự kiện & CompletableFuture - Event Loop & CompletableFuture)]
-Luồng gọi ---> Gửi bất đồng bộ ---> Trả về CompletableFuture ---> Giải phóng luồng
+[HttpClient (Vòng lặp Sự kiện & CompletableFuture)]
+Luồng Gọi ---> Gửi Bất đồng bộ ---> Trả về CompletableFuture ---> Luồng tự do để làm việc khác
                                                                      | (Vòng lặp sự kiện xử lý I/O)
-Hàm gọi lại tác vụ <--- Hoàn thành <--- Nhận phản hồi <---------------+
+Hàm gọi lại (Callback) <--- Hoàn tất <--- Nhận Phản hồi <-------------+
 ```
 
-### Ví dụ Code: Thực thi yêu cầu Chặn so với Bất đồng bộ (Code Example: Blocking vs. Asynchronous Request Execution)
+### Ví dụ Code: Thực thi Yêu cầu gây Chặn so với Bất đồng bộ
 ```java
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -75,47 +75,42 @@ public class HttpComparisonDemo {
             .GET()
             .build();
 
-        // 1. Asynchronous non-blocking call returning CompletableFuture
+        // 1. Cuộc gọi bất đồng bộ không gây chặn trả về CompletableFuture
         CompletableFuture<HttpResponse<String>> futureResponse = 
             client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
 
-        // Do other work while request executes in background
+        // Làm việc khác trong khi yêu cầu đang thực thi ở nền sau
         System.out.println("Request sent asynchronously. Thread is free to do other tasks!");
 
         futureResponse.thenAccept(response -> {
             System.out.println("Async Status Code: " + response.statusCode());
             System.out.println("Async Body length: " + response.body().length());
-        }).join(); // join to prevent main from exiting before callback runs
+        }).join(); // join để ngăn luồng main thoát trước khi hàm callback chạy
     }
 }
-// Output:
-// Request sent asynchronously. Thread is free to do other tasks!
-// Async Status Code: 200
-// Async Body length: 512
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
+### Chuỗi Nguyên nhân - Kết quả
+Sử dụng HttpURLConnection kế thừa &rarr; Yêu cầu đang thực thi chặn luồng thực hiện &rarr; Chi phí cao do phải tạo luồng để xử lý đồng thời &rarr; Các giá trị mặc định vô hạn chặn luồng vĩnh viễn khi máy chủ hết thời gian chờ (timeout).
 
-```text
-Sử dụng HttpURLConnection cũ
-  → Yêu cầu đang xử lý chặn luồng thực thi
-  → Chi phí cao từ việc tạo luồng để xử lý đồng thời
-  → Các giá trị mặc định vô hạn chặn luồng vĩnh viễn khi máy chủ hết thời gian phản hồi.
-```
-
-Chuyển sang HttpClient trong Java 11 &rarr; Cơ chế luồng phản ứng xử lý I/O bất đồng bộ &rarr; Trả về CompletableFuture không chặn &rarr; Yêu cầu chạy đồng thời trên nhóm luồng dùng chung &rarr; Ghép kênh HTTP/2 giảm chi phí kết nối &rarr; Đạt được thông lượng ứng dụng tối ưu.
+Chuyển sang Java 11 HttpClient &rarr; Công cụ dòng phản ứng xử lý I/O bất đồng bộ &rarr; Trả về CompletableFuture không gây chặn &rarr; Yêu cầu chạy đồng thời trên nhóm luồng chia sẻ &rarr; Ghép kênh HTTP/2 giảm chi phí kết nối &rarr; Đạt được thông lượng ứng dụng tối ưu.
 
 ---
 
-## Câu hỏi ôn tập phổ biến (Common Review Prompts)
+## Các Câu Hỏi Ôn Tập Thường Gặp
 
-- Khái niệm nào ở đây là quy tắc ở thời điểm biên dịch (compile-time)?
-- Khái niệm nào ở đây ảnh hưởng đến hành vi lúc chạy (runtime)?
-- Khái niệm nào ở đây dễ là bẫy phỏng vấn (interview traps)?
+- **Khái niệm nào ở đây là quy tắc thời gian biên dịch?**
+  Các lớp `HttpClient`, `HttpRequest`, và `HttpResponse` sử dụng các mẫu thiết kế Builder để định cấu hình trước khi thực thi.
+- **Khái niệm nào ở đây ảnh hưởng đến hành vi thời gian chạy?**
+  Cơ chế bất đồng bộ của `HttpClient.sendAsync()`, quản lý nhóm luồng (thread pool) bên dưới, và hành vi tự động chuyển đổi phiên bản giao thức HTTP/2 về HTTP/1.1.
+- **Khái niệm nào ở đây dễ là bẫy phỏng vấn?**
+  Tạo mới một thực thể `HttpClient` cho mỗi yêu cầu HTTP thay vì chia sẻ một thực thể duy nhất, dẫn đến rò rỉ tài nguyên hệ thống và không tận dụng được các kết nối TCP đã thiết lập.
 
-## Các ví dụ code (Code Examples)
+---
 
-### Yêu cầu HTTP sử dụng HttpURLConnection (Cũ) (HTTP request using HttpURLConnection (Legacy))
+## Các Ví dụ Code
+
+### Yêu cầu HTTP sử dụng HttpURLConnection (Cổ điển)
 ```java
 URL url = URI.create("https://api.github.com/users/octocat").toURL();
 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -138,7 +133,7 @@ try (BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputS
 }
 ```
 
-### Yêu cầu HTTP sử dụng HttpClient (Java 11+) (HTTP request using HttpClient (Java 11+))
+### Yêu cầu HTTP sử dụng HttpClient (Java 11+)
 ```java
 HttpClient client = HttpClient.newBuilder()
     .connectTimeout(Duration.ofSeconds(5))
@@ -150,20 +145,22 @@ HttpRequest request = HttpRequest.newBuilder()
     .GET()
     .build();
 
-// Synchronous Request
+// Yêu cầu đồng bộ
 HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 System.out.println("Status: " + response.statusCode());
 System.out.println("Body: " + response.body());
 
-// Asynchronous Request
+// Yêu cầu bất đồng bộ
 client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
     .thenApply(HttpResponse::body)
     .thenAccept(System.out.println)
-    .join(); // Wait for async completion in main thread
+    .join(); // Chờ xử lý bất đồng bộ hoàn tất trong luồng main
 ```
 
-## Các lỗi thường gặp (Common Mistakes)
+---
 
-- **Không cấu hình thời gian chờ (timeout) trên HttpURLConnection**: Theo mặc định, `HttpURLConnection` có thời gian chờ vô hạn. Nếu máy chủ từ xa dừng phản hồi trong quá trình kết nối hoặc đọc, luồng ứng dụng của bạn sẽ bị treo mãi mãi. Luôn luôn thiết lập thời gian chờ kết nối và thời gian chờ đọc.
-- **Quên ngắt kết nối HttpURLConnection**: Không giống như các luồng try-with-resources, việc gọi `close()` trên luồng đầu vào (input stream) của một `HttpURLConnection` không tự động giải phóng kết nối TCP bên dưới trong mọi trường hợp, trừ khi `disconnect()` được gọi.
-- **Tạo quá nhiều instance HttpClient**: `HttpClient` được thiết kế để được chia sẻ và tái sử dụng trong toàn bộ ứng dụng. Việc tạo một `HttpClient` mới cho mỗi yêu cầu gây lãng phí tài nguyên (ví dụ: nhóm luồng và kết nối). Hãy sử dụng một singleton hoặc inject một instance client dùng chung.
+## Các lỗi thường gặp
+
+- **Quên cấu hình thời gian chờ (timeout) trên HttpURLConnection**: Theo mặc định, `HttpURLConnection` có thời gian chờ vô hạn. Nếu máy chủ từ xa ngừng phản hồi trong khi kết nối hoặc đọc dữ liệu, luồng ứng dụng của bạn sẽ bị treo vĩnh viễn. Luôn thiết lập thời gian chờ kết nối và thời gian chờ đọc.
+- **Quên ngắt kết nối HttpURLConnection**: Không giống như các luồng try-with-resources tự động đóng, việc gọi `close()` trên luồng vào của một `HttpURLConnection` không tự động giải phóng kết nối TCP bên dưới trong một số triển khai trừ khi `disconnect()` được gọi một cách rõ ràng.
+- **Tạo quá nhiều thực thể HttpClient**: Lớp `HttpClient` được thiết kế để chia sẻ và tái sử dụng trong toàn bộ ứng dụng. Việc tạo một `HttpClient` mới cho mỗi yêu cầu gây lãng phí tài nguyên (như nhóm luồng và kết nối). Hãy sử dụng mẫu thiết kế Singleton hoặc tiêm (inject) một thực thể client dùng chung.

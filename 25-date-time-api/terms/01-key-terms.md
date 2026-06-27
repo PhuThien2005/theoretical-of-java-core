@@ -1,73 +1,73 @@
-# Date and Time API Terms
+# Thuật Ngữ API Ngày Giờ (Date and Time API)
 
-Use this file when a word in the theory feels too compressed. Each term has meaning, importance, confusion, and a small example.
+Sử dụng file này khi một từ trong phần lý thuyết cảm thấy quá cô đọng. Mỗi thuật ngữ đều có ý nghĩa, tầm quan trọng, điểm dễ nhầm lẫn và một ví dụ nhỏ.
 
 ## LocalDate
 
-LocalDate represents a date without time or time zone.
+`LocalDate` biểu diễn một ngày không có thông tin giờ hoặc múi giờ.
 
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+Tại sao quan trọng: Dùng nó để dự đoán quy tắc Java chính xác, dạng cho phép và chế độ lỗi. Ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
 
-Common confusion: learners often memorize `LocalDate` as a word but cannot explain what problem it solves or what rule it changes.
+Điểm dễ nhầm lẫn: Người học thường ghi nhớ `LocalDate` như một từ nhưng không thể giải thích vấn đề nó giải quyết hay quy tắc nào nó thay đổi.
 
-Small example: When reading code, ask: what does `LocalDate` change, allow, reject, or clarify?
+Ví dụ nhỏ: Khi đọc code, hỏi: `LocalDate` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## LocalTime
 
-LocalTime is a specific concept in Date and Time API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`LocalTime` là một khái niệm cụ thể trong API Ngày Giờ; hãy học quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ học tên.
 
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+Tại sao quan trọng: Dùng nó để dự đoán quy tắc Java chính xác, dạng cho phép và chế độ lỗi. Ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
 
-Common confusion: learners often memorize `LocalTime` as a word but cannot explain what problem it solves or what rule it changes.
+Điểm dễ nhầm lẫn: Người học thường ghi nhớ `LocalTime` như một từ nhưng không thể giải thích vấn đề nó giải quyết hay quy tắc nào nó thay đổi.
 
-Small example: When reading code, ask: what does `LocalTime` change, allow, reject, or clarify?
+Ví dụ nhỏ: Khi đọc code, hỏi: `LocalTime` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## Instant
 
-Instant represents a point on the UTC timeline.
+`Instant` biểu diễn một thời điểm (point) trên dòng thời gian UTC.
 
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+Tại sao quan trọng: Dùng nó để dự đoán quy tắc Java chính xác, dạng cho phép và chế độ lỗi. Ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
 
-Common confusion: learners often memorize `Instant` as a word but cannot explain what problem it solves or what rule it changes.
+Điểm dễ nhầm lẫn: Người học thường ghi nhớ `Instant` như một từ nhưng không thể giải thích vấn đề nó giải quyết hay quy tắc nào nó thay đổi.
 
-Small example: When reading code, ask: what does `Instant` change, allow, reject, or clarify?
+Ví dụ nhỏ: Khi đọc code, hỏi: `Instant` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## Duration
 
-Duration is a specific concept in Date and Time API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`Duration` là một khái niệm cụ thể trong API Ngày Giờ; hãy học quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ học tên.
 
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+Tại sao quan trọng: Dùng nó để dự đoán quy tắc Java chính xác, dạng cho phép và chế độ lỗi. Ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
 
-Common confusion: learners often memorize `Duration` as a word but cannot explain what problem it solves or what rule it changes.
+Điểm dễ nhầm lẫn: Người học thường ghi nhớ `Duration` như một từ nhưng không thể giải thích vấn đề nó giải quyết hay quy tắc nào nó thay đổi.
 
-Small example: When reading code, ask: what does `Duration` change, allow, reject, or clarify?
+Ví dụ nhỏ: Khi đọc code, hỏi: `Duration` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## Period
 
-Period is a specific concept in Date and Time API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`Period` là một khái niệm cụ thể trong API Ngày Giờ; hãy học quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ học tên.
 
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+Tại sao quan trọng: Dùng nó để dự đoán quy tắc Java chính xác, dạng cho phép và chế độ lỗi. Ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
 
-Common confusion: learners often memorize `Period` as a word but cannot explain what problem it solves or what rule it changes.
+Điểm dễ nhầm lẫn: Người học thường ghi nhớ `Period` như một từ nhưng không thể giải thích vấn đề nó giải quyết hay quy tắc nào nó thay đổi.
 
-Small example: When reading code, ask: what does `Period` change, allow, reject, or clarify?
+Ví dụ nhỏ: Khi đọc code, hỏi: `Period` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## ZoneId
 
-ZoneId is a specific concept in Date and Time API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`ZoneId` là một khái niệm cụ thể trong API Ngày Giờ; hãy học quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ học tên.
 
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+Tại sao quan trọng: Dùng nó để dự đoán quy tắc Java chính xác, dạng cho phép và chế độ lỗi. Ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
 
-Common confusion: learners often memorize `ZoneId` as a word but cannot explain what problem it solves or what rule it changes.
+Điểm dễ nhầm lẫn: Người học thường ghi nhớ `ZoneId` như một từ nhưng không thể giải thích vấn đề nó giải quyết hay quy tắc nào nó thay đổi.
 
-Small example: When reading code, ask: what does `ZoneId` change, allow, reject, or clarify?
+Ví dụ nhỏ: Khi đọc code, hỏi: `ZoneId` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## DateTimeFormatter
 
-DateTimeFormatter is a specific concept in Date and Time API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`DateTimeFormatter` là một khái niệm cụ thể trong API Ngày Giờ; hãy học quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ học tên.
 
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+Tại sao quan trọng: Dùng nó để dự đoán quy tắc Java chính xác, dạng cho phép và chế độ lỗi. Ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
 
-Common confusion: learners often memorize `DateTimeFormatter` as a word but cannot explain what problem it solves or what rule it changes.
+Điểm dễ nhầm lẫn: Người học thường ghi nhớ `DateTimeFormatter` như một từ nhưng không thể giải thích vấn đề nó giải quyết hay quy tắc nào nó thay đổi.
 
-Small example: When reading code, ask: what does `DateTimeFormatter` change, allow, reject, or clarify?
+Ví dụ nhỏ: Khi đọc code, hỏi: `DateTimeFormatter` thay đổi, cho phép, từ chối hay làm rõ điều gì?

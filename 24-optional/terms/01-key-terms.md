@@ -1,63 +1,63 @@
-# Optional Terms
+# Thuật Ngữ Optional
 
-Use this file when a word in the theory feels too compressed. Each term has meaning, importance, confusion, and a small example.
+Sử dụng file này khi một từ trong phần lý thuyết cảm thấy quá cô đọng. Mỗi thuật ngữ đều có ý nghĩa, tầm quan trọng, điểm dễ nhầm lẫn và một ví dụ nhỏ.
 
 ## Optional
 
-An immutable container object which may or may not contain a single non-null value.
+Một đối tượng chứa (container) bất biến (immutable) có thể có hoặc không có một giá trị khác `null`.
 
-Why it matters: It provides a type-level representation of presence or absence of a value, forcing API consumers to explicitly handle the empty state, thereby reducing `NullPointerException` bugs.
+Tại sao quan trọng: Nó cung cấp một biểu diễn ở cấp độ kiểu dữ liệu cho sự hiện diện hoặc vắng mặt của một giá trị, buộc người dùng API phải xử lý rõ ràng trạng thái rỗng, từ đó giảm thiểu lỗi `NullPointerException`.
 
-Common confusion: Developers sometimes treat `Optional` as a full replacement for `null` checks on every reference, leading to bloated code and wrapper overhead. It should primarily be used as a method return type.
+Điểm dễ nhầm lẫn: Các lập trình viên đôi khi coi `Optional` là phương án thay thế hoàn toàn cho kiểm tra `null` trên mọi tham chiếu, dẫn đến code cồng kềnh và chi phí bao bọc không cần thiết. Nó chủ yếu nên được dùng làm kiểu trả về của phương thức.
 
-Small example: `Optional<String> optionalName = Optional.ofNullable(name);`
+Ví dụ nhỏ: `Optional<String> optionalName = Optional.ofNullable(name);`
 
-## empty optional
+## optional rỗng (empty optional)
 
-An instance of `Optional` that contains no value, retrieved via `Optional.empty()`.
+Một thực thể của `Optional` không chứa giá trị nào, lấy về qua `Optional.empty()`.
 
-Why it matters: It represents absence cleanly without resorting to returning `null`. Returning an empty `Optional` allows callers to chain fluent methods safely.
+Tại sao quan trọng: Nó biểu diễn sự vắng mặt một cách rõ ràng mà không cần trả về `null`. Trả về một `Optional` rỗng cho phép người gọi xâu chuỗi các phương thức một cách an toàn.
 
-Common confusion: Since `Optional.empty()` returns a cached singleton instance, developers should never return `null` from a method that is declared to return an `Optional<T>`.
+Điểm dễ nhầm lẫn: Vì `Optional.empty()` trả về một thực thể singleton được lưu trữ sẵn (cached), các lập trình viên không bao giờ nên trả về `null` từ một phương thức được khai báo trả về `Optional<T>`.
 
-Small example: `return Optional.empty();`
+Ví dụ nhỏ: `return Optional.empty();`
 
-## fallback value
+## giá trị dự phòng (fallback value)
 
-A default value or block of execution provided to handle the case where an `Optional` is empty.
+Giá trị mặc định hoặc khối logic được cung cấp để xử lý trường hợp `Optional` rỗng.
 
-Why it matters: Methods like `orElse`, `orElseGet`, and `orElseThrow` allow unwrapping the `Optional` safely by defining what to do when the value is missing.
+Tại sao quan trọng: Các phương thức như `orElse`, `orElseGet` và `orElseThrow` cho phép mở bao `Optional` một cách an toàn bằng cách xác định hành động khi giá trị bị thiếu.
 
-Common confusion: Using `orElse` (e.g. `orElse(new DatabaseQuery())`) always evaluates the parameter expression, causing performance side-effects. Use `orElseGet` for lazy evaluation of defaults.
+Điểm dễ nhầm lẫn: Sử dụng `orElse` (ví dụ: `orElse(new DatabaseQuery())`) luôn đánh giá biểu thức tham số, gây ra tác dụng phụ về hiệu năng. Dùng `orElseGet` để đánh giá giá trị mặc định theo kiểu lười biếng (lazy).
 
-Small example: `String val = opt.orElse("Default");`
+Ví dụ nhỏ: `String val = opt.orElse("Default");`
 
 ## map
 
-An intermediate method that transforms the value inside the `Optional` if it is present.
+Phương thức trung gian dùng để biến đổi giá trị bên trong `Optional` nếu nó tồn tại.
 
-Why it matters: It allows applying transformation functions to the wrapped value without needing manual null checks or `isPresent` checks. The mapper's raw return value is automatically wrapped back into an `Optional`.
+Tại sao quan trọng: Nó cho phép áp dụng hàm biến đổi lên giá trị được bao bọc mà không cần kiểm tra `null` hay `isPresent` thủ công. Giá trị trả về thô của hàm ánh xạ tự động được bao lại trong một `Optional`.
 
-Common confusion: If the mapping function returns `null`, `map` returns `Optional.empty()`. If the mapping function returns another `Optional`, `map` returns a nested `Optional<Optional<T>>`.
+Điểm dễ nhầm lẫn: Nếu hàm ánh xạ trả về `null`, `map` trả về `Optional.empty()`. Nếu hàm ánh xạ trả về một `Optional` khác, `map` trả về một `Optional<Optional<T>>` lồng nhau.
 
-Small example: `Optional<Integer> length = optName.map(String::length);`
+Ví dụ nhỏ: `Optional<Integer> length = optName.map(String::length);`
 
 ## flatMap
 
-An intermediate transformation method that flattens nested `Optional` structures.
+Phương thức biến đổi trung gian dùng để làm phẳng (flatten) cấu trúc `Optional` lồng nhau.
 
-Why it matters: When a mapping function itself returns an `Optional`, using `flatMap` avoids double-wrapping (`Optional<Optional<T>>`) by returning the inner `Optional` directly.
+Tại sao quan trọng: Khi một hàm ánh xạ bản thân nó đã trả về một `Optional`, dùng `flatMap` tránh việc bao bọc đôi (`Optional<Optional<T>>`) bằng cách trả về trực tiếp `Optional` bên trong.
 
-Common confusion: Unlike `map`, if the mapper function in `flatMap` returns a `null` instead of an `Optional.empty()`, it throws a `NullPointerException`.
+Điểm dễ nhầm lẫn: Khác với `map`, nếu hàm ánh xạ trong `flatMap` trả về `null` thay vì `Optional.empty()`, nó sẽ ném `NullPointerException`.
 
-Small example: `Optional<String> email = userOpt.flatMap(User::getEmail);`
+Ví dụ nhỏ: `Optional<String> email = userOpt.flatMap(User::getEmail);`
 
-## optional misuse
+## lạm dụng optional (optional misuse)
 
-Anti-patterns where `Optional` is used in inappropriate contexts.
+Các phản mẫu (anti-pattern) khi `Optional` được sử dụng trong ngữ cảnh không phù hợp.
 
-Why it matters: Misusing `Optional` in fields, parameters, or collections degrades performance, breaks serialization, and introduces new null-pointer risks.
+Tại sao quan trọng: Lạm dụng `Optional` trong các trường, tham số hoặc collection làm giảm hiệu năng, phá vỡ khả năng tuần tự hóa (serialization) và tạo ra các rủi ro con trỏ null mới.
 
-Common confusion: Developers often use `Optional` for class fields, which breaks standard Java serialization because `Optional` is not serializable.
+Điểm dễ nhầm lẫn: Các lập trình viên thường dùng `Optional` cho trường lớp, điều này phá vỡ quá trình tuần tự hóa Java tiêu chuẩn vì `Optional` không triển khai `Serializable`.
 
-Small example: Using `public void setStreet(Optional<String> street)` is an anti-pattern. Use overloading or a nullable parameter instead.
+Ví dụ nhỏ: Sử dụng `public void setStreet(Optional<String> street)` là một phản mẫu. Thay vào đó hãy dùng nạp chồng (overloading) hoặc tham số có thể null.

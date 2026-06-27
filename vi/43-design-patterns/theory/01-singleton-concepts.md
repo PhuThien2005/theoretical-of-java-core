@@ -1,33 +1,33 @@
-# Các mẫu thiết kế cơ bản thường thấy trong Java - Phần 1 (Basic Design Patterns Commonly Seen in Java - Part 1)
+# Các Mẫu Thiết Kế Cơ Bản Thường Gặp Trong Java - Phần 1
 
-## Mục tiêu học tập (Learning Goal)
+## Mục Tiêu Học Tập
 
-Tài liệu này bao gồm một phần trọng tâm của các **Mẫu thiết kế (Design Patterns)** khởi tạo và cấu trúc (GoF) được sử dụng rộng rãi trong Java. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế.
+File này đề cập đến một phần trọng tâm của các **Mẫu thiết kế (Design Pattern)** khởi tạo (creational) và cấu trúc (structural) thuộc nhóm GoF được sử dụng rộng rãi trong Java. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế.
 
-## Phạm vi đề cương (Outline Coverage)
+## Đề Cương Khái Niệm
 
-| Khái niệm (Concept) | Những điều cần biết (What to know) |
+| Khái niệm | Những điều cần biết |
 | --- | --- |
-| `Singleton` | Giới hạn việc khởi tạo lớp ở duy nhất một đối tượng với quyền truy cập toàn cục. |
-| `Factory Method` | Ủy quyền khởi tạo đối tượng cho các lớp con bằng cách sử dụng chữ ký phương thức nhà máy. |
-| `Abstract Factory` | Giao diện tạo ra các họ đối tượng liên quan mà không cần chỉ định các lớp cụ thể. |
-| `Builder` | Xây dựng từng bước các đối tượng phức tạp bằng cách sử dụng một API trôi chảy (fluent API). |
-| `Prototype` | Tạo các đối tượng mới bằng cách sao chép một thực thể đã được cấu hình trước. |
-| `Adapter` | Thống nhất các giao diện không tương thích bằng cách bọc một lớp nguồn bên trong một adapter. |
-| `Decorator` | Bổ sung các tính năng cho một đối tượng một cách năng động bằng cách bọc các biến instance. |
-| `Facade` | Cung cấp một API đơn giản hóa làm đại diện cho một phân hệ phức tạp bên dưới. |
-| `Proxy` | Cung cấp một đối tượng đại diện để kiểm soát truy cập, ghi nhật ký hoặc tải lười biếng thực thể đích. |
-| `Strategy` | Bao đóng các thuật toán có thể hoán đổi cho nhau được lựa chọn tại thời điểm chạy. |
+| `Singleton` | Giới hạn việc khởi tạo lớp thành một đối tượng duy nhất với điểm truy cập toàn cục. |
+| `Factory Method` | Ủy quyền khởi tạo đối tượng cho các lớp con bằng cách sử dụng một chữ ký phương thức nhà máy (factory method). |
+| `Abstract Factory` | Interface tạo ra các họ đối tượng có liên quan với nhau mà không cần chỉ định các lớp cụ thể của chúng. |
+| `Builder` | Xây dựng từng bước các đối tượng phức tạp bằng cách sử dụng một API dạng chuỗi (fluent API). |
+| `Prototype` | Tạo các đối tượng mới bằng cách nhân bản một thực thể đã được cấu hình trước. |
+| `Adapter` | Thống nhất các interface không tương thích bằng cách bọc một lớp nguồn bên trong một adapter. |
+| `Decorator` | Thêm các tính năng vào một đối tượng một cách động bằng cách bọc các biến thực thể. |
+| `Facade` | Cung cấp một API đơn giản hóa đóng vai trò là giao diện cho một tầng phân hệ (subsystem) phức tạp. |
+| `Proxy` | Cung cấp một đối tượng đại diện (placeholder) để kiểm soát truy cập, ghi log hoặc tải lười (lazy-load) các thực thể đích. |
+| `Strategy` | Đóng gói các thuật toán có thể hoán đổi cho nhau và được lựa chọn tại thời điểm chạy. |
 
 ---
 
-## Ghi chú chi tiết (Detailed Notes)
+## Ghi Chú Chi Tiết
 
 ### Singleton
 
 Giới hạn một lớp chỉ có duy nhất một thực thể và cung cấp một điểm truy cập toàn cục.
 
-- **Ví dụ có thể chạy được (Khóa kiểm tra hai lần - Double-Checked Locking)**:
+- **Ví dụ chạy được (Khóa Kiểm Tra Hai Lần - Double-Checked Locking)**:
   ```java
   public final class DatabaseConnection {
       // volatile prevents instruction reordering issues during instantiation
@@ -53,9 +53,9 @@ Giới hạn một lớp chỉ có duy nhất một thực thể và cung cấp 
   }
   ```
 
-- **Sai lầm thường gặp / Chế độ thất bại**:
-  - **Thiếu từ khóa Volatile**: Không có `volatile`, trình biên dịch/JVM có thể tái sắp xếp lệnh (phân bổ bộ nhớ &rarr; công bố tham chiếu &rarr; chạy hàm khởi tạo). Một luồng khác có thể đọc được thực thể mới chỉ được khởi tạo một nửa.
-  - **Enum Singleton**: Cách triển khai Singleton an toàn tuyệt đối nhất là sử dụng một enum có duy nhất một phần tử, giúp xử lý các cuộc tấn công tuần tự hóa (serialization) và reflection một cách tự nhiên:
+- **Sai lầm phổ biến / Chế độ thất bại**:
+  - **Thiếu từ khóa Volatile**: Nếu không có `volatile`, trình biên dịch/JVM có thể sắp xếp lại các chỉ thị (cấp phát bộ nhớ -> xuất bản tham chiếu -> chạy hàm khởi tạo). Một luồng khác có thể đọc được một thực thể mới chỉ được khởi tạo một nửa.
+  - **Enum Singleton**: Cách an toàn tuyệt đối nhất để triển khai một Singleton là sử dụng một enum có một phần tử duy nhất, nó sẽ tự động xử lý các cuộc tấn công tuần tự hóa và phản xạ một cách tự nhiên:
     ```java
     public enum SafeSingleton {
         INSTANCE;
@@ -67,9 +67,9 @@ Giới hạn một lớp chỉ có duy nhất một thực thể và cung cấp 
 
 ### Factory Method
 
-Định nghĩa một giao diện để tạo một đối tượng nhưng để các lớp con quyết định lớp nào sẽ được khởi tạo.
+Định nghĩa một interface để tạo một đối tượng nhưng cho phép các lớp con quyết định lớp nào sẽ được khởi tạo.
 
-- **Ví dụ có thể chạy được**:
+- **Ví dụ chạy được**:
   ```java
   public abstract class Dialog {
       public void renderWindow() {
@@ -91,7 +91,7 @@ Giới hạn một lớp chỉ có duy nhất một thực thể và cung cấp 
 
 Cung cấp một interface để tạo ra các họ đối tượng có liên quan hoặc phụ thuộc lẫn nhau mà không cần chỉ định các lớp cụ thể của chúng.
 
-- **Ví dụ có thể chạy được**:
+- **Ví dụ chạy được**:
   ```java
   public interface GUIFactory {
       Button createButton();
@@ -108,9 +108,9 @@ Cung cấp một interface để tạo ra các họ đối tượng có liên qu
 
 ### Builder
 
-Tách biệt quá trình xây dựng một đối tượng phức tạp khỏi biểu diễn của nó, cho phép lắp ráp từng bước các trường (đặc biệt hữu ích khi lớp chứa nhiều tham số tùy chọn).
+Tách biệt việc xây dựng một đối tượng phức tạp khỏi biểu diễn của nó, cho phép lắp ráp từng bước các trường dữ liệu (đặc biệt hữu ích khi lớp chứa nhiều tham số tùy chọn).
 
-- **Ví dụ có thể chạy được**:
+- **Ví dụ chạy được**:
   ```java
   public class User {
       private final String name; // Required
@@ -139,9 +139,9 @@ Tách biệt quá trình xây dựng một đối tượng phức tạp khỏi b
 
 ### Prototype
 
-Tạo ra các đối tượng mới bằng cách sao chép (nhân bản - cloning) một thực thể hiện có (prototype) thay vì tạo mới chúng hoàn toàn bằng từ khóa `new`.
+Tạo các đối tượng mới bằng cách sao chép (nhân bản/clone) một thực thể hiện có (prototype) thay vì tạo mới chúng bằng từ khóa `new` từ đầu.
 
-- **Ví dụ có thể chạy được**:
+- **Ví dụ chạy được**:
   ```java
   public interface Prototype {
       Prototype clone();
@@ -159,9 +159,9 @@ Tạo ra các đối tượng mới bằng cách sao chép (nhân bản - clonin
 
 ### Adapter
 
-Chuyển đổi giao diện của một lớp thành một giao diện khác mà client mong đợi, cho phép các lớp có giao diện không tương thích có thể làm việc cùng nhau.
+Chuyển đổi interface của một lớp thành một interface khác mà client mong đợi, cho phép các lớp có interface không tương thích hoạt động cùng nhau.
 
-- **Ví dụ có thể chạy được**:
+- **Ví dụ chạy được**:
   ```java
   public interface TypeCInput { void connectTypeC(); }
   
@@ -180,9 +180,9 @@ Chuyển đổi giao diện của một lớp thành một giao diện khác mà
 
 ### Decorator
 
-Gắn thêm các trách nhiệm cho đối tượng một cách năng động. Decorator cung cấp một giải pháp thay thế linh hoạt cho kế thừa lớp để mở rộng chức năng.
+Đính kèm thêm các trách nhiệm vào một đối tượng một cách động. Các decorator cung cấp một sự thay thế linh hoạt cho việc phân lớp (subclassing) để mở rộng chức năng.
 
-- **Ví dụ có thể chạy được**:
+- **Ví dụ chạy được**:
   ```java
   public interface Coffee { double getCost(); }
 
@@ -200,17 +200,17 @@ Gắn thêm các trách nhiệm cho đối tượng một cách năng động. D
 
 ### Facade
 
-Cung cấp một giao diện thống nhất, đơn giản hóa cho một tập hợp các giao diện trong một phân hệ phức tạp.
+Cung cấp một giao diện thống nhất, đơn giản hóa cho một tập hợp các interface trong một phân hệ (subsystem) phức tạp.
 
-- **Ví dụ**: Tạo một `HomeTheaterFacade` trừu tượng hóa các cuộc gọi tới `Amplifier.on()`, `DvdPlayer.play(movie)`, `Projector.widescreenMode()` thành một phương thức duy nhất: `facade.watchMovie("Inception")`.
+- **Ví dụ**: Tạo một `HomeTheaterFacade` giúp trừu tượng hóa các cuộc gọi tới `Amplifier.on()`, `DvdPlayer.play(movie)`, `Projector.widescreenMode()` thành một phương thức duy nhất: `facade.watchMovie("Inception")`.
 
 ---
 
 ### Proxy
 
-Cung cấp một đối tượng thay thế hoặc đại diện cho một đối tượng khác để kiểm soát truy cập vào đối tượng đó (tải lười biếng, kiểm tra quyền truy cập, ghi nhật ký, lưu vào bộ đệm).
+Cung cấp một đối tượng đại diện (surrogate hoặc placeholder) cho một đối tượng khác để kiểm soát quyền truy cập vào nó (tải lười, kiểm tra ủy quyền, ghi log, lưu bộ nhớ đệm).
 
-- **Ví dụ có thể chạy được**:
+- **Ví dụ chạy được**:
   ```java
   public interface Image { void display(); }
 
@@ -237,9 +237,9 @@ Cung cấp một đối tượng thay thế hoặc đại diện cho một đố
 
 ### Strategy
 
-Định nghĩa một họ các thuật toán, bao đóng từng thuật toán và làm cho chúng có thể hoán đổi cho nhau tại thời điểm chạy.
+Định nghĩa một họ các thuật toán, đóng gói từng thuật toán và giúp chúng có thể hoán đổi cho nhau tại thời điểm chạy.
 
-- **Ví dụ có thể chạy được**:
+- **Ví dụ chạy được**:
   ```java
   public interface PaymentStrategy { void pay(int amount); }
 
@@ -256,24 +256,24 @@ Cung cấp một đối tượng thay thế hoặc đại diện cho một đố
 
 ---
 
-## Tại sao Khóa kiểm tra hai lần đảm bảo Singleton an toàn đa luồng (Why Double-Checked Locking Ensures Thread-Safe Singleton)
+## Tại Sao Khóa Kiểm Tra Hai Lần Đảm Bảo Singleton An Toàn Luồng
 
-Mẫu khóa kiểm tra hai lần (double-checked locking) được thiết kế để giảm thiểu chi phí đồng bộ hóa trong khởi tạo lười biếng. Theo Mô hình Bộ nhớ Java (Java Memory Model), nếu không có kiểm tra hai lần, mỗi cuộc gọi tới `getInstance()` sẽ yêu cầu lấy khóa giám sát cấp lớp (class-level monitor), tạo ra một nút thắt cổ chai hiệu năng nghiêm trọng. Trong mẫu này, lượt kiểm tra đầu tiên bỏ qua hoàn toàn việc đồng bộ hóa một khi thực thể đã được khởi tạo. Nếu thực thể là null, luồng sẽ lấy khóa và thực hiện lần kiểm tra thứ hai để xác minh xem một luồng khác đã khởi tạo singleton trong lúc luồng này chờ lấy khóa hay chưa.
+Mẫu thiết kế khóa kiểm tra hai lần (double-checked locking) được thiết kế để giảm thiểu chi phí đồng bộ hóa trong việc khởi tạo lười (lazy initialization). Theo Mô Hình Bộ Nhớ Java (Java Memory Model), nếu không kiểm tra hai lần, mọi lời gọi tới `getInstance()` sẽ đều yêu cầu phải có một monitor cấp lớp, tạo ra một nút thắt hiệu năng đáng kể. Trong mẫu thiết kế này, lần kiểm tra đầu tiên sẽ bỏ qua hoàn toàn việc đồng bộ hóa một khi thực thể đã được khởi tạo. Nếu thực thể là null, luồng sẽ giành lấy khóa và thực hiện lần kiểm tra thứ hai để xác minh rằng không có luồng nào khác đã khởi tạo singleton trong khi luồng này đang chờ khóa.
 
-Điều quan trọng là tham chiếu thực thể phải được khai báo là `volatile` để ngăn chặn việc tái sắp xếp lệnh (instruction reordering) do trình biên dịch hoặc JVM. Việc tạo một đối tượng mới `new Singleton()` không phải là một thao tác nguyên tử (atomic); nó liên quan đến việc phân bổ bộ nhớ, khởi tạo các trường (thực thi hàm khởi tạo) và ghi địa chỉ bộ nhớ vào biến tham chiếu. Không có `volatile`, trình biên dịch hoặc CPU có thể tái sắp xếp việc ghi địa chỉ trước khi hàm khởi tạo chạy. Nếu điều này xảy ra, một luồng đồng thời thực hiện lần kiểm tra đầu tiên không được đồng bộ hóa sẽ thấy một tham chiếu non-null và trả về nó, dẫn đến việc để lộ một đối tượng chỉ mới được khởi tạo một phần.
+Điều quan trọng là tham chiếu thực thể phải được khai báo `volatile` để ngăn chặn việc sắp xếp lại chỉ thị (instruction reordering) bởi trình biên dịch hoặc JVM. Việc tạo ra một đối tượng mới `new Singleton()` không phải là một hoạt động nguyên tử; nó bao gồm cấp phát bộ nhớ, khởi tạo các trường (thực thi hàm khởi tạo) và ghi địa chỉ bộ nhớ vào biến tham chiếu. Nếu không có `volatile`, trình biên dịch hoặc CPU có thể sắp xếp lại việc ghi địa chỉ trước khi hàm khởi tạo chạy. Nếu điều này xảy ra, một luồng đồng thời khác thực thi kiểm tra đầu tiên (không đồng bộ) sẽ nhìn thấy một tham chiếu non-null và trả về nó, dẫn đến việc phơi bày một đối tượng mới chỉ được khởi tạo một phần.
 
-### Mô hình tư duy (Mental Model)
+### Phơi bày thực thể khởi tạo một phần (Mental Model)
+```text
+            Luồng A                            Luồng B
+     1. Lần kiểm tra thứ nhất: null     1. Lần kiểm tra thứ nhất: non-null!
+     2. Giành lấy Khóa                  2. Trả về đối tượng khởi tạo một phần (CRASH)
+     3. [Thực thi bị sắp xếp lại]
+        - Cấp phát bộ nhớ
+        - Ghi địa chỉ vào 'instance'
+        - (Hàm khởi tạo chưa chạy!)
 ```
-             Luồng A                             Luồng B
-      1. Kiểm tra 1: null               1. Kiểm tra 1: non-null!
-      2. Lấy Khóa                       2. Trả về đối tượng chưa hoàn thiện (SẬP)
-      3. [Thực thi bị tái sắp xếp]
-         - Phân bổ bộ nhớ
-         - Ghi địa chỉ vào 'instance'
-         - (Chưa chạy hàm khởi tạo!)
-```
 
-### Ví dụ Code (Code Example)
+### Ví Dụ Mã Nguồn
 ```java
 public final class DclSingleton {
     private static volatile DclSingleton instance;
@@ -299,34 +299,29 @@ public final class DclSingleton {
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-
-```text
-Bỏ qua từ khóa `volatile`
-  → Trình biên dịch/CPU tái sắp xếp việc ghi địa chỉ thực thể trước khi hoàn thành hàm khởi tạo
-  → Luồng đồng thời đọc tham chiếu non-null trong lần kiểm tra đầu tiên không đồng bộ
-  → Luồng trả về một tham chiếu của đối tượng mới khởi tạo một phần
-  → Truy cập các trường đối tượng dẫn đến trạng thái lỗi hoặc NullPointerException.
-```
-
+### Chuỗi Nguyên Nhân - Kết Quả
+Bỏ qua từ khóa `volatile` &rarr; Trình biên dịch/CPU sắp xếp lại việc ghi địa chỉ thực thể lên trước khi hoàn thành hàm khởi tạo &rarr; Luồng đồng thời đọc thấy tham chiếu non-null ở lần kiểm tra không đồng bộ thứ nhất &rarr; Luồng trả về một tham chiếu tới đối tượng mới được khởi tạo một phần &rarr; Việc truy cập các trường của đối tượng dẫn đến trạng thái bị hỏng hoặc lỗi NullPointerException.
 
 ---
 
-## Tại sao Singleton kiểu Bill Pugh đạt được khởi tạo lười biếng an toàn đa luồng (Why Bill Pugh Singleton Achieves Thread-Safe Lazy Initialization)
+## Tại Sao Bill Pugh Singleton Đạt Được Khởi Tạo Lười An Toàn Luồng
 
-Mẫu Singleton kiểu Bill Pugh (Bill Pugh Singleton) dựa trên cơ chế nạp lớp (class loading) của máy ảo Java (JVM) để đạt được quá trình khởi tạo lười biếng an toàn đa luồng. Theo Quy chuẩn Ngôn ngữ Java (Java Language Specification - JLS), một lớp chỉ được nạp và khởi tạo khi nó lần đầu tiên được tham chiếu bởi luồng thực thi. Khi lớp singleton bên ngoài được nạp vào bộ nhớ, lớp tĩnh nội bộ `SingletonHolder` của nó vẫn chưa được nạp. Chỉ khi phương thức `getInstance()` của lớp bên ngoài được gọi rõ ràng, tham chiếu tới `SingletonHolder.INSTANCE`, JVM mới kích hoạt việc nạp và khởi tạo lớp nội bộ này.
+Mẫu thiết kế Bill Pugh Singleton dựa trên cơ chế tải lớp (class loading) của Máy ảo Java để đạt được khả năng khởi tạo lười (lazy initialization) an toàn luồng. Theo Đặc tả Ngôn ngữ Java (JLS), một lớp chỉ được tải và khởi tạo khi nó được tham chiếu lần đầu tiên bởi luồng thực thi. Khi lớp singleton bên ngoài được tải vào bộ nhớ, lớp helper lồng nhau `SingletonHolder` vẫn chưa được tải. Chỉ khi phương thức `getInstance()` của lớp bên ngoài được gọi một cách rõ ràng, tham chiếu tới `SingletonHolder.INSTANCE`, JVM mới kích hoạt việc tải và khởi tạo lớp bên trong.
 
-Điều quan trọng là phân hệ nạp lớp (class loading subsystem) của JVM vốn dĩ tuần tự hóa việc khởi tạo lớp. JVM sử dụng các khóa nội bộ trong quá trình nạp và xác thực lớp để đảm bảo rằng chỉ có một luồng có thể nạp một lớp tại một thời điểm. Điều này đảm bảo rằng `SingletonHolder` và biến static final `INSTANCE` của nó được tạo theo cách an toàn đa luồng mà không cần lập trình viên phải thực hiện đồng bộ hóa. Vì lớp được nạp chính xác một lần, tham chiếu được công bố an toàn, bỏ qua hoàn toàn chi phí khóa lúc chạy ở các cuộc gọi tiếp theo.
+Điều quan trọng là phân hệ tải lớp của JVM vốn dĩ đã tuần tự hóa việc khởi tạo lớp. JVM sử dụng các khóa nội bộ trong quá trình tải và xác thực lớp để đảm bảo rằng chỉ có một luồng có thể tải một lớp tại một thời điểm. Điều này đảm bảo rằng `SingletonHolder` và biến `static final` `INSTANCE` của nó được tạo ra một cách an toàn luồng mà nhà phát triển không cần can thiệp đồng bộ hóa thủ công. Vì lớp được tải chính xác một lần, tham chiếu được xuất bản một cách an toàn, bỏ qua hoàn toàn chi phí khóa thời gian chạy trong các lần gọi tiếp theo.
 
-### Mô hình tư duy (Mental Model)
+### Khởi tạo lười qua ClassLoader (Mental Model)
+```text
+Lớp bên ngoài được tải -> Lớp lồng nhau chưa được tải (Lazy)
+       |
+getInstance() được gọi -> Kích hoạt tải lớp lồng nhau
+       |
+ClassLoader của JVM khóa việc tải -> Thực thi an toàn luồng
+       |
+Thực thể được khởi tạo -> Static final được xuất bản an toàn
 ```
-      Nạp lớp ngoài -> Chưa nạp lớp nội bộ (Lười biếng)
-      getInstance() được gọi -> Kích hoạt nạp lớp nội bộ
-      Bộ nạp lớp JVM khóa việc nạp lớp -> Thực thi an toàn đa luồng
-      Khởi tạo thực thể -> Static final được công bố an toàn
-```
 
-### Ví dụ Code (Code Example)
+### Ví Dụ Mã Nguồn
 ```java
 public final class BillPughSingleton {
     private BillPughSingleton() {}
@@ -347,35 +342,27 @@ public final class BillPughSingleton {
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-
-```text
-Gọi phương thức `getInstance()`
-  → Phân hệ nạp lớp của JVM kích hoạt nạp `SingletonHolder` theo nhu cầu
-  → Bộ nạp lớp của JVM tuần tự hóa quá trình khởi tạo bằng cách sử dụng các khóa nội bộ JVM
-  → Biến static final `INSTANCE` được khởi tạo an toàn và nguyên tử
-  → Các lần đọc tiếp theo lấy được thực thể đã được xây dựng hoàn chỉnh mà không tốn chi phí đồng bộ hóa.
-```
-
+### Chuỗi Nguyên Nhân - Kết Quả
+Gọi phương thức `getInstance()` &rarr; Phân hệ tải lớp của JVM kích hoạt tải `SingletonHolder` theo nhu cầu &rarr; Classloader của JVM tuần tự hóa việc khởi tạo sử dụng các khóa nội bộ của JVM &rarr; Biến static final `INSTANCE` được khởi tạo an toàn và nguyên tử &rarr; Các lần đọc tiếp theo lấy được thực thể đã xây dựng hoàn chỉnh mà không tốn chi phí đồng bộ hóa.
 
 ---
 
-## Tại sao Factory Method chuyển giao quyết định khởi tạo đối tượng (Why Factory Method Defers Object Instantiation)
+## Tại Sao Factory Method Trì Hoãn Việc Khởi Tạo Đối Tượng
 
-Mẫu Factory Method giải quyết vấn đề liên kết chặt chẽ liên quan đến việc sử dụng trực tiếp toán tử `new` trong mã client. Khi một client khởi tạo một lớp cụ thể bằng cách sử dụng `new`, nó sẽ tự liên kết với triển khai cụ thể đó, vi phạm Nguyên tắc đảo ngược phụ thuộc. JVM phải giải quyết kiểu lớp chính xác đó ở thời điểm biên dịch, khiến cho việc thay đổi động hoặc ghi đè (override) của lớp con là không thể. Bằng cách định nghĩa một phương thức trừu tượng để tạo đối tượng, Factory Method chuyển giao quyết định khởi tạo đối tượng cho các lớp con lúc chạy.
+Mẫu thiết kế Factory Method giải quyết vấn đề liên kết chặt chẽ liên quan đến việc sử dụng trực tiếp toán tử `new` trong mã nguồn client. Khi một client khởi tạo một lớp cụ thể bằng cách sử dụng `new`, nó tự liên kết với triển khai cụ thể đó, vi phạm Nguyên tắc Đảo ngược Phụ thuộc. JVM phải phân giải kiểu lớp chính xác đó tại thời điểm biên dịch, khiến cho việc thay đổi động hoặc ghi đè lớp con là bất khả thi. Bằng cách định nghĩa một phương thức abstract cho việc tạo đối tượng, Factory Method ủy quyền quyết định khởi tạo cho các lớp con tại thời điểm chạy.
 
-Thiết kế này cho phép tính đa hình ở tầng khởi tạo, đảm bảo client chỉ tương tác duy nhất với các interface sản phẩm trừu tượng. Khi các lớp con ghi đè phương thức nhà máy, JVM phân phát cuộc gọi một cách năng động bằng cách sử dụng gọi phương thức ảo (vtable lookup). Kết quả là, framework cốt lõi vẫn tách rời khỏi các lớp cụ thể, cho phép lập trình viên giới thiệu các loại sản phẩm mới mà không cần sửa đổi mã client hiện có.
+Thiết kế này cho phép tính đa hình ở cấp độ khởi tạo, đảm bảo client chỉ tương tác duy nhất với các interface sản phẩm (product interface) trừu tượng. Khi các lớp con ghi đè phương thức nhà máy, JVM điều phối cuộc gọi một cách động bằng cách sử dụng lời gọi phương thức ảo (vtable lookup). Nhờ đó, khung lõi (core framework) vẫn được tách biệt khỏi các lớp cụ thể, cho phép các nhà phát triển giới thiệu các loại sản phẩm mới mà không cần sửa đổi mã nguồn client hiện có.
 
-### Mô hình tư duy (Mental Model)
-```
-      Mã Client -----> Creator (Trừu tượng) ---gọi---> createProduct() [vtable]
+### Trì hoãn qua Đa hình kiểu con (Mental Model)
+```text
+Mã nguồn Client -----> Creator (Abstract) ---gọi---> createProduct() [vtable]
                             ^                                |
                             | (Kế thừa)                     | (Đa hình)
                             |                                v
-                     ConcreteCreator --------------> trả về ConcreteProduct
+                    ConcreteCreator --------------> trả về ConcreteProduct
 ```
 
-### Ví dụ Code (Code Example)
+### Ví Dụ Mã Nguồn
 ```java
 interface Shape { void draw(); }
 class Circle implements Shape { public void draw() { System.out.println("Circle"); } }
@@ -400,32 +387,24 @@ public class Main {
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-
-```text
-Khởi tạo trực tiếp bằng toán tử `new`
-  → Phụ thuộc cứng vào lớp cụ thể ở thời điểm biên dịch
-  → Chuyển sang interface Factory Method trừu tượng
-  → Phân phát phương thức động giải quyết các lớp con cụ thể tại thời điểm chạy
-  → Mã client vẫn tách rời và mở cho việc mở rộng mà không cần sửa đổi.
-```
-
+### Chuỗi Nguyên Nhân - Kết Quả
+Khởi tạo trực tiếp bằng toán tử `new` &rarr; Phụ thuộc viết cứng vào lớp cụ thể tại thời điểm biên dịch &rarr; Chuyển sang interface Factory Method trừu tượng &rarr; Điều phối phương thức động phân giải lớp con cụ thể tại thời điểm chạy &rarr; Mã nguồn client vẫn được tách biệt và mở cho việc mở rộng mà không cần sửa đổi.
 
 ---
 
-## Tại sao mẫu Builder thay thế hàm khởi tạo phình to (Why the Builder Pattern Replaces Telescoping Constructors)
+## Tại Sao Mẫu Thiết Kế Builder Thay Thế Hàm Khởi Tạo Hình Kính Viễn Vọng
 
-Anti-pattern hàm khởi tạo phình to (telescoping constructor anti-pattern) phát sinh khi một lớp chứa quá nhiều trường tùy chọn, dẫn đến sự gia tăng theo cấp số nhân của các hàm khởi tạo nạp chồng (overloaded constructors). Trong Java, điều này dẫn đến các chuỗi khởi tạo cồng kềnh, nơi mỗi phương thức gọi `this(...)` với các tham số mặc định, làm cho API không thể đọc được và dễ xảy ra lỗi. Trình biên dịch không thể phát hiện khi một lập trình viên vô tình hoán đổi vị trí của hai đối số liền kề có cùng kiểu (chẳng hạn như hai chuỗi string hoặc hai số nguyên). Mẫu Builder giải quyết điều này bằng cách bao đóng logic xây dựng vào một lớp helper chuyên dụng với một API trôi chảy.
+Phản khuôn mẫu hàm khởi tạo hình kính viễn vọng (telescoping constructor) phát sinh khi một lớp chứa nhiều trường tùy chọn, dẫn đến sự tăng trưởng lũy thừa của các hàm khởi tạo quá tải (overloaded constructor). Trong Java, điều này dẫn đến các chuỗi hàm khởi tạo phình to, nơi mỗi phương thức gọi `this(...)` với các tham số mặc định, khiến cho API khó đọc và dễ xảy ra lỗi. Trình biên dịch không thể phát hiện khi nhà phát triển vô tình tráo đổi hai đối số liền kề có cùng kiểu dữ liệu (chẳng hạn như hai chuỗi hoặc hai số nguyên). Mẫu thiết kế Builder giải quyết vấn đề này bằng cách đóng gói logic xây dựng vào một lớp helper chuyên dụng có API dạng chuỗi (fluent API).
 
-Bằng cách sử dụng mẫu Builder, các thuộc tính tùy chọn được thiết lập từng bước thông qua các cuộc gọi phương thức được đặt tên. Điều này đảm bảo rằng các tham số được xác định rõ ràng trong mã client, nâng cao khả năng đọc tổng thể và ngăn ngừa lỗi thứ tự tham số. Ngoài ra, nó thực thi tính bất biến của đối tượng bằng cách cho phép các trường trong lớp đích được khai báo là `final`, chỉ được khởi tạo một lần thông qua một hàm khởi tạo private. Phương thức `build()` đóng vai trò là một cổng xác thực tập trung, ném ra ngoại lệ nếu các tham số kết hợp vi phạm bất biến của lớp trước khi đối tượng cuối cùng được khởi tạo.
+Bằng việc sử dụng mẫu thiết kế Builder, các thuộc tính tùy chọn được thiết lập từng bước thông qua các lời gọi phương thức có tên. Điều này đảm bảo rằng các tham số được xác định rõ ràng trong mã nguồn client, nâng cao khả năng đọc tổng thể và ngăn ngừa các lỗi về thứ tự tham số. Thêm vào đó, nó thực thi tính bất biến (immutability) của đối tượng bằng cách cho phép các trường trong lớp đích được khai báo `final`, chỉ được khởi tạo một lần thông qua một hàm khởi tạo private. Phương thức `build()` đóng vai trò là một cổng xác thực tập trung, ném ra một ngoại lệ nếu các tham số kết hợp vi phạm bất biến lớp trước khi đối tượng cuối cùng được khởi tạo.
 
-### Mô hình tư duy (Mental Model)
+### Tránh tráo đổi đối số kiểu (Mental Model)
+```text
+Hình kính viễn vọng: Client -> Client -> Client (Khó đọc, dễ nhầm thứ tự)
+Builder:             Builder -> setFieldA() -> setFieldB() -> build() -> ImmutableObject
 ```
-  Phình to (Telescoping): Client -> Client -> Client (Khó đọc, dễ nhầm thứ tự)
-  Builder:    Builder -> setFieldA() -> setFieldB() -> build() -> ImmutableObject
-```
 
-### Ví dụ Code (Code Example)
+### Ví Dụ Mã Nguồn
 ```java
 public final class Laptop {
     private final String cpu;
@@ -456,13 +435,10 @@ public final class Laptop {
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
+### Chuỗi Nguyên Nhân - Kết Quả
+Nhiều tham số hàm khởi tạo tùy chọn &rarr; Các hàm khởi tạo quá tải với các vị trí tham số dễ gây nhầm lẫn &rarr; Lớp Builder được xây dựng để nhận các tham số từng bước &rarr; Xác thực các tham số được thực thi trong phương thức `build()` &rarr; Lớp đích bất biến được khởi tạo an toàn với các tham số hợp lệ.
 
-```text
-Nhiều tham số khởi tạo tùy chọn
-  → Các hàm khởi tạo nạp chồng với các vị trí tham số gây nhầm lẫn
-  → Lớp Builder được xây dựng để nhận các tham số từng bước
-  → Thực thi kiểm thực tham số trong phương thức `build()`
-  → Lớp đích bất biến được khởi tạo an toàn với các tham số hợp lệ.
-```
+## Liên Kết Tham Khảo (Reference Links)
 
+- https://refactoring.guru/design-patterns (Mẫu thiết kế Refactoring Guru)
+- https://docs.oracle.com/javase/tutorial/java/concepts/ (Tài liệu khái niệm Java của Oracle)

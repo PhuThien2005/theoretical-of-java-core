@@ -1,55 +1,55 @@
-# 38 - Xây dựng, Biên dịch, Chạy (Build, Compile, Run)
+# 38 - Xây Dựng, Biên Dịch, Chạy (Build, Compile, Run)
 
-Chủ đề này tuân theo đề cương chính trong [outline.md](../outline.md). Mục tiêu là hiểu sâu từng khái niệm để có thể giải thích, nhận biết trong mã nguồn và trả lời các câu hỏi phỏng vấn.
+Chủ đề này bám sát đề cương chính trong [outline.md](../outline.md). Mục tiêu là hiểu sâu từng khái niệm để có thể giải thích, nhận diện trong mã nguồn và trả lời các câu hỏi phỏng vấn.
 
 ## Thứ Tự Học Tập (Study Order)
 
-- [Khái niệm Javac (Javac Concepts)](theory/01-javac-concepts.md)
-- [Khái niệm Cấu trúc Dự án Chuẩn (Standard Project Structure Concepts)](theory/02-standard-project-structure-concepts.md)
-- [Thuật ngữ Then chốt (Key Terms)](terms/01-key-terms.md)
+- [Khái Niệm Javac](theory/01-javac-concepts.md)
+- [Khái Niệm Cấu Trúc Dự Án Tiêu Chuẩn](theory/02-standard-project-structure-concepts.md)
+- [Thuật Ngữ Chính](terms/01-key-terms.md)
 
-## Danh Sách Đề Cương (Outline Checklist)
+## Checklist Đề Cương (Outline Checklist)
 
 - javac
 - java
 - jar
-- Tạo tệp JAR (Create JAR file)
+- Tạo tệp JAR
 - Tệp JAR có thể thực thi (Executable JAR)
-- Đường dẫn lớp (Classpath)
-- Tệp Manifest (Manifest file)
-- Maven cơ bản (Basic Maven)
-- Gradle cơ bản (Basic Gradle)
+- Classpath (Đường dẫn lớp)
+- Tệp Manifest (MANIFEST.MF)
+- Maven cơ bản
+- Gradle cơ bản
 - Quản lý phụ thuộc (Dependency management)
-- Cấu trúc dự án chuẩn (Standard project structure)
-- Kiểm thử đơn vị cơ bản với JUnit (Basic unit test with JUnit)
+- Cấu trúc dự án tiêu chuẩn
+- Kiểm thử đơn vị cơ bản với JUnit
 
 ## Thẻ Anki (Anki Cards)
 
-- [Cơ bản (Basic)](anki/basic.tsv)
-- [Cơ bản Mở rộng (Basic Extra)](anki/basic-extra.tsv)
-- [Điền vào chỗ trống (Cloze)](anki/cloze.tsv)
-- [Câu hỏi Code (Code Question)](anki/code-question.tsv)
+- [Cơ Bản (Basic)](anki/basic.tsv)
+- [Cơ Bản Mở Rộng (Basic Extra)](anki/basic-extra.tsv)
+- [Điền Khuyết (Cloze)](anki/cloze.tsv)
+- [Câu Hỏi Code (Code Question)](anki/code-question.tsv)
 
-## Sơ Đồ Tổng Quan (Mermaid Overview)
+## Tổng Quan Sơ Đồ Mermaid (Mermaid Overview)
 
 ```mermaid
 flowchart TD
-    A["Xây dựng, Biên dịch, Chạy (Build, Compile, Run)"] --> B["Định nghĩa (Definitions)"]
-    A --> C["Quy tắc và cú pháp (Rules and syntax)"]
-    A --> D["Sai lầm thường gặp (Common mistakes)"]
-    A --> E["Ghi nhớ phỏng vấn (Interview recall)"]
+    A[Xây dựng, Biên dịch, Chạy] --> B[Định nghĩa]
+    A --> C[Quy tắc và cú pháp]
+    A --> D[Các lỗi thường gặp]
+    A --> E[Ghi nhớ phỏng vấn]
 ```
 
 ## Tự Kiểm Tra (Self-Check)
 
-Trả lời các câu hỏi sau sau khi nghiên cứu lý thuyết để kiểm tra mức độ hiểu sâu của bạn:
+Hãy trả lời các câu hỏi sau khi nghiên cứu lý thuyết để xác minh độ sâu hiểu biết của bạn:
 
-1. **Tại sao chúng ta cần các công cụ tự động hóa bản dựng (build automation tools) như Maven hoặc Gradle** thay vì sử dụng trực tiếp `javac` và `java` cho các dự án quy mô lớn?
-2. **Cách thức phân giải đường dẫn lớp (Classpath resolution) hoạt động như thế nào trong thời gian chạy**, và sự khác biệt kỹ thuật giữa `NoClassDefFoundError` và `ClassNotFoundException` là gì?
-3. **Mục đích của tệp Manifest (`MANIFEST.MF`) trong một tệp JAR là gì**, và cách nó cấu hình JVM để giúp một tệp JAR có thể thực thi được?
-4. **Tại sao việc đặt các tệp tài nguyên ứng dụng (production resource files)** trong `src/main/java/` thay vì `src/main/resources/` dẫn đến các lỗi tìm kiếm trong thời gian chạy (runtime lookup errors)?
-5. **Quản lý phụ thuộc (Dependency management) xử lý các phụ thuộc bắc cầu (transitive dependencies) như thế nào**, và cơ chế nào được sử dụng để giải quyết xung đột phiên bản ("Jar Hell")?
-6. **Tại sao việc tuân thủ thứ tự đối số `assertEquals(expected, actual)`** trong JUnit lại quan trọng, và hậu quả của việc đảo ngược chúng là gì?
+1. **Tại sao chúng ta cần các công cụ tự động hóa xây dựng (build automation tool) như Maven hoặc Gradle** thay vì sử dụng trực tiếp `javac` và `java` cho các dự án quy mô lớn?
+2. **Cơ chế phân giải Classpath hoạt động như thế nào tại thời điểm chạy**, và sự khác biệt về mặt kỹ thuật giữa `NoClassDefFoundError` và `ClassNotFoundException` là gì?
+3. **Mục đích của tệp Manifest (`MANIFEST.MF`) trong một tệp JAR là gì**, và nó cấu hình JVM thế nào để giúp tệp JAR có thể thực thi được?
+4. **Tại sao việc đặt các tệp tài nguyên (resource file)** trong `src/main/java/` thay vì `src/main/resources/` lại dẫn đến các lỗi tìm kiếm tại thời điểm chạy?
+5. **Cơ chế quản lý phụ thuộc xử lý các phụ thuộc bắc cầu (transitive dependency) như thế nào**, và cơ chế nào được sử dụng để phân giải các xung đột phiên bản ("Jar Hell")?
+6. **Tại sao việc tuân thủ thứ tự đối số `assertEquals(expected, actual)` lại quan trọng** trong JUnit, và hậu quả của việc đảo ngược chúng là gì?
 
 ## Liên Kết Tham Khảo (Reference Links)
 

@@ -1,8 +1,8 @@
-# Giải phẫu chương trình (Program Anatomy)
+# Cấu Trúc Chương Trình Java (Program Anatomy)
 
-Một chương trình Java thường được tổ chức xung quanh các lớp. Ngay cả một chương trình rất nhỏ cũng thường có ít nhất một lớp.
+Một chương trình Java thường được tổ chức xung quanh các lớp (classes). Ngay cả một chương trình rất nhỏ cũng thường có ít nhất một lớp.
 
-## Ví dụ tối thiểu (Minimal Example)
+## Ví Dụ Tối Giản
 
 ```java
 public class HelloWorld {
@@ -14,29 +14,29 @@ public class HelloWorld {
 
 Chương trình này có:
 
-- Tuyên bố lớp: `public class HelloWorld` .
-- Khai báo phương thức (Method): `public static void main(String[] args)` .
-- Tuyên bố: `System.out.println("Hello Java");` .
-- Các khối được đánh dấu bởi `{}` .
+- Khai báo lớp: `public class HelloWorld`.
+- Khai báo phương thức: `public static void main(String[] args)`.
+- Câu lệnh: `System.out.println("Hello Java");`.
+- Các khối lệnh được đánh dấu bằng `{}`.
 
-## Tại sao tất cả mã nằm trong lớp (Why All Code Resides in Classes)
+## Tại Sao Mọi Code Đều Nằm Trong Lớp
 
-Java được thiết kế ngay từ đầu như một ngôn ngữ lập trình hướng đối tượng. Trong Java, các lớp đóng vai trò là đơn vị cơ bản của mã nguồn, tính mô đun và quá trình biên dịch. Máy ảo Java (JVM - Java Virtual Machine) (JVM) tải và thực thi mã byte trên cơ sở từng lớp. Vì Java không có khái niệm về hàm toàn cục hoặc các câu lệnh (Statement) thả nổi tự do bên ngoài ranh giới lớp nên tất cả các lệnh thực thi phải nằm trong định nghĩa lớp. Thiết kế này thực thi việc đóng gói (Package) (Encapsulation) và cung cấp cấu trúc có thể dự đoán được để tải lớp.
+Java được thiết kế từ đầu là ngôn ngữ lập trình hướng đối tượng. Trong Java, lớp đóng vai trò là đơn vị cơ bản của mã nguồn, tính mô-đun, và biên dịch. Máy Ảo Java (JVM — Java Virtual Machine) tải và thực thi bytecode theo từng lớp một. Vì Java không có khái niệm về hàm toàn cục hay câu lệnh độc lập ngoài phạm vi lớp, nên tất cả lệnh thực thi phải nằm bên trong một định nghĩa lớp. Thiết kế này thực thi đóng gói (encapsulation) và cung cấp cấu trúc dự đoán được cho việc tải lớp.
 
-### Mô hình tinh thần: Kế hoạch chi tiết lớp học (Mental Model: Class Blueprint)
-Một sự tương tự là một bản thiết kế cho một ngôi nhà: bạn không thể có một ổ cắm điện đang hoạt động (một tuyên bố/biểu thức (Expression)) lơ lửng trong không gian trống rỗng; nó phải được lắp đặt bên trong bức tường của một tòa nhà được xây dựng (một lớp).
+### Mô Hình Tư Duy: Blueprint Nhà
+Hãy tưởng tượng một bản vẽ nhà: bạn không thể có ổ cắm điện hoạt động (câu lệnh/biểu thức) lơ lửng trong không gian trống; nó phải được lắp trong tường của tòa nhà đã xây (một lớp).
 
 ```mermaid
 flowchart TD
-    A[Trình tải lớp JVM] -->|Tải| B["Kế hoạch chi tiết lớp: HelloWorld.class"]
-    B -->|Khởi tạo hoặc giải quyết| C["Mã byte phương thức: chính"]
+    A[JVM ClassLoader] -->|Tải| B["Blueprint Lớp: HelloWorld.class"]
+    B -->|Khởi tạo hoặc Giải quyết| C["Bytecode phương thức: main"]
     C -->|Thực thi câu lệnh| D["System.out.println"]
 ```
 
-### Ví dụ về mã (Code Example)
+### Ví Dụ Code
 ```java
 // HelloWorld.java
-public class HelloWorld { // Enclosing class structure is mandatory
+public class HelloWorld { // Cấu trúc lớp bao ngoài là bắt buộc
     public static void main(String[] args) {
         System.out.println("Hello from a class-bound method!");
         // Output: Hello from a class-bound method!
@@ -44,32 +44,32 @@ public class HelloWorld { // Enclosing class structure is mandatory
 }
 ```
 
-### Chuỗi nhân quả (Cause-Effect Chain)
-`Code written inside class` → `Compiler creates structured .class files` → `JVM ClassLoader loads/verifies class types` → `Execution safely runs within OOP boundaries` .
+### Chuỗi Nhân Quả
+`Code được viết bên trong lớp` &rarr; `Trình biên dịch tạo file .class có cấu trúc` &rarr; `JVM ClassLoader tải/xác minh các kiểu lớp` &rarr; `Thực thi diễn ra an toàn trong ranh giới OOP`.
 
-## Tên tệp và tên lớp công khai (File Name And Public Class Name)
+## Tên File Và Tên Lớp Public
 
-Nếu lớp cấp cao nhất là `public` , tên tệp phải khớp với tên lớp.
+Nếu lớp cấp cao nhất là `public`, tên file phải trùng với tên lớp.
 
-Chính xác:
+Đúng:
 
 ```text
 HelloWorld.java
 public class HelloWorld
 ```
 
-Không đúng:
+Sai:
 
 ```text
 Main.java
 public class HelloWorld
 ```
 
-Phiên bản không chính xác gây ra lỗi thời gian biên dịch (Compile time) vì tên lớp và tên tệp công khai không khớp.
+Phiên bản sai gây ra lỗi biên dịch (compile-time error) vì tên lớp `public` và tên file không khớp nhau.
 
-## Báo cáo (Statements)
+## Câu Lệnh (Statements)
 
-Một câu lệnh là một lệnh mà chương trình thực thi.
+Câu lệnh là một chỉ thị mà chương trình thực thi.
 
 Ví dụ:
 
@@ -77,19 +77,19 @@ Ví dụ:
 System.out.println("Hello Java");
 ```
 
-Hầu hết các câu lệnh Java đều kết thúc bằng dấu chấm phẩy.
+Hầu hết câu lệnh Java kết thúc bằng dấu chấm phẩy.
 
-Lỗi thường gặp của người mới bắt đầu:
+Lỗi phổ biến của người mới học:
 
 ```java
 System.out.println("Hello Java")
 ```
 
-Điều này không thành công vì dấu chấm phẩy bị thiếu.
+Đoạn này thất bại vì thiếu dấu chấm phẩy.
 
-## khối (Blocks)
+## Khối Lệnh (Blocks)
 
-Khối là một nhóm mã nằm giữa `{` và `}` .
+Khối lệnh là một nhóm code nằm giữa `{` và `}`.
 
 ```java
 if (true) {
@@ -97,13 +97,13 @@ if (true) {
 }
 ```
 
-Các khối quan trọng vì chúng xác định cấu trúc và thường ảnh hưởng đến phạm vi (Scope).
+Khối lệnh quan trọng vì chúng định nghĩa cấu trúc và thường ảnh hưởng đến phạm vi biến.
 
-## Phân biệt chữ hoa chữ thường (Case Sensitivity)
+## Phân Biệt Chữ Hoa/Thường (Case Sensitivity)
 
-Java phân biệt chữ hoa chữ thường.
+Java phân biệt chữ hoa và chữ thường.
 
-Đây là những tên khác nhau:
+Đây là các tên khác nhau:
 
 ```java
 Student
@@ -111,25 +111,25 @@ student
 STUDENT
 ```
 
-Điều này quan trọng đối với tên lớp, tên biến, tên phương thức và từ khóa.
+Điều này quan trọng với tên lớp, tên biến, tên phương thức, và từ khóa.
 
-## Tại sao Java phân biệt chữ hoa chữ thường (Why Java is Case-Sensitive)
+## Tại Sao Java Phân Biệt Chữ Hoa/Thường
 
-Phân biệt chữ hoa chữ thường trong Java là quyết định thiết kế ngôn ngữ cốt lõi nhằm đảm bảo độ chính xác tuyệt đối trong quá trình biên dịch và thực thi. Bằng cách coi các mã định danh có cách viết hoa khác nhau là khác biệt, trình biên dịch có thể duy trì các tham chiếu ký hiệu rõ ràng. Tại thời điểm biên dịch, mọi mã định danh được lưu trữ trong bảng ký hiệu phân biệt chữ hoa chữ thường. Trong quá trình tạo mã, các mã định danh này được viết dưới dạng hằng số (Constant) chuỗi UTF-8 trong nhóm hằng số của tệp `.class` đã biên dịch mà JVM giải quyết bằng cách sử dụng các so sánh chính xác, phân biệt chữ hoa chữ thường với từng ký tự.
+Phân biệt chữ hoa/thường trong Java là quyết định thiết kế cốt lõi của ngôn ngữ, đảm bảo tính chính xác tuyệt đối trong quá trình biên dịch và thực thi. Bằng cách xem các định danh có viết hoa khác nhau là các đối tượng phân biệt, trình biên dịch có thể duy trì các tham chiếu ký hiệu không mơ hồ. Tại thời điểm biên dịch, mỗi định danh được lưu trong bảng ký hiệu (symbol table) phân biệt chữ hoa/thường. Trong quá trình tạo code, các định danh này được ghi dưới dạng hằng chuỗi UTF-8 trong constant pool của file `.class` đã biên dịch, mà JVM giải quyết bằng cách so sánh từng ký tự một theo cách phân biệt chữ hoa/thường.
 
-### Mô hình tư duy: Bảng ký hiệu (Mental Model: Symbol Table)
-Hãy nghĩ về số nhận dạng phân biệt chữ hoa chữ thường như mật khẩu trên trang web: "P@ssword" và "p@ssword" thể hiện thông tin xác thực hoàn toàn khác nhau. Theo cách tương tự, trình biên dịch ghi lại các tên riêng biệt trên các trang khác nhau trong thư mục ký hiệu của nó.
+### Mô Hình Tư Duy: Bảng Ký Hiệu
+Hãy nghĩ về các định danh phân biệt chữ hoa/thường như mật khẩu trên website: "P@ssword" và "p@ssword" là hai thông tin xác thực hoàn toàn khác nhau. Tương tự, trình biên dịch ghi lại các tên phân biệt trên các trang khác nhau trong thư mục ký hiệu của nó.
 
 ```mermaid
 flowchart LR
-    A["Mã nguồn: đếm so với đếm"] --> B["Bảng ký hiệu trình biên dịch"]
-    B --> C["Mục 1: 'đếm'"]
-    B --> D["Mục 2: 'Đếm'"]
-    C -->|Tài liệu tham khảo| E["Bù đắp ngăn xếp 1"]
-    D -->|Tài liệu tham khảo| F["Bù đắp ngăn xếp 2"]
+    A["Mã nguồn: count vs Count"] --> B["Bảng Ký Hiệu Trình Biên Dịch"]
+    B --> C["Mục 1: 'count'"]
+    B --> D["Mục 2: 'Count'"]
+    C -->|Tham chiếu đến| E["Stack Offset 1"]
+    D -->|Tham chiếu đến| F["Stack Offset 2"]
 ```
 
-### Ví dụ về mã (Code Example)
+### Ví Dụ Code
 ```java
 public class CaseDemo {
     public static void main(String[] args) {
@@ -141,14 +141,14 @@ public class CaseDemo {
 }
 ```
 
-### Chuỗi nhân quả (Cause-Effect Chain)
-`Different capitalization used` → `Compiler registers separate symbols in the symbol table` → `Bytecode contains distinct UTF-8 constant pool references` → `JVM runtime executes instructions on separate variables without shadowing or override errors` .
+### Chuỗi Nhân Quả
+`Sử dụng viết hoa khác nhau` &rarr; `Trình biên dịch đăng ký các ký hiệu riêng biệt trong bảng ký hiệu` &rarr; `Bytecode chứa các tham chiếu constant pool UTF-8 phân biệt` &rarr; `JVM runtime thực thi lệnh trên các biến riêng biệt mà không có lỗi shadowing hay override`.
 
-## Khoảng trắng (Whitespace)
+## Khoảng Trắng (Whitespace)
 
-Java thường bỏ qua các khoảng trắng thừa và ngắt dòng giữa các mã thông báo, nhưng định dạng vẫn là vấn đề quan trọng để đảm bảo khả năng đọc.
+Java thường bỏ qua khoảng trắng và xuống dòng thừa giữa các token, nhưng định dạng vẫn quan trọng cho khả năng đọc.
 
-Chúng biên dịch tương tự:
+Các ví dụ sau được biên dịch tương tự nhau:
 
 ```java
 int x = 10;
@@ -162,29 +162,29 @@ x
 ;
 ```
 
-Phong cách thứ hai là hợp pháp trong nhiều trường hợp nhưng rất khó đọc. Định dạng tốt giúp mã có thể duy trì được.
+Kiểu thứ hai hợp lệ về mặt ngữ pháp nhưng rất khó đọc. Định dạng tốt giúp code có thể bảo trì được.
 
-## Những lỗi thường gặp (Common Mistakes)
+## Lỗi Thường Gặp
 
 - Quên dấu chấm phẩy.
-- Sử dụng sai cách viết hoa.
-- Đặt mã bên ngoài một lớp học.
-- Không khớp `{` và `}` .
-- Đặt tên tệp khác với lớp công khai.
+- Dùng viết hoa sai.
+- Đặt code bên ngoài lớp.
+- Không khớp `{` và `}`.
+- Đặt tên file khác với lớp `public`.
 
-### Lỗi thường gặp: Thiếu dấu chấm phẩy (Common Mistake: Missing Semicolon)
+### Lỗi Thường Gặp: Thiếu Dấu Chấm Phẩy
 
 ```java
-// Compile error — semicolon missing
+// Lỗi biên dịch — thiếu dấu chấm phẩy
 public class Bad {
     public static void main(String[] args) {
-        System.out.println("Hello")   // ← error: ';' expected
+        System.out.println("Hello")   // ← lỗi: ';' expected
     }
 }
 ```
 
 ```java
-// Correct
+// Đúng
 public class Good {
     public static void main(String[] args) {
         System.out.println("Hello");
@@ -192,11 +192,11 @@ public class Good {
 }
 ```
 
-### Lỗi thường gặp: Tên tệp không khớp (Common Mistake: File Name Mismatch)
+### Lỗi Thường Gặp: Tên File Không Khớp
 
 ```java
-// File is named: Main.java
-// Compile error: class HelloWorld is public, should be declared in a file named HelloWorld.java
+// File được đặt tên: Main.java
+// Lỗi biên dịch: class HelloWorld is public, should be declared in a file named HelloWorld.java
 public class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hi");
@@ -204,20 +204,20 @@ public class HelloWorld {
 }
 ```
 
-Khắc phục: đổi tên tệp thành `HelloWorld.java` .
+Cách sửa: đổi tên file thành `HelloWorld.java`.
 
-## `print` vs `println`
+## `print` Và `println`
 
-`System.out.print` in không có dòng mới ở cuối.
-`System.out.println` in rồi chuyển sang dòng tiếp theo.
+`System.out.print` in mà không có ký tự xuống dòng ở cuối.
+`System.out.println` in và sau đó chuyển sang dòng tiếp theo.
 
 ```java
-// print — no newline after each call
+// print — không xuống dòng sau mỗi lần gọi
 System.out.print("Hello");
 System.out.print(" World");
-// Output: Hello World    (on one line)
+// Output: Hello World    (trên một dòng)
 
-// println — newline appended after each call
+// println — thêm xuống dòng sau mỗi lần gọi
 System.out.println("A");
 System.out.println("B");
 // Output:
@@ -225,7 +225,7 @@ System.out.println("B");
 // B
 ```
 
-Trộn chúng là hợp lệ:
+Kết hợp cả hai là hợp lệ:
 
 ```java
 System.out.print("Score: ");
@@ -233,7 +233,7 @@ System.out.println(42);
 // Output: Score: 42
 ```
 
-## Nghiên cứu điển hình: Một chương trình tối thiểu nhưng đầy đủ (Case Study: A Minimal But Complete Program)
+## Ví Dụ Thực Tế: Một Chương Trình Tối Giản Nhưng Hoàn Chỉnh
 
 ```java
 // File: Greeter.java
@@ -242,12 +242,12 @@ package com.example;
 /**
  * A minimal greeting program demonstrating all basic anatomy elements.
  */
-public class Greeter {          // class name matches file name
+public class Greeter {          // tên lớp khớp tên file
 
-    // Entry point
+    // Điểm vào chương trình
     public static void main(String[] args) {
-        String name = "Java";   // variable with a meaningful name
-        // Print greeting — no newline first, then println to finish the line
+        String name = "Java";   // biến có tên có ý nghĩa
+        // In lời chào — dùng print trước, rồi println để kết thúc dòng
         System.out.print("Hello, ");
         System.out.println(name);
     }
@@ -255,11 +255,9 @@ public class Greeter {          // class name matches file name
 // Output: Hello, Java
 ```
 
-Chương trình này thể hiện: khai báo gói, nhận xét tài liệu, tên tệp khớp với lớp công khai,
-Phương thức `main`, tên biến có ý nghĩa, hỗn hợp `print` / `println` và cấu trúc khối.
+Chương trình này minh họa: khai báo package, doc comment, lớp `public` khớp tên file, phương thức `main`, tên biến có ý nghĩa, kết hợp `print`/`println`, và cấu trúc khối lệnh.
 
-## Liên kết tham khảo (Reference Links)
+## Tài Liệu Tham Khảo
 
-- https://docs.oracle.com/javase/specs/jls/se21/html/jls-3.html#jls-3.8 (Cấu trúc từ vựng JLS - Mã định danh)
-- https://docs.oracle.com/javase/specs/jls/se21/html/jls-8.html#jls-8.1 (Lớp JLS - Khai báo lớp)
-
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-3.html#jls-3.8 (JLS Cấu Trúc Từ Vựng - Định Danh)
+- https://docs.oracle.com/javase/specs/jls/se21/html/jls-8.html#jls-8.1 (JLS Các Lớp - Khai Báo Lớp)

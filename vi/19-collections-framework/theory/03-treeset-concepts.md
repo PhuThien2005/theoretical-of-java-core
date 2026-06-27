@@ -1,85 +1,83 @@
-# Collections Framework - Phần 3 (Collections Framework - Part 3)
+# Khung tập hợp (Collections Framework) - Phần 3
 
 ## Mục tiêu học tập (Learning Goal)
 
-Tài liệu này bao gồm một phần nội dung trọng tâm về **Collections Framework**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc thực tế trong Java, chứ không chỉ là từ vựng rời rạc.
+Tài liệu này đề cập đến một phần trọng tâm của **Khung tập hợp**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải là các từ vựng rời rạc.
 
-## Các khái niệm bao phủ (Outline Coverage)
+## Khái quát nội dung (Outline Coverage)
 
-| Khái niệm | Những điều cần biết |
+| Khái niệm (Concept) | Nội dung cần nắm vững (What to know) |
 | --- | --- |
-| `TreeSet` | Set là một tập hợp từ chối các phần tử trùng lặp theo quy tắc bằng nhau. |
-| `SortedSet` | Set là một tập hợp từ chối các phần tử trùng lặp theo quy tắc bằng nhau. |
-| `NavigableSet` | Set là một tập hợp từ chối các phần tử trùng lặp theo quy tắc bằng nhau. |
-| `When to use Set?` | Set là một tập hợp từ chối các phần tử trùng lặp theo quy tắc bằng nhau. |
-| `Duplicate removal mechanism` | Cơ chế loại bỏ trùng lặp là một khái niệm cụ thể trong Collections Framework; tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và cơ chế phát hiện lỗi thay vì chỉ nhớ tên của nó. |
-| `Role of equals() and hashCode()` | equals() định nghĩa sự bằng nhau về mặt logic giữa các đối tượng. |
-| `PriorityQueue` | PriorityQueue loại bỏ các phần tử theo độ ưu tiên thay vì thứ tự chèn. |
-| `ArrayDeque` | ArrayDeque là một Deque mảng có thể thay đổi kích thước thường được ưu tiên cho hành vi ngăn xếp hoặc hàng đợi. |
-
----
+| `TreeSet` | Một tập hợp (Set) là một cấu trúc lưu trữ (collection) loại bỏ các phần tử trùng lặp (duplicates) theo các quy tắc bằng nhau (equality). |
+| `SortedSet` | Một tập hợp là một cấu trúc lưu trữ loại bỏ các phần tử trùng lặp theo các quy tắc bằng nhau. |
+| `NavigableSet` | Một tập hợp là một cấu trúc lưu trữ loại bỏ các phần tử trùng lặp theo các quy tắc bằng nhau. |
+| `Khi nào nên sử dụng tập hợp (Set)?` | Một tập hợp là một cấu trúc lưu trữ loại bỏ các phần tử trùng lặp theo các quy tắc bằng nhau. |
+| `Cơ chế loại bỏ trùng lặp` | Cơ chế loại bỏ trùng lặp (Duplicate removal mechanism) là một khái niệm cụ thể trong Khung tập hợp; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và lỗi thường gặp (failure mode) thay vì chỉ nhớ tên gọi. |
+| `Vai trò của equals() và hashCode()` | `equals()` định nghĩa sự bằng nhau về mặt logic (logical equality) giữa các đối tượng (objects). |
+| `PriorityQueue` | `PriorityQueue` loại bỏ các phần tử theo độ ưu tiên (priority) thay vì thứ tự chèn (insertion order). |
+| `ArrayDeque` | `ArrayDeque` là một hàng đợi hai đầu (Deque) mảng có thể thay đổi kích thước (resizable-array) thường được ưu tiên cho các hành vi của ngăn xếp (stack) hoặc hàng đợi (queue). |
 
 ## Ghi chú chi tiết (Detailed Notes)
 
 ### TreeSet
 
-`TreeSet` là một triển khai `NavigableSet` được hỗ trợ bởi một thực thể `TreeMap`.
-- **Thứ tự**: Được sắp xếp theo thứ tự tự nhiên (triển khai `Comparable`) hoặc một `Comparator` tùy chỉnh được truyền vào khi khởi tạo.
-- **Độ phức tạp**: O(log N) cho các thao tác cốt lõi (`add`, `remove`, `contains`).
-- **Hạn chế**: Không cho phép chứa phần tử `null` (ném ra `NullPointerException` vì nó cần sắp xếp/so sánh các phần tử).
+`TreeSet` là một lớp hiện thực (implementation) của `NavigableSet` được hỗ trợ bởi một thể hiện (instance) của `TreeMap`.
+- **Thứ tự (Ordering)**: Được sắp xếp theo thứ tự tự nhiên (natural ordering) (hiện thực giao diện `Comparable`) hoặc theo một bộ so sánh (Comparator) tùy chỉnh được truyền vào khi khởi tạo.
+- **Độ phức tạp (Complexity)**: O(log N) cho các thao tác cốt lõi (`add`, `remove`, `contains`).
+- **Hạn chế (Restrictions)**: Không cho phép các phần tử `null` (ném ra ngoại lệ `NullPointerException` vì cần phải sắp xếp/so sánh các phần tử).
 
-### SortedSet & NavigableSet
+### SortedSet và NavigableSet (SortedSet & NavigableSet)
 
-- **SortedSet**: Một giao diện đại diện cho một Set được sắp xếp theo thứ tự tăng dần. Cung cấp các thao tác như lấy phần tử đầu tiên `first()`, phần tử cuối cùng `last()`, và các dạng hiển thị khoảng dữ liệu `subSet(from, to)`.
-- **NavigableSet**: Kế thừa `SortedSet` và bổ sung thêm các phương thức định vị/ước lượng như `lower()`, `floor()`, `ceiling()`, và `higher()` để tìm các kết quả khớp gần nhất, cũng như `pollFirst()` và `pollLast()`.
+- **SortedSet**: Một giao diện (interface) đại diện cho một tập hợp được sắp xếp theo thứ tự tăng dần. Cung cấp các thao tác như `first()`, `last()`, và các dạng xem phạm vi (range views) `subSet(from, to)`.
+- **NavigableSet**: Mở rộng từ `SortedSet` và bổ sung các phương thức điều hướng/ước lượng như `lower()`, `floor()`, `ceiling()`, và `higher()` để tìm kiếm các phần tử khớp gần nhất, cũng như `pollFirst()` và `pollLast()`.
 
-### Khi nào nên dùng Set? (When to use Set?)
+### Khi nào nên sử dụng tập hợp (When to use Set?)
 
-Sử dụng một Set khi không cho phép chứa các phần tử trùng lặp.
+Sử dụng một tập hợp khi các phần tử trùng lặp không được chấp nhận.
 - **HashSet**: Lựa chọn mặc định. Các thao tác O(1) nhanh chóng, không đảm bảo thứ tự.
-- **LinkedHashSet**: Sử dụng khi bạn cần duy trì thứ tự chèn phần tử.
-- **TreeSet**: Sử dụng khi bạn cần các phần tử được sắp xếp hoặc cần các phương thức điều hướng (navigation).
+- **LinkedHashSet**: Sử dụng khi bạn cần duy trì thứ tự chèn.
+- **TreeSet**: Sử dụng khi bạn cần các phần tử được sắp xếp hoặc cần các phương thức điều hướng.
 
 ### So sánh HashSet với TreeSet và LinkedHashSet (Comparing HashSet vs TreeSet vs LinkedHashSet)
 
-| Đặc tính | HashSet | TreeSet | LinkedHashSet |
+| Thuộc tính (Property) | HashSet | TreeSet | LinkedHashSet |
 | --- | --- | --- | --- |
-| **Cấu trúc bên dưới** | HashMap | TreeMap (Cây đỏ đen) | HashMap + Danh sách liên kết kép |
-| **Độ phức tạp thời gian** | O(1) | O(log N) | O(1) |
-| **Thứ tự lặp** | Không xác định | Đã sắp xếp | Thứ tự chèn |
-| **Phần tử Null** | Được phép (một) | Bị từ chối (NullPointerException)| Được phép (một) |
+| **Cấu trúc bên trong (Internal Structure)** | HashMap | TreeMap (Cây Đỏ-Đen (Red-Black tree)) | HashMap + Danh sách liên kết kép (Doubly-Linked List) |
+| **Độ phức tạp thời gian (Time Complexity)** | O(1) | O(log N) | O(1) |
+| **Thứ tự duyệt (Iteration Order)** | Chưa xác định | Được sắp xếp | Thứ tự chèn |
+| **Các phần tử Null (Null Elements)** | Được phép (một) | Bị từ chối (NullPointerException) | Được phép (một) |
 
-### Cơ chế loại bỏ phần tử trùng lặp (Duplicate Removal Mechanism)
+### Cơ chế loại bỏ trùng lặp
 
-Cách các Set xác định phần tử trùng lặp:
-- **HashSet / LinkedHashSet**: Kiểm tra xem `obj1.hashCode() == obj2.hashCode()`. Nếu các mã băm khớp nhau, chúng sẽ gọi `obj1.equals(obj2)`. Nếu `equals` trả về true, phần tử đó bị từ chối do trùng lặp.
-- **TreeSet**: Kiểm tra thứ tự sắp xếp. Gọi `comparator.compare(obj1, obj2)` hoặc `obj1.compareTo(obj2)`. Nếu kết quả trả về `0`, phần tử đó bị từ chối do trùng lặp. **Lưu ý**: TreeSet hoàn toàn bỏ qua `equals()` và `hashCode()` cho việc phát hiện trùng lặp.
+Cách các tập hợp xác định phần tử trùng lặp:
+- **HashSet / LinkedHashSet**: Kiểm tra xem `obj1.hashCode() == obj2.hashCode()`. Nếu các mã băm (hashes) khớp nhau, chúng sẽ gọi `obj1.equals(obj2)`. Nếu `equals` trả về true, phần tử đó sẽ bị từ chối do trùng lặp.
+- **TreeSet**: Kiểm tra thứ tự sắp xếp. Gọi `comparator.compare(obj1, obj2)` hoặc `obj1.compareTo(obj2)`. Nếu kết quả trả về là `0`, phần tử đó sẽ bị từ chối do trùng lặp. **Lưu ý**: TreeSet hoàn toàn bỏ qua `equals()` và `hashCode()` khi phát hiện trùng lặp.
 
 ### Vai trò của equals() và hashCode() (Role of equals() and hashCode())
 
 Để `HashSet` và `HashMap` hoạt động chính xác:
-1. **Tính phản xạ (Reflexive)**: `x.equals(x)` phải trả về true.
-2. **Tính đối xứng (Symmetric)**: Nếu `x.equals(y)` trả về true, thì `y.equals(x)` phải trả về true.
-3. **Tính bắc cầu (Transitive)**: Nếu `x.equals(y)` và `y.equals(z)` đều trả về true, thì `x.equals(z)` phải trả về true.
-4. **Tính nhất quán (Consistency)**: Nếu `x.equals(y)` trả về true, nó vẫn giữ nguyên kết quả trừ khi các trường dữ liệu bị thay đổi.
-5. **Hợp đồng hashCode (hashCode contract)**: Nếu `x.equals(y)` trả về true, thì `x.hashCode() == y.hashCode()` BẮT BUỘC phải trả về true. Nếu `x.equals(y)` trả về false, mã băm của chúng không nhất thiết phải khác nhau (nhưng nên khác nhau để tăng hiệu năng).
+1. **Tính phản xạ (Reflexive)**: `x.equals(x)` phải là true.
+2. **Tính đối xứng (Symmetric)**: Nếu `x.equals(y)` là true, thì `y.equals(x)` phải là true.
+3. **Tính bắc cầu (Transitive)**: Nếu `x.equals(y)` và `y.equals(z)` là true, thì `x.equals(z)` phải là true.
+4. **Tính nhất quán (Consistency)**: Nếu `x.equals(y)` là true, nó vẫn là true trừ khi các trường (fields) thay đổi.
+5. **Ràng buộc hashCode (hashCode contract)**: Nếu `x.equals(y)` là true, thì `x.hashCode() == y.hashCode()` BẮT BUỘC phải là true. Nếu `x.equals(y)` là false, các mã băm của chúng không nhất thiết phải khác nhau (nhưng nên khác nhau để tối ưu hiệu năng).
 
 ### PriorityQueue
 
-Một hàng đợi ưu tiên không giới hạn dựa trên cấu trúc nhị phân (binary heap).
-- **Thứ tự**: Đầu hàng đợi (head) là phần tử nhỏ nhất theo cách sắp xếp.
-- **Hiệu năng**: O(log N) cho việc thêm (`offer`) và xóa (`poll`); O(1) cho việc truy xuất (`peek`).
-- **Giá trị null**: Từ chối `null`.
+Một hàng đợi ưu tiên không giới hạn (unbounded priority queue) dựa trên cấu trúc đống nhị phân (binary heap).
+- **Thứ tự**: Đầu (head) của hàng đợi là phần tử nhỏ nhất theo thứ tự sắp xếp.
+- **Hiệu năng (Performance)**: O(log N) cho các thao tác chèn (`offer`) và xóa (`poll`); O(1) cho thao tác lấy ra mà không xóa (`peek`).
+- **Các phần tử Null**: Bị từ chối `null`.
 
 ### ArrayDeque
 
-Một triển khai mảng có thể thay đổi kích thước của giao diện `Deque`.
-- **Hiệu năng**: Triển khai mảng vòng (circular array). Nhanh hơn `Stack` khi sử dụng làm ngăn xếp, và nhanh hơn `LinkedList` khi sử dụng làm hàng đợi.
-- **Dung lượng**: Không giới hạn dung lượng; tự động tăng khi cần. Từ chối `null`.
+Một lớp hiện thực mảng có thể thay đổi kích thước của giao diện `Deque`.
+- **Hiệu năng**: Hiện thực dạng mảng vòng (circular array). Nhanh hơn `Stack` khi được sử dụng như một ngăn xếp, và nhanh hơn `LinkedList` khi được sử dụng như một hàng đợi.
+- **Sức chứa (Capacity)**: Không giới hạn sức chứa; tự động mở rộng khi cần thiết. Từ chối phần tử `null`.
 
 ---
 
-**Ví dụ Code có thể chạy (TreeSet với Comparator tùy chỉnh & PriorityQueue) (Runnable Code Example (TreeSet with Custom Comparator & PriorityQueue)):**
+**Ví dụ mã nguồn có thể chạy được (TreeSet với bộ so sánh tùy chỉnh và PriorityQueue) (Runnable Code Example (TreeSet with Custom Comparator & PriorityQueue)):**
 ```java
 import java.util.*;
 
@@ -134,47 +132,45 @@ public class SetQueueExample {
 
 ---
 
-## Các lỗi thường gặp (Common Mistakes)
+## Các sai lầm thường gặp (Common Mistakes)
 
-### 1. compareTo không nhất quán với equals (Inconsistent compareTo and equals)
-Nếu `compareTo` trả về `0` cho hai đối tượng, nhưng `equals` trả về `false`, việc chèn chúng vào một `TreeSet` sẽ khiến phần tử thứ hai bị loại bỏ. Hãy luôn đảm bảo rằng `(x.compareTo(y) == 0) == x.equals(y)`.
+### 1. Sự bất nhất giữa compareTo và equals
+Nếu `compareTo` trả về `0` cho hai đối tượng, nhưng `equals` trả về `false`, việc chèn chúng vào một `TreeSet` sẽ khiến phần tử thứ hai bị loại bỏ. Luôn đảm bảo rằng `(x.compareTo(y) == 0) == x.equals(y)`.
 
-### 2. Chèn các phần tử không thể so sánh (non-Comparable) vào TreeSet hoặc PriorityQueue (Inserting non-Comparable elements into TreeSet or PriorityQueue)
-Nếu bạn khởi tạo `new TreeSet<>()` và cố gắng thêm các đối tượng tùy chỉnh không triển khai giao diện `Comparable` (mà không truyền một `Comparator` tùy chỉnh vào hàm khởi dựng), một ngoại lệ `ClassCastException` sẽ bị ném ra lúc chạy ngay ở lần thêm phần tử đầu tiên.
+### 2. Chèn các phần tử không thể so sánh được vào TreeSet hoặc PriorityQueue
+Nếu bạn khởi tạo `new TreeSet<>()` và cố gắng thêm các đối tượng tùy chỉnh không hiện thực `Comparable` (mà không truyền một bộ so sánh tùy chỉnh vào hàm khởi tạo), một ngoại lệ `ClassCastException` sẽ bị ném ra tại thời điểm chạy (runtime) ngay lần thêm phần tử đầu tiên.
 
-### 3. Duyệt qua một PriorityQueue với mong muốn các phần tử có thứ tự (Iterating a PriorityQueue expecting order)
-Việc gọi vòng lặp `for (Integer i : priorityQueue)` hoặc sử dụng một `Iterator` sẽ **KHÔNG** duyệt qua hàng đợi theo thứ tự ưu tiên. Iterator duyệt trực tiếp qua mảng heap nhị phân bên dưới vốn không được sắp xếp. Để lấy các phần tử theo đúng thứ tự ưu tiên, bạn phải rút chúng ra lần lượt bằng phương thức poll: `while(!pq.isEmpty()) { pq.poll(); }`.
+### 3. Duyệt qua một PriorityQueue với kỳ vọng nhận được thứ tự đã sắp xếp
+Việc gọi `for (Integer i : priorityQueue)` hoặc sử dụng một bộ lặp (Iterator) KHÔNG duyệt qua hàng đợi theo thứ tự ưu tiên. Bộ lặp sẽ duyệt trực tiếp qua mảng đống nhị phân bên dưới, vốn không được sắp xếp. Để lấy các phần tử theo đúng thứ tự, bạn phải lấy và xóa chúng một cách tuần tự: `while(!pq.isEmpty()) { pq.poll(); }`.
 
-## Các câu hỏi ôn tập phổ biến (Common Review Prompts)
+## Các câu hỏi ôn tập thường gặp (Common Review Prompts)
 
-- Khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch?
-- Khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy?
-- Khái niệm nào ở đây dễ là những bẫy câu hỏi phỏng vấn?
+- Những khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch (compile-time)?
+- Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy?
+- Những khái niệm nào ở đây dễ là các cạm bẫy khi phỏng vấn (interview traps)?
 
----
+## Tại sao TreeSet và TreeMap phụ thuộc vào Comparable/Comparator
 
-## Tại sao TreeSet và TreeMap dựa vào Comparable/Comparator (Why TreeSet and TreeMap Rely on Comparable/Comparator)
-
-Không giống như `HashSet` và `HashMap` sử dụng các xô băm (hashing buckets), `TreeSet` và `TreeMap` được hỗ trợ bởi cấu trúc Cây Đỏ Đen (Red-Black Tree), là một cây tìm kiếm nhị phân tự cân bằng. Để chèn hoặc truy xuất bất kỳ nút nào, cây phải điều hướng sang trái hoặc sang phải bắt đầu từ gốc dựa trên việc nút đích nhỏ hơn hay lớn hơn nút hiện tại. Việc điều hướng này yêu cầu một cơ chế sắp xếp tất định, được cung cấp bởi thứ tự tự nhiên của phần tử (`Comparable.compareTo()`) hoặc một `Comparator.compare()` tùy chỉnh. Nếu phép so sánh trả về `0`, cây xác định rằng phần tử đó đã tồn tại, từ chối việc chèn để thực thi ràng buộc tính duy nhất của một `Set` (hoặc ghi đè giá trị trong một `Map`). Do đó, nếu `compareTo()` hoặc `compare()` không nhất quán với `equals()` (nghĩa là chúng trả về kết quả khác không cho các đối tượng bằng nhau về mặt logic theo `equals()`), `TreeSet` sẽ cho phép chứa các phần tử trùng lặp một cách không chính xác, hoặc ngược lại, nếu chúng trả về `0` cho các đối tượng không bằng nhau, nó sẽ loại bỏ các phần tử duy nhất đó.
+Không giống như `HashSet` và `HashMap` sử dụng các ngăn chứa băm (hashing buckets), `TreeSet` và `TreeMap` được hỗ trợ bởi một Cây Đỏ-Đen, một dạng cây tìm kiếm nhị phân tự cân bằng (self-balancing binary search tree). Để chèn hoặc truy xuất bất kỳ nút (node) nào, cây phải điều hướng sang trái hoặc sang phải bắt đầu từ nút gốc (root node) dựa trên việc nút đích nhỏ hơn hay lớn hơn nút hiện tại. Việc điều hướng này đòi hỏi một cơ chế sắp xếp tất định (deterministic sorting mechanism), được cung cấp bởi thứ tự tự nhiên của phần tử (`Comparable.compareTo()`) hoặc bộ so sánh tùy chỉnh (`Comparator.compare()`). Nếu một phép so sánh trả về `0`, cây sẽ xác định rằng phần tử đã tồn tại, từ chối việc chèn để thực thi ràng buộc về tính duy nhất của một tập hợp (hoặc ghi đè giá trị trong một `Map`). Do đó, nếu `compareTo()` hoặc `compare()` không nhất quán với `equals()` (nghĩa là chúng trả về giá trị khác không cho các đối tượng vốn bằng nhau về mặt logic theo `equals()`), `TreeSet` sẽ cho phép các phần tử trùng lặp một cách sai sót, hoặc ngược lại, nếu chúng trả về `0` cho các đối tượng không bằng nhau, nó sẽ loại bỏ các phần tử duy nhất.
 
 ### Mô hình tư duy (Mental Model)
 
-Một Cây tìm kiếm nhị phân (Binary Search Tree) hoàn toàn dựa vào việc điều hướng so sánh (`<`, `>`, `==`) chứ không dựa vào các xô băm (hash buckets):
+Một cây tìm kiếm nhị phân phụ thuộc hoàn toàn vào việc điều hướng so sánh (`<`, `>`, `==`) thay vì các ngăn chứa băm:
 ```text
-                  [ Nút B (Giá trị: 20) ]
+                  [ Node B (Value: 20) ]
                        /         \
                       /           \
                      v             v
-  [ Nút A (Giá trị: 10) ]         [ Nút C (Giá trị: 30) ]
+  [ Node A (Value: 10) ]         [ Node C (Value: 30) ]
 
-Chèn phần tử mới (Giá trị: 15):
-1. So sánh 15 với 20 (Gốc) -> 15 < 20 -> Đi sang trái.
-2. So sánh 15 với 10 -> 15 > 10 -> Đi sang phải (Chèn vào đây).
+Inserting new item (Value: 15):
+1. Compare 15 to 20 (Root) -> 15 < 20 -> Go Left.
+2. Compare 15 to 10 -> 15 > 10 -> Go Right (Insert here).
 
-Nếu compareTo trả về 0, nó có nghĩa là "Tìm thấy trùng lặp" -> Từ chối chèn.
+If compareTo returns 0, it means "Duplicate Found" -> Reject insertion.
 ```
 
-### Ví dụ Code (Code Example)
+### Ví dụ mã nguồn (Code Example)
 
 ```java
 import java.util.Objects;
@@ -230,20 +226,13 @@ public class TreeSetBehaviorDemo {
 }
 ```
 
-### Chuỗi Nguyên nhân - Kết quả (Cause-Effect Chain)
-
+### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
 
 ```text
-Thao tác `add()` trên `TreeSet`
-  → Duyệt Cây Đỏ Đen bằng phương thức `compareTo()` hoặc `compare()`
-  → Phép so sánh nút trả về `0`
-  → Cây giả định phần tử là trùng lặp
-  → Cây từ chối chèn (ngay cả khi `equals()` trả về false)
-  → Phần tử bị bỏ qua một cách âm thầm, gây mất mát dữ liệu và sai lệch kiểm tra trùng lặp.
+TreeSet add() operation → Traverses Red-Black Tree using compareTo() or compare() → Node comparison returns 0 → Tree assumes element is a duplicate → Tree rejects insertion (even if equals() returns false) → Element is silently ignored, causing data loss and incorrect duplicates checks
 ```
 
+## Đường liên kết tham khảo (Reference Links)
 
-## Liên kết tham khảo (Reference Links)
-
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/TreeSet.html (API lớp TreeSet)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/TreeSet.html (Tài liệu API lớp TreeSet)
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Comparable.html (Tài liệu giao diện Comparable)

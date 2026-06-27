@@ -1,42 +1,42 @@
-# Xử lý ngoại lệ (Exception Handling) - Phần 1
+# Xử Lý Ngoại Lệ - Phần 1
 
-## Mục tiêu học tập (Learning Goal)
+## Mục Tiêu Học Tập
 
-Tập tin này bao gồm một phần trọng tâm về **Xử lý ngoại lệ (Exception Handling)**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, không phải là từ vựng riêng lẻ.
+File này bao gồm một phần tập trung của **Xử Lý Ngoại Lệ (Exception Handling)**. Hãy học từng khái niệm như một quy tắc Java thực tế, không phải từ vựng biệt lập.
 
-## Khái quát nội dung (Outline Coverage)
+## Phạm Vi Đề Cương
 
-| Khái niệm (Concept) | Điều cần biết (What to know) |
+| Khái niệm | Cần biết |
 | --- | --- |
-| `What is an exception?` | Một ngoại lệ (exception) đại diện cho một điều kiện bất thường mà chương trình có thể bắt hoặc truyền đi tiếp. |
-| `Error vs Exception` | Một ngoại lệ đại diện cho một điều kiện bất thường mà chương trình có thể bắt hoặc truyền đi tiếp. |
-| `Checked exception` | Một ngoại lệ kiểm tra (checked exception) bắt buộc phải được xử lý hoặc khai báo theo các quy tắc của trình biên dịch. |
-| `Unchecked exception` | Một ngoại lệ không kiểm tra (unchecked exception) không bắt buộc phải được bắt hoặc khai báo. |
-| `Runtime exception` | Một ngoại lệ đại diện cho một điều kiện bất thường mà chương trình có thể bắt hoặc truyền đi tiếp. |
-| `try` | try đánh dấu khối mã mà bạn muốn xử lý các ngoại lệ của nó, dọn dẹp sau đó, hoặc truyền đi tiếp. |
-| `catch` | catch xử lý một kiểu ngoại lệ khớp được ném ra từ khối try. |
-| `multiple catch` | Nhiều khối catch cho phép các kiểu ngoại lệ khác nhau được xử lý bởi các trình xử lý khác nhau, được sắp xếp thứ tự từ cụ thể đến khái quát. |
+| `Ngoại lệ là gì?` | Ngoại lệ (exception) đại diện cho một điều kiện bất thường mà chương trình có thể bắt hoặc lan truyền. |
+| `Error vs Exception` | Ngoại lệ đại diện cho điều kiện bất thường mà chương trình có thể bắt hoặc lan truyền. |
+| `Checked exception` | Ngoại lệ bắt buộc phải được xử lý hoặc khai báo theo quy tắc trình biên dịch. |
+| `Unchecked exception` | Ngoại lệ không bắt buộc phải bắt hoặc khai báo. |
+| `Runtime exception` | Ngoại lệ đại diện cho điều kiện bất thường mà chương trình có thể bắt hoặc lan truyền. |
+| `try` | `try` đánh dấu khối mà bạn muốn xử lý, dọn dẹp sau, hoặc lan truyền ngoại lệ của nó. |
+| `catch` | `catch` xử lý một kiểu ngoại lệ khớp được ném ra từ khối `try`. |
+| `multiple catch` | `multiple catch` cho phép các kiểu ngoại lệ khác nhau được xử lý bởi các trình xử lý khác nhau, sắp xếp từ cụ thể đến rộng. |
 
-## Ghi chú chi tiết (Detailed Notes)
+## Ghi Chú Chi Tiết
 
-### Ngoại lệ là gì? (What is an exception?)
+### Ngoại lệ là gì?
 
-Một ngoại lệ (exception) đại diện cho một điều kiện bất thường mà chương trình có thể bắt hoặc truyền đi tiếp (propagate).
+Ngoại lệ (exception) đại diện cho một điều kiện bất thường mà chương trình có thể bắt hoặc lan truyền.
 
-Điều này quan trọng vì hành vi của ngoại lệ quyết định xem các lỗi được xử lý cục bộ, truyền đi tiếp, hay cho phép dừng chương trình. Sự nhầm lẫn phổ biến là đối xử với mọi ngoại lệ như nhau thay vì tách biệt các điều kiện có thể phục hồi khỏi các lỗi lập trình.
+Quan trọng vì hành vi ngoại lệ quyết định liệu lỗi được xử lý cục bộ, lan truyền, hay được phép dừng chương trình. Nhầm lẫn thường gặp là xử lý mọi ngoại lệ như nhau thay vì phân biệt điều kiện có thể phục hồi với lỗi lập trình.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
-- Định nghĩa `What is an exception?` trong một câu.
-- Nhận diện `What is an exception?` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), hạn chế hoặc sự đánh đổi liên quan đến `What is an exception?`.
+- Định nghĩa `Ngoại lệ là gì?` trong một câu.
+- Nhận diện `Ngoại lệ là gì?` trong code, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một bug, giới hạn, hoặc đánh đổi liên quan đến `Ngoại lệ là gì?`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc mã nguồn, hãy hỏi: `What is an exception?` thay độ, cho phép, từ chối hoặc làm rõ điều gì?
+- Khi đọc code, hỏi: `Ngoại lệ là gì?` thay đổi, cho phép, từ chối, hay làm rõ điều gì?
 
-#### Ví dụ mã nguồn chạy được: Ném và bắt một ngoại lệ (Runnable Code Example: Throwing and Catching an Exception)
-Dưới đây là một ví dụ cơ bản về việc ném một `Exception` tiêu chuẩn và bắt nó cục bộ.
+#### Ví Dụ Code Chạy Được: Ném và Bắt Ngoại Lệ
+Dưới đây là ví dụ cơ bản về việc ném một `Exception` tiêu chuẩn và bắt nó cục bộ.
 
 ```java
 public class ExceptionDemo {
@@ -53,46 +53,46 @@ public class ExceptionDemo {
 }
 ```
 
-### Lỗi so với Ngoại lệ (Error vs Exception)
+### Error vs Exception
 
-Một ngoại lệ đại diện cho một điều kiện bất thường mà chương trình có thể bắt hoặc truyền đi tiếp.
+Ngoại lệ đại diện cho một điều kiện bất thường mà chương trình có thể bắt hoặc lan truyền.
 
-Điều này quan trọng vì hành vi của ngoại lệ quyết định xem các lỗi được xử lý cục bộ, truyền đi tiếp, hay cho phép dừng chương trình. Sự nhầm lẫn phổ biến là đối xử với mọi ngoại lệ như nhau thay vì tách biệt các điều kiện có thể phục hồi khỏi các lỗi lập trình.
+Quan trọng vì hành vi ngoại lệ quyết định liệu lỗi được xử lý cục bộ, lan truyền, hay được phép dừng chương trình. Nhầm lẫn thường gặp là xử lý mọi ngoại lệ như nhau thay vì phân biệt điều kiện có thể phục hồi với lỗi lập trình.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `Error vs Exception` trong một câu.
-- Nhận diện `Error vs Exception` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), hạn chế hoặc sự đánh đổi liên quan đến `Error vs Exception`.
+- Nhận diện `Error vs Exception` trong code, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một bug, giới hạn, hoặc đánh đổi liên quan đến `Error vs Exception`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc mã nguồn, hãy hỏi: `Error vs Exception` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+- Khi đọc code, hỏi: `Error vs Exception` thay đổi, cho phép, từ chối, hay làm rõ điều gì?
 
-#### Ví dụ mã nguồn chạy được: Phục hồi từ ngoại lệ so với crash chương trình do Lỗi (Runnable Code Example: Recovering from Exception vs Crashing on Error)
-Các lỗi (như `StackOverflowError` hoặc `OutOfMemoryError`) chỉ ra các vấn đề nghiêm trọng mà một ứng dụng thông thường không nên cố gắng bắt. Các ngoại lệ (như `IOException` hoặc `NullPointerException`) là các điều kiện mà một ứng dụng thông thường có thể muốn bắt.
+#### Ví Dụ Code Chạy Được: Phục Hồi từ Exception vs Sập vì Error
+Error (như `StackOverflowError` hoặc `OutOfMemoryError`) biểu thị các vấn đề nghiêm trọng mà ứng dụng bình thường không nên cố bắt. Exception (như `IOException` hoặc `NullPointerException`) là những điều kiện mà ứng dụng bình thường có thể muốn bắt.
 
 ```java
 public class ThrowableHierarchyDemo {
-    // 1. Error: Stack Overflow do đệ quy vô hạn (thảm họa cấp độ JVM)
+    // 1. Error: Stack Overflow do đệ quy vô hạn (thảm họa cấp JVM)
     public static void causeStackOverflow() {
         causeStackOverflow();
     }
 
-    // 2. Exception: Chia cho 0 (vấn đề cấp độ chương trình có thể phục hồi)
+    // 2. Exception: Chia cho 0 (vấn đề cấp chương trình có thể phục hồi)
     public static void causeException() {
         int result = 10 / 0;
     }
 
     public static void main(String[] args) {
-        // Phục hồi từ ngoại lệ (Exception)
+        // Phục hồi từ Exception
         try {
             causeException();
         } catch (ArithmeticException e) {
             System.out.println("Recovered from exception: " + e.getMessage());
         }
 
-        // Gặp lỗi Error (Tránh bắt các lỗi Error trong mã nguồn sản xuất!)
+        // Gặp phải Error (Tránh bắt Error trong code production!)
         try {
             causeStackOverflow();
         } catch (StackOverflowError err) {
@@ -102,45 +102,45 @@ public class ThrowableHierarchyDemo {
 }
 ```
 
-#### Sơ đồ phân cấp lớp (Class Hierarchy Diagram)
+#### Sơ Đồ Phân Cấp Class
 ```mermaid
 graph TD
     Throwable["java.lang.Throwable"] --> Error["java.lang.Error (Unchecked)"]
     Throwable --> Exception["java.lang.Exception"]
     Exception --> RuntimeException["java.lang.RuntimeException (Unchecked)"]
-    Exception --> CheckedException["Other Exceptions (Checked, e.g., IOException, SQLException)"]
+    Exception --> CheckedException["Các Exception khác (Checked, ví dụ: IOException, SQLException)"]
 ```
 
-### Ngoại lệ kiểm tra (Checked exception)
+### Checked exception (Ngoại lệ bắt buộc xử lý)
 
-Một ngoại lệ kiểm tra (checked exception) bắt buộc phải được xử lý hoặc khai báo theo các quy tắc của trình biên dịch.
+Ngoại lệ bắt buộc xử lý (checked exception) phải được xử lý hoặc khai báo theo quy tắc trình biên dịch.
 
-Điều này quan trọng vì hành vi của ngoại lệ quyết định xem các lỗi được xử lý cục bộ, truyền đi tiếp, hay cho phép dừng chương trình. Sự nhầm lẫn phổ biến là đối xử với mọi ngoại lệ như nhau thay vì tách biệt các điều kiện có thể phục hồi khỏi các lỗi lập trình.
+Quan trọng vì hành vi ngoại lệ quyết định liệu lỗi được xử lý cục bộ, lan truyền, hay được phép dừng chương trình. Nhầm lẫn thường gặp là xử lý mọi ngoại lệ như nhau thay vì phân biệt điều kiện có thể phục hồi với lỗi lập trình.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `Checked exception` trong một câu.
-- Nhận diện `Checked exception` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), hạn chế hoặc sự đánh đổi liên quan đến `Checked exception`.
+- Nhận diện `Checked exception` trong code, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một bug, giới hạn, hoặc đánh đổi liên quan đến `Checked exception`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc mã nguồn, hãy hỏi: `Checked exception` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+- Khi đọc code, hỏi: `Checked exception` thay đổi, cho phép, từ chối, hay làm rõ điều gì?
 
-#### Ví dụ mã nguồn chạy được: Xử lý ngoại lệ kiểm tra (Runnable Code Example: Handling Checked Exceptions)
-Các ngoại lệ kiểm tra đại diện cho các điều kiện bên ngoài sự kiểm soát trực tiếp của chương trình (ví dụ: các vấn đề về hệ thống tệp hoặc mạng). Trình biên dịch bắt buộc bạn phải bắt chúng bằng `try-catch` hoặc khai báo chúng trong chữ ký phương thức bằng cách sử dụng `throws`.
+#### Ví Dụ Code Chạy Được: Xử Lý Checked Exception
+Checked exception đại diện cho các điều kiện nằm ngoài tầm kiểm soát của chương trình (ví dụ: vấn đề hệ thống file hoặc mạng). Trình biên dịch bắt buộc bạn phải bắt chúng bằng `try-catch` hoặc khai báo trong chữ ký phương thức bằng `throws`.
 
 ```java
 import java.io.FileReader;
 import java.io.FileNotFoundException;
 
 public class CheckedExceptionDemo {
-    // Cách 1: Khai báo ngoại lệ kiểm tra bằng cách sử dụng 'throws'
+    // Tùy chọn 1: Khai báo checked exception bằng 'throws'
     public static void readFileWithThrows() throws FileNotFoundException {
         FileReader fr = new FileReader("non_existent_file.txt");
     }
 
-    // Cách 2: Xử lý ngoại lệ kiểm tra bằng cách sử dụng 'try-catch'
+    // Tùy chọn 2: Xử lý checked exception bằng 'try-catch'
     public static void readFileWithTryCatch() {
         try {
             FileReader fr = new FileReader("non_existent_file.txt");
@@ -155,32 +155,32 @@ public class CheckedExceptionDemo {
 }
 ```
 
-### Ngoại lệ không kiểm tra (Unchecked exception)
+### Unchecked exception (Ngoại lệ không bắt buộc xử lý)
 
-Một ngoại lệ không kiểm tra (unchecked exception) không bắt buộc phải được bắt hoặc khai báo.
+Ngoại lệ không bắt buộc xử lý (unchecked exception) không yêu cầu phải bắt hoặc khai báo.
 
-Điều này quan trọng vì hành vi của ngoại lệ quyết định xem các lỗi được xử lý cục bộ, truyền đi tiếp, hay cho phép dừng chương trình. Sự nhầm lẫn phổ biến là đối xử với mọi ngoại lệ như nhau thay vì tách biệt các điều kiện có thể phục hồi khỏi các lỗi lập trình.
+Quan trọng vì hành vi ngoại lệ quyết định liệu lỗi được xử lý cục bộ, lan truyền, hay được phép dừng chương trình. Nhầm lẫn thường gặp là xử lý mọi ngoại lệ như nhau thay vì phân biệt điều kiện có thể phục hồi với lỗi lập trình.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `Unchecked exception` trong một câu.
-- Nhận diện `Unchecked exception` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), hạn chế hoặc sự đánh đổi liên quan đến `Unchecked exception`.
+- Nhận diện `Unchecked exception` trong code, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một bug, giới hạn, hoặc đánh đổi liên quan đến `Unchecked exception`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc mã nguồn, hãy hỏi: `Unchecked exception` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+- Khi đọc code, hỏi: `Unchecked exception` thay đổi, cho phép, từ chối, hay làm rõ điều gì?
 
-#### Ví dụ mã nguồn chạy được: Ngoại lệ không kiểm tra (RuntimeException) (Runnable Code Example: Unchecked Exceptions (RuntimeExceptions))
-Các ngoại lệ không kiểm tra đại diện cho các lỗi lập trình (ví dụ: lỗi logic, sử dụng API không đúng cách). Trình biên dịch không bắt buộc bạn phải xử lý hoặc khai báo chúng.
+#### Ví Dụ Code Chạy Được: Unchecked Exception (RuntimeException)
+Unchecked exception đại diện cho lỗi lập trình (ví dụ: lỗi logic, sử dụng API không đúng). Trình biên dịch không bắt buộc bạn xử lý hoặc khai báo chúng.
 
 ```java
 public class UncheckedExceptionDemo {
     public static void main(String[] args) {
         String text = null;
         
-        // This line throws NullPointerException at runtime.
-        // It compiles successfully without any try-catch or throws declaration.
+        // Dòng này ném NullPointerException lúc runtime.
+        // Biên dịch thành công mà không cần try-catch hay throws.
         try {
             int length = text.length();
         } catch (NullPointerException e) {
@@ -190,29 +190,29 @@ public class UncheckedExceptionDemo {
 }
 ```
 
-### Ngoại lệ thời gian chạy (Runtime exception)
+### Runtime exception (Ngoại lệ thời gian chạy)
 
-Một ngoại lệ đại diện cho một điều kiện bất thường mà chương trình có thể bắt hoặc truyền đi tiếp.
+Ngoại lệ đại diện cho một điều kiện bất thường mà chương trình có thể bắt hoặc lan truyền.
 
-Điều này quan trọng vì hành vi của ngoại lệ quyết định xem các lỗi được xử lý cục bộ, truyền đi tiếp, hay cho phép dừng chương trình. Sự nhầm lẫn phổ biến là đối xử với mọi ngoại lệ như nhau thay vì tách biệt các điều kiện có thể phục hồi khỏi các lỗi lập trình.
+Quan trọng vì hành vi ngoại lệ quyết định liệu lỗi được xử lý cục bộ, lan truyền, hay được phép dừng chương trình. Nhầm lẫn thường gặp là xử lý mọi ngoại lệ như nhau thay vì phân biệt điều kiện có thể phục hồi với lỗi lập trình.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `Runtime exception` trong một câu.
-- Nhận diện `Runtime exception` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), hạn chế hoặc sự đánh đổi liên quan đến `Runtime exception`.
+- Nhận diện `Runtime exception` trong code, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một bug, giới hạn, hoặc đánh đổi liên quan đến `Runtime exception`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- Khi đọc mã nguồn, hãy hỏi: `Runtime exception` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+- Khi đọc code, hỏi: `Runtime exception` thay đổi, cho phép, từ chối, hay làm rõ điều gì?
 
-#### Ví dụ mã nguồn chạy được: Ngoại lệ thời gian chạy (các lớp con của RuntimeException) (Runnable Code Example: Runtime Exceptions (Subclasses of RuntimeException))
-`RuntimeException` là lớp cha của các ngoại lệ có thể được ném ra trong quá trình hoạt động bình thường của Máy ảo Java.
+#### Ví Dụ Code Chạy Được: Runtime Exception (Các lớp con của RuntimeException)
+`RuntimeException` là lớp cha của những ngoại lệ có thể được ném trong quá trình hoạt động bình thường của JVM.
 
 ```java
 public class RuntimeExceptionDemo {
     public static void main(String[] args) {
-        // ArithmeticException is a subclass of RuntimeException
+        // ArithmeticException là lớp con của RuntimeException
         try {
             int result = 50 / 0;
         } catch (ArithmeticException e) {
@@ -224,22 +224,22 @@ public class RuntimeExceptionDemo {
 
 ### try
 
-try đánh dấu khối mã mà bạn muốn xử lý các ngoại lệ của nó, dọn dẹp sau đó, hoặc truyền đi tiếp.
+`try` đánh dấu khối mà bạn muốn xử lý, dọn dẹp sau, hoặc lan truyền các ngoại lệ của nó.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
+Dùng nó để dự đoán quy tắc Java chính xác, dạng được phép, và chế độ lỗi. Xem lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `try` trong một câu.
-- Nhận diện `try` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), hạn chế hoặc sự đánh đổi liên quan đến `try`.
+- Nhận diện `try` trong code, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một bug, giới hạn, hoặc đánh đổi liên quan đến `try`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- `try { ... } catch (IOException ex) { ... }` xử lý một luồng lỗi cụ thể.
+- `try { ... } catch (IOException ex) { ... }` xử lý một đường dẫn lỗi cụ thể.
 
-#### Ví dụ mã nguồn chạy được: Phạm vi của khối Try (Runnable Code Example: Try Block Scope)
-Một khối `try` không thể tồn tại một mình. Nó phải được theo sau bởi ít nhất một khối `catch`, một khối `finally`, hoặc cả hai. Các biến được khai báo bên trong khối `try` là cục bộ đối với khối đó và không thể truy cập được từ bên ngoài.
+#### Ví Dụ Code Chạy Được: Phạm Vi Khối Try
+Khối `try` không thể tồn tại một mình. Nó phải được theo sau bởi ít nhất một khối `catch`, khối `finally`, hoặc cả hai. Biến khai báo bên trong khối `try` chỉ tồn tại trong phạm vi đó và không thể truy cập bên ngoài.
 
 ```java
 public class TryScopeDemo {
@@ -257,29 +257,29 @@ public class TryScopeDemo {
 
 ### catch
 
-catch xử lý một kiểu ngoại lệ khớp được ném ra từ khối try.
+`catch` xử lý một kiểu ngoại lệ khớp được ném ra từ khối `try`.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
+Dùng nó để dự đoán quy tắc Java chính xác, dạng được phép, và chế độ lỗi. Xem lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `catch` trong một câu.
-- Nhận diện `catch` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), hạn chế hoặc sự đánh đổi liên quan đến `catch`.
+- Nhận diện `catch` trong code, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một bug, giới hạn, hoặc đánh đổi liên quan đến `catch`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- `try { ... } catch (IOException ex) { ... }` xử lý một luồng lỗi cụ thể.
+- `try { ... } catch (IOException ex) { ... }` xử lý một đường dẫn lỗi cụ thể.
 
-#### Ví dụ mã nguồn chạy được: Bắt các ngoại lệ cụ thể (Runnable Code Example: Catching Specific Exception)
-Khi một ngoại lệ được ném ra trong khối `try`, Java sẽ khớp kiểu ngoại lệ với kiểu tham số của khối `catch`.
+#### Ví Dụ Code Chạy Được: Bắt Ngoại Lệ Cụ Thể
+Khi ngoại lệ được ném trong khối `try`, Java khớp kiểu ngoại lệ với kiểu tham số của khối `catch`.
 
 ```java
 public class CatchDemo {
     public static void main(String[] args) {
         try {
             String str = "abc";
-            int num = Integer.parseInt(str); // Throws NumberFormatException
+            int num = Integer.parseInt(str); // Ném NumberFormatException
         } catch (NumberFormatException e) {
             System.out.println("Caught NumberFormatException: " + e.getMessage());
         }
@@ -287,29 +287,29 @@ public class CatchDemo {
 }
 ```
 
-### Nhiều khối catch (multiple catch)
+### multiple catch (Nhiều khối catch)
 
-Nhiều khối catch cho phép các kiểu ngoại lệ khác nhau được xử lý bởi các trình xử lý khác nhau, được sắp xếp thứ tự từ cụ thể đến khái quát.
+`multiple catch` (nhiều khối catch) cho phép các kiểu ngoại lệ khác nhau được xử lý bởi các trình xử lý khác nhau, sắp xếp từ cụ thể đến rộng.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
+Dùng nó để dự đoán quy tắc Java chính xác, dạng được phép, và chế độ lỗi. Xem lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `multiple catch` trong một câu.
-- Nhận diện `multiple catch` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), hạn chế hoặc sự đánh đổi liên quan đến `multiple catch`.
+- Nhận diện `multiple catch` trong code, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một bug, giới hạn, hoặc đánh đổi liên quan đến `multiple catch`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- `try { ... } catch (IOException ex) { ... }` xử lý một luồng lỗi cụ thể.
+- `try { ... } catch (IOException ex) { ... }` xử lý một đường dẫn lỗi cụ thể.
 
-#### Ví dụ mã nguồn chạy được: Nhiều khối Catch riêng lẻ so với khối Multi-Catch (Hợp nhất) (Runnable Code Example: Multiple Catch Blocks vs Multi-Catch (Union Catch))
-Java cho phép bạn định nghĩa nhiều khối `catch` cho một khối `try` duy nhất, hoặc bắt nhiều kiểu ngoại lệ trong một khối `catch` duy nhất bằng cách sử dụng toán tử gạch đứng (`|`).
+#### Ví Dụ Code Chạy Được: Nhiều Khối Catch vs Multi-Catch (Union Catch)
+Java cho phép định nghĩa nhiều khối `catch` cho một khối `try`, hoặc bắt nhiều kiểu ngoại lệ trong một khối `catch` duy nhất bằng toán tử pipe (`|`).
 
 ```java
 public class MultipleCatchDemo {
     public static void main(String[] args) {
-        // Kịch bản 1: Nhiều khối catch riêng lẻ (sắp xếp từ cụ thể đến tổng quát)
+        // Tình huống 1: Nhiều khối catch (sắp xếp từ cụ thể đến tổng quát)
         try {
             int[] arr = new int[3];
             arr[5] = 10; // ArrayIndexOutOfBoundsException
@@ -319,12 +319,12 @@ public class MultipleCatchDemo {
             System.out.println("Caught general RuntimeException");
         }
 
-        // Kịch bản 2: Multi-catch (Khối catch hợp nhất)
+        // Tình huống 2: Multi-catch (Union catch block)
         try {
             String str = null;
             str.length(); // NullPointerException
         } catch (NullPointerException | ArithmeticException e) {
-            // Note: 'e' is implicitly final in a multi-catch block
+            // Lưu ý: 'e' là final ngầm định trong khối multi-catch
             // e = new NullPointerException(); // Compile error: cannot assign a value to final variable e
             System.out.println("Caught NullPointerException or ArithmeticException: " + e.getClass().getSimpleName());
         }
@@ -332,10 +332,10 @@ public class MultipleCatchDemo {
 }
 ```
 
-## Các lỗi thường gặp (Common Mistakes)
+## Lỗi Thường Gặp
 
-### 1. Bắt ngoại lệ của lớp cha trước ngoại lệ của lớp con (Catching a Superclass Exception Before a Subclass Exception)
-Vì việc so khớp ngoại lệ được giải quyết theo thứ tự từ trên xuống dưới, việc bắt một kiểu ngoại lệ rộng hơn (như `Exception`) trước một kiểu ngoại lệ cụ thể hơn (như `IOException`) sẽ dẫn đến lỗi thời gian biên dịch.
+### 1. Bắt Exception Cha Trước Exception Con
+Vì việc khớp ngoại lệ được giải quyết theo thứ tự từ trên xuống dưới, bắt kiểu ngoại lệ rộng hơn (như `Exception`) trước kiểu cụ thể hơn (như `IOException`) sẽ gây lỗi biên dịch.
 ```java
 // COMPILE ERROR: exception java.io.IOException has already been caught
 try {
@@ -347,8 +347,8 @@ try {
 }
 ```
 
-### 2. Bắt các ngoại lệ kiểm tra không thể ném ra trong khối Try (Catching Checked Exceptions That Cannot Be Thrown in Try Block)
-Nếu bạn viết một khối catch cho một ngoại lệ **kiểm tra** (checked exception) cụ thể, nhưng mã nguồn trong khối `try` tương ứng không có khả năng ném ra ngoại lệ đó, trình biên dịch sẽ báo lỗi. (Lưu ý: Quy tắc này không áp dụng cho các ngoại lệ không kiểm tra hoặc các ngoại lệ rộng như `Exception` hoặc `Throwable`).
+### 2. Bắt Checked Exception Không Thể Được Ném Trong Khối Try
+Nếu bạn viết khối catch cho một **checked exception** cụ thể, nhưng code trong khối `try` tương ứng không có khả năng ném ngoại lệ đó, trình biên dịch sẽ báo lỗi. (Lưu ý: Quy tắc này không áp dụng cho unchecked exception hoặc exception rộng như `Exception` hay `Throwable`).
 ```java
 // COMPILE ERROR: exception java.io.IOException is never thrown in body of corresponding try statement
 try {
@@ -358,8 +358,8 @@ try {
 }
 ```
 
-### 3. Gán lại biến ngoại lệ trong các khối Multi-Catch (Reassigning the Exception Variable in Multi-Catch Blocks)
-Biến ngoại lệ `e` trong một khối multi-catch (ví dụ: `catch (ArithmeticException | NullPointerException e)`) ngầm định là `final`. Mọi nỗ lực gán lại giá trị cho nó đều dẫn đến lỗi biên dịch.
+### 3. Gán Lại Biến Exception Trong Khối Multi-Catch
+Biến ngoại lệ `e` trong khối multi-catch (ví dụ: `catch (ArithmeticException | NullPointerException e)`) là `final` ngầm định. Mọi cố gắng gán lại sẽ gây lỗi biên dịch.
 ```java
 try {
     int x = 10 / 0;
@@ -368,143 +368,115 @@ try {
 }
 ```
 
-## Các câu hỏi ôn tập thường gặp (Common Review Prompts)
+## Câu Hỏi Ôn Tập Thường Gặp
 
-- Khái niệm nào ở đây là quy tắc thời gian biên dịch (compile-time rule)?
-- Khái niệm nào ở đây ảnh hưởng đến hành vi thời gian chạy (runtime behavior)?
-- Khái niệm nào ở đây dễ là bẫy phỏng vấn?
+- Khái niệm nào ở đây là quy tắc biên dịch?
+- Khái niệm nào ảnh hưởng đến hành vi runtime?
+- Khái niệm nào có thể là bẫy phỏng vấn?
 
 ---
 
-## Tại sao Java có Ngoại lệ kiểm tra và Ngoại lệ không kiểm tra (Why Java Has Checked and Unchecked Exceptions)
+## Tại Sao Java Có Checked và Unchecked Exception
 
-Các nhà thiết kế của Java đã đưa ra một sự phân biệt triết học có chủ ý khi phân loại các ngoại lệ. **Ngoại lệ kiểm tra (Checked exception)** đại diện cho các lỗi ở các tài nguyên bên ngoài hoặc các điều kiện hoàn toàn nằm ngoài sự kiểm soát của chương trình — I/O hệ thống tệp, kết nối mạng, truy cập cơ sở dữ liệu. Những lỗi này là dự kiến được, có thể xảy ra và có thể phục hồi: một tệp có thể không tồn tại, mạng có thể không khả dụng. Trình biên dịch bắt buộc phải xử lý vì nhà thiết kế tin rằng người gọi phải được thông báo rõ ràng về các chế độ lỗi này và phải đưa ra quyết định xử lý chúng.
+Các nhà thiết kế Java đã có sự phân biệt triết học có chủ đích khi phân loại ngoại lệ. **Checked exception** đại diện cho lỗi trong tài nguyên bên ngoài hoặc các điều kiện hoàn toàn nằm ngoài tầm kiểm soát của chương trình — I/O hệ thống file, kết nối mạng, truy cập cơ sở dữ liệu. Những lỗi này là dự kiến, có thể xảy ra và có thể phục hồi: file có thể không tồn tại, mạng có thể không khả dụng. Trình biên dịch bắt buộc xử lý vì nhà thiết kế cho rằng người gọi phải được thông báo rõ ràng về các chế độ lỗi này và phải đưa ra quyết định về chúng.
 
-**Ngoại lệ không kiểm tra (Unchecked exception)** (`RuntimeException` và các lớp con của nó) đại diện cho các lỗi lập trình — tham chiếu null (null dereference), lỗi chỉ số mảng, chia cho không, tham số không hợp lệ. Đây là những lỗi do chính mã nguồn gây ra, không phải do các điều kiện bên ngoài. Vì về mặt lý thuyết chúng có thể xảy ra ở bất kỳ đâu trong bất kỳ mã nguồn nào, việc bắt buộc trình biên dịch phải thực thi `try-catch` cho mọi ngoại lệ không kiểm tra sẽ làm cho mã nguồn Java trở nên dài dòng và khó đọc một cách khủng khiếp. Quyết định thiết kế là: các lập trình viên được kỳ vọng sẽ sửa lỗi (bug), chứ không phải bắt lỗi.
+**Unchecked exception** (`RuntimeException` và các lớp con của nó) đại diện cho lỗi lập trình — truy cập null, lỗi chỉ số mảng, chia cho 0, đối số không hợp lệ. Những lỗi này được gây ra bởi sai sót trong code, không phải bởi điều kiện bên ngoài. Vì chúng có thể xảy ra về mặt lý thuyết ở bất kỳ đâu trong bất kỳ code nào, việc bắt buộc trình biên dịch bắt `try-catch` cho mọi unchecked exception sẽ làm code Java trở nên cực kỳ dài dòng và khó đọc. Quyết định thiết kế là: lập trình viên được kỳ vọng sửa bug, không phải bắt chúng.
 
-Sự phân biệt này ánh xạ tới câu hỏi: "Chế độ lỗi này có phải là thứ mà người gọi có thể được mong đợi xử lý một cách hợp lý tại nơi gọi hay không?" Đối với `FileNotFoundException` — có, người gọi có thể xử lý việc thiếu tệp. Đối với `NullPointerException` — không, phản hồi chính xác là sửa lỗi tham chiếu null trong mã, chứ không phải bắt ngoại lệ đó.
+Sự phân biệt ánh xạ vào câu hỏi: "Đây có phải là chế độ lỗi mà người gọi có thể hợp lý kỳ vọng xử lý tại điểm gọi không?" Với `FileNotFoundException` — có, người gọi có thể xử lý file thiếu. Với `NullPointerException` — không, phản ứng đúng là sửa truy cập null trong code, không phải bắt nó.
 
-### Mô hình tư duy: Sự phân chia giữa Checked và Unchecked (Mental Model: Checked vs Unchecked split)
+### Mô Hình Tư Duy: Phân chia Checked vs Unchecked
 ```
-Các lỗi do môi trường bên ngoài (Checked - trình biên dịch bắt buộc xử lý):
+Lỗi Môi Trường Bên Ngoài (Checked — trình biên dịch bắt buộc xử lý):
   FileNotFoundException → mạng: IOException → cơ sở dữ liệu: SQLException
-  Người gọi BẮT BUỘC phải quyết định: bắt nó tại đây, hoặc khai báo throws để truyền nó lên trên
+  Người gọi PHẢI quyết định: bắt ở đây, hoặc khai báo throws để lan truyền lên
 
-Các lỗi lập trình (Unchecked - trình biên dịch KHÔNG bắt buộc xử lý):
+Lỗi Lập Trình (Unchecked — trình biên dịch KHÔNG bắt buộc xử lý):
   NullPointerException → ArrayIndexOutOfBoundsException → NumberFormatException
-  Lập trình viên nên SỬA lỗi trong mã, chứ không phải bắt nó
-  Về mặt lý thuyết có thể xảy ra ở bất kỳ phương thức nào → bắt buộc bắt mọi nơi = mã cực kỳ khó đọc
+  Lập trình viên nên SỬA bug, không phải bắt nó
+  Có thể xảy ra về lý thuyết trong bất kỳ phương thức nào → bắt ở khắp nơi = code không thể đọc
 ```
 
-### Ví dụ mã nguồn: Checked so với Unchecked trong chữ ký phương thức (Code Example: Checked vs Unchecked in method signatures)
+### Ví Dụ Code: Checked vs Unchecked trong chữ ký phương thức
 ```java
 import java.io.*;
 
-// CHECKED — compiler enforces caller to handle or declare throws
+// CHECKED — trình biên dịch bắt buộc người gọi xử lý hoặc khai báo throws
 public void readFile(String path) throws FileNotFoundException {
-    FileReader fr = new FileReader(path);  // compiler mandates this is handled
+    FileReader fr = new FileReader(path);  // trình biên dịch bắt buộc phải xử lý
 }
 
-// UNCHECKED — no compiler requirement to declare or handle
+// UNCHECKED — không có yêu cầu trình biên dịch khai báo hoặc xử lý
 public int divide(int a, int b) {
-    return a / b;  // ArithmeticException if b=0 — compiler doesn't care
+    return a / b;  // ArithmeticException nếu b=0 — trình biên dịch không quan tâm
 }
 
-// Caller of readFile MUST handle
+// Người gọi readFile PHẢI xử lý
 try {
-    readFile("config.txt");       // must catch FileNotFoundException
+    readFile("config.txt");       // phải bắt FileNotFoundException
 } catch (FileNotFoundException e) {
     System.out.println("Config missing: " + e.getMessage());
 }
 
-// Caller of divide has no compiler requirement
-int result = divide(10, 0);  // throws ArithmeticException at runtime — fix the code
+// Người gọi divide không có yêu cầu trình biên dịch
+int result = divide(10, 0);  // ném ArithmeticException lúc runtime — hãy sửa code
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-
-```text
-I/O tệp gặp lỗi
-  → `FileNotFoundException` được ném ra (checked)
-  → Trình biên dịch phát hiện ngoại lệ kiểm tra chưa được bắt
-  → Lỗi biên dịch xảy ra trừ khi thêm try-catch hoặc khai báo throws
-  → Người gọi bị buộc phải đưa ra quyết định có ý thức về lỗi
-  → Chương trình xử lý hoặc truyền đi — không bao giờ im lặng bỏ qua. Lỗi lập trình: tham chiếu null
-  → `NullPointerException` được ném ra (unchecked)
-  → Trình biên dịch không đưa ra yêu cầu bắt buộc
-  → Ngoại lệ truyền ngược lên ngăn xếp cuộc gọi
-  → Chương trình bị sập với dấu vết ngăn xếp (stack trace)
-  → Nhà phát triển sửa lỗi kiểm tra null trong mã nguồn.
-```
-
+### Chuỗi Nguyên Nhân-Kết Quả
+I/O file thất bại &rarr; `FileNotFoundException` được ném (checked) &rarr; Trình biên dịch phát hiện checked exception chưa được bắt &rarr; Lỗi biên dịch trừ khi thêm try-catch hoặc khai báo throws &rarr; Người gọi bị buộc đưa ra quyết định có ý thức về lỗi &rarr; Chương trình xử lý hoặc lan truyền — không bao giờ im lặng bỏ qua. Lỗi lập trình: truy cập null &rarr; `NullPointerException` được ném (unchecked) &rarr; Trình biên dịch không áp đặt yêu cầu &rarr; Ngoại lệ lan truyền lên call stack &rarr; Chương trình crash với stack trace &rarr; Developer sửa kiểm tra null trong code.
 
 ---
 
-## Tại sao việc bắt các kiểu Ngoại lệ chung chung lại nguy hiểm (Why Catching Broad Exception Types Is Dangerous)
+## Tại Sao Bắt Kiểu Ngoại Lệ Rộng Là Nguy Hiểm
 
-Khi bạn bắt `Exception` hoặc `Throwable` một cách chung chung, bạn không chỉ bắt các ngoại lệ bạn mong đợi, mà còn bắt mọi ngoại lệ khác có thể ném ra — bao gồm `InterruptedException`, `OutOfMemoryError`, `StackOverflowError`, `ThreadDeath`, và các ngoại lệ trong tương lai được thêm vào khi tái cấu trúc. Điều này dẫn đến ba vấn đề nghiêm trọng.
+Khi bạn bắt `Exception` hoặc `Throwable` một cách rộng rãi, bạn bắt không chỉ các ngoại lệ mà bạn mong đợi, mà còn mọi ngoại lệ khác có thể được ném — bao gồm `InterruptedException`, `OutOfMemoryError`, `StackOverflowError`, `ThreadDeath`, và các ngoại lệ trong tương lai được thêm vào khi tái cấu trúc. Điều này gây ra ba vấn đề nghiêm trọng.
 
-Thứ nhất, **che giấu ngoại lệ (exception masking)**: một ngoại lệ không lường trước được bị bắt và xử lý như thể nó là ngoại lệ dự kiến, che giấu lỗi thực sự. Mã nguồn bắt `Exception` và ghi log "file not found" có thể đang che giấu một lỗi hết thời gian chờ cơ sở dữ liệu, một lỗi con trỏ null, hoặc sự cố mạng — tất cả đều bị phân loại sai một cách âm thầm thành "file not found".
+Thứ nhất, **che khuất ngoại lệ (exception masking)**: một ngoại lệ không mong đợi bị bắt và xử lý như thể nó là ngoại lệ mong đợi, ẩn lỗi thực sự. Code bắt `Exception` và ghi log "file not found" có thể đang che khuất timeout cơ sở dữ liệu, bug null pointer, hoặc vấn đề mạng — tất cả đều bị phân loại sai lặng lẽ là "file not found."
 
-Thứ hai, **nuốt lỗi (swallowed errors)**: nếu các lớp con `Error` bị bắt thông qua `Throwable`, các thảm họa cấp độ JVM như `OutOfMemoryError` sẽ bị hấp thụ một cách âm thầm, khiến ứng dụng rơi vào trạng thái không xác định.
+Thứ hai, **nuốt error (swallowed errors)**: nếu các lớp con của `Error` được bắt qua `Throwable`, các thảm họa cấp JVM như `OutOfMemoryError` bị hấp thụ im lặng, khiến ứng dụng ở trạng thái không xác định.
 
-Thứ ba, **mất thông tin kiểu ngoại lệ**: các khối catch thường có phản ứng khác nhau tùy thuộc vào kiểu ngoại lệ. Một khối catch chung chung với một phản hồi duy nhất sẽ buộc tất cả các ngoại lệ phải có cùng một hành vi, ngăn cản phản hồi chính xác và đặc thù cho từng kiểu.
+Thứ ba, **mất thông tin kiểu ngoại lệ**: các khối catch thường phản ứng khác nhau tùy thuộc vào kiểu ngoại lệ. Một catch rộng với một phản ứng duy nhất buộc tất cả ngoại lệ vào một hành vi, ngăn phản ứng đúng và cụ thể theo kiểu.
 
-### Mô hình tư duy: Phạm vi bắt Hẹp so với Rộng (Mental Model: Narrow vs Broad catch scope)
+### Mô Hình Tư Duy: Phạm vi catch Hẹp vs Rộng
 ```
-[Bắt hẹp — Chính xác]
+[Hẹp — đúng]
 try { readFile("data.csv"); }
 catch (FileNotFoundException e) {
-    // Chỉ xử lý khi thiếu tệp
-    // Tất cả các ngoại lệ khác sẽ truyền tới các trình xử lý thích hợp của chúng
+    // Chỉ xử lý file-not-found
+    // Tất cả ngoại lệ khác lan truyền đến trình xử lý đúng
 }
 
-[Bắt rộng — Nguy hiểm]
+[Rộng — nguy hiểm]
 try { readFile("data.csv"); }
 catch (Exception e) {
-    // Bắt cả FileNotFoundException ← mong muốn
-    // Bắt luôn cả NullPointerException ← che giấu lỗi lập trình!
-    // Bắt luôn cả OutOfMemoryError (qua Throwable) ← cực kỳ nguy hiểm!
-    // Bắt luôn cả SQLException ← không liên quan, cần hành vi xử lý khác
-    log("Error: " + e.getMessage()); // một phản hồi cho tất cả — sai lầm!
+    // Bắt FileNotFoundException ← có chủ đích
+    // Cũng bắt NullPointerException ← che khuất bug!
+    // Cũng bắt OutOfMemoryError (qua Throwable) ← nguy hiểm!
+    // Cũng bắt SQLException ← không liên quan, cần hành vi khác
+    log("Error: " + e.getMessage()); // một phản ứng cho tất cả — sai!
 }
 ```
 
-### Ví dụ mã nguồn: Che giấu lỗi thông qua việc bắt ngoại lệ chung chung (Code Example: Bug masking via broad exception catch)
+### Ví Dụ Code: Che khuất bug qua bắt ngoại lệ rộng
 ```java
 public void processFile(String path) {
     try {
-        FileReader fr = new FileReader(path);    // May throw FileNotFoundException
+        FileReader fr = new FileReader(path);    // Có thể ném FileNotFoundException
         String content = null;
-        content.length();                         // NullPointerException bug in code!
+        content.length();                         // Bug NullPointerException trong code!
     } catch (Exception e) {
-        // BUG MASKED: Both exceptions caught here as if they were the same
+        // BUG BỊ CHE KHUẤT: Cả hai ngoại lệ đều bị bắt ở đây như thể chúng giống nhau
         System.out.println("File error: " + e.getMessage());
-        // Developer thinks file is missing — actually there's a NPE in the code
+        // Developer nghĩ file bị thiếu — thực ra có NPE trong code
     }
 }
 
-// CHÍNH XÁC:
+// ĐÚNG:
 public void processFileCorrect(String path) throws FileNotFoundException {
-    FileReader fr = new FileReader(path);    // Compiler enforces handling
+    FileReader fr = new FileReader(path);    // Trình biên dịch bắt buộc xử lý
     String content = null;
-    content.length();                         // NullPointerException propagates — visible bug!
+    content.length();                         // NullPointerException lan truyền — bug rõ ràng!
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-
-```text
-Bắt `Exception` một cách chung chung
-  → `NullPointerException` bị ném ra bên trong try
-  → Bị bắt bởi khối `catch (Exception e)` rộng
-  → Ứng dụng ghi log "file error"
-  → Lỗi bị phân loại sai thành lỗi dự kiến
-  → Nhà phát triển điều tra đường dẫn tệp chứ không phải lỗi tham chiếu null
-  → Lỗi thực sự bị che giấu trong nhiều ngày hoặc nhiều tuần. Bắt hẹp (`FileNotFoundException`)
-  → `NullPointerException` không bị bắt tại đây
-  → Truyền ngược lên ngăn xếp cuộc gọi
-  → Chương trình sập với stack trace rõ ràng
-  → Nhà phát triển nhìn thấy lỗi tham chiếu null ngay lập tức.
-```
-
+### Chuỗi Nguyên Nhân-Kết Quả
+Bắt `Exception` rộng rãi &rarr; `NullPointerException` được ném trong try &rarr; Bị bắt bởi `catch (Exception e)` rộng &rarr; Ứng dụng ghi log "file error" &rarr; Bug bị phân loại sai là lỗi mong đợi &rarr; Developer điều tra đường dẫn file, không phải truy cập null &rarr; Bug thực sự bị ẩn trong nhiều ngày hoặc tuần. Bắt hẹp (`FileNotFoundException`) &rarr; `NullPointerException` không bị bắt ở đây &rarr; Lan truyền lên call stack &rarr; Crash với stack trace rõ ràng &rarr; Developer nhìn thấy truy cập null ngay lập tức.

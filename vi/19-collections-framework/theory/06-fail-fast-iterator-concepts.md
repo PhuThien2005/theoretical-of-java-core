@@ -1,32 +1,30 @@
-# Collections Framework - Phần 6 (Collections Framework - Part 6)
+# Cấu Trúc Tập Hợp (Collections Framework) - Phần 6
 
-## Mục tiêu học tập (Learning Goal)
+## Mục Tiêu Học Tập
 
-Tài liệu này bao gồm một phần nội dung trọng tâm về **Collections Framework** bao gồm các hành vi của iterator (`Fail-fast` so với `Fail-safe`), các sửa đổi cấu trúc dữ liệu, và các thuật toán trong lớp tiện ích tiêu chuẩn `Collections`.
+File này đề cập đến một phần trọng tâm của **Cấu Trúc Tập Hợp (Collections Framework)** bao gồm các hành vi của bộ lặp (iterator) (`Fail-fast` so với `Fail-safe`), các sửa đổi cấu trúc, và các thuật toán trong lớp tiện ích `Collections` tiêu chuẩn.
 
-## Các khái niệm bao phủ (Outline Coverage)
+## Đề Cương Khái Niệm
 
 | Khái niệm | Những điều cần biết |
 | --- | --- |
-| `Fail-fast iterator` | Ném ra ngoại lệ `ConcurrentModificationException` ngay lập tức nếu tập hợp bị thay đổi cấu trúc trong quá trình lặp (thông qua các phương thức khác ngoài phương thức của chính iterator). |
-| `Fail-safe iterator` | Hoạt động trên một bản chụp (snapshot) hoặc một dạng hiển thị đồng nhất yếu (weakly consistent view) của tập hợp, cho phép thực hiện các sửa đổi trong quá trình lặp mà không ném ra ngoại lệ. |
-| `ConcurrentModificationException` | Ngoại lệ lúc chạy (runtime exception) được ném ra khi phát hiện ra thay đổi cấu trúc trên một tập hợp trong khi đang thực hiện lặp qua nó. |
-| `Collections.sort` | Sắp xếp trực tiếp trên danh sách trong thời gian trung bình/xấu nhất là $O(N \log N)$. |
+| `Fail-fast iterator` | Ném ra `ConcurrentModificationException` ngay lập tức nếu tập hợp bị sửa đổi cấu trúc trong quá trình duyệt (thông qua các phương thức khác ngoài phương thức của chính bộ lặp). |
+| `Fail-safe iterator` | Hoạt động trên một bản chụp (snapshot) hoặc một dạng xem nhất quán yếu (weakly consistent view) của tập hợp, cho phép sửa đổi trong quá trình duyệt mà không ném ra ngoại lệ. |
+| `ConcurrentModificationException` | Ngoại lệ thời gian chạy (runtime exception) được ném ra khi phát hiện sửa đổi cấu trúc trên một tập hợp trong quá trình duyệt đang diễn ra. |
+| `Collections.sort` | Sắp xếp một danh sách tại chỗ với thời gian trung bình/tệ nhất là $O(N \log N)$. |
 | `Collections.reverse` | Đảo ngược thứ tự các phần tử trong danh sách. |
-| `Collections.shuffle` | Xáo trộn ngẫu nhiên thứ tự các phần tử trong danh sách. |
-| `Collections.max` | Trả về phần tử lớn nhất trong một tập hợp theo thứ tự tự nhiên hoặc theo một comparator tùy chỉnh. |
-| `Collections.min` | Trả về phần tử nhỏ nhất trong tập hợp. |
+| `Collections.shuffle` | Hoán vị ngẫu nhiên các phần tử trong danh sách. |
+| `Collections.max` | Trả về phần tử lớn nhất trong một tập hợp theo thứ tự tự nhiên hoặc theo một bộ so sánh (comparator) tùy chỉnh. |
+| `Collections.min` | Trả về phần tử nhỏ nhất trong một tập hợp. |
 
----
+## Ghi Chú Chi Tiết
 
-## Ghi chú chi tiết (Detailed Notes)
+### Bộ Lặp Fail-Fast (Fail-Fast Iterator)
 
-### Fail-Fast Iterator
+Các bộ lặp cho các tập hợp tiêu chuẩn (như `ArrayList`, `HashSet`, `HashMap`) có tính chất **fail-fast**.
+- **Cơ chế**: Tập hợp duy trì một bộ đếm được gọi là `modCount` (số lần sửa đổi - modification count). Khi một bộ lặp được tạo ra, nó sao chép `modCount` vào `expectedModCount`. Trên mỗi lời gọi `next()` hoặc `remove()`, bộ lặp sẽ so sánh hai giá trị đếm này. Nếu chúng không khớp (nghĩa là đã xảy ra sửa đổi bên ngoài bộ lặp), nó sẽ ngay lập tức ném ra `ConcurrentModificationException`.
 
-Các iterator của các tập hợp tiêu chuẩn (như `ArrayList`, `HashSet`, `HashMap`) đều có tính chất **fail-fast**.
-- **Cơ chế**: Tập hợp duy trì một biến đếm gọi là `modCount` (modification count - số lần sửa đổi). Khi một iterator được tạo ra, nó sẽ sao chép giá trị `modCount` vào biến `expectedModCount` của chính nó. Mỗi khi gọi `next()` hoặc `remove()`, iterator sẽ so sánh hai giá trị đếm này. Nếu có sự khác biệt (nghĩa là đã xảy ra một sửa đổi cấu trúc từ bên ngoài iterator), nó lập tức ném ra ngoại lệ `ConcurrentModificationException`.
-
-**Ví dụ Code có thể chạy (Hành vi Fail-Fast) (Runnable Code Example (Fail-Fast Behavior)):**
+**Ví dụ Mã Nguồn Chạy Được (Hành vi Fail-Fast):**
 ```java
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -51,13 +49,13 @@ public class FailFastDemo {
 }
 ```
 
-### Iterator Fail-Safe / Đồng nhất Yếu (Fail-Safe / Weakly Consistent Iterator)
+### Bộ Lặp Fail-Safe / Nhất Quán Yếu (Fail-Safe / Weakly Consistent Iterator)
 
-Các iterator cho các tập hợp đồng thời (như `CopyOnWriteArrayList`, `ConcurrentHashMap`) sẽ không ném ra ngoại lệ `ConcurrentModificationException`.
-- **Dựa trên bản chụp (Snapshot-based - ví dụ: `CopyOnWriteArrayList`)**: Iterator hoạt động trên một bản chụp (snapshot) của mảng bên dưới được chụp lại tại thời điểm iterator được tạo ra. Mọi sửa đổi trên tập hợp trong quá trình lặp sẽ tạo ra các bản sao mảng mới, giữ cho bản chụp của iterator không bị ảnh hưởng.
-- **Đồng nhất yếu (Weakly consistent - ví dụ: `ConcurrentHashMap`)**: Iterator duyệt qua các phần tử khi chúng tồn tại, có thể phản ánh hoặc không phản ánh các sửa đổi tiếp theo, nhưng sẽ không bao giờ gây sập chương trình.
+Các bộ lặp cho các tập hợp đồng thời (như `CopyOnWriteArrayList`, `ConcurrentHashMap`) không ném ra `ConcurrentModificationException`.
+- **Dựa trên bản chụp (Snapshot-based) (ví dụ: `CopyOnWriteArrayList`)**: Bộ lặp hoạt động trên một bản chụp (snapshot) của mảng cơ sở được chụp lại khi bộ lặp được tạo ra. Các sửa đổi trong quá trình duyệt sẽ tạo ra các bản sao mảng mới, giữ cho bản chụp của bộ lặp không bị ảnh hưởng.
+- **Nhất quán yếu (Weakly consistent) (ví dụ: `ConcurrentHashMap`)**: Bộ lặp duyệt qua các phần tử khi chúng tồn tại, và có thể phản ánh hoặc không phản ánh các sửa đổi tiếp theo, nhưng sẽ không bao giờ gây lỗi crash.
 
-**Ví dụ Code có thể chạy (Lặp qua Bản chụp) (Runnable Code Example (Snapshot Iteration)):**
+**Ví dụ Mã Nguồn Chạy Được (Duyệt Trên Bản Chụp):**
 ```java
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -78,15 +76,15 @@ public class FailSafeDemo {
 }
 ```
 
-### Lớp tiện ích Collections (Collections Utility Class)
+### Lớp Tiện Ích Collections
 
 `java.util.Collections` cung cấp các thuật toán tĩnh hoạt động trên các tập hợp.
-- **`sort(List<T> list)`**: Sắp xếp danh sách. Sử dụng thuật toán Timsort. Sắp xếp trực tiếp trên danh sách truyền vào.
+- **`sort(List<T> list)`**: Sắp xếp danh sách. Sử dụng thuật toán Timsort. Sửa đổi danh sách tại chỗ.
 - **`reverse(List<?> list)`**: Đảo ngược thứ tự các phần tử của danh sách.
-- **`shuffle(List<?> list)`**: Xáo trộn ngẫu nhiên thứ tự các phần tử.
+- **`shuffle(List<?> list)`**: Sắp xếp lại ngẫu nhiên các phần tử.
 - **`max(Collection<? extends T> coll)`** / **`min(Collection<? extends T> coll)`**: Tìm các phần tử cực trị dựa trên thứ tự sắp xếp.
 
-**Ví dụ Code có thể chạy (Runnable Code Example):**
+**Ví dụ Mã Nguồn Chạy Được:**
 ```java
 import java.util.ArrayList;
 import java.util.Collections;
@@ -110,9 +108,9 @@ public class CollectionsDemo {
 
 ---
 
-## Case Study: Phân tích Hiệu năng của Iterator Fail-Fast so với Snapshot (Case Study: Analyzing Fail-Fast vs Snapshot Iterator Performance)
+## Ví Dụ Thực Tế: Phân Tích Hiệu Năng Của Bộ Lặp Fail-Fast Với Bộ Lặp Snapshot
 
-Chúng ta hãy viết một bài kiểm tra hiệu năng để quan sát chi phí của các sửa đổi trên các tập hợp tiêu chuẩn (ném ra ngoại lệ trừ khi sử dụng `iterator.remove()`) so với các tập hợp dựa trên bản chụp (copy-on-write) đồng thời (sẽ sao chép toàn bộ mảng hỗ trợ mỗi khi ghi dữ liệu).
+Hãy viết một bài kiểm tra hiệu năng để quan sát chi phí của các sửa đổi trên tập hợp tiêu chuẩn (vốn ném ra ngoại lệ trừ khi sử dụng `iterator.remove()`) so với các tập hợp đồng thời dựa trên bản chụp (vốn sao chép toàn bộ mảng sao lưu khi ghi).
 
 ```java
 import java.util.ArrayList;
@@ -159,10 +157,11 @@ public class IteratorBenchmark {
 
 ---
 
-## Các lỗi thường gặp (Common Mistakes)
+## Các Lỗi Thường Gặp
 
-### 1. Sửa đổi một danh sách trong vòng lặp for-each (Modifying a list in a for-each loop)
-Vòng lặp for-each trong Java thực chất sử dụng một iterator ở bên dưới. Việc gọi `list.remove(item)` bên trong vòng lặp for-each sẽ kích hoạt ngoại lệ `ConcurrentModificationException` vì thay đổi này mang tính cấu trúc và diễn ra bên ngoài iterator.
+### 1. Sửa Đổi Một List Trong Vòng Lặp For-Each
+
+Vòng lặp for-each trong Java sử dụng một bộ lặp một cách nội bộ. Gọi `list.remove(item)` bên trong vòng lặp for-each sẽ kích hoạt một `ConcurrentModificationException` vì sửa đổi này mang tính cấu trúc và diễn ra bên ngoài bộ lặp.
 ```java
 // BUG: Will throw ConcurrentModificationException
 for (String item : list) {
@@ -172,45 +171,44 @@ for (String item : list) {
 }
 ```
 
-### 2. Chi phí ghi cực lớn của CopyOnWriteArrayList (High overhead of CopyOnWriteArrayList writes)
-Việc sử dụng `CopyOnWriteArrayList` trong một vòng lặp có mật độ ghi cao là một sai lầm lớn. Vì mỗi thao tác ghi sẽ sao chép nhân bản mảng hỗ trợ phía sau, các danh sách kích thước lớn sẽ gây ra áp lực bộ nhớ và các khoảng dừng do thu dọn rác cực lớn.
+### 2. Chi Phí Lớn Của Các Phép Ghi Trên CopyOnWriteArrayList
 
-### 3. Giả định rằng việc sửa đổi qua Iterator ảnh hưởng đến Collection gốc trên mọi kiểu danh sách (Assuming Iterator modification affects the original Collection in all list types)
-Một số dạng hiển thị danh sách (như `List.of()` hoặc `Collections.unmodifiableList()`) sẽ ném ra ngoại lệ `UnsupportedOperationException` nếu bạn cố tình gọi `iterator.remove()`.
+Sử dụng `CopyOnWriteArrayList` trong một vòng lặp chuyên ghi dữ liệu là một sai lầm rất lớn. Vì mỗi lần ghi sẽ tạo một bản sao của mảng sao lưu, các danh sách lớn sẽ gây ra hiện tượng xáo trộn bộ nhớ và dẫn đến các khoảng tạm dừng để thu gom rác (garbage collection pause).
 
----
+### 3. Giả Định Rằng Việc Sửa Đổi Iterator Luôn Ảnh Hưởng Đến Tập Hợp Gốc Trong Mọi Kiểu Danh Sách
 
-## Các câu hỏi ôn tập phổ biến (Common Review Prompts)
-
-- Làm thế nào một iterator fail-fast phát hiện các thay đổi đồng thời? (Bằng cách so sánh giá trị expectedModCount của iterator với modCount của tập hợp)
-- Kiểu đối tượng nào được trả về bởi iterator của CopyOnWriteArrayList? (Một iterator mảng bản chụp (snapshot array iterator) không theo dõi các thay đổi cấu trúc)
-- Phương thức Collections.sort thực hiện sắp xếp trực tiếp trên danh sách hay trả về một danh sách mới? (Nó thực hiện sắp xếp trực tiếp trên danh sách được truyền vào)
+Một số dạng xem danh sách (như `List.of()` hoặc `Collections.unmodifiableList()`) sẽ ném ra `UnsupportedOperationException` nếu bạn gọi `iterator.remove()`.
 
 ---
 
-## Tại sao các Fail-Fast Iterator ném ra ngoại lệ ConcurrentModificationException (Why Fail-Fast Iterators Throw ConcurrentModificationException)
+## Các Câu Hỏi Ôn Tập Thường Gặp
 
-Để ngăn ngừa hành vi lúc chạy khó lường và lỗi sai lệch dữ liệu, các tập hợp không đồng thời của Java sử dụng cơ chế iterator fail-fast để phát hiện các sửa đổi đồng thời. Tập hợp hỗ trợ bên dưới duy trì một biến đếm nội bộ gọi là `modCount` (modification count), biến này sẽ tăng lên với mỗi sửa đổi cấu trúc như thêm mới, chèn hoặc xóa phần tử. Khi một iterator được khởi tạo, nó sẽ lưu giá trị đếm này vào trường private của riêng mình, `expectedModCount`. Trong các thao tác tiếp theo như `next()`, `remove()`, hoặc `forEachRemaining()`, iterator sẽ so sánh giá trị `modCount` hiện tại của tập hợp với giá trị `expectedModCount` đã lưu của nó. Nếu chúng không khớp nhau, cho biết tập hợp đã bị thay đổi bên ngoài tầm kiểm soát của iterator, iterator sẽ lập tức ném ra ngoại lệ `ConcurrentModificationException`. Ngược lại, các iterator fail-safe hoặc weakly-consistent (như của lớp `CopyOnWriteArrayList`) tránh hoàn toàn xung đột này bằng cách lặp trên một bản chụp (snapshot) bất biến của mảng hỗ trợ được tạo ra tại thời điểm khởi dựng iterator, nghĩa là các sửa đổi đối với tập hợp trực tiếp sẽ nhắm vào một bản sao riêng biệt và không bao giờ can thiệp vào bản chụp của iterator.
+- Làm thế nào một bộ lặp fail-fast phát hiện các sửa đổi đồng thời? (Bằng cách so sánh giá trị expectedModCount của bộ lặp với modCount của tập hợp)
+- Kiểu bộ lặp nào được trả về bởi bộ lặp của CopyOnWriteArrayList? (Một bộ lặp mảng bản chụp không theo dõi các sửa đổi)
+- Liệu Collections.sort sửa đổi danh sách tại chỗ hay trả về một danh sách mới? (Nó sửa đổi danh sách tại chỗ)
 
-### Mô hình tư duy (Mental Model)
+## Tại Sao Bộ Lặp Fail-Fast Ném Ra ConcurrentModificationException
 
-Iterator fail-fast kiểm tra các giá trị đếm sửa đổi ở từng bước lặp:
+Để ngăn chặn các hành vi runtime không thể đoán trước và lỗi hỏng dữ liệu, các tập hợp không đồng thời của Java sử dụng cơ chế bộ lặp fail-fast để phát hiện các sửa đổi đồng thời. Tập hợp bên dưới duy trì một trình theo dõi nội bộ gọi là `modCount` (số lần sửa đổi), số này sẽ tăng lên sau mỗi lần sửa đổi cấu trúc như thêm, chèn hoặc xóa. Khi một bộ lặp được khởi tạo, nó sẽ lưu giá trị bộ đếm này vào trường riêng của nó là `expectedModCount`. Trong suốt các hoạt động tiếp theo như `next()`, `remove()`, hoặc `forEachRemaining()`, bộ lặp so sánh `modCount` đang chạy của tập hợp với giá trị `expectedModCount` mà nó lưu trữ. Nếu chúng không khớp, cho thấy tập hợp đã bị thay đổi ngoài tầm kiểm soát của bộ lặp, bộ lặp sẽ ngay lập tức ném ra một ngoại lệ `ConcurrentModificationException`. Ngược lại, các bộ lặp fail-safe hoặc nhất quán yếu (như của `CopyOnWriteArrayList`) tránh hoàn toàn xung đột này bằng cách duyệt trên một bản chụp bất biến của mảng sao lưu được tạo tại thời điểm xây dựng bộ lặp, nghĩa là các sửa đổi đối với tập hợp đang chạy sẽ nhắm vào một bản sao riêng biệt và không bao giờ can thiệp vào bản chụp của bộ lặp.
+
+### Bộ Lặp Fail-Fast Kiểm Tra Số Lần Sửa Đổi Ở Mỗi Bước (Mental Model)
+
 ```text
-Trạng thái Collection: modCount = 3
-Khởi tạo Iterator -> expectedModCount = 3
+Trạng thái tập hợp: modCount = 3
+Khởi tạo bộ lặp -> expectedModCount = 3
 
 1. Gọi iterator.next():
    So sánh modCount (3) == expectedModCount (3) -> OK! Trả về phần tử.
 
-2. Gọi collection.remove(x) (ngoài iterator):
-   Collection tăng modCount lên 4.
+2. Gọi collection.remove(x) (ngoài bộ lặp):
+   Tập hợp tăng modCount lên 4.
 
 3. Gọi iterator.next():
    So sánh modCount (4) == expectedModCount (3) -> Phát hiện không khớp!
-   Hành động: Ném ra ConcurrentModificationException lập tức.
+   Hành động: Ném ConcurrentModificationException ngay lập tức.
 ```
 
-### Ví dụ Code (Code Example)
+### Ví Dụ Mã Nguồn (Code Example)
 
 ```java
 import java.util.ArrayList;
@@ -236,26 +234,19 @@ public class ConcurrentModificationDemo {
             }
         } catch (java.util.ConcurrentModificationException e) {
             System.out.println("Caught ConcurrentModificationException!");
+            // Caught ConcurrentModificationException!
         }
     }
 }
 ```
 
-### Chuỗi Nguyên nhân - Kết quả (Cause-Effect Chain)
-
+### Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)
 
 ```text
-Khởi tạo Iterator
-  → Lưu `modCount` vào `expectedModCount`
-  → Sửa đổi cấu trúc tập hợp (thêm/xóa)
-  → `modCount` tăng lên trên tập hợp gốc
-  → Iterator gọi `next()` và so sánh `modCount` với `expectedModCount`
-  → Phát hiện không khớp
-  → Ném ra ngoại lệ `ConcurrentModificationException` ngay lập tức.
+Khởi tạo Bộ lặp → Lưu modCount vào expectedModCount → Sửa đổi cấu trúc tập hợp (thêm/xóa) → modCount tăng trên tập hợp cơ sở → Bộ lặp gọi next() và so sánh modCount với expectedModCount → Phát hiện không khớp → Ném ConcurrentModificationException ngay lập tức
 ```
 
+## Liên Kết Tham Khảo (Reference Links)
 
-## Liên kết tham khảo (Reference Links)
-
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ConcurrentModificationException.html (Ngoại lệ ConcurrentModificationException API)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ConcurrentModificationException.html (Tài liệu API ConcurrentModificationException)
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CopyOnWriteArrayList.html (Tài liệu API CopyOnWriteArrayList)

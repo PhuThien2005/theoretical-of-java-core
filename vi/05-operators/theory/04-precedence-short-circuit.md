@@ -1,18 +1,18 @@
-# Thứ Tự Ưu Tiên Và Đánh Giá Ngắn Mạch (Precedence and Short-Circuit Evaluation)
+# Độ Ưu Tiên và Đánh Giá Ngắn Mạch (Precedence and Short-Circuit Evaluation)
 
-Thứ tự ưu tiên của toán tử kiểm soát phần nào của biểu thức được đánh giá trước. Đánh giá ngắn mạch kiểm soát việc liệu có cần đánh giá một số phần của biểu thức hay không.
+Độ ưu tiên (precedence) của toán tử kiểm soát phần nào của biểu thức (expression) được đánh giá trước. Cơ chế đánh giá ngắn mạch (short-circuit evaluation) kiểm soát việc một số phần của biểu thức có được đánh giá hay không.
 
-## Thứ Tự Ưu Tiên (Precedence)
+## Độ Ưu Tiên (Precedence)
 
-Thứ tự ưu tiên là thứ tự ưu tiên giữa các toán tử.
+Độ ưu tiên là thứ tự ưu tiên giữa các toán tử.
 
 ```java
 int result = 2 + 3 * 4;
 ```
 
-Kết quả là `14` vì toán tử `*` có thứ tự ưu tiên cao hơn toán tử `+`.
+Kết quả là `14` vì toán tử `*` có độ ưu tiên cao hơn toán tử `+`.
 
-Dấu ngoặc đơn sẽ ghi đè (thay đổi) thứ tự ưu tiên:
+Dấu ngoặc đơn (parentheses) có thể ghi đè độ ưu tiên mặc định:
 
 ```java
 int result = (2 + 3) * 4; // 20
@@ -20,15 +20,15 @@ int result = (2 + 3) * 4; // 20
 
 ## Tính Kết Hợp (Associativity)
 
-Tính kết hợp quyết định cách gom nhóm đánh giá khi các toán tử có cùng thứ tự ưu tiên.
+Tính kết hợp (associativity) quyết định thứ tự đánh giá khi các toán tử có cùng độ ưu tiên.
 
-Hầu hết các toán tử số học được gom nhóm từ trái sang phải:
+Hầu hết các toán tử số học được nhóm từ trái qua phải:
 
 ```java
 int x = 20 / 5 / 2; // (20 / 5) / 2 = 2
 ```
 
-Các toán tử gán được gom nhóm từ phải sang trái:
+Các toán tử gán (assignment operator) được nhóm từ -phải qua trái:
 
 ```java
 int a;
@@ -36,28 +36,26 @@ int b;
 a = b = 10;
 ```
 
-Điều này có nghĩa là phép gán `b = 10` diễn ra trước, sau đó mới đến phép gán `a = 10`.
+Điều này có nghĩa là phép gán `b = 10` xảy ra trước, sau đó mới đến phép gán `a = 10`.
 
-## Tại Sao Thứ Tự Ưu Tiên Và Tính Kết Hợp Lại Quyết Định Tính Chính Xác Của Biểu Thức (Why Precedence and Associativity Dictate Expression Correctness)
+## Tại Sao Độ Ưu Tiên và Tính Kết Hợp Lại Quyết Định Tính Đúng Đắn Của Biểu Thức (Why Precedence and Associativity Dictate Expression Correctness)
 
-Thứ tự ưu tiên của toán tử và tính kết hợp xác định cây phân tích cú pháp (parser tree) mà trình biên dịch xây dựng để đánh giá các biểu thức phức hợp. Nếu không có các quy tắc nghiêm ngặt và mang tính xác định, các biểu thức chứa nhiều toán tử hỗn hợp sẽ tạo ra các kết quả mơ hồ và không thể dự đoán được.
+Độ ưu tiên và tính kết hợp quyết định cây phân tích cú pháp (parser tree) mà trình biên dịch (compiler) xây dựng để đánh giá các biểu thức phức tạp. Nếu không có các quy tắc chặt chẽ và mang tính xác định, các biểu thức chứa nhiều toán tử hỗn hợp sẽ tạo ra kết quả mơ hồ và không thể dự đoán trước. Độ ưu tiên quy định toán tử nào được đánh giá trước (như phép nhân trước phép cộng), trong khi tính kết hợp giải quyết thứ tự đánh giá cho các toán tử có cùng độ ưu tiên (hầu hết được nhóm từ trái qua phải, riêng toán tử gán và toán tử một ngôi được nhóm từ phải qua trái). Dấu ngoặc đơn hoạt động như một công cụ ghi đè rõ ràng lên cây phân tích mặc định này, bắt buộc các biểu thức con cụ thể phải được nhóm lại và đánh giá trước. Việc phụ thuộc hoàn toàn vào các quy tắc ưu tiên ngầm định sẽ làm cho code trở nên mỏng manh và khó đọc, trong khi việc sử dụng dấu ngoặc đơn giúp làm rõ ý định của lập trình viên và ngăn ngừa các lỗi logic tinh vi.
 
-Thứ tự ưu tiên quyết định toán tử nào được đánh giá trước (như phép nhân trước phép cộng), trong khi tính kết hợp giải quyết thứ tự đánh giá cho các toán tử có cùng mức ưu tiên (hầu hết được gom nhóm từ trái sang phải, trong khi phép gán và các toán tử một ngôi được gom nhóm từ phải sang trái). Dấu ngoặc đơn đóng vai trò như một sự ghi đè rõ ràng đối với cây phân tích cú pháp mặc định này, bắt buộc các biểu thức con cụ thể phải được gom nhóm và đánh giá trước. Việc phụ thuộc hoàn toàn vào các quy tắc ưu tiên ngầm định sẽ làm cho mã nguồn trở nên mong manh và khó đọc, trong khi việc sử dụng dấu ngoặc đơn giúp làm rõ ý định của lập trình viên và ngăn chặn các lỗi logic tinh vi.
+### Mô Hình Tư Duy Về Cây Phân Tích Toán Tử (Operator Parsing Tree Mental Model)
 
-### Mô Hình Tư Duy Cây Phân Tích Toán Tử (Operator Parsing Tree Mental Model)
-
-Biểu đồ này minh họa cách thứ tự ưu tiên của toán tử xây dựng các cây phân tích cú pháp khác nhau, thay đổi thứ tự thực thi đối với `10 - 2 * 3` so với `(10 - 2) * 3`:
+Sơ đồ này minh họa cách độ ưu tiên của toán tử xây dựng các cây phân tích cú pháp khác nhau, làm thay đổi thứ tự thực thi của biểu thức `10 - 2 * 3` so với biểu thức `(10 - 2) * 3`:
 
 ```mermaid
 graph TD
-    subgraph Cây phân tích cú pháp: 10 - 2 * 3
+    subgraph "Cây phân tích: 10 - 2 * 3"
         Minus1[-] --> Ten1[10]
         Minus1 --> Times1[*]
         Times1 --> Two1[2]
         Times1 --> Three1[3]
     end
 
-    subgraph Cây phân tích cú pháp: (10 - 2) * 3
+    subgraph "Cây phân tích: (10 - 2) * 3"
         Times2[*] --> Minus2[-]
         Times2 --> Three2[3]
         Minus2 --> Ten2[10]
@@ -66,46 +64,36 @@ graph TD
 ```
 
 ### Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)
+Biểu thức `10 - 2 * 3` được phân tích bởi trình biên dịch $\rightarrow$ trình biên dịch kiểm tra bảng độ ưu tiên của toán tử và phát hiện ra rằng `*` có độ ưu tiên cao hơn `-` $\rightarrow$ biểu thức con `2 * 3` được nhóm lại và đánh giá trước thành `6` $\rightarrow$ toán tử `-` thực hiện trừ `6` từ `10` $\rightarrow$ biểu thức trả về kết quả `4` (trong khi việc bắt buộc nhóm bằng dấu ngoặc `(10 - 2)` sẽ trả về `24`).
 
-
-```text
-Biểu thức `10 - 2 * 3` được phân tích cú pháp bởi trình biên dịch
-  → trình biên dịch kiểm tra bảng thứ tự ưu tiên toán tử và phát hiện thấy `*` có thứ tự ưu tiên cao hơn `-`
-  → biểu thức con `2 * 3` được gom nhóm và đánh giá trước thành `6`
-  → toán tử `-` thực hiện phép trừ `6` từ `10`
-  → biểu thức tạo ra kết quả `4` (trong khi việc bắt buộc gom nhóm bằng `(10 - 2)` sẽ tạo ra `24`).
-```
-
-
-### Ví Dụ Mã Nguồn (Code Example)
-
+### Ví Dụ Minh Họa Code (Code Example)
 ```java
-// Trường hợp A: Thứ tự ưu tiên kiểm soát việc đánh giá
+// Trường hợp A: Độ ưu tiên kiểm soát việc đánh giá
 int noParens = 10 - 2 * 3;
 System.out.println(noParens); // 4 (phép nhân xảy ra trước)
 
-// Trường hợp B: Dấu ngoặc đơn ghi đè thứ tự ưu tiên
+// Trường hợp B: Dấu ngoặc đơn ghi đè độ ưu tiên
 int withParens = (10 - 2) * 3;
 System.out.println(withParens); // 24 (phép trừ xảy ra trước)
 
-// Trường hợp C: Tính kết hợp giải quyết sự trùng khớp (từ trái sang phải)
+// Trường hợp C: Tính kết hợp giải quyết tranh chấp (trái qua phải)
 int assoc = 12 / 3 / 2; // Được đánh giá là (12 / 3) / 2
 System.out.println(assoc); // 2
 ```
 
 ## Dấu Ngoặc Đơn Cũng Dành Cho Con Người (Parentheses Are For Humans Too)
 
-Bạn không cần dùng dấu ngoặc đơn trong mọi biểu thức, nhưng bạn nên sử dụng chúng khi chúng giúp thể hiện rõ ràng ý đồ lập trình.
+Bạn không cần sử dụng dấu ngoặc đơn trong mọi biểu thức, nhưng nên dùng chúng khi chúng giúp thể hiện rõ ràng ý đồ của dòng code.
 
 ```java
 boolean canAccess = (age >= 18 && hasTicket) || isStaff;
 ```
 
-Cách viết này dễ đọc hơn nhiều so với việc buộc người đọc phải nhớ thứ tự ưu tiên giữa `&&` và `||`.
+Cách viết này dễ đọc hơn nhiều so với việc bắt người đọc phải nhớ độ ưu tiên giữa toán tử `&&` và `||`.
 
-## Đánh Giá Ngắn Mạch Với && (Short-Circuit With &&)
+## Đánh Giá Ngắn Mạch Với Toán Tử `&&` (Short-Circuit With `&&`)
 
-`&&` chỉ đánh giá vế bên phải nếu vế bên trái là đúng (true).
+Toán tử `&&` chỉ đánh giá vế bên phải nếu vế bên trái có giá trị là true.
 
 ```java
 if (account != null && account.isActive()) {
@@ -113,11 +101,11 @@ if (account != null && account.isActive()) {
 }
 ```
 
-Nếu `account` là null, Java sẽ dừng ngay lập tức. Đây là một mẫu chốt chặn (guard pattern) phổ biến.
+Nếu biến `account` có giá trị là null, Java sẽ dừng đánh giá ngay lập tức. Đây là một mẫu lính canh (guard pattern) phổ biến.
 
-## Đánh Giá Ngắn Mạch Với || (Short-Circuit With ||)
+## Đánh Giá Ngắn Mạch Với Toán Tử `||` (Short-Circuit With `||`)
 
-`||` chỉ đánh giá vế bên phải nếu vế bên trái là sai (false).
+Toán tử `||` chỉ đánh giá vế bên phải nếu vế bên trái có giá trị là false.
 
 ```java
 if (isAdmin || hasPermission("DELETE")) {
@@ -125,11 +113,11 @@ if (isAdmin || hasPermission("DELETE")) {
 }
 ```
 
-Nếu `isAdmin` là true, Java sẽ không gọi phương thức `hasPermission`.
+Nếu biến `isAdmin` có giá trị là true, Java sẽ không gọi phương thức `hasPermission`.
 
-## Đánh Giá Ngắn Mạch Và Tác Dụng Phụ (Short-Circuit and Side Effects)
+## Đánh Giá Ngắn Mạch và Tác Dụng Phụ (Short-Circuit and Side Effects)
 
-Đánh giá ngắn mạch làm thay đổi việc liệu các tác dụng phụ có xảy ra hay không.
+Cơ chế ngắn mạch sẽ quyết định xem các tác dụng phụ (side effect) có xảy ra hay không.
 
 ```java
 int attempts = 0;
@@ -137,15 +125,15 @@ boolean ok = true || ++attempts > 0;
 System.out.println(attempts); // 0
 ```
 
-Phép toán tăng bị bỏ qua. Đây là lý do tại sao các tác dụng phụ bên trong các điều kiện có thể làm cho mã nguồn trở nên khó suy luận hơn.
+Phép toán tăng giá trị bị bỏ qua. Đây là lý do tại sao các tác dụng phụ nằm bên trong các điều kiện so sánh có thể làm cho code trở nên cực kỳ khó suy luận.
 
-## Các Thực Hành Tốt Nhất (Best Practices)
+## Thực Hành Tốt Nhất (Best Practices)
 
-- Sử dụng dấu ngoặc đơn khi các toán tử hỗn hợp làm biểu thức khó quét nhanh.
-- Tránh các tác dụng phụ bên trong các biểu thức boolean phức tạp.
-- Sử dụng `&&` và `||` cho các điều kiện thông thường.
-- Chỉ sử dụng `&` và `|` với các kiểu boolean khi bạn chủ ý muốn cả hai vế đều được đánh giá.
-- Ưu tiên sử dụng các biến boolean đơn giản, có tên gọi rõ ràng khi một điều kiện trở nên quá dài.
+- Sử dụng dấu ngoặc đơn khi sự kết hợp của nhiều toán tử làm cho biểu thức trở nên khó đọc nhanh.
+- Tránh đưa các tác dụng phụ vào bên trong các biểu thức logic phức tạp.
+- Sử dụng toán tử `&&` và `||` cho các điều kiện thông thường.
+- Chỉ sử dụng toán tử logic bit `&` và `|` với các giá trị boolean khi bạn thực sự có chủ đích muốn cả hai vế được đánh giá.
+- Nên ưu tiên sử dụng các biến logic đơn giản, có tên gọi rõ ràng khi một điều kiện quá dài.
 
 ```java
 boolean hasValidAge = age >= 18;
@@ -160,10 +148,10 @@ if (hasValidAge && hasEntryRight) {
 
 ## Các Lỗi Thường Gặp (Common Mistakes)
 
-### Lỗi 1 — Bất Ngờ Về Thứ Tự Ưu Tiên: || và && (Mistake 1 — Precedence Surprise: || and &&)
+### Lỗi 1 — Bất Ngờ Về Độ Ưu Tiên: `||` và `&&` (Precedence Surprise)
 
 ```java
-// Hai điều kiện này mang ý nghĩa khác nhau!
+// Hai điều kiện dưới đây mang ý nghĩa hoàn toàn khác nhau!
 boolean a = true, b = false, c = true;
 
 boolean r1 = a || b && c;    // a || (b && c) → true || false → true
@@ -175,43 +163,43 @@ boolean r3 = a || b && c;    // a || (b && c) → true || false → true
 boolean r4 = (a || b) && c;  // (true) && false → false  ← kết quả khác nhau!
 ```
 
-`&&` có thứ tự ưu tiên cao hơn `||`. Luôn đặt dấu ngoặc đơn cho các điều kiện hỗn hợp `&&`/`||` để ngăn ngừa lỗi.
+Toán tử `&&` có độ ưu tiên cao hơn `||`. Hãy luôn sử dụng dấu ngoặc đơn khi kết hợp điều kiện có cả `&&` và `||` để ngăn ngừa lỗi logic.
 
-### Lỗi 2 — Đánh Giá Ngắn Mạch Che Giấu Lỗi (Mistake 2 — Short-Circuit Hides a Bug)
+### Lỗi 2 — Đánh Giá Ngắn Mạch Che Giấu Lỗi (Short-Circuit Hides a Bug)
 
 ```java
 int[] arr = null;
 int index = 0;
 
-// Điều này trông có vẻ an toàn, nhưng...
-if (arr == null | arr[index] > 0) { // | KHÔNG thực hiện đánh giá ngắn mạch!
+// Đoạn code này trông có vẻ an toàn, nhưng...
+if (arr == null | arr[index] > 0) { // toán tử | KHÔNG thực hiện đánh giá ngắn mạch!
     System.out.println("check");
 }
-// Ném ra ngoại lệ NullPointerException vì arr[index] vẫn được đánh giá
-// Cách khắc phục: sử dụng && và || chứ không phải & và |
+// Ném ra NullPointerException vì biểu thức arr[index] vẫn bị đánh giá
+// Cách sửa: sử dụng && và || thay vì & và |
 ```
 
-### Lỗi 3 — Giả Định Tác Dụng Phụ Luôn Chạy (Mistake 3 — Side Effect Assumed to Always Run)
+### Lỗi 3 — Lầm Tưởng Tác Dụng Phụ Luôn Luôn Chạy (Side Effect Assumed to Always Run)
 
 ```java
 int counter = 0;
 
-boolean ok = isReady() || (++counter > 0); // nếu isReady() là true, counter vẫn giữ nguyên là 0!
+boolean ok = isReady() || (++counter > 0); // nếu isReady() trả về true, counter vẫn giữ nguyên là 0!
 System.out.println(counter); // có thể là 0 hoặc 1 tùy thuộc vào kết quả của isReady()
 ```
 
-Đoạn mã giả định rằng `++counter` luôn luôn chạy sẽ hoạt động không chính xác khi `isReady()` trả về `true`. Hãy tách phép tăng ra khỏi điều kiện.
+Đoạn code giả định `++counter` luôn được chạy sẽ hoạt động sai lệch khi `isReady()` trả về `true`. Hãy tách phép tăng giá trị ra khỏi biểu thức điều kiện.
 
-### Lỗi 4 — Nhầm Lẫn Giữa = Và == Trong Các Điều Kiện (Mistake 4 — Confusing = and == in Conditions)
+### Lỗi 4 — Nhầm Lẫn Giữa Toán Tử Gán `=` và So Sánh `==` Trong Câu Lệnh Điều Kiện (Confusing `=` and `==` in Conditions)
 
 ```java
 boolean enabled = false;
-if (enabled = true) {      // biên dịch được! Đây là phép gán, không phải phép so sánh.
-    System.out.println("always runs"); // luôn được in ra vì phép gán tạo ra giá trị true
+if (enabled = true) {      // biên dịch được! Đây là PHÉP GÁN, không phải phép so sánh.
+    System.out.println("luôn luôn chạy"); // luôn in ra màn hình vì phép gán trả về giá trị true
 }
-// Cách khắc phục:
+// Cách sửa:
 if (enabled == true) { }   // phép so sánh
-if (enabled) { }           // chuẩn Java thông dụng
+if (enabled) { }           // cách viết chuẩn mực trong Java
 ```
 
-Java cho phép thực hiện phép gán bên trong `if` (vì phép gán là một biểu thức), điều này làm cho lỗi logic này diễn ra âm thầm.
+Java cho phép thực hiện phép gán bên trong câu lệnh điều kiện `if` (vì phép gán là một biểu thức có giá trị trả về), điều này dễ dẫn đến các lỗi logic âm thầm rất khó phát hiện.

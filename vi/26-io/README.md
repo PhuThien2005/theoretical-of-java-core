@@ -1,22 +1,22 @@
-# 26 - Vào/Ra trong Java (IO in Java)
+# 26 - IO trong Java
 
-Chủ đề này tuân theo đề mục chính trong [outline.md](../outline.md). Mục tiêu là hiểu sâu sắc từng khái niệm để có thể giải thích, nhận diện trong mã nguồn (code) và trả lời các câu hỏi phỏng vấn.
+Chủ đề này bám sát đề cương chính trong [outline.md](../outline.md). Mục tiêu là hiểu sâu sắc từng khái niệm để có thể giải thích, nhận biết trong mã nguồn và trả lời các câu hỏi phỏng vấn.
 
-## Trình tự học tập (Study Order)
+## Thứ Tự Học Tập
 
-- [Khái niệm về File (File Concepts)](theory/01-file-concepts.md)
-- [Khái niệm về BufferedInputStream (Bufferedinputstream Concepts)](theory/02-bufferedinputstream-concepts.md)
-- [Khái niệm về Tuần tự hóa (Serialization Concepts)](theory/03-serialization-concepts.md)
-- [Thuật ngữ chính (Key Terms)](terms/01-key-terms.md)
+- [Khái Niệm về File](theory/01-file-concepts.md)
+- [Khái Niệm về BufferedInputStream](theory/02-bufferedinputstream-concepts.md)
+- [Khái Niệm về Tuần Tự Hóa](theory/03-serialization-concepts.md)
+- [Thuật Ngữ Khóa](terms/01-key-terms.md)
 
-## Danh sách đề mục (Outline Checklist)
+## Danh Sách Kiểm Tra Theo Đề Cương
 
 - File
-- Tạo file (Create file)
-- Xóa file (Delete file)
-- Kiểm tra sự tồn tại (Check existence)
-- Đọc siêu dữ liệu file (Read file metadata)
-- Tạo thư mục (Create directory)
+- Tạo file
+- Xóa file
+- Kiểm tra sự tồn tại
+- Đọc metadata của file
+- Tạo thư mục
 - InputStream
 - OutputStream
 - FileInputStream
@@ -41,33 +41,33 @@ Chủ đề này tuân theo đề mục chính trong [outline.md](../outline.md)
 - System.out
 - System.err
 
-## Thẻ Anki (Anki Cards)
+## Thẻ Anki
 
-- [Cơ bản (Basic)](anki/basic.tsv)
-- [Cơ bản Mở rộng (Basic Extra)](anki/basic-extra.tsv)
-- [Điền vào chỗ trống (Cloze)](anki/cloze.tsv)
-- [Câu hỏi Code (Code Question)](anki/code-question.tsv)
+- [Basic](anki/basic.tsv)
+- [Basic Extra](anki/basic-extra.tsv)
+- [Cloze](anki/cloze.tsv)
+- [Code Question](anki/code-question.tsv)
 
-## Tự kiểm tra (Self-Check)
+## Tự Kiểm Tra
 
-Trước khi chuyển sang chủ đề tiếp theo, hãy xác nhận rằng bạn có thể trả lời các câu hỏi sau:
-1. Tại sao Java phân biệt giữa luồng byte (byte streams) và luồng ký tự (character streams), và cách ánh xạ bảng mã hóa ký tự (encoding charsets) được áp dụng dưới nền tảng (under the hood) như thế nào?
-2. Tại sao `BufferedInputStream` / `BufferedOutputStream` mang lại hiệu năng vượt trội hơn đáng kể so với các thao tác luồng thô, và việc định cỡ bộ đệm (buffer sizing) của JVM tương tác với bộ nhớ đệm trang đĩa (disk page caching) của hệ điều hành như thế nào?
-3. Tại sao việc tuần tự hóa (serialization) trong Java lại yêu cầu `serialVersionUID`, và những vấn đề tương thích trong thời gian biên dịch (compile-time) hoặc thời gian chạy (runtime) nào sẽ xảy ra nếu nó bị thiếu hoặc không khớp trong quá trình tiến hóa lớp (class evolution)?
-4. Tại sao các trường `transient` bị loại trừ khỏi quá trình tuần tự hóa, và điều gì xảy ra với các trường `transient` trong quá trình giải tuần tự hóa (deserialization) (các quy tắc hàm dựng (constructor) hay các quy tắc khởi tạo giá trị không (zero-value initialization) sẽ được áp dụng)?
-5. Tại sao cơ chế tuần tự hóa mặc định của Java lại bị coi là một nguy cơ bảo mật (security liability), và các giải pháp thay thế hiện đại hoặc chiến lược giảm thiểu là gì?
+Trước khi chuyển sang chủ đề tiếp theo, hãy xác nhận bạn có thể trả lời các câu hỏi sau:
+1. Tại sao Java phân biệt giữa luồng byte (byte stream) và luồng ký tự (character stream), và bộ ký tự mã hóa (encoding charset) được ánh xạ như thế nào ở tầng bên dưới?
+2. Tại sao `BufferedInputStream` / `BufferedOutputStream` vượt trội hẳn so với thao tác luồng thô (raw stream), và kích thước buffer của JVM tương tác như thế nào với bộ nhớ đệm trang đĩa (disk page caching) của hệ điều hành?
+3. Tại sao tuần tự hóa (serialization) Java yêu cầu `serialVersionUID`, và những vấn đề tương thích nào xảy ra ở thời gian biên dịch hoặc thời gian chạy nếu nó bị thiếu hoặc không khớp trong quá trình phát triển lớp?
+4. Tại sao các trường `transient` bị loại trừ khỏi quá trình tuần tự hóa, và điều gì xảy ra với chúng trong quá trình giải tuần tự hóa (deserialization) (có áp dụng quy tắc constructor hay khởi tạo giá trị mặc định)?
+5. Tại sao cơ chế tuần tự hóa mặc định của Java bị coi là rủi ro bảo mật, và đâu là các phương án thay thế hiện đại hay chiến lược giảm thiểu?
 
-## Sơ đồ Mermaid tổng quan (Mermaid Overview)
+## Sơ Đồ Mermaid Tổng Quan
 
 ```mermaid
 flowchart TD
-    A[Vào/Ra trong Java (IO in Java)] --> B[Định nghĩa (Definitions)]
-    A --> C[Quy tắc và cú pháp (Rules and syntax)]
-    A --> D[Các lỗi thường gặp (Common mistakes)]
-    A --> E[Gợi nhớ phỏng vấn (Interview recall)]
+    A[IO trong Java] --> B[Định nghĩa]
+    A --> C[Quy tắc và cú pháp]
+    A --> D[Lỗi thường gặp]
+    A --> E[Ôn tập phỏng vấn]
 ```
 
-## Liên kết tham khảo (Reference Links)
+## Liên Kết Tham Khảo
 
 - https://docs.oracle.com/javase/tutorial/essential/io/
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/package-summary.html

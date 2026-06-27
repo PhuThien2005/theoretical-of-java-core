@@ -1,35 +1,35 @@
 # Thuật Ngữ Về Chuỗi (String Terms)
 
-Tệp này chi tiết các thuật ngữ cốt lõi liên quan đến chuỗi (strings) trong Java.
+Tài liệu này chi tiết hóa các thuật ngữ chính liên quan đến chuỗi ký tự (string) trong Java.
 
-## Bộ Nhớ Đệm Chuỗi (String Pool)
+## Vùng Lưu Trữ String (String Pool)
 
-Một vùng nhớ đặc biệt nằm bên trong Heap nơi JVM lưu giữ các hằng chuỗi (string literals) duy nhất. Nó giúp tiết kiệm dung lượng bộ nhớ bằng cách chia sẻ các đối tượng chuỗi giống hệt nhau thay vì nhân bản chúng ra nhiều lần.
+Một vùng nhớ đặc biệt nằm bên trong bộ nhớ Heap nơi JVM lưu trữ các chuỗi tường minh (string literal) duy nhất. Nó giúp tiết kiệm bộ nhớ bằng cách chia sẻ các đối tượng chuỗi giống nhau thay vì tạo ra các bản sao trùng lặp.
 
 ## Tính Bất Biến (Immutability)
 
-Trạng thái của một đối tượng khi giá trị hoặc dữ liệu nội bộ của nó không thể bị sửa đổi sau khi đã được tạo ra. Lớp `String` là bất biến, nghĩa là bất kỳ phương thức nào có vẻ như sửa đổi chuỗi thì thực tế đều trả về một đối tượng `String` mới hoàn toàn.
+Trạng thái của một đối tượng mà giá trị hoặc dữ liệu nội bộ của nó không thể bị thay đổi sau khi được tạo ra. Lớp `String` là bất biến, nghĩa là bất kỳ phương thức nào có vẻ như đang sửa đổi chuỗi thực tế đều trả về một đối tượng `String` mới.
 
-## Hằng Chuỗi (String Literal)
+## Chuỗi Tường Minh (String Literal)
 
-Một chuỗi các ký tự được bao bọc trong dấu ngoặc kép (ví dụ: `"hello"`) viết trực tiếp trong mã nguồn. Các hằng chuỗi tự động được trình biên dịch và JVM lưu trữ vào String Pool.
+Một chuỗi các ký tự được đặt trong dấu ngoặc kép (ví dụ: `"hello"`) được viết trực tiếp trong mã nguồn. Các chuỗi tường minh sẽ tự động được trình biên dịch và JVM lưu trữ trong String Pool.
 
-## Lưu Vào String Pool (Interning)
+## Nội Hóa Chuỗi (Interning)
 
-Quá trình đưa một chuỗi vào String Pool một cách chủ động. Nếu một chuỗi được tạo ra lúc runtime (ví dụ: thông qua dữ liệu nhập của người dùng hoặc gọi `new String()`), việc gọi phương thức `.intern()` của nó sẽ trả về tham chiếu đến chính chuỗi đó từ String Pool, và sẽ thêm chuỗi đó vào pool trước nếu nó chưa tồn tại ở đó.
+Quá trình đưa một chuỗi ký tự vào trong String Pool. Nếu một chuỗi được tạo ra lúc runtime (ví dụ: thông qua dữ liệu nhập của người dùng hoặc bằng từ khóa `new String()`), việc gọi phương thức `.intern()` của nó sẽ trả về một tham chiếu đến chuỗi đó từ String Pool, và sẽ thêm nó vào pool trước nếu nó chưa tồn tại ở đó.
 
-## Chuỗi Nén (Compact Strings - Java 9+)
+## Chuỗi Nhỏ Gọn (Compact Strings - Java 9+)
 
-Một cơ chế tối ưu hóa nội bộ của JVM. Trước phiên bản Java 9, các chuỗi được lưu dưới dạng mảng `char[]` (chiếm 2 bytes cho mỗi ký tự). Từ Java 9 trở đi, các chuỗi được lưu dưới dạng mảng `byte[]` đi kèm một cờ mã hóa (coder flag - chiếm 1 byte cho ký tự chuẩn Latin-1, và 2 bytes cho ký tự UTF-16), giúp giảm lượng tiêu thụ bộ nhớ lên tới 50% đối với các ngôn ngữ phương Tây thông thường.
+Một cơ chế tối ưu hóa nội bộ trong JVM. Trước Java 9, các chuỗi được lưu trữ dưới dạng mảng `char[]` (chiếm 2 byte cho mỗi ký tự). Từ Java 9 trở đi, các chuỗi được lưu trữ dưới dạng mảng `byte[]` cùng với một cờ mã hóa coder flag (chiếm 1 byte cho các ký tự Latin-1, 2 byte cho các ký tự UTF-16), giúp giảm mức tiêu thụ bộ nhớ lên tới 50% đối với các ngôn ngữ phương Tây thông thường.
 
 ## Khối Văn Bản (Text Block)
 
-Một cú pháp khai báo hằng chuỗi nhiều dòng được giới thiệu từ Java 15, khai báo bằng ba dấu ngoặc kép (`"""`). Nó giúp giữ nguyên định dạng của văn bản và loại bỏ sự cần thiết phải escape (sử dụng dấu gạch chéo ngược) đối với hầu hết các ký tự thông dụng (như dấu ngoặc kép và dấu xuống dòng).
+Một chuỗi tường minh nhiều dòng được giới thiệu từ Java 15, được khai báo bằng ba dấu ngoặc kép (`"""`). Nó giúp giữ nguyên định dạng văn bản và loại bỏ nhu cầu sử dụng các ký tự thoát (escape character) đối với hầu hết các ký tự thông thường (như dấu ngoặc kép và dấu xuống dòng).
 
 ## StringBuilder
 
-Một chuỗi ký tự khả biến (mutable), không an toàn luồng (non-thread-safe). Lớp này được thiết kế để thao tác chuỗi hiệu năng cao trong môi trường đơn luồng (như nối chuỗi và chèn ký tự trong các vòng lặp).
+Một chuỗi ký tự khả biến, không an toàn đa luồng (non-thread-safe). Nó được thiết kế để thao tác với chuỗi một cách hiệu quả trong môi trường đơn luồng (chẳng hạn như thực hiện nối chuỗi hoặc chèn chuỗi trong vòng lặp).
 
 ## StringBuffer
 
-Một chuỗi ký tự khả biến (mutable), an toàn luồng (thread-safe). Tất cả các phương thức chính của lớp này đều được đồng bộ hóa (synchronized), giúp đảm bảo tính chính xác khi được truy cập bởi nhiều luồng khác nhau nhưng đồng thời cũng làm tăng chi phí hiệu năng.
+Một chuỗi ký tự khả biến, an toàn đa luồng (thread-safe). Tất cả các phương thức chính của nó đều được đồng bộ hóa (synchronized), điều này đảm bảo tính đúng đắn khi được truy cập bởi nhiều luồng nhưng cũng làm phát sinh hao phí hiệu suất.

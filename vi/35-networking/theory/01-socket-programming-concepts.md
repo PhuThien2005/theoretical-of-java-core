@@ -1,99 +1,89 @@
-# Lập trình mạng - Phần 1 (Networking - Part 1)
+# Lập Trình Mạng (Networking) - Phần 1
 
-## Mục tiêu học tập (Learning Goal)
+## Mục Tiêu Học Tập
 
-Tài liệu này bao gồm một phần trọng tâm của **Lập trình mạng (Networking)**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải là từ vựng rời rạc.
+Tài liệu này tập trung vào một phần chuyên sâu của **Lập Trình Mạng (Networking)**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc thực tế trong Java, không chỉ đơn thuần là lý thuyết từ vựng.
 
-## Phạm vi đề cương (Outline Coverage)
+## Tóm Tắt Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Những điều cần biết (What to know) |
+| Khái niệm (Concept) | Điều cần biết (What to know) |
 | --- | --- |
-| `Socket programming` | Socket là một điểm cuối (endpoint) cho giao tiếp mạng (network communication). |
-| `TCP socket` | Socket là một điểm cuối cho giao tiếp mạng. |
-| `UDP socket` | Socket là một điểm cuối cho giao tiếp mạng. |
-| `Socket` | Socket là một điểm cuối cho giao tiếp mạng. |
-| `ServerSocket` | ServerSocket là một điểm cuối cho giao tiếp mạng. |
-| `DatagramSocket` | DatagramSocket là một điểm cuối cho giao tiếp mạng. |
-| `InetAddress` | `InetAddress` là một khái niệm cụ thể trong Lập trình mạng; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại (failure mode) của nó thay vì chỉ nhớ tên. |
-| `URL` | `URL` là một khái niệm cụ thể trong Lập trình mạng; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ tên. |
-| `URI` | `URI` là một khái niệm cụ thể trong Lập trình mạng; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ tên. |
-| `Basic HTTP request` | `Basic HTTP request` là một khái niệm cụ thể trong Lập trình mạng; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ tên. |
+| `Socket programming` | Một socket là một đầu cuối (endpoint) cho giao tiếp mạng. |
+| `TCP socket` | Một socket TCP thiết lập giao tiếp mạng hướng kết nối và đáng tin cậy. |
+| `UDP socket` | Một socket UDP gửi các gói tin không hướng kết nối và không đảm bảo độ tin cậy. |
+| `Socket` | Lớp đại diện cho một socket máy khách (client socket) trong Java. |
+| `ServerSocket` | Lớp đại diện cho một socket máy chủ lắng nghe kết nối TCP trong Java. |
+| `DatagramSocket` | Lớp Java dùng để gửi và nhận gói tin UDP. |
+| `InetAddress` | InetAddress là một khái niệm cụ thể trong Lập trình mạng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ lỗi của nó thay vì chỉ ghi nhớ tên gọi. |
+| `URL` | URL là một khái niệm cụ thể trong Lập trình mạng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ lỗi của nó thay vì chỉ ghi nhớ tên gọi. |
+| `URI` | URI là một khái niệm cụ thể trong Lập trình mạng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ lỗi của nó thay vì chỉ ghi nhớ tên gọi. |
+| `Basic HTTP request` | Yêu cầu HTTP cơ bản là một khái niệm cụ thể trong Lập trình mạng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ lỗi của nó thay vì chỉ ghi nhớ tên gọi. |
 
-## Ghi chú chi tiết (Detailed Notes)
+## Ghi Chú Chi Tiết
 
-### Lập trình socket (Socket programming)
+### Lập trình Socket (Socket programming)
 
-Một socket là một điểm cuối (endpoint) cho giao tiếp mạng (network communication).
+Một socket là một đầu cuối (endpoint) dành cho giao tiếp mạng.
 
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại (failure mode). Đọc lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `Socket programming` trong một câu.
-- Nhận biết `Socket programming` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến `Socket programming`.
-
-Ví dụ nhỏ hoặc mô hình tư duy (mental model):
-
-- Khi đọc mã nguồn, hãy hỏi: `Socket programming` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
-### Socket TCP (TCP socket)
-
-Một socket là một điểm cuối (endpoint) cho giao tiếp mạng (network communication).
-
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại (failure mode). Đọc lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng thức được phép, và chế độ lỗi. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn lý thuyết.
 
 Kiểm tra thực tế:
+- Định nghĩa `Lập trình Socket` trong một câu.
+- Nhận biết `Lập trình Socket` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `Lập trình Socket`.
 
-- Định nghĩa `TCP socket` trong một câu.
-- Nhận biết `TCP socket` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến `TCP socket`.
+Mô hình tư duy hoặc ví dụ nhỏ:
+- Khi đọc mã nguồn, hãy hỏi: `Lập trình Socket` thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
 
-Ví dụ nhỏ hoặc mô hình tư duy (mental model):
+### Socket TCP
 
-- Khi đọc mã nguồn, hãy hỏi: `TCP socket` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
-### Socket UDP (UDP socket)
-
-Một socket là một điểm cuối (endpoint) cho giao tiếp mạng (network communication).
-
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại (failure mode). Đọc lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+Một socket TCP đại diện cho một đầu cuối giao tiếp mạng sử dụng giao thức TCP.
 
 Kiểm tra thực tế:
+- Định nghĩa `Socket TCP` trong một câu.
+- Nhận biết `Socket TCP` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `Socket TCP`.
 
-- Định nghĩa `UDP socket` trong một câu.
-- Nhận biết `UDP socket` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến `UDP socket`.
+Mô hình tư duy hoặc ví dụ nhỏ:
+- Khi đọc mã nguồn, hãy hỏi: `Socket TCP` thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
 
-Ví dụ nhỏ hoặc mô hình tư duy (mental model):
+### Socket UDP
 
-- Khi đọc mã nguồn, hãy hỏi: `UDP socket` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+Một socket UDP đại diện cho một đầu cuối giao tiếp mạng sử dụng giao thức UDP.
 
-## Tại sao Bắt tay TCP khác với UDP không kết nối (Why TCP Handshakes Differ From Connectionless UDP)
+Kiểm tra thực tế:
+- Định nghĩa `Socket UDP` trong một câu.
+- Nhận biết `Socket UDP` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `Socket UDP`.
 
-Giao thức điều khiển truyền vận (Transmission Control Protocol - TCP) là một giao thức vận chuyển (transport protocol) đáng tin cậy, hướng kết nối (connection-oriented), đảm bảo việc truyền tải các luồng byte theo đúng thứ tự và không bị lỗi. Để đạt được điều này, TCP yêu cầu một giai đoạn thiết lập kết nối chính thức (bắt tay ba bước (three-way handshake): SYN, SYN-ACK, ACK) giữa `Socket` phía client (máy khách) và `ServerSocket` phía server (máy chủ) để đồng bộ hóa các số trình tự (sequence numbers) và phân bổ tài nguyên trước khi bắt đầu bất kỳ quá trình truyền dữ liệu nào. Ngược lại, Giao thức dữ liệu người dùng (User Datagram Protocol - UDP) là một giao thức dung lượng nhẹ, không kết nối (connectionless), truyền các gói tin độc lập (`DatagramPacket` thông qua `DatagramSocket`) mà không cần thiết lập một phiên làm việc (session). UDP không theo dõi xem các gói tin có đến hay không, không truyền lại các gói tin bị mất, và không bắt buộc thứ tự gói tin. Việc loại bỏ quá trình bắt tay và theo dõi phân phát này giúp UDP nhanh hơn đáng kể và có độ trễ (latency) thấp hơn, rất lý tưởng cho truyền phát video thời gian thực hoặc chơi game, trong khi TCP là bắt buộc đối với các ứng dụng yêu cầu tính toàn vẹn dữ liệu (data integrity) tuyệt đối, chẳng hạn như kết nối HTTP hoặc kết nối cơ sở dữ liệu.
+Mô hình tư duy hoặc ví dụ nhỏ:
+- Khi đọc mã nguồn, hãy hỏi: `Socket UDP` thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?
 
-### Mô hình tư duy: Kết nối TCP so với Gửi thư UDP (Mental Model: TCP Connection vs. UDP Mailing)
+## Tại sao Bắt tay TCP Khác với UDP Không hướng Kết nối
+
+Giao thức Điều khiển Truyền vận (Transmission Control Protocol - TCP) là một giao thức truyền vận hướng kết nối, đáng tin cậy, đảm bảo việc phân phát các luồng byte theo đúng thứ tự và đã được kiểm tra lỗi. Để đạt được điều này, TCP yêu cầu một giai đoạn thiết lập kết nối chính thức (bắt tay ba bước: SYN, SYN-ACK, ACK) giữa `Socket` máy khách và `ServerSocket` máy chủ để đồng bộ hóa số thứ tự (sequence number) và cấp phát tài nguyên trước khi bắt đầu bất kỳ quá trình truyền dữ liệu nào. Ngược lại, Giao thức Gói tin Người dùng (User Datagram Protocol - UDP) là một giao thức không hướng kết nối, gọn nhẹ, truyền tải các gói tin độc lập (`DatagramPacket` qua `DatagramSocket`) mà không cần thiết lập phiên kết nối. UDP không theo dõi xem các gói tin có đến đích hay không, không truyền lại các gói tin bị mất, và không bắt buộc thứ tự của gói tin. Việc loại bỏ chi phí bắt tay và theo dõi phân phát này làm cho UDP nhanh hơn đáng kể và có độ trễ thấp hơn, là lựa chọn lý tưởng cho việc truyền phát video thời gian thực hoặc chơi game, trong khi TCP là bắt buộc đối với các ứng dụng yêu cầu tính toàn vẹn dữ liệu tuyệt đối, chẳng hạn như HTTP hoặc các kết nối cơ sở dữ liệu.
+
+### Mô hình tư duy: Kết nối TCP so với Gửi thư UDP
 ```mermaid
 flowchart TD
-    subgraph TCP Connection [TCP: Connection-Oriented (Phone Call)]
+    subgraph TCP Connection [TCP: Hướng Kết nối (Cuộc gọi Điện thoại)]
         A[Client: Socket connect] -->|1. SYN| B[Server: ServerSocket accept]
         B -->|2. SYN-ACK| A
         A -->|3. ACK| B
-        B --> C[Established Session: Reliable Byte Stream]
+        B --> C[Established Session: Luồng Byte Đáng tin cậy]
     end
-    subgraph UDP Packet [UDP: Connectionless (Mailing Letters)]
+    subgraph UDP Packet [UDP: Không hướng Kết nối (Gửi Thư qua Bưu điện)]
         D[Client: DatagramSocket send] -->|DatagramPacket| E[Server: DatagramSocket receive]
         D -->|DatagramPacket| E
-        Note over D,E: Không bắt tay, không xác nhận, các gói tin có thể đến không đúng thứ tự hoặc bị mất
+        Note over D,E: Không bắt tay, không xác nhận, các gói tin có thể đến sai thứ tự hoặc bị mất
     end
 ```
 
-### Ví dụ Code: Kết nối TCP so với Nhận trực tiếp UDP (Code Example: TCP Connection vs. UDP Direct Receive)
+### Ví dụ Code: Kết nối TCP so với Nhận trực tiếp UDP
 ```java
 // TCP ServerSocket blocks waiting for handshake connection
 try (java.net.ServerSocket server = new java.net.ServerSocket(8080)) {
-    java.net.Socket client = server.accept(); // Handshake completes here
+    java.net.Socket client = server.accept(); // Quá trình bắt tay hoàn tất tại đây
     System.out.println("TCP client connected: " + client.getRemoteSocketAddress());
 }
 
@@ -101,80 +91,46 @@ try (java.net.ServerSocket server = new java.net.ServerSocket(8080)) {
 try (java.net.DatagramSocket udpSocket = new java.net.DatagramSocket(9090)) {
     byte[] buf = new byte[256];
     java.net.DatagramPacket packet = new java.net.DatagramPacket(buf, buf.length);
-    udpSocket.receive(packet); // Blocks until a packet arrives directly
+    udpSocket.receive(packet); // Chặn cho đến khi có một gói tin gửi trực tiếp tới
     System.out.println("UDP packet received from: " + packet.getSocketAddress());
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-
-```text
-Yêu cầu kết nối socket TCP
-  → Client và server thực hiện bắt tay 3 bước
-  → Hệ điều hành (OS) phân bổ bộ đệm theo dõi gói tin và số trình tự
-  → Luồng byte đáng tin cậy, có thứ tự được thiết lập
-  → Xảy ra hiện tượng rớt gói tin mạng
-  → Hệ điều hành phát hiện thiếu ACK, truyền lại gói tin
-  → Đạt được mục tiêu không mất dữ liệu.
-```
-
+### Chuỗi Nguyên nhân - Kết quả
+Yêu cầu kết nối socket TCP được gửi &rarr; Máy khách và máy chủ thực hiện bắt tay 3 bước &rarr; Hệ điều hành cấp phát bộ đệm theo dõi gói tin và các số thứ tự &rarr; Thiết lập luồng byte đáng tin cậy, đúng thứ tự &rarr; Xảy ra mất gói tin trên mạng &rarr; Hệ điều hành phát hiện thiếu gói tin ACK, thực hiện gửi lại gói tin &rarr; Đạt được mục tiêu không mất dữ liệu.
 
 ---
 
-### Socket (Socket)
+### Socket
 
-Một socket là một điểm cuối (endpoint) cho giao tiếp mạng (network communication).
+Một socket là một đầu cuối (endpoint) cho giao tiếp mạng.
 
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại (failure mode). Đọc lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+### ServerSocket
 
-Kiểm tra thực tế:
+Một ServerSocket lắng nghe các kết nối đến từ các socket máy khách.
 
-- Định nghĩa `Socket` trong một câu.
-- Nhận biết `Socket` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến `Socket`.
+## Tại sao các Hoạt động Socket gây Chặn không được Chạy trên Luồng chính (Main Thread)
 
-Ví dụ nhỏ hoặc mô hình tư duy (mental model):
+Các hoạt động mạng trong I/O cổ điển của Java (sockets) về bản chất là hoạt động gây chặn (blocking). Các phương thức như `ServerSocket.accept()`, `InputStream.read()`, và `OutputStream.write()` sẽ đình chỉ việc thực thi của luồng cho đến khi nhận được kết nối, dữ liệu mạng được gửi tới, hoặc các bộ đệm được đẩy sạch (flush). Nếu các hoạt động này được chạy trực tiếp trên luồng chính của ứng dụng (ví dụ: luồng giao diện người dùng - UI thread hoặc luồng dịch vụ chính), toàn bộ ứng dụng sẽ bị đóng băng và không phản hồi với các hoạt động nhập liệu của người dùng hoặc các sự kiện vòng đời khác trong khi chờ các gói tin mạng. Để duy trì khả năng phản hồi của ứng dụng và xử lý các máy khách đồng thời, các hoạt động socket phải được đẩy sang các luồng làm việc (worker thread) riêng biệt hoặc các nhóm luồng (thread pool) được quản lý. Trong mô hình máy chủ đa luồng tiêu chuẩn, luồng chính chạy một vòng lặp bị chặn tại phương thức `accept()`, và khi nhận được một kết nối, nó lập tức bàn giao đối tượng `Socket` của máy khách cho một luồng mới hoặc một tác vụ thực thi, giải phóng luồng chính để tiếp tục chặn chờ kết nối tiếp theo.
 
-- Khi đọc mã nguồn, hãy hỏi: `Socket` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
-### ServerSocket (ServerSocket)
-
-Một socket là một điểm cuối (endpoint) cho giao tiếp mạng (network communication).
-
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại (failure mode). Đọc lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `ServerSocket` trong một câu.
-- Nhận biết `ServerSocket` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến `ServerSocket`.
-
-Ví dụ nhỏ hoặc mô hình tư duy (mental model):
-
-- Khi đọc mã nguồn, hãy hỏi: `ServerSocket` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
-## Tại sao các thao tác Socket chặn không được chạy trên Luồng chính (Why Blocking Socket Operations Must Not Run on the Main Thread)
-
-Các thao tác mạng trong I/O cổ điển của Java (Classic I/O - sockets) có tính chất chặn (blocking) theo thiết kế. Các phương thức như `ServerSocket.accept()`, `InputStream.read()`, và `OutputStream.write()` sẽ tạm dừng việc thực thi luồng (thread execution) cho đến khi nhận được một kết nối, dữ liệu mạng được truyền đến, hoặc các bộ đệm được xả (flush). Nếu các thao tác này chạy trực tiếp trên luồng chính (main thread) của ứng dụng (ví dụ: luồng giao diện người dùng hoặc luồng dịch vụ chính), toàn bộ ứng dụng sẽ bị đóng băng và không phản hồi với các hoạt động nhập liệu từ người dùng hoặc các sự kiện vòng đời trong khi chờ đợi các gói tin mạng. Để duy trì khả năng phản hồi của ứng dụng và xử lý các client đồng thời, các thao tác socket phải được chuyển sang các luồng làm việc (worker threads) riêng biệt hoặc các nhóm luồng (thread pools) được quản lý. Trong mô hình server đa luồng tiêu chuẩn, luồng chính chạy một vòng lặp bị chặn tại `accept()`, và khi nhận được một kết nối, ngay lập tức chuyển client `Socket` đó sang một luồng mới hoặc một tác vụ executor, giải phóng luồng chính để tiếp tục chặn chờ kết nối tiếp theo.
-
-### Mô hình tư duy: Chấp nhận kết nối đa luồng (Mental Model: Multi-threaded Connection Acceptance)
+### Mô hình tư duy: Chấp nhận Kết nối Đa luồng
 ```
-Vòng lặp luồng chính (Main Thread Loop)
+Vòng lặp Luồng chính (Main Thread Loop)
       |
       v
-serverSocket.accept() (Chặn luồng chính cho đến khi client kết nối)
+serverSocket.accept() (Chặn luồng cho đến khi máy khách kết nối)
       |
-      +---> Nhận được kết nối!
+      +---> Nhận được Kết nối!
       |
-      +---> Tạo luồng xử lý Client mới (Luồng làm việc - Worker Thread)
+      +---> Tạo Luồng Xử lý Máy khách (Luồng làm việc - Worker Thread)
       |         |
-      |         +---> Xử lý đọc/ghi socket của client (Chỉ chặn luồng làm việc này)
+      |         +---> Xử lý đọc/ghi socket máy khách (Chỉ chặn luồng làm việc này)
       |
       v
-Lặp lại vòng lặp: serverSocket.accept() (Luồng chính ngay lập tức sẵn sàng chấp nhận client tiếp theo)
+Lặp lại vòng lặp: serverSocket.accept() (Luồng chính sẵn sàng nhận máy khách tiếp theo ngay lập tức)
 ```
 
-### Ví dụ Code: Máy chủ Echo đa luồng (Code Example: Multi-threaded Echo Server)
+### Ví dụ Code: Máy chủ Echo Đa luồng
 ```java
 import java.io.*;
 import java.net.*;
@@ -188,10 +144,10 @@ public class MultiThreadedServer {
 
         while (!Thread.currentThread().isInterrupted()) {
             try {
-                // Main thread blocks here, but does not block client processing
+                // Luồng chính bị chặn tại đây, nhưng không chặn việc xử lý của máy khách khác
                 Socket clientSocket = serverSocket.accept(); 
                 
-                // Offload blocking client reads/writes to thread pool
+                // Đẩy các hoạt động đọc/ghi gây chặn của máy khách vào nhóm luồng
                 threadPool.submit(() -> handleClient(clientSocket));
             } catch (IOException e) {
                 break;
@@ -202,7 +158,7 @@ public class MultiThreadedServer {
     private static void handleClient(Socket socket) {
         try (BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
              PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
-            // Blocks worker thread, not main thread
+            // Chặn luồng làm việc, không chặn luồng chính
             String line = in.readLine(); 
             out.println("Echo: " + line);
         } catch (IOException e) {
@@ -212,218 +168,136 @@ public class MultiThreadedServer {
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-
-```text
-Socket accept/read chạy trên luồng chính
-  → Việc thực thi luồng bị tạm dừng để chờ phản hồi mạng
-  → Ứng dụng bị đóng băng, từ chối tương tác của người dùng và các sự kiện giao diện người dùng (UI)
-  → Việc xử lý kết nối được chuyển sang nhóm luồng Executor
-  → Các luồng làm việc bị chặn để chờ dữ liệu của client
-  → Luồng chính vẫn tự do để chấp nhận các kết nối mới, cho phép xử lý đồng thời cao.
-```
-
+### Chuỗi Nguyên nhân - Kết quả
+Hoạt động accept/read của Socket chạy trên luồng chính &rarr; Luồng thực thi bị đình chỉ để chờ phản hồi từ mạng &rarr; Ứng dụng bị đóng băng, từ chối tương tác của người dùng và các sự kiện UI &rarr; Việc xử lý kết nối được đẩy sang nhóm luồng Executor &rarr; Các luồng làm việc bị chặn để chờ dữ liệu từ máy khách &rarr; Luồng chính vẫn tự do để chấp nhận các kết nối mới đến, cho phép tính đồng thời cao.
 
 ---
 
-## Tại sao Socket và Stream phải được đóng đúng cách (Why Sockets and Streams Must Be Closed Properly)
+## Tại sao các Socket và Luồng dữ liệu phải được Đóng đúng cách
 
-Mỗi `Socket` and `ServerSocket` mạng được mở sẽ phân bổ một bộ mô tả tệp (file descriptor) tương ứng trong nhân (kernel) của hệ điều hành máy chủ để quản lý bộ đệm TCP/IP bên dưới. Hệ điều hành áp đặt một giới hạn nghiêm ngặt về số lượng bộ mô tả tệp mà một tiến trình có thể mở. Nếu một ứng dụng không đóng các socket và các luồng vào/ra (input/output streams) liên kết với chúng khi một kết nối kết thúc, các bộ mô tả tệp này sẽ vẫn mở trong nhân hệ điều hành, dẫn đến rò rỉ bộ mô tả tệp (file descriptor leak). Theo thời gian, ứng dụng sẽ cạn kiệt giới hạn bộ mô tả tệp, khiến hệ điều hành từ chối bất kỳ kết nối socket tiếp theo nào và ném ra ngoại lệ `java.net.SocketException: Too many open files`. Hơn nữa, việc không đóng server socket sẽ ngăn cản socket đó giải phóng cổng (port) đã liên kết, dẫn đến `java.net.BindException: Address already in use` khi ứng dụng cố gắng khởi động lại. Sử dụng try-with-resources đảm bảo các socket được tự động đóng và tài nguyên được giải phóng ngay lập tức về cho hệ điều hành khi khối mã kết thúc.
+Mỗi socket mạng `Socket` and `ServerSocket` khi mở ra đều được cấp phát một bộ mô tả tệp (File descriptor) tương ứng trong nhân hệ điều hành máy chủ để quản lý bộ đệm socket TCP/IP bên dưới. Hệ điều hành đặt ra giới hạn nghiêm ngặt về số lượng bộ mô tả tệp mà một tiến trình có thể mở. Nếu một ứng dụng không đóng các socket và các luồng vào/ra liên quan của chúng khi kết nối kết thúc, các bộ mô tả tệp này vẫn mở trong nhân hệ điều hành, dẫn đến hiện tượng rò rỉ bộ mô tả tệp (File descriptor leak). Theo thời gian, ứng dụng sẽ cạn kiệt giới hạn bộ mô tả tệp, khiến hệ điều hành từ chối bất kỳ kết nối socket tiếp theo nào và ném ra ngoại lệ `java.net.SocketException: Too many open files`. Ngoài ra, việc không đóng socket máy chủ sẽ ngăn cản socket giải phóng cổng đã liên kết, dẫn đến lỗi `java.net.BindException: Address already in use` khi ứng dụng cố gắng khởi động lại. Việc sử dụng cấu trúc try-with-resources đảm bảo các socket được tự động đóng và tài nguyên được giải phóng trả lại cho hệ điều hành ngay khi khối lệnh kết thúc.
 
-### Mô hình tư duy: Tích lũy bộ mô tả tệp trong nhân hệ điều hành (Mental Model: File Descriptor Accumulation in Kernel)
+### Mô hình tư duy: Tích lũy Bộ mô tả Tệp trong Nhân hệ điều hành
 ```
-Ứng dụng JVM mở Socket
+Socket ứng dụng JVM
       | (Mở kết nối)
       v
-Nhân OS phân bổ Bộ mô tả tệp (FD) & Ràng buộc cổng (ví dụ: Cổng 8080)
+Nhân OS cấp phát Bộ mô tả tệp (FD) & Liên kết cổng (ví dụ: Cổng 8080)
       |
-      +---> Phiên kết nối kết thúc, Socket KHÔNG được đóng!
+      +---> Phiên làm việc kết thúc, Socket KHÔNG được đóng!
       |
-Nhân OS vẫn giữ phân bổ FD và Cổng 8080 tiếp tục bị khóa trong trạng thái CLOSE_WAIT.
+Nhân OS duy trì cấp phát FD và Cổng 8080 tiếp tục bị khóa ở trạng thái CLOSE_WAIT.
       |
 Cố gắng khởi động lại ứng dụng -> BindException: Address already in use.
 Cố gắng mở thêm kết nối -> SocketException: Too many open files.
 ```
 
-### Ví dụ Code: Đóng kết nối an toàn (Code Example: Secure Connection Closure)
+### Ví dụ Code: Đóng Kết nối An sau
 ```java
 import java.io.*;
 import java.net.*;
 
 public class SocketClosureDemo {
     public static void main(String[] args) {
-        // Try-with-resources guarantees file descriptors are released back to the OS kernel
+        // Try-with-resources đảm bảo bộ mô tả tệp được giải phóng trả lại cho nhân OS
         try (Socket socket = new Socket("example.com", 80);
              OutputStream out = socket.getOutputStream();
              InputStream in = socket.getInputStream()) {
              
             out.write("GET / HTTP/1.1\r\nHost: example.com\r\n\r\n".getBytes());
-            int data = in.read(); // Read single byte
+            int data = in.read(); // Đọc một byte duy nhất
             System.out.println("First response byte: " + data);
             
         } catch (IOException e) {
             e.printStackTrace();
-        } // socket.close() is automatically called, releasing OS File Descriptor immediately
+        } // socket.close() được gọi tự động, giải phóng Bộ mô tả tệp của OS ngay lập tức
     }
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-
-```text
-Kết nối mạng kết thúc mà không đóng socket
-  → Nhân OS duy trì phân bổ bộ mô tả tệp và ràng buộc cổng trong bảng hoạt động
-  → Số lượng bộ mô tả tệp tăng liên tục
-  → Tiến trình đạt đến giới hạn tối đa của hệ điều hành
-  → JVM ném ngoại lệ `SocketException: Too many open files` cho các yêu cầu mạng tiếp theo
-  → Cổng không thể liên kết lại khi khởi động lại, ném ngoại lệ `BindException`.
-```
-
+### Chuỗi Nguyên nhân - Kết quả
+Kết nối mạng kết thúc mà không đóng socket &rarr; Nhân OS duy trì cấp phát bộ mô tả tệp và liên kết cổng trong bảng hoạt động &rarr; Số lượng bộ mô tả tệp tăng liên tục &rarr; Tiến trình đạt đến giới hạn tối đa của OS &rarr; JVM ném ra `SocketException: Too many open files` cho các yêu cầu mạng tiếp theo &rarr; Cổng không thể liên kết lại khi khởi động lại, ném ra ngoại lệ `BindException`.
 
 ---
 
-### DatagramSocket (DatagramSocket)
+### DatagramSocket
 
-Một socket là một điểm cuối (endpoint) cho giao tiếp mạng (network communication).
+DatagramSocket là một socket để gửi hoặc nhận các gói tin datagram.
 
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại (failure mode). Đọc lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+### InetAddress
 
-Kiểm tra thực tế:
+Lớp InetAddress đại diện cho một địa chỉ IP (Internet Protocol).
 
-- Định nghĩa `DatagramSocket` trong một câu.
-- Nhận biết `DatagramSocket` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến `DatagramSocket`.
+### URL
 
-Ví dụ nhỏ hoặc mô hình tư duy (mental model):
+Lớp URL đại diện cho một Bộ định vị Tài nguyên Thống nhất (Uniform Resource Locator).
 
-- Khi đọc mã nguồn, hãy hỏi: `DatagramSocket` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+### URI
 
-### InetAddress (InetAddress)
+Lớp URI đại diện cho một Mã định danh Tài nguyên Thống nhất (Uniform Resource Identifier).
 
-`InetAddress` là một khái niệm cụ thể trong Lập trình mạng; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ tên.
+## Tại sao Java 20 Khai tử các Hàm khởi tạo URL để Ưu tiên dùng URI
 
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại (failure mode). Đọc lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+Một Mã định danh Tài nguyên Thống nhất (Uniform Resource Identifier - URI) là một biểu diễn chuỗi dựa thuần túy trên cú pháp để xác định một tài nguyên, trong khi một Bộ định vị Tài nguyên Thống nhất (Uniform Resource Locator - URL) cung cấp vị trí mạng cụ thể và giao thức để định vị và truy cập tài nguyên đó. Trước Java 20, lập trình viên thường khởi tạo đối tượng URL bằng cách sử dụng các hàm khởi tạo như `new URL("https://example.com")`. Tuy nhiên, điều này đã bị khai tử (deprecated) vì hàm khởi tạo `URL` cố gắng phân giải tên máy chủ (host name) qua DNS trong quá trình khởi tạo và thực hiện các thao tác so sánh (như `url.equals(otherUrl)` hoặc `url.hashCode()`), hành vi này sẽ thực hiện các truy vấn mạng gây chặn luồng. Chạy một truy vấn DNS bên trong một hàm khởi tạo đơn giản hoặc kiểm tra tập hợp (collection check) là vi phạm các nguyên tắc thiết kế API cơ bản, làm cho các bản đồ băm (hash map) sử dụng URL chạy cực kỳ chậm, và có thể làm sập ứng dụng nếu quá trình phân giải DNS thất bại hoặc hết thời gian chờ (timeout). Ngược lại, lớp `URI` thực hiện phân tích cú pháp dựa trên cú pháp RFC 2396 nghiêm ngặt mà không phân giải máy chủ hoặc thực hiện các cuộc gọi mạng, làm cho việc khởi tạo nó hoàn toàn an toàn và có thể dự đoán được; lập trình viên nên xây dựng một đối tượng `URI` trước, sau đó chuyển đổi nó sang một đối tượng `URL` bằng phương thức `uri.toURL()` chỉ khi thực sự cần một kết nối vật lý.
 
-Kiểm tra thực tế:
-
-- Định nghĩa `InetAddress` trong một câu.
-- Nhận biết `InetAddress` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến `InetAddress`.
-
-Ví dụ nhỏ hoặc mô hình tư duy (mental model):
-
-- Khi đọc mã nguồn, hãy hỏi: `InetAddress` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
-### URL (URL)
-
-`URL` là một khái niệm cụ thể trong Lập trình mạng; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ tên.
-
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại (failure mode). Đọc lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `URL` trong một câu.
-- Nhận biết `URL` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến `URL`.
-
-Ví dụ nhỏ hoặc mô hình tư duy (mental model):
-
-- Khi đọc mã nguồn, hãy hỏi: `URL` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
-### URI (URI)
-
-`URI` là một khái niệm cụ thể trong Lập trình mạng; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ tên.
-
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại (failure mode). Đọc lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `URI` trong một câu.
-- Nhận biết `URI` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến `URI`.
-
-Ví dụ nhỏ hoặc mô hình tư duy (mental model):
-
-- Khi đọc mã nguồn, hãy hỏi: `URI` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
-## Tại sao Java 20 loại bỏ hàm khởi tạo URL để chuyển sang URI (Why Java 20 Deprecated URL Constructors in Favor of URI)
-
-Bộ định danh tài nguyên đồng nhất (Uniform Resource Identifier - URI) là một đại diện chuỗi dựa hoàn toàn trên cú pháp để xác định tài nguyên, trong khi Bộ định vị tài nguyên đồng nhất (Uniform Resource Locator - URL) cung cấp giao thức và vị trí mạng cụ thể để tìm vị trí và truy cập tài nguyên. Trước Java 20, các lập trình viên thường khởi tạo `URL` bằng cách sử dụng các hàm khởi tạo (constructors) như `new URL("https://example.com")`. Tuy nhiên, điều này đã bị loại bỏ vì hàm khởi tạo `URL` cố gắng giải quyết tên máy chủ (hostname) qua truy vấn DNS (DNS lookup) trong các thao tác khởi tạo và so sánh (chẳng hạn như `url.equals(otherUrl)` hoặc `url.hashCode()`), thực hiện các truy vấn mạng dạng chặn (blocking network lookups). Việc chạy truy vấn DNS bên trong một hàm khởi tạo đơn giản hoặc kiểm tra tập hợp (collection check) sẽ vi phạm các nguyên tắc thiết kế API cơ bản, làm cho các bảng băm (hash maps) sử dụng `URL` trở nên cực kỳ chậm và có thể làm sập ứng dụng nếu quá trình phân giải DNS bị lỗi hoặc hết thời gian chờ (timeout). Ngược lại, lớp `URI` thực hiện phân tích cú pháp nghiêm ngặt theo tiêu chuẩn RFC 2396 mà không phân giải máy chủ hoặc thực hiện các cuộc gọi mạng, giúp việc khởi tạo nó hoàn toàn an toàn và có thể dự đoán được; các lập trình viên nên xây dựng một `URI` trước, sau đó chuyển đổi nó thành `URL` bằng cách sử dụng `uri.toURL()` chỉ khi thực sự cần một kết nối vật lý.
-
-### Mô hình tư duy: URI chỉ kiểm tra cú pháp so với URL phụ thuộc vào mạng (Mental Model: Syntax-only URI vs Network-dependent URL)
+### Mô hình tư duy: URI chỉ kiểm tra Cú pháp so với URL phụ thuộc vào Mạng
 ```
-Sử dụng hàm khởi tạo URL (Không an toàn):
-new URL("https://example.com") ---> Gọi DNS Lookup (Chặn mạng!) ---> Có thể thất bại trong lúc khởi tạo
+Sử dụng Hàm khởi tạo URL (Không an sau):
+new URL("https://example.com") ---> Gọi tra cứu DNS (Chặn mạng!) ---> Có thể thất bại khi khởi tạo
 
-Sử dụng URI và chuyển đổi thành URL (An toàn):
-URI.create("https://example.com") ---> Chỉ phân tích cú pháp chuỗi cục bộ (Nhanh, Cục bộ)
+Sử dụng URI và chuyển đổi sang URL (An toàn):
+URI.create("https://example.com") ---> Chỉ phân tích cú pháp cục bộ (Nhanh, Cục bộ)
       |
       v
-uri.toURL() ---> Đối tượng URL chỉ được tạo khi truy cập mạng được yêu cầu một cách rõ ràng
+uri.toURL() ---> Đối tượng URL được tạo chỉ khi thực sự cần truy cập mạng
 ```
 
-### Ví dụ Code: Kiểm tra cú pháp với URI (Code Example: Syntax checking with URI)
+### Ví dụ Code: Kiểm tra Cú pháp với URI
 ```java
 import java.net.*;
 
 public class UrlUriDemo {
     public static void main(String[] args) throws Exception {
-        // DEPRECATED in Java 20: Blocks waiting for DNS resolution during constructor check
+        // ĐÃ KHAI TỬ từ Java 20: Chặn chờ phân giải DNS trong quá trình kiểm tra của hàm khởi tạo
         // URL oldUrl = new URL("https://example.com"); 
 
-        // RECOMMENDED: Local string syntax checking only (Instant execution)
+        // KHUYÊN DÙNG: Chỉ kiểm tra cú pháp chuỗi cục bộ (Thực thi tức thì)
         URI uri = URI.create("https://example.com"); 
         
-        // Convert to URL only when preparing to open a connection
+        // Chỉ chuyển đổi sang URL khi chuẩn bị mở kết nối mạng
         URL url = uri.toURL(); 
-        System.out.println("Protocol: " + url.getProtocol()); // Prints "Protocol: https"
+        System.out.println("Protocol: " + url.getProtocol()); // In ra "Protocol: https"
     }
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-
-```text
-Hàm khởi tạo `new URL(string)` được gọi
-  → Hàm khởi tạo kích hoạt truy vấn DNS mạng để phân giải tên máy chủ
-  → Thời gian chờ hoặc lỗi của máy chủ DNS lan truyền thành ngoại lệ trong quá trình khởi tạo đối tượng
-  → Luồng bị chặn trong quá trình khởi tạo đối tượng
-  → Sử dụng `URI.create(string)` để thay thế
-  → Chuỗi được phân tích cú pháp bằng ngữ pháp RFC 2396 tại chỗ
-  → Đạt được việc tạo URI nhanh chóng, không có ngoại lệ.
-```
-
+### Chuỗi Nguyên nhân - Kết quả
+Hàm khởi tạo `new URL(string)` được gọi &rarr; Hàm khởi tạo kích hoạt tra cứu DNS mạng bên dưới để phân giải tên máy chủ &rarr; Hết thời gian chờ hoặc lỗi của máy chủ DNS lan truyền thành các ngoại lệ trong quá trình khởi tạo đối tượng &rarr; Luồng bị chặn trong khi khởi tạo đối tượng &rarr; `URI.create(string)` được sử dụng thay thế &rarr; Chuỗi được phân tích cú pháp theo ngữ pháp RFC 2396 cục bộ &rarr; Đạt được việc tạo URI tức thì và không ném ngoại lệ.
 
 ---
 
 ### Yêu cầu HTTP cơ bản (Basic HTTP request)
 
-`Basic HTTP request` là một khái niệm cụ thể trong Lập trình mạng; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ tên.
+Một yêu cầu HTTP cơ bản được gửi qua mạng để truy xuất hoặc sửa đổi tài nguyên.
 
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại (failure mode). Đọc lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+---
 
-Kiểm tra thực tế:
+## Các Câu Hỏi Ôn Tập Thường Gặp
 
-- Định nghĩa `Basic HTTP request` trong một câu.
-- Nhận biết `Basic HTTP request` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến `Basic HTTP request`.
+- **Khái niệm nào ở đây là quy tắc thời gian biên dịch?**
+  Hầu hết các lớp API mạng đều có các kiểu ngoại lệ đã được kiểm tra (checked exception) buộc lập trình viên phải bắt hoặc khai báo ném ra (ví dụ: `IOException`, `UnknownHostException`).
+- **Khái niệm nào ở đây ảnh hưởng đến hành vi thời gian chạy?**
+  Các thao tác mạng gây chặn (blocking) như `Socket.accept()` và `InputStream.read()`, cùng cơ chế tra cứu DNS của các constructor `URL` cũ.
+- **Khái niệm nào ở đây dễ là bẫy phỏng vấn?**
+  Việc sử dụng các constructor của `URL` (đã bị deprecated trong Java 20) gây ra truy vấn DNS ngầm làm chậm ứng dụng, và hành vi của `URL.equals()` cũng thực hiện tra cứu DNS.
 
-Ví dụ nhỏ hoặc mô hình tư duy (mental model):
+---
 
-- Khi đọc mã nguồn, hãy hỏi: `Basic HTTP request` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+## Các Ví dụ Code
 
-## Câu hỏi ôn tập phổ biến (Common Review Prompts)
-
-- Khái niệm nào ở đây là quy tắc ở thời điểm biên dịch (compile-time)?
-- Khái niệm nào ở đây ảnh hưởng đến hành vi lúc chạy (runtime)?
-- Khái niệm nào ở đây dễ là bẫy phỏng vấn (interview traps)?
-
-## Các ví dụ code (Code Examples)
-
-### TCP Socket Server & Client
-
+### Máy chủ & Máy khách Socket TCP
 ```java
-// ServerSocket listening on port 8080
+// ServerSocket lắng nghe trên cổng 8080
 try (ServerSocket serverSocket = new ServerSocket(8080)) {
     System.out.println("Server listening on port 8080...");
     try (Socket clientSocket = serverSocket.accept();
@@ -436,7 +310,7 @@ try (ServerSocket serverSocket = new ServerSocket(8080)) {
     }
 }
 
-// Client connecting to localhost:8080
+// Máy khách kết nối tới localhost:8080
 try (Socket socket = new Socket("localhost", 8080);
      PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
      BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
@@ -447,19 +321,18 @@ try (Socket socket = new Socket("localhost", 8080);
 }
 ```
 
-### UDP Datagram Server & Client
-
+### Máy chủ & Máy khách Datagram UDP
 ```java
-// Receiving a DatagramPacket (UDP)
+// Nhận một gói tin DatagramPacket (UDP)
 try (DatagramSocket socket = new DatagramSocket(9090)) {
     byte[] buffer = new byte[1024];
     DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
-    socket.receive(packet); // Blocks until a packet is received
+    socket.receive(packet); // Chặn cho đến khi nhận được một gói tin
     String message = new String(packet.getData(), 0, packet.getLength());
     System.out.println("Received UDP: " + message);
 }
 
-// Sending a DatagramPacket
+// Gửi một gói tin DatagramPacket
 try (DatagramSocket socket = new DatagramSocket()) {
     String msg = "Hello UDP!";
     byte[] buffer = msg.getBytes();
@@ -469,15 +342,19 @@ try (DatagramSocket socket = new DatagramSocket()) {
 }
 ```
 
-## Các lỗi thường gặp (Common Mistakes)
+---
 
-- **Quên đóng Socket**: Sockets sử dụng các tài nguyên hệ điều hành bên dưới (bộ mô tả tệp). Việc không đóng chúng trong khối `finally` hoặc câu lệnh try-with-resources sẽ dẫn đến rò rỉ tài nguyên và cạn kiệt kết nối.
-- **Chặn accept() trên Luồng chính**: Phương thức `serverSocket.accept()` chặn luồng gọi nó cho đến khi có kết nối được thiết lập. Trong các ứng dụng máy chủ, việc này nên được thực thi trên một luồng làm việc hoặc nhóm luồng riêng biệt để giữ cho máy chủ luôn phản hồi nhanh.
-- **Sử dụng các hàm khởi tạo URL đã lỗi thời**: Việc gọi `new URL("https://google.com")` đã bị loại bỏ kể từ Java 20. Luôn luôn sử dụng `URI.create("https://google.com").toURL()` để thay thế.
+## Các lỗi thường gặp
 
-## Liên kết tham khảo (Reference Links)
+- **Quên đóng Socket**: Các socket sử dụng tài nguyên hệ điều hành bên dưới (bộ mô tả tệp). Việc không đóng them trong khối `finally` hoặc bằng cấu trúc try-with-resources sẽ dẫn đến rò rỉ tài nguyên và cạn kiệt kết nối.
+- **Chặn accept() trên Luồng chính**: Phương thức `serverSocket.accept()` chặn luồng gọi cho đến khi một kết nối được thiết lập. Trong các ứng dụng máy chủ, điều này nên được chạy trên một luồng làm việc riêng biệt hoặc nhóm luồng để đảm bảo máy chủ luôn sẵn sàng phản hồi.
+- **Sử dụng các hàm khởi tạo URL đã bị khai tử**: Việc gọi `new URL("https://google.com")` đã bị khai tử từ Java 20. Luôn sử dụng `URI.create("https://google.com").toURL()` để thay thế.
 
-- https://docs.oracle.com/javase/tutorial/networking/sockets/index.html (Sockets Programming Oracle Tutorial)
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/Socket.html (Socket JavaDoc)
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/URI.html (URI JavaDoc)
-- https://openjdk.org/jeps/321 (HTTP Client JEP)
+---
+
+## Liên Kết Tham Khảo
+
+- https://docs.oracle.com/javase/tutorial/networking/sockets/index.html (Hướng dẫn lập trình Socket của Oracle)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/Socket.html (Javadoc của lớp Socket)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/URI.html (Javadoc của lớp URI)
+- https://openjdk.org/jeps/321 (Đề xuất JEP 321 về HTTP Client)

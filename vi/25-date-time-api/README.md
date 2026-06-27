@@ -1,14 +1,14 @@
-# 25 - API Ngày và Giờ (Date and Time API)
+# 25 - API Date và Time (Date and Time API)
 
-Chủ đề này tuân theo đề mục chính trong [outline.md](../outline.md). Mục tiêu là hiểu sâu sắc từng khái niệm để có thể giải thích, nhận diện trong mã nguồn (code) và trả lời các câu hỏi phỏng vấn.
+Chủ đề này tuân theo đề cương chính trong [outline.md](../outline.md). Mục tiêu là hiểu sâu từng khái niệm đủ để giải thích, nhận diện trong code, và trả lời các câu hỏi phỏng vấn.
 
-## Trình tự học tập (Study Order)
+## Thứ Tự Học
 
-- [Khái niệm về Ngày (Date Concepts)](theory/01-date-concepts.md)
-- [Khái niệm về Khoảng thời gian (Period Concepts)](theory/02-period-concepts.md)
-- [Thuật ngữ chính (Key Terms)](terms/01-key-terms.md)
+- [Khái Niệm Date](theory/01-date-concepts.md)
+- [Khái Niệm Period](theory/02-period-concepts.md)
+- [Thuật Ngữ Chính](terms/01-key-terms.md)
 
-## Danh sách đề mục (Outline Checklist)
+## Danh Sách Kiểm Tra Theo Đề Cương
 
 - Date
 - Calendar
@@ -23,39 +23,39 @@ Chủ đề này tuân theo đề mục chính trong [outline.md](../outline.md)
 - Period
 - DateTimeFormatter
 - ZoneId
-- Phân tích cú pháp ngày/giờ (Parse date/time)
-- Định dạng ngày/giờ (Format date/time)
-- So sánh ngày/giờ (Compare date/time)
-- Cộng/trừ ngày/giờ (Add/subtract date/time)
+- Phân tích (parse) ngày/giờ
+- Định dạng (format) ngày/giờ
+- So sánh ngày/giờ
+- Cộng/trừ ngày/giờ
 - Múi giờ (Timezone)
 
-## Tự kiểm tra (Self-Check)
+## Tự Kiểm Tra
 
-- Tại sao API ngày và lịch cũ (`java.util.Date`, `java.util.Calendar`, `java.text.SimpleDateFormat`) lại bị lỗi thiết kế (ví dụ: tính khả biến (mutability), lệch chỉ mục (index bias), các vấn đề về an toàn luồng (thread-safety))?
-- Tại sao các đối tượng ngày-giờ hiện đại trong Java 8 (như `LocalDate`, `LocalTime`, `ZonedDateTime`) được thiết kế để bất biến (immutable) và an toàn luồng (thread-safe), và mẫu thiết kế (pattern) nào được sử dụng để lấy các thể hiện (instance) đã được sửa đổi?
-- Sự khác biệt trong biểu diễn và quy tắc múi giờ (timezone) giữa `OffsetDateTime`, `ZonedDateTime` và `Instant` là gì?
-- Tại sao `java.time.format.DateTimeFormatter` tránh được các lỗi bất đồng bộ/đồng thời (concurrency) của `SimpleDateFormat`?
-- Sự khác biệt trong biểu diễn và hành vi giữa `Period` và `Duration` là gì, đặc biệt là khi được cộng vào một đối tượng thời gian có nhận biết múi giờ như `ZonedDateTime` qua các thời điểm chuyển đổi giờ mùa hè (Daylight Saving Time - DST)?
-- Làm thế nào `ZonedDateTime` xử lý các ngày-giờ cục bộ không hợp lệ hoặc bị trùng lặp do quá trình chuyển đổi giờ mùa hè (DST) khỏi đầu hoặc kết thúc?
+- Tại sao API date và calendar cũ (`java.util.Date`, `java.util.Calendar`, `java.text.SimpleDateFormat`) có nhiều khiếm khuyết (ví dụ: tính khả biến, lệch chỉ số, vấn đề thread-safety)?
+- Tại sao các đối tượng ngày giờ Java 8 hiện đại (như `LocalDate`, `LocalTime`, `ZonedDateTime`) được thiết kế bất biến và thread-safe, và mẫu nào được dùng để lấy instance đã sửa đổi?
+- Sự khác biệt về biểu diễn múi giờ và quy tắc giữa `OffsetDateTime`, `ZonedDateTime`, và `Instant` là gì?
+- Tại sao `java.time.format.DateTimeFormatter` tránh được lỗi đồng thời (concurrency bug) của `SimpleDateFormat`?
+- `Period` và `Duration` khác nhau thế nào về biểu diễn và hành vi, đặc biệt khi cộng vào đối tượng thời gian có múi giờ như `ZonedDateTime` qua các chuyển tiếp DST (Daylight Saving Time)?
+- `ZonedDateTime` xử lý như thế nào các thời gian cục bộ không hợp lệ hoặc chồng lấp từ các chuyển tiếp DST?
 
-## Thẻ Anki (Anki Cards)
+## Thẻ Anki
 
-- [Cơ bản (Basic)](anki/basic.tsv)
-- [Cơ bản Mở rộng (Basic Extra)](anki/basic-extra.tsv)
-- [Điền vào chỗ trống (Cloze)](anki/cloze.tsv)
-- [Câu hỏi Code (Code Question)](anki/code-question.tsv)
+- [Basic](anki/basic.tsv)
+- [Basic Extra](anki/basic-extra.tsv)
+- [Cloze](anki/cloze.tsv)
+- [Code Question](anki/code-question.tsv)
 
-## Sơ đồ Mermaid tổng quan (Mermaid Overview)
+## Sơ Đồ Tổng Quan (Mermaid)
 
 ```mermaid
 flowchart TD
-    A[API Ngày và Giờ (Date and Time API)] --> B[Định nghĩa (Definitions)]
-    A --> C[Quy tắc và cú pháp (Rules and syntax)]
-    A --> D[Các lỗi thường gặp (Common mistakes)]
-    A --> E[Gợi nhớ phỏng vấn (Interview recall)]
+    A[API Date và Time] --> B[Định nghĩa]
+    A --> C[Quy tắc và cú pháp]
+    A --> D[Lỗi thường gặp]
+    A --> E[Ôn tập phỏng vấn]
 ```
 
-## Liên kết tham khảo (Reference Links)
+## Liên Kết Tham Khảo
 
 - https://docs.oracle.com/javase/tutorial/datetime/
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/package-summary.html

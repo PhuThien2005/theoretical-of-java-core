@@ -1,56 +1,56 @@
-# 22 - Interface Chức Năng (Functional Interface)
+# 22 - Giao diện chức năng (Functional Interface)
 
-Chủ đề này tuân theo đề cương chính trong [outline.md](../outline.md). Mục tiêu là hiểu sâu sắc từng khái niệm để có thể giải thích, nhận biết trong mã nguồn và trả lời các câu hỏi phỏng vấn.
+Chủ đề này tuân theo đề cương chính trong [outline.md](../outline.md). Mục tiêu là hiểu sâu sắc từng khái niệm để có thể giải thích, nhận diện nó trong mã nguồn và trả lời các câu hỏi phỏng vấn.
 
-## Thứ Tự Học Tập (Study Order)
+## Trình tự học tập
 
-- [Khái niệm Predicate T (Predicate T Concepts)](theory/01-predicate-t-concepts.md)
-- [Khái niệm kết quả đầu ra (What Is The Output Concepts)](theory/02-what-is-the-output-concepts.md)
-- [Thuật ngữ chính (Key Terms)](terms/01-key-terms.md)
+- [Khái niệm Predicate T](theory/01-predicate-t-concepts.md)
+- [Khái niệm Kết quả đầu ra là gì](theory/02-what-is-the-output-concepts.md)
+- [Các thuật ngữ chính](terms/01-key-terms.md)
 
-## Danh Sách Kiểm Tra Đề Cương (Outline Checklist)
+## Danh sách kiểm tra Đề cương
 
-- `Predicate<T>`
-- `Function<T, R>`
-- `Consumer<T>`
-- `Supplier<T>`
-- `UnaryOperator<T>`
-- `BinaryOperator<T>`
-- `BiPredicate<T, U>`
-- `BiFunction<T, U, R>`
-- `BiConsumer<T, U>`
-- Đầu vào là gì? (What is the input?)
-- Đầu ra là gì? (What is the output?)
-- Khi nào sử dụng interface nào? (When to use which interface?)
+- Predicate<T>
+- Function<T, R>
+- Consumer<T>
+- Supplier<T>
+- UnaryOperator<T>
+- BinaryOperator<T>
+- BiPredicate<T, U>
+- BiFunction<T, U, R>
+- BiConsumer<T, U>
+- Đầu vào là gì?
+- Kết quả đầu ra là gì?
+- Khi nào sử dụng giao diện nào?
 
-## Thẻ Anki (Anki Cards)
+## Thẻ Anki
 
-- [Cơ bản (Basic)](anki/basic.tsv)
-- [Cơ bản Mở rộng (Basic Extra)](anki/basic-extra.tsv)
-- [Điền vào chỗ trống (Cloze)](anki/cloze.tsv)
-- [Câu hỏi code (Code Question)](anki/code-question.tsv)
+- [Cơ bản](anki/basic.tsv)
+- [Cơ bản bổ sung](anki/basic-extra.tsv)
+- [Điền vào chỗ trống](anki/cloze.tsv)
+- [Câu hỏi mã nguồn](anki/code-question.tsv)
 
-## Biểu Đồ Tổng Quan Mermaid (Mermaid Overview)
+## Tổng quan Mermaid
 
 ```mermaid
 flowchart TD
-    A[Interface chức năng] --> B[Định nghĩa]
+    A[Giao diện chức năng (Functional Interface)] --> B[Định nghĩa]
     A --> C[Quy tắc và cú pháp]
     A --> D[Các lỗi thường gặp]
-    A --> E[Câu hỏi phỏng vấn]
+    A --> E[Ghi nhớ phỏng vấn]
 ```
 
-## Tự Kiểm Tra (Self-Check)
+## Tự kiểm tra (Self-Check)
 
-Dưới đây là 5 câu hỏi khái niệm sâu sắc để xác minh sự hiểu biết của bạn về các functional interface. Các câu trả lời có thể được tìm thấy trong các tệp lý thuyết:
+Dưới đây là 5 câu hỏi khái niệm chuyên sâu để kiểm tra sự hiểu biết của bạn về các giao diện chức năng. Câu trả lời có thể được tìm thấy trong các tệp lý thuyết:
 
-1. Tại sao annotation `@FunctionalInterface` lại không bắt buộc, và nó cung cấp những lợi ích gì tại thời điểm biên dịch?
-2. Hợp đồng thiết kế của `Predicate`, `Function`, `Consumer` và `Supplier` khác nhau thế nào về khuôn dạng đầu vào/đầu ra và mục đích sử dụng?
-3. Tại sao chúng ta cần các phiên bản chuyên biệt cho kiểu nguyên thủy (như `IntPredicate`, `LongFunction`, `DoubleConsumer`) thay vì chỉ sử dụng các lớp bao bọc generic (generic wrapper), và cách chúng ngăn ngừa chi phí đóng hộp (boxing) là gì?
-4. Làm thế nào các functional interface tận dụng các phương thức mặc định (default method) để thực hiện liên kết chuỗi và kết hợp hàm (functional composition)?
-5. Quy chuẩn Ngôn ngữ Java (JLS) đếm số lượng phương thức trừu tượng cho một functional interface như thế nào, và các quy tắc chính xác liên quan đến các phương thức được ghi đè từ `java.lang.Object` là gì?
+1. Tại sao chú thích `@FunctionalInterface` là tùy chọn, và những lợi ích biên dịch nào mà nó mang lại?
+2. Các kiểu giao ước chức năng của `Predicate`, `Function`, `Consumer`, và `Supplier` khác nhau như thế nào về hình dạng đầu vào/đầu ra và mục đích của chúng?
+3. Tại sao chúng ta cần các chuyên biệt hóa kiểu nguyên thủy (như `IntPredicate`, `LongFunction`, `DoubleConsumer`) thay vì chỉ sử dụng các lớp bao bọc generic, và chúng ngăn ngừa chi phí đóng hộp (boxing) như thế nào?
+4. Các giao diện chức năng tận dụng các phương thức mặc định (default method) như thế nào để kết hợp và liên kết chức năng?
+5. Quy chuẩn Ngôn ngữ Java (JLS) đếm các phương thức trừu tượng cho một giao diện chức năng như thế nào, và các quy tắc chính xác liên quan đến các phương thức ghi đè từ `java.lang.Object` là gì?
 
-## Liên Kết Tham Khảo (Reference Links)
+## Liên kết tham khảo
 
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/package-summary.html
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/FunctionalInterface.html

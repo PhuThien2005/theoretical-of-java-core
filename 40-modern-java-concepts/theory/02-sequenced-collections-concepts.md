@@ -1,69 +1,69 @@
-# Modern Java Concepts To Know - Part 2
+# Các Khái Niệm Java Hiện Đại Cần Biết - Phần 2
 
-## Learning Goal
+## Mục Tiêu Học Tập
 
-This file covers Sequenced Collections and String Templates. Study each concept as a practical Java rule.
+File này trình bày về Sequenced Collections và String Templates. Hãy học từng khái niệm như một quy tắc Java thực tế.
 
-## Outline Coverage
+## Nội Dung Đề Cương
 
-| Concept | What to know |
+| Khái niệm | Cần biết |
 | --- | --- |
-| `Sequenced Collections` | Interfaces introduced in Java 21 representing collections with a defined encounter order. |
-| `String templates were once preview; currently they should not be used as a stable feature` | Status and alternatives for the removed Java 21 String Templates preview feature. |
+| `Sequenced Collections` | Các interface được giới thiệu trong Java 21 đại diện cho các collection có thứ tự gặp gỡ (encounter order) xác định. |
+| `String templates từng là tính năng xem trước; hiện tại không nên dùng như một tính năng ổn định` | Trạng thái và các lựa chọn thay thế cho tính năng xem trước String Templates của Java 21 đã bị xóa. |
 
 ---
 
-## Detailed Notes
+## Ghi Chú Chi Tiết
 
 ### Sequenced Collections
 
-Sequenced Collections (introduced in Java 21) unify collections that have a defined first and last element, providing a standard API for retrieval, modification, and reverse-order views.
+Sequenced Collections (tập hợp có thứ tự - được giới thiệu trong Java 21) thống nhất các collection có phần tử đầu và cuối xác định, cung cấp API chuẩn để truy xuất, thay đổi và xem theo thứ tự ngược.
 
-- **Interface Hierarchy**:
-  - `SequencedCollection<E>` (extended by `List`, `Deque`, and `SequencedSet`)
-  - `SequencedSet<E>` (extended by `LinkedHashSet` and `SortedSet`)
-  - `SequencedMap<K, V>` (extended by `LinkedHashMap` and `SortedMap`)
+- **Phân Cấp Interface**:
+  - `SequencedCollection<E>` (được mở rộng bởi `List`, `Deque`, và `SequencedSet`)
+  - `SequencedSet<E>` (được mở rộng bởi `LinkedHashSet` và `SortedSet`)
+  - `SequencedMap<K, V>` (được mở rộng bởi `LinkedHashMap` và `SortedMap`)
 
-- **Runnable Example**:
+- **Ví dụ chạy được**:
   ```java
   SequencedCollection<String> coll = new ArrayList<>(List.of("one", "two", "three"));
 
-  // Uniform retrieval
+  // Truy xuất thống nhất
   String first = coll.getFirst(); // "one"
   String last = coll.getLast();   // "three"
 
-  // Uniform modification
+  // Thay đổi thống nhất
   coll.addFirst("zero");
   coll.addLast("four");
 
-  // Reverse view (runs in O(1) time without copying elements)
+  // Xem ngược (chạy trong thời gian O(1) không cần sao chép phần tử)
   SequencedCollection<String> reversed = coll.reversed();
   System.out.println(reversed.getFirst()); // "four"
   ```
 
-- **Common Mistake / Failure Mode**:
-  - **Empty Collections**: Calling `getFirst()` or `getLast()` on an empty collection throws a runtime `NoSuchElementException`.
-  - **Reversed Mutability**: The collection returned by `reversed()` is a view, not a copy. Modifying the reversed view directly mutates the backing original collection.
+- **Lỗi Thường Gặp / Trường Hợp Thất Bại**:
+  - **Collection Rỗng**: Gọi `getFirst()` hoặc `getLast()` trên collection rỗng ném ra `NoSuchElementException` tại runtime.
+  - **Tính Biến Đổi Của Reversed**: Collection trả về bởi `reversed()` là view (chế độ xem), không phải bản sao. Thay đổi view ngược trực tiếp cũng thay đổi collection gốc.
 
 ---
 
-### String templates were once preview; currently they should not be used as a stable feature
+### String templates từng là tính năng xem trước; hiện tại không nên dùng như một tính năng ổn định
 
-String Templates (e.g., `STR."Hello \{name}"`) were introduced as a preview feature in Java 21. However, due to feedback, they were **removed** in subsequent releases (Java 22+) and did not proceed to standardization.
+String Templates (ví dụ: `STR."Hello \{name}"`) được giới thiệu như tính năng xem trước trong Java 21. Tuy nhiên, do phản hồi, chúng đã bị **xóa** trong các phiên bản tiếp theo (Java 22+) và không tiến hành chuẩn hóa.
 
-- **Correct Practice**:
-  - Avoid using String Templates (`STR.`) in any standard or production code, as they will cause compilation failures in modern JDK versions.
-  - **Standard Alternatives**:
-    Use traditional string concatenation, `String.format()`, or the `String.formatted()` instance method:
+- **Thực Hành Đúng**:
+  - Tránh dùng String Templates (`STR.`) trong bất kỳ code chuẩn hoặc production nào, vì chúng sẽ gây lỗi biên dịch trong các phiên bản JDK hiện đại.
+  - **Các Lựa Chọn Thay Thế Chuẩn**:
+    Dùng nối chuỗi truyền thống, `String.format()`, hoặc phương thức instance `String.formatted()`:
     ```java
     String name = "Alice";
     
-    // Concatenation
+    // Nối chuỗi
     String message1 = "Hello " + name;
 
     // String.format
     String message2 = String.format("Hello %s", name);
 
-    // String.formatted (cleanest alternative)
+    // String.formatted (lựa chọn thay thế gọn nhất)
     String message3 = "Hello %s".formatted(name);
     ```

@@ -1,72 +1,72 @@
-# Generics trong Java – Lý thuyết Chi tiết (Generics in Java – Detailed Theory)
+# Kiểu Chung (Generics) trong Java – Lý Thuyết Chi Tiết
 
 ## 1. Lớp Generic (Generic Class)
-- **Định nghĩa:** Một lớp khai báo một hoặc nhiều tham số kiểu (type parameters), cho phép nó hoạt động trên các đối tượng thuộc nhiều kiểu khác nhau trong khi vẫn cung cấp tính an toàn kiểu tại thời điểm biên dịch.
-- **Quy tắc Java:** Danh sách tham số kiểu xuất hiện sau tên lớp, ví dụ: `class Box<T> { private T value; … }`. Tham số kiểu có thể được sử dụng ở bất kỳ nơi nào cho phép sử dụng kiểu thông thường bên trong thân lớp.
-- **Trường hợp sử dụng hợp lệ:** Các container chứa bất kỳ kiểu dữ liệu nào – `Box<T>`, `Pair<K,V>`.
-- **Trường hợp lỗi:** Sử dụng kiểu thô (raw type) (ví dụ: `Box` không có `<T>`) sẽ loại bỏ thông tin generic, dẫn đến các chuyển đổi không được kiểm tra và có thể xảy ra `ClassCastException` lúc chạy.
+- **Định nghĩa**: Một lớp khai báo một hoặc nhiều tham số kiểu dữ liệu, cho phép nó hoạt động trên các đối tượng thuộc nhiều kiểu khác nhau trong khi vẫn cung cấp tính an toàn kiểu dữ liệu tại thời điểm biên dịch (compile-time type safety).
+- **Quy tắc Java**: Danh sách tham số kiểu dữ liệu xuất hiện sau tên lớp, ví dụ `class Box<T> { private T value; … }`. Tham số kiểu dữ liệu có thể được sử dụng ở bất kỳ nơi nào cho phép kiểu dữ liệu thông thường bên trong thân lớp.
+- **Trường hợp sử dụng hợp lệ**: Các lớp chứa (container) giữ bất kỳ kiểu dữ liệu nào – `Box<T>`, `Pair<K,V>`.
+- **Trường hợp lỗi**: Sử dụng một kiểu thô (raw type - `Box` mà không có `<T>`) sẽ loại bỏ thông tin generic, dẫn đến các chuyển đổi không được kiểm tra (unchecked conversion) và có thể gây ra ngoại lệ ép kiểu sai `ClassCastException` tại thời điểm chạy.
 
 ## 2. Phương thức Generic (Generic Method)
-- **Định nghĩa:** Một phương thức giới thiệu các tham số kiểu của riêng nó, độc lập với các tham số kiểu của lớp.
-- **Quy tắc Java:** Các tham số kiểu được khai báo trước kiểu trả về, ví dụ: `public static <T> T identity(T obj) { return obj; }`.
-- **Trường hợp sử dụng hợp lệ:** Các phương thức tiện ích hoạt động với mọi kiểu dữ liệu như `Collections.max(Collection<? extends T>)` hoặc `Arrays.asList(T... a)`.
-- **Trường hợp lỗi:** Bỏ qua danh sách tham số kiểu khiến phương thức quay trở lại sử dụng kiểu thô, điều này vô hiệu hóa các kiểm tra lúc biên dịch.
+- **Định nghĩa**: Một phương thức giới thiệu các tham số kiểu dữ liệu của riêng nó, độc lập với các tham số kiểu dữ liệu của lớp.
+- **Quy tắc Java**: Các tham số kiểu dữ liệu được khai báo trước kiểu trả về, ví dụ `public static <T> T identity(T obj) { return obj; }`.
+- **Trường hợp sử dụng hợp lệ**: Các phương thức tiện ích như `Collections.max(Collection<? extends T>)` hoặc `Arrays.asList(T... a)` hoạt động trên mọi kiểu dữ liệu.
+- **Trường hợp lỗi**: Việc bỏ qua danh sách tham số kiểu dữ liệu khiến phương thức quay trở lại sử dụng các kiểu thô, làm vô hiệu hóa các bước kiểm tra tại thời điểm biên dịch.
 
 ## 3. Giao diện Generic (Generic Interface)
-- **Định nghĩa:** Một giao diện khai báo các tham số kiểu, cho phép các triển khai chỉ định các kiểu cụ thể.
-- **Quy tắc Java:** Tương tự như đối với lớp – `interface Comparable<T> { int compareTo(T o); }`.
-- **Trường hợp sử dụng hợp lệ:** Các hợp đồng hoạt động trên một kiểu dữ liệu cụ thể, ví dụ: `Comparator<T>`, `Iterable<T>`.
-- **Trường hợp lỗi:** Triển khai dạng thô (`Comparable`) làm mất các đảm bảo generic; trình biên dịch sẽ phát ra các cảnh báo unchecked.
+- **Định nghĩa**: Một giao diện khai báo các tham số kiểu dữ liệu, cho phép các lớp triển khai chỉ định kiểu dữ liệu cụ thể.
+- **Quy tắc Java**: Tương tự như lớp – `interface Comparable<T> { int compareTo(T o); }`.
+- **Trường hợp sử dụng hợp lệ**: Các hợp đồng hoạt động trên một kiểu dữ liệu cụ thể, ví dụ: `Comparator<T>`, `Iterable<T>`.
+- **Trường hợp lỗi**: Triển khai dạng thô (`Comparable`) làm mất đi các đảm bảo của generic; trình biên dịch sẽ đưa ra các cảnh báo chưa được kiểm tra (unchecked warning).
 
-## 4. Tham số kiểu (Type Parameter)
-- **Định nghĩa:** Một tên giữ chỗ (thường là một chữ cái in hoa đơn lẻ) đại diện cho một kiểu dữ liệu chưa xác định.
-- **Quy ước chung:** `T` – kiểu dữ liệu (type), `E` – phần tử (element), `K` – khóa (key), `V` – giá trị (value), `N` – số (number), `S,U,V` – các kiểu dữ liệu bổ sung.
-- **Phạm vi:** Chỉ hiển thị bên trong khai báo generic (lớp, phương thức, giao diện).
+## 4. Tham số kiểu dữ liệu (Type Parameter)
+- **Định nghĩa**: Một tên giữ chỗ (thường là một chữ cái in hoa duy nhất) đại diện cho một kiểu dữ liệu chưa xác định.
+- **Các quy ước phổ biến**: `T` – kiểu dữ liệu (type), `E` – phần tử (element), `K` – khóa (key), `V` – giá trị (value), `N` – số (number), `S, U, V` – nhiều kiểu dữ liệu.
+- **Phạm vi (Scope)**: Chỉ hiển thị bên trong khai báo generic (lớp, phương thức, giao diện).
 
-## 5. Nhiều Tham số kiểu (Multiple Type Parameters)
-- **Cú pháp:** Phân tách bằng dấu phẩy, ví dụ: `class MapEntry<K, V> { private K key; private V value; }`.
-- **Trường hợp sử dụng:** Các cấu trúc dữ liệu cần nhiều hơn một kiểu dữ liệu, chẳng hạn như `Map<K,V>`, `BiFunction<T,U,R>`.
+## 5. Nhiều Tham Số Kiểu Dữ Liệu (Multiple Type Parameters)
+- **Cú pháp**: Phân tách bằng dấu phẩy, ví dụ `class MapEntry<K, V> { private K key; private V value; }`.
+- **Trường hợp sử dụng**: Các cấu trúc dữ liệu cần nhiều hơn một kiểu dữ liệu, chẳng hạn như `Map<K,V>`, `BiFunction<T,U,R>`.
 
-## 6. Tham số kiểu có giới hạn (Bounded Type Parameter)
-- **Cú pháp:** `T extends Bound` trong đó `Bound` có thể là một lớp hoặc giao diện (hoặc một tổ hợp thông qua phép toán `&`).
-- **Ví dụ:** `class NumericBox<T extends Number> { private T value; }`.
-- **Quy tắc:** Giới hạn này hạn chế tập hợp các kiểu dữ liệu được phép; bên trong lớp, bạn có thể gọi các phương thức được định nghĩa bởi giới hạn đó.
-- **Trường hợp lỗi:** Cố gắng khởi tạo với một kiểu không liên quan (`new NumericBox<String>()`) sẽ dẫn đến lỗi biên dịch.
+## 6. Tham Số Kiểu Bị Giới Hạn (Bounded Type Parameter)
+- **Cú pháp**: `T extends Bound` trong đó `Bound` có thể là một lớp hoặc giao diện (hoặc kết hợp thông qua toán tử `&`).
+- **Ví dụ**: `class NumericBox<T extends Number> { private T value; }`.
+- **Quy tắc**: Ranh giới giới hạn tập hợp các kiểu dữ liệu được phép; bên trong lớp, bạn có thể gọi các phương thức được định nghĩa bởi ranh giới đó.
+- **Trường hợp lỗi**: Cố gắng khởi tạo với một kiểu dữ liệu không liên quan (`new NumericBox<String>()`) sẽ dẫn đến lỗi biên dịch.
 
-## 7. Ký tự đại diện (?) (Wildcards (?))
-### 7.1 Ký tự đại diện không giới hạn – ? (Unbounded Wildcard – ?)
-- **Ý nghĩa:** Kiểu chưa xác định. Hữu ích khi bạn chỉ cần đọc dữ liệu từ một tập hợp.
-- **Ví dụ:** `void printAll(List<?> list) { for (Object o : list) System.out.println(o); }`.
+## 7. Ký tự đại diện (`?`) (Wildcards)
+### 7.1 Ký tự đại diện không giới hạn – `?` (Unbounded Wildcard)
+- **Ý nghĩa**: Kiểu dữ liệu chưa xác định. Hữu ích khi bạn chỉ cần đọc từ một bộ sưu tập (collection).
+- **Ví dụ**: `void printAll(List<?> list) { for (Object o : list) System.out.println(o); }`.
 
-### 7.2 Ký tự đại diện giới hạn trên – <? extends T> (Upper‑Bounded Wildcard – <? extends T>)
-- **Ý nghĩa:** Một kiểu con chưa xác định của `T`.
-- **PECS (Producer Extends):** Sử dụng khi đối tượng generic đóng vai trò **sản xuất (produces)** ra các giá trị thuộc kiểu `T`.
-- **Ví dụ:** `List<? extends Number> numbers = List.of(1, 2.5); // chỉ đọc`
-- **Trường hợp lỗi:** Bạn không thể thêm các phần tử (ngoại trừ `null`) vì kiểu con chính xác chưa được xác định.
+### 7.2 Ký tự đại diện giới hạn trên – `<? extends T>` (Upper-Bounded Wildcard)
+- **Ý nghĩa**: Một phân lớp (subtype) chưa xác định kế thừa từ `T`.
+- **PECS (Producer Extends)**: Sử dụng khi đối tượng generic **sản xuất** (produce) các giá trị thuộc kiểu `T`.
+- **Ví dụ**: `List<? extends Number> numbers = List.of(1, 2.5); // chỉ đọc (read‑only)`
+- **Trường hợp lỗi**: Bạn không thể thêm các phần tử (ngoại trừ `null`) vì phân lớp chính xác chưa được xác định.
 
-### 7.3 Ký tự đại diện giới hạn dưới – <? super T> (Lower‑Bounded Wildcard – <? super T>)
-- **Ý nghĩa:** Một kiểu cha chưa xác định của `T`.
-- **PECS (Consumer Super):** Sử dụng khi đối tượng generic đóng vai trò **tiêu thụ (consumes)** các giá trị thuộc kiểu `T`.
-- **Ví dụ:** `List<? super Integer> ints = new ArrayList<Number>(); ints.add(10);`
-- **Trường hợp lỗi:** Khi đọc dữ liệu, bạn chỉ nhận được kiểu `Object` vì kiểu cha chính xác chưa được xác định.
+### 7.3 Ký tự đại diện giới hạn dưới – `<? super T>` (Lower-Bounded Wildcard)
+- **Ý nghĩa**: Một siêu lớp (supertype) chưa xác định của `T`.
+- **PECS (Consumer Super)**: Sử dụng khi đối tượng generic **tiêu thụ** (consume) các giá trị thuộc kiểu `T`.
+- **Ví dụ**: `List<? super Integer> ints = new ArrayList<Number>(); ints.add(10);`
+- **Trường hợp lỗi**: Khi đọc, bạn chỉ nhận được kiểu `Object` vì siêu lớp chính xác chưa được xác định.
 
 ## 8. PECS – Producer Extends, Consumer Super
-- **Nguyên tắc hướng dẫn:** 
-  - Nếu một generic **sản xuất** ra các giá trị &rarr; sử dụng `extends`.
-  - Nếu nó **tiêu thụ** các giá trị &rarr; sử dụng `super`.
-- **Các API điển hình:**
+- **Hướng dẫn**: 
+  - Nếu một generic **sản xuất** (produce) các giá trị &rarr; sử dụng `extends`.
+  - Nếu nó **tiêu thụ** (consume) các giá trị &rarr; sử dụng `super`.
+- **Các API điển hình**:
   - `Collections.copy(List<? super T> dest, List<? extends T> src)`
   - `Stream<T> map(Function<? super T, ? extends R>)`
 
-## 9. Generics với Collection (Generics with Collections)
-| Collection | Khai báo điển hình | Lý do |
+## 9. Generic với Collection
+| Bộ sưu tập | Khai báo điển hình | Lý do |
 |------------|--------------------|--------|
-| `List` | `List<E>` – `E` là kiểu phần tử. | Cho phép thêm/lấy phần tử an toàn kiểu. |
-| `Set` | `Set<E>` – không trùng lặp các phần tử kiểu `E`. | Cho phép thêm/lấy phần tử an toàn kiểu. |
-| `Map` | `Map<K,V>` – `K` khóa, `V` giá trị. | Cho phép kiểm tra ở thời điểm biên dịch đối với cả kiểu khóa và kiểu giá trị. |
-| `Queue` | `Queue<E>` – ngữ nghĩa hàng đợi FIFO. | Cho phép thêm/lấy phần tử an toàn kiểu. |
-| `Deque` | `Deque<E>` – hàng đợi hai đầu. | Cho phép thêm/lấy phần tử an toàn kiểu. |
-| `Optional` | `Optional<T>` – container chứa một giá trị có thể vắng mặt. | Cho phép thêm/lấy phần tử an toàn kiểu. |
+| `List` | `List<E>` – `E` là kiểu phần tử. | Cho phép thêm/lấy ra một cách an toàn kiểu dữ liệu. |
+| `Set` | `Set<E>` – không có phần tử trùng lặp thuộc kiểu `E`. | |
+| `Map` | `Map<K,V>` – `K` khóa, `V` giá trị. | Cho phép kiểm tra kiểu dữ liệu của cả khóa và giá trị tại thời điểm biên dịch. |
+| `Queue` | `Queue<E>` – ngữ nghĩa vào trước ra trước (FIFO). | |
+| `Deque` | `Deque<E>` – hàng đợi hai đầu (double-ended queue). | |
+| `Optional` | `Optional<T>` – lớp chứa cho giá trị có thể bị khuyết (vắng mặt). | |
 
 **Ví dụ:**
 ```java
@@ -80,28 +80,28 @@ void processAll(List<? extends Number> numbers) { ... }
 void addAll(List<? super Integer> ints) { ints.add(1); }
 ```
 
-## 10. Xóa bỏ kiểu (Type Erasure)
-- **Cơ chế hoạt động:** Tại thời điểm biên dịch, thông tin kiểu generic bị loại bỏ. Mã byte chỉ chứa **kiểu thô (raw type)** và các phép ép kiểu được chèn vào nơi cần thiết.
-- **Hệ quả:**
-  - Không kiểm tra kiểu generic lúc chạy.
-  - Bạn không thể nạp chồng các phương thức chỉ khác nhau bởi tham số kiểu generic.
-  - Không thể sử dụng `instanceof` với một kiểu generic (ví dụ `if (obj instanceof List<String>)` là bất hợp pháp).
+## 10. Xóa kiểu dữ liệu (Type Erasure)
+- **Điều gì xảy ra**: Tại thời điểm biên dịch, thông tin kiểu generic bị loại bỏ. Mã byte (bytecode) chỉ chứa **kiểu thô (raw type)** và các phép ép kiểu sẽ được chèn vào những nơi cần thiết.
+- **Hệ quả**:
+  - Không có kiểm tra kiểu generic tại thời điểm chạy.
+  - Bạn không thể nạp chồng (overload) các phương thức chỉ khác nhau bởi tham số kiểu generic.
+  - `instanceof` không thể được sử dụng với một kiểu generic (ví dụ `if (obj instanceof List<String>)` là không hợp lệ).
 
-## 11. Kiểu thô (Raw Types)
-- **Định nghĩa:** Sử dụng một lớp hoặc giao diện generic mà không chỉ định các đối số kiểu, ví dụ: `List raw = new ArrayList();`.
-- **Ảnh hưởng:** Vô hiệu hóa tính an toàn của generic, kích hoạt cảnh báo unchecked, và có thể gây ra lỗi `ClassCastException` lúc chạy.
-- **Khi nào cần tránh:** Gần như luôn luôn; chỉ sử dụng khi tương tác với mã nguồn cũ được viết trước thời kỳ generics (Java 5).
+## 11. Kiểu Thô (Raw Types)
+- **Định nghĩa**: Việc sử dụng một lớp hoặc giao diện generic mà không chỉ định các đối số kiểu dữ liệu, ví dụ `List raw = new ArrayList();`.
+- **Tác động**: Làm vô hiệu hóa tính an toàn của generic, kích hoạt các cảnh báo chưa được kiểm tra (unchecked warning) và có thể gây ra lỗi ép kiểu `ClassCastException` tại thời điểm chạy.
+- **Khi nào cần tránh**: Hầu như luôn luôn; chỉ sử dụng khi tương tác với mã nguồn cũ (legacy code) từ trước thời kỳ generic (trước Java 5).
 
-## 12. Các hạn chế của Generic (Generic Limitations)
-| Hạn chế | Giải thích | Giải pháp thay thế |
+## 12. Các Hạn Chế Của Generic
+| Hạn chế | Giải thích | Biện pháp thay thế (Work-around) |
 |------------|-------------|------------|
-| **Không có mảng generic** | `new T[10]` là không hợp lệ vì cơ chế xóa bỏ kiểu. | Sử dụng `List<T>` hoặc `Array.newInstance(clazz, size)` với một token `Class<T>`. |
-| **Không có kiểu nguyên thủy generic** | Các tham số kiểu bắt buộc phải là kiểu tham chiếu. | Sử dụng các lớp bao bọc (`Integer`, `Double`). |
-| **Không có trường tĩnh thuộc kiểu tham số kiểu** | Các thành viên tĩnh thuộc về lớp, không thuộc về một đối số kiểu cụ thể nào. | Sử dụng các trường phi tĩnh hoặc chụp lại kiểu dữ liệu bằng đối số `Class<T>`. |
-| **Không thể tạo lớp con generic của lớp phi generic với các đối số kiểu cụ thể** | Ví dụ: `class MyStringList extends ArrayList<String>` được phép, nhưng bạn không thể coi nó là `ArrayList<T>` sau đó. | |
-| **Giới hạn của suy luận kiểu** | Các generic lồng nhau phức tạp có thể yêu cầu đối số kiểu tường minh. | Cung cấp tham số kiểu tường minh hoặc sử dụng phương thức trợ giúp. |
+| **Không có mảng generic** | `new T[10]` không hợp lệ vì cơ chế xóa kiểu. | Sử dụng `List<T>` hoặc `Array.newInstance(clazz, size)` với một thẻ `Class<T>`. |
+| **Không có kiểu dữ liệu nguyên thủy generic** | Các tham số kiểu phải là các kiểu tham chiếu (reference type). | Sử dụng các lớp bao bọc (wrapper class) (`Integer`, `Double`). |
+| **Không có trường tĩnh thuộc kiểu tham số** | Các thành viên tĩnh thuộc về lớp chứ không thuộc về một đối số kiểu cụ thể nào. | Sử dụng các trường phi tĩnh hoặc thu nhận kiểu bằng một đối số `Class<T>`. |
+| **Không thể tạo các lớp con generic từ các lớp phi generic với các đối số kiểu cụ thể** | Ví dụ: `class MyStringList extends ArrayList<String>` được phép, nhưng sau đó bạn không thể coi nó là `ArrayList<T>`. | |
+| **Giới hạn suy luận kiểu** | Các generic lồng nhau phức tạp có thể yêu cầu chỉ định đối số kiểu rõ ràng. | Cung cấp các tham số kiểu rõ ràng hoặc sử dụng các phương thức bổ trợ. |
 
-## 13. Tổng hợp lại – Ví dụ (Putting It All Together – Example)
+## 13. Ví Dụ Tổng Hợp
 ```java
 public class Pair<K, V> {
     private final K key;
@@ -111,7 +111,7 @@ public class Pair<K, V> {
     public V getValue() { return value; }
 }
 
-// Using bounded type parameters and PECS
+// Sử dụng các tham số kiểu bị giới hạn và quy tắc PECS
 public static <T extends Number> double sum(List<? extends T> numbers) {
     double total = 0;
     for (T n : numbers) total += n.doubleValue(); // safe: T is a Number
@@ -122,9 +122,9 @@ public static void addIntegers(List<? super Integer> list) {
     list.add(1); // safe: list can accept Integer or any of its supertypes
 }
 ```
-**Các kịch bản lỗi:**
-- Truyền một `List<Object>` vào `sum` – lỗi biên dịch vì `Object` không kế thừa `Number`.
-- Cố gắng thêm phần tử vào `List<? extends Number>` – lỗi lúc biên dịch: không thể thêm bất kỳ phần tử nào ngoại trừ `null`.
+**Các trường hợp lỗi:**
+- Truyền một `List<Object>` vào phương thức `sum` – lỗi biên dịch vì `Object` không kế thừa từ `Number`.
+- Cố gắng thêm phần tử vào một `List<? extends Number>` – lỗi biên dịch: không thể thêm bất kỳ phần tử nào ngoại trừ `null`.
 
 ---
-**Điểm rút ra quan trọng:** Generics cung cấp cho Java cơ chế định kiểu tĩnh mạnh mẽ cho các tập hợp và các API trong khi vẫn bảo toàn khả năng tương thích ngược thông qua cơ chế xóa bỏ kiểu. Việc hiểu rõ các quy tắc, giới hạn, ký tự đại diện và vị trí thích hợp của chúng (PECS) giúp ngăn ngừa các lỗi thường gặp như ép kiểu không được kiểm tra và lỗi `ClassCastException` khi chạy.
+**Tóm lại**: Generic mang lại tính định kiểu tĩnh (static typing) mạnh mẽ cho các bộ sưu tập và các API trong Java, đồng thời bảo toàn tính tương thích ngược thông qua cơ chế xóa kiểu dữ liệu. Việc hiểu rõ các quy tắc, ranh giới, ký tự đại diện và vị trí thích hợp của chúng (PECS) giúp ngăn ngừa các lỗi phổ biến như ép kiểu không được kiểm tra và lỗi ép kiểu `ClassCastException` khi chạy chương trình.

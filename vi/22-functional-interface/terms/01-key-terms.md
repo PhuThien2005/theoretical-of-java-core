@@ -1,63 +1,63 @@
-# Các Thuật Ngữ Về Interface Chức Năng (Functional Interface Terms)
+# Thuật Ngữ Giao Diện Chức Năng (Functional Interface Terms)
 
-Sử dụng tài liệu này khi một từ ngữ trong phần lý thuyết có vẻ quá ngắn gọn. Mỗi thuật ngữ đều có định nghĩa, tầm quan trọng, điểm dễ nhầm lẫn và một ví dụ nhỏ đi kèm.
+Sử dụng file này khi một từ trong phần lý thuyết có cảm giác quá ngắn gọn. Mỗi thuật ngữ đều đi kèm với ý nghĩa, tầm quan trọng, điểm dễ gây nhầm lẫn và một ví dụ nhỏ.
 
 ## Predicate
 
-Predicate là một khái niệm cụ thể trong Interface chức năng; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và lỗi thường gặp của nó thay vì chỉ biết mỗi tên gọi.
+`Predicate` (Hàm điều kiện) là một khái niệm cụ thể trong Giao diện chức năng (Functional Interface); hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại (failure mode) của nó thay vì chỉ nhớ mỗi tên gọi.
 
-Tại sao nó quan trọng: Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống (pipeline) kiểu hàm. Một sự nhầm lẫn phổ biến là quên mất thao tác nào là lười biếng (lazy evaluation) và thao tác nào thực sự kích hoạt việc thực thi.
+Tại sao điều này quan trọng: Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống (pipeline) kiểu lập trình hàm. Một nhầm lẫn phổ biến là quên mất hoạt động nào là lười (lazy) và hoạt động nào thực sự kích hoạt việc thực thi.
 
-Điểm dễ nhầm lẫn: Người học thường ghi nhớ từ `Predicate` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
+Nhầm lẫn phổ biến: Người học thường ghi nhớ `Predicate` như một từ vựng thuần túy nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.
 
-Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `Predicate` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `Predicate` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## Function
 
-Function là một khái niệm cụ thể trong Interface chức năng; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và lỗi thường gặp của nó thay vì chỉ biết mỗi tên gọi.
+`Function` (Hàm chuyển đổi) là một khái niệm cụ thể trong Giao diện chức năng; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
 
-Tại sao nó quan trọng: Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống (pipeline) kiểu hàm. Một sự nhầm lẫn phổ biến là quên mất thao tác nào là lười biếng (lazy evaluation) và thao tác nào thực sự kích hoạt việc thực thi.
+Tại sao điều này quan trọng: Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống kiểu lập trình hàm. Một nhầm lẫn phổ biến là quên mất hoạt động nào là lười (lazy) và hoạt động nào thực sự kích hoạt việc thực thi.
 
-Điểm dễ nhầm lẫn: Người học thường ghi nhớ từ `Function` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
+Nhầm lẫn phổ biến: Người học thường ghi nhớ `Function` như một từ vựng nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.
 
-Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `Function` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `Function` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## Consumer
 
-Consumer là một khái niệm cụ thể trong Interface chức năng; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và lỗi thường gặp của nó thay vì chỉ biết mỗi tên gọi.
+`Consumer` (Hàm tiêu thụ) là một khái niệm cụ thể trong Giao diện chức năng; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
 
-Tại sao nó quan trọng: Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống (pipeline) kiểu hàm. Một sự nhầm lẫn phổ biến là quên mất thao tác nào là lười biếng (lazy evaluation) và thao tác nào thực sự kích hoạt việc thực thi.
+Tại sao điều này quan trọng: Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống kiểu lập trình hàm. Một nhầm lẫn phổ biến là quên mất hoạt động nào là lười (lazy) và hoạt động nào thực sự kích hoạt việc thực thi.
 
-Điểm dễ nhầm lẫn: Người học thường ghi nhớ từ `Consumer` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
+Nhầm lẫn phổ biến: Người học thường ghi nhớ `Consumer` như một từ vựng nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.
 
-Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `Consumer` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `Consumer` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## Supplier
 
-Supplier là một khái niệm cụ thể trong Interface chức năng; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và lỗi thường gặp của nó thay vì chỉ biết mỗi tên gọi.
+`Supplier` (Hàm cung cấp) là một khái niệm cụ thể trong Giao diện chức năng; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
 
-Tại sao nó quan trọng: Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống (pipeline) kiểu hàm. Một sự nhầm lẫn phổ biến là quên mất thao tác nào là lười biếng (lazy evaluation) và thao tác nào thực sự kích hoạt việc thực thi.
+Tại sao điều này quan trọng: Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống kiểu lập trình hàm. Một nhầm lẫn phổ biến là quên mất hoạt động nào là lười (lazy) và hoạt động nào thực sự kích hoạt việc thực thi.
 
-Điểm dễ nhầm lẫn: Người học thường ghi nhớ từ `Supplier` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
+Nhầm lẫn phổ biến: Người học thường ghi nhớ `Supplier` như một từ vựng nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.
 
-Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `Supplier` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `Supplier` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## Operator
 
-Operator là một khái niệm cụ thể trong Interface chức năng; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và lỗi thường gặp của nó thay vì chỉ biết mỗi tên gọi.
+`Operator` (Hàm toán tử) là một khái niệm cụ thể trong Giao diện chức năng; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
 
-Tại sao nó quan trọng: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và lỗi thường gặp. Hãy ôn tập nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+Tại sao điều này quan trọng: Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 
-Điểm dễ nhầm lẫn: Người học thường ghi nhớ từ `Operator` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
+Nhầm lẫn phổ biến: Người học thường ghi nhớ `Operator` như một từ vựng nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.
 
-Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `Operator` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `Operator` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## Bi-interface
 
-Bi-interface là một khái niệm cụ thể trong Interface chức năng; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và lỗi thường gặp của nó thay vì chỉ biết mỗi tên gọi.
+`Bi-interface` (Giao diện kép) là một khái niệm cụ thể trong Giao diện chức năng; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
 
-Tại sao nó quan trọng: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và lỗi thường gặp. Hãy ôn tập nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+Tại sao điều này quan trọng: Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 
-Điểm dễ nhầm lẫn: Người học thường ghi nhớ từ `Bi-interface` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
+Nhầm lẫn phổ biến: Người học thường ghi nhớ `Bi-interface` như một từ vựng nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.
 
-Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `Bi-interface` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `Bi-interface` thay đổi, cho phép, từ chối hay làm rõ điều gì?

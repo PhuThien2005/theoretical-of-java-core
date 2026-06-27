@@ -1,55 +1,55 @@
-# 42 - Các Nguyên Tắc Thiết Kế Cơ Bản Thường Đi Kèm Với Java Core (Basic Design Principles Often Paired With Java Core)
+# 42 - Các Nguyên Tắc Thiết Kế Cơ Bản Thường Đi Kèm Với Java Core (Basic Design Principles)
 
-Chủ đề này tuân theo đề cương chính trong [outline.md](../outline.md). Mục tiêu là hiểu sâu từng khái niệm để có thể giải thích, nhận biết trong mã nguồn và trả lời các câu hỏi phỏng vấn.
+Chủ đề này bám sát đề cương chính trong [outline.md](../outline.md). Mục tiêu là hiểu sâu từng khái niệm để có thể giải thích, nhận diện trong mã nguồn và trả lời các câu hỏi phỏng vấn.
 
 ## Thứ Tự Học Tập (Study Order)
 
-- [Khái niệm SOLID (Solid Concepts)](theory/01-solid-concepts.md)
-- [Thuật ngữ Then chốt (Key Terms)](terms/01-key-terms.md)
+- [Khái Niệm SOLID](theory/01-solid-concepts.md)
+- [Thuật Ngữ Chính](terms/01-key-terms.md)
 
-## Danh Sách Đề Cương (Outline Checklist)
+## Checklist Đề Cương (Outline Checklist)
 
 - SOLID
-- DRY (Don't Repeat Yourself)
-- KISS (Keep It Simple, Stupid)
-- YAGNI (You Aren't Gonna Need It)
-- Composition over inheritance (Ưu tiên lắp ghép hơn kế thừa)
-- Coupling (Độ liên kết)
-- Cohesion (Độ gắn kết)
-- Tiêm phụ thuộc cơ bản (Basic Dependency Injection)
-- Lập trình phòng ngừa (Defensive programming)
-- Viết mã sạch cơ bản (Basic Clean Code)
+- DRY
+- KISS
+- YAGNI
+- Ưu tiên thành phần hơn kế thừa (Composition over inheritance)
+- Tính liên kết/phụ thuộc (Coupling)
+- Tính gắn kết (Cohesion)
+- Tiêm phụ thuộc cơ bản (Dependency Injection)
+- Lập trình phòng thủ (Defensive programming)
+- Quy tắc viết code sạch cơ bản (Clean Code)
 
 ## Thẻ Anki (Anki Cards)
 
-- [Cơ bản (Basic)](anki/basic.tsv)
-- [Cơ bản Mở rộng (Basic Extra)](anki/basic-extra.tsv)
-- [Điền vào chỗ trống (Cloze)](anki/cloze.tsv)
-- [Câu hỏi Code (Code Question)](anki/code-question.tsv)
+- [Cơ Bản (Basic)](anki/basic.tsv)
+- [Cơ Bản Mở Rộng (Basic Extra)](anki/basic-extra.tsv)
+- [Điền Khuyết (Cloze)](anki/cloze.tsv)
+- [Câu Hỏi Code (Code Question)](anki/code-question.tsv)
 
-## Sơ Đồ Tổng Quan (Mermaid Overview)
+## Tổng Quan Sơ Đồ Mermaid (Mermaid Overview)
 
 ```mermaid
 flowchart TD
-    A["Các Nguyên Tắc Thiết Kế Cơ Bản Thường Đi Kèm Với Java Core (Basic Design Principles Often Paired With Java Core)"] --> B["Định nghĩa (Definitions)"]
-    A --> C["Quy tắc và cú pháp (Rules and syntax)"]
-    A --> D["Sai lầm thường gặp (Common mistakes)"]
-    A --> E["Ghi nhớ phỏng vấn (Interview recall)"]
+    A[Các Nguyên Tắc Thiết Kế Cơ Bản Thường Đi Kèm Với Java Core] --> B[Định nghĩa]
+    A --> C[Quy tắc và cú pháp]
+    A --> D[Các lỗi thường gặp]
+    A --> E[Ghi nhớ phỏng vấn]
 ```
 
 ## Tự Kiểm Tra (Self-Check)
 
 Trước khi chuyển sang chủ đề tiếp theo, hãy xác minh rằng bạn có thể trả lời các câu hỏi sau:
-1. Tại sao Nguyên lý Đơn Trách Nhiệm (Single Responsibility Principle - SRP) quy định rằng một lớp chỉ nên có "một lý do duy nhất để thay đổi", và tính liên kết cao (high cohesion) giúp giảm liên kết lớp (class coupling) như thế nào?
-   &rarr; Xem [Tại sao Nguyên lý Đơn Trách Nhiệm Khuyến Khích Tính Liên Kết Cao (Why Single Responsibility Promotes High Cohesion)](theory/01-solid-concepts.md#why-single-responsibility-promotes-high-cohesion)
-2. Tại sao Nguyên lý Đóng/Mở (Open/Closed Principle - OCP) chủ trương mở rộng hành vi mà không sửa đổi mã nguồn hiện tại, và tính đa hình (Polymorphism) cũng như giao diện (interfaces) hỗ trợ thiết kế này như thế nào?
-   &rarr; Xem [Tại sao Nguyên lý Đóng/Mở Bảo vệ Mã nguồn Hiện tại (Why Open/Closed Principle Protects Existing Code)](theory/01-solid-concepts.md#why-openclosed-principle-protects-existing-code)
-3. Tại sao Nguyên lý Thay thế Liskov (Liskov Substitution Principle - LSP) cấm các lớp con vi phạm các giao ước hành vi của lớp cha (và cách tham chiếu lớp cha đảm bảo tính thay thế được của kiểu con)?
-   &rarr; Xem [Tại sao Nguyên lý Thay thế Liskov Thực thi các Giao ước Hành vi (Why Liskov Substitution Principle Enforces Behavioral Contracts)](theory/01-solid-concepts.md#why-liskov-substitution-principle-enforces-behavioral-contracts)
-4. Tại sao Nguyên lý Phân tách Giao diện (Interface Segregation Principle - ISP) ưu tiên nhiều giao diện nhỏ, đặc thù cho từng máy khách thay vì một giao diện cồng kềnh duy nhất, và nó ngăn chặn sự liên kết giao diện béo (fat interface coupling) như thế nào?
-   &rarr; Xem [Tại sao Phân tách Giao diện Ngăn chặn Liên kết Giao diện Béo (Why Interface Segregation Prevents Fat Interface Coupling)](theory/01-solid-concepts.md#why-interface-segregation-prevents-fat-interface-coupling)
-5. Tại sao Nguyên lý Đảo ngược Phụ thuộc (Dependency Inversion Principle - DIP) tuyên bố rằng các mô-đun cấp cao nên phụ thuộc vào các trừu tượng (abstractions) thay vì các triển khai cụ thể (concrete implementations), và Tiêm Phụ thuộc (Dependency Injection) hiện thực hóa nguyên lý này như thế nào?
-   &rarr; Xem [Tại sao Đảo ngược Phụ thuộc Giúp Tách rời các Mô-đun (Why Dependency Inversion Decouples Modules)](theory/01-solid-concepts.md#why-dependency-inversion-decouples-modules)
+1. Tại sao Nguyên tắc Đơn trách nhiệm (Single Responsibility Principle - SRP) quy định rằng một lớp chỉ nên có "duy nhất một lý do để thay đổi", và tính gắn kết (cohesion) cao làm giảm tính liên kết (coupling) giữa các lớp thế nào?
+   &rarr; Xem [Tại Sao Đơn Trách Nhiệm Thúc Đẩy Tính Gắn Kết Cao](theory/01-solid-concepts.md#tai-sao-don-trach-nhiem-thuc-day-tinh-gan-ket-cao)
+2. Tại sao Nguyên tắc Đóng/Mở (Open/Closed Principle - OCP) ủng hộ việc mở rộng hành vi mà không cần sửa đổi mã nguồn gốc, và tính đa hình (polymorphism) cũng như các interface cho phép thiết kế này hoạt động thế nào?
+   &rarr; Xem [Tại Sao Nguyên Tắc Đóng/Mở Bảo Vệ Mã Nguồn Hiện Có](theory/01-solid-concepts.md#tai-sao-nguyen-tac-dongmo-bao-ve-ma-nguon-hien-co)
+3. Tại sao Nguyên tắc Thay thế Liskov (Liskov Substitution Principle - LSP) cấm các lớp con vi phạm các hợp đồng hành vi của các lớp cha (và làm thế nào một tham chiếu kiểu cha đảm bảo tính thay thế được của các kiểu con)?
+   &rarr; Xem [Tại Sao Nguyên Tắc Thay Thế Liskov Thực Thi Các Hợp Đồng Hành Vi](theory/01-solid-concepts.md#tai-sao-nguyen-tac-thay-the-liskov-thuc-thi-cac-hop-dong-hanh-vi)
+4. Tại sao Nguyên tắc Phân tách Interface (Interface Segregation Principle - ISP) ưu tiên nhiều interface nhỏ, phục vụ riêng cho từng client hơn là một interface duy nhất phình to, và nó ngăn chặn tính liên kết interface phình to (fat interface coupling) như thế nào?
+   &rarr; Xem [Tại Sao Phân Tách Interface Ngăn Chặn Liên Kết Interface Phình To](theory/01-solid-concepts.md#tai-sao-phan-tach-interface-ngan-chan-lien-ket-interface-phinh-to)
+5. Tại sao Nguyên tắc Đảo ngược Phụ thuộc (Dependency Inversion Principle - DIP) phát biểu rằng các module cấp cao nên phụ thuộc vào các trừu tượng (abstraction) thay vì các triển khai cụ thể (concrete implementation), và Tiêm phụ thuộc (Dependency Injection) hiện thực hóa nguyên tắc này như thế nào?
+   &rarr; Xem [Tại Sao Đảo Ngược Phụ Thuộc Giúp Tách Biệt Các Module](theory/01-solid-concepts.md#tai-sao-dao-nguoc-phu-thuoc-giup-tach-biet-cac-module)
 
 ## Liên Kết Tham Khảo (Reference Links)
 

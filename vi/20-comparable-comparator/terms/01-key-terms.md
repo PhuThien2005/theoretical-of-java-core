@@ -1,63 +1,63 @@
-# Thuật ngữ về Comparable và Comparator (Comparable and Comparator Terms)
+# Các Thuật Ngữ Của Comparable và Comparator
 
-Sử dụng file này khi một từ trong lý thuyết có cảm giác quá ngắn gọn. Mỗi thuật ngữ đều có ý nghĩa, tầm quan trọng, điểm dễ gây nhầm lẫn và một ví dụ nhỏ.
+Hãy sử dụng tài liệu này khi một từ trong phần lý thuyết có vẻ quá cô đọng. Mỗi thuật ngữ đều có phần ý nghĩa, tầm quan trọng, hiểu lầm phổ biến và một ví dụ nhỏ.
 
-## thứ tự tự nhiên (natural ordering)
+## Thứ tự tự nhiên (natural ordering)
 
-thứ tự tự nhiên (natural ordering) là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ lỗi (failure mode) của nó thay vì chỉ nhớ tên gọi.
+Thứ tự tự nhiên (natural ordering) là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
 
-Tầm quan trọng: Sử dụng khái niệm này để dự đoán quy tắc Java chính xác, dạng được cho phép và chế độ lỗi. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+Tầm quan trọng: Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
-Sự nhầm lẫn phổ biến: người học thường ghi nhớ từ `natural ordering` nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc gì.
+Hiểu lầm phổ biến: Người học thường nhớ cụm từ `natural ordering` dưới dạng một từ vựng nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
 
-Ví dụ nhỏ: Khi đọc code, hãy hỏi: `natural ordering` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `natural ordering` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-## thứ tự tùy chỉnh (custom ordering)
+## Thứ tự tùy chỉnh (custom ordering)
 
-thứ tự tùy chỉnh (custom ordering) là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ lỗi của nó thay vì chỉ nhớ tên gọi.
+Thứ tự tùy chỉnh (custom ordering) là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
 
-Tầm quan trọng: Sử dụng khái niệm này để dự đoán quy tắc Java chính xác, dạng được cho phép và chế độ lỗi. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+Tầm quan trọng: Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
-Sự nhầm lẫn phổ biến: người học thường ghi nhớ từ `custom ordering` nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc gì.
+Hiểu lầm phổ biến: Người học thường nhớ cụm từ `custom ordering` dưới dạng một từ vựng nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
 
-Ví dụ nhỏ: Khi đọc code, hãy hỏi: `custom ordering` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `custom ordering` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ## compareTo
 
-`compareTo` là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ lỗi của nó thay vì chỉ nhớ tên gọi.
+`compareTo` là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
 
-Tầm quan trọng: Sử dụng khái niệm này để dự đoán quy tắc Java chính xác, dạng được cho phép và chế độ lỗi. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+Tầm quan trọng: Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
-Sự nhầm lẫn phổ biến: người học thường ghi nhớ từ `compareTo` như một từ đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc gì.
+Hiểu lầm phổ biến: Người học thường nhớ từ `compareTo` dưới dạng một từ vựng nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
 
-Ví dụ nhỏ: Khi đọc code, hãy hỏi: `compareTo` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `compareTo` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-## chuỗi Comparator (Comparator chain)
+## Chuỗi bộ so sánh (Comparator chain)
 
-chuỗi Comparator (Comparator chain) định nghĩa thứ tự tùy chỉnh bên ngoài cho các đối tượng.
+Bộ so sánh (Comparator) định nghĩa thứ tự tùy chỉnh bên ngoài cho các đối tượng.
 
-Tầm quan trọng: Sử dụng khái niệm này để dự đoán quy tắc Java chính xác, dạng được cho phép và chế độ lỗi. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+Tầm quan trọng: Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
-Sự nhầm lẫn phổ biến: người học thường ghi nhớ từ `Comparator chain` nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc gì.
+Hiểu lầm phổ biến: Người học thường nhớ cụm từ `Comparator chain` dưới dạng một từ vựng nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
 
-Ví dụ nhỏ: Khi đọc code, hãy hỏi: `Comparator chain` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `Comparator chain` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-## đảo ngược thứ tự (reverse order)
+## Thứ tự đảo ngược (reverse order)
 
-đảo ngược thứ tự (reverse order) là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ lỗi của nó thay vì chỉ nhớ tên gọi.
+Thứ tự đảo ngược (reverse order) là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
 
-Tầm quan trọng: Sử dụng khái niệm này để dự đoán quy tắc Java chính xác, dạng được cho phép và chế độ lỗi. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+Tầm quan trọng: Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
-Sự nhầm lẫn phổ biến: người học thường ghi nhớ từ `reverse order` nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc gì.
+Hiểu lầm phổ biến: Người học thường nhớ cụm từ `reverse order` dưới dạng một từ vựng nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
 
-Ví dụ nhỏ: Khi đọc code, hãy hỏi: `reverse order` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `reverse order` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-## xử lý null (null handling)
+## Xử lý giá trị null (null handling)
 
-xử lý null (null handling) là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ lỗi của nó thay vì chỉ nhớ tên gọi.
+Xử lý giá trị null (null handling) là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
 
-Tầm quan trọng: Sử dụng khái niệm này để dự đoán quy tắc Java chính xác, dạng được cho phép và chế độ lỗi. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+Tầm quan trọng: Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
-Sự nhầm lẫn phổ biến: người học thường ghi nhớ từ `null handling` nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc gì.
+Hiểu lầm phổ biến: Người học thường nhớ cụm từ `null handling` dưới dạng một từ vựng nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.
 
-Ví dụ nhỏ: Khi đọc code, hãy hỏi: `null handling` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `null handling` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?

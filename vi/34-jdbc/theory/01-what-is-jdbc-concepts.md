@@ -1,146 +1,158 @@
-# JDBC - Phần 1
+# JDBC - Phần 1 (JDBC - Part 1)
 
-## Mục tiêu học tập (Learning Goal)
+## Mục tiêu học tập
 
-Tài liệu này bao gồm một phần trọng tâm của **JDBC**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, thay vì chỉ là từ vựng rời rạc.
+Tài liệu này tập trung vào một phần trọng tâm của **JDBC**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc Java thực tế, thay vì chỉ học các từ vựng rời rạc.
 
-## Phạm vi đề mục (Outline Coverage)
+## Đề cương chi tiết
 
-| Khái niệm (Concept) | Điều cần biết (What to know) |
+| Khái niệm | Điều cần biết |
 | --- | --- |
-| `What is JDBC?` | JDBC là API Java để kết nối tới các cơ sở dữ liệu quan hệ. |
-| `Driver` | Driver là một khái niệm cụ thể trong JDBC; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ lỗi của nó thay vì chỉ nhớ tên. |
-| `DriverManager` | DriverManager là một khái niệm cụ thể trong JDBC; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ lỗi của nó thay vì chỉ nhớ tên. |
-| `Connection` | Connection đại diện cho một kết nối cơ sở dữ liệu đang hoạt động được sử dụng để tạo các câu lệnh và quản lý giao dịch. |
-| `Statement` | Statement thực thi SQL tĩnh nhưng không nên được sử dụng với đầu vào không đáng tin cậy. |
-| `PreparedStatement` | PreparedStatement biên dịch trước SQL với các trình giữ chỗ và ràng buộc các giá trị một cách an sau. |
-| `CallableStatement` | CallableStatement thực hiện các cuộc gọi tới thủ tục lưu trữ (stored procedures) thông qua JDBC. |
-| `ResultSet` | ResultSet đại diện cho tập kết quả cơ sở dữ liệu, cung cấp quyền truy cập vào dữ liệu được truy xuất. |
-| `Transaction:` | Transaction là một nhóm các quy tắc liên quan trong JDBC nhằm nhóm các chi tiết liên quan lại với nhau. |
-| `commit` | commit giúp lưu các thay đổi của giao dịch hiện tại một cách vĩnh viễn. |
+| `What is JDBC?` | JDBC là gì? (What is JDBC?): JDBC là API Java để kết nối với các cơ sở dữ liệu quan hệ. |
+| `Driver` | Trình điều khiển (Driver): Trình điều khiển là một khái niệm cụ thể trong JDBC; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó. |
+| `DriverManager` | Trình quản lý trình điều khiển (DriverManager): DriverManager là một khái niệm cụ thể trong JDBC; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó. |
+| `Connection` | Kết nối (Connection): Kết nối đại diện cho một kết nối cơ sở dữ liệu đang hoạt động được sử dụng để tạo các câu lệnh và quản lý các giao dịch. |
+| `Statement` | Câu lệnh (Statement): Câu lệnh thực thi các câu lệnh SQL tĩnh nhưng không nên được sử dụng với đầu vào không đáng tin cậy. |
+| `PreparedStatement` | Câu lệnh chuẩn bị trước (PreparedStatement): PreparedStatement biên dịch trước SQL với các tham số giữ chỗ và liên kết các giá trị một cách an sau. |
+| `CallableStatement` | Câu lệnh gọi hàm (CallableStatement): CallableStatement gọi các thủ tục lưu trữ (stored procedure) thông qua JDBC. |
+| `ResultSet` | Tập kết quả (ResultSet): ResultSet đại diện cho một tập hợp kết quả cơ sở dữ liệu, cung cấp quyền truy cập vào dữ liệu đã truy xuất. |
+| `Transaction:` | Giao dịch (Transaction): Giao dịch là một nhóm các quy tắc liên quan trong JDBC tập hợp một số chi tiết liên quan. |
+| `commit` | commit: commit lưu các thay đổi của giao dịch hiện tại một cách vĩnh viễn. |
 
-## Ghi chú chi tiết (Detailed Notes)
+## Ghi chú chi tiết
 
-### JDBC là gì? (What is JDBC?)
+### What is JDBC?
 
-JDBC là API Java để kết nối tới các cơ sở dữ liệu quan hệ.
+JDBC là API Java để kết nối với các cơ sở dữ liệu quan hệ.
 
-Sử dụng nó để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi (failure mode). Xem xét nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 
-Các bước kiểm tra thực tế:
+Kiểm tra thực tế:
+
 - Định nghĩa `What is JDBC?` trong một câu.
-- Nhận diện `What is JDBC?` trong mã nguồn, các lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc đánh đổi liên quan đến `What is JDBC?`.
+- Nhận diện `What is JDBC?` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `What is JDBC?`.
 
 Ví dụ nhỏ hoặc mô hình tư duy:
-- `PreparedStatement` ràng buộc các giá trị một cách an toàn bằng các trình giữ chỗ.
 
-### Driver
+- `PreparedStatement` liên kết các giá trị một cách an toàn với các tham số giữ chỗ.
 
-Driver là một khái niệm cụ thể trong JDBC; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ lỗi của nó thay vì chỉ nhớ tên.
+### Trình điều khiển (Driver)
 
-Sử dụng nó để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi (failure mode). Xem xét nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+Trình điều khiển (Driver) là một khái niệm cụ thể trong JDBC; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
 
-Các bước kiểm tra thực tế:
+Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
+
+Kiểm tra thực tế:
+
 - Định nghĩa `Driver` trong một câu.
-- Nhận diện `Driver` trong mã nguồn, các lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc đánh đổi liên quan đến `Driver`.
+- Nhận diện `Driver` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `Driver`.
 
 Ví dụ nhỏ hoặc mô hình tư duy:
+
 - Khi đọc mã nguồn, hãy hỏi: `Driver` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-### DriverManager
+### Trình quản lý trình điều khiển (DriverManager)
 
-DriverManager là một khái niệm cụ thể trong JDBC; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ lỗi của nó thay vì chỉ nhớ tên.
+Trình quản lý trình điều khiển (DriverManager) là một khái niệm cụ thể trong JDBC; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
 
-Sử dụng nó để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi (failure mode). Xem xét nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 
-Các bước kiểm tra thực tế:
+Kiểm tra thực tế:
+
 - Định nghĩa `DriverManager` trong một câu.
-- Nhận diện `DriverManager` trong mã nguồn, các lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc đánh đổi liên quan đến `DriverManager`.
+- Nhận diện `DriverManager` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `DriverManager`.
 
 Ví dụ nhỏ hoặc mô hình tư duy:
+
 - Khi đọc mã nguồn, hãy hỏi: `DriverManager` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-### Connection
+### Kết nối (Connection)
 
-Connection đại diện cho một kết nối cơ sở dữ liệu đang hoạt động được sử dụng để tạo các câu lệnh và quản lý giao dịch.
+Kết nối (Connection) đại diện cho một kết nối cơ sở dữ liệu đang hoạt động được sử dụng để tạo các câu lệnh và quản lý các giao dịch.
 
-Sử dụng nó để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi (failure mode). Xem xét nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 
-Các bước kiểm tra thực tế:
+Kiểm tra thực tế:
+
 - Định nghĩa `Connection` trong một câu.
-- Nhận diện `Connection` trong mã nguồn, các lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc đánh đổi liên quan đến `Connection`.
+- Nhận diện `Connection` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `Connection`.
 
 Ví dụ nhỏ hoặc mô hình tư duy:
+
 - Khi đọc mã nguồn, hãy hỏi: `Connection` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-### Statement
+### Câu lệnh (Statement)
 
-Statement thực thi SQL tĩnh nhưng không nên được sử dụng với đầu vào không đáng tin cậy.
+Câu lệnh (Statement) thực thi các câu lệnh SQL tĩnh nhưng không nên được sử dụng với đầu vào không đáng tin cậy.
 
-Sử dụng nó để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi (failure mode). Xem xét nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 
-Các bước kiểm tra thực tế:
+Kiểm tra thực tế:
+
 - Định nghĩa `Statement` trong một câu.
-- Nhận diện `Statement` trong mã nguồn, các lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc đánh đổi liên quan đến `Statement`.
+- Nhận diện `Statement` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `Statement`.
 
 Ví dụ nhỏ hoặc mô hình tư duy:
+
 - Khi đọc mã nguồn, hãy hỏi: `Statement` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-### PreparedStatement
+### Câu lệnh chuẩn bị trước (PreparedStatement)
 
-PreparedStatement biên dịch trước SQL với các trình giữ chỗ và ràng buộc các giá trị một cách an toàn.
+Câu lệnh chuẩn bị trước (PreparedStatement) biên dịch trước SQL với các tham số giữ chỗ và liên kết các giá trị một cách an toàn.
 
-Sử dụng nó để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi (failure mode). Xem xét nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 
-Các bước kiểm tra thực tế:
+Kiểm tra thực tế:
+
 - Định nghĩa `PreparedStatement` trong một câu.
-- Nhận diện `PreparedStatement` trong mã nguồn, các lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc đánh đổi liên quan đến `PreparedStatement`.
+- Nhận diện `PreparedStatement` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `PreparedStatement`.
 
 Ví dụ nhỏ hoặc mô hình tư duy:
-- `PreparedStatement` ràng buộc các giá trị một cách an toàn bằng các trình giữ chỗ.
 
-## Tại sao PreparedStatement ngăn chặn lỗi chèn mã SQL và tận dụng việc lưu cache kế hoạch truy vấn (Why PreparedStatement Prevents SQL Injection and Leverages Query Plan Caching)
+- `PreparedStatement` liên kết các giá trị một cách an toàn với các tham số giữ chỗ.
 
-Khi cơ sở dữ liệu nhận được một câu lệnh SQL, nó sẽ phân tích cú pháp truy vấn, kiểm tra cú pháp, giải quyết các tên gọi, và biên dịch một kế hoạch thực thi (kế hoạch truy vấn - query plan). Quá trình phân tích cú pháp và lập kế hoạch này tiêu tốn nhiều CPU, vì vậy các cơ sở dữ liệu hiện đại thực hiện lưu cache các kế hoạch truy vấn đã biên dịch. Nếu một `Statement` thô được sử dụng với phép nối chuỗi (ví dụ: `SELECT * FROM users WHERE name = '` + name + `'`), cấu trúc truy vấn sẽ thay đổi theo từng giá trị đầu vào của tên, làm cho bộ nhớ đệm kế hoạch truy vấn trở nên vô dụng và buộc cơ sở dữ liệu phải biên dịch lại truy vấn mỗi lần thực thi. Nguy hiểm hơn, việc nối chuỗi cho phép đầu vào độc hại chứa các lệnh SQL (ví dụ: `' OR '1'='1`) thao túng chính cây cú pháp của lệnh SQL, dẫn đến lỗi chèn mã SQL (SQL injection). Ngược lại, `PreparedStatement` biên dịch trước khuôn mẫu truy vấn với các trình giữ chỗ (`?`) ngay từ đầu. Các tham số đầu vào được gửi riêng biệt với câu lệnh SQL trong quá trình thực thi. Bộ máy cơ sở dữ liệu xử lý các giá trị tham số nghiêm ngặt dưới dạng giá trị hằng văn bản (literal values) chứ không phải là các lệnh SQL có thể thực thi, giúp vô hiệu hóa mọi nỗ lực chèn mã độc đồng thời đảm bảo cấu trúc truy vấn đã biên dịch vẫn giống hệt nhau, cho phép các bộ máy cơ sở dữ liệu tái sử dụng hiệu quả các kế hoạch truy vấn trong cache.
+## Tại sao PreparedStatement ngăn chặn SQL Injection và tận dụng bộ nhớ đệm kế hoạch truy vấn (Query Plan Caching)
 
-### Mô hình tư duy: Hộp thư truy vấn so với Kịch bản thực thi (Mental Model: The Query Mail slot vs. Executable Shell script)
-Hãy tưởng tượng bạn gửi một mệnh lệnh đến phòng thư tín.
-- **Statement (Không an toàn)**: Bạn gửi một bức thư hoàn chỉnh có nội dung "Chạy kịch bản: xóa tệp X". Người thông dịch đọc toàn bộ trang và thực thi bất cứ điều gì được viết. Nếu ai đó thêm vào "và xóa tệp Y", phòng thư tín vẫn thực hiện vì họ phân tích toàn bộ văn bản dưới dạng các chỉ dẫn.
-- **PreparedStatement (An toàn)**: Bạn gửi trước một khuôn mẫu: "Chạy kịch bản: xóa tệp [TÊN_TỆP]". Phòng thư tín phân tích và tối ưu hóa khuôn mẫu này một lần duy nhất. Sau đó, bạn chỉ gửi tham số "X" qua một hộp thư chuyên dụng. Ngay cả khi bạn gửi tham số là "X; xóa tệp Y", phòng thư tín vẫn coi toàn bộ đầu vào nghiêm ngặt là tên tệp, cố gắng xóa một tệp duy nhất có tên chính xác là `X; xóa tệp Y`, ngăn chặn việc thực thi bất kỳ lệnh mới nào.
+Khi một cơ sở dữ liệu nhận được một câu lệnh SQL, nó sẽ phân tích cú pháp truy vấn, kiểm tra cú pháp, phân giải tên và biên dịch một kế hoạch thực thi (kế hoạch truy vấn - query plan). Quá trình phân tích và lên kế hoạch này rất tốn tài nguyên CPU, do đó các cơ sở dữ liệu hiện đại lưu trữ các kế hoạch truy vấn đã biên dịch vào bộ đệm cache. Nếu một `Statement` thô được sử dụng với phép cộng chuỗi (ví dụ: `SELECT * FROM users WHERE name = '` + name + `'`), cấu trúc truy vấn sẽ thay đổi với mỗi tên đầu vào khác nhau, khiến bộ nhớ đệm kế hoạch truy vấn trở nên vô dụng và buộc cơ sở dữ liệu phải biên dịch lại truy vấn mỗi lần thực thi. Nguy hiểm hơn, phép cộng chuỗi cho phép đầu vào độc hại chứa các lệnh SQL (ví dụ: `' OR '1'='1`) thao túng cây cú pháp của chính câu lệnh SQL, dẫn đến chèn mã độc SQL (SQL injection). Nguy kịch hơn, `PreparedStatement` biên dịch trước mẫu truy vấn với các tham số giữ chỗ (`?`) ngay khi khởi tạo. Các tham số đầu vào được gửi riêng biệt với câu lệnh SQL trong quá trình thực thi. Công cụ cơ sở dữ liệu đối xử với các giá trị tham số hoàn toàn như các giá trị hằng (literal value) thay vì các lệnh SQL có thể thực thi, vô hiệu hóa mọi nỗ lực chèn mã độc trong khi đảm bảo cấu trúc truy vấn đã biên dịch vẫn giống hệt nhau, cho phép các công cụ cơ sở dữ liệu tái sử dụng các kế hoạch truy vấn đã lưu đệm một cách hiệu quả.
+
+### Mô hình tư duy: Khe nhận thư truy vấn so với tập lệnh Shell có thể thực thi
+Hãy tưởng tượng bạn gửi một yêu cầu tới phòng xử lý thư:
+- **Statement (Không an toàn)**: Bạn gửi một bức thư hoàn chỉnh có nội dung "Chạy script: xóa tệp X". Trình thông dịch đọc toàn bộ trang giấy và thực thi bất cứ điều gì được viết trên đó. Nếu ai đó viết thêm "và xóa tệp Y", phòng xử lý thư vẫn thực hiện vì họ phân tích toàn bộ văn bản dưới dạng các chỉ thị.
+- **PreparedStatement (An toàn)**: Bạn gửi trước một mẫu (template): "Chạy script: xóa tệp [FILE_NAME]". Phòng xử lý thư phân tích và tối ưu hóa mẫu này một lần duy nhất. Sau đó, bạn chỉ gửi tham số "X" qua một khe chuyên dụng. Ngay cả khi bạn gửi tham số "X; xóa tệp Y", phòng xử lý thư vẫn đối xử với toàn bộ đầu vào đó hoàn toàn như một tên tệp, cố gắng xóa một tệp duy nhất có tên chính xác là `X; xóa tệp Y`, ngăn chặn hoàn toàn việc thực thi bất kỳ lệnh mới nào.
 
 ```mermaid
 sequenceDiagram
-    participant JavaApp as Ứng dụng Java
-    participant DB as Bộ máy Cơ sở dữ liệu (Database Engine)
+    participant JavaApp as Java Application
+    participant DB as Database Engine
     
     Note over JavaApp,DB: Sử dụng Statement (Không an toàn)
     JavaApp->>DB: Gửi truy vấn thô: "SELECT * FROM users WHERE name = 'Alice' OR '1'='1'"
-    DB->>DB: Phân tích cú pháp toàn bộ chuỗi thành các chỉ thị SQL (cú pháp bị thay đổi!)
+    DB->>DB: Phân tích toàn bộ chuỗi dưới dạng chỉ thị SQL (cú pháp bị thay đổi!)
     DB->>DB: Biên dịch kế hoạch truy vấn mới (tốn CPU)
-    DB->>JavaApp: Trả về tất cả người dùng (Tấn công SQL Injection thành công)
+    DB->>JavaApp: Trả về tất cả người dùng (SQL Injection thành công)
 
     Note over JavaApp,DB: Sử dụng PreparedStatement (An toàn)
     JavaApp->>DB: Chuẩn bị SQL: "SELECT * FROM users WHERE name = ?"
-    DB->>DB: Phân tích cấu trúc khuôn mẫu & lưu cache kế hoạch truy vấn đã biên dịch
-    JavaApp->>DB: Ràng buộc tham số: "Alice' OR '1'='1"
-    DB->>DB: Khớp tham số nghiêm ngặt như một khóa tìm kiếm hằng văn bản
-    DB->>DB: Tái sử dụng kế hoạch truy vấn trong cache tức thì (Không tốn chi phí biên dịch)
+    DB->>DB: Phân tích cấu trúc mẫu & lưu kế hoạch truy vấn đã biên dịch vào cache
+    JavaApp->>DB: Liên kết tham số: "Alice' OR '1'='1"
+    DB->>DB: Khớp tham số hoàn toàn như một từ khóa tìm kiếm hằng
+    DB->>DB: Tái sử dụng kế hoạch truy vấn đã cache ngay lập tức (không tốn chi phí biên dịch)
     DB->>JavaApp: Trả về 0 kết quả (An toàn & Nhanh chóng)
 ```
 
-### Ví dụ mã nguồn (Code Example)
+### Ví dụ mã nguồn
 ```java
 String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
 try (Connection conn = dataSource.getConnection();
      PreparedStatement pstmt = conn.prepareStatement(sql)) {
      
-    // Đầu vào độc hại cố gắng vượt qua xác thực
+    // Malicious input trying to bypass authentication
     String inputUser = "admin";
     String inputPass = "' OR '1'='1";
     
@@ -151,134 +163,142 @@ try (Connection conn = dataSource.getConnection();
         if (rs.next()) {
             System.out.println("Login success");
         } else {
-            System.out.println("Login failed"); // Đầu ra mong đợi: Login failed
+            System.out.println("Login failed"); // Expected output: Login failed
         }
     }
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-1. **Đầu vào tham số độc hại** (`' OR '1'='1`) -> 
-2. **Biên dịch trước khuôn mẫu truy vấn** (`username = ?`) -> 
-3. **Phân tách cú pháp truy vấn và dữ liệu tham số** -> 
-4. **Tham số được xử lý nghiêm ngặt dưới dạng giá trị hằng văn bản** -> 
-5. **Cây cú pháp cơ sở dữ liệu không bị thay đổi** -> 
-6. **Không thể chèn mã lệnh VÀ Trúng cache kế hoạch truy vấn** -> 
-7. **Thực thi an toàn và được tối ưu hóa**.
+### Chuỗi nguyên nhân - kết quả
+1. **Đầu vào tham số độc hại** (`' OR '1'='1`) ➔ 
+2. **Biên dịch trước mẫu truy vấn** (`username = ?`) ➔ 
+3. **Tách biệt cú pháp truy vấn và dữ liệu tham số** ➔ 
+4. **Tham số được đối xử hoàn toàn như một giá trị hằng** ➔ 
+5. **Cây cú pháp cơ sở dữ liệu không bị thay đổi** ➔ 
+6. **Không thể chèn mã độc VÀ Đạt tỉ lệ trúng cache kế hoạch truy vấn** ➔ 
+7. **Thực thi an toàn và tối ưu**.
 
-### CallableStatement
+### Câu lệnh gọi hàm (CallableStatement)
 
-CallableStatement thực hiện các cuộc gọi tới thủ tục lưu trữ (stored procedures) thông qua JDBC.
+Câu lệnh gọi hàm (CallableStatement) gọi các thủ tục lưu trữ (stored procedure) thông qua JDBC.
 
-Sử dụng nó để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi (failure mode). Xem xét nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 
-Các bước kiểm tra thực tế:
+Kiểm tra thực tế:
+
 - Định nghĩa `CallableStatement` trong một câu.
-- Nhận diện `CallableStatement` trong mã nguồn, các lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc đánh đổi liên quan đến `CallableStatement`.
+- Nhận diện `CallableStatement` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `CallableStatement`.
 
 Ví dụ nhỏ hoặc mô hình tư duy:
+
 - Khi đọc mã nguồn, hãy hỏi: `CallableStatement` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-### ResultSet
+### Tập kết quả (ResultSet)
 
-ResultSet đại diện cho tập kết quả cơ sở dữ liệu, cung cấp quyền truy cập tuần tự vào các dòng dữ liệu được truy xuất.
+Tập kết quả (ResultSet) đại diện cho một tập hợp kết quả cơ sở dữ liệu, cung cấp quyền truy cập tuần tự vào các hàng dữ liệu đã được lấy ra.
 
-Nó quan trọng vì nó duy trì một con trỏ (cursor) trỏ đến dòng dữ liệu hiện tại, con trỏ này ban đầu được đặt trước dòng đầu tiên. Bạn bắt buộc phải gọi `next()` để di chuyển con trỏ tiến lên và lấy dữ liệu.
+Nó quan trọng vì nó duy trì một con trỏ (cursor) trỏ đến hàng dữ liệu hiện tại, con trỏ này ban đầu được đặt trước hàng đầu tiên. Bạn phải gọi `next()` để di chuyển con trỏ tiến lên và lấy dữ liệu.
 
-Các bước kiểm tra thực tế:
+Kiểm tra thực tế:
+
 - Định nghĩa `ResultSet` trong một câu.
-- Nhận diện `ResultSet` trong mã nguồn, các lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc đánh đổi liên quan đến `ResultSet`.
+- Nhận diện `ResultSet` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `ResultSet`.
 
 Ví dụ nhỏ hoặc mô hình tư duy:
+
 - Khi đọc mã nguồn, hãy hỏi: `ResultSet` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-### Transaction:
+### Giao dịch (Transaction)
 
-Transaction là một nhóm các quy tắc liên quan trong JDBC nhằm nhóm các chi tiết liên quan lại với nhau.
+Giao dịch (Transaction) là một nhóm các quy tắc liên quan trong JDBC tập hợp một số chi tiết liên quan.
 
-Sử dụng nó để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi (failure mode). Xem xét nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 
-Các bước kiểm tra thực tế:
+Kiểm tra thực tế:
+
 - Định nghĩa `Transaction:` trong một câu.
-- Nhận diện `Transaction:` trong mã nguồn, các lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc đánh đổi liên quan đến `Transaction:`.
+- Nhận diện `Transaction:` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `Transaction:`.
 
 Ví dụ nhỏ hoặc mô hình tư duy:
+
 - Khi đọc mã nguồn, hãy hỏi: `Transaction:` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ### commit
 
-commit giúp lưu các thay đổi của giao dịch hiện tại một cách vĩnh viễn.
+commit lưu các thay đổi của giao dịch hiện tại một cách vĩnh viễn.
 
-Sử dụng nó để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi (failure mode). Xem xét nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
+Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 
-Các bước kiểm tra thực tế:
+Kiểm tra thực tế:
+
 - Định nghĩa `commit` trong một câu.
-- Nhận diện `commit` trong mã nguồn, các lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc đánh đổi liên quan đến `commit`.
+- Nhận diện `commit` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `commit`.
 
 Ví dụ nhỏ hoặc mô hình tư duy:
+
 - Khi đọc mã nguồn, hãy hỏi: `commit` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
-## Tại sao các tài nguyên JDBC phải được đóng theo thứ tự ngược lại một cách nghiêm ngặt (Why JDBC Resources Must Be Closed in Strict Reverse Order)
+## Tại sao các tài nguyên JDBC phải được đóng theo thứ tự ngược lại một cách nghiêm ngặt
 
-Các hoạt động JDBC dựa trên ba tài nguyên chính: `Connection` (đại diện cho phiên làm việc cơ sở dữ liệu vật lý), `Statement` hoặc `PreparedStatement` (đại diện cho ngữ cảnh thực thi truy vấn SQL đã biên dịch), và `ResultSet` (đại diện cho con trỏ đọc các dòng của bảng cơ sở dữ liệu). Các tài nguyên này được cấu trúc theo dạng phân cấp: một `Connection` tạo ra một `Statement`, và một `Statement` tạo ra một `ResultSet`. Trong cơ sở dữ liệu, mỗi tài nguyên này chiếm giữ các khối bộ nhớ tương ứng phía máy chủ, các bảng tạm thời, và các con trỏ. Nếu chúng không được đóng đúng cách, các tài nguyên phía máy chủ này vẫn mở, gây ra lỗi rò rỉ kết nối hoặc cạn kiệt con trỏ (chẳng hạn như lỗi của Oracle: `ORA-01000: maximum open cursors exceeded`). Chúng phải được đóng theo thứ tự ngược lại một cách nghiêm ngặt so với khi tạo ra (`ResultSet` -> `Statement` -> `Connection`). Việc đóng một tài nguyên cha (ví dụ: `Connection`) *trước* tài nguyên con của nó (ví dụ: `ResultSet`) sẽ để lại các con trỏ mồ côi (orphaned cursors) cho bộ máy cơ sở dữ liệu hoặc kích hoạt các trạng thái socket lơ lửng, có thể khiến các truy vấn tiếp theo bị treo hoặc ném ra các ngoại lệ `SQLException` không mong muốn. Việc sử dụng câu lệnh try-with-resources của Java 7 đảm bảo việc đóng tài nguyên diễn ra đúng cách, tự động và an toàn. Try-with-resources tự động biên dịch thành một khối `finally` lồng nhau để gọi `.close()` trên tất cả các biến tài nguyên được khai báo bên trong dấu ngoặc đơn theo đúng thứ tự ngược lại so với khai báo của chúng, ngay cả khi có ngoại lệ xảy ra trong quá trình thực thi truy vấn.
+Các thao tác JDBC phụ thuộc vào ba tài nguyên chính: `Connection` (đại diện cho phiên kết nối cơ sở dữ liệu vật lý), `Statement` hoặc `PreparedStatement` (đại diện cho ngữ cảnh thực thi truy vấn SQL đã biên dịch), và `ResultSet` (đại diện cho con trỏ đọc các hàng trong bảng cơ sở dữ liệu). Các tài nguyên này được cấu trúc theo phân cấp: một `Connection` tạo ra một `Statement`, và một `Statement` tạo ra một `ResultSet`. Trong cơ sở dữ liệu, mỗi tài nguyên này nắm giữ các khối bộ nhớ phía máy chủ (server-side memory block), bảng tạm thời, và các con trỏ cursor tương ứng. Nếu chúng không được đóng đúng cách, các tài nguyên phía máy chủ này vẫn mở, gây ra rò rỉ kết nối (connection leak) hoặc lỗi cạn kiệt con trỏ (chẳng hạn như lỗi của Oracle `ORA-01000: maximum open cursors exceeded`). Chúng phải được đóng theo thứ tự ngược lại một cách nghiêm ngặt so với thứ tự tạo ra (`ResultSet` -> `Statement` -> `Connection`). Việc đóng một tài nguyên cha (ví dụ: `Connection`) *trước* tài nguyên con của nó (ví dụ: `ResultSet`) sẽ khiến công cụ cơ sở dữ liệu còn lại các con trỏ cursor mồ côi hoặc kích hoạt trạng thái ổ cắm socket lơ lửng, có thể khiến các truy vấn tiếp theo bị treo hoặc ném ra các `SQLException` không mong muốn. Việc sử dụng câu lệnh try-with-resources của Java 7 đảm bảo việc đóng tài nguyên diễn ra đúng cách, tự động và an toàn. Try-with-resources tự động dịch thành một khối `finally` lồng nhau để gọi `.close()` trên tất cả các biến tài nguyên được khai báo bên trong dấu ngoặc đơn theo đúng thứ tự ngược lại của khai báo, ngay cả khi có ngoại lệ xảy ra trong quá trình thực thi truy vấn.
 
-### Mô hình tư duy: Hộp búp bê lồng nhau (Mental Model: The Nesting Doll Box)
-Hãy tưởng tượng ba chiếc hộp lồng vào nhau: hộp lớn (`Connection`), hộp trung bình (`Statement`) bên trong nó, và hộp nhỏ (`ResultSet`) bên trong cùng. Nếu bạn cố đóng hộp lớn lại trong khi hộp nhỏ vẫn đang mở và thò ra ngoài, bạn sẽ làm hỏng bản lề (treo tài nguyên). Để đóng bộ hộp một cách sạch sẽ mà không làm hỏng, bạn phải đóng hộp nhỏ trước, sau đó là hộp trung bình, và cuối cùng là hộp lớn.
+### Mô hình tư duy: Hộp búp bê Nga Matryoshka lồng nhau
+Hãy tưởng tượng ba chiếc hộp lồng vào nhau: một chiếc hộp lớn (`Connection`), một chiếc hộp trung bình (`Statement`) bên trong nó, và một chiếc hộp nhỏ (`ResultSet`) bên trong chiếc hộp đó. Nếu bạn cố gắng đóng chiếc hộp lớn lại trong khi chiếc hộp nhỏ vẫn đang mở và nhô ra ngoài, bạn sẽ làm hỏng bản lề (tài nguyên bị treo). Để đóng cả bộ một cách sạch sẽ mà không làm hỏng hóc, bạn phải đóng chiếc hộp nhỏ trước, sau đó là chiếc hộp trung bình, và cuối cùng là chiếc hộp lớn.
 
 ```mermaid
 graph TD
-    subgraph Thứ tự Khởi tạo (Creation Order)
+    subgraph Creation Order [Thứ tự tạo]
         A[1. Connection] --> B[2. Statement / PreparedStatement]
         B --> C[3. ResultSet]
     end
-    subgraph Thứ tự Đóng (Ngược lại nghiêm ngặt - Strict Reverse)
+    subgraph Close Order (Strict Reverse) [Thứ tự đóng (Ngược lại nghiêm ngặt)]
         C1[1. ResultSet.close] --> B1[2. Statement.close]
         B1 --> A1[3. Connection.close]
     end
-    A -.->|Là cha của| B
-    B -.->|Là cha của| C
-    C1 -.->|Là con của| B1
-    B1 -.->|Là con của| A1
+    A -.->|Cha của| B
+    B -.->|Cha của| C
+    C1 -.->|Con của| B1
+    B1 -.->|Con của| A1
 ```
 
-### Ví dụ mã nguồn (Code Example)
+### Ví dụ mã nguồn
 ```java
-// Đóng đúng cách sử dụng try-with-resources (Tự động đóng theo thứ tự ngược lại)
+// Correct closure using try-with-resources (Automatic reverse-order closing)
 String sql = "SELECT id, email FROM users WHERE role = ?";
-try (Connection conn = dataSource.getConnection();                       // Khởi tạo đầu tiên, đóng sau cùng
-     PreparedStatement stmt = conn.prepareStatement(sql)) {               // Khởi tạo thứ hai, đóng thứ hai
+try (Connection conn = dataSource.getConnection();                       // 1st created, last closed
+     PreparedStatement stmt = conn.prepareStatement(sql)) {               // 2nd created, 2nd closed
      
     stmt.setString(1, "ADMIN");
     
-    try (ResultSet rs = stmt.executeQuery()) {                            // Khởi tạo thứ ba, đóng đầu tiên
+    try (ResultSet rs = stmt.executeQuery()) {                            // 3rd created, 1st closed
         while (rs.next()) {
             System.out.println("Admin ID: " + rs.getInt("id"));
         }
-    } // rs.close() được gọi tự động tại đây
-} // stmt.close() được gọi tự động, sau đó conn.close() được gọi tự động
+    } // rs.close() is called automatically here
+} // stmt.close() is called automatically, then conn.close() is called automatically
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-1. **Thoát khỏi khối try-with-resources** -> 
-2. **Thực thi các khối `finally` lồng nhau do trình biên dịch tạo ra** -> 
-3. **`ResultSet.close()` được gọi đầu tiên, giải phóng con trỏ cơ sở dữ liệu** -> 
+### Chuỗi nguyên nhân - kết quả
+1. **Khối try-with-resources kết thúc** -> 
+2. **Các khối finally lồng nhau do trình biên dịch tạo ra được thực thi** -> 
+3. **`ResultSet.close()` được gọi trước tiên, giải phóng con trỏ cơ sở dữ liệu** -> 
 4. **`Statement.close()` được gọi thứ hai, giải phóng phiên biên dịch cơ sở dữ liệu** -> 
-5. **`Connection.close()` được gọi sau cùng, trả lại kết nối vật lý về nhóm kết nối (pool)** -> 
-6. **Không xảy ra hiện tượng rò rỉ tài nguyên trên cả JVM máy khách lẫn máy chủ cơ sở dữ liệu**.
+5. **`Connection.close()` được gọi cuối cùng, trả kết nối vật lý về lại bể chứa (pool)** -> 
+6. **Không xảy ra rò rỉ tài nguyên trên cả client JVM lẫn máy chủ cơ sở dữ liệu**.
 
-## Các câu hỏi ôn tập phổ biến (Common Review Prompts)
+## Câu hỏi ôn tập thường gặp
 
-- Khái niệm nào ở đây là quy tắc trong thời gian biên dịch (compile-time)?
-- Khái niệm nào ở đây ảnh hưởng đến hành vi thời gian chạy (runtime)?
+- Khái niệm nào ở đây là quy tắc thời điểm biên dịch?
+- Khái niệm nào ở đây ảnh hưởng đến hành vi thời điểm chạy?
 - Khái niệm nào ở đây có khả năng là bẫy phỏng vấn?
 
-## Ví dụ mã nguồn (Code Examples)
+## Các ví dụ mã nguồn
 
-### Truy vấn bằng PreparedStatement và ResultSet (Querying with PreparedStatement and ResultSet)
+### Truy vấn với PreparedStatement và ResultSet
 ```java
 String sql = "SELECT id, name, email FROM users WHERE status = ?";
 try (Connection conn = dataSource.getConnection();
@@ -295,27 +315,27 @@ try (Connection conn = dataSource.getConnection();
 }
 ```
 
-### Gọi thủ tục lưu trữ bằng CallableStatement (Stored Procedure call with CallableStatement)
+### Gọi thủ tục lưu trữ với CallableStatement
 ```java
 try (Connection conn = dataSource.getConnection();
      CallableStatement stmt = conn.prepareCall("{call get_user_salary(?, ?)}")) {
      
-    stmt.setInt(1, 101); // Tham số đầu vào (Input parameter)
-    stmt.registerOutParameter(2, java.sql.Types.DOUBLE); // Tham số đầu ra (Output parameter)
+    stmt.setInt(1, 101); // Input parameter
+    stmt.registerOutParameter(2, java.sql.Types.DOUBLE); // Output parameter
     stmt.execute();
     double salary = stmt.getDouble(2);
     System.out.println("Salary: " + salary);
 }
 ```
 
-## Các lỗi thường gặp (Common Mistakes)
+## Các lỗi thường gặp
 
-- **Quên đóng tài nguyên (Forgetting to Close Resources)**: Nếu Connection, Statement, hoặc ResultSet không được đóng (ví dụ: không sử dụng try-with-resources), nó có thể nhanh chóng làm cạn kiệt nhóm kết nối cơ sở dữ liệu hoặc các giới hạn con trỏ.
-- **Tấn công SQL Injection với Statement**: Nối chuỗi để xây dựng các câu lệnh SQL (ví dụ: `"SELECT * FROM users WHERE name = '" + name + "'"`) thay vì sử dụng các trình giữ chỗ (`?`) trong một `PreparedStatement`.
-- **Đọc ResultSet trước khi gọi next()**: Con trỏ ban đầu được định vị trước dòng đầu tiên, vì vậy việc gọi `rs.getString(1)` mà không gọi `rs.next()` trước tiên sẽ ném ra ngoại lệ `SQLException`.
+- **Quên đóng tài nguyên**: Nếu Connection, Statement, hoặc ResultSet không được đóng (ví dụ: không sử dụng try-with-resources), nó có thể nhanh chóng làm cạn kiệt bể chứa kết nối cơ sở dữ liệu (connection pool) hoặc giới hạn con trỏ.
+- **SQL Injection với Statement**: Cộng các chuỗi để xây dựng các câu lệnh SQL (ví dụ: `"SELECT * FROM users WHERE name = '" + name + "'"`) thay vị sử dụng các tham số giữ chỗ (`?`) trong một `PreparedStatement`.
+- **Đọc ResultSet trước khi gọi next()**: Con trỏ ban đầu được định vị trước hàng đầu tiên, do đó gọi `rs.getString(1)` mà không gọi `rs.next()` trước sẽ ném ra ngoại lệ `SQLException`.
 
-## Reference Links
+## Liên kết tham khảo
 
-- https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html (Kiến thức cơ bản về PreparedStatement)
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.sql/java/sql/PreparedStatement.html (API PreparedStatement trong Java SE 21)
-- https://docs.oracle.com/javase/tutorial/jdbc/basics/processingsqlstatements.html (Xử lý các câu lệnh SQL)
+- https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html (PreparedStatement Basics)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.sql/java/sql/PreparedStatement.html (Java SE 21 PreparedStatement API)
+- https://docs.oracle.com/javase/tutorial/jdbc/basics/processingsqlstatements.html (Processing SQL Statements)

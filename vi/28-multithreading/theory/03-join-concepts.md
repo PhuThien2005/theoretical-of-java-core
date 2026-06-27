@@ -1,26 +1,26 @@
 # Đa luồng (Multithreading) - Phần 3
 
-## Mục tiêu học tập (Learning Goal)
+## Mục Tiêu Học Tập (Learning Goal)
 
-Tài liệu này bao gồm các nguyên ngữ đồng bộ luồng (`join`), báo hiệu (`interrupt`), luồng daemon và hành vi thực thi. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, thay vì chỉ là từ vựng rời rạc.
+Tài liệu này đề cập đến các nguyên hàm đồng bộ luồng (Thread Synchronization Primitives) (`join`), truyền tín hiệu (Signaling) (`interrupt`), luồng daemon (Daemon Threads), và hành vi thực thi (Execution Behavior). Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải như những từ vựng rời rạc.
 
-## Phạm vi đề mục (Outline Coverage)
+## Nội Dung Khái Quát (Outline Coverage)
 
-| Khái niệm (Concept) | Điều cần biết (What to know) |
+| Khái niệm | Điều cần biết |
 | --- | --- |
-| `join` | Một phương thức thể hiện (`thread.join()`) chặn luồng gọi cho đến khi luồng mục tiêu kết thúc. |
-| `yield` | Một phương thức tĩnh (`Thread.yield()`) gợi ý bộ lập lịch tạm dừng luồng hiện tại để cho phép các luồng khác chạy. Bộ lập lịch có quyền bỏ qua gợi ý này. |
-| `interrupt` | Cơ chế thông báo cho một luồng dừng những gì nó đang làm. Nó thiết lập trạng thái bị ngắt của luồng và đánh thức các luồng đang bị chặn trong các phương thức như `sleep()` hoặc `wait()`. |
-| `Daemon thread` | Một luồng chạy nền (như dọn rác garbage collection) không giữ cho JVM tiếp tục chạy. JVM sẽ thoát khi chỉ còn lại các luồng daemon. |
-| `User thread` | Một luồng tiêu chuẩn (chẳng hạn như luồng main). JVM tiếp tục chạy khi còn ít nhất một luồng người dùng hoạt động. |
-| `Thread priority` | Một gợi ý dạng số (1 đến 10) gửi đến bộ lập lịch luồng của OS. Hành vi của nó phụ thuộc rất lớn vào nền tảng và không nên dựa vào đó để đảm bảo tính chính xác của chương trình. |
-| `Race condition` | Một lỗi đồng thời khi kết quả của chương trình phụ thuộc vào sự đan xen không thể dự đoán trước của các bước thực thi từ nhiều luồng. |
-| `Critical section` | Một khối mã truy cập vào một tài nguyên khả biến dùng chung và tuyệt đối không được truy cập đồng thời bởi nhiều luồng. |
+| `join` | Một phương thức thể hiện (Instance Method) (`thread.join()`) làm nghẽn luồng gọi (Calling Thread) cho đến khi luồng đích (Target Thread) kết thúc. |
+| `yield` | Một phương thức tĩnh (Static Method) (`Thread.yield()`) gợi ý bộ lập lịch (Scheduler) tạm dừng luồng hiện tại để cho phép các luồng khác chạy. Bộ lập lịch có quyền bỏ qua gợi ý này. |
+| `interrupt` | Một cơ chế truyền tín hiệu để yêu cầu một luồng dừng công việc hiện tại. Cơ chế này thiết lập trạng thái ngắt (Interrupt Status) của luồng và đánh thức các luồng đang bị nghẽn trong các phương thức như `sleep()` hoặc `wait()`. |
+| `Luồng daemon` | Một luồng chạy nền (Background Thread) (chẳng hạn như dọn rác (Garbage Collection)) không giữ cho máy ảo Java (JVM - Java Virtual Machine) hoạt động. JVM sẽ thoát khi chỉ còn lại các luồng daemon. |
+| `Luồng người dùng (User Thread)` | Một luồng tiêu chuẩn (chẳng hạn như luồng chính (Main Thread)). JVM tiếp tục thực thi chừng nào còn ít nhất một luồng người dùng đang hoạt động. |
+| `Độ ưu tiên của luồng (Thread Priority)` | Một gợi ý bằng số (từ 1 đến 10) cho bộ lập lịch luồng của hệ điều hành (OS Thread Scheduler). Hành vi này phụ thuộc rất nhiều vào nền tảng (Platform-dependent) và không nên được dựa dẫm để đảm bảo tính đúng đắn của chương trình. |
+| `Tình trạng tương tranh (Race Condition)` | Một lỗi đồng thời (Concurrency Bug) mà kết quả của chương trình phụ thuộc vào sự đan xen không thể dự đoán trước giữa các bước thực thi của nhiều luồng khác nhau. |
+| `Vùng tới hạn (Critical Section)` | Một khối mã nguồn truy cập vào tài nguyên chia sẻ có thể thay đổi (Shared Mutable Resource) và không được phép truy cập đồng thời bởi nhiều luồng. |
 
-## Ghi chú chi tiết (Detailed Notes)
+## Ghi Chú Chi Tiết (Detailed Notes)
 
-### Thread Join
-`join()` được sử dụng để điều phối việc kết thúc luồng. Luồng gọi tạm dừng cho đến khi luồng mục tiêu hoàn thành việc thực thi.
+### Phương thức Thread Join
+`join()` được sử dụng để điều phối việc kết thúc luồng. Luồng gọi sẽ tạm dừng cho đến khi luồng đích hoàn thành việc thực thi.
 ```java
 public class JoinDemo {
     public static void main(String[] args) throws InterruptedException {
@@ -31,37 +31,37 @@ public class JoinDemo {
 
         worker.start();
         System.out.println("Waiting for worker...");
-        worker.join(); // Luồng main bị chặn tại đây cho đến khi worker kết thúc
+        worker.join(); // Main thread blocks here until worker finishes
         System.out.println("All work finished.");
     }
 }
 ```
 
-### Thread Interrupt
-Cơ chế ngắt (Interrupt) mang tính hợp tác (cooperative). Gọi `thread.interrupt()` không kết thúc luồng ngay lập tức; nó chỉ thiết lập một cờ bị ngắt (interrupt flag).
-* Nếu một luồng đang bị chặn trong `sleep()`, `wait()`, hoặc `join()`, nó sẽ ném ra `InterruptedException` và **xóa** cờ bị ngắt của nó.
-* Nếu một luồng đang thực thi các hoạt động CPU bình thường, nó phải định kỳ kiểm tra cờ của mình bằng cách sử dụng `Thread.currentThread().isInterrupted()`.
+### Phương thức Thread Interrupt
+Các ngắt mang tính chất hợp tác. Việc gọi `thread.interrupt()` không kết thúc luồng ngay lập tức; nó chỉ đơn thuần thiết lập một cờ ngắt (Interrupt Flag).
+* Nếu một luồng đang bị nghẽn trong `sleep()`, `wait()`, hoặc `join()`, nó sẽ ném ra `InterruptedException` và **xóa** cờ ngắt của mình.
+* Nếu một luồng đang thực thi các hoạt động CPU thông thường, nó phải kiểm tra cờ của mình theo định kỳ bằng cách sử dụng `Thread.currentThread().isInterrupted()`.
 
 ```java
 public class InterruptDemo {
     public static void main(String[] args) throws InterruptedException {
         Thread worker = new Thread(() -> {
             while (!Thread.currentThread().isInterrupted()) {
-                // Thực hiện tác vụ tiêu tốn CPU
+                // Perform CPU intensive task
             }
             System.out.println("Worker stopped via interrupt.");
         });
 
         worker.start();
         Thread.sleep(500);
-        worker.interrupt(); // Báo hiệu dừng worker
+        worker.interrupt(); // Signal worker to stop
     }
 }
 ```
 
-### Luồng Daemon so với Luồng Người dùng (Daemon vs User Threads)
-Theo mặc định, các luồng mới được tạo kế thừa trạng thái daemon từ luồng đã tạo ra nó. Bạn có thể thay đổi trạng thái này bằng phương thức `thread.setDaemon(boolean)`.
-* **Quan trọng**: Bạn phải gọi `setDaemon()` **trước khi** khởi chạy luồng. Gọi phương thức này trên một luồng đang chạy sẽ ném ra ngoại lệ `IllegalThreadStateException`.
+### Luồng Daemon và Luồng Người Dùng (Daemon vs User Threads)
+Theo mặc định, các luồng mới được tạo sẽ kế thừa trạng thái daemon từ luồng tạo ra nó. Bạn có thể thay đổi điều này bằng cách sử dụng `thread.setDaemon(boolean)`.
+* **Quan trọng**: Bạn phải gọi `setDaemon()` **trước khi** khởi chạy luồng. Việc gọi phương thức này trên một luồng đang chạy sẽ ném ra ngoại lệ `IllegalThreadStateException`.
 
 ```java
 public class DaemonDemo {
@@ -71,7 +71,7 @@ public class DaemonDemo {
                 try { Thread.sleep(100); } catch (InterruptedException e) {}
             }
         });
-        daemon.setDaemon(true); // Bắt buộc phải đặt trước khi start
+        daemon.setDaemon(true); // Must be set before start
         daemon.start();
         
         System.out.println("Main thread ending. JVM will exit despite daemon running.");
@@ -79,14 +79,14 @@ public class DaemonDemo {
 }
 ```
 
-### Các đoạn găng và điều kiện tranh đoạt (Critical Sections and Race Conditions)
-Điều kiện tranh đoạt (race condition) xảy ra khi nhiều luồng đồng thời đọc và ghi vào một biến dùng chung mà không có sự đồng bộ hóa.
+### Vùng Tới Hạn (Critical Sections) và Tình Trạng Tương Tranh (Race Conditions)
+Tình trạng tương tranh xảy ra khi nhiều luồng cùng đọc và ghi vào một biến chia sẻ một cách đồng thời mà không có sự đồng bộ hóa (Synchronization).
 ```java
 class Counter {
     private int count = 0;
 
     public void increment() {
-        count++; // ĐOẠN GĂNG (CRITICAL SECTION). Không nguyên tử: đọc, sửa, ghi.
+        count++; // CRITICAL SECTION. Non-atomic: read, modify, write.
     }
     
     public int getCount() { return count; }
@@ -95,12 +95,12 @@ class Counter {
 
 ---
 
-## Nghiên cứu tình huống: Mẫu điều phối luồng (Worker Coordinator Pattern)
+## Ví Dụ Thực Tế: Mô Hình Điều Phối Luồng Làm Việc (Worker Coordinator Pattern)
 
-### Bài toán (Problem)
-Một hệ thống báo cáo cần lấy dữ liệu từ ba API bên ngoài một cách đồng thời. Khi tất cả các API trả về dữ liệu, hệ thống sẽ tổng hợp báo cáo cuối cùng.
+### Vấn đề
+Một hệ thống báo cáo cần lấy dữ liệu đồng thời từ ba API bên ngoài. Sau khi tất cả các API trả về dữ liệu, hệ thống sẽ biên soạn báo cáo cuối cùng.
 
-### Giải pháp (Solution)
+### Giải pháp
 Sử dụng `join()` để điều phối các luồng làm việc.
 ```java
 import java.util.ArrayList;
@@ -110,7 +110,7 @@ public class ReportCoordinator {
     public static void main(String[] args) throws InterruptedException {
         List<Thread> workers = new ArrayList<>();
         
-        // Khởi chạy 3 luồng làm việc
+        // Start 3 workers
         for (int i = 1; i <= 3; i++) {
             final int id = i;
             Thread t = new Thread(() -> {
@@ -121,7 +121,7 @@ public class ReportCoordinator {
             t.start();
         }
         
-        // Đợi tất cả các luồng làm việc hoàn thành
+        // Wait for all workers to finish
         for (Thread t : workers) {
             t.join();
         }
@@ -133,19 +133,19 @@ public class ReportCoordinator {
 
 ---
 
-## Các lỗi thường gặp (Common Mistakes)
+## Các Lỗi Thường Gặp (Common Mistakes)
 
 ### 1. Nuốt ngoại lệ InterruptedException (Swallowing InterruptedException)
-Việc nuốt ngoại lệ `InterruptedException` sẽ xóa trạng thái bị ngắt của luồng, có nghĩa là mã ở cấp cao hơn sẽ không biết rằng luồng được yêu cầu dừng lại.
+Việc nuốt `InterruptedException` sẽ xóa trạng thái ngắt của luồng, điều này có nghĩa là mã nguồn cấp cao hơn sẽ không biết rằng luồng đã được yêu cầu dừng lại.
 ```java
-// SAI
+// BAD
 try {
     Thread.sleep(1000);
 } catch (InterruptedException e) {
-    // Bị nuốt thầm lặng và bỏ qua
+    // Swallowed and ignored
 }
 
-// ĐÚNG: Khôi phục lại cờ bị ngắt để người gọi được biết
+// GOOD: Restore the interrupt flag so caller knows
 try {
     Thread.sleep(1000);
 } catch (InterruptedException e) {
@@ -153,42 +153,42 @@ try {
 }
 ```
 
-### 2. Gọi setDaemon() trên một luồng đang chạy (Calling setDaemon() on a Running Thread)
+### 2. Gọi `setDaemon()` trên một Luồng Đang Chạy
 ```java
 Thread t = new Thread(() -> {});
 t.start();
-t.setDaemon(true); // Ném ra IllegalThreadStateException
+t.setDaemon(true); // Throws IllegalThreadStateException
 ```
 
-### 3. Dựa dẫm vào Thread.yield() hoặc độ ưu tiên luồng để đảm bảo tính đúng đắn (Relying on Thread.yield() or Thread Priorities for Correctness)
-Việc lập lịch luồng phụ thuộc hoàn toàn vào hệ điều hành. Đặc tả JVM không đưa ra bất kỳ sự đảm bảo nào về cách các mức ưu tiên được ánh xạ sang các mức ưu tiên của hệ điều hành hoặc cách `yield()` hoạt động. Mã nguồn dựa vào chúng để đồng bộ hóa là một thiết kế bị lỗi.
+### 3. Dựa vào `Thread.yield()` hoặc Độ Ưu Tiên của Luồng để Đảm Bảo Tính Đúng Đắn
+Việc lập lịch luồng phụ thuộc vào nền tảng. Đặc tả của JVM không đưa ra bất kỳ đảm bảo nào về cách các độ ưu tiên được ánh xạ tới các độ ưu tiên của hệ điều hành hoặc cách `yield()` hoạt động. Mã nguồn dựa vào chúng để đồng bộ hóa là mã nguồn dễ phát sinh lỗi.
 
-## Tại sao join() chặn Luồng gọi (Why join() Blocks the Calling Thread)
+## Tại sao join() Làm Nghẽn Luồng Gọi (Why join() Blocks the Calling Thread)
 
-Việc điều phối hoàn thành luồng thông qua `join()` được xây dựng trực tiếp trên cơ chế báo hiệu `wait-and-notify` nguyên thủy của JVM. Khi một luồng gọi (Luồng A) gọi `threadB.join()`, Luồng A phải đi vào một khối synchronized bị khóa nội bộ trên chính thực thể đối tượng `threadB`. Bên trong ngữ cảnh synchronized này, JVM kiểm tra trạng thái của Luồng B bằng một vòng lặp chứa điều kiện `threadB.isAlive()`. Nếu Luồng B vẫn đang thực thi, JVM sẽ gọi `threadB.wait(0)` thay mặt cho Luồng A, khiến Luồng A giải phóng khóa và đi vào trạng thái `WAITING`. Khi Luồng B kết thúc thực thi và chuẩn bị chuyển sang trạng thái `TERMINATED`, môi trường chạy của JVM sẽ thực thi một lời gọi gốc tương đương `lock.notifyAll()` trên đối tượng giám sát (monitor object) `threadB`. Thông báo này đánh thức Luồng A, cho phép nó lấy lại khóa giám sát đối tượng, thoát khỏi vòng lặp vì `isAlive()` bây giờ là false, và tiếp tục thực thi phần mã còn lại của nó.
+Việc điều phối hoàn thành luồng thông qua `join()` được xây dựng trực tiếp trên cơ chế truyền tín hiệu wait-and-notify cơ bản của JVM. Khi một luồng gọi (Luồng A) gọi `threadB.join()`, Luồng A phải đi vào một khối đồng bộ hóa được khóa nội bộ trên thực thể đối tượng `threadB`. Bên trong ngữ cảnh đồng bộ hóa này, JVM sẽ kiểm tra trạng thái của Luồng B bằng cách sử dụng một vòng lặp chứa điều kiện `threadB.isAlive()`. Nếu Luồng B vẫn đang thực thi, JVM sẽ gọi `threadB.wait(0)` thay mặt cho Luồng A, khiến Luồng A giải phóng khóa và đi vào trạng thái WAITING. Khi Luồng B kết thúc quá trình thực thi và chuẩn bị chuyển sang trạng thái TERMINATED, môi trường thực thi của JVM sẽ thực hiện một lệnh tương đương với `lock.notifyAll()` trên đối tượng giám sát (Monitor Object) `threadB`. Thông báo này sẽ đánh thức Luồng A, cho phép nó giành lại khóa giám sát đối tượng, thoát khỏi vòng lặp vì `isAlive()` bây giờ là false, và tiếp tục thực thi phần mã nguồn còn lại của mình.
 
-### Mô hình tư duy (Mental Model)
+### Mô hình Tư duy (Mental Model)
 ```text
-Luồng A (Người gọi)               Luồng B (Mục tiêu)             Trình chạy JVM
+Thread A (Caller)                 Thread B (Target)              JVM Runtime
     |                                 |                              |
-    |-- gọi threadB.join()            |                              |
-    |-- lấy khóa trên threadB         |                              |
-    |-- lặp kiểm tra threadB.isAlive()|                              |
-    |-- gọi threadB.wait()            |                              |
-    |   (Giải phóng khóa, vào WAITING) |                              |
+    |-- calls threadB.join()          |                              |
+    |-- acquires lock on threadB      |                              |
+    |-- loops on threadB.isAlive()    |                              |
+    |-- calls threadB.wait()          |                              |
+    |   (Releases lock, enters WAITING)|                              |
     :                                 |                              |
-    :                                 |-- hoàn thành thực thi        |
+    :                                 |-- completes execution        |
     :                                 |----------------------------->|
-    :                                 |                              |-- gọi native
+    :                                 |                              |-- natively calls
     :                                 |                              |   threadB.notifyAll()
-    |<-- thức dậy (chuyển sang RUNNABLE)<------------------------------|
-    |-- lấy khóa trên threadB         |                              |
-    |-- vòng lặp isAlive() trả về false|                              |
-    |-- thoát khỏi phương thức join()  |                              |
+    |<-- wakes up (moves to RUNNABLE) <------------------------------|
+    |-- acquires lock on threadB      |                              |
+    |-- isAlive() loop returns false  |                              |
+    |-- exits join() method           |                              |
     v                                 v                              v
 ```
 
-### Ví dụ mã nguồn (Code Example)
+### Ví dụ Mã nguồn
 ```java
 public class JoinMechanism {
     public static void main(String[] args) throws InterruptedException {
@@ -200,25 +200,22 @@ public class JoinMechanism {
         worker.start();
         
         System.out.println("Main thread joining worker...");
-        worker.join(); // Chặn luồng main bằng cơ chế wait/notify
+        worker.join(); // Blocks main thread using wait/notify mechanism
         
         System.out.println("Worker joined in " + (System.currentTimeMillis() - start) + " ms");
     }
 }
 /*
-Đầu ra:
+Output:
 Main thread joining worker...
 Worker joined in 505 ms
 */
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-
-```text
-1. Luồng A gọi threadB.join()
-  → Luồng A lấy khóa giám sát trên đối tượng threadB.
-```
-
-2. Luồng A nhận thấy threadB.isAlive() là true &rarr; Luồng A gọi threadB.wait(), chuyển sang WAITING.
+### Chuỗi Nguyên nhân - Kết quả (Cause-Effect Chain)
+1. Luồng A gọi threadB.join() &rarr; Luồng A giành được khóa giám sát trên đối tượng threadB.
+2. Luồng A thấy threadB.isAlive() là true &rarr; Luồng A gọi threadB.wait(), đi vào trạng thái WAITING.
 3. Luồng B hoàn thành thực thi &rarr; JVM kích hoạt notifyAll() một cách tự nhiên trên đối tượng giám sát threadB.
-4. Luồng A thức dậy &rarr; Luồng A đánh giá lại isAlive() là false và thoát khỏi join().
+4. Luồng A được đánh thức &rarr; Luồng A đánh giá lại isAlive() thành false và thoát khỏi join().
+
+---

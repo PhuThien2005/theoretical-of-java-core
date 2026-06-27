@@ -1,241 +1,240 @@
-# Các bộ điều chỉnh trong Java (Modifiers in Java) - Phần 3
+# Các Từ Khóa Đặc Tả Trong Java - Phần 3 (Modifiers in Java - Part 3)
 
-## Mục tiêu học tập (Learning Goal)
+## Mục Tiêu Học Tập (Learning Goal)
 
-Tập tin này bao gồm một phần trọng tâm về **Các bộ điều chỉnh trong Java (Modifiers in Java)**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, không phải là từ vựng riêng lẻ.
+Tài liệu này bao quát một phần trọng tâm của **Các Từ Khóa Đặc Tả Trong Java**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc thực tế trong Java, chứ không phải các thuật ngữ lý thuyết đơn thuần.
 
-## Khái quát nội dung (Outline Coverage)
+## Đề Cương Bao Phủ (Outline Coverage)
 
-| Khái niệm (Concept) | Điều cần biết (What to know) |
+| Khái niệm | Những điều cần biết |
 | --- | --- |
-| `Static block` | Static nghĩa là thành viên thuộc về lớp (class) thay vì một đối tượng (object) cụ thể. |
-| `Static nested class` | Static nghĩa là thành viên thuộc về lớp thay vì một đối tượng cụ thể. |
-| `Static import` | Static nghĩa là thành viên thuộc về lớp thay vì một đối tượng cụ thể. |
-| `Final variable` | Final nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể. |
-| `Final method` | Final nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể. |
-| `Final class` | Final nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể. |
-| `Final parameter` | Final nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể. |
-| `Blank final variable` | Final nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể. |
+| `Static block` | `static` nghĩa là thành viên đó thuộc về lớp chứ không thuộc về một đối tượng cụ thể nào. |
+| `Static nested class` | `static` nghĩa là thành viên đó thuộc về lớp chứ không thuộc về một đối tượng cụ thể nào. |
+| `Static import` | `static` nghĩa là thành viên đó thuộc về lớp chứ không thuộc về một đối tượng cụ thể nào. |
+| `Final variable` | `final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể. |
+| `Final method` | `final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể. |
+| `Final class` | `final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể. |
+| `Final parameter` | `final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể. |
+| `Blank final variable` | `final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể. |
 
-## Ghi chú chi tiết (Detailed Notes)
+## Ghi Chú Chi Tiết
 
-### Static block (Khối tĩnh)
+### Khối tĩnh (Static block)
 
-Static nghĩa là thành viên thuộc về lớp thay vì một đối tượng cụ thể.
+`static` nghĩa là thành viên đó thuộc về lớp chứ không thuộc về một đối tượng cụ thể nào.
 
-Nó quan trọng vì mã nguồn đồng thời (concurrent code) có thể trông chính xác trong các bài kiểm tra đơn luồng (single-thread) nhưng thất bại dưới áp lực thời gian (timing pressure). Một sự nhầm lẫn phổ biến là giả định rằng khả năng hiển thị (visibility), thứ tự (ordering), và tính nguyên tử (atomicity) là cùng một đảm bảo.
+Khái niệm này rất quan trọng vì mã nguồn xử lý đồng thời có thể hoạt động chính xác trong các bài kiểm tra đơn luồng nhưng lại thất bại khi chịu áp lực về mặt thời gian thực thi. Một sự nhầm lẫn phổ biến là giả định rằng khả năng hiển thị (visibility), thứ tự thực thi (ordering) và tính nguyên tử (atomicity) đều là các cơ chế đảm bảo giống nhau.
 
-#### Ví dụ mã nguồn khối static (Static Block Code Example)
+#### Ví Dụ Mã Nguồn Khối Tĩnh
 ```java
 public class DatabaseConnector {
     private static String connectionUrl;
 
-    // Static block runs once when the class is first loaded by the JVM
+    // Khối tĩnh chạy một lần duy nhất khi lớp được tải lần đầu bởi JVM
     static {
         try {
-            // Complex initialization that could throw exceptions
+            // Khởi tạo phức tạp có thể ném ra ngoại lệ
             connectionUrl = "jdbc:mysql://localhost:3306/prod_db";
-            System.out.println("Static block: Database URL initialized.");
+            System.out.println("Static block: Đã khởi tạo URL cơ sở dữ liệu.");
         } catch (Exception e) {
-            System.err.println("Failed to initialize database connection URL");
+            System.err.println("Không thể khởi tạo URL kết nối cơ sở dữ liệu");
         }
     }
 }
 ```
 
-#### Lỗi thường gặp - Truy cập các trường thể hiện hoặc ném các ngoại lệ kiểm tra trong khối static (Common Mistake - Accessing instance fields or throwing checked exceptions in static blocks)
-Các khối static chạy trong quá trình tải lớp, trước khi bất kỳ thực thể nào của lớp tồn tại. Do đó, chúng không thể truy cập các trường hoặc phương thức thể hiện. Ngoài ra, bạn không thể ném các ngoại lệ kiểm tra (checked exception) ra khỏi một khối static; chúng phải được bắt bằng cách sử dụng `try-catch` bên trong khối đó, nếu không JVM sẽ ném ra lỗi `ExceptionInInitializerError`.
+#### Lỗi Thường Gặp - Truy cập các trường thực thể hoặc ném ra các ngoại lệ checked trong khối tĩnh
+Các khối tĩnh chạy trong quá trình tải lớp, trước khi bất kỳ thể hiện nào của lớp được tạo ra. Do đó, chúng không thể truy cập các trường hoặc phương thức thực thể (instance). Thêm vào đó, bạn không thể ném các ngoại lệ checked ra ngoài khối tĩnh; chúng bắt buộc phải được bắt bằng khối `try-catch` bên trong khối tĩnh, nếu không JVM sẽ ném ra lỗi `ExceptionInInitializerError`.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `Static block` trong một câu.
-- Nhận diện `Static block` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), hạn chế hoặc sự đánh đổi liên quan đến `Static block`.
+- Nhận biết `Static block` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi logic, giới hạn hoặc sự đánh đổi liên quan đến `Static block`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- `ClassName.member` truy cập vào một thành viên cấp lớp.
+- `ClassName.member` truy cập một thành viên ở cấp độ lớp.
 
-### Static nested class (Lớp lồng tĩnh)
+### Lớp lồng tĩnh (Static nested class)
 
-Static nghĩa là thành viên thuộc về lớp thay vì một đối tượng cụ thể.
+`static` nghĩa là thành viên đó thuộc về lớp chứ không thuộc về một đối tượng cụ thể nào.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
+Sử dụng khái niệm này để dự đoán quy tắc chính xác của Java, các dạng được phép và các lỗi có thể xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ tên gọi.
 
-#### Ví dụ mã nguồn lớp lồng static (Static Nested Class Code Example)
+#### Ví Dụ Mã Nguồn Lớp Lồng Tĩnh
 ```java
 public class Outer {
     private static int outerStatic = 10;
     private int outerInstance = 20;
 
-    // Static nested class
+    // Lớp lồng tĩnh
     public static class Nested {
         public void print() {
-            System.out.println("Outer static field: " + outerStatic); // OK
-            // System.out.println(outerInstance); // COMPILE ERROR! No outer instance context
+            System.out.println("Trường tĩnh của lớp ngoài: " + outerStatic); // Hợp lệ
+            // System.out.println(outerInstance); // LỖI BIÊN DỊCH! Không có ngữ cảnh thể hiện của lớp ngoài
         }
     }
 }
 ```
 
-#### Lỗi thường gặp - Nhầm lẫn giữa lớp lồng static và lớp nội bộ (Common Mistake - Confusing static nested classes with inner classes)
-Một lớp lồng static (static nested class) không có một tham chiếu ngầm định đến một thực thể của lớp bên ngoài. Để khởi tạo nó, bạn không cần một thực thể lớp bên ngoài: `Outer.Nested nested = new Outer.Nested();`. Tuy nhiên, các lớp nội bộ phi tĩnh (non-static inner class) lại yêu cầu một thực thể lớp bên ngoài: `outerInstance.new Inner()`.
+#### Lỗi Thường Gặp - Nhầm lẫn lớp lồng tĩnh với lớp nội bộ (inner class)
+Một lớp lồng tĩnh không chứa một tham chiếu ngầm định đến một thể hiện của lớp bên ngoài. Để khởi tạo nó, bạn không cần một thể hiện của lớp ngoài: `Outer.Nested nested = new Outer.Nested();`. Ngược lại, các lớp nội bộ phi tĩnh yêu cầu một thể hiện của lớp ngoài: `outerInstance.new Inner()`.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `Static nested class` trong một câu.
-- Nhận diện `Static nested class` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), hạn chế hoặc sự đánh đổi liên quan đến `Static nested class`.
+- Nhận biết `Static nested class` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi logic, giới hạn hoặc sự đánh đổi liên quan đến `Static nested class`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- `ClassName.member` truy cập vào một thành viên cấp lớp.
+- `ClassName.member` truy cập một thành viên ở cấp độ lớp.
 
-### Static import (Nhập tĩnh)
+### Import tĩnh (Static import)
 
-Static nghĩa là thành viên thuộc về lớp thay vì một đối tượng cụ thể.
+`static` nghĩa là thành viên đó thuộc về lớp chứ không thuộc về một đối tượng cụ thể nào.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
+Sử dụng khái niệm này để dự đoán quy tắc chính xác của Java, các dạng được phép và các lỗi có thể xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ tên gọi.
 
-#### Ví dụ mã nguồn Import static (Static Import Code Example)
+#### Ví Dụ Mã Nguồn Import Tĩnh
 ```java
-// Importing static Math.sqrt and Math.pow
+// Import tĩnh Math.sqrt và Math.pow
 import static java.lang.Math.sqrt;
 import static java.lang.Math.pow;
 
 public class Geometry {
     public double hypotenuse(double a, double b) {
-        // We can call static Math methods directly without Math. prefix
+        // Chúng ta có thể gọi các phương thức Math tĩnh trực tiếp mà không cần tiền tố Math.
         return sqrt(pow(a, 2) + pow(b, 2));
     }
 }
 ```
 
-#### Lỗi thường gặp - Viết import static sai thứ tự (Common Mistake - Writing import static in the wrong order)
-Cú pháp bắt buộc phải là `import static package.Class.member;` hoặc `import static package.Class.*;`. Viết `static import` là một lỗi biên dịch. Ngoài ra, bạn không thể import static toàn bộ một gói (ví dụ, `import static java.lang.*;` là không hợp lệ; bạn import các thành viên của lớp, chứ không phải bản thân các lớp đó).
+#### Lỗi Thường Gặp - Viết sai thứ tự import static
+Cú pháp bắt buộc phải là `import static package.Class.member;` hoặc `import static package.Class.*;`. Viết `static import` sẽ gây ra lỗi biên dịch. Thêm vào đó, bạn không thể import tĩnh toàn bộ một package (ví dụ: `import static java.lang.*;` là không hợp lệ; bạn chỉ có thể import các thành viên của lớp chứ không phải bản thân các lớp đó).
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `Static import` trong một câu.
-- Nhận diện `Static import` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), hạn chế hoặc sự đánh đổi liên quan đến `Static import`.
+- Nhận biết `Static import` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi logic, giới hạn hoặc sự đánh đổi liên quan đến `Static import`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- `ClassName.member` truy cập vào một thành viên cấp lớp.
+- `ClassName.member` truy cập một thành viên ở cấp độ lớp.
 
-### Final variable (Biến final)
+### Biến final (Final variable)
 
-Final nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể.
+`final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
+Sử dụng khái niệm này để dự đoán quy tắc chính xác của Java, các dạng được phép và các lỗi có thể xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ tên gọi.
 
-#### Ví dụ mã nguồn biến final (Final Variable Code Example)
+#### Ví Dụ Mã Nguồn Biến Final
 ```java
 public class Calculation {
     public void run() {
         final int maxIterations = 50;
-        // maxIterations = 60; // COMPILE ERROR! Cannot reassign a final variable
+        // maxIterations = 60; // LỖI BIÊN DỊCH! Không thể gán lại giá trị cho một biến final
         System.out.println(maxIterations);
     }
 }
 ```
 
-#### Lỗi thường gặp - Giả định các trường final bắt buộc phải được khởi tạo khi khai báo (Common Mistake - Assuming final fields must be initialized at declaration)
-Một biến thể hiện `final` không bắt buộc phải khởi tạo khi khai báo; nó có thể được để trống ban đầu và khởi tạo bên trong hàm dựng (constructor). Tuy nhiên, nó phải được gán giá trị trong mọi luồng thực thi của tất cả các hàm dựng trước khi biên dịch thành công.
+#### Lỗi Thường Gặp - Giả định các trường final bắt buộc phải khởi tạo khi khai báo
+Một biến thể hiện final không nhất thiết phải khởi tạo ngay khi khai báo; nó có thể được để trống lúc đầu và được khởi tạo bên trong hàm khởi dựng. Tuy nhiên, nó bắt buộc phải được gán giá trị trên mọi nhánh rẽ của tất cả các hàm khởi dựng trước khi trình biên dịch chấp nhận.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `Final variable` trong một câu.
-- Nhận diện `Final variable` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), hạn chế hoặc sự đánh đổi liên quan đến `Final variable`.
+- Nhận biết `Final variable` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi logic, giới hạn hoặc sự đánh đổi liên quan đến `Final variable`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- `final int limit = 10;` không thể bị gán lại giá trị.
+- `final int limit = 10;` không thể gán lại giá trị.
 
-## Tại sao các biến Final ngăn chặn việc gán lại và cho phép tối ưu hóa Inlining (Why Final Variables Prevent Re-Assignment and Enable Inlining)
+## Tại Sao Các Biến Final Ngăn Chặn Việc Gán Lại Giá Trị và Cho Phép Nhúng Mã (Inlining)
 
-Từ khóa `final` trên một biến đảm bảo rằng một khi giá trị đã được gán, tham chiếu hoặc giá trị của biến đó không thể thay đổi trong suốt thời gian tồn tại của nó. Đối với các biến kiểu nguyên thủy (primitive), điều này ngăn giá trị số bị sửa đổi, trong khi đối với các biến kiểu tham chiếu (reference), nó ngăn tham chiếu trỏ đến một đối tượng khác (mặc dù các trường nội bộ của đối tượng vẫn có thể thay đổi được). Bởi vì `final` đảm bảo các giá trị hằng số ở thời gian biên dịch (compile-time constant) khi được khởi tạo với hằng số, trình biên dịch Java và trình biên dịch Just-In-Time (JIT) có thể thực hiện một tối ưu hóa gọi là **inlining (chèn trực tiếp)**. Inlining thay thế tên biến hoặc cuộc gọi phương thức trực tiếp bằng giá trị hằng số hoặc phần thân phương thức tại thời điểm biên dịch, loại bỏ chi phí tìm kiếm biến hoặc điều phối phương thức (method dispatch) và tăng cường hiệu năng thời gian chạy.
+Từ khóa `final` trên một biến đảm bảo rằng một khi đã được gán giá trị, tham chiếu hoặc giá trị của biến đó không thể bị thay đổi trong suốt vòng đời còn lại của nó. Đối với các biến kiểu nguyên thủy, điều này ngăn chặn giá trị số bị thay đổi, trong khi đối với các biến kiểu tham chiếu, nó ngăn chặn tham chiếu trỏ tới một đối tượng khác (mặc dù các trường nội bộ của đối tượng đó vẫn có thể thay đổi được). Do `final` đảm bảo các giá trị hằng số tại thời điểm biên dịch khi được khởi tạo bằng hằng số, trình biên dịch Java và trình biên dịch JIT (Just-In-Time) có thể thực hiện một tối ưu hóa gọi là **nhúng mã (inlining)**. Cơ chế nhúng mã thay thế trực tiếp tên biến hoặc lời gọi phương thức bằng giá trị hằng số hoặc nội dung phương thức tại thời điểm biên dịch, loại bỏ chi phí tìm kiếm biến hoặc điều phối phương thức và tăng cường hiệu năng lúc chạy chương trình.
 
-### Mô hình tối ưu hóa chèn trực tiếp của trình biên dịch (Compiler Inlining Optimization Model)
+### Mô Hình Tối Ưu Hóa Nhúng Mã Của Trình Biên Dịch
 
 ```mermaid
 graph LR
-    subgraph Before_Optimization [Before Optimization]
+    subgraph Trước_Tối_Ưu_Hóa [Trước Khi Tối Ưu Hóa]
         Code1["final int LIMIT = 100;<br/>if (x > LIMIT) { ... }"]
     end
-    subgraph After_Optimization [After Optimization (Inlined)]
+    subgraph Sau_Tối_Ưu_Hóa [Sau Khi Tối Ưu Hóa (Nhúng Mã)]
         Code2["if (x > 100) { ... }"]
     end
-    Before_Optimization -- "Compiler replaces LIMIT with 100" --> After_Optimization
+    Trước_Tối_Ưu_Hóa -- "Trình biên dịch thay thế LIMIT bằng 100" --> Sau_Tối_Ưu_Hóa
 ```
 
-### Ví dụ mã nguồn: Minh họa biến Final và tối ưu hóa Inlining (Code Example: Demonstration of Final Variable and Inlining)
+### Ví Dụ Mã Nguồn: Minh Họa Biến Final và Nhúng Mã (Inlining)
 ```java
 public class OptimizationDemo {
-    // Compile-time constant: final + primitive/String + constant expression
+    // Hằng số thời điểm biên dịch: final + kiểu nguyên thủy/String + biểu thức hằng số
     public static final int MAX_USERS = 500;
 
     public void displayLimit() {
-        // The compiler replaces MAX_USERS with the literal 500 in the bytecode
-        System.out.println("Limit: " + MAX_USERS); 
+        // Trình biên dịch thay thế MAX_USERS bằng giá trị trực tiếp 500 trong mã bytecode
+        System.out.println("Giới hạn: " + MAX_USERS); 
     }
 
     public static void main(String[] args) {
         OptimizationDemo demo = new OptimizationDemo();
-        demo.displayLimit(); // Output: Limit: 500
+        demo.displayLimit(); // Đầu ra: Giới hạn: 500
     }
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả của các biến Final (Cause-Effect Chain of Final Variables)
-- **Tác nhân kích hoạt (Trigger)**: Biến được khai báo với từ khóa `final`.
-- **Hiệu ứng tức thời (Immediate Effect)**: Trình biên dịch ngăn chặn bất kỳ sự gán lại nào đối với biến sau lần khởi tạo đầu tiên của nó.
-- **Hiệu ứng thứ cấp (Secondary Effect)**: Nếu giá trị là một hằng số thời gian biên dịch, trình biên dịch có thể thay thế trực tiếp giá trị hằng đó ở bất kỳ nơi nào biến được tham chiếu.
-- **Kết quả cuối cùng (Ultimate Outcome)**: Việc gán lại biến bị chặn ở thời gian biên dịch, và hiệu năng thời gian chạy được nâng cao thông qua JIT/compiler inlining.
+### Chuỗi Nguyên Nhân - Kết Quả của Biến Final (Cause-Effect Chain)
+- **Tác nhân kích hoạt**: Biến được khai báo với từ khóa `final`.
+- **Hiệu ứng tức thì**: Trình biên dịch ngăn chặn bất kỳ hành vi gán lại giá trị nào sau lần khởi tạo đầu tiên của biến.
+- **Hiệu ứng thứ cấp**: Nếu giá trị là một hằng số tại thời điểm biên dịch, trình biên dịch có thể thay thế trực tiếp giá trị hằng số đó vào tất cả các vị trí biến được tham chiếu.
+- **Kết quả cuối cùng**: Việc gán lại giá trị cho biến bị chặn từ thời điểm biên dịch, và hiệu năng runtime được nâng cao thông qua cơ chế nhúng mã của trình biên dịch/JIT.
 
+### Phương thức final (Final method)
 
-### Final method (Phương thức final)
+`final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể.
 
-Final nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể.
+Sử dụng khái niệm này để dự đoán quy tắc chính xác của Java, các dạng được phép và các lỗi có thể xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ tên gọi.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
-
-#### Ví dụ mã nguồn phương thức final (Final Method Code Example)
+#### Ví Dụ Mã Nguồn Phương Thức Final
 ```java
 public class Parent {
     public final void showMessage() {
-        System.out.println("This is a final method.");
+        System.out.println("Đây là một phương thức final.");
     }
 }
 
 class Child extends Parent {
-    // Attempting to override final method causes compile error:
+    // Việc cố gắng ghi đè phương thức final sẽ gây ra lỗi biên dịch:
     // public void showMessage() { ... }
 }
 ```
 
-#### Lỗi thường gặp - Cố gắng ghi đè một phương thức final trong lớp con (Common Mistake - Attempting to override a final method in a subclass)
-Nếu một lớp con cố gắng khai báo một phương thức có cùng chữ ký (signature) và kiểu trả về với một phương thức `final` trong lớp cha, trình biên dịch sẽ từ chối. Lưu ý rằng các phương thức `private` ngầm định là final, do đó việc khai báo chúng là final là hợp lệ nhưng dư thừa.
+#### Lỗi Thường Gặp - Cố gắng ghi đè (override) một phương thức final trong lớp con
+Nếu một lớp con cố gắng khai báo một phương thức có cùng chữ ký và kiểu trả về với một phương thức `final` trong lớp cha, trình biên dịch sẽ báo lỗi từ chối. Lưu ý rằng các phương thức `private` mặc nhiên là final một cách ngầm định, do đó việc khai báo chúng là final là hợp lệ nhưng dư thừa.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `Final method` trong một câu.
-- Nhận diện `Final method` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), hạn chế hoặc sự đánh đổi liên quan đến `Final method`.
+- Nhận biết `Final method` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi logic, giới hạn hoặc sự đánh đổi liên quan đến `Final method`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- `final int limit = 10;` không thể bị gán lại giá trị.
+- `final int limit = 10;` không thể gán lại giá trị.
 
-### Final class (Lớp final)
+### Lớp final (Final class)
 
-Final nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể.
+`final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
+Sử dụng khái niệm này để dự đoán quy tắc chính xác của Java, các dạng được phép và các lỗi có thể xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ tên gọi.
 
-#### Ví dụ mã nguồn lớp final (Final Class Code Example)
+#### Ví Dụ Mã Nguồn Lớp Final
 ```java
 public final class UtilityClass {
     public static void printLog(String message) {
@@ -243,89 +242,89 @@ public final class UtilityClass {
     }
 }
 
-// Attempting to subclass UtilityClass causes compile error:
+// Việc cố gắng kế thừa UtilityClass sẽ gây ra lỗi biên dịch:
 // class SubUtility extends UtilityClass { }
 ```
 
-#### Lỗi thường gặp - Giả định các trường trong một lớp final sẽ tự động là final (Common Mistake - Assuming fields in a final class are automatically final)
-Khai báo một lớp là `final` chỉ ngăn lớp đó bị kế thừa (subclassed). Nó KHÔNG tự động biến các trường của lớp đó thành `final` hoặc bất biến (immutable). Nếu bạn muốn các trường là bất biến, bạn vẫn phải khai báo rõ ràng chúng là `final`.
+#### Lỗi Thường Gặp - Giả định các trường trong một lớp final sẽ tự động là final
+Khai báo một lớp là `final` chỉ giúp ngăn chặn việc lớp đó bị mở rộng (kế thừa). Nó KHÔNG tự động biến các trường của lớp đó thành `final` hoặc bất biến (immutable). Nếu bạn muốn các trường là bất biến, bạn vẫn phải khai báo chúng là `final` một cách tường minh.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `Final class` trong một câu.
-- Nhận diện `Final class` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), hạn chế hoặc sự đánh đổi liên quan đến `Final class`.
+- Nhận biết `Final class` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi logic, giới hạn hoặc sự đánh đổi liên quan đến `Final class`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- `final int limit = 10;` không thể bị gán lại giá trị.
+- `final int limit = 10;` không thể gán lại giá trị.
 
-### Final parameter (Tham số final)
+### Tham số final (Final parameter)
 
-Final nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể.
+`final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
+Sử dụng khái niệm này để dự đoán quy tắc chính xác của Java, các dạng được phép và các lỗi có thể xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ tên gọi.
 
-#### Ví dụ mã nguồn tham số final (Final Parameter Code Example)
+#### Ví Dụ Mã Nguồn Tham Số Final
 ```java
 public class Logger {
     public void log(final String message) {
-        // message = "New message"; // COMPILE ERROR! Cannot modify final parameter
+        // message = "Thông điệp mới"; // LỖI BIÊN DỊCH! Không thể sửa đổi tham số final
         System.out.println(message);
     }
 }
 ```
 
-#### Lỗi thường gặp - Gán lại các tham số phương thức bên trong thân phương thức (Common Mistake - Reassigning method parameters inside method bodies)
-Đánh dấu tham số phương thức là `final` là một thực hành tốt (best practice) để ngăn ngừa việc vô tình gán lại giá trị bên trong thân phương thức. Cố gắng gán một giá trị mới cho một tham số final sẽ dẫn đến lỗi thời gian biên dịch.
+#### Lỗi Thường Gặp - Gán lại giá trị cho tham số của phương thức bên trong thân phương thức
+Khai báo tham số phương thức là `final` là một thực hành lập trình tốt để ngăn chặn việc vô tình gán lại giá trị cho tham số đó bên trong thân phương thức. Việc cố gắng gán một giá trị mới cho một tham số final sẽ dẫn đến lỗi tại thời điểm biên dịch.
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `Final parameter` trong một câu.
-- Nhận diện `Final parameter` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), hạn chế hoặc sự đánh đổi liên quan đến `Final parameter`.
+- Nhận biết `Final parameter` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi logic, giới hạn hoặc sự đánh đổi liên quan đến `Final parameter`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- `final int limit = 10;` không thể bị gán lại giá trị.
+- `final int limit = 10;` không thể gán lại giá trị.
 
-### Blank final variable (Biến final trống)
+### Biến final trống (Blank final variable)
 
-Final nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể.
+`final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép, và chế độ thất bại. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn.
+Sử dụng khái niệm này để dự đoán quy tắc chính xác của Java, các dạng được phép và các lỗi có thể xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ tên gọi.
 
-#### Ví dụ mã nguồn biến final trống (Blank Final Variable Code Example)
+#### Ví Dụ Mã Nguồn Biến Final Trống
 ```java
 public class Order {
-    private final long orderId; // Blank final variable
-    private static final String DEFAULT_STATUS; // Blank static final variable
+    private final long orderId; // Biến final trống
+    private static final String DEFAULT_STATUS; // Biến tĩnh final trống
 
     static {
-        DEFAULT_STATUS = "PENDING"; // Initialized in static block
+        DEFAULT_STATUS = "PENDING"; // Khởi tạo trong khối tĩnh
     }
 
     public Order(long orderId) {
-        this.orderId = orderId; // Initialized in constructor
+        this.orderId = orderId; // Khởi tạo trong hàm khởi dựng
     }
 }
 ```
 
-#### Lỗi thường gặp - Thất bại trong phân tích gán xác định (Common Mistake - Definite Assignment Analysis failure)
-Một trường final trống bắt buộc phải được gán giá trị chính xác một lần. Nếu một constructor chứa một luồng có điều kiện (ví dụ: câu lệnh `if-else`) nơi trường final trống chỉ được gán giá trị ở một nhánh, trình biên dịch sẽ báo lỗi "variable orderId might not have been initialized" (biến orderId có thể chưa được khởi tạo).
+#### Lỗi Thường Gặp - Thất bại trong Phân Tích Gán Giá Trị Xác Định (Definite Assignment Analysis)
+Một trường final trống phải được gán giá trị chính xác một lần duy nhất. Nếu một hàm khởi dựng chứa một nhánh rẽ điều kiện (ví dụ: câu lệnh `if-else`) mà trường final trống chỉ được gán giá trị trong một nhánh, trình biên dịch sẽ báo lỗi "biến orderId có thể chưa được khởi tạo".
 
-Kiểm tra thực tế (Practical check):
+Kiểm tra thực tế:
 
 - Định nghĩa `Blank final variable` trong một câu.
-- Nhận diện `Blank final variable` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), hạn chế hoặc sự đánh đổi liên quan đến `Blank final variable`.
+- Nhận biết `Blank final variable` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
+- Giải thích một lỗi logic, giới hạn hoặc sự đánh đổi liên quan đến `Blank final variable`.
 
-Ví dụ nhỏ hoặc mô hình tư duy (Tiny example or mental model):
+Ví dụ nhỏ hoặc mô hình tư duy:
 
-- `final int limit = 10;` không thể bị gán lại giá trị.
+- `final int limit = 10;` không thể gán lại giá trị.
 
-## Các câu hỏi ôn tập thường gặp (Common Review Prompts)
+## Các Câu Hỏi Ôn Tập Phổ Biến
 
-- Khái niệm nào ở đây là quy tắc thời gian biên dịch (compile-time rule)?
-- Khái niệm nào ở đây ảnh hưởng đến hành vi thời gian chạy (runtime behavior)?
-- Khái niệm nào ở đây dễ là bẫy phỏng vấn?
+- Khái niệm nào ở đây là quy tắc tại thời điểm biên dịch (compile-time)?
+- Khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy (runtime)?
+- Khái niệm nào ở đây có khả năng là bẫy phỏng vấn?

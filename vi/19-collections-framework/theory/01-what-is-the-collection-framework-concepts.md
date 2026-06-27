@@ -1,29 +1,27 @@
-# Collections Framework - Phần 1 (Collections Framework - Part 1)
+# Cấu Trúc Tập Hợp (Collections Framework) - Phần 1
 
-## Mục tiêu học tập (Learning Goal)
+## Mục Tiêu Học Tập
 
-Tài liệu này bao gồm một phần nội dung trọng tâm về **Collections Framework**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc thực tế trong Java, chứ không chỉ là từ vựng rời rạc.
+File này đề cập đến một phần trọng tâm của **Cấu Trúc Tập Hợp (Collections Framework)**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải là những từ vựng rời rạc.
 
-## Các khái niệm bao phủ (Outline Coverage)
+## Đề Cương Khái Niệm
 
 | Khái niệm | Những điều cần biết |
 | --- | --- |
-| `What is the Collection Framework?` | Collection là một đối tượng nhóm nhiều phần tử dưới một API chung. |
-| `Iterable` | Iterable là hợp đồng duyệt gốc cho phép một đối tượng được sử dụng trong các vòng lặp for mở rộng. |
-| `Collection` | Collection là một đối tượng nhóm nhiều phần tử dưới một API chung. |
-| `List` | List là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập dựa trên vị trí. |
-| `Set` | Set là một tập hợp từ chối các phần tử trùng lặp theo quy tắc bằng nhau. |
-| `Queue` | Queue đại diện cho một tập hợp được thiết kế để chứa các phần tử trước khi xử lý, thường là FIFO. |
-| `Deque` | Deque là một hàng đợi hai đầu hỗ trợ chèn và xóa ở cả hai đầu. |
-| `Map` | Map lưu trữ các cặp khóa-giá trị và truy xuất các giá trị theo khóa. |
+| `Cấu trúc tập hợp (Collection Framework) là gì?` | Một tập hợp (collection) là một đối tượng nhóm nhiều phần tử lại với nhau dưới một API chung. |
+| `Iterable` | Iterable là hợp đồng duyệt gốc cho phép một đối tượng được sử dụng trong các vòng lặp for cải tiến (enhanced for loop). |
+| `Collection` | Một tập hợp (collection) là một đối tượng nhóm nhiều phần tử lại với nhau dưới một API chung. |
+| `List` | Một List là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí. |
+| `Set` | Một Set là một tập hợp loại bỏ các phần tử trùng lặp theo các quy tắc so sánh bằng. |
+| `Queue` | Queue đại diện cho một tập hợp được thiết kế để giữ các phần tử trước khi xử lý, thường theo cơ chế FIFO. |
+| `Deque` | Deque là một hàng đợi hai đầu hỗ trợ việc chèn và xóa ở cả hai đầu. |
+| `Map` | Một Map lưu trữ các cặp khóa-giá trị (key-value pair) và truy xuất các giá trị bằng khóa. |
 
----
+## Ghi Chú Chi Tiết
 
-## Ghi chú chi tiết (Detailed Notes)
+### Phân Cấp Các Tập Hợp (The Collection Hierarchy)
 
-### Hệ thống phân cấp Collection (The Collection Hierarchy)
-
-Dưới đây là mối quan hệ trực quan giữa các giao diện cốt lõi trong Java Collections Framework:
+Dưới đây là mối quan hệ trực quan giữa các giao diện cốt lõi trong Cấu Trúc Tập Hợp Java (Java Collections Framework):
 
 ```mermaid
 graph TD
@@ -33,20 +31,20 @@ graph TD
     Collection --> Queue
     Queue --> Deque
 ```
-*Lưu ý: Map thuộc một hệ thống phân cấp riêng biệt và không kế thừa Collection, mặc dù nó là một phần cốt lõi của Collections Framework.*
+*Lưu ý: Map là một phân cấp riêng biệt và không kế thừa Collection, mặc dù nó là một phần cốt lõi của Cấu Trúc Tập Hợp (Collections Framework).*
 
-### Collection Framework là gì? (What is the Collection Framework?)
+### Cấu Trúc Tập Hợp (Collections Framework) là gì?
 
-Một collection là một đối tượng nhóm nhiều phần tử dưới một API chung. Collections Framework cung cấp:
-1. **Các giao diện (Interfaces)**: Biểu diễn trừu tượng (Abstraction) của các tập hợp (ví dụ: `List`, `Set`, `Map`).
-2. **Các triển khai (Implementations)**: Triển khai cụ thể của các giao diện này (ví dụ: `ArrayList`, `HashSet`, `HashMap`).
-3. **Các thuật toán (Algorithms)**: Các phương thức tiện ích tĩnh để tìm kiếm, sắp xếp và thao tác trên các tập hợp (ví dụ: `Collections.sort()`).
+Một tập hợp là một đối tượng nhóm nhiều phần tử lại với nhau dưới một API chung. Cấu Trúc Tập Hợp cung cấp:
+1. **Các giao diện (Interfaces)**: Các biểu diễn trừu tượng của tập hợp (ví dụ: `List`, `Set`, `Map`).
+2. **Các triển khai (Implementations)**: Các triển khai cụ thể của các giao diện này (ví dụ: `ArrayList`, `HashSet`, `HashMap`).
+3. **Các thuật toán (Algorithms)**: Các phương thức tiện ích tĩnh để tìm kiếm, sắp xếp và thao tác trên tập hợp (ví dụ: `Collections.sort()`).
 
 ### Iterable
 
-`Iterable` là hợp đồng duyệt gốc cho phép một đối tượng được sử dụng trong các vòng lặp `for-each` mở rộng.
+`Iterable` là hợp đồng duyệt gốc cho phép một đối tượng được sử dụng trong các vòng lặp `for-each` cải tiến.
 
-**Ví dụ Code có thể chạy (Runnable Code Example):**
+**Ví dụ Mã Nguồn Chạy Được:**
 ```java
 import java.util.Iterator;
 import java.util.List;
@@ -73,7 +71,7 @@ public class IterableExample {
 
 Giao diện `Collection` đại diện cho các hành vi chung được chia sẻ bởi tất cả các tập hợp (như thêm, xóa và kiểm tra kích thước).
 
-**Ví dụ Code có thể chạy (Runnable Code Example):**
+**Ví dụ Mã Nguồn Chạy Được:**
 ```java
 import java.util.ArrayList;
 import java.util.Collection;
@@ -97,9 +95,9 @@ public class CollectionExample {
 
 ### List
 
-Một `List` là một tập hợp có thứ tự (còn được gọi là một chuỗi - sequence) có thể chứa các phần tử trùng lặp. Người dùng có quyền kiểm soát chính xác vị trí chèn của từng phần tử và có thể truy cập các phần tử bằng chỉ mục số nguyên của chúng.
+Một `List` là một tập hợp có thứ tự (còn được gọi là một chuỗi - sequence) có thể chứa các phần tử trùng lặp. Người dùng có quyền kiểm soát chính xác vị trí của từng phần tử được chèn vào và có thể truy cập các phần tử bằng chỉ số (index) kiểu nguyên của chúng.
 
-**Ví dụ Code có thể chạy (Runnable Code Example):**
+**Ví dụ Mã Nguồn Chạy Được:**
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -124,9 +122,9 @@ public class ListExample {
 
 ### Set
 
-Một `Set` là một tập hợp không thể chứa các phần tử trùng lặp. Nó mô phỏng lại khái niệm tập hợp toán học.
+Một `Set` là một tập hợp không thể chứa các phần tử trùng lặp. Nó mô phỏng lại sự trừu tượng hóa của tập hợp toán học.
 
-**Ví dụ Code có thể chạy (Runnable Code Example):**
+**Ví dụ Mã Nguồn Chạy Được:**
 ```java
 import java.util.HashSet;
 import java.util.Set;
@@ -146,9 +144,9 @@ public class SetExample {
 
 ### Queue
 
-`Queue` đại diện cho một tập hợp được thiết kế để chứa các phần tử trước khi xử lý. Thông thường (nhưng không bắt buộc), các hàng đợi sắp xếp các phần tử theo cơ chế FIFO (vào trước ra trước).
+`Queue` đại diện cho một tập hợp được thiết kế để giữ các phần tử trước khi xử lý. Thông thường (nhưng không nhất thiết), các hàng đợi sắp xếp các phần tử theo cơ chế FIFO (vào trước ra trước).
 
-**Ví dụ Code có thể chạy (Runnable Code Example):**
+**Ví dụ Mã Nguồn Chạy Được:**
 ```java
 import java.util.LinkedList;
 import java.util.Queue;
@@ -173,9 +171,9 @@ public class QueueExample {
 
 ### Deque
 
-`Deque` (Double Ended Queue - Hàng đợi hai đầu) là một tập hợp tuyến tính hỗ trợ chèn và xóa phần tử ở cả hai đầu. Nó có thể được sử dụng như một hàng đợi FIFO hoặc một ngăn xếp LIFO.
+`Deque` (Hàng đợi hai đầu - Double Ended Queue) là một tập hợp tuyến tính hỗ trợ chèn và xóa phần tử ở cả hai đầu. Nó có thể được sử dụng làm hàng đợi FIFO hoặc ngăn xếp LIFO (vào sau ra trước).
 
-**Ví dụ Code có thể chạy (Runnable Code Example):**
+**Ví dụ Mã Nguồn Chạy Được:**
 ```java
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -199,9 +197,9 @@ public class DequeExample {
 
 ### Map
 
-Một `Map` là một đối tượng ánh xạ các khóa tới các giá trị. Một bản đồ không thể chứa các khóa trùng lặp; mỗi khóa có thể ánh xạ tới tối đa một giá trị.
+Một `Map` là một đối tượng ánh xạ các khóa sang các giá trị. Một map không thể chứa các khóa trùng lặp; mỗi khóa có thể ánh xạ tới tối đa một giá trị.
 
-**Ví dụ Code có thể chạy (Runnable Code Example):**
+**Ví dụ Mã Nguồn Chạy Được:**
 ```java
 import java.util.HashMap;
 import java.util.Map;
@@ -225,16 +223,19 @@ public class MapExample {
 
 ---
 
-## Các lỗi thường gặp (Common Mistakes)
+## Các Lỗi Thường Gặp
 
-### 1. Coi Map là một Collection (Treating Map as a Collection)
-Một bẫy phỏng vấn phổ biến là giả định rằng `Map` kế thừa giao diện `Collection`. Thực tế không phải vậy. Các phương thức như `map.add()` hoặc `map.iterator()` không tồn tại. Để lặp qua nội dung của một map, bạn phải gọi `map.keySet()`, `map.values()`, hoặc `map.entrySet()`.
+### 1. Coi Map Như Một Collection
 
-### 2. Nhầm lẫn giữa các phương thức Queue/Deque (Confusing Queue/Deque Methods)
-Việc chèn vào một Queue bằng cách sử dụng `add()` hoặc xóa bằng `remove()` sẽ ném ra ngoại lệ (như `IllegalStateException` hoặc `NoSuchElementException`) nếu hàng đợi bị đầy/trống. Ngược lại, `offer()`, `poll()`, và `peek()` trả về các giá trị đặc biệt (`false` hoặc `null`) thay vì ném ra ngoại lệ. Việc trộn lẫn hai nhóm này dẫn đến việc xử lý lỗi không được tối ưu.
+Một bẫy phỏng vấn phổ biến là giả định rằng `Map` kế thừa giao diện `Collection`. Thực tế không phải vậy. Các phương thức như `map.add()` hoặc `map.iterator()` không hề tồn tại. Để duyệt qua nội dung của một map, bạn phải gọi `map.keySet()`, `map.values()`, hoặc `map.entrySet()`.
 
-### 3. Sửa đổi một List trong vòng lặp dựa trên chỉ mục cơ bản (Modifying a List during a basic index-based loop)
-Sử dụng vòng lặp `for` tiêu chuẩn với duyệt chỉ mục trong khi sửa đổi kích thước của danh sách có thể dẫn đến việc bỏ sót các phần tử hoặc gặp ngoại lệ `IndexOutOfBoundsException`:
+### 2. Nhầm Lẫn Giữa Các Phương Thức Của Queue/Deque
+
+Việc chèn vào một Queue bằng cách sử dụng `add()` hoặc `remove()` sẽ ném ra ngoại lệ (như `IllegalStateException` hoặc `NoSuchElementException`) nếu hàng đợi đầy/rỗng. Ngược lại, `offer()`, `poll()`, và `peek()` trả về các giá trị đặc biệt (`false` hoặc `null`) thay vì ném ra ngoại lệ. Việc trộn lẫn các phương thức này dẫn đến xử lý lỗi rất mỏng manh.
+
+### 3. Sửa Đổi Một List Trong Vòng Lặp Dựa Trên Chỉ Số Cơ Bản
+
+Việc sử dụng một vòng lặp `for` tiêu chuẩn với duyệt chỉ số trong khi sửa đổi kích thước của list có thể dẫn đến việc bỏ sót phần tử hoặc gây ra lỗi `IndexOutOfBoundsException`:
 ```java
 // BUG: Modifies list while iterating forwards
 for (int i = 0; i < list.size(); i++) {
@@ -243,10 +244,10 @@ for (int i = 0; i < list.size(); i++) {
     }
 }
 ```
-*Giải pháp: Sử dụng một iterator rõ ràng hoặc dùng `removeIf`.*
+*\*Giải pháp: Sử dụng một iterator tường minh hoặc `removeIf`.\**
 
-## Các câu hỏi ôn tập phổ biến (Common Review Prompts)
+## Các Câu Hỏi Ôn Tập Thường Gặp
 
-- Khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch?
-- Khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy?
-- Khái niệm nào ở đây dễ là những bẫy câu hỏi phỏng vấn?
+- Những khái niệm nào ở đây là quy tắc tại thời điểm biên dịch?
+- Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy?
+- Những khái niệm nào ở đây có khả năng là bẫy phỏng vấn?

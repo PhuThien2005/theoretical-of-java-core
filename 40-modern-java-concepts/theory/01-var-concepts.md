@@ -1,75 +1,75 @@
-# Modern Java Concepts To Know - Part 1
+# Các Khái Niệm Java Hiện Đại Cần Biết - Phần 1
 
-## Learning Goal
+## Mục Tiêu Học Tập
 
-This file covers a focused slice of **Modern Java Concepts** introduced in recent JDK releases (from Java 10 to 21). Study each concept as a practical Java rule.
+File này trình bày một mảng tập trung về **các tính năng Java hiện đại** được giới thiệu trong các phiên bản JDK gần đây (từ Java 10 đến 21). Hãy học từng khái niệm như một quy tắc Java thực tế.
 
-## Outline Coverage
+## Nội Dung Đề Cương
 
-| Concept | What to know |
+| Khái niệm | Cần biết |
 | --- | --- |
-| `var` | Local variable type inference keyword (`var`) introduced in Java 10. |
-| `Records` | Compact data-carrier class type introduced in Java 16 to represent immutable data records. |
-| `Sealed class` | Class hierarchy control modifier introduced in Java 17 to restrict subclass inheritance. |
-| `Pattern matching for instanceof` | Simplified type casting mechanism introduced in Java 16. |
-| `Switch expression` | Arrow-syntax switch that returns values, introduced in Java 14. |
-| `Text blocks` | Multiline string literal format (`"""`) introduced in Java 15. |
-| `Enhanced NullPointerException message` | Verbose, exact trace JVM-level crash logs. |
-| `Virtual Threads` | Lightweight thread architecture introduced in Java 21 for blocking concurrent workloads. |
-| `Basic Structured Concurrency` | Concurrency pipeline organizing child tasks as a single transaction block. |
-| `Pattern matching for switch` | Type-based branching and conditional guards inside switches (Java 21). |
+| `var` | Từ khóa suy luận kiểu biến cục bộ (`var`) được giới thiệu trong Java 10. |
+| `Records` | Kiểu lớp dữ liệu compact được giới thiệu trong Java 16 để biểu diễn các bản ghi dữ liệu bất biến. |
+| `Sealed class` | Bộ điều chỉnh kiểm soát phân cấp lớp được giới thiệu trong Java 17 để hạn chế kế thừa lớp con. |
+| `Pattern matching for instanceof` | Cơ chế ép kiểu đơn giản hóa được giới thiệu trong Java 16. |
+| `Switch expression` | Switch dùng cú pháp mũi tên trả về giá trị, được giới thiệu trong Java 14. |
+| `Text blocks` | Định dạng chuỗi literal đa dòng (`"""`) được giới thiệu trong Java 15. |
+| `Thông báo NullPointerException được cải thiện` | Log lỗi JVM chi tiết, chính xác. |
+| `Virtual Threads` | Kiến trúc thread nhẹ được giới thiệu trong Java 21 cho các khối lượng công việc đồng thời dạng blocking I/O. |
+| `Cơ bản về Structured Concurrency` | Pipeline đồng thời tổ chức các tác vụ con thành một khối giao dịch đơn. |
+| `Pattern matching for switch` | Phân nhánh dựa trên kiểu và guard điều kiện bên trong switch (Java 21). |
 
 ---
 
-## Detailed Notes
+## Ghi Chú Chi Tiết
 
 ### var
 
-`var` allows the compiler to infer the static type of a local variable based on its initializer expression.
+`var` cho phép trình biên dịch suy ra kiểu tĩnh (static type) của biến cục bộ dựa trên biểu thức khởi tạo bên phải.
 
-- **Runnable Example**:
+- **Ví dụ chạy được**:
   ```java
-  var name = "Alice";                       // Inferred as String
-  var list = new ArrayList<String>();       // Inferred as ArrayList<String>
+  var name = "Alice";                       // Suy ra là String
+  var list = new ArrayList<String>();       // Suy ra là ArrayList<String>
   
-  for (var element : list) {                // Inferred as String inside loop
+  for (var element : list) {                // Suy ra là String bên trong vòng lặp
       System.out.println(element);
   }
   ```
 
-- **Common Mistake / Failure Mode**:
-  - **Not Dynamic Typing**: Variables declared with `var` are still statically typed. You cannot reassign them to incompatible types.
+- **Lỗi Thường Gặp / Trường Hợp Thất Bại**:
+  - **Không phải Kiểu Động**: Các biến khai báo với `var` vẫn được định kiểu tĩnh. Không thể gán lại chúng cho các kiểu không tương thích.
     ```java
     var count = 10;
-    // count = "ten"; // COMPILE ERROR: Incompatible types
+    // count = "ten"; // LỖI BIÊN DỊCH: Kiểu không tương thích
     ```
-  - **Invalid Use Cases**: `var` cannot be initialized without a value, or with a null literal, and cannot be used for fields, method parameters, or return types.
+  - **Các Trường Hợp Không Hợp Lệ**: `var` không thể được khởi tạo mà không có giá trị, hoặc với null literal, và không thể dùng cho field, tham số phương thức, hay kiểu trả về.
     ```java
-    // var x;      // COMPILE ERROR
-    // var y = null; // COMPILE ERROR
+    // var x;      // LỖI BIÊN DỊCH
+    // var y = null; // LỖI BIÊN DỊCH
     ```
 
 ---
 
 ### Records
 
-Records are compact, final classes designed to act as simple immutable data carriers. The compiler automatically generates private final fields, a canonical constructor, accessor methods (matching field names), `equals()`, `hashCode()`, and `toString()`.
+Record (bản ghi) là các lớp `final` compact được thiết kế để hoạt động như những data carrier (vật chứa dữ liệu) bất biến đơn giản. Trình biên dịch tự động tạo ra các field `private final`, một constructor chính (canonical constructor), các phương thức accessor (tên khớp với tên field), `equals()`, `hashCode()`, và `toString()`.
 
-- **Runnable Example**:
+- **Ví dụ chạy được**:
   ```java
   public record Point(int x, int y) {}
 
-  // Usage:
+  // Cách dùng:
   Point p = new Point(10, 20);
-  System.out.println(p.x()); // 10 (Accessors do NOT have a 'get' prefix)
+  System.out.println(p.x()); // 10 (Accessor KHÔNG có tiền tố 'get')
   ```
 
-- **Common Mistake / Failure Mode**:
-  - **Implicit Finality**: Records are final and cannot extend other classes (they already extend `java.lang.Record`). All fields are final and cannot be modified.
-  - **Validation in Constructors**: To validate inputs, use a compact constructor. Do not redeclare parameters or fields.
+- **Lỗi Thường Gặp / Trường Hợp Thất Bại**:
+  - **Tính Final Ngầm Định**: Record là final và không thể kế thừa các lớp khác (chúng đã kế thừa `java.lang.Record`). Tất cả field đều final và không thể thay đổi.
+  - **Xác Thực trong Constructor**: Để xác thực đầu vào, dùng compact constructor. Không khai báo lại tham số hoặc field.
     ```java
     public record User(String name, int age) {
-        public User { // Compact constructor (no parameter list)
+        public User { // Compact constructor (không có danh sách tham số)
             if (age < 0) throw new IllegalArgumentException("Age cannot be negative");
         }
     }
@@ -79,42 +79,42 @@ Records are compact, final classes designed to act as simple immutable data carr
 
 ### Sealed class
 
-Sealed classes and interfaces restrict which other classes or interfaces may extend or implement them.
+Sealed class (lớp kín) và interface (giao diện) kín giới hạn những lớp hoặc interface nào có thể kế thừa hoặc triển khai chúng.
 
-- **Runnable Example**:
+- **Ví dụ chạy được**:
   ```java
   public abstract sealed class Shape permits Circle, Square {}
   
-  // Subclasses must be final, sealed, or non-sealed:
+  // Lớp con phải là final, sealed, hoặc non-sealed:
   public final class Circle extends Shape {}
   public non-sealed class Square extends Shape {}
   ```
 
-- **Common Mistake / Failure Mode**:
-  - Subclasses of a sealed class must explicitly declare one of three modifiers: `final` (cannot be subclassed further), `sealed` (can be subclassed only by permitted sub-subclasses), or `non-sealed` (opens the class back up to extension by any class). Omitting this modifier is a compilation error.
+- **Lỗi Thường Gặp / Trường Hợp Thất Bại**:
+  - Các lớp con của sealed class phải khai báo rõ ràng một trong ba modifier: `final` (không thể phân lớp tiếp), `sealed` (chỉ có thể phân lớp bởi các lớp con được phép), hoặc `non-sealed` (mở lại lớp để kế thừa tự do). Bỏ qua modifier này là lỗi biên dịch.
 
 ---
 
 ### Pattern matching for instanceof
 
-Pattern matching for `instanceof` combines type checking and automatic casting into a single step.
+Pattern matching for `instanceof` (khớp mẫu cho instanceof) kết hợp kiểm tra kiểu và ép kiểu tự động thành một bước duy nhất.
 
-- **Runnable Example**:
+- **Ví dụ chạy được**:
   ```java
   Object obj = "Hello World";
   if (obj instanceof String s) {
-      // 's' is automatically cast to String and is in scope here
+      // 's' được tự động ép kiểu thành String và có phạm vi ở đây
       System.out.println(s.toLowerCase());
   }
   ```
 
-- **Common Mistake / Failure Mode**:
-  - **Scope Limitation**: The binding variable is only in scope where the compiler can guarantee the type check was true.
+- **Lỗi Thường Gặp / Trường Hợp Thất Bại**:
+  - **Giới Hạn Phạm Vi**: Biến ràng buộc (binding variable) chỉ trong phạm vi khi trình biên dịch có thể đảm bảo kiểm tra kiểu là đúng.
     ```java
-    // COMPILE ERROR: 's' is not in scope in the or (||) branch
+    // LỖI BIÊN DỊCH: 's' không trong phạm vi trong nhánh hoặc (||)
     // if (obj instanceof String s || s.isEmpty()) {} 
 
-    // CORRECT: 's' is in scope in the and (&&) branch due to short-circuiting
+    // ĐÚNG: 's' trong phạm vi trong nhánh và (&&) do short-circuiting
     if (obj instanceof String s && !s.isEmpty()) {
         System.out.println(s);
     }
@@ -124,9 +124,9 @@ Pattern matching for `instanceof` combines type checking and automatic casting i
 
 ### Switch expression
 
-Switch expressions allow `switch` to yield a value, utilizing the arrow operator (`->`) which prevents fall-through, replacing the verbose colon-break syntax.
+Switch expression (biểu thức switch) cho phép `switch` trả về giá trị, sử dụng toán tử mũi tên (`->`) ngăn chặn fall-through, thay thế cú pháp colon-break dài dòng.
 
-- **Runnable Example**:
+- **Ví dụ chạy được**:
   ```java
   int score = switch (grade) {
       case 'A' -> 100;
@@ -134,21 +134,21 @@ Switch expressions allow `switch` to yield a value, utilizing the arrow operator
       case 'C', 'D' -> 60;
       default -> {
           System.out.println("Failing grade");
-          yield 0; // Use yield to return value from multi-line blocks
+          yield 0; // Dùng yield để trả về giá trị từ khối nhiều dòng
       }
   };
   ```
 
-- **Common Mistake / Failure Mode**:
-  - **Exhaustiveness Check**: Switch expressions must be exhaustive. If you do not cover every possible case (e.g., all enum values or sealed subclasses), you must provide a `default` case, otherwise compilation fails.
+- **Lỗi Thường Gặp / Trường Hợp Thất Bại**:
+  - **Kiểm Tra Toàn Diện**: Switch expression phải toàn diện. Nếu không bao phủ mọi trường hợp có thể (ví dụ: tất cả giá trị enum hoặc lớp con sealed), phải cung cấp case `default`, nếu không biên dịch sẽ thất bại.
 
 ---
 
 ### Text blocks
 
-Text blocks provide multi-line string literals, preserving formatting and eliminating the need for escaped newline sequences.
+Text block (khối văn bản) cung cấp chuỗi literal đa dòng, giữ nguyên định dạng và loại bỏ nhu cầu escape chuỗi xuống dòng.
 
-- **Runnable Example**:
+- **Ví dụ chạy được**:
   ```java
   String html = """
                 <html>
@@ -159,163 +159,163 @@ Text blocks provide multi-line string literals, preserving formatting and elimin
                 """;
   ```
 
-- **Common Mistake / Failure Mode**:
-  - **Opening Delimiter Rules**: The opening three double quotes `"""` must be immediately followed by a newline. Placing text on the same line as the opening quotes is a syntax error.
+- **Lỗi Thường Gặp / Trường Hợp Thất Bại**:
+  - **Quy Tắc Dấu Mở**: Ba dấu nháy kép mở `"""` phải được theo sau bởi một dòng mới ngay lập tức. Đặt văn bản trên cùng dòng với dấu mở là lỗi cú pháp.
     ```java
-    // COMPILE ERROR:
+    // LỖI BIÊN DỊCH:
     // String bad = """hello
     // world""";
     ```
 
 ---
 
-### Enhanced NullPointerException message
+### Thông báo NullPointerException được cải thiện
 
-Since Java 14, the JVM outputs precise details explaining which variable or return value evaluated to null.
+Kể từ Java 14, JVM xuất ra chi tiết chính xác giải thích biến hoặc giá trị trả về nào được định giá trị null.
 
-- **Example**:
+- **Ví dụ**:
   ```java
-  // For statement: person.getAddress().getCity()
-  // If getAddress() is null, the NPE stack trace details:
+  // Với câu lệnh: person.getAddress().getCity()
+  // Nếu getAddress() là null, stack trace NPE chi tiết:
   // "Cannot invoke "Address.getCity()" because the return value of "Person.getAddress()" is null"
   ```
 
-- **Tradeoff**: These details are generated at runtime by analyzing bytecode. While extremely helpful for debugging, it can be disabled on the command line using `-XX:-ShowCodeDetailsInExceptionMessages` to save performance or obscure class internals.
+- **Đánh đổi**: Các chi tiết này được tạo ra tại runtime bằng cách phân tích bytecode. Dù cực kỳ hữu ích để gỡ lỗi, có thể tắt trên command line bằng `-XX:-ShowCodeDetailsInExceptionMessages` để tiết kiệm hiệu suất hoặc che giấu nội bộ lớp.
 
 ---
 
 ### Virtual Threads
 
-Virtual threads are lightweight threads managed by the JVM rather than the OS. They allow running millions of concurrent threads with minimal memory overhead, ideal for block-on-I/O applications.
+Virtual thread (luồng ảo) là thread nhẹ được JVM quản lý thay vì hệ điều hành. Chúng cho phép chạy hàng triệu thread đồng thời với tốn bộ nhớ tối thiểu, lý tưởng cho các ứng dụng blocking I/O.
 
-- **Runnable Example**:
+- **Ví dụ chạy được**:
   ```java
-  // Create and start a single virtual thread
+  // Tạo và khởi động một virtual thread đơn lẻ
   Thread vt = Thread.ofVirtual().start(() -> {
       System.out.println("Running on virtual thread: " + Thread.currentThread());
   });
 
-  // Use executor for high-concurrency tasks
+  // Dùng executor cho các tác vụ có tính đồng thời cao
   try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
       executor.submit(() -> {
-          // perform network blocking I/O
+          // thực hiện blocking I/O mạng
       });
   }
   ```
 
-- **Common Mistake / Failure Mode**:
-  - **Carrier Thread Pinning**: If a virtual thread runs blocking work inside a `synchronized` block or native method, it "pins" its underlying OS carrier thread, preventing other virtual threads from running on it.
-  - **Mitigation**: Replace `synchronized` blocks with `java.util.concurrent.locks.ReentrantLock` for blocking code paths.
-  - **Thread Pooling**: Do not pool virtual threads (avoid `fixedThreadPool`). They are cheap to create and should be discarded after use.
+- **Lỗi Thường Gặp / Trường Hợp Thất Bại**:
+  - **Ghim Carrier Thread**: Nếu một virtual thread chạy công việc blocking bên trong khối `synchronized` hoặc phương thức native, nó "ghim" OS carrier thread bên dưới, ngăn các virtual thread khác chạy trên đó.
+  - **Giải pháp**: Thay thế khối `synchronized` bằng `java.util.concurrent.locks.ReentrantLock` cho các đường dẫn code có blocking.
+  - **Pooling Thread**: Không nên pool virtual thread (tránh `fixedThreadPool`). Chúng rẻ để tạo và nên được bỏ đi sau khi dùng.
 
 ---
 
-### Basic Structured Concurrency
+### Cơ bản về Structured Concurrency
 
-Structured Concurrency (currently a preview feature) treats multiple concurrent subtasks running in separate threads as a single unit of work, coordinating lifetime and cancellation cleanly.
+Structured Concurrency (đồng thời có cấu trúc - hiện là tính năng xem trước) coi nhiều tác vụ con đồng thời chạy trên các thread riêng biệt như một đơn vị công việc duy nhất, phối hợp vòng đời và hủy bỏ một cách rõ ràng.
 
-- **Runnable Example**:
+- **Ví dụ chạy được**:
   ```java
-  // Requires compiling and running with '--enable-preview'
+  // Yêu cầu biên dịch và chạy với '--enable-preview'
   try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
       Subtask<String> user  = scope.fork(() -> fetchUser());
       Subtask<Integer> order = scope.fork(() -> fetchOrder());
 
-      scope.join();           // Join all subtasks
-      scope.throwIfFailed();  // Propagate first failed task exception
+      scope.join();           // Chờ tất cả subtask
+      scope.throwIfFailed();  // Lan truyền ngoại lệ của tác vụ thất bại đầu tiên
 
       System.out.println("Result: " + user.get() + " | " + order.get());
   }
   ```
 
-- **Common Mistake / Failure Mode**:
-  - Calling `.get()` on a Subtask before calling `scope.join()` throws an `IllegalStateException`.
+- **Lỗi Thường Gặp / Trường Hợp Thất Bại**:
+  - Gọi `.get()` trên một Subtask trước khi gọi `scope.join()` sẽ ném `IllegalStateException`.
 
 ---
 
 ### Pattern matching for switch
 
-Pattern matching for switch extends switch statements to check parameter classes and test conditions directly on type cases.
+Pattern matching for switch (khớp mẫu cho switch) mở rộng câu lệnh switch để kiểm tra kiểu tham số và kiểm tra điều kiện trực tiếp trên các case kiểu.
 
-- **Runnable Example**:
+- **Ví dụ chạy được**:
   ```java
   Object obj = "Short";
   String desc = switch (obj) {
       case Integer i -> "An integer: " + i;
-      // Case guard using 'when' (evaluates only if pattern matches String)
+      // Case guard dùng 'when' (chỉ kiểm tra nếu pattern khớp với String)
       case String s when s.length() > 5 -> "Long string: " + s;
       case String s -> "Short string: " + s;
       default -> "Unknown type";
   };
   ```
 
-- **Common Mistake / Failure Mode**:
-  - **Dominance issues**: Specific type/conditional patterns must be written above generic cases. If `case String s` is written above `case String s when s.length() > 5`, the compiler fails because the latter is dominated (unreachable).
+- **Lỗi Thường Gặp / Trường Hợp Thất Bại**:
+  - **Vấn đề Dominance**: Các pattern kiểu/điều kiện cụ thể phải được viết trước các case tổng quát. Nếu `case String s` được liệt kê trước `case String s when s.length() > 5`, trình biên dịch sẽ thất bại vì cái sau bị dominated (không thể tiếp cận).
 
 ---
 
-## Why var Is Compile-Time Inference Not Dynamic Typing
+## Tại sao var là Suy Luận Tại Thời Điểm Biên Dịch Chứ Không Phải Kiểu Động
 
-`var` is not Python's duck typing or JavaScript's `var`. It is **local variable type inference** — the compiler analyzes the right-hand side of the declaration and statically assigns a fixed type at compile time. Once assigned, the variable's type is immutable for the duration of its scope. The variable is no different from one explicitly typed — the bytecode is identical.
+`var` không phải duck typing của Python hay `var` của JavaScript. Nó là **suy luận kiểu biến cục bộ (local variable type inference)** — trình biên dịch phân tích phía bên phải của khai báo và gán tĩnh một kiểu cố định tại thời điểm biên dịch. Sau khi gán, kiểu của biến là bất biến trong suốt phạm vi của nó. Biến không khác gì một biến được khai báo kiểu tường minh — bytecode hoàn toàn giống nhau.
 
-The four forbidden locations for `var` reveal exactly how static typing is preserved:
+Bốn vị trí bị cấm của `var` tiết lộ chính xác cách kiểu tĩnh được bảo toàn:
 
-1. **Fields** — a field's type must be explicitly declared so the type is visible to any code that reads or writes the field, in any class, at any time.
-2. **Method parameters** — the caller must know the parameter's type to compile the call site.
-3. **Method return types** — the caller must know what type to expect from the return value.
-4. **`var` without initializer / `var x = null`** — the compiler has no right-hand side to infer from, so inference is impossible.
+1. **Field** — kiểu của field phải được khai báo tường minh để kiểu có thể nhìn thấy bởi bất kỳ code nào đọc hoặc ghi field, trong bất kỳ lớp nào, bất kỳ lúc nào.
+2. **Tham số phương thức** — người gọi phải biết kiểu của tham số để biên dịch điểm gọi.
+3. **Kiểu trả về phương thức** — người gọi phải biết kiểu nào mong đợi từ giá trị trả về.
+4. **`var` không có bộ khởi tạo / `var x = null`** — trình biên dịch không có phía bên phải để suy luận từ đó, nên suy luận là bất khả thi.
 
-### Mental Model: var vs Dynamic Typing
+### Mô Hình Tư Duy: var vs Kiểu Động
 ```
 Python (dynamic):
 x = 10
-x = "hello"   ← OK: x changes type at runtime
+x = "hello"   ← OK: x thay đổi kiểu tại runtime
 
 Java var (static inference):
-var x = 10;           ← Inferred as int at compile time
-x = "hello";          ← COMPILE ERROR: int cannot hold String
-// bytecode: identical to: int x = 10;
+var x = 10;           ← Suy ra là int tại thời điểm biên dịch
+x = "hello";          ← LỖI BIÊN DỊCH: int không thể chứa String
+// bytecode: giống hệt: int x = 10;
 ```
 
-### Code Example: var in practice
+### Ví Dụ Code: var trong thực tế
 ```java
-// All of these are statically typed at compile time
+// Tất cả đều được định kiểu tĩnh tại thời điểm biên dịch
 var name = "Alice";                     // String
 var count = 42;                         // int
 var list = new ArrayList<String>();     // ArrayList<String>
 
 for (var entry : Map.of("k", 1).entrySet()) {
-    // entry inferred as Map.Entry<String, Integer>
+    // entry được suy ra là Map.Entry<String, Integer>
     System.out.println(entry.getKey() + "=" + entry.getValue());
 }
 
-// ILLEGAL — compiler has no type to infer
-// var x;             // Error: cannot infer type
-// var y = null;      // Error: cannot infer type from null
-// var z;             // Error: variable must be initialized
+// BẤT HỢP LỆ — trình biên dịch không có kiểu để suy luận
+// var x;             // Lỗi: không thể suy luận kiểu
+// var y = null;      // Lỗi: không thể suy luận kiểu từ null
+// var z;             // Lỗi: biến phải được khởi tạo
 ```
 
-### Cause-Effect Chain
-`var x = new ArrayList<String>()` used &rarr; Compiler reads the right-hand side type `ArrayList<String>` &rarr; Assigns that type permanently to `x` &rarr; Generated bytecode identical to explicit `ArrayList<String> x` &rarr; Any reassignment to incompatible type causes compile error &rarr; No runtime cost, no boxing overhead.
+### Chuỗi Nguyên Nhân - Kết Quả
+`var x = new ArrayList<String>()` được dùng &rarr; Trình biên dịch đọc kiểu bên phải `ArrayList<String>` &rarr; Gán kiểu đó vĩnh viễn cho `x` &rarr; Bytecode tạo ra giống hệt khai báo tường minh `ArrayList<String> x` &rarr; Bất kỳ việc gán lại sang kiểu không tương thích gây ra lỗi biên dịch &rarr; Không tốn chi phí runtime, không có overhead boxing.
 
 ---
 
-## Why Records Enforce Immutability Through Compiler-Generated Code
+## Tại sao Records Đảm Bảo Tính Bất Biến Thông Qua Code Do Trình Biên Dịch Tạo Ra
 
-Before Records, creating a simple immutable data class required writing a constructor, `final` fields, accessor methods, `equals()`, `hashCode()`, and `toString()` — often 50–100 lines of boilerplate for a trivial data carrier. Records eliminate this by encoding the contract "this class is a transparent carrier of its named components" directly in the language.
+Trước Records, tạo một lớp dữ liệu bất biến đơn giản yêu cầu viết constructor, field `final`, các phương thức accessor, `equals()`, `hashCode()`, và `toString()` — thường 50–100 dòng boilerplate cho một data carrier tầm thường. Records loại bỏ điều này bằng cách mã hóa hợp đồng "lớp này là vật chứa trong suốt của các thành phần được đặt tên" trực tiếp trong ngôn ngữ.
 
-The compiler generates:
-- **Private final fields** for each record component — no mutation after construction.
-- **A canonical constructor** with all components as parameters that assigns each field.
-- **Accessor methods** named after the fields (e.g., `point.x()`, not `getX()`) — accessors match field names by design to make component access discoverable.
-- **`equals()` and `hashCode()`** comparing all components by value.
-- **`toString()`** printing all components.
+Trình biên dịch tạo ra:
+- **Field `private final`** cho mỗi thành phần record — không thể thay đổi sau khi khởi tạo.
+- **Canonical constructor** với tất cả thành phần là tham số để gán mỗi field.
+- **Phương thức Accessor** đặt tên theo field (ví dụ: `point.x()`, không phải `getX()`) — các accessor khớp tên field theo thiết kế để làm cho truy cập thành phần có thể khám phá.
+- **`equals()` và `hashCode()`** so sánh tất cả thành phần theo giá trị.
+- **`toString()`** in tất cả thành phần.
 
-Records are implicitly `final` and cannot extend other classes (they implicitly extend `java.lang.Record`). This prevents mutation through subclassing. The compact constructor syntax allows validation without re-declaring parameters.
+Record là `final` ngầm định và không thể kế thừa các lớp khác (chúng ngầm định kế thừa `java.lang.Record`). Điều này ngăn chặn thay đổi thông qua phân lớp. Cú pháp compact constructor cho phép xác thực mà không cần khai báo lại tham số.
 
-### Mental Model: Record vs Manual Immutable Class
+### Mô Hình Tư Duy: Record vs Lớp Bất Biến Thủ Công
 ```
-// Manual immutable class — ~60 lines:
+// Lớp bất biến thủ công — ~60 dòng:
 public final class Point {
     private final int x;
     private final int y;
@@ -327,72 +327,72 @@ public final class Point {
     @Override public String toString() { ... }
 }
 
-// Record equivalent — 1 line:
+// Tương đương Record — 1 dòng:
 public record Point(int x, int y) {}
-// Compiler generates everything above automatically
+// Trình biên dịch tự động tạo ra tất cả bên trên
 ```
 
-### Code Example: Records with validation
+### Ví Dụ Code: Records với xác thực
 ```java
 public record User(String name, int age) {
-    // Compact constructor — no parameter list, uses implicit assignments
+    // Compact constructor — không có danh sách tham số, dùng gán ngầm định
     public User {
         if (age < 0) throw new IllegalArgumentException("Age cannot be negative");
-        name = name.strip(); // Can transform values before assignment
+        name = name.strip(); // Có thể chuyển đổi giá trị trước khi gán
     }
 }
 
 User u = new User("Alice", 30);
-System.out.println(u.name()); // "Alice" — accessor, not getName()
+System.out.println(u.name()); // "Alice" — accessor, không phải getName()
 System.out.println(u.age());  // 30
 System.out.println(u);        // User[name=Alice, age=30]
 
-// Cannot mutate — fields are final
-// u.name = "Bob"; // COMPILE ERROR: no such field access
+// Không thể thay đổi — field là final
+// u.name = "Bob"; // LỖI BIÊN DỊCH: không có quyền truy cập field như vậy
 ```
 
-### Cause-Effect Chain
-`record Point(int x, int y)` declared &rarr; Compiler generates private final fields, canonical constructor, accessors, equals/hashCode/toString &rarr; All fields final from construction &rarr; No mutator methods generated &rarr; Record is immutable by design &rarr; Safe to share across threads and use as Map keys.
+### Chuỗi Nguyên Nhân - Kết Quả
+`record Point(int x, int y)` được khai báo &rarr; Trình biên dịch tạo ra field private final, canonical constructor, accessor, equals/hashCode/toString &rarr; Tất cả field final từ khi khởi tạo &rarr; Không có phương thức mutator được tạo &rarr; Record bất biến theo thiết kế &rarr; An toàn để chia sẻ giữa các thread và dùng làm khóa Map.
 
 ---
 
-## Why Sealed Classes Enable Safe Exhaustive Pattern Matching
+## Tại sao Sealed Classes Cho Phép Pattern Matching An Toàn Toàn Diện
 
-Without sealed classes, the compiler cannot know at compile time what all possible subclasses of an abstract class or interface are. Anyone in any module can extend an open class. This means switch expressions on the type cannot be exhaustive — the compiler must always require a `default` branch to handle unknown subclasses.
+Không có sealed class, trình biên dịch không thể biết tại thời điểm biên dịch tất cả các lớp con có thể của một lớp abstract hoặc interface. Bất kỳ ai trong bất kỳ module nào đều có thể kế thừa một lớp mở. Điều này có nghĩa là switch expression trên kiểu không thể toàn diện — trình biên dịch luôn yêu cầu một nhánh `default` để xử lý các lớp con không biết.
 
-Sealed classes declare exactly which classes are permitted to implement or extend them in the `permits` clause. The compiler can enumerate the complete set of possible types. When a `sealed` class is used in a `switch` expression and all permitted subtypes are covered, the compiler verifies exhaustiveness without requiring a `default` case — and will compile-fail if a new permitted subtype is added but the switch is not updated.
+Sealed class khai báo chính xác những lớp nào được phép triển khai hoặc kế thừa chúng trong mệnh đề `permits`. Trình biên dịch có thể liệt kê toàn bộ tập hợp kiểu có thể. Khi một lớp `sealed` được dùng trong `switch` expression và tất cả kiểu con được phép đều được bao phủ, trình biên dịch xác minh tính toàn diện mà không yêu cầu case `default` — và sẽ lỗi biên dịch nếu một kiểu con được phép mới được thêm vào nhưng switch không được cập nhật.
 
-This enables "closed-type algebraic data types" that are common in Scala, Haskell, and Kotlin (`sealed` classes). The compiler becomes a correctness guarantor for type-based branching.
+Điều này cho phép "kiểu dữ liệu đại số kiểu đóng" phổ biến trong Scala, Haskell và Kotlin (lớp `sealed`). Trình biên dịch trở thành người bảo đảm tính đúng đắn cho việc phân nhánh dựa trên kiểu.
 
-### Mental Model: Open vs Sealed class hierarchy exhaustiveness
+### Mô Hình Tư Duy: Tính Toàn Diện của Phân Cấp Lớp Mở vs Kín
 ```
-// Open class — compiler cannot enumerate all subclasses
+// Lớp mở — trình biên dịch không thể liệt kê tất cả lớp con
 abstract class Shape {}
-// Switch MUST have default to be exhaustive
+// Switch PHẢI có default để toàn diện
 String describe = switch (shape) {
     case Circle c -> "circle with radius " + c.radius();
-    default -> "unknown shape"; // Cannot remove this safely
+    default -> "unknown shape"; // Không thể xóa an toàn
 };
 
-// Sealed class — compiler knows all permitted subtypes
+// Sealed class — trình biên dịch biết tất cả kiểu con được phép
 sealed class Shape permits Circle, Square {}
-// Switch is exhaustive without default
+// Switch toàn diện không cần default
 String describe = switch (shape) {
     case Circle c -> "circle with radius " + c.radius();
     case Square s -> "square with side " + s.side();
-    // No default needed — compiler verifies all subtypes covered
+    // Không cần default — trình biên dịch xác minh tất cả kiểu con được bao phủ
 };
-// If Rectangle is added to permits but not to switch → COMPILE ERROR
+// Nếu Rectangle được thêm vào permits nhưng không vào switch → LỖI BIÊN DỊCH
 ```
 
-### Code Example: Sealed class with switch expression
+### Ví Dụ Code: Sealed class với switch expression
 ```java
 public sealed interface Shape permits Circle, Square, Triangle {}
 public record Circle(double radius) implements Shape {}
 public record Square(double side) implements Shape {}
 public record Triangle(double base, double height) implements Shape {}
 
-// Exhaustive switch — no default required
+// Switch toàn diện — không cần default
 double area = switch (shape) {
     case Circle c -> Math.PI * c.radius() * c.radius();
     case Square s -> s.side() * s.side();
@@ -400,37 +400,37 @@ double area = switch (shape) {
 };
 ```
 
-### Cause-Effect Chain
-`sealed` declared with `permits Circle, Square` &rarr; Compiler records permitted subtype set &rarr; Switch on `Shape` covers `Circle` and `Square` &rarr; Compiler verifies exhaustiveness &rarr; No `default` required &rarr; Adding `Triangle` to permits without updating switch &rarr; Compile error.
+### Chuỗi Nguyên Nhân - Kết Quả
+`sealed` được khai báo với `permits Circle, Square` &rarr; Trình biên dịch ghi lại tập hợp kiểu con được phép &rarr; Switch trên `Shape` bao phủ `Circle` và `Square` &rarr; Trình biên dịch xác minh tính toàn diện &rarr; Không cần `default` &rarr; Thêm `Triangle` vào permits mà không cập nhật switch &rarr; Lỗi biên dịch.
 
 ---
 
-## Why Pattern Matching for Switch Requires Ordering by Specificity
+## Tại sao Pattern Matching for Switch Yêu Cầu Sắp Xếp Theo Độ Cụ Thể
 
-The Java compiler enforces a **dominance rule** for pattern matching in switch: a more specific pattern cannot appear after a more general pattern that would match all the same inputs. If a general case appears first, the specific case that follows can never be reached — it is "dominated."
+Trình biên dịch Java thực thi **quy tắc dominance** cho pattern matching trong switch: một pattern cụ thể hơn không thể xuất hiện sau một pattern tổng quát hơn sẽ khớp với tất cả cùng đầu vào. Nếu một case tổng quát xuất hiện trước, case cụ thể theo sau không bao giờ có thể đạt được — nó bị "dominated" (chi phối).
 
-For guarded patterns like `case String s when s.length() > 5`, the guard `when s.length() > 5` is a subset of `case String s` (which matches all Strings). If `case String s` is listed first, the guarded case `case String s when s.length() > 5` can never execute — the unguarded case already captured all Strings.
+Với các guarded pattern như `case String s when s.length() > 5`, guard `when s.length() > 5` là tập con của `case String s` (khớp tất cả String). Nếu `case String s` được liệt kê trước, guarded case `case String s when s.length() > 5` không bao giờ có thể thực thi — case không có guard đã bắt tất cả String.
 
-This is a **compile-time** check. The compiler rejects switch statements where a case is dominated, preventing silent bugs where a more precise case was accidentally shadowed.
+Đây là kiểm tra **tại thời điểm biên dịch**. Trình biên dịch từ chối các câu lệnh switch nơi một case bị dominated, ngăn chặn các lỗi im lặng nơi một case chính xác hơn vô tình bị che khuất.
 
-### Mental Model: Dominance ordering rule
+### Mô Hình Tư Duy: Quy tắc sắp xếp Dominance
 ```
-// ILLEGAL — case String s dominates the guarded case below it
+// BẤT HỢP LỆ — case String s chi phối guarded case bên dưới nó
 switch (obj) {
-    case String s -> "any string: " + s;          // Matches ALL strings
-    case String s when s.length() > 5 -> "long";  // COMPILE ERROR: dominated
+    case String s -> "any string: " + s;          // Khớp TẤT CẢ string
+    case String s when s.length() > 5 -> "long";  // LỖI BIÊN DỊCH: bị dominated
 }
 
-// LEGAL — most specific guarded case first
+// HỢP LỆ — guarded case cụ thể nhất lên đầu
 switch (obj) {
-    case String s when s.length() > 5 -> "long string: " + s; // Specific
-    case String s -> "short string: " + s;                    // General
+    case String s when s.length() > 5 -> "long string: " + s; // Cụ thể
+    case String s -> "short string: " + s;                    // Tổng quát
     case Integer i -> "integer: " + i;
     default -> "other";
 }
 ```
 
-### Code Example: Pattern matching switch with guards
+### Ví Dụ Code: Pattern matching switch với guards
 ```java
 Object obj = "Hello World";
 String desc = switch (obj) {
@@ -441,48 +441,48 @@ String desc = switch (obj) {
     case String s -> "short string: " + s;
     default -> "unknown: " + obj;
 };
-System.out.println(desc); // Output: long string: Hello World
+System.out.println(desc); // Kết quả: long string: Hello World
 ```
 
-### Cause-Effect Chain
-Pattern cases evaluated top-to-bottom &rarr; More general `case String s` matches all Strings &rarr; Specific `case String s when ...` below it can never be reached &rarr; Compile error: pattern dominated &rarr; Reorder: guarded (specific) before unguarded (general) &rarr; Compiler verifies no unreachable patterns &rarr; All cases reachable.
+### Chuỗi Nguyên Nhân - Kết Quả
+Các case pattern được kiểm tra từ trên xuống &rarr; `case String s` tổng quát hơn khớp tất cả String &rarr; `case String s when ...` cụ thể hơn bên dưới không bao giờ đạt được &rarr; Lỗi biên dịch: pattern bị dominated &rarr; Sắp xếp lại: guarded (cụ thể) trước unguarded (tổng quát) &rarr; Trình biên dịch xác minh không có pattern không thể tiếp cận &rarr; Tất cả case có thể tiếp cận.
 
 ---
 
-## Why Virtual Threads Pin Carrier Threads in Synchronized Blocks
+## Tại sao Virtual Threads Ghim Carrier Threads trong Synchronized Blocks
 
-Virtual threads are managed by the JVM on top of a small pool of real OS "carrier" threads. When a virtual thread needs to block (waiting for I/O, a lock, a condition), the JVM **mounts** it on a carrier thread, and when blocking, **unmounts** it (suspending the virtual thread's state while freeing the carrier thread for other virtual threads).
+Virtual thread được JVM quản lý trên một pool nhỏ các OS "carrier" thread thực sự. Khi một virtual thread cần block (chờ I/O, khóa, điều kiện), JVM **mount** nó lên một carrier thread, và khi blocking, **unmount** nó (tạm dừng trạng thái virtual thread trong khi giải phóng carrier thread cho các virtual thread khác).
 
-The problem is `synchronized`. When a virtual thread enters a `synchronized` block, the JVM must hold the monitor lock on the carrier thread's native OS thread — this is a JVM implementation constraint of the current HotSpot lock model. If the virtual thread blocks while holding the monitor (e.g., blocking I/O inside `synchronized`), the carrier thread is "pinned" — it cannot be freed to run other virtual threads, defeating the whole purpose of virtual thread scalability.
+Vấn đề là `synchronized`. Khi một virtual thread vào khối `synchronized`, JVM phải giữ khóa monitor trên OS thread gốc của carrier thread — đây là ràng buộc triển khai JVM của mô hình khóa HotSpot hiện tại. Nếu virtual thread block trong khi giữ monitor (ví dụ: blocking I/O bên trong `synchronized`), carrier thread bị "ghim" — không thể được giải phóng để chạy các virtual thread khác, đánh bại toàn bộ mục đích của khả năng mở rộng virtual thread.
 
-`ReentrantLock` does not use OS-level monitors. It uses JVM-level queue structures that can be associated with the virtual thread, not the carrier thread. When a virtual thread blocks on `ReentrantLock.lock()`, the carrier thread is unmounted and freed while the virtual thread waits.
+`ReentrantLock` không dùng monitor cấp OS. Nó dùng cấu trúc hàng đợi cấp JVM có thể được liên kết với virtual thread, không phải carrier thread. Khi một virtual thread block trên `ReentrantLock.lock()`, carrier thread được unmount và giải phóng trong khi virtual thread chờ.
 
-### Mental Model: synchronized pinning vs ReentrantLock unmounting
+### Mô Hình Tư Duy: synchronized ghim vs ReentrantLock unmount
 ```
-[synchronized — pins carrier thread]
-Virtual Thread 1 enters synchronized block
-    → Virtual Thread 1 blocks inside synchronized (waiting for I/O)
-    → Carrier OS Thread 1 is PINNED — cannot accept other VTs
-    → Only 1 effective VT running on that carrier — scalability lost
+[synchronized — ghim carrier thread]
+Virtual Thread 1 vào khối synchronized
+    → Virtual Thread 1 block bên trong synchronized (chờ I/O)
+    → Carrier OS Thread 1 bị GHIM — không thể nhận VT khác
+    → Chỉ 1 VT hiệu quả chạy trên carrier đó — mất khả năng mở rộng
 
-[ReentrantLock — allows carrier unmount]
-Virtual Thread 1 calls reentrantLock.lock()
-    → Virtual Thread 1 blocks on lock()
-    → JVM unmounts VT1 from Carrier OS Thread 1
-    → Carrier OS Thread 1 now free to run Virtual Thread 2, 3, ...
-    → When lock released, VT1 remounts on any available carrier
+[ReentrantLock — cho phép unmount carrier]
+Virtual Thread 1 gọi reentrantLock.lock()
+    → Virtual Thread 1 block trên lock()
+    → JVM unmount VT1 từ Carrier OS Thread 1
+    → Carrier OS Thread 1 giờ tự do chạy Virtual Thread 2, 3, ...
+    → Khi khóa được giải phóng, VT1 remount trên bất kỳ carrier nào khả dụng
 ```
 
-### Code Example: ReentrantLock instead of synchronized for virtual threads
+### Ví Dụ Code: ReentrantLock thay vì synchronized cho virtual thread
 ```java
 import java.util.concurrent.locks.ReentrantLock;
 
 public class SafeVirtualThreadCounter {
-    private final ReentrantLock lock = new ReentrantLock(); // Use instead of synchronized
+    private final ReentrantLock lock = new ReentrantLock(); // Dùng thay cho synchronized
     private int count = 0;
 
     public void increment() {
-        lock.lock(); // Does not pin the carrier thread
+        lock.lock(); // Không ghim carrier thread
         try {
             count++;
         } finally {
@@ -491,7 +491,7 @@ public class SafeVirtualThreadCounter {
     }
 }
 
-// Creating virtual threads
+// Tạo virtual thread
 try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
     for (int i = 0; i < 1_000_000; i++) {
         executor.submit(() -> counter.increment());
@@ -499,14 +499,13 @@ try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
 }
 ```
 
-### Cause-Effect Chain
-Virtual thread enters `synchronized` block &rarr; JVM must hold OS-level monitor on carrier thread &rarr; Virtual thread blocks (I/O, wait) inside synchronized &rarr; Carrier thread pinned and unavailable &rarr; Virtual thread scalability degraded &rarr; Replace with `ReentrantLock` &rarr; Blocking on lock unmounts virtual thread from carrier &rarr; Carrier freed for other virtual threads &rarr; Full concurrency restored.
+### Chuỗi Nguyên Nhân - Kết Quả
+Virtual thread vào khối `synchronized` &rarr; JVM phải giữ monitor cấp OS trên carrier thread &rarr; Virtual thread block (I/O, wait) bên trong synchronized &rarr; Carrier thread bị ghim và không khả dụng &rarr; Khả năng mở rộng virtual thread bị suy giảm &rarr; Thay bằng `ReentrantLock` &rarr; Blocking trên lock unmount virtual thread khỏi carrier &rarr; Carrier được giải phóng cho các virtual thread khác &rarr; Khả năng đồng thời đầy đủ được khôi phục.
 
-## Reference Links
+## Liên Kết Tham Khảo
 
 - https://openjdk.org/jeps/286 (JEP 286 — Local-Variable Type Inference: var)
 - https://openjdk.org/jeps/395 (JEP 395 — Records)
 - https://openjdk.org/jeps/409 (JEP 409 — Sealed Classes)
 - https://openjdk.org/jeps/441 (JEP 441 — Pattern Matching for switch)
 - https://openjdk.org/jeps/444 (JEP 444 — Virtual Threads)
-

@@ -1,8 +1,8 @@
-# Generics – Phần 1: Lớp, Phương thức, Giao diện Generic, Tham số kiểu, Giới hạn (Generics – Part 1: Generic Class, Method, Interface, Type Parameters, Bounds)
+# Kiểu chung (Generics) – Phần 1: Lớp tổng quát (Generic Class), Phương thức (Method), Giao diện (Interface), Tham số kiểu (Type Parameters), Giới hạn (Bounds)
 
-## 1. Lớp Generic (Generic Class)
+## 1. Lớp tổng quát (Generic Class)
 
-**Định nghĩa:** Một lớp khai báo một hoặc nhiều tham số kiểu (type parameters) được đặt trong dấu `<>` ngay sau tên lớp. Tham số này hoạt động như một trình giữ chỗ (placeholder) cho một kiểu dữ liệu cụ thể được cung cấp khi khởi tạo đối tượng.
+**Định nghĩa:** Một lớp khai báo một hoặc nhiều tham số kiểu (type parameters) được đặt trong dấu `<>` phía sau tên lớp. Tham số này đóng vai trò như một trình giữ chỗ cho một kiểu dữ liệu cụ thể (concrete type) được cung cấp khi khởi tạo (instantiation).
 
 **Quy tắc Java:**
 ```java
@@ -12,27 +12,27 @@ class Box<T> {
     public T get() { return value; }
 }
 ```
-- `T` có thể được sử dụng ở bất kỳ nơi nào cho phép sử dụng kiểu dữ liệu thông thường bên trong thân lớp (trường dữ liệu, tham số phương thức, kiểu trả về).
-- Trình biên dịch kiểm tra tính chính xác của kiểu dữ liệu tại thời điểm biên dịch; mã byte (bytecode) thu được sẽ sử dụng kiểu thô `Object` (hoặc giới hạn của nó) sau quá trình xóa bỏ kiểu (type erasure).
+- `T` có thể được sử dụng ở bất kỳ nơi nào cho phép một kiểu dữ liệu thông thường bên trong thân lớp (trường dữ liệu (fields), tham số phương thức (method parameters), kiểu trả về (return types)).
+- Trình biên dịch (compiler) kiểm tra tính đúng đắn của kiểu dữ liệu tại thời điểm biên dịch (compile time); mã byte (bytecode) sẽ sử dụng kiểu nguyên bản (raw type) `Object` (hoặc giới hạn) sau khi xóa kiểu (type erasure).
 
-**Trường hợp sử dụng hợp lệ:**
-- `Box<String>`, `Box<Integer>` — các container chứa kiểu dữ liệu đơn lẻ.
-- `Pair<K, V>` — cấu trúc giữ dữ liệu chứa nhiều kiểu dữ liệu khác nhau.
-- `Optional<T>` (trong thư viện JDK) — bao bọc các giá trị có thể null một cách an toàn.
+**Các trường hợp sử dụng hợp lệ:**
+- `Box<String>`, `Box<Integer>` — các bộ chứa đơn kiểu (single-typed containers).
+- `Pair<K, V>` — các đối tượng lưu trữ dữ liệu (data holders) với nhiều kiểu dữ liệu.
+- `Optional<T>` (JDK) — bao bọc các giá trị có thể null (nullable values) một cách an toàn.
 
-**Trường hợp lỗi:**
+**Trường hợp lỗi (Failure mode):**
 ```java
 Box rawBox = new Box("hello");   // raw type – no compile-time check
 rawBox = new Box(42);            // silently allowed; ClassCastException risk later
 Integer n = (Integer) rawBox.get(); // runtime ClassCastException
 ```
-Việc sử dụng kiểu thô (raw type) sẽ vô hiệu hóa toàn bộ cơ chế an toàn của generic. Hãy luôn cung cấp các đối số kiểu dữ liệu.
+Việc sử dụng kiểu nguyên bản sẽ vô hiệu hóa tất cả các tính năng an toàn kiểu (type safety) của kiểu chung. Luôn luôn cung cấp các đối số kiểu (type arguments).
 
 ---
 
-## 2. Phương thức Generic (Generic Method)
+## 2. Phương thức tổng quát (Generic Method)
 
-**Định nghĩa:** Một phương thức giới thiệu các tham số kiểu của riêng nó, độc lập với bất kỳ tham số kiểu nào ở cấp độ lớp.
+**Định nghĩa:** Một phương thức tự khai báo các tham số kiểu của riêng nó, độc lập với bất kỳ tham số kiểu nào ở cấp độ lớp.
 
 **Quy tắc Java:**
 - Các tham số kiểu được đặt **trước kiểu trả về**.
@@ -42,25 +42,25 @@ public static <T extends Comparable<T>> T max(T a, T b) {
     return a.compareTo(b) >= 0 ? a : b;
 }
 ```
-- Trình biên dịch tự động suy luận `T` từ đối số truyền vào tại vị trí gọi; bạn cũng có thể chỉ định nó một cách rõ ràng: `MyUtil.<String>identity("hi")`.
+- Trình biên dịch sẽ suy luận (infer) tham số kiểu từ đối số tại nơi gọi (call-site argument); bạn cũng có thể chỉ định nó một cách tường minh: `MyUtil.<String>identity("hi")`.
 
-**Trường hợp sử dụng hợp lệ:**
-- `Collections.max(Collection<? extends T>)` — hoạt động cho bất kỳ kiểu phần tử so sánh được nào.
-- `Arrays.asList(T... a)` — chuyển đổi varargs thành một danh sách có kiểu dữ liệu xác định.
-- Các phương thức tiện ích/trợ giúp cần khả năng tái sử dụng trên nhiều kiểu dữ liệu khác nhau.
+**Các trường hợp sử dụng hợp lệ:**
+- `Collections.max(Collection<? extends T>)` — hoạt động với bất kỳ kiểu phần tử có thể so sánh được (comparable element type) nào.
+- `Arrays.asList(T... a)` — chuyển đổi các tham số biến đổi (varargs) thành một danh sách có kiểu dữ liệu xác định (typed list).
+- Các phương thức tiện ích/bổ trợ (utility/helper methods) có khả năng tái sử dụng trên nhiều kiểu dữ liệu khác nhau.
 
-**Trường hợp lỗi:**
+**Trường hợp lỗi (Failure mode):**
 ```java
 // Missing <T> — compiler falls back to raw types
 public static Object broken(Object obj) { return obj; }  // no generic safety
 ```
-Nếu thiếu khai báo tham số kiểu, trình biên dịch không thể thực thi tính nhất quán của kiểu giữa các tham số và kiểu trả về.
+Nếu không có khai báo tham số kiểu, trình biên dịch không thể bắt buộc tính nhất quán về kiểu (type consistency) giữa các tham số và kiểu trả về.
 
 ---
 
-## 3. Giao diện Generic (Generic Interface)
+## 3. Giao diện tổng quát (Generic Interface)
 
-**Định nghĩa:** Một giao diện khai báo các tham số kiểu, bắt buộc các triển khai của nó phải hoạt động với một kiểu dữ liệu cụ thể.
+**Định nghĩa:** Một giao diện khai báo các tham số kiểu, bắt buộc các lớp triển khai (implementations) phải làm việc với một kiểu dữ liệu cụ thể.
 
 **Quy tắc Java:**
 ```java
@@ -72,15 +72,15 @@ class StringToInt implements Transformer<String, Integer> {
     public Integer transform(String s) { return s.length(); }
 }
 ```
-- Các triển khai phải cung cấp các kiểu cụ thể (ví dụ: `Transformer<String, Integer>`) hoặc tiếp tục giữ generic (ví dụ: `class Proxy<T, R> implements Transformer<T, R>`).
+- Các lớp triển khai phải cung cấp kiểu dữ liệu cụ thể (`Transformer<String, Integer>`) hoặc tiếp tục giữ tính chất tổng quát (`class Proxy<T, R> implements Transformer<T, R>`).
 
-**Các ví dụ JDK quan trọng:**
-- `Comparable<T>` — thứ tự tự nhiên của đối tượng.
+**Các ví dụ tiêu biểu trong JDK:**
+- `Comparable<T>` — thứ tự toàn phần (total ordering).
 - `Iterable<T>` — hỗ trợ vòng lặp for-each.
-- `Comparator<T>` — cơ chế sắp xếp ngoài.
-- `Function<T, R>` — hàm một tham số đầu vào.
+- `Comparator<T>` — thứ tự ngoài (external ordering).
+- `Function<T, R>` — hàm một đối số (single-argument function).
 
-**Trường hợp lỗi:**
+**Trường hợp lỗi (Failure mode):**
 ```java
 class Broken implements Comparable {   // raw Comparable – no type safety
     public int compareTo(Object o) { ... }
@@ -91,28 +91,28 @@ broken.compareTo(42);   // no compile error even for wrong type
 
 ---
 
-## 4. Quy ước Đặt tên Tham số kiểu (Type Parameter Conventions)
+## 4. Quy ước đặt tên tham số kiểu (Type Parameter Conventions)
 
-**Định nghĩa:** Một tên giữ chỗ được khai báo trong dấu `<>` đại diện cho một kiểu dữ liệu chưa xác định bên trong một khai báo generic.
+**Định nghĩa:** Một tên trình giữ chỗ được khai báo trong `<>` đại diện cho một kiểu dữ liệu chưa xác định trong một khai báo tổng quát.
 
-**Các quy ước chữ cái đơn tiêu chuẩn:**
+**Các quy ước ký tự đơn tiêu chuẩn:**
 | Ký tự | Ý nghĩa |
 |--------|---------|
-| `T` | Kiểu dữ liệu (nói chung - Type) |
-| `E` | Phần tử (trong các Collection - Element) |
-| `K` | Khóa (trong Map - Key) |
-| `V` | Giá trị (trong Map - Value) |
-| `N` | Số (Number) |
-| `R` | Kiểu trả về (trong Hàm/Function - Return type) |
-| `S`, `U` | Kiểu thứ hai, thứ ba (khi có nhiều tham số) |
+| `T` | Kiểu dữ liệu (chung) |
+| `E` | Phần tử (bộ sưu tập) |
+| `K` | Khóa (bản đồ) |
+| `V` | Giá trị (bản đồ) |
+| `N` | Số |
+| `R` | Kiểu trả về (hàm) |
+| `S`, `U` | Kiểu thứ hai, thứ ba (nhiều tham số) |
 
-**Phạm vi (Scope):** Tham số kiểu chỉ có giá trị sử dụng bên trong lớp/phương thức/giao diện generic nơi nó được khai báo.
+**Phạm vi (Scope):** Tham số kiểu chỉ có hiệu lực bên trong lớp/phương thức/giao diện tổng quát nơi nó được khai báo.
 
-**Lưu ý thực tế:** Các tên như `T1`, `T2` hoặc các tên mang tính mô tả (`Source`, `Destination`) được phép sử dụng nhưng quy ước chữ cái đơn chiếm ưu thế trong các API JDK và luôn được mong đợi trong các buổi duyệt mã (code reviews).
+**Lưu ý thực tế:** Các tên như `T1`, `T2` hoặc những tên mang tính mô tả (`Source`, `Destination`) đều được chấp nhận, nhưng quy ước sử dụng một ký tự đơn vẫn chiếm ưu thế trong các API của JDK và là tiêu chuẩn được mong đợi khi duyệt mã nguồn (code reviews).
 
 ---
 
-## 5. Nhiều Tham số kiểu (Multiple Type Parameters)
+## 5. Nhiều tham số kiểu (Multiple Type Parameters)
 
 **Cú pháp:**
 ```java
@@ -125,30 +125,30 @@ class Pair<K, V> {
 }
 ```
 
-**Trường hợp sử dụng:**
-- `Map<K, V>` — ánh xạ kiểu khóa tới kiểu giá trị.
+**Các trường hợp sử dụng:**
+- `Map<K, V>` — ánh xạ kiểu khóa sang kiểu giá trị.
 - `BiFunction<T, U, R>` — hàm nhận vào hai kiểu dữ liệu đầu vào và trả về một kiểu dữ liệu đầu ra.
-- `Either<L, R>` (phổ biến trong các thư viện lập trình hàm) — lưu giữ một trong hai giá trị thay thế.
+- `Either<L, R>` (phổ biến trong các thư viện lập trình chức năng) — lưu giữ một trong hai lựa chọn thay thế.
 
-**Quy tắc:** Tất cả các tham số kiểu phải là các định danh riêng biệt được phân tách bằng dấu phẩy. Thứ tự chỉ quan trọng trong cách lớp sử dụng chúng bên trong.
+**Quy tắc:** Tất cả các tham số kiểu phải là các định danh phân biệt được phân tách bằng dấu phẩy. Thứ tự của chúng chỉ quan trọng trong cách lớp sử dụng chúng ở bên trong.
 
 ---
 
-## 6. Tham số kiểu có giới hạn: <T extends Bound> (Bounded Type Parameter: <T extends Bound>)
+## 6. Tham số kiểu có giới hạn (Bounded Type Parameter): `<T extends Bound>`
 
-**Định nghĩa:** Hạn chế tập hợp các đối số kiểu hợp lệ đối với kiểu `T` phải là một kiểu con của `Bound`.
+**Định nghĩa:** Giới hạn tập hợp các đối số kiểu hợp lệ thành một kiểu `T` phải là kiểu con (subtype) của `Bound`.
 
 **Cú pháp:**
 ```java
-// Giới hạn trên – một lớp hoặc giao diện duy nhất
+// Upper bound – single class or interface
 <T extends Number>
 
-// Nhiều giới hạn – lớp phải đứng đầu tiên, sau đó đến các giao diện
+// Multiple bounds – class must come first, then interfaces
 <T extends Number & Comparable<T> & Serializable>
 ```
 
-**Tại sao giới hạn trên lại quan trọng:**
-Bên trong lớp/phương thức, bạn có thể **gọi các phương thức của giới hạn đó** trên `T`:
+**Tại sao giới hạn trên (upper bounds) lại quan trọng:**
+Bên trong lớp hoặc phương thức, bạn có thể **gọi các phương thức của giới hạn** trên `T`:
 ```java
 public static <T extends Number> double sum(List<T> list) {
     double total = 0;
@@ -156,17 +156,17 @@ public static <T extends Number> double sum(List<T> list) {
     return total;
 }
 ```
-Nếu không có giới hạn, `n.doubleValue()` sẽ báo lỗi biên dịch — khi đó `T` sẽ được coi là `Object`.
+Nếu không có giới hạn, `n.doubleValue()` sẽ gây ra lỗi biên dịch — khi đó `T` sẽ bị coi là `Object`.
 
-**Trường hợp lỗi:**
+**Trường hợp lỗi (Failure mode):**
 ```java
 sum(List.of("a", "b"));    // compile error: String does not extend Number
 new NumericBox<String>();   // compile error
 ```
 
-**Ký tự đại diện so với tham số kiểu có giới hạn:**
-- `<T extends Number>` khai báo một biến kiểu có tên mới — sử dụng trong các phương thức khi bạn cần tham chiếu tới `T` nhiều lần.
-- `<? extends Number>` là một ký tự đại diện vô danh — sử dụng trong các tham số phương thức khi bạn chỉ cần đọc dữ liệu.
+**Ký tự đại diện (Wildcard) so với tham số có giới hạn:**
+- `<T extends Number>` khai báo một biến kiểu có tên mới — sử dụng trong các phương thức khi bạn cần tham chiếu đến `T` nhiều lần.
+- `<? extends Number>` là một ký tự đại diện vô danh (anonymous wildcard) — sử dụng trong các tham số phương thức khi bạn chỉ cần đọc dữ liệu.
 
 ## Liên kết tham khảo (Reference Links)
 

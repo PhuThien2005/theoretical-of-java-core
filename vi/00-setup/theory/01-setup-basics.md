@@ -1,19 +1,19 @@
-# Kiến Thức Cơ Bản Về Cài Đặt (Setup Basics)
+# Kiến Thức Cơ Bản Về Cài Đặt
 
-Việc cài đặt môi trường chính xác và hiểu cách Java biên dịch (compile) cũng như thực thi (execute) mã nguồn là nền tảng để trở thành một lập trình viên Java. Mặc dù các IDE che giấu các chi tiết này, nhưng việc hiểu cơ chế bên dưới là rất quan trọng để gỡ lỗi (debug) các vấn đề lúc chạy (runtime) và hiểu kiến trúc của Java.
+Thiết lập môi trường đúng cách và hiểu cơ chế biên dịch, thực thi của Java là nền tảng để trở thành một lập trình viên Java. Dù các IDE che giấu nhiều chi tiết kỹ thuật, việc nắm vững cơ chế hoạt động bên dưới là điều thiết yếu để gỡ lỗi (debug) các vấn đề runtime và hiểu kiến trúc của Java.
 
 ---
 
-## JDK vs JRE
+## JDK Và JRE
 
-Để chạy và xây dựng các ứng dụng Java, bạn cần hiểu mối quan hệ giữa **Máy ảo Java (Java Virtual Machine - JVM)**, **Môi trường chạy Java (Java Runtime Environment - JRE)**, và **Bộ công cụ phát triển Java (Java Development Kit - JDK)**.
+Để chạy và xây dựng ứng dụng Java, bạn cần hiểu mối quan hệ giữa **Máy Ảo Java (JVM — Java Virtual Machine)**, **Môi Trường Thực Thi Java (JRE — Java Runtime Environment)**, và **Bộ Công Cụ Phát Triển Java (JDK — Java Development Kit)**.
 
-### Cơ Chế (The Mechanism)
+### Cơ Chế Hoạt Động
 
-**Đặc tả ngôn ngữ Java (Java Language Specification - JLS)** định nghĩa cú pháp, ngữ pháp và các quy tắc biên dịch (compile-time) của ngôn ngữ Java (những gì tạo nên một chương trình Java hợp lệ). **Đặc tả Máy ảo Java (Java Virtual Machine Specification - JVMS)** định nghĩa cấu trúc của các tệp lớp (class files) và tập lệnh được JVM thực thi lúc chạy (runtime).
+**Đặc tả ngôn ngữ Java (JLS — Java Language Specification)** định nghĩa cú pháp, ngữ pháp và các quy tắc biên dịch của ngôn ngữ Java (những gì tạo nên một chương trình Java hợp lệ). **Đặc tả Máy Ảo Java (JVMS — Java Virtual Machine Specification)** định nghĩa cấu trúc file class và tập lệnh được JVM thực thi lúc chạy.
 
-- **JRE (Java Runtime Environment):** Là môi trường thực thi (chạy) chương trình. Nó chứa JVM và các thư viện cốt lõi (như `java.lang`, `java.util`) cần thiết để chạy mã thực thi (bytecode) Java. JRE không thể biên dịch mã nguồn Java; nó chỉ thực thi các tệp `.class` đã được biên dịch.
-- **JDK (Java Development Kit):** Là môi trường phát triển. Nó là một tập hợp mẹ của JRE, nghĩa là nó chứa JRE cùng với các công cụ phát triển như trình biên dịch (`javac`), trình đóng gói (`jar`), và trình gỡ lỗi (debugger). JDK biên dịch mã nguồn tuân thủ JLS và chạy nó tuân thủ JVMS và **Mô hình bộ nhớ Java (Java Memory Model - JMM)**, mô hình quản lý việc đồng bộ hóa luồng (thread synchronization) và khả năng hiển thị bộ nhớ (memory visibility).
+- **JRE (Môi Trường Thực Thi Java):** Là môi trường thực thi (runtime). JRE chứa JVM và các thư viện lõi (như `java.lang`, `java.util`) cần thiết để chạy bytecode Java. JRE không thể biên dịch mã nguồn Java — nó chỉ thực thi các file `.class` đã được biên dịch sẵn.
+- **JDK (Bộ Công Cụ Phát Triển Java):** Là môi trường phát triển. JDK là tập cha (superset) của JRE, nghĩa là nó bao gồm JRE cùng với các công cụ phát triển như trình biên dịch (`javac`), công cụ đóng gói (`jar`), và debugger. JDK biên dịch mã nguồn tuân theo JLS và chạy nó theo JVMS và **Mô hình bộ nhớ Java (JMM — Java Memory Model)**, thứ quản lý đồng bộ hóa luồng và khả năng hiển thị bộ nhớ.
 
 ```text
 +-------------------------------------------------------+
@@ -27,48 +27,48 @@ Việc cài đặt môi trường chính xác và hiểu cách Java biên dịch
 +-------------------------------------------------------+
 ```
 
-### Phép Ẩn Dụ Cuốn Sách Công Thức Nấu Ăn (The Recipe Book Analogy)
+### Ẩn Dụ Quyển Sách Công Thức
 
-* **JLS (Đặc tả - Specification):** Đây là cuốn sách công thức nấu ăn chính thức. Nó quy định chính xác các nguyên liệu và các bước cần thiết để mô tả một món ăn. Nó không trực tiếp nấu món ăn; nó chỉ định nghĩa một công thức hợp lệ trông như thế nào.
-* **JVM (Thực thi - Execution):** Đây là nhà bếp và đầu bếp. Đầu bếp đọc các hướng dẫn công thức đã được biên dịch (bytecode) và nấu món ăn (thực thi mã trên phần cứng).
-* **JRE (Gói chạy chương trình - Runtime Package):** Đây là toàn bộ nhà hàng gồm phòng ăn và nhà bếp. Nó cung cấp đầu bếp (JVM) và các nguyên liệu/dụng cụ cơ bản trong phòng chứa đồ (các thư viện cốt lõi) để phục vụ món ăn cho khách hàng.
-* **JDK (Gói phát triển - Development Package):** Đây là phòng thí nghiệm khoa học thực phẩm và bếp thử nghiệm. Nó chứa nhà hàng (JRE), cùng với các công cụ để viết các công thức nấu ăn mới, thử nghiệm các nguyên liệu mới và in các cuốn sách công thức nấu ăn (các công cụ biên dịch và phát triển).
+* **JLS (Đặc tả):** Đây là quyển sách công thức chính thức. Nó quy định chính xác các nguyên liệu và bước thực hiện để mô tả một món ăn. Nó không nấu bữa ăn — nó chỉ định nghĩa thế nào là một công thức hợp lệ.
+* **JVM (Thực thi):** Đây là bếp của đầu bếp và chính người đầu bếp. Đầu bếp đọc các hướng dẫn công thức đã biên dịch (bytecode) và nấu bữa ăn (thực thi code trên phần cứng).
+* **JRE (Gói Runtime):** Đây là toàn bộ phòng ăn và nhà bếp của nhà hàng. Nó cung cấp đầu bếp (JVM) và các nguyên liệu/dụng cụ cơ bản (thư viện lõi) để phục vụ thực khách.
+* **JDK (Gói Phát Triển):** Đây là phòng thí nghiệm khoa học thực phẩm và bếp thử nghiệm. Nó bao gồm nhà hàng (JRE), cộng thêm các công cụ để viết công thức mới, thử nguyên liệu mới, và in sách công thức (công cụ biên dịch và phát triển).
 
-### Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)
+### Chuỗi Nguyên Nhân - Kết Quả
 
 ```text
 Lập trình viên viết HelloWorld.java 
   ↓ (Cần JDK)
-Trình biên dịch 'javac' của JDK biên dịch mã nguồn theo các quy tắc JLS 
+'javac' của JDK biên dịch mã nguồn theo quy tắc JLS 
   ↓ (Tạo ra bytecode)
-Trình biên dịch xuất ra HelloWorld.class 
+Trình biên dịch xuất HelloWorld.class 
   ↓ (Cần JRE/JVM)
-Lệnh 'java' của JRE nạp JVM và các thư viện runtime
+Lệnh 'java' của JRE nạp JVM và thư viện runtime
   ↓ (Thực thi)
-JVM thực thi các lệnh bytecode trên nền tảng phần cứng đích
+JVM thực thi bytecode trên phần cứng đích
 ```
 
 ---
 
-## Tại Sao Tên Tệp Phải Trùng Với Tên Lớp Public (Why Filename Must Match Public Class Name)
+## Tại Sao Tên File Phải Trùng Với Tên Lớp Public
 
-Trong Java, nếu bạn có một tệp chứa một lớp (class) được khai báo là `public`, tên tệp phải khớp chính xác với tên của lớp public đó (bao gồm cả phân biệt chữ hoa - chữ thường), kèm theo phần mở rộng `.java`.
+Trong Java, nếu một file chứa lớp được khai báo là `public`, tên file phải trùng chính xác với tên lớp public đó (bao gồm cả phân biệt chữ hoa/thường), kèm phần mở rộng `.java`.
 
-### Cơ Chế: Nạp Lớp Của Trình Biên Dịch (The Mechanism: Compiler Class Loading)
+### Cơ Chế: Nạp Lớp Của Trình Biên Dịch
 
-Hạn chế này không phải là ngẫu nhiên; nó được thiết kế để tối ưu hóa tốc độ biên dịch thông qua cơ chế nạp lớp (class loading) và phân giải (resolution) của trình biên dịch.
+Ràng buộc này không phải tùy tiện — nó được thiết kế để tối ưu hóa tốc độ biên dịch thông qua cơ chế nạp và phân giải lớp của trình biên dịch.
 
-1. **Phân giải phụ thuộc khi biên dịch (Compilation Dependency Resolution):** Khi biên dịch một lớp `A`, nó có thể tham chiếu đến một lớp `B` khác. Nếu tệp `B.class` chưa tồn tại, trình biên dịch phải tìm tệp nguồn `B.java` để biên dịch nó ngay lập tức.
-2. **Hiệu suất tìm kiếm (Search Performance):** Nếu không có quy tắc khớp tên tệp, trình biên dịch sẽ phải mở và phân tích cú pháp (parse) từng tệp `.java` trong thư mục nguồn và classpath để kiểm tra xem nó có chứa khai báo `public class B` hay không. Đối với một dự án có 10.000 tệp, việc này sẽ yêu cầu `O(N)` lượt đọc tệp, làm cho quá trình biên dịch trở nên cực kỳ chậm.
-3. **Tra cứu tức thì (Instant Lookup - `O(1)`):** Bằng cách bắt buộc `public class B` phải nằm trong tệp `B.java`, trình biên dịch có thể xác định ngay vị trí tệp bằng cách thực hiện tìm kiếm tệp trực tiếp trên hệ thống tệp: `sourcepath/B.java`. Điều này giảm độ phức tạp tìm kiếm xuống `O(1)`.
-4. **Ràng buộc một lớp Public (One Public Class Constraint):** Do yêu cầu ánh xạ 1-1 này giữa tên tệp và tên lớp public, một tệp nguồn Java chỉ có thể chứa tối đa một lớp `public` (mặc dù nó có thể chứa nhiều lớp non-public/package-private khác).
+1. **Phân giải phụ thuộc biên dịch:** Khi biên dịch lớp `A`, nó có thể tham chiếu đến lớp `B`. Nếu `B.class` chưa tồn tại, trình biên dịch phải tìm file nguồn `B.java` để biên dịch nó ngay.
+2. **Hiệu năng tìm kiếm:** Nếu không có quy tắc đặt tên theo file, trình biên dịch sẽ phải mở và phân tích cú pháp từng file `.java` trong thư mục nguồn và classpath để kiểm tra xem file đó có chứa khai báo `public class B` không. Với dự án có 10.000 file, điều này đòi hỏi `O(N)` lần đọc file, làm cho quá trình biên dịch vô cùng chậm.
+3. **Tra cứu tức thì (`O(1)`):** Bằng cách quy định `public class B` phải nằm trong `B.java`, trình biên dịch có thể tìm file ngay lập tức bằng cách tra cứu trực tiếp trên hệ thống file: `sourcepath/B.java`. Điều này giảm độ phức tạp tìm kiếm xuống `O(1)`.
+4. **Giới hạn một lớp public:** Do yêu cầu ánh xạ 1-1 giữa tên file và tên lớp public, một file nguồn Java chỉ có thể chứa nhiều nhất một lớp `public` (dù có thể chứa nhiều lớp không public / package-private).
 
-### Ví Dụ Lỗi Biên Dịch (Compilation Failure Example)
+### Ví Dụ Biên Dịch Thất Bại
 
-Nếu bạn định nghĩa một lớp tên là `MyCoolProgram` là public, nhưng lưu nó trong một tệp tên là `Runner.java`:
+Nếu bạn khai báo lớp `MyCoolProgram` là public nhưng lưu trong file tên `Runner.java`:
 
 ```java
-// Được lưu trong tệp: Runner.java
+// Lưu trong file: Runner.java
 public class MyCoolProgram {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
@@ -76,7 +76,7 @@ public class MyCoolProgram {
 }
 ```
 
-Việc cố gắng biên dịch tệp này sẽ dẫn đến lỗi sau:
+Cố gắng biên dịch file này sẽ gặp lỗi sau:
 
 ```text
 $ javac Runner.java
@@ -86,66 +86,66 @@ public class MyCoolProgram {
 1 error
 ```
 
-### Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)
+### Chuỗi Nguyên Nhân - Kết Quả
 
 ```text
 Lớp B tham chiếu đến Lớp A
   ↓
-Trình biên dịch tìm kiếm định nghĩa Lớp A
+Trình biên dịch tìm định nghĩa Lớp A
   ↓
-Quy tắc đặt tên bắt buộc cho phép trình biên dịch tìm kiếm trực tiếp 'A.java' trong thời gian O(1)
+Quy tắc đặt tên bắt buộc giúp trình biên dịch tìm trực tiếp 'A.java' trong O(1)
   ↓
-Không cần quét và phân tích cú pháp các tệp nguồn khác → Thời gian biên dịch nhanh
+Không cần quét và phân tích các file nguồn khác → Thời gian biên dịch nhanh
 ```
 
 ---
 
-## Biên Dịch và Thực Thi Bằng Terminal vs IDE (Terminal vs IDE Compilation and Execution)
+## Biên Dịch Và Thực Thi: Terminal Và IDE
 
-Có hai cách chính để biên dịch và chạy các chương trình Java: sử dụng các lệnh terminal thuần túy hoặc sử dụng Môi trường phát triển tích hợp (Integrated Development Environment - IDE) như IntelliJ IDEA, VS Code, hoặc Eclipse.
+Có hai cách chính để biên dịch và chạy chương trình Java: dùng lệnh terminal trực tiếp hoặc dùng Môi Trường Phát Triển Tích Hợp (IDE) như IntelliJ IDEA, VS Code, hoặc Eclipse.
 
-### Cơ Chế (The Mechanism)
+### Cơ Chế Hoạt Động
 
-* **Biên dịch & Thực thi bằng Terminal (Terminal Compilation & Execution):**
-  Bạn tương tác trực tiếp với các tệp thực thi của JDK. Bạn chạy lệnh `javac` để gọi trình biên dịch, trình biên dịch này sẽ dịch mã nguồn dễ đọc của con người thành mã thực thi độc lập với nền tảng (bytecode) (trong các tệp `.class`). Sau đó, bạn chạy lệnh `java` để gọi JVM, chương trình này sẽ nạp tệp class, xác thực bytecode và thực thi nó.
-* **Quản lý tự động bằng IDE (IDE Automated Management):**
-  Một IDE đóng gói các lệnh này trong một giao diện đồ họa. Thay vì biên dịch thủ công, IDE giám sát các thay đổi của tệp và thực hiện **biên dịch gia tăng (incremental compilation)** trong nền, chỉ biên dịch các tệp đã thay đổi. Nó tự động quản lý **classpath** (nơi Java tìm kiếm các thư viện phụ thuộc) và tích hợp phân tích tĩnh thời gian thực (linting) để hiển thị lỗi trước khi bạn biên dịch.
+* **Biên Dịch & Thực Thi Qua Terminal:**
+  Bạn tương tác trực tiếp với các nhị phân JDK. Bạn chạy `javac` để gọi trình biên dịch, chuyển đổi mã nguồn thành bytecode độc lập nền tảng (trong file `.class`). Sau đó bạn chạy `java` để gọi JVM, nạp file class, xác minh bytecode và thực thi nó.
+* **IDE Tự Động Hóa:**
+  IDE bọc các lệnh này trong giao diện đồ họa. Thay vì biên dịch thủ công, IDE theo dõi thay đổi file và thực hiện **biên dịch gia tăng (incremental compilation)** trong nền, chỉ biên dịch các file đã thay đổi. Nó tự động quản lý **classpath** (nơi Java tìm kiếm phụ thuộc) và tích hợp phân tích tĩnh thời gian thực (linting) để hiển thị lỗi trước khi biên dịch.
 
 ```mermaid
 flowchart TD
-    subgraph Terminal Workflow (Manual)
-        A1["Viết HelloWorld.java"] --> A2["Chạy: javac HelloWorld.java"]
-        A2 --> A3["Tạo HelloWorld.class"]
-        A3 --> A4["Chạy: java HelloWorld"]
-        A4 --> A5["JVM thực thi chương trình"]
+    subgraph Terminal Workflow (Thủ Công)
+        A1[Viết HelloWorld.java] --> A2[Chạy: javac HelloWorld.java]
+        A2 --> A3[Tạo HelloWorld.class]
+        A3 --> A4[Chạy: java HelloWorld]
+        A4 --> A5[JVM thực thi chương trình]
     end
 
-    subgraph IDE Workflow (Automated)
-        B1["Viết mã trong IDE"] --> B2["Trình biên dịch gia tăng chạy ẩn"]
-        B2 --> B3["IDE gắn cờ lỗi cú pháp ngay lập tức"]
-        B3 --> B4["Nhấp vào nút Run"]
-        B4 --> B5["IDE cấu hình Classpath & khởi chạy JVM"]
+    subgraph IDE Workflow (Tự Động)
+        B1[Viết Code trong IDE] --> B2[Trình biên dịch gia tăng nền]
+        B2 --> B3[IDE báo lỗi cú pháp ngay lập tức]
+        B3 --> B4[Nhấn nút Run]
+        B4 --> B5[IDE cấu hình Classpath & khởi chạy JVM]
     end
 ```
 
-### Bảng So Sánh Tóm Tắt (Contrast Summary)
+### Bảng So Sánh
 
-| Tính năng | Biên dịch Terminal (`javac`/`java`) | Biên dịch IDE (IntelliJ, VS Code) |
+| Tính năng | Terminal (`javac`/`java`) | IDE (IntelliJ, VS Code) |
 |---|---|---|
-| **Biên dịch** | Gọi thủ công lệnh `javac file.java`. | Biên dịch gia tăng tự động trong nền. |
-| **Quản lý Classpath** | Phải được chỉ định thủ công qua `-cp` hoặc `-classpath`. | Được quản lý tự động thông qua các tệp build dự án (Maven/Gradle). |
-| **Phản hồi lỗi** | Chỉ hiển thị sau khi chạy lệnh biên dịch. | Được làm nổi bật ngay lập tức trong trình soạn thảo mã (phân tích tĩnh). |
-| **Trường hợp sử dụng** | Học các kiến thức cơ bản, viết kịch bản (scripting), pipeline CI/CD. | Phát triển chuyên nghiệp, tái cấu trúc (refactoring), gỡ lỗi các hệ thống phức tạp. |
+| **Biên dịch** | Gọi thủ công `javac file.java`. | Biên dịch gia tăng tự động nền. |
+| **Quản lý Classpath** | Phải chỉ định thủ công qua `-cp` hoặc `-classpath`. | Quản lý tự động qua file build (Maven/Gradle). |
+| **Phản hồi lỗi** | Chỉ hiển thị sau khi chạy lệnh biên dịch. | Tô sáng ngay lập tức trong trình soạn thảo (phân tích tĩnh). |
+| **Trường hợp dùng** | Học nền tảng, scripting, pipeline CI/CD. | Phát triển chuyên nghiệp, tái cấu trúc, debug hệ thống phức tạp. |
 
-### Ví Dụ Mã Nguồn: Biên Dịch và Thực Thi Thủ Công (Code Example: Manual Compilation and Execution)
+### Ví Dụ Code: Biên Dịch Và Thực Thi Thủ Công
 
-Hãy cùng xem cấu trúc Hello World tiêu chuẩn và các lệnh thực thi nó:
+Cùng xem cấu trúc Hello World chuẩn và các lệnh tương ứng:
 
 ```java
-// Được lưu trong tệp: HelloWorld.java
+// Lưu trong file: HelloWorld.java
 public class HelloWorld {
     public static void main(String[] args) {
-        System.out.println("Hello, World!"); // Đầu ra: Hello, World!
+        System.out.println("Hello, World!"); // Output: Hello, World!
     }
 }
 ```
@@ -155,37 +155,37 @@ Các lệnh chạy trong terminal:
 ```bash
 # 1. Kiểm tra phiên bản trình biên dịch
 $ javac -version
-$ javac 21.0.2
+javac 21.0.2
 
-# 2. Biên dịch tệp nguồn thành bytecode (.class)
+# 2. Biên dịch file nguồn thành bytecode (.class)
 $ javac HelloWorld.java
 
-# 3. Xác minh tệp .class đã được tạo
+# 3. Xác nhận file .class đã được tạo
 $ ls
 HelloWorld.class  HelloWorld.java
 
-# 4. Thực thi bytecode trên JVM (KHÔNG bao gồm phần mở rộng .class)
+# 4. Thực thi bytecode trên JVM (KHÔNG có phần mở rộng .class)
 $ java HelloWorld
 Hello, World!
 ```
 
-### Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)
+### Chuỗi Nguyên Nhân - Kết Quả
 
 ```text
-Chạy lệnh 'javac HelloWorld.java'
+Chạy 'javac HelloWorld.java'
   ↓
-Trình biên dịch phân tích cú pháp mã → kiểm tra sự tuân thủ JLS → tạo bytecode JVM
+Trình biên dịch phân tích code → kiểm tra tuân thủ JLS → tạo bytecode JVM
   ↓
 Bytecode được ghi vào 'HelloWorld.class'
   ↓
-Chạy lệnh 'java HelloWorld'
+Chạy 'java HelloWorld'
   ↓
-Trình nạp lớp (class loader) của JVM lấy 'HelloWorld.class' → Trình xác thực Bytecode kiểm tra bảo mật → JIT/Trình thông dịch thực thi main()
+Class loader của JVM nạp 'HelloWorld.class' → Bytecode Verifier kiểm tra bảo mật → JIT/Interpreter thực thi main()
 ```
 
 ---
 
-## Liên Kết Tham Chiếu (Reference Links)
+## Tài Liệu Tham Khảo
 
 - [Oracle Java Tutorials: Getting Started](https://docs.oracle.com/javase/tutorial/getStarted/cupojava/index.html)
 - [Java Language Specification (JLS) - Class Declarations](https://docs.oracle.com/javase/specs/jls/se21/html/jls-8.html#jls-8.1)

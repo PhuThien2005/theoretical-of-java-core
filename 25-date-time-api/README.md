@@ -1,14 +1,14 @@
-# 25 - Date and Time API
+# 25 - API Ngày Giờ (Date and Time API)
 
-This topic follows the master outline in [outline.md](../outline.md). The goal is to understand each concept deeply enough to explain it, recognize it in code, and answer interview-style questions.
+Chủ đề này tuân theo đề cương chính trong [outline.md](../outline.md). Mục tiêu là hiểu từng khái niệm đủ sâu để có thể giải thích, nhận diện trong code và trả lời các câu hỏi phỏng vấn.
 
-## Study Order
+## Thứ Tự Học
 
-- [Date Concepts](theory/01-date-concepts.md)
-- [Period Concepts](theory/02-period-concepts.md)
-- [Key Terms](terms/01-key-terms.md)
+- [Khái Niệm về Ngày Tháng](theory/01-date-concepts.md)
+- [Khái Niệm về Period](theory/02-period-concepts.md)
+- [Thuật Ngữ Chính](terms/01-key-terms.md)
 
-## Outline Checklist
+## Danh Sách Kiểm Tra Theo Đề Cương
 
 - Date
 - Calendar
@@ -23,39 +23,39 @@ This topic follows the master outline in [outline.md](../outline.md). The goal i
 - Period
 - DateTimeFormatter
 - ZoneId
-- Parse date/time
-- Format date/time
-- Compare date/time
-- Add/subtract date/time
-- Timezone
+- Phân tích ngày/giờ (Parse date/time)
+- Định dạng ngày/giờ (Format date/time)
+- So sánh ngày/giờ
+- Cộng/trừ ngày/giờ
+- Múi giờ (Timezone)
 
-## Self-Check
+## Tự Kiểm Tra
 
-- Why is the legacy date and calendar API (`java.util.Date`, `java.util.Calendar`, `java.text.SimpleDateFormat`) flawed (e.g. mutability, index bias, thread-safety issues)?
-- Why are modern Java 8 date-time objects (like `LocalDate`, `LocalTime`, `ZonedDateTime`) designed to be immutable and thread-safe, and what pattern is used to obtain modified instances?
-- What is the difference in timezone representation and rules between `OffsetDateTime`, `ZonedDateTime`, and `Instant`?
-- Why does `java.time.format.DateTimeFormatter` avoid the concurrency bugs of `SimpleDateFormat`?
-- How do `Period` and `Duration` differ in representation and behavior, particularly when added to a timezone-aware temporal object like `ZonedDateTime` across Daylight Saving Time (DST) changes?
-- How does `ZonedDateTime` handle invalid or overlapping local date-times resulting from DST transitions?
+- Tại sao API ngày tháng cũ (`java.util.Date`, `java.util.Calendar`, `java.text.SimpleDateFormat`) có những khiếm khuyết (ví dụ: khả năng biến đổi, lệch chỉ số, vấn đề an toàn luồng - thread-safety)?
+- Tại sao các đối tượng ngày-giờ hiện đại trong Java 8 (như `LocalDate`, `LocalTime`, `ZonedDateTime`) được thiết kế bất biến (immutable) và an toàn cho luồng (thread-safe), và mẫu thiết kế nào được dùng để lấy các thực thể đã sửa đổi?
+- Sự khác biệt trong biểu diễn múi giờ và các quy tắc giữa `OffsetDateTime`, `ZonedDateTime` và `Instant` là gì?
+- Tại sao `java.time.format.DateTimeFormatter` tránh được các lỗi đồng thời (concurrency bugs) của `SimpleDateFormat`?
+- `Period` và `Duration` khác nhau như thế nào về biểu diễn và hành vi, đặc biệt khi cộng vào một đối tượng temporal nhận biết múi giờ như `ZonedDateTime` trong quá trình chuyển đổi Giờ Mùa Hè (DST - Daylight Saving Time)?
+- `ZonedDateTime` xử lý các thời điểm địa phương không hợp lệ hoặc chồng chéo do chuyển đổi DST như thế nào?
 
-## Anki Cards
+## Thẻ Anki
 
 - [Basic](anki/basic.tsv)
 - [Basic Extra](anki/basic-extra.tsv)
 - [Cloze](anki/cloze.tsv)
 - [Code Question](anki/code-question.tsv)
 
-## Mermaid Overview
+## Tổng Quan Mermaid
 
 ```mermaid
 flowchart TD
-    A[Date and Time API] --> B[Definitions]
-    A --> C[Rules and syntax]
-    A --> D[Common mistakes]
-    A --> E[Interview recall]
+    A[API Ngày Giờ] --> B[Định nghĩa]
+    A --> C[Quy tắc và cú pháp]
+    A --> D[Lỗi thường gặp]
+    A --> E[Ôn tập phỏng vấn]
 ```
 
-## Reference Links
+## Liên Kết Tham Khảo
 
 - https://docs.oracle.com/javase/tutorial/datetime/
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/package-summary.html

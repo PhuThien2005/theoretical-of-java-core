@@ -47,7 +47,7 @@ Sequenced Collections (được giới thiệu từ Java 21) đồng nhất các
 
 ---
 
-### Mẫu chuỗi từng là tính năng xem trước; hiện tại không nên sử dụng như một tính năng ổn định (String templates were once preview; currently they should not be used as a stable feature)
+## Mẫu chuỗi từng là tính năng xem trước; hiện tại không nên sử dụng như một tính năng ổn định (String templates were once preview; currently they should not be used as a stable feature)
 
 Mẫu chuỗi (String Templates - ví dụ: `STR."Hello \{name}"`) được giới thiệu dưới dạng tính năng xem trước (preview feature) trong Java 21. Tuy nhiên, dựa trên phản hồi của cộng đồng, chúng đã bị **loại bỏ** trong các bản phát hành tiếp theo (Java 22+) và không được tiến hành chuẩn hóa.
 
@@ -60,10 +60,10 @@ Mẫu chuỗi (String Templates - ví dụ: `STR."Hello \{name}"`) được gi�
     
     // Concatenation
     String message1 = "Hello " + name;
-
+    
     // String.format
     String message2 = String.format("Hello %s", name);
-
+    
     // String.formatted (cleanest alternative)
     String message3 = "Hello %s".formatted(name);
     ```

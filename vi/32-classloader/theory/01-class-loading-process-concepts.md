@@ -1,59 +1,59 @@
-# ClassLoader - Phần 1
+# Trình nạp lớp (ClassLoader) - Phần 1
 
-## Mục tiêu học tập (Learning Goal)
+## Mục Tiêu Học Tập (Learning Goal)
 
-Tài liệu này bao gồm một phần trọng tâm của **ClassLoader**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, thay vì chỉ là từ vựng rời rạc.
+Tài liệu này đề cập đến một phần trọng tâm của trình nạp lớp (ClassLoader). Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, thay vì các từ vựng rời rạc.
 
-## Phạm vi đề mục (Outline Coverage)
+## Nội Dung Khái Quát (Outline Coverage)
 
-| Khái niệm (Concept) | Điều cần biết (What to know) |
+| Khái Niệm (Concept) | Thông Tin Cần Biết (What to know) |
 | --- | --- |
-| `Class loading process` | Vòng đời nhiều giai đoạn của việc nạp, liên kết và khởi tạo các định nghĩa lớp vào bộ nhớ JVM. |
-| `Bootstrap ClassLoader` | Bộ nạp gốc bằng mã máy (native-code) chịu trách nhiệm nạp các lớp chạy cốt lõi (ví dụ: `java.lang.Object`). |
-| `Platform/Extension ClassLoader` | Bộ nạp đảm nhận nạp các mô-đun nền tảng không cốt lõi hoặc các API mở rộng. |
-| `Application ClassLoader` | Bộ nạp (system class loader) thực hiện nạp các lớp từ đường dẫn lớp classpath của ứng dụng. |
-| `Parent delegation model` | Cơ chế trong đó các bộ nạp ủy quyền việc nạp lớp cho cha của chúng trước khi tự mình thử nạp. |
-| `Dynamic class loading` | Nạp các lớp vào bộ nhớ JVM tại thời điểm chạy theo yêu cầu thay vì nạp ngay lúc khởi động. |
-| `Class.forName` | Phương thức của API phản chiếu (reflection) được sử dụng để nạp và tùy chọn khởi tạo lớp một cách động. |
-| `Classpath` | Tham số cấu hình cho JVM biết nơi để tìm kiếm các lớp và các gói do người dùng định nghĩa. |
-| `Basic JAR loading` | Cách JVM giải quyết các tệp lớp được đóng gói bên trong các tệp lưu trữ nén định dạng ZIP (JAR). |
+| `Class loading process` | Vòng đời gồm nhiều giai đoạn của việc nạp (Loading), liên kết (Linking), và khởi tạo (Initializing) các định nghĩa lớp vào bộ nhớ JVM (JVM memory). |
+| `Bootstrap ClassLoader` | Trình nạp lớp gốc bằng mã máy (native-code) chịu trách nhiệm nạp các lớp thời gian chạy cốt lõi (ví dụ: `java.lang.Object`). |
+| `Platform/Extension ClassLoader` | Trình nạp lớp nạp các mô-đun nền tảng không cốt lõi hoặc các API mở rộng. |
+| `Application ClassLoader` | Trình nạp lớp (trình nạp lớp hệ thống) nạp các lớp từ đường dẫn lớp (Classpath) của ứng dụng. |
+| `Parent delegation model` | Cơ chế trong đó các trình nạp lớp ủy quyền việc nạp cho trình nạp lớp cha trước khi tự mình thử nạp. |
+| `Dynamic class loading` | Nạp các lớp vào bộ nhớ JVM tại thời điểm chạy (runtime) theo yêu cầu thay vì lúc khởi động. |
+| `Class.forName` | Phương thức API phản chiếu (Reflection API) được dùng để nạp và có thể tùy chọn khởi tạo các lớp một cách động. |
+| `Classpath` | Tham số cấu hình chỉ định cho JVM nơi tìm kiếm các lớp và gói do người dùng định nghĩa. |
+| `Basic JAR loading` | Cách JVM phân giải các tệp lớp được đóng gói bên trong các tệp lưu trữ nén ZIP (JAR). |
 
-## Ghi chú chi tiết (Detailed Notes)
+## Ghi Chú Chi Tiết (Detailed Notes)
 
 ### Quy trình nạp lớp (Class loading process)
 
-Quy trình nạp lớp là cơ chế của JVM để đưa mã bytecode nhị phân đã biên dịch (được lưu trữ trong các tệp `.class` hoặc lấy từ luồng mạng) vào bộ nhớ và chuyển đổi nó thành một đối tượng `java.lang.Class` có thể sử dụng được. Quá trình này diễn ra một cách động theo yêu cầu (on-demand), thay vì nạp tất cả các lớp khi khởi động ứng dụng.
+Quy trình nạp lớp là cơ chế của JVM để đưa mã byte (bytecode) nhị phân đã biên dịch (được lưu trữ trong các tệp `.class` hoặc lấy từ một luồng mạng) vào bộ nhớ và chuyển đổi nó thành một đối tượng `java.lang.Class` có thể sử dụng được. Quy trình này diễn ra một cách động, theo yêu cầu, thay vì nạp tất cả các lớp khi ứng dụng khởi động.
 
-## Tại sao ba giai đoạn nạp lớp kiểm soát việc thực thi tĩnh (Why the three phases of classloading govern static execution)
+## Tại Sao Ba Giai Đoạn Của Việc Nạp Lớp Kiểm Soát Việc Thực Thi Tĩnh (Static Execution)
 
-Nạp lớp không phải là một bước nguyên tử duy nhất mà là một quy trình có cấu trúc bao gồm ba giai đoạn riêng biệt: Nạp (Loading), Liên kết (Linking), và Khởi tạo (Initialization). Trong giai đoạn **Nạp (Loading)**, bộ nạp lớp đọc biểu diễn nhị phân của lớp (mảng byte từ tệp `.class` hoặc luồng mạng) và xây dựng cấu trúc siêu dữ liệu `java.lang.Class` tương ứng trong Metaspace. Giai đoạn **Liên kết (Linking)** được chia nhỏ thành *Xác thực (Verification)* (đảm bảo mã bytecode hợp lệ và an toàn), *Chuẩn bị (Preparation)* (phân bổ bộ nhớ cho các trường tĩnh và khởi tạo chúng về các giá trị mặc định của JVM như `0` hoặc `null`), và *Phân giải (Resolution)* (phân giải các tham chiếu tượng trưng (symbolic references) trong vùng nhớ hằng số thành các tham chiếu bộ nhớ trực tiếp thực tế). Cuối cùng, giai đoạn **Khởi tạo (Initialization)** chạy các trình khởi tạo tĩnh (phương thức `<clinit>`) và gán các giá trị thực tế do lập trình viên chỉ định cho các biến tĩnh. JVM đảm bảo rằng quá trình khởi tạo tĩnh diễn ra một cách lười (lazily), chỉ khi lớp lần đầu tiên được sử dụng tích cực—chẳng hạn như khi một thể hiện mới được tạo, một phương thức tĩnh được gọi, hoặc một trường tĩnh được truy cập.
+Nạp lớp không phải là một bước đơn nguyên duy nhất mà là một quy trình có cấu trúc gồm ba giai đoạn riêng biệt: Nạp, Liên kết, và Khởi tạo. Trong giai đoạn **Nạp**, trình nạp lớp đọc biểu diễn nhị phân của lớp (mảng byte từ tệp `.class` hoặc luồng mạng) và xây dựng cấu trúc siêu dữ liệu (metadata) `java.lang.Class` tương ứng trong vùng nhớ Metaspace (Metaspace). Giai đoạn **Liên kết** được chia nhỏ thành *Xác thực* (Verification - đảm bảo mã byte là hợp lệ và an toàn), *Chuẩn bị* (Preparation - cấp phát bộ nhớ cho các trường tĩnh và khởi tạo chúng về các giá trị mặc định như `0` hoặc `null`), và *Phân giải* (Resolution - phân giải các tham chiếu tượng trưng (symbolic references) trong vùng chứa hằng số (constant pool) thành các tham chiếu bộ nhớ trực tiếp thực tế). Cuối cùng, giai đoạn **Khởi tạo** chạy các bộ khởi tạo tĩnh (static initializers) (phương thức `<clinit>`) và gán các giá trị thực tế do lập trình viên định nghĩa cho các biến tĩnh. JVM đảm bảo rằng quá trình khởi tạo tĩnh diễn ra theo cơ chế trì hoãn (lazily), chỉ khi lớp được sử dụng chủ động (active use) lần đầu tiên—chẳng hạn như khi một thực thể (instance) mới được tạo, một phương thức tĩnh được gọi, hoặc một trường tĩnh được truy cập.
 
-### Mô hình tư duy: Các giai đoạn nạp lớp (Mental Model: Class Loading Phases)
+### Mô Hình Tư Duy: Các Giai Đoạn Nạp Lớp (Class Loading Phases)
 ```
 +------------------------------------------------------------------------+
-| 1. LOADING: Đọc bytecode -> Tạo siêu dữ liệu Class<?> trong Metaspace  |
+| 1. LOADING: Read bytecode -> Create Class<?> metadata in Metaspace      |
 +------------------------------------------------------------------------+
                                    |
                                    v
 +------------------------------------------------------------------------+
 | 2. LINKING:                                                            |
-|    - Xác thực (Verification): Kiểm tra định dạng và an toàn bytecode   |
-|    - Chuẩn bị (Preparation): Phân bổ bộ nhớ tĩnh & ghi mặc định (0/null)|
-|    - Phân giải (Resolution): Ánh xạ tham chiếu tượng trưng tới địa chỉ  |
+|    - Verification: Validate bytecode format and safety rules           |
+|    - Preparation: Allocate static memory & write defaults (e.g. 0/null)|
+|    - Resolution: Map symbolic references to direct memory addresses    |
 +------------------------------------------------------------------------+
                                    |
                                    v
 +------------------------------------------------------------------------+
-| 3. INITIALIZATION: Chạy các trình khởi tạo tĩnh (<clinit>) & gán giá trị|
+| 3. INITIALIZATION: Run static initializers (<clinit>) & field values    |
 +------------------------------------------------------------------------+
 ```
 
-### Ví dụ mã nguồn (Code Example)
+### Ví Dụ Mã Nguồn (Code Example)
 ```java
 public class ClassLoadingPhasesDemo {
     static class Target {
-        // Giai đoạn chuẩn bị (Preparation): value được khởi tạo bằng 0
-        // Giai đoạn khởi tạo (Initialization): value được gán bằng 42
+        // Preparation phase: value is initialized to 0
+        // Initialization phase: value is assigned 42
         public static int value = 42;
         
         static {
@@ -64,15 +64,15 @@ public class ClassLoadingPhasesDemo {
     public static void main(String[] args) throws Exception {
         System.out.println("Main started");
         
-        // Nạp động bằng Class.forName mà không khởi tạo
+        // Dynamic loading using Class.forName without initializing
         Class<?> clazz = Class.forName("ClassLoadingPhasesDemo$Target", false, ClassLoadingPhasesDemo.class.getClassLoader());
         System.out.println("Target class loaded but not initialized yet.");
         
-        // Kích hoạt việc sử dụng tích cực
+        // Triggering active use
         int val = Target.value;
         System.out.println("Static value accessed: " + val);
         
-        // Đầu ra:
+        // Output:
         // Main started
         // Target class loaded but not initialized yet.
         // Target class initialized!
@@ -81,55 +81,51 @@ public class ClassLoadingPhasesDemo {
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-
-```text
-Kích hoạt hoạt động của lớp (ví dụ: truy cập tĩnh)
-  → Lớp được nạp nếu chưa có
-  → Liên kết thực hiện xác thực và chuẩn bị (giá trị không mặc định)
-  → Khởi tạo thực thi các khối tĩnh và phép gán thực tế
-  → Lớp hoàn toàn sẵn sàng cho việc thực thi vào thời gian chạy.
-```
-
+### Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)
+Kích hoạt lớp chủ động xảy ra (ví dụ: truy cập tĩnh) → Lớp được nạp nếu chưa được nạp → Liên kết thực hiện xác thực và chuẩn bị (giá trị mặc định bằng không) → Khởi tạo thực hiện các khối tĩnh và gán giá trị thực tế → Lớp hoàn toàn sẵn sàng cho việc thực thi thời gian chạy.
 
 ---
 
-### Bootstrap ClassLoader
-Bootstrap ClassLoader là cha của tất cả các bộ nạp lớp. Nó được viết bằng mã máy (C/C++) và nhúng trực tiếp bên trong chính JVM. Nó chịu trách nhiệm nạp các lớp nền tảng Java cốt lõi, chẳng hạn như các lớp trong gói `java.lang`, `java.util`, và các gói cơ bản khác (từ mô-đun `java.base` trong Java 9+). Vì được viết bằng mã máy, nó không có đối tượng Java `java.lang.ClassLoader` tương ứng; việc gọi `getClassLoader()` trên các lớp cốt lõi như `java.lang.String` hoặc `java.lang.Object` sẽ trả về `null`.
+### Trình nạp lớp Khởi động (Bootstrap ClassLoader)
 
-### Platform/Extension ClassLoader
-Platform ClassLoader (được gọi là Extension ClassLoader trước Java 9) nạp các lớp từ các thư mục nền tảng/mở rộng. Trong Java 9 và mới hơn, mục đích của nó là nạp các lớp nền tảng và API không phải là một phần của môi trường chạy cốt lõi (ví dụ: SQL, các gói xử lý XML) nhưng là một phần của đặc tả tiêu chuẩn Java SE.
+Trình nạp lớp Khởi động (Bootstrap ClassLoader) là cha của tất cả các trình nạp lớp. Nó được viết bằng mã máy (C/C++) và được nhúng trực tiếp bên trong chính JVM. Nó chịu trách nhiệm nạp các lớp nền tảng Java cốt lõi, chẳng hạn như các lớp trong gói `java.lang`, `java.util`, và các gói cơ bản khác (từ mô-đun `java.base` trong Java 9 trở lên). Vì được viết bằng mã máy, nó không có đối tượng Java `java.lang.ClassLoader` tương ứng; việc gọi `getClassLoader()` trên các lớp cốt lõi như `java.lang.String` hoặc `java.lang.Object` sẽ trả về `null`.
 
-### Application ClassLoader
-Còn được gọi là System ClassLoader, Application ClassLoader chịu trách nhiệm nạp các lớp từ đường dẫn lớp (classpath) của ứng dụng (được chỉ định bởi biến môi trường `CLASSPATH`, hoặc tùy chọn dòng lệnh `-classpath` / `-cp`). Nó là bộ nạp mặc định cho các lớp do người dùng định nghĩa và được viết bằng Java (lớp con của `java.lang.ClassLoader`).
+### Trình nạp lớp Nền tảng/Mở rộng (Platform/Extension ClassLoader)
+
+Trình nạp lớp Nền tảng (Platform ClassLoader) (được gọi là Trình nạp lớp Mở rộng (Extension ClassLoader) trước phiên bản Java 9) nạp các lớp từ các thư mục nền tảng/mở rộng. Trong Java 9 và các phiên bản mới hơn, mục đích của nó là nạp các lớp nền tảng và các API không thuộc thời gian chạy cốt lõi (ví dụ: các gói xử lý SQL, XML) nhưng là một phần của đặc tả Java SE tiêu chuẩn.
+
+### Trình nạp lớp Ứng dụng (Application ClassLoader)
+
+Còn được gọi là Trình nạp lớp Hệ thống (System ClassLoader), Trình nạp lớp Ứng dụng chịu trách nhiệm nạp các lớp từ đường dẫn lớp của ứng dụng (được chỉ định bởi biến môi trường `CLASSPATH`, hoặc các tùy chọn dòng lệnh `-classpath` / `-cp`). Nó là trình nạp mặc định cho các lớp do người dùng định nghĩa và được viết bằng Java (là một lớp con của `java.lang.ClassLoader`).
 
 ### Mô hình ủy quyền cha (Parent delegation model)
-Mô hình ủy quyền cha là khung phân cấp hướng dẫn cách các bộ nạp lớp tìm kiếm các lớp. Khi một bộ nạp lớp nhận được yêu cầu nạp một lớp, trước tiên nó không tự mình tìm kiếm lớp đó. Thay vào đó, nó ủy quyền việc tìm kiếm cho bộ nạp lớp cha của nó. Việc ủy quyền này truyền ngược lên tận Bootstrap ClassLoader. Chỉ khi tất cả các bộ nạp lớp tổ tiên không xác định được vị trí của lớp thì bộ nạp lớp con mới tự mình thực hiện nạp lớp.
 
-## Tại sao mô hình ủy quyền cha bảo vệ các API cốt lõi (Why the parent delegation model protects core APIs)
+Mô hình ủy quyền cha là khung phân cấp điều hướng cách các trình nạp lớp tìm kiếm các lớp. Khi một trình nạp lớp nhận được yêu cầu nạp một lớp, trước tiên nó không cố gắng tự tìm kiếm lớp đó. Thay vào đó, nó ủy quyền việc tìm kiếm cho trình nạp lớp cha của nó. Việc ủy quyền này truyền ngược lên cho đến tận Trình nạp lớp Khởi động. Chỉ khi tất cả các trình nạp lớp tổ tiên không tìm thấy lớp đó thì trình nạp lớp con mới tự mình cố gắng nạp lớp đó.
 
-Mô hình ủy quyền cha là một cơ chế bảo mật cốt lõi trong Máy ảo Java. Khi một bộ nạp lớp được yêu cầu nạp một lớp, nó luôn ủy quyền yêu cầu đó cho bộ nạp lớp cha của nó trước tiên, truyền ngược lên tận Bootstrap ClassLoader, trước khi tự mình thử nạp lớp. Sự phân cấp này đảm bảo rằng các lớp chạy cốt lõi, chẳng hạn như `java.lang.Object` hoặc `java.lang.String`, luôn được nạp bởi Bootstrap ClassLoader từ runtime image đáng tin cậy, chứ không phải bởi một ứng dụng không đáng tin cậy hoặc bộ nạp lớp tùy chỉnh. Ngay cả khi một nhà phát triển độc hại đóng gói một lớp `java.lang.Object` giả mạo trong một tệp JAR, mô hình ủy quyền cha vẫn đảm bảo rằng yêu cầu bị chặn ở đỉnh của cây phân cấp, và lớp chính thức của JVM sẽ được nạp thay thế. Hơn nữa, JVM thực thi các kiểm tra thời gian chạy (chẳng hạn như kiểm tra các tên gói bắt đầu bằng `java.`) và ném ra ngoại lệ `SecurityException` nếu một bộ nạp lớp không đáng tin cậy cố gắng định nghĩa một lớp bên trong một gói bị hạn chế.
+## Tại Sao Mô Hình Ủy Quyền Cha Bảo Vệ Các API Cốt Lõi
 
-### Mô hình tư duy: Mô hình ủy quyền cha (Mental Model: Parent Delegation Model)
+Mô hình ủy quyền cha là một cơ chế bảo mật cốt lõi trong Máy ảo Java (Java Virtual Machine - JVM). Khi một trình nạp lớp được yêu cầu nạp một lớp, nó luôn ủy quyền yêu cầu đó cho trình nạp lớp cha trước tiên, đi ngược lên tận Trình nạp lớp Khởi động, trước khi tự mình thử nạp lớp đó. Phân cấp này đảm bảo rằng các lớp thời gian chạy cốt lõi, chẳng hạn như `java.lang.Object` hoặc `java.lang.String`, luôn được nạp bởi Trình nạp lớp Khởi động từ ảnh thời gian chạy (runtime image) đáng tin cậy, thay vì bởi một ứng dụng không đáng tin cậy hoặc trình nạp lớp tùy chỉnh. Ngay cả khi một nhà phát triển độc hại đóng gói một lớp `java.lang.Object` giả mạo trong một tệp JAR, mô hình ủy quyền cha đảm bảo rằng yêu cầu sẽ bị chặn lại ở đỉnh của cây phân cấp, và lớp JVM chính thức sẽ được nạp thay thế. Hơn nữa, JVM thực thi các kiểm tra thời gian chạy (chẳng hạn như kiểm tra các tên gói bắt đầu bằng `java.`) và ném ra một ngoại lệ `SecurityException` nếu một trình nạp lớp không đáng tin cậy cố gắng định nghĩa một lớp bên trong một gói bị hạn chế.
+
+### Mô Hình Tư Duy: Mô Hình Ủy Quyền Cha (Parent Delegation Model)
 ```mermaid
 flowchart TD
-    Req[Yêu cầu nạp java.lang.Object] --> App[Application ClassLoader]
-    App -- Ủy quyền --> Plat[Platform ClassLoader]
-    Plat -- Ủy quyền --> Boot[Bootstrap ClassLoader]
-    Boot -- 1. Tìm kiếm runtime image --> Found[Đã tìm thấy & nạp java.lang.Object tin cậy]
-    Boot -- 2. Bỏ qua ủy quyền xuống dưới --> AppLoad[Bỏ qua bộ nạp lớp tùy chỉnh]
+    Req[Yêu cầu nạp java.lang.Object] --> App[Trình nạp lớp Ứng dụng]
+    App -- Ủy quyền --> Plat[Trình nạp lớp Nền tảng]
+    Plat -- Ủy quyền --> Boot[Trình nạp lớp Khởi động]
+    Boot -- 1. Tìm kiếm trong ảnh runtime --> Found[Tìm thấy & Đã nạp java.lang.Object đáng tin cậy]
+    Boot -- 2. Bỏ qua việc ủy quyền xuống dưới --> AppLoad[Trình nạp lớp tùy chỉnh bị bỏ qua]
 ```
 
-### Ví dụ mã nguồn (Code Example)
+### Ví Dụ Mã Nguồn (Code Example)
 ```java
-// Ví dụ mô phỏng kiểm tra ngăn chặn gói
+// Conceptual demonstration of package containment checks
 public class ClassProtectionDemo {
     public static void main(String[] args) {
         try {
             ClassLoader customLoader = new ClassLoader() {
                 @Override
                 protected Class<?> findClass(String name) throws ClassNotFoundException {
-                    // Cố gắng chiếm đoạt java.lang bằng cách định nghĩa một lớp giả bên trong nó
+                    // Try to hijack java.lang by defining a fake class within it
                     byte[] dummyBytes = new byte[0];
                     return defineClass(name, dummyBytes, 0, 0);
                 }
@@ -137,7 +133,7 @@ public class ClassProtectionDemo {
             customLoader.loadClass("java.lang.FakeCoreClass");
         } catch (SecurityException e) {
             System.out.println("SecurityException caught: " + e.getMessage());
-            // Đầu ra: SecurityException caught: Prohibited package name: java.lang
+            // Output: SecurityException caught: Prohibited package name: java.lang
         } catch (ClassNotFoundException e) {
             System.out.println("Class not found");
         }
@@ -145,50 +141,42 @@ public class ClassProtectionDemo {
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-
-```text
-Yêu cầu lớp tùy chỉnh
-  → Ủy quyền ngược lên Bootstrap ClassLoader
-  → Lớp API cốt lõi tin cậy được trả về
-  → Kiểm tra gói thời gian chạy thất bại khi cố gắng định nghĩa trực tiếp `java.*`
-  → JVM ném ra `java.lang.SecurityException` ngăn chặn hành vi chiếm đoạt API.
-```
-
+### Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)
+Yêu cầu lớp tùy chỉnh → Được ủy quyền ngược lên Trình nạp lớp Khởi động → Trả về lớp API cốt lõi đáng tin cậy → Kiểm tra gói thời gian chạy thất bại khi cố gắng định nghĩa trực tiếp `java.*` → JVM ném ra `java.lang.SecurityException` để ngăn chặn việc chiếm quyền điều khiển API.
 
 ---
 
 ### Nạp lớp động (Dynamic class loading)
 
-Nạp lớp động đề cập đến khả năng của JVM trong việc nạp các lớp tại thời điểm chạy theo yêu cầu (on-demand), thay vì biên dịch tĩnh tất cả hoặc nạp chúng trong quá trình khởi động JVM. Điều này cho phép các chương trình nạp các plugin, driver, hoặc mô-đun một cách động mà không cần khởi động lại ứng dụng.
+Nạp lớp động đề cập đến khả năng của JVM trong việc nạp các lớp vào thời gian chạy theo yêu cầu, thay vì biên dịch tĩnh tất cả chúng hoặc nạp chúng trong quá trình khởi động (bootstrap) JVM. Điều này cho phép các chương trình nạp các tiện ích mở rộng (plugin), trình điều khiển (driver) hoặc các mô-đun một cách động mà không cần khởi động lại ứng dụng.
 
-## Tại sao các không gian tên ClassLoader quyết định tính duy nhất của nhận dạng kiểu (Why ClassLoader namespaces dictate type identity uniqueness)
+## Tại Sao Không Gian Tên (Namespace) Của Trình Nạp Lớp Quyết Định Tính Duy Nhất Của Định Danh Kiểu (Type Identity Uniqueness)
 
-Trong Máy ảo Java, danh tính của một lớp không chỉ được xác định bởi tên đầy đủ của nó (ví dụ: `com.example.Service`). Thay vào đó, danh tính thời gian chạy (runtime identity) của một lớp là sự kết hợp giữa tên đầy đủ của nó và thể hiện `ClassLoader` cụ thể đã định nghĩa nó. Điều này có nghĩa là nếu hai thực thể `ClassLoader` khác nhau nạp cùng một tệp lớp từ ổ đĩa, JVM vẫn coi chúng là hai kiểu dữ liệu hoàn toàn khác biệt. JVM phân chia các kiểu bằng cách sử dụng các gói thời gian chạy liên kết với bộ nạp lớp định nghĩa chúng, đảm bảo cách ly không gian tên lớp. Do đó, bạn không thể ép kiểu (cast) một thực thể của một lớp được nạp bởi `ClassLoader A` sang định nghĩa lớp được nạp bởi `ClassLoader B`, và việc cố gắng làm như vậy sẽ dẫn đến lỗi `ClassCastException` vào thời gian chạy.
+Trong Máy ảo Java, định danh của một lớp không chỉ được xác định bằng tên đầy đủ (fully qualified name) của nó (ví dụ: `com.example.Service`). Thay vào đó, định danh thời gian chạy của một lớp là sự kết hợp giữa tên đầy đủ của nó và thực thể (instance) `ClassLoader` cụ thể đã định nghĩa nó. Điều này có nghĩa là nếu hai thực thể `ClassLoader` khác nhau nạp cùng một tệp byte lớp từ đĩa, JVM sẽ coi chúng là hai kiểu hoàn toàn riêng biệt. JVM phân chia các kiểu bằng cách sử dụng các gói thời gian chạy liên kết với các trình nạp lớp định nghĩa chúng, đảm bảo sự cô lập không gian tên của lớp. Do đó, bạn không thể ép kiểu một thực thể của một lớp được nạp bởi `ClassLoader A` sang định nghĩa lớp được nạp bởi `ClassLoader B`, và việc cố gắng làm như vậy sẽ dẫn đến ngoại lệ `ClassCastException` tại thời điểm chạy.
 
-### Mô hình tư duy: Phân tách kiểu ClassLoader (Mental Model: ClassLoader Type Separation)
+### Mô Hình Tư Duy: Sự Phân Tách Kiểu Của Trình Nạp Lớp (ClassLoader Type Separation)
 ```
 +-------------------------------------------------------------------+
-|                           Bộ nhớ JVM                              |
+|                           JVM Memory                              |
 |  +---------------------------+     +---------------------------+  |
 |  |       ClassLoader A       |     |       ClassLoader B       |  |
 |  |  [com.example.Service]    |     |  [com.example.Service]    |  |
 |  |     (Type ID: Class@1)    |     |     (Type ID: Class@2)    |  |
 |  +-------------+-------------+     +-------------+-------------+  |
 |                |                                 |                |
-|       Khởi tạo dưới dạng:               Khởi tạo dưới dạng:        |
+|         Instantiated as:                  Instantiated as:        |
 |            serviceObj1                       serviceObj2          |
 +-------------------------------------------------------------------+
-Cố gắng: (com.example.Service) serviceObj2 (sử dụng ngữ cảnh Class@1)
-Đầu ra: java.lang.ClassCastException
+Attempting: (com.example.Service) serviceObj2 (using Class@1 context)
+Result: java.lang.ClassCastException
 ```
 
-### Ví dụ mã nguồn (Code Example)
+### Ví Dụ Mã Nguồn (Code Example)
 ```java
-// Ví dụ minh họa sự không khớp kiểu do không gian tên
+// Conceptual example of namespace type mismatch
 public class NamespaceTypeMismatchDemo {
     public static void main(String[] args) throws Exception {
-        // Giả sử CustomClassLoader tải các byte của lớp từ một thư mục cụ thể
+        // Supposing CustomClassLoader loads class bytes from a specific folder
         ClassLoader loader1 = new CustomClassLoader();
         ClassLoader loader2 = new CustomClassLoader();
         
@@ -196,170 +184,144 @@ public class NamespaceTypeMismatchDemo {
         Class<?> clazz2 = loader2.loadClass("com.example.Service");
         
         System.out.println("clazz1 == clazz2: " + (clazz1 == clazz2));
-        // In ra: clazz1 == clazz2: false
+        // Output: clazz1 == clazz2: false
         
         Object instance2 = clazz2.getDeclaredConstructor().newInstance();
         System.out.println("Is instance2 instance of clazz1? " + clazz1.isInstance(instance2));
-        // In ra: Is instance2 instance of clazz1? false
+        // Output: Is instance2 instance of clazz1? false
     }
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-
-```text
-Nhiều phiên bản classloader nạp cùng một lớp
-  → Các đối tượng `java.lang.Class` riêng biệt được tạo ra trong bộ nhớ
-  → Các không gian tên phân vùng nhận dạng kiểu
-  → Công cụ thực thi JVM phát hiện các bộ nạp định nghĩa không khớp trong quá trình kiểm tra ép kiểu
-  → Lỗi `ClassCastException` bị ném ra bất chấp tên lớp giống hệt nhau.
-```
-
+### Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)
+Nhiều thực thể trình nạp lớp nạp cùng một lớp → Các đối tượng `java.lang.Class` riêng biệt được tạo trong bộ nhớ → Các không gian tên phân chia định danh kiểu → Bộ thực thi JVM phát hiện các trình nạp lớp định nghĩa không khớp trong quá trình kiểm tra ép kiểu → Ngoại lệ `ClassCastException` bị ném ra bất kể tên lớp giống nhau.
 
 ---
 
 ### Class.forName
 
-`Class.forName` là một phương thức của API phản chiếu được sử dụng để nạp một lớp một cách động bằng tên đầy đủ của nó. Theo mặc định, việc gọi `Class.forName(name)` không chỉ nạp lớp mà còn liên kết và khởi tạo lớp đó (chạy các khối tĩnh). Nếu việc khởi tạo chưa được mong muốn ngay lập tức, bạn có thể sử dụng phương thức nạp chồng có ba đối số: `Class.forName(name, initialize, classloader)`.
+`Class.forName` là một phương thức API phản chiếu được sử dụng để nạp một lớp một cách động bằng tên đầy đủ của nó. Theo mặc định, việc gọi `Class.forName(name)` không chỉ nạp lớp mà còn liên kết và khởi tạo lớp đó (chạy các khối tĩnh). Nếu không muốn khởi tạo ngay lập tức, phương thức nạp chồng ba tham số `Class.forName(name, initialize, classloader)` có thể được sử dụng thay thế.
 
-## Tại sao các framework SPI và plugin phải phá vỡ mô hình ủy quyền cha (Why SPI and plugin frameworks must break parent delegation)
+## Tại Sao SPI Và Các Khung Tiện Ích Mở Rộng (Plugin Frameworks) Phải Phá Vỡ Cơ Chế Ủy Quyền Cha
 
-Mô hình ủy quyền cha nghiêm ngặt hoạt động theo kiểu từ trên xuống dưới (top-down), trong đó các bộ nạp lớp ủy quyền ngược lên trên để nạp các lớp nền tảng cốt lõi. Tuy nhiên, mô hình này bị phá vỡ khi các API nền tảng cốt lõi (được nạp bởi Bootstrap ClassLoader) cần khám phá và nạp các triển khai của nhà cung cấp dịch vụ bên thứ ba (SPI - nằm trong đường dẫn lớp classpath và được nạp bởi Application ClassLoader). Ví dụ, API kết nối cơ sở dữ liệu Java (JDBC) tồn tại dưới dạng các lớp nền tảng cốt lõi, nhưng nó cần nạp các driver cơ sở dữ liệu (như driver PostgreSQL hoặc MySQL) do ứng dụng cung cấp. Để giải quyết điều này, Java đã giới thiệu Thread Context ClassLoader (TCCL), cho phép một luồng chỉ định một bộ nạp lớp hỗ trợ (thường là Application ClassLoader) có thể được các lớp cốt lõi truy xuất để nạp các lớp của ứng dụng. Tương tự, OSGi và các máy chủ ứng dụng web triển khai các mạng ủy quyền tùy chỉnh (như nạp cha-sau hoặc nạp ngang hàng) để cô lập các plugin hoặc cho phép các ứng dụng web ghi đè lên các thư viện dùng chung cấp máy chủ.
+Mô hình ủy quyền cha nghiêm ngặt hoạt động theo cách tiếp cận từ trên xuống (top-down), trong đó các trình nạp lớp ủy quyền ngược lên trên để nạp các lớp nền tảng cốt lõi. Tuy nhiên, mô hình này bị phá vỡ khi các API nền tảng cốt lõi (được nạp bởi Trình nạp lớp Khởi động) cần phát hiện và nạp các triển khai nhà cung cấp dịch vụ (service provider) bên thứ ba (vốn nằm trong đường dẫn lớp và được nạp bởi Trình nạp lớp Ứng dụng). Ví dụ, API Kết nối Cơ sở dữ liệu Java (Java Database Connectivity - JDBC) tồn tại dưới dạng các lớp nền tảng cốt lõi, nhưng nó cần nạp các trình điều khiển cơ sở dữ liệu (như trình điều khiển PostgreSQL hoặc MySQL) do ứng dụng cung cấp. Để giải quyết vấn đề này, Java đã giới thiệu Trình nạp lớp theo ngữ cảnh luồng (Thread Context ClassLoader - TCCL), cho phép một luồng chỉ định một trình nạp lớp bổ trợ (thường là Trình nạp lớp Ứng dụng) để các lớp cốt lõi có thể lấy ra và nạp các lớp ứng dụng. Tương tự, OSGi và các máy chủ ứng dụng web triển khai các mạng lưới ủy quyền tùy chỉnh (chẳng hạn như nạp ưu tiên lớp con (parent-last), hoặc nạp ngang hàng (peer-to-peer)) để cô lập các tiện ích mở rộng hoặc cho phép các ứng dụng web ghi đè lên các thư viện dùng chung ở cấp độ máy chủ.
 
-### Mô hình tư duy: Phá vỡ ủy quyền cha cho SPI (Mental Model: Breaking Parent Delegation for SPI)
+### Mô Hình Tư Duy: Phá Vỡ Cơ Chế Ủy Quyền Cha Cho SPI (Breaking Parent Delegation for SPI)
 ```
 +-----------------------------------------------------------------------+
-|  Bootstrap ClassLoader (Nạp java.sql.DriverManager)                   |
+|  Bootstrap ClassLoader (Loads java.sql.DriverManager)                  |
 +-----------------------------------------------------------------------+
                                   |
-            Cần nạp driver cơ sở dữ liệu (ví dụ: org.postgresql.Driver)
-            Nếu chỉ dùng ủy quyền cha: Bootstrap không thể nhìn thấy
-            các lớp của Application loader (khả năng hiển thị xuống dưới bị cấm).
+            Need to load database driver (e.g. org.postgresql.Driver)
+            If parent-delegation only: Bootstrap cannot see Application
+            loader classes (downwards visibility is prohibited).
                                   |
                                   v
 +-----------------------------------------------------------------------+
 |  TCCL Hook (Thread.currentThread().getContextClassLoader())           |
-|  Cho phép DriverManager truy vấn Application ClassLoader              |
+|  Allows DriverManager to query the Application ClassLoader           |
 +-----------------------------------------------------------------------+
                                   |
                                   v
 +-----------------------------------------------------------------------+
-|  Application ClassLoader (Nạp org.postgresql.Driver)                  |
+|  Application ClassLoader (Loads org.postgresql.Driver)                |
 +-----------------------------------------------------------------------+
 ```
 
-### Ví dụ mã nguồn (Code Example)
+### Ví Dụ Mã Nguồn (Code Example)
 ```java
 import java.sql.Driver;
 import java.util.ServiceLoader;
 
 public class TCCLDemo {
     public static void main(String[] args) {
-        // Theo mặc định, TCCL được đặt thành Application ClassLoader
+        // TCCL is set to the Application ClassLoader by default
         ClassLoader originalTCCL = Thread.currentThread().getContextClassLoader();
         
-        // Tạm thời vô hiệu hóa TCCL để giả lập môi trường bootstrap sạch
+        // Temporarily nullify the TCCL to mimic a clean bootstrap environment
         Thread.currentThread().setContextClassLoader(null);
         
         try {
-            // ServiceLoader sử dụng Thread Context ClassLoader mặc định để tìm kiếm SPI
+            // ServiceLoader uses Thread Context ClassLoader by default to find SPIs
             ServiceLoader<Driver> loader = ServiceLoader.load(Driver.class);
-            // Việc này sẽ không thể tìm thấy driver trên classpath ứng dụng nếu TCCL là null
+            // This fails to find application classpath drivers if TCCL is null
             boolean found = loader.iterator().hasNext();
             System.out.println("Drivers found without TCCL: " + found);
-            // In ra: Drivers found without TCCL: false
+            // Output: Drivers found without TCCL: false
         } finally {
-            // Khôi phục lại TCCL
+            // Restore TCCL
             Thread.currentThread().setContextClassLoader(originalTCCL);
         }
     }
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-
-```text
-Thư viện cốt lõi được nạp bởi Bootstrap ClassLoader
-  → Cần khởi tạo lớp triển khai trong Application ClassLoader
-  → Ủy quyền hướng xuống bị cấm theo mô hình mặc định
-  → Thread Context ClassLoader được truy xuất từ môi trường thực thi luồng hiện tại
-  → Bỏ qua ủy quyền mặc định bằng cách truy vấn trực tiếp bộ nạp ứng dụng
-  → SPI được nạp thành công.
-```
-
+### Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)
+Thư viện cốt lõi được nạp bởi Trình nạp lớp Khởi động → Cần khởi tạo lớp triển khai trong Trình nạp lớp Ứng dụng → Việc ủy quyền xuống dưới bị cấm bởi mô hình mặc định → Trình nạp lớp theo ngữ cảnh luồng được lấy từ môi trường thực thi luồng hiện tại → Việc ủy quyền bị bỏ qua bằng cách truy vấn rõ ràng trình nạp lớp ứng dụng → SPI được nạp thành công.
 
 ---
 
-### Classpath
+### Đường dẫn lớp (Classpath)
 
-Đường dẫn lớp (Classpath) là một tham số cấu hình (tùy chọn dòng lệnh hoặc biến môi trường) chỉ định các thư mục và tệp lưu trữ ZIP/JAR nơi tìm kiếm các lớp phục vụ cho việc biên dịch và thực thi chương trình.
+Đường dẫn lớp là một tham số cấu hình (tùy chọn dòng lệnh hoặc biến môi trường) chỉ định các thư mục và các tệp lưu trữ ZIP/JAR nơi tìm kiếm các lớp để biên dịch và thực thi.
 
-## Tại sao các Classloader tùy chỉnh gây ra rò rỉ bộ nhớ Metaspace (Why Custom Classloaders Cause Metaspace Memory Leaks)
+## Tại Sao Các Trình Nạp Lớp Tùy Chỉnh Gây Ra Rò Rỉ Bộ Nhớ Metaspace (Metaspace Memory Leaks)
 
-Các container ứng dụng web như Tomcat sử dụng các classloader tùy chỉnh để cô lập nhiều bản triển khai chạy trên cùng một phiên bản JVM. Mỗi ứng dụng web được triển khai sẽ được phân bổ một thực thể `WebappClassLoader` riêng biệt để xử lý việc nạp các lớp đặc thù của ứng dụng mà không gây ảnh hưởng đến các ứng dụng khác. Tuy nhiên, thiết lập này rất dễ dẫn đến rò rỉ bộ nhớ Metaspace do các quy tắc giữ lại tham chiếu nghiêm ngặt của bộ thu gom rác Java GC. Mỗi đối tượng lớp được nạp sẽ giữ một tham chiếu mạnh (strong reference) đến classloader định nghĩa ra nó thông qua phương thức `getClassLoader()`, và ngược lại, classloader duy trì một tham chiếu đến tất cả các lớp mà nó đã nạp. Nếu một luồng, trường tĩnh, biến thread-local hoặc registry toàn hệ thống (như trình điều khiển JDBC hoặc logging framework) giữ lại một tham chiếu duy nhất đến bất kỳ lớp ứng dụng nào sau khi gỡ bỏ ứng dụng (undeploy), toàn bộ classloader và tất cả các lớp đã nạp của nó sẽ không thể được gom rác. Vì siêu dữ liệu lớp được lưu trữ trong Metaspace, việc triển khai lại (redeploy) ứng dụng nhiều lần sẽ tích tụ siêu dữ liệu lớp bị rò rỉ, cuối cùng làm cạn kiệt bộ nhớ JVM heap hoặc Metaspace và ném ra lỗi `OutOfMemoryError: Metaspace`.
+Các container ứng dụng web (web application containers) như Tomcat sử dụng các trình nạp lớp tùy chỉnh để cô lập nhiều bản triển khai chạy trên cùng một thực thể JVM. Mỗi ứng dụng web được triển khai được phân bổ thực thể `WebappClassLoader` riêng của nó, thực thể này xử lý việc nạp các lớp đặc thù của ứng dụng mà không gây ảnh hưởng đến các ứng dụng khác. Tuy nhiên, thiết lập này rất dễ bị rò rỉ bộ nhớ Metaspace (Metaspace memory leaks) do các quy tắc giữ tham chiếu nghiêm ngặt của Bộ thu gom rác Java (Java Garbage Collector). Mỗi đối tượng lớp được nạp sẽ giữ một tham chiếu mạnh (strong reference) đến `ClassLoader` đã định nghĩa nó thông qua phương thức `getClassLoader()`, và ngược lại, trình nạp lớp duy trì một tham chiếu đến tất cả các lớp mà nó đã nạp. Nếu một luồng, trường tĩnh, biến cục bộ luồng (thread-local), hoặc đăng ký toàn hệ thống (như trình điều khiển JDBC hoặc khung ghi nhật ký (logging framework)) giữ lại dù chỉ một tham chiếu đến bất kỳ lớp ứng dụng nào sau khi gỡ bỏ triển khai (undeployment), toàn bộ trình nạp lớp và tất cả các lớp được nạp của nó đều không thể được thu gom rác. Vì siêu dữ liệu lớp được lưu trữ trong Metaspace, việc tái triển khai (redeployment) ứng dụng liên tục sẽ làm rò rỉ siêu dữ liệu lớp, cuối cùng làm cạn kiệt bộ nhớ heap của JVM hoặc Metaspace và ném ra ngoại lệ `OutOfMemoryError: Metaspace`.
 
-### Mô hình tư duy: Chu kỳ tham chiếu ClassLoader (Mental Model: ClassLoader Reference Cycle)
+### Mô Hình Tư Duy: Chu Kỳ Tham Chiếu Trình Nạp Lớp (ClassLoader Reference Cycle)
 ```
-Hệ thống đăng ký (ví dụ: ThreadLocal hoặc JDBC)
-      | (Rò rỉ tham chiếu)
+System Registry (e.g., ThreadLocal or JDBC)
+      | (Leaks reference)
       v
-[Lớp của ứng dụng (ví dụ: MyLeakedClass)]
+[Application Class (e.g. MyLeakedClass)]
       | (getClassLoader())
       v
 [WebappClassLoader]
-      | (Giữ tham chiếu đến tất cả các lớp đã nạp)
+      | (Holds references to all loaded classes)
       v
-[Siêu dữ liệu lớp trong Metaspace (Hàng trăm lớp)] ---> Bộ nhớ không thể được thu hồi!
+[Class Metadata in Metaspace (Hundreds of classes)] ---> Memory cannot be reclaimed!
 ```
 
-### Ví dụ mã nguồn (Code Example)
+### Ví Dụ Mã Nguồn (Code Example)
 ```java
 public class MetaspaceLeakSample {
     private static final ThreadLocal<Object> context = new ThreadLocal<>();
 
     public static void runLeak(ClassLoader webappLoader) throws Exception {
-        // Nạp một lớp của ứng dụng bằng cách sử dụng bộ nạp webapp tùy chỉnh của chúng ta
+        // Load an application class using our custom webapp loader
         Class<?> leakedClass = webappLoader.loadClass("com.example.LeakedContext");
         Object instance = leakedClass.getDeclaredConstructor().newInstance();
         
-        // Lưu trữ thể hiện này trong một ThreadLocal không bao giờ được xóa dọn
+        // Storing the instance in a ThreadLocal that is never cleaned up
         context.set(instance);
         
-        // Ứng dụng web hiện đã được "gỡ bỏ" (tham chiếu webappLoader được đặt thành null)
+        // Web application is now "undeployed" (webappLoader reference set to null)
         webappLoader = null;
         
-        // System.gc() không thể thu hồi webappLoader vì biến thread-local
-        // vẫn tham chiếu đến thực thể lớp, thực thể này tham chiếu đến lớp,
-        // lớp này lại tham chiếu đến webappLoader.
+        // System.gc() cannot reclaim webappLoader because context thread-local
+        // still references the class instance, which references the class,
+        // which references the webappLoader.
         System.gc();
         System.out.println("Undeployed webapp but leak remains.");
-        // In ra: Undeployed webapp but leak remains.
+        // Output: Undeployed webapp but leak remains.
     }
 }
 ```
 
-### Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)
-
-```text
-Ứng dụng web bị gỡ bỏ
-  → Các tham chiếu đến classloader tùy chỉnh bị container loại bỏ
-  → Trường tĩnh hoặc ThreadLocal giữ tham chiếu đến lớp ứng dụng web
-  → Lớp giữ tham chiếu đến classloader định nghĩa nó
-  → Classloader giữ tham chiếu đến tất cả các lớp nó đã nạp
-  → GC không thể thu hồi classloader hoặc bất kỳ lớp đã nạp nào
-  → Dung lượng Metaspace tăng liên tục qua các lần triển khai lại
-  → Ngoại lệ Metaspace OutOfMemoryError xảy ra.
-```
-
+### Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)
+Gỡ bỏ triển khai ứng dụng web → Các tham chiếu đến trình nạp lớp tùy chỉnh bị container loại bỏ → Tham chiếu tĩnh hoặc ThreadLocal giữ tham chiếu đến lớp ứng dụng web → Lớp giữ tham chiếu đến trình nạp lớp đã định nghĩa nó → Trình nạp lớp giữ các tham chiếu đến tất cả các lớp đã nạp của nó → GC không thể thu gom trình nạp lớp hoặc bất kỳ lớp đã nạp nào → Dung lượng sử dụng Metaspace tăng liên tục qua các lần tái triển khai → Lỗi OutOfMemoryError: Metaspace xảy ra.
 
 ---
 
-### Nạp tệp JAR cơ bản (Basic JAR loading)
+### Nạp file JAR cơ bản (Basic JAR loading)
 
-Nạp tệp JAR (Java Archive) cho phép tổng hợp nhiều tệp `.class` đã biên dịch, các tệp cấu hình tài nguyên, và siêu dữ liệu (metadata) vào một tệp lưu trữ duy nhất được nén bằng định dạng ZIP. JVM nạp các lớp trực tiếp từ bên trong các tệp JAR bằng cách đọc các mục nhập ZIP của chúng, sử dụng các cấu hình tìm kiếm classpath để giải quyết các thư viện phụ thuộc bên ngoài.
+Nạp file JAR (Java Archive) cho phép tích hợp nhiều tệp `.class` đã biên dịch, tệp cấu hình tài nguyên và siêu dữ liệu vào một tệp lưu trữ nén ZIP duy nhất. JVM nạp các lớp trực tiếp từ bên trong các tệp JAR bằng cách đọc các mục ZIP của chúng, sử dụng các cấu hình tìm kiếm đường dẫn lớp để phân giải các thư viện phụ thuộc bên ngoài.
 
-## Reference Links
+## Liên Kết Tham Khảo (Reference Links)
 
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html (API ClassLoader chính thức)
+- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html (Tài liệu ClassLoader API chính thức)
 - https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html (Đặc tả JVM: Nạp, Liên kết, và Khởi tạo)
-- https://tomcat.apache.org/tomcat-11.0-doc/class-loader-howto.html (Tài liệu Hướng dẫn ClassLoader của Tomcat)
+- https://tomcat.apache.org/tomcat-11.0-doc/class-loader-howto.html (Hướng dẫn ClassLoader của Tomcat)
+
+---
