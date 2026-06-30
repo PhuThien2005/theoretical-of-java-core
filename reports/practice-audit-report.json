@@ -1,0 +1,14 @@
+{
+  "06-control-flow": {
+    "fizzbuzz-extended": {
+      "status": "success",
+      "message": "All tests passed successfully!",
+      "log": "\u2705 All tests passed successfully!"
+    },
+    "switch-expression-calculator": {
+      "status": "fail",
+      "message": "Some assertions failed.",
+      "log": "STDOUT:\n\nSTDERR:\n\u274c Test Suite Failed!\njava.lang.AssertionError: 10 + 5 = 15 (Expected: 15.0, Actual: 0.0)\n\tat SwitchExpressionCalculatorTest.assertEquals(SwitchExpressionCalculatorTest.java:23)\n\tat SwitchExpressionCalculatorTest.testBasicOperations(SwitchExpressionCalculatorTest.java:28)\n\tat SwitchExpressionCalculatorTest.main(SwitchExpressionCalculatorTest.java:8)\n"
+    }
+  }
+}
