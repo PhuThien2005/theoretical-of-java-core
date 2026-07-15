@@ -20,7 +20,7 @@ JUnit là một framework kiểm thử Java để viết và chạy các bài ki
 
 ## Khẳng Định (Assertion)
 
-`assertion` (khẳng định) là một khái niệm cụ thể trong Kiểm thử đơn vị cơ bản; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vị chỉ nhớ mỗi tên gọi.
+`assertion` (khẳng định) là một khái niệm cụ thể trong Kiểm thử đơn vị cơ bản; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
 
 - **Tại sao điều này quan trọng**: Nó quan trọng vì các bài kiểm thử giúp bảo vệ hành vi của hệ thống khi có sự thay đổi. Một điểm nhầm lẫn phổ biến là đi kiểm thử các chi tiết triển khai thay vì kiểm thử hành vi có thể quan sát được.
 - **Nhầm lẫn phổ biến**: Người học thường ghi nhớ `assertion` như một từ vựng nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.

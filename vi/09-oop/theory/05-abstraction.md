@@ -209,7 +209,7 @@ Các phương thức mặc định cho phép các nhà phát triển giao diện
 
 - Liệu trừu tượng đã ẩn đi các chi tiết triển khai không cần thiết chưa?
 - Tên gọi có mô tả hành vi một cách rõ ràng không?
-- Các đối tượng gọi có đang phụ thuộc vào trừu tượng thay vị các lớp cụ thể không?
+- Các đối tượng gọi có đang phụ thuộc vào trừu tượng thay vì các lớp cụ thể không?
 - Nhiều triển khai khác nhau có thể thay thế cho nhau một cách an toàn không?
 - Các phương thức mặc định có được sử dụng để hỗ trợ tiến hóa API thay vì rải rác logic chung ở khắp mọi nơi không?
 

@@ -331,7 +331,7 @@ try (Connection conn = dataSource.getConnection();
 ## Các lỗi thường gặp
 
 - **Quên đóng tài nguyên**: Nếu Connection, Statement, hoặc ResultSet không được đóng (ví dụ: không sử dụng try-with-resources), nó có thể nhanh chóng làm cạn kiệt bể chứa kết nối cơ sở dữ liệu (connection pool) hoặc giới hạn con trỏ.
-- **SQL Injection với Statement**: Cộng các chuỗi để xây dựng các câu lệnh SQL (ví dụ: `"SELECT * FROM users WHERE name = '" + name + "'"`) thay vị sử dụng các tham số giữ chỗ (`?`) trong một `PreparedStatement`.
+- **SQL Injection với Statement**: Cộng các chuỗi để xây dựng các câu lệnh SQL (ví dụ: `"SELECT * FROM users WHERE name = '" + name + "'"`) thay vì sử dụng các tham số giữ chỗ (`?`) trong một `PreparedStatement`.
 - **Đọc ResultSet trước khi gọi next()**: Con trỏ ban đầu được định vị trước hàng đầu tiên, do đó gọi `rs.getString(1)` mà không gọi `rs.next()` trước sẽ ném ra ngoại lệ `SQLException`.
 
 ## Liên kết tham khảo

@@ -217,7 +217,7 @@ String s = sb.toString();
 ```
 
 ### 2. Sử Dụng `append()` Với Phép Nối Chuỗi
-Viết `sb.append(a + b)` thay vị `sb.append(a).append(b)`. Cách viết trước thực hiện một phép nối chuỗi *prước khi* chuyển kết quả cho phương thức `append()`, tạo ra một đối tượng `String` tạm thời và lãng phí bộ nhớ.
+Viết `sb.append(a + b)` thay vì `sb.append(a).append(b)`. Cách viết trước thực hiện một phép nối chuỗi *trước khi* chuyển kết quả cho phương thức `append()`, tạo ra một đối tượng `String` tạm thời và lãng phí bộ nhớ.
 ```java
 String first = "John";
 String last = "Doe";
