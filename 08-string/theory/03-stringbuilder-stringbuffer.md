@@ -99,12 +99,12 @@ The performance disparity between `StringBuilder` and `StringBuffer` arises enti
 
 ```mermaid
 graph TD
-    subgraph StringBuffer (Synchronized)
+    subgraph StringBuffer ["StringBuffer (Synchronized)"]
         sb[StringBuffer Monitor Lock]
         t1[Thread 1] -->|Acquires Lock| sb
         t2[Thread 2] -->|Blocked / Waiting| sb
     end
-    subgraph StringBuilder (Unsynchronized)
+    subgraph StringBuilder ["StringBuilder (Unsynchronized)"]
         sbuilder[StringBuilder Buffer]
         t3[Thread 3] -->|Direct Write| sbuilder
         t4[Thread 4] -->|Direct Write / Race Condition Risk| sbuilder

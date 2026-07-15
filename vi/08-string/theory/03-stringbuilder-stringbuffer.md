@@ -99,12 +99,12 @@ Sự chênh lệch hiệu năng giữa `StringBuilder` và `StringBuffer` hoàn 
 
 ```mermaid
 graph TD
-    subgraph StringBuffer (Đồng bộ hóa)
+    subgraph StringBuffer ["StringBuffer (Đồng bộ hóa)"]
         sb[Khóa giám sát StringBuffer Monitor Lock]
         t1[Thread 1] -->|Yêu cầu khóa| sb
         t2[Thread 2] -->|Bị chặn / Đang chờ| sb
     end
-    subgraph StringBuilder (Không đồng bộ hóa)
+    subgraph StringBuilder ["StringBuilder (Không đồng bộ hóa)"]
         sbuilder[Bộ đệm StringBuilder Buffer]
         t3[Thread 3] -->|Ghi trực tiếp| sbuilder
         t4[Thread 4] -->|Ghi trực tiếp / Nguy cơ Race Condition| sbuilder
