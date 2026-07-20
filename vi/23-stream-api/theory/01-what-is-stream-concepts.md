@@ -23,6 +23,8 @@ File này đề cập đến một phần trọng tâm của **Stream API**. Hã
 
 Một Stream là một đường ống để xử lý các phần tử thông qua các hoạt động lười (lazy operation).
 
+> Xem thêm: Các phương thức trung gian và kết thúc trong Stream API thường nhận tham số là Biểu thức Lambda, được trình bày chi tiết trong [Ch.21 - Lambda Expression](../../21-lambda-expression/README.md).
+
 Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều đường ống kiểu lập trình hàm. Một nhầm lẫn phổ biến là quên mất hoạt động nào là lười và hoạt động nào thực sự kích hoạt việc thực thi.
 
 #### Ví Dụ Mã Nguồn

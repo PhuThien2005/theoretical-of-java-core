@@ -34,6 +34,8 @@ class Dog extends Mammal { // Chuỗi kế thừa nhiều cấp: Dog IS-A Mammal
 }
 ```
 
+> Xem thêm: Ứng dụng thực tế của Inheritance trong cây phân cấp ngoại lệ của Java, được trình bày chi tiết trong [Ch.12 - Exception Handling](../../12-exception-handling/README.md).
+
 ---
 
 ## Đa Kế Thừa và Bài Toán Kim Cương (Multiple Inheritance and the Diamond Problem)

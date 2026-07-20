@@ -27,6 +27,8 @@ File này đề cập đến các **Nguyên tắc thiết kế (Design Principle
 
 SOLID đại diện cho năm nguyên tắc cốt lõi của thiết kế hướng đối tượng:
 
+> Xem thêm: Các đặc tính cốt lõi của Lập trình Hướng đối tượng (OOP) tạo nền tảng cho các nguyên tắc SOLID, được trình bày chi tiết trong [Ch.09 - OOP](../../09-oop/README.md).
+
 1. Nguyên tắc Đơn trách nhiệm (**S**ingle Responsibility Principle - SRP): Một lớp chỉ nên có duy nhất một lý do để thay đổi.
 2. Nguyên tắc Đóng/Mở (**O**pen/Closed Principle - OCP): Các thực thể phần mềm nên được mở rộng cho việc phát triển nhưng đóng cho việc sửa đổi.
 3. Nguyên tắc Thay thế Liskov (**L**iskov Substitution Principle - LSP): Các kiểu con phải có khả năng thay thế cho các kiểu cha của chúng mà không làm thay đổi tính đúng đắn của chương trình.

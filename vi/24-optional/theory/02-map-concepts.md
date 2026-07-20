@@ -292,6 +292,8 @@ Thiết kế đối tượng domain hay entity với trường kiểu `Optional<
 
 Dùng `Optional` cho trường hoặc tham số gây ra chi phí đáng kể về bộ nhớ, tuần tự hóa và khả năng sử dụng API. Thứ nhất, `Optional` là một đối tượng wrapper: mỗi instance `Optional` tiêu thụ 16 byte header và bộ nhớ căn chỉnh trên JVM 64-bit tiêu chuẩn, cộng thêm 8 byte cho tham chiếu. Nếu bạn định nghĩa trường kiểu `Optional` trong các mô hình domain được khởi tạo hàng triệu lần (ví dụ: trong collection người dùng hay sản phẩm), chi phí wrapper đối tượng này nhanh chóng làm giảm hiệu năng thu gom rác (garbage collection) và tăng sử dụng heap. Thứ hai, `Optional` không cài đặt `java.io.Serializable`; cố gắng tuần tự hóa entity có trường `Optional` ném `NotSerializableException`, phá vỡ tích hợp với framework enterprise, JPA provider, tầng cache, hay JSON serializer. Cuối cùng, dùng `Optional` làm tham số phương thức đánh bại mục đích hợp đồng API: người gọi bị buộc phải viết wrapper bọc dài dòng, và gây rủi ro `NullPointerException` lồng nếu người gọi truyền `null` Java thực sự thay vì `Optional.empty()`.
 
+> Xem thêm: Chi tiết về các đặc tính của tuần tự hóa và NotSerializableException, được trình bày chi tiết trong [Ch.26 - IO](../../26-io/theory/03-serialization-concepts.md).
+
 ### Mô Hình Tư Duy: Quà Bọc Đôi Lớp
 
 - **Trường Entity**: Lưu `Optional` như trường giống như đặt mỗi công cụ nhỏ trong hộp công cụ vào hộp quà bọc riêng. Không những hộp công cụ chiếm gấp đôi không gian, mà còn mất nhiều thời gian hơn để mở và dọn dẹp.

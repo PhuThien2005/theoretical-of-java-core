@@ -30,6 +30,8 @@ Tài liệu này tập trung vào một phần trọng tâm của **NIO / NIO.2*
 
 Lớp cũ `java.io.File` nhập nhằng giữa việc biểu diễn đường dẫn trừu tượng với các thao tác vật lý trên hệ thống tệp, dẫn đến việc phân chia thiết kế kém. Hơn nữa, nhiều phương thức của `java.io.File` (như `delete()` hoặc `createNewFile()`) trả về một giá trị `boolean` đơn giản khi thất bại thay vì ném ra một ngoại lệ `IOException` chi tiết, điều này thường khiến các nhà phát triển bỏ qua việc xử lý lỗi và dẫn đến các thất bại âm thầm. Giao diện `Path` của NIO.2 đại diện cho một đường dẫn logic thuần túy trong bộ nhớ, tách biệt hoàn toàn thao tác đường dẫn khỏi truy cập hệ thống tệp. Các thao tác thực tế trên đĩa được ủy quyền cho lớp tiện ích `java.nio.file.Files`, vốn ném ra các ngoại lệ phong phú và cụ thể (chẳng hạn như `NoSuchFileException` hoặc `AccessDeniedException`), buộc lập trình viên phải xử lý lỗi đúng cách và hỗ trợ đắc lực cho việc gỡ lỗi.
 
+> Xem thêm: Chi tiết về java.io.File trong I/O cổ điển, được trình bày chi tiết trong [Ch.26 - IO](../../26-io/theory/01-file-concepts.md).
+
 ```mermaid
 graph TD
     subgraph Legacy IO (java.io.File)

@@ -385,6 +385,8 @@ Các chú thích (annotations) chỉ hiển thị với reflection tại thời 
 
 - **Truy vấn Siêu Dữ Liệu**: Các phương thức như `isAnnotationPresent(Annotation.class)` và `getAnnotation(Annotation.class)` được cung cấp sẵn trên các lớp `Class`, `Field`, `Method`, và `Constructor` vì tất cả chúng đều triển khai giao diện chung `AnnotatedElement`.
 
+> Xem thêm: Chi tiết về cấu tạo của Annotation và nguyên lý RetentionPolicy.RUNTIME, được trình bày chi tiết trong [Ch.17 - Annotation](../../17-annotation/theory/01-what-is-an-annotation-concepts.md).
+
 #### Ví Dụ Mã Nguồn: Trình xử lý annotation đơn giản
 ```java
 import java.lang.annotation.*;

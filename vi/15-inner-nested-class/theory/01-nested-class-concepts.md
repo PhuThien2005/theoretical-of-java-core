@@ -572,6 +572,8 @@ public class LambdaVSAnonymous {
 ### Chuỗi nguyên nhân - kết quả
 Lớp nội bộ vô danh được biên dịch &rarr; trình biên dịch ghi tệp `Outer$1.class` vật lý riêng biệt &rarr; bộ nạp lớp JVM classloader thực hiện nạp lớp, xác thực và cấp phát Metaspace cho mỗi tệp &rarr; mức sử dụng bộ nhớ và độ trễ khởi động cao hơn so với thế hệ lambda sử dụng `invokedynamic`.
 
+> Xem thêm: Chi tiết về Lambda Expression và cách tiếp cận lập trình hàm hiện đại thay thế cho lớp nội bộ vô danh, được trình bày chi tiết trong [Ch.21 - Lambda Expression](../../21-lambda-expression/README.md).
+
 ---
 
 ## Liên kết tham khảo

@@ -156,6 +156,8 @@ java.util.function.BinaryOperator<Integer> bad2 = (a, b) -> { a + b; };
 
 Một giao diện chức năng chỉ có duy nhất một phương thức trừu tượng (abstract method) và có thể được triển khai bởi một lambda.
 
+> Xem thêm: Các interface phổ biến như Predicate, Function, Consumer, được trình bày chi tiết trong [Ch.22 - Functional Interface](../../22-functional-interface/theory/01-predicate-t-concepts.md).
+
 Khái niệm này rất quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống xử lý dạng hàm (function-style pipeline). Hiểu lầm phổ biến là quên mất thao tác nào là lười biếng (lazy) và thao tác nào thực sự kích hoạt quá trình thực thi.
 
 Kiểm tra thực tế:
@@ -483,6 +485,8 @@ class VariableCaptureDemo {
 ```
 
 ### Hiệu dụng final (Effectively final)
+
+> Xem thêm: Từ khóa final và các đặc điểm của biến final, được trình bày chi tiết trong [Ch.10 - Access Modifiers](../../10-modifiers/theory/01-access-modifier-concepts.md).
 
 final có nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể.
 

@@ -52,6 +52,8 @@ class Circle extends GraphicObject {
 #### Sai lầm thường gặp — Khai báo phương thức abstract có thân phương thức hoặc khai báo bên trong lớp cụ thể
 Bất kỳ lớp nào chứa từ một phương thức `abstract` trở lên bắt buộc phải được khai báo là lớp `abstract`. Hơn nữa, phương thức `abstract` không được phép có thân phương thức (không có dấu ngoặc nhọn, chỉ kết thúc bằng dấu chấm phẩy). Việc viết `abstract void draw() {}` sẽ gây ra lỗi biên dịch vì cặp dấu ngoặc nhọn rỗng `{}` được coi là thân phương thức.
 
+> Xem thêm: So sánh Abstract class và Interface, được trình bày chi tiết trong [Ch.09 - OOP](../../09-oop/README.md).
+
 ---
 
 ### synchronized (Đồng bộ hóa)
@@ -132,6 +134,8 @@ public class ReentrantDemo {
 - **Tác động tức thì**: JVM kiểm tra chủ sở hữu khóa giám sát; nếu khớp với luồng hiện tại, lượt đếm khóa tăng lên, và quyền truy cập được cấp ngay lập tức mà không bị chặn.
 - **Tác động gián tiếp**: Các lệnh gọi synchronized lồng nhau trên cùng một đối tượng diễn ra an toàn, tránh được tình trạng tự bế tắc.
 - **Kết quả cuối cùng**: Đạt được tính an toàn luồng trong khi vẫn tránh được trạng thái tự chặn đệ quy.
+
+> Xem thêm: Cơ chế Monitor Lock và Memory Visibility trong xử lý đa luồng, được trình bày chi tiết trong [Ch.29 - Synchronization Concurrency](../../29-synchronization-concurrency/README.md).
 
 ---
 
@@ -214,6 +218,8 @@ public class VolatileCounter implements Runnable {
 - **Tác động gián tiếp**: Các thao tác đọc và ghi được đồng bộ trực tiếp với bộ nhớ chính, đảm bảo tính hiển thị của các bản cập nhật.
 - **Kết quả cuối cùng**: Đạt được tính hiển thị giữa các luồng, nhưng các hoạt động đa bước vẫn không mang tính nguyên tố nếu thiếu đồng bộ hóa bằng khóa.
 
+> Xem thêm: Tác động của Volatile tới Memory Visibility, được trình bày chi tiết trong [Ch.29 - Synchronization Concurrency](../../29-synchronization-concurrency/README.md).
+
 ---
 
 ### transient (Tạm thời)
@@ -221,6 +227,8 @@ public class VolatileCounter implements Runnable {
 `transient` đánh dấu một trường cần được bỏ qua trong quá trình tuần tự hóa (serialization) đối tượng trong Java.
 
 Nó được dùng để ẩn đi các thông tin nhạy cảm (như mật khẩu) hoặc bỏ qua các tham chiếu tạm thời không thể tuần tự hóa khi ghi đối tượng xuống ổ đĩa hoặc truyền qua mạng. Khi đối tượng được giải tuần tự hóa (deserialized) để khôi phục lại, các trường `transient` sẽ nhận giá trị mặc định của kiểu dữ liệu (`null` cho đối tượng, `0` cho số, `false` cho boolean).
+
+> Xem thêm: Ứng dụng của transient trong Serialization, được trình bày chi tiết trong [Ch.26 - IO](../../26-io/README.md).
 
 ---
 

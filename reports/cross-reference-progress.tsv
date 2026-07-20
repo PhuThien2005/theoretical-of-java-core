@@ -1,0 +1,50 @@
+Chapter	Status	Wave	LinksAdded	FilesModified	Date	Notes
+# === WAVE 1 — Core Foundation (12 chapters) ===
+03-data-types	DONE	1	2	1		Link ↔ 13-memory, → 12-exception(NPE), → 15-generics(wrappers)
+09-oop	DONE	1	1	1		Link ↔ 10-modifiers, → 12-exception, ← 42-record-sealed
+10-modifiers	DONE	1	4	3		Link ↔ 29-sync, ↔ 26-io, ↔ 11-interfaces, ↔ 22-lambda, → 37-jvm
+11-interfaces	TODO	1	0	0		Link ↔ 10-modifiers, ↔ 22-lambda, ↔ 41-functional, → 26-io(Serializable)
+12-exception	TODO	1	0	0		Link → 09-oop(hierarchy), → 33-jdbc
+13-memory-management	DONE	1	1	1		Link ↔ 03-data-types, ↔ 37-jvm
+14-object-class	DONE	1	1	1		Link ↔ 19-collections(HashMap), → 26-io(clone+serialization)
+15-generics	DONE	1	1	1		Link ↔ 19-collections, ← 03-data-types(wrappers), ← 07-arrays(covariance)
+19-collections-framework	DONE	1	2	2		Link ↔ 14-object-class, ↔ 15-generics, ↔ 21-comparable, → 29-sync(ConcurrentHashMap)
+22-lambda	TODO	1	0	0		Link ↔ 10-modifiers(final), ↔ 11-interfaces, ↔ 23-stream, ↔ 41-functional
+23-stream-api	DONE	1	1	1		Link ↔ 22-lambda, → 30-executor(parallel), ↔ 41-functional
+26-io	DONE	1	1	1		Link ↔ 10-modifiers(transient), ↔ 27-nio, ↔ 36-security, ← 14-object-class(clone)
+# === WAVE 2 — Multithreading & Concurrency (5 chapters) ===
+08-string	DONE	2	2	2		Link → 28-multithreading(StringBuffer), → 19-collections(HashMap key)
+28-multithreading	DONE	2	2	1		Link → 29-sync, → 30-executor, → 43-design-patterns(Singleton), ← 08-string
+29-synchronization-concurrency	DONE	2	4	4		Link ↔ 10-modifiers, ← 28-multithreading, ← 19-collections(ConcurrentHashMap)
+30-executor-framework	DONE	2	0	0		Link ← 28-multithreading, ← 23-stream(parallel)
+43-design-patterns	DONE	2	2	1		Link ← 28-multithreading(Singleton+volatile)
+# === WAVE 3 — Advanced (10 chapters) ===
+07-arrays	DONE	3	1	1		Link → 15-generics(covariance)
+17-annotations	DONE	3	1	1		Link ↔ 31-reflection
+18-inner-classes	DONE	3	1	1		Link → 22-lambda(anonymous vs lambda)
+21-comparable-comparator	DONE	3	1	1		Link ↔ 19-collections
+27-nio	DONE	3	1	1		Link ↔ 26-io
+31-reflection	DONE	3	1	1		Link ↔ 17-annotations
+32-classloader	DONE	3	1	1		Link ↔ 37-jvm
+36-security-basic	DONE	3	1	1		Link ↔ 26-io(serialization)
+37-jvm-advanced	DONE	3	3	1		Link ↔ 32-classloader, ↔ 13-memory, ← 10-modifiers(native)
+41-functional-interfaces	DONE	3	2	1		Link ↔ 11-interfaces, ↔ 22-lambda, ↔ 23-stream
+42-record-sealed	DONE	3	0	0		Link → 09-oop, → 10-modifiers(final)
+# === WAVE 4 — Remaining (17 chapters, low/no cross-refs) ===
+01-overview	DONE	4	0	0		Minimal cross-refs expected
+02-syntax	DONE	4	0	0		Minimal cross-refs expected
+04-operators	DONE	4	0	0		Minimal cross-refs expected
+05-control-flow	DONE	4	0	0		Minimal cross-refs expected
+06-methods	DONE	4	0	0		Minimal cross-refs expected
+16-enums	DONE	4	1	1		Link → 19-collections(EnumMap)
+20-iterator	DONE	4	0	0		Link → 19-collections
+24-optional	DONE	4	1	1		Link → 26-io(not Serializable)
+25-date-time	DONE	4	0	0		Minimal cross-refs expected
+33-jdbc	DONE	4	1	1		Link ← 12-exception(SQLException)
+34-networking	DONE	4	0	0		Minimal cross-refs expected
+35-logging	DONE	4	0	0		Minimal cross-refs expected
+38-testing-basic	DONE	4	0	0		Minimal cross-refs expected
+39-build-tools	DONE	4	0	0		Minimal cross-refs expected
+40-modern-java-concepts	DONE	4	0	0		Minimal cross-refs expected
+44-coding-best-practices	DONE	4	1	1		Link → 09-oop(SOLID)
+45-interview-questions	DONE	4	0	0		Links to multiple chapters expected

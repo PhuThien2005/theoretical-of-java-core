@@ -16,6 +16,8 @@ Tài liệu này trình bày một phần trọng tâm của **Bảo mật cơ b
 
 Giải tuần tự hóa không an toàn (Insecure deserialization) xảy ra khi dữ liệu đã tuần tự hóa không đáng tin cậy được phân tích cú pháp, có khả năng dẫn đến Thực thi mã từ xa (RCE - Remote Code Execution), từ chối dịch vụ (denial of service), hoặc leo thang đặc quyền (privilege escalation).
 
+> Xem thêm: Cơ chế Tuần tự hóa cơ bản trong Java, được trình bày chi tiết trong [Ch.26 - IO](../../26-io/theory/03-serialization-concepts.md).
+
 Khái niệm này rất quan trọng vì quá trình giải tuần tự hóa của Java khởi tạo các lớp một cách động và cấu hình trạng thái của chúng mà không cần thực thi các hàm khởi tạo (constructor) tiêu chuẩn. Kẻ tấn công có thể xây dựng một payload chứa các lớp con lồng nhau gọi là "lớp tiện ích (gadget class)", các lớp này sẽ thực thi mã độc hại khi giải tuần tự hóa (ví dụ: bên trong phương thức `readObject()`).
 
 Kiểm tra thực tế:

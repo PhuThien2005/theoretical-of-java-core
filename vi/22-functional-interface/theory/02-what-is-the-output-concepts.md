@@ -62,6 +62,10 @@ Sử dụng bảng hướng dẫn dưới đây để chọn giao diện chức 
 
 Các giao diện chức năng tiêu chuẩn của JDK trong gói `java.util.function` được cấu trúc thành các phong cách hợp đồng (contract styles) riêng biệt dựa trên các giá trị toán học đầu vào và đầu ra của chúng. `Predicate` được thiết kế để kiểm tra điều kiện và lọc dữ liệu, nhận một đối số và trả về giá trị boolean. `Function` đóng vai trò là bộ biến đổi, ánh xạ một đầu vào thuộc kiểu này sang một đầu ra thuộc kiểu khác. `Consumer` hoạt động như một điểm thu nhận cuối cùng (terminal sink) hoặc thực hiện hành động, nhận đầu vào và không trả về gì (`void`), điều này thường kích hoạt một tác dụng phụ (side effect) như ghi log hoặc cập nhật cơ sở dữ liệu. Cuối cùng, `Supplier` đại diện cho một nhà máy hoặc nguồn cung cấp, không nhận đầu vào và tạo ra một giá trị một cách trì hoãn khi được yêu cầu. Các hợp đồng rõ ràng này cho phép lập trình viên tuyên bố ý đồ ngữ nghĩa rõ ràng cho các phương thức, giúp xây dựng các đường dẫn xử lý dữ liệu sạch sẽ như trong Stream API.
 
+> Xem thêm:
+> - Cú pháp và cách sử dụng Lambda Expression để triển khai Functional Interface: [Ch.21 - Lambda Expression](../../21-lambda-expression/README.md)
+> - Ứng dụng của Functional Interface trong xử lý dữ liệu tập hợp: [Ch.23 - Stream API](../../23-stream-api/README.md)
+
 ```mermaid
 graph LR
     subgraph Predicate ["Predicate T"]

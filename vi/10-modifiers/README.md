@@ -19,10 +19,10 @@ Chủ đề này tiếp nối đề cương chuẩn trong file [outline.md](../o
 - Từ khóa đặc tả không truy cập (Non-access modifier):
   - static
   - final
-  - abstract
-  - synchronized
-  - volatile
-  - transient
+  - abstract → _Học sâu tại:_ [Ch.09 - OOP](../../09-oop/README.md)
+  - synchronized → _Học sâu tại:_ [Ch.29 - Synchronization Concurrency](../../29-synchronization-concurrency/README.md)
+  - volatile → _Học sâu tại:_ [Ch.29 - Synchronization Concurrency](../../29-synchronization-concurrency/README.md)
+  - transient → _Học sâu tại:_ [Ch.26 - IO](../../26-io/README.md)
   - native
   - strictfp
 - Biến tĩnh (Static variable)
@@ -30,7 +30,7 @@ Chủ đề này tiếp nối đề cương chuẩn trong file [outline.md](../o
 - Khối tĩnh (Static block)
 - Lớp lồng tĩnh (Static nested class)
 - Import tĩnh (Static import)
-- Biến final (Final variable)
+- Biến final (Final variable) → _Học sâu tại:_ [Ch.21 - Lambda Expression](../../21-lambda-expression/README.md)
 - Phương thức final (Final method)
 - Lớp final (Final class)
 - Tham số final (Final parameter)

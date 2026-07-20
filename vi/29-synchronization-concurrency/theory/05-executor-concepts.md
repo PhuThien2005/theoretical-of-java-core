@@ -49,6 +49,8 @@ public class CustomPoolDemo {
 }
 ```
 
+> Xem thêm: Cơ chế đa luồng cơ bản (Process vs Thread, Runnable) mà Executor quản lý, được trình bày chi tiết trong [Ch.28 - Multithreading](../../28-multithreading/README.md).
+
 ### ScheduledExecutorService
 Được sử dụng để chạy các tác vụ định kỳ hoặc các tác vụ có độ trễ. Cần phân biệt rõ:
 - `scheduleAtFixedRate(task, init, period, unit)`: Chạy tác vụ theo các khoảng thời gian cố định tính từ thời điểm bắt đầu (ví dụ: cứ mỗi 5 giây). Nếu một tác vụ chạy mất 6 giây, tác vụ tiếp theo sẽ bắt đầu ngay lập tức (các tác vụ mặc định không chạy chồng lấn lên nhau trong một luồng đơn, nhưng khoảng thời gian được tính từ lúc bắt đầu tác vụ).

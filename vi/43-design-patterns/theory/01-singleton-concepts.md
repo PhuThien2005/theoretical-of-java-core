@@ -302,6 +302,10 @@ public final class DclSingleton {
 ### Chuỗi Nguyên Nhân - Kết Quả
 Bỏ qua từ khóa `volatile` &rarr; Trình biên dịch/CPU sắp xếp lại việc ghi địa chỉ thực thể lên trước khi hoàn thành hàm khởi tạo &rarr; Luồng đồng thời đọc thấy tham chiếu non-null ở lần kiểm tra không đồng bộ thứ nhất &rarr; Luồng trả về một tham chiếu tới đối tượng mới được khởi tạo một phần &rarr; Việc truy cập các trường của đối tượng dẫn đến trạng thái bị hỏng hoặc lỗi NullPointerException.
 
+> Xem thêm:
+> - Cơ chế Monitor Lock của `synchronized`: [Ch.29 - Synchronized](../../29-synchronization-concurrency/theory/01-synchronized-method-concepts.md)
+> - Thread Safety và Memory Visibility của `volatile`: [Ch.29 - Deadlock & Volatile](../../29-synchronization-concurrency/theory/02-deadlock-concepts.md)
+
 ---
 
 ## Tại Sao Bill Pugh Singleton Đạt Được Khởi Tạo Lười An Toàn Luồng

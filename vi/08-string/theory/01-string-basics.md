@@ -84,6 +84,8 @@ System.out.println(s2.hashCode()); // Output: 887467645 (tính toán mới cho �
 #### Chuỗi Nguyên Nhân - Kết Quả Của Việc Lưu Trữ HashCode
 String được khai báo bất biến $\rightarrow$ Dữ liệu `byte[]` bên trong được đánh dấu `final` và không thể bị sửa đổi $\rightarrow$ JVM tính toán và lưu trữ giá trị băm trong lần đầu tiên gọi phương thức `hashCode()` $\rightarrow$ Các lần tìm kiếm khóa tiếp theo trong các tập hợp như `HashMap` sẽ truy xuất mã băm đã lưu trữ ngay lập tức $\rightarrow$ Tránh việc so sánh ký tự $O(n)$, mang lại hiệu năng $O(1)$.
 
+> Xem thêm: Chi tiết về nguyên lý hoạt động của HashMap và hợp đồng khóa (Key Contract), được trình bày chi tiết trong [Ch.19 - Collections Framework](../../19-collections-framework/theory/04-linkedlist-as-queue-concepts.md).
+
 ---
 
 ## Bộ Lưu Trữ Hằng Số Chuỗi (String Constant Pool)

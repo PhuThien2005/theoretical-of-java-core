@@ -32,6 +32,8 @@ Chú thích là một dạng siêu dữ liệu cú pháp có thể được thê
 1. Tại **thời điểm biên dịch (compile time)** bởi các trình cắm biên dịch (Bộ xử lý chú thích - Annotation Processors) để tự động tạo mã nguồn, các tệp cấu hình XML, hoặc thực hiện kiểm tra kiểm lỗi bổ sung.
 2. Tại **thời điểm nạp lớp / thời điểm chạy (runtime)** thông qua Cơ chế Phản Chiếu (Java Reflection) để cấu hình động hành vi của ứng dụng (ví dụ: các framework Spring, Hibernate).
 
+> Xem thêm: Chi tiết về Cơ chế Phản Chiếu (Java Reflection API) dùng để truy vấn Annotation ở thời điểm chạy, được trình bày chi tiết trong [Ch.31 - Reflection](../../31-reflection/README.md).
+
 ```java
 // Khai báo một chú thích tùy chỉnh đơn giản
 @interface MyMetadata {

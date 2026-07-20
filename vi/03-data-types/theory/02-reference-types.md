@@ -110,7 +110,7 @@ int age = 18;           // Small letter → fits directly in the mailbox (Stack)
 String name = "Alice";  // Large package → warehouse (Heap), tracking slip in mailbox (Stack)
 ```
 
-> Xem thêm: Điều này liên quan đến cách JVM quản lý bộ nhớ, được trình bày chi tiết trong [13 - Quản lý bộ nhớ (Memory Management)](../../13-memory-management/README.md).
+> Xem thêm: Cơ chế quản lý bộ nhớ của JVM, được trình bày chi tiết trong [Ch.13 - Memory Management](../../13-memory-management/README.md).
 
 ## Tại Sao String Không Phải Là Kiểu Nguyên Thủy (Why String Is Not A Primitive)
 

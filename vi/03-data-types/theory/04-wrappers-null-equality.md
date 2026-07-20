@@ -32,6 +32,8 @@ List<Integer> numbers;
 
 Bộ sưu tập Java (Java Collections) (chẳng hạn như `ArrayList`, `HashMap`, `HashSet`) sử dụng kiểu generic (generics), và kiểu generic trong Java chỉ hoạt động với các kiểu tham chiếu (reference type). Tham số kiểu `<T>` phải là một lớp con của `Object`, và các kiểu dữ liệu nguyên thủy như `int` thì không phải là đối tượng. Đó là lý do tại sao `Integer` tồn tại — nó bao bọc kiểu dữ liệu nguyên thủy `int` bên trong một đối tượng để có thể tham gia vào các API generic. Nếu không có các lớp bao bọc, bạn sẽ không thể lưu trữ các con số trong một danh sách `List` hoặc sử dụng chúng làm khóa trong bản đồ `Map`.
 
+> Xem thêm: Ứng dụng của Wrapper Classes trong Generics, được trình bày chi tiết trong [Ch.18 - Generics](../../18-generics/README.md).
+
 | Đặc Tính | `int` (Kiểu Nguyên Thủy) | `Integer` (Lớp Bao Bọc) |
 | --- | --- | --- |
 | Vị trí bộ nhớ | Stack (thông thường) | Heap (đối tượng) |
@@ -127,6 +129,8 @@ flowchart LR
     C -- "Có" --> D["Trả về giá trị int"]
     C -- "Không (null)" --> E["NullPointerException"]
 ```
+
+> Xem thêm: Cơ chế xử lý NullPointerException và các ngoại lệ khác, được trình bày chi tiết trong [Ch.12 - Exception Handling](../../12-exception-handling/README.md).
 
 **Bẫy thường gặp — tham số phương thức:**
 

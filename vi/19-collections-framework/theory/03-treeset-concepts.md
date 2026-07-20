@@ -151,6 +151,8 @@ Việc gọi `for (Integer i : priorityQueue)` hoặc sử dụng một bộ l�
 
 ## Tại sao TreeSet và TreeMap phụ thuộc vào Comparable/Comparator
 
+> Xem thêm: Cơ chế hoạt động của Comparable và Comparator để sắp xếp đối tượng, được trình bày chi tiết trong [Ch.20 - Comparable/Comparator](../../20-comparable-comparator/theory/01-comparable-concepts.md).
+
 Không giống như `HashSet` và `HashMap` sử dụng các ngăn chứa băm (hashing buckets), `TreeSet` và `TreeMap` được hỗ trợ bởi một Cây Đỏ-Đen, một dạng cây tìm kiếm nhị phân tự cân bằng (self-balancing binary search tree). Để chèn hoặc truy xuất bất kỳ nút (node) nào, cây phải điều hướng sang trái hoặc sang phải bắt đầu từ nút gốc (root node) dựa trên việc nút đích nhỏ hơn hay lớn hơn nút hiện tại. Việc điều hướng này đòi hỏi một cơ chế sắp xếp tất định (deterministic sorting mechanism), được cung cấp bởi thứ tự tự nhiên của phần tử (`Comparable.compareTo()`) hoặc bộ so sánh tùy chỉnh (`Comparator.compare()`). Nếu một phép so sánh trả về `0`, cây sẽ xác định rằng phần tử đã tồn tại, từ chối việc chèn để thực thi ràng buộc về tính duy nhất của một tập hợp (hoặc ghi đè giá trị trong một `Map`). Do đó, nếu `compareTo()` hoặc `compare()` không nhất quán với `equals()` (nghĩa là chúng trả về giá trị khác không cho các đối tượng vốn bằng nhau về mặt logic theo `equals()`), `TreeSet` sẽ cho phép các phần tử trùng lặp một cách sai sót, hoặc ngược lại, nếu chúng trả về `0` cho các đối tượng không bằng nhau, nó sẽ loại bỏ các phần tử duy nhất.
 
 ### Mô hình tư duy (Mental Model)

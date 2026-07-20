@@ -95,6 +95,8 @@ Nếu dung lượng mới này vẫn không đủ, JVM sẽ thiết lập dung l
 
 Sự chênh lệch hiệu năng giữa `StringBuilder` và `StringBuffer` hoàn toàn xuất phát từ chi phí runtime của việc đồng bộ hóa luồng. Trong `StringBuffer`, mọi phương thức thay đổi trạng thái đều được khai báo với từ khóa `synchronized`, yêu cầu luồng đang thực thi phải giành được khóa giám sát (monitor lock) của đối tượng trước khi thực hiện và giải phóng khóa đó sau khi hoàn thành. Quá trình này liên quan đến các bước kiểm tra ở cấp độ JVM và hệ điều hành, gây ra độ trễ ngay cả trong môi trường hoàn toàn đơn luồng. Khi nhiều luồng truy cập đồng thời vào một thực thể `StringBuffer` duy nhất, chúng sẽ gặp hiện tượng tranh chấp khóa, khiến các luồng bị chặn và phải chuyển đổi ngữ cảnh (context-switch), làm giảm nghiêm trọng băng thông ứng dụng (application throughput). Do `StringBuilder` hoàn toàn không đồng bộ hóa, nó tránh được tất cả các chi phí tranh chấp khóa và thực hiện các thao tác trực tiếp trên bộ đệm nội bộ của nó, khiến nó trở thành lựa chọn vượt trội cho các tác vụ đơn luồng và các biến cục bộ giới hạn trong một luồng đơn.
 
+> Xem thêm: Các khái niệm cơ bản về An toàn luồng (Thread Safety) và Race Condition, được trình bày chi tiết trong [Ch.28 - Multithreading](../../28-multithreading/theory/04-thread-safety-concepts.md).
+
 #### Mô Hình So Sánh Tranh Chấp Luồng
 
 ```mermaid

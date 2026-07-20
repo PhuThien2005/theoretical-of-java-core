@@ -391,6 +391,8 @@ try (Connection conn = dataSource.getConnection();
 - **Quên không Commit**: Nếu tự động commit bị vô hiệu hóa và bạn thực thi các câu lệnh insert/update, bạn phải gọi `conn.commit()`. Nếu không gọi nó, cơ sở dữ liệu sẽ loại bỏ các thay đổi khi kết nối bị đóng hoặc bị thu gom rác.
 - **Không xử lý ngoại lệ khi Rollback**: Nếu xảy ra lỗi trong quá trình thực thi giao dịch, việc gọi `conn.rollback()` cũng có thể ném ra một `SQLException`. Điều này nên được xử lý đúng cách trong một khối try-catch lồng nhau bên trong khối catch chính.
 
+> Xem thêm: Cấu trúc phân cấp ngoại lệ và cách xử lý Checked Exception trong Java, được trình bày chi tiết trong [Ch.12 - Exception Handling](../../12-exception-handling/README.md).
+
 ## Liên Kết Tham Khảo (Reference Links)
 
 - https://docs.oracle.com/javase/tutorial/jdbc/basics/transactions.html (Sử dụng Giao dịch trong JDBC)

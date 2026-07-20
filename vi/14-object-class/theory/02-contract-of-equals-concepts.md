@@ -309,6 +309,8 @@ Không ghi đè đồng thời hashCode() khi ghi đè equals()
   ↳ Map trả về null dù phép so sánh equals() trả về kết quả true
 ```
 
+> Xem thêm: Tại sao HashMap cần `hashCode` và `equals`, được trình bày chi tiết trong [Ch.19 - Collections Framework](../../19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md).
+
 ---
 
 ## Các Lỗi Thường Gặp (Common Mistakes)

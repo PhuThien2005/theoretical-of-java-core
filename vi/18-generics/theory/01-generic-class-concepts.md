@@ -49,6 +49,8 @@ public static <T extends Comparable<T>> T max(T a, T b) {
 - `Arrays.asList(T... a)` — chuyển đổi các tham số biến đổi (varargs) thành một danh sách có kiểu dữ liệu xác định (typed list).
 - Các phương thức tiện ích/bổ trợ (utility/helper methods) có khả năng tái sử dụng trên nhiều kiểu dữ liệu khác nhau.
 
+> Xem thêm: Sự kết hợp chặt chẽ giữa Generics và Java Collections Framework, được trình bày chi tiết trong [Ch.19 - Collections Framework](../../19-collections-framework/README.md).
+
 **Trường hợp lỗi (Failure mode):**
 ```java
 // Missing <T> — compiler falls back to raw types

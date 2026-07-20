@@ -62,6 +62,8 @@ Gọi `.parallelStream()` hoặc `.parallel()` trên một luồng hiện có s�
 * **Dưới nền tảng**: Tất cả các luồng song song chạy trên một bể chứa chung trong toàn bộ JVM: `ForkJoinPool.commonPool()`.
 * **Quan trọng**: Vì bể chứa này được chia sẻ trên toàn bộ JVM, bất kỳ hoạt động chặn (blocking) hoặc chậm chạp nào được thực thi bên trong một luồng song song sẽ làm đói (starve) *tất cả* các luồng song song khác trong ứng dụng.
 
+> Xem thêm: Cách Parallel Stream hoạt động và các nguy cơ về hiệu năng, được trình bày chi tiết trong [Ch.23 - Stream API](../../23-stream-api/README.md).
+
 ---
 
 ## Ví Dụ Thực Tế: Tính Tổng Mảng Lớn Song Song

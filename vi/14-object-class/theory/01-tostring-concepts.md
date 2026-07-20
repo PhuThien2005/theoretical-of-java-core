@@ -108,6 +108,8 @@ Phép nối chuỗi / in ra kích hoạt việc gọi ngầm String.valueOf()
   ↳ JVM ném ra StackOverflowError và chấm dứt luồng thực thi
 ```
 
+> Xem thêm: Chi tiết về Stack Memory và nguyên nhân gây ra StackOverflowError, được trình bày chi tiết trong [Ch.13 - Memory Management](../../13-memory-management/theory/01-stack-concepts.md).
+
 ### equals()
 
 `equals()` định nghĩa sự bằng nhau mang tính logic giữa các đối tượng. Theo mặc định, triển khai `Object.equals(Object obj)` kiểm tra sự bằng nhau về mặt tham chiếu (`this == obj`). Nếu bạn muốn so sánh các đối tượng dựa trên trạng thái của chúng (sự bằng nhau về logic), bạn phải ghi đè `equals()`.

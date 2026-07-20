@@ -269,6 +269,8 @@ Thư viện cốt lõi được nạp bởi Trình nạp lớp Khởi động �
 
 Các container ứng dụng web (web application containers) như Tomcat sử dụng các trình nạp lớp tùy chỉnh để cô lập nhiều bản triển khai chạy trên cùng một thực thể JVM. Mỗi ứng dụng web được triển khai được phân bổ thực thể `WebappClassLoader` riêng của nó, thực thể này xử lý việc nạp các lớp đặc thù của ứng dụng mà không gây ảnh hưởng đến các ứng dụng khác. Tuy nhiên, thiết lập này rất dễ bị rò rỉ bộ nhớ Metaspace (Metaspace memory leaks) do các quy tắc giữ tham chiếu nghiêm ngặt của Bộ thu gom rác Java (Java Garbage Collector). Mỗi đối tượng lớp được nạp sẽ giữ một tham chiếu mạnh (strong reference) đến `ClassLoader` đã định nghĩa nó thông qua phương thức `getClassLoader()`, và ngược lại, trình nạp lớp duy trì một tham chiếu đến tất cả các lớp mà nó đã nạp. Nếu một luồng, trường tĩnh, biến cục bộ luồng (thread-local), hoặc đăng ký toàn hệ thống (như trình điều khiển JDBC hoặc khung ghi nhật ký (logging framework)) giữ lại dù chỉ một tham chiếu đến bất kỳ lớp ứng dụng nào sau khi gỡ bỏ triển khai (undeployment), toàn bộ trình nạp lớp và tất cả các lớp được nạp của nó đều không thể được thu gom rác. Vì siêu dữ liệu lớp được lưu trữ trong Metaspace, việc tái triển khai (redeployment) ứng dụng liên tục sẽ làm rò rỉ siêu dữ liệu lớp, cuối cùng làm cạn kiệt bộ nhớ heap của JVM hoặc Metaspace và ném ra ngoại lệ `OutOfMemoryError: Metaspace`.
 
+> Xem thêm: Chi tiết về cấu trúc bộ nhớ JVM, Metaspace và Garbage Collector, được trình bày chi tiết trong [Ch.37 - JVM Architecture](../../37-jvm-advanced/theory/01-jvm-architecture-concepts.md).
+
 ### Mô Hình Tư Duy: Chu Kỳ Tham Chiếu Trình Nạp Lớp (ClassLoader Reference Cycle)
 ```
 System Registry (e.g., ThreadLocal or JDBC)

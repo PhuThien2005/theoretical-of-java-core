@@ -64,6 +64,8 @@ public class VolatileFlag implements Runnable {
 }
 ```
 
+> Xem thêm: Bản chất của visibility và instruction reordering của `volatile`, được trình bày chi tiết trong [Ch.10 - Access Modifiers](../../10-modifiers/theory/02-abstract-concepts.md).
+
 ### Các lớp nguyên tử và So sánh và Hoán đổi (Compare-And-Swap - CAS)
 Các lớp nguyên tử sử dụng các chỉ thị CPU không dùng khóa (như `CMPXCHG` trên x86) để thực hiện các chu kỳ cập nhật nguyên tử.
 * **Thao tác CAS**: Nhận giá trị kỳ vọng (expected value) và giá trị mới (new value). Chỉ cập nhật nếu giá trị hiện tại bằng giá trị kỳ vọng. Trả về true nếu thành công; ngược lại, lặp lại và thử lại.

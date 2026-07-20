@@ -98,6 +98,8 @@ public class ConsistencyExample {
 ### Chuỗi nguyên nhân - kết quả
 `(x.compareTo(y) == 0) == (x.equals(y))` trả về false &rarr; `TreeSet`/`TreeMap` chỉ dựa vào `compareTo` để kiểm tra tính duy nhất &rarr; Các đối tượng khác biệt theo `equals` nhưng trả về `0` từ `compareTo` được xử lý như các phần tử trùng lặp &rarr; Các phần tử trùng lặp bị từ chối khi chèn &rarr; Xảy ra hiện tượng mất dữ liệu và bộ sưu tập vi phạm giao ước Set/Map tiêu chuẩn của Java Collections.
 
+> Xem thêm: Chi tiết về cách TreeSet và TreeMap sử dụng Comparable để sắp xếp và kiểm tra trùng lặp, được trình bày chi tiết trong [Ch.19 - Collections Framework](../../19-collections-framework/theory/03-treeset-concepts.md).
+
 ### compareTo
 
 compareTo là một phương thức cụ thể trong Comparable được sử dụng để định nghĩa các quy tắc thứ tự sắp xếp tự nhiên.

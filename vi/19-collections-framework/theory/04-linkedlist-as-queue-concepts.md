@@ -222,6 +222,8 @@ Các lập trình viên đôi khi nhầm lẫn `LinkedHashMap` (duy trì thứ t
 
 ## Tại Sao Phải Ghi Đè Đồng Thời Equals Và HashCode
 
+> Xem thêm: Sự liên kết chặt chẽ và nguyên tắc (contract) giữa equals và hashCode, được trình bày chi tiết trong [Ch.14 - Object Class](../../14-object-class/theory/02-contract-of-equals-concepts.md).
+
 Trong khung bộ sưu tập của Java, các cấu trúc dựa trên băm như `HashMap` và `HashSet` dựa vào một hợp đồng nghiêm ngặt giữa `equals()` và `hashCode()` để lưu trữ và truy xuất các phần tử. Theo hợp đồng được định nghĩa trong `java.lang.Object`, nếu hai đối tượng bằng nhau theo phương thức `equals(Object)`, chúng phải tạo ra kết quả số nguyên hoàn toàn giống nhau từ `hashCode()`. Khi bạn ghi đè `equals()` nhưng không ghi đè `hashCode()`, JVM sẽ sử dụng triển khai mặc định từ lớp `Object`, lớp này tạo ra mã băm thường dựa trên địa chỉ bộ nhớ của đối tượng. Do đó, hai thể hiện khóa tương đương về mặt logic sẽ tạo ra các mã băm khác nhau và được ánh xạ tới các chỉ mục bucket khác nhau trong bảng nội bộ. Khi cố gắng truy xuất một giá trị bằng cách sử dụng một thể hiện khóa bằng nhau về mặt logic nhưng là đối tượng khác, `HashMap.get(key)` sẽ tính toán một chỉ mục bucket khác, khiến nó tìm kiếm trong một bucket sai và trả về `null`, dẫn đến các khóa bị trùng lặp, mất dữ liệu và rò rỉ bộ nhớ ngầm.
 
 ### Mô Hình Tư Duy

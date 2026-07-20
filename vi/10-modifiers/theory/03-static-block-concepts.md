@@ -165,7 +165,7 @@ graph LR
     subgraph Trước_Tối_Ưu_Hóa [Trước Khi Tối Ưu Hóa]
         Code1["final int LIMIT = 100;<br/>if (x > LIMIT) { ... }"]
     end
-    subgraph Sau_Tối_Ưu_Hóa [Sau Khi Tối Ưu Hóa (Nhúng Mã)]
+    subgraph Sau_Tối_Ưu_Hóa ["Sau Khi Tối Ưu Hóa (Nhúng Mã)"]
         Code2["if (x > 100) { ... }"]
     end
     Trước_Tối_Ưu_Hóa -- "Trình biên dịch thay thế LIMIT bằng 100" --> Sau_Tối_Ưu_Hóa
@@ -194,6 +194,8 @@ public class OptimizationDemo {
 - **Hiệu ứng tức thì**: Trình biên dịch ngăn chặn bất kỳ hành vi gán lại giá trị nào sau lần khởi tạo đầu tiên của biến.
 - **Hiệu ứng thứ cấp**: Nếu giá trị là một hằng số tại thời điểm biên dịch, trình biên dịch có thể thay thế trực tiếp giá trị hằng số đó vào tất cả các vị trí biến được tham chiếu.
 - **Kết quả cuối cùng**: Việc gán lại giá trị cho biến bị chặn từ thời điểm biên dịch, và hiệu năng runtime được nâng cao thông qua cơ chế nhúng mã của trình biên dịch/JIT.
+
+> Xem thêm: Khái niệm Effectively Final khi sử dụng trong Lambda Expression, được trình bày chi tiết trong [Ch.21 - Lambda Expression](../../21-lambda-expression/README.md).
 
 ### Phương thức final (Final method)
 

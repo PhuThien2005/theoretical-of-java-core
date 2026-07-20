@@ -18,6 +18,8 @@ Tệp (File) này cung cấp một phần trọng tâm về **biểu thức Lamb
 
 Một bộ sưu tập là một đối tượng nhóm nhiều phần tử lại với nhau dưới một API chung.
 
+> Xem thêm: Ứng dụng mạnh mẽ của Lambda trong việc thao tác và xử lý Collection, được trình bày chi tiết trong [Ch.23 - Stream API](../../23-stream-api/theory/01-what-is-stream-concepts.md).
+
 Điều này quan trọng vì việc lựa chọn sai cấu trúc dữ liệu (Data Structure) sẽ làm thay đổi tính chính xác, hiệu năng (Performance) và hành vi xử lý phần tử trùng lặp. Một sự nhầm lẫn phổ biến là việc ghi nhớ tên các lớp (Class) mà không biết rõ thứ tự tra cứu (Lookup Order), quy tắc so sánh bằng (Equality Rules) hay hành vi duyệt (Iteration Behavior).
 
 Kiểm tra thực tế (Practical Check):

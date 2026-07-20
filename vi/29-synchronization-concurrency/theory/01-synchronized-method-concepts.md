@@ -65,6 +65,8 @@ class Demo {
 }
 ```
 
+> Xem thêm: Các đặc tính của từ khóa `synchronized` khi dùng như một modifier, được trình bày chi tiết trong [Ch.10 - Access Modifiers](../../10-modifiers/theory/02-abstract-concepts.md).
+
 ### Hợp Đồng Truyền Tín Hiệu Wait và Notify
 Các phương thức `wait()`, `notify()`, và `notifyAll()` được dùng để điều phối các thay đổi trạng thái giữa các luồng.
 * **Yêu Cầu Sở Hữu Khóa**: Một luồng **bắt buộc** phải sở hữu khóa monitor của đối tượng đích trước khi gọi các phương thức này. Nếu không, ngoại lệ `IllegalMonitorStateException` sẽ bị ném ra lúc chạy.

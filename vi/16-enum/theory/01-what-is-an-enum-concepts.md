@@ -381,6 +381,8 @@ EnumSet<Season> allSeasons = EnumSet.allOf(Season.class);
 ### EnumMap
 
 Lớp `java.util.EnumMap` là một triển khai cấu trúc `Map` chuyên biệt, trong đó các khóa bắt buộc phải là các hằng số của cùng một kiểu enum.
+
+> Xem thêm: Chi tiết về các cấu trúc dữ liệu Map trong Java, được trình bày chi tiết trong [Ch.19 - Collections Framework](../../19-collections-framework/README.md).
 - **Triển khai**: Bên dưới lớp vỏ, nó được biểu diễn dưới dạng một mảng phẳng các giá trị, được lập chỉ mục trực tiếp bằng giá trị ordinal của các hằng số enum.
 - **Hiệu năng**: Tốc độ xử lý nhanh hơn nhiều và tiết kiệm bộ nhớ hơn nhiều so với cấu trúc `HashMap` khi sử dụng khóa là kiểu enum.
 - **Quy tắc**: Không cho phép sử dụng khóa là `null` (sẽ ném ra `NullPointerException`). Giá trị value thì được phép nhận `null`.

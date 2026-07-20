@@ -71,6 +71,8 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 Heap lưu trữ các đối tượng được tạo ra tại thời điểm chạy.
 
+> Xem thêm: Mối quan hệ giữa Heap và Stack trong quản lý bộ nhớ, được trình bày chi tiết trong [Ch.13 - Memory Management](../../13-memory-management/theory/01-stack-vs-heap-concepts.md).
+
 Nó quan trọng vì hành vi runtime giải thích hiệu năng, lỗi bộ nhớ, hành vi khi khởi động và nhiều câu hỏi phỏng vấn. Một nhầm lẫn phổ biến là trộn lẫn các khái niệm tại thời điểm biên dịch với các dịch vụ thời gian chạy của JVM.
 
 Kiểm tra thực tế:
@@ -134,6 +136,8 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 ### Native Method Stack
 
 Native Method Stack lưu trữ các khung để thực thi các phương thức bản địa (native - không phải Java), chẳng hạn như các hàm JNI viết bằng C hoặc C++.
+
+> Xem thêm: Từ khóa `native` dùng để định nghĩa các phương thức bản địa trong mã Java, được trình bày chi tiết trong [Ch.10 - Access Modifiers](../../10-modifiers/theory/02-abstract-concepts.md).
 
 Nó quan trọng vì khi mã Java gọi mã bản địa (như thư viện mật mã bản địa hoặc các API nền tảng), ngữ cảnh thực thi của luồng sẽ chuyển sang stack này. Việc tràn ngăn xếp ở đây có thể làm sụp đổ toàn bộ tiến trình JVM mà không ném ra lỗi StackOverflowError tiêu chuẩn của Java.
 
@@ -219,6 +223,8 @@ Mutable Value: 100
 ### Chuỗi Nguyên Nhân - Kết Quả
 
 Classloader đọc luồng byte `.class` &rarr; Xác thực chạy các kiểm tra kiểu &rarr; Chuẩn bị cấp phát bộ nhớ với các giá trị mặc định &rarr; Khởi tạo chạy phương thức `<clinit>` &rarr; Lớp đã sẵn sàng hoàn toàn để sử dụng bởi ứng dụng.
+
+> Xem thêm: Chi tiết về các loại ClassLoader và quá trình tải lớp, được trình bày chi tiết trong [Ch.32 - Classloader](../../32-classloader/theory/01-class-loading-process-concepts.md).
 
 ## Liên Kết Tham Khảo (Reference Links)
 

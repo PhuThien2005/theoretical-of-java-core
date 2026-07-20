@@ -343,6 +343,8 @@ Integer[] dest = new Integer[2];
 // System.arraycopy(src, 0, dest, 0, 2); // Ném ra ArrayStoreException tại thời điểm chạy!
 ```
 
+> Xem thêm: Chi tiết về tính hiệp biến của mảng (Array Covariance) và nguyên nhân gây ra ArrayStoreException khi so sánh với Generics, được trình bày chi tiết trong [Ch.18 - Generics](../../18-generics/theory/generics.md).
+
 ---
 
 ## Liên Kết Tham Khảo (Reference Links)

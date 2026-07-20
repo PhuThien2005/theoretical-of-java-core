@@ -19,6 +19,8 @@ File này đề cập đến các nguyên tắc an toàn luồng (thread safety)
 Một đối tượng được coi là an toàn luồng nếu nó duy trì được các bất biến lớp (class invariant) dưới sự thực thi đồng thời. Các cách để đạt được sự an toàn luồng:
 1. **Tính bất biến (Immutability)**: Trạng thái chia sẻ không thể thay đổi thì vốn dĩ đã an toàn luồng.
 2. **Khóa (Locking)**: Bảo vệ các miền tranh chấp (critical section) bằng cách sử dụng các khối `synchronized` hoặc `ReentrantLock`.
+
+> Xem thêm: Chi tiết về cơ chế khóa (Locking) và Synchronization, được trình bày chi tiết trong [Ch.29 - Synchronization Concurrency](../../29-synchronization-concurrency/README.md).
 3. **Thread Local**: Tránh hoàn toàn việc chia sẻ trạng thái bằng cách giữ các biến riêng tư cho từng luồng bằng cách sử dụng `ThreadLocal`.
 4. **Cấu trúc dữ liệu đồng thời**: Sử dụng các cấu trúc dữ liệu an toàn luồng như `ConcurrentHashMap` hoặc `AtomicInteger`.
 
@@ -139,6 +141,8 @@ public class UnsafeVolatile {
     }
 }
 ```
+
+> Xem thêm: Ứng dụng Double-checked locking và từ khóa volatile trong thực tế, được trình bày chi tiết trong [Ch.43 - Design Patterns](../../43-design-patterns/theory/01-singleton-concepts.md).
 
 ### 2. Không Khai Báo `long` Hoặc `double` Là `volatile` Trên Các JVM 32-bit
 

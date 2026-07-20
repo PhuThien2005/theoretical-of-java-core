@@ -164,6 +164,8 @@ public class TransientDemo implements Serializable {
     ↳ JVM đọc và ghi các trường không phải transient từ luồng byte
       ↳ Các trường transient không tồn tại trong luồng byte
         ↳ Các trường transient giữ nguyên các giá trị mặc định của JVM (null đối với đối tượng, 0 đối với số nguyên)
+
+> Xem thêm: Các đặc điểm của từ khóa transient và các non-access modifier khác, được trình bày chi tiết trong [Ch.10 - Access Modifiers](../../10-modifiers/theory/02-abstract-concepts.md).
 ```
 
 ## Tại sao Tuần tự hóa trong Java là một Lỗ hổng Bảo mật và Cách các Giải pháp Thay thế Hiện đại Giảm thiểu Nó
