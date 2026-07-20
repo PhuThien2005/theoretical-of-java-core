@@ -23,7 +23,6 @@ Tài liệu này trình bày một phần trọng tâm của **các bổ từ tr
 
 Bổ từ truy cập (Access modifier) là một nhóm các quy tắc liên quan đến các bổ từ trong Java dùng để gom nhóm một số chi tiết liên quan.
 
-Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép, và các trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
 #### Bảng Phạm Vi Hiển Thị Của Bổ Từ Truy Cập
 | Bổ từ | Cùng Lớp | Cùng Gói | Lớp con (Khác Gói) | Bên ngoài (Khác Gói) |
@@ -32,6 +31,11 @@ Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java,
 | `protected` | Có | Có | Có (chỉ qua kế thừa (inheritance)) | Không |
 | `default` (không từ khóa) | Có | Có | Không | Không |
 | `private` | Có | Không | Không | Không |
+
+#### Quy Tắc Cốt Lõi: Ghi Đè (Overriding) và Phạm Vi Truy Cập
+Khi một lớp con ghi đè một phương thức của lớp cha, nó **không được phép thu hẹp** phạm vi truy cập của phương thức đó. Quy tắc này đảm bảo nguyên lý thay thế Liskov (Liskov Substitution Principle).
+- Hợp lệ (Nới lỏng hoặc Giữ nguyên): Phương thức cha là `protected` ➔ Phương thức con là `protected` hoặc `public`.
+- Lỗi biên dịch (Thu hẹp): Phương thức cha là `protected` ➔ Phương thức con là `default` hoặc `private`.
 
 #### Ví Dụ Mã Nguồn Bổ Từ Truy Cập
 ```java
@@ -67,7 +71,6 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 public cho phép truy cập từ bất kỳ gói nào khi lớp hoặc thành viên đó có quyền hiển thị.
 
-Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép, và các trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
 #### Ví Dụ Mã Nguồn public
 ```java
@@ -98,7 +101,6 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 protected cho phép truy cập từ cùng một gói và từ các lớp con, đi kèm với các quy tắc truy cập lớp con giữa các gói khác nhau.
 
-Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép, và các trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
 #### Ví Dụ Mã Nguồn protected
 ```java
@@ -141,7 +143,6 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 Quyền truy cập mặc định (Default access), hay còn gọi là package-private, chỉ cho phép truy cập bên trong cùng một gói.
 
-Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép, và các trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
 #### Ví Dụ Mã Nguồn Phạm Vi default
 ```java
@@ -172,7 +173,6 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 private giới hạn quyền truy cập chỉ trong lớp khai báo.
 
-Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép, và các trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
 #### Ví Dụ Mã Nguồn private
 ```java
@@ -192,6 +192,11 @@ public class SecureVault {
     }
 }
 ```
+
+#### Mẫu Thiết Kế: Hàm khởi tạo private (Private Constructor)
+Một trong những ứng dụng phổ biến nhất của `private` là áp dụng lên hàm khởi tạo (constructor) để ngăn chặn việc tạo đối tượng (instantiation) từ bên ngoài.
+- **Utility Classes**: Các lớp chứa toàn phương thức `static` (như `java.lang.Math` hoặc `java.util.Collections`) sử dụng hàm khởi tạo `private` để ngăn lập trình viên vô tình gọi `new Math()`.
+- **Singleton Pattern**: Các lớp chỉ cho phép duy nhất một thể hiện (instance) tồn tại trong hệ thống sẽ đặt hàm khởi tạo là `private` và cung cấp một phương thức `public static getInstance()` để truy xuất.
 
 #### Sai Lầm Thường Gặp - Các phương thức private không tham gia vào tính đa hình
 Nếu một lớp con định nghĩa một phương thức có cùng chữ ký (signature) với một phương thức `private` trong lớp cha, nó sẽ không ghi đè (override) phương thức đó. Nó được coi là một phương thức hoàn toàn tách biệt, và liên kết động (dynamic binding) sẽ không chuyển hướng gọi phương thức đến phiên bản của lớp con.
@@ -265,7 +270,6 @@ class Client {
 
 Bổ từ phi truy cập (Non-access modifier) là một nhóm các quy tắc liên quan đến các bổ từ trong Java dùng để gom nhóm một số chi tiết liên quan.
 
-Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép, và các trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
 #### Ví Dụ Mã Nguồn Bổ Từ Phi Truy Cập
 ```java
@@ -291,7 +295,6 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 static có nghĩa là thành viên thuộc về lớp chứ không phải một đối tượng cụ thể nào.
 
-Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép, và các trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
 #### Ví Dụ Mã Nguồn static
 ```java
@@ -416,6 +419,10 @@ public class SecureBankAccount {
 1. **Kiểm tra tính hợp lệ và Kiểm soát**: Lớp `SecureBankAccount` giờ đây có thể thực thi các quy tắc. Mã nguồn bên ngoài không thể thiết lập số dư âm hoặc rút nhiều hơn số tiền họ có.
 2. **Truy cập Chỉ đọc / Chỉ ghi (Read-Only / Write-Only)**: Chúng ta có thể đặt trường này ở chế độ chỉ đọc đối với bên ngoài bằng cách chỉ cung cấp getter mà không có setter trực tiếp (việc gửi và rút tiền được điều khiển bằng hành vi phương thức, không phải thay đổi trạng thái trực tiếp).
 3. **Tính độc lập của cấu trúc lưu trữ nội bộ (Internal Representation Independence)**: Nếu chúng ta quyết định thay đổi kiểu dữ liệu nội bộ của `balance` từ `double` sang `java.math.BigDecimal` (để chính xác hơn về mặt tiền tệ), chúng ta có thể thực hiện việc này mà không làm hỏng bất kỳ mã nguồn client nào vì API công khai (các phương thức) vẫn giữ nguyên.
+
+### Best Practice (Thực Hành Tốt Nhất)
+Nguyên tắc ngón tay cái trong thiết kế Java là: **"Luôn bắt đầu với mức truy cập nghiêm ngặt nhất (private) và chỉ nới lỏng khi thực sự cần thiết."** 
+Hạn chế tối đa việc sử dụng `public` cho các trường dữ liệu (fields), và chỉ nên dùng `public` cho các phương thức đóng vai trò là API giao tiếp chính thức của lớp.
 
 ## Các Câu Hỏi Ôn Tập Thường Gặp
 

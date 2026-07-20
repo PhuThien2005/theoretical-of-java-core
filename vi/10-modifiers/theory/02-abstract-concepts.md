@@ -49,6 +49,23 @@ class Circle extends GraphicObject {
 }
 ```
 
+#### Các Quy Tắc Nâng Cao Của Lớp Trừu Tượng
+1. **Có Hàm Khởi Tạo (Constructors)**: Mặc dù không thể trực tiếp dùng `new` để khởi tạo, lớp trừu tượng vẫn có thể (và thường) có hàm khởi tạo. Các hàm này được gọi thông qua `super()` từ hàm khởi tạo của lớp con để thiết lập trạng thái (fields) của lớp cha.
+2. **Có Thể Chứa Các Phương Thức Đặc Biệt**: Lớp trừu tượng có thể chứa các phương thức `static` và `final`. (Ví dụ: một phương thức `final` trong lớp trừu tượng ngăn lớp con ghi đè một hành vi cốt lõi).
+3. **Mâu Thuẫn `abstract` + `final`**: Bạn **không thể** khai báo một lớp hoặc phương thức vừa `abstract` vừa `final` cùng lúc. Đây là lỗi biên dịch (COMPILE ERROR). Bổ từ `abstract` yêu cầu lớp con phải ghi đè/triển khai, trong khi `final` lại cấm ghi đè/kế thừa.
+
+#### Mẫu Thiết Kế: Template Method Pattern
+Lớp trừu tượng là công cụ cốt lõi để triển khai mẫu thiết kế **Template Method**. Mẫu thiết kế này định nghĩa "bộ khung" thuật toán trong một phương thức (thường là `final`), và để lại một số bước (các phương thức `abstract`) cho các lớp con tự định nghĩa chi tiết.
+
+#### So Sánh Abstract Class và Interface
+Mặc dù cả hai đều dùng để định nghĩa các hợp đồng (contracts), chúng có sự khác biệt rõ rệt về thiết kế:
+| Tiêu chí | Abstract Class | Interface |
+|---|---|---|
+| Đa kế thừa | Chỉ kế thừa 1 lớp | Có thể triển khai nhiều Interface |
+| Trạng thái (Fields) | Có thể có biến thực thể (instance variables) | Chỉ chứa hằng số (`public static final`) |
+| Hàm khởi tạo | Có | Không |
+| Mục đích thiết kế | Khung sườn chung cho các lớp có quan hệ "IS-A" (cùng loại) | Định nghĩa khả năng/hành vi "CAN-DO" (xuyên suốt các loại khác nhau) |
+
 #### Sai lầm thường gặp — Khai báo phương thức abstract có thân phương thức hoặc khai báo bên trong lớp cụ thể
 Bất kỳ lớp nào chứa từ một phương thức `abstract` trở lên bắt buộc phải được khai báo là lớp `abstract`. Hơn nữa, phương thức `abstract` không được phép có thân phương thức (không có dấu ngoặc nhọn, chỉ kết thúc bằng dấu chấm phẩy). Việc viết `abstract void draw() {}` sẽ gây ra lỗi biên dịch vì cặp dấu ngoặc nhọn rỗng `{}` được coi là thân phương thức.
 
@@ -81,6 +98,11 @@ public class ThreadSafeCounter {
     }
 }
 ```
+
+#### Khối Đồng Bộ Hóa (Synchronized Blocks) và Chọn Lock Object
+Thay vì đồng bộ hóa toàn bộ phương thức, việc sử dụng khối `synchronized(lockObj) { ... }` giúp thu hẹp phạm vi bị khóa (critical section), tăng hiệu năng đa luồng.
+- **Thực hành tốt (Best Practice)**: Hãy khóa trên một đối tượng `private final` riêng biệt (ví dụ: `private final Object lock = new Object();`) thay vì khóa trên `this`.
+- **Tuyệt đối tránh**: KHÔNG khóa trên các đối tượng `String` (vì String Pool dùng chung khóa toàn cục) hoặc các đối tượng Wrapper như `Integer` (do cơ chế autoboxing/caching).
 
 #### Sai lầm thường gặp — Lầm tưởng phương thức synchronized tĩnh và thực thể tự chặn nhau
 Phương thức synchronized tĩnh và phương thức synchronized thực thể chiếm giữ hai khóa **KHÁC NHAU**. Phương thức synchronized tĩnh khóa trên đối tượng lớp `Class`, trong khi phương thức synchronized thực thể khóa trên đối tượng cụ thể (`this`). Do đó, chúng sẽ **KHÔNG** chặn lẫn nhau khi chạy đồng thời trên các luồng khác nhau.
@@ -218,6 +240,18 @@ public class VolatileCounter implements Runnable {
 - **Tác động gián tiếp**: Các thao tác đọc và ghi được đồng bộ trực tiếp với bộ nhớ chính, đảm bảo tính hiển thị của các bản cập nhật.
 - **Kết quả cuối cùng**: Đạt được tính hiển thị giữa các luồng, nhưng các hoạt động đa bước vẫn không mang tính nguyên tố nếu thiếu đồng bộ hóa bằng khóa.
 
+#### Thuật Ngữ JMM: Mối quan hệ "Happens-Before"
+Trong Mô hình Bộ nhớ Java (Java Memory Model - JMM), tính hiển thị của `volatile` được định nghĩa chính thức bởi quy tắc **Happens-Before**. Một lệnh ghi (write) vào biến `volatile` được bảo đảm "happens-before" (xảy ra trước và hiển thị hoàn toàn) mọi lệnh đọc (read) biến `volatile` đó của các luồng khác.
+
+#### So sánh Volatile và Synchronized
+- `volatile`: Nhẹ hơn, không chặn luồng, chỉ đảm bảo tính hiển thị (Visibility). Thích hợp cho cờ trạng thái (status flags).
+- `synchronized`: Nặng hơn, chặn luồng, đảm bảo cả tính hiển thị và tính nguyên tố (Atomicity). Thích hợp cho các hoạt động tính toán phức hợp hoặc sửa đổi trạng thái chung.
+
+#### Các Quy Tắc Nâng Cao Của Volatile
+1. **Bảo đảm tính nguyên tố 64-bit**: Đọc/ghi các kiểu 64-bit (`long`, `double`) trên máy ảo JVM 32-bit có thể bị xé rách (tearing - ghi một nửa 32-bit này rồi luồng khác chen ngang). Khai báo `volatile long` bắt buộc thao tác đọc/ghi phải nguyên tố trên cả 64 bit.
+2. **Volatile trên Mảng (Arrays)**: Nếu bạn có `volatile int[] arr`, từ khóa `volatile` CHỈ áp dụng cho biến tham chiếu của mảng, chứ KHÔNG áp dụng cho các phần tử bên trong mảng (việc sửa đổi `arr[0]` không được đảm bảo hiển thị tức thì).
+3. **Mẫu Thiết Kế: Double-Checked Locking (Singleton)**: Để triển khai Singleton lười biếng (lazy initialization) an toàn trong môi trường đa luồng, biến instance BẮT BUỘC phải là `volatile` để ngăn các luồng khác nhìn thấy một đối tượng đang bị khởi tạo dở dang (do tái sắp xếp chỉ thị).
+
 > Xem thêm: Tác động của Volatile tới Memory Visibility, được trình bày chi tiết trong [Ch.29 - Synchronization Concurrency](../../29-synchronization-concurrency/README.md).
 
 ---
@@ -227,6 +261,11 @@ public class VolatileCounter implements Runnable {
 `transient` đánh dấu một trường cần được bỏ qua trong quá trình tuần tự hóa (serialization) đối tượng trong Java.
 
 Nó được dùng để ẩn đi các thông tin nhạy cảm (như mật khẩu) hoặc bỏ qua các tham chiếu tạm thời không thể tuần tự hóa khi ghi đối tượng xuống ổ đĩa hoặc truyền qua mạng. Khi đối tượng được giải tuần tự hóa (deserialized) để khôi phục lại, các trường `transient` sẽ nhận giá trị mặc định của kiểu dữ liệu (`null` cho đối tượng, `0` cho số, `false` cho boolean).
+
+#### Những Sự Tương Tác Cần Lưu Ý
+- **transient + static**: Redundant (thừa thãi). Biến `static` thuộc về lớp, nên bản thân nó vốn không bao giờ tham gia vào quá trình tuần tự hóa của đối tượng (instance serialization).
+- **transient + final**: Các biến hằng số `final` được gán trực tiếp bằng giá trị hằng (ví dụ `transient final int x = 10;`) đôi khi vẫn được giữ lại do trình biên dịch nội tuyến (inline optimization), làm giảm ý nghĩa của `transient`.
+- **Java transient vs. JPA @Transient**: Khác nhau hoàn toàn! Từ khóa `transient` của Java ngăn việc tuần tự hóa Java Serialization. Còn annotation `@Transient` của JPA/Hibernate báo cho framework ORM không lưu trường đó vào cơ sở dữ liệu (Database).
 
 > Xem thêm: Ứng dụng của transient trong Serialization, được trình bày chi tiết trong [Ch.26 - IO](../../26-io/README.md).
 
@@ -328,6 +367,18 @@ public class MethodComparisonDemo {
 
 #### Sai lầm thường gặp — Gọi các thành viên phi tĩnh từ ngữ cảnh tĩnh (non-static from static context)
 Các phương thức tĩnh thuộc về bản thiết kế lớp chứ không thuộc về một thực thể đối tượng cụ thể nào. Do đó, chúng không thể truy cập các trường thực thể hoặc gọi trực tiếp các phương thức phi tĩnh nếu không có tham chiếu đối tượng rõ ràng. Chúng cũng không được phép sử dụng các từ khóa `this` hoặc `super`.
+
+#### Quy Tắc Nâng Cao: Hiding (Che Khuất) vs. Overriding (Ghi Đè)
+Các phương thức `static` **không thể bị ghi đè (overridden)**. Nếu một lớp con định nghĩa một phương thức tĩnh có cùng chữ ký với phương thức tĩnh của lớp cha, nó không tạo ra tính đa hình (polymorphism). Thay vào đó, nó **che khuất (hides)** phương thức của lớp cha. Trình biên dịch sẽ quyết định phương thức nào được gọi dựa trên kiểu tĩnh (static type) của tham chiếu, chứ không phải kiểu đối tượng lúc runtime.
+
+#### Mẫu Thiết Kế: Static Factory Method (Phương thức Khởi tạo Tĩnh)
+Thay vì sử dụng hàm khởi tạo (constructor) public, các lớp thường cung cấp các phương thức `static` trả về một thực thể đối tượng. Ví dụ: `Integer.valueOf(5)` hay `List.of("A")`. Ưu điểm:
+- Có tên mang tính mô tả (ví dụ: `from()`, `valueOf()`, `getInstance()`).
+- Không bắt buộc phải tạo đối tượng mới mỗi lần gọi (hỗ trợ caching).
+- Có thể trả về bất kỳ lớp con nào của kiểu trả về.
+
+#### Mẫu Thiết Kế: Utility Classes (Lớp Tiện Ích)
+Các lớp tiện ích như `java.lang.Math` hay `java.util.Collections` gom nhóm các phương thức tính toán chung thành các hàm `static`. Vì các hàm này chỉ thao tác trên tham số đầu vào (stateless) và không cần lưu trữ trạng thái đối tượng, việc sử dụng `static method` giúp gọi hàm nhanh chóng mà không cần tốn chi phí bộ nhớ để tạo đối tượng mới. Cần lưu ý, việc quá lạm dụng `static` có thể gây khó khăn cho Unit Test vì không thể tạo mock dễ dàng.
 
 ---
 

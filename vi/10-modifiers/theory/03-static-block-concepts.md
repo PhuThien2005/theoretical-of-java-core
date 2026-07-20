@@ -46,21 +46,9 @@ public class DatabaseConnector {
 #### Lỗi Thường Gặp - Truy cập các trường thực thể hoặc ném ra các ngoại lệ checked trong khối tĩnh
 Các khối tĩnh chạy trong quá trình tải lớp, trước khi bất kỳ thể hiện nào của lớp được tạo ra. Do đó, chúng không thể truy cập các trường hoặc phương thức thực thể (instance). Thêm vào đó, bạn không thể ném các ngoại lệ checked ra ngoài khối tĩnh; chúng bắt buộc phải được bắt bằng khối `try-catch` bên trong khối tĩnh, nếu không JVM sẽ ném ra lỗi `ExceptionInInitializerError`.
 
-Kiểm tra thực tế:
-
-- Định nghĩa `Static block` trong một câu.
-- Nhận biết `Static block` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi logic, giới hạn hoặc sự đánh đổi liên quan đến `Static block`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- `ClassName.member` truy cập một thành viên ở cấp độ lớp.
-
 ### Lớp lồng tĩnh (Static nested class)
 
 `static` nghĩa là thành viên đó thuộc về lớp chứ không thuộc về một đối tượng cụ thể nào.
-
-Sử dụng khái niệm này để dự đoán quy tắc chính xác của Java, các dạng được phép và các lỗi có thể xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ tên gọi.
 
 #### Ví Dụ Mã Nguồn Lớp Lồng Tĩnh
 ```java
@@ -81,21 +69,9 @@ public class Outer {
 #### Lỗi Thường Gặp - Nhầm lẫn lớp lồng tĩnh với lớp nội bộ (inner class)
 Một lớp lồng tĩnh không chứa một tham chiếu ngầm định đến một thể hiện của lớp bên ngoài. Để khởi tạo nó, bạn không cần một thể hiện của lớp ngoài: `Outer.Nested nested = new Outer.Nested();`. Ngược lại, các lớp nội bộ phi tĩnh yêu cầu một thể hiện của lớp ngoài: `outerInstance.new Inner()`.
 
-Kiểm tra thực tế:
-
-- Định nghĩa `Static nested class` trong một câu.
-- Nhận biết `Static nested class` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi logic, giới hạn hoặc sự đánh đổi liên quan đến `Static nested class`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- `ClassName.member` truy cập một thành viên ở cấp độ lớp.
-
 ### Import tĩnh (Static import)
 
 `static` nghĩa là thành viên đó thuộc về lớp chứ không thuộc về một đối tượng cụ thể nào.
-
-Sử dụng khái niệm này để dự đoán quy tắc chính xác của Java, các dạng được phép và các lỗi có thể xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ tên gọi.
 
 #### Ví Dụ Mã Nguồn Import Tĩnh
 ```java
@@ -114,21 +90,15 @@ public class Geometry {
 #### Lỗi Thường Gặp - Viết sai thứ tự import static
 Cú pháp bắt buộc phải là `import static package.Class.member;` hoặc `import static package.Class.*;`. Viết `static import` sẽ gây ra lỗi biên dịch. Thêm vào đó, bạn không thể import tĩnh toàn bộ một package (ví dụ: `import static java.lang.*;` là không hợp lệ; bạn chỉ có thể import các thành viên của lớp chứ không phải bản thân các lớp đó).
 
-Kiểm tra thực tế:
-
-- Định nghĩa `Static import` trong một câu.
-- Nhận biết `Static import` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi logic, giới hạn hoặc sự đánh đổi liên quan đến `Static import`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- `ClassName.member` truy cập một thành viên ở cấp độ lớp.
-
 ### Biến final (Final variable)
 
 `final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể.
 
-Sử dụng khái niệm này để dự đoán quy tắc chính xác của Java, các dạng được phép và các lỗi có thể xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ tên gọi.
+#### Quy Ước Đặt Tên (Naming Convention)
+Khi kết hợp `static final` để tạo hằng số toàn cục, quy ước bắt buộc trong Java là sử dụng chữ in hoa phân cách bằng dấu gạch dưới (UPPER_SNAKE_CASE). Ví dụ: `public static final int MAX_USERS = 500;`.
+
+#### Thread-Safety Của Biến Final (JMM Guarantee)
+Biến `final` có một ý nghĩa đặc biệt trong Mô hình Bộ nhớ Java (JMM). JMM đảm bảo rằng nếu một biến `final` được khởi tạo trong constructor, thì **bất kỳ luồng nào** khi nhận được tham chiếu của đối tượng đó cũng sẽ nhìn thấy giá trị chính xác của biến `final` (miễn là không để lọt tham chiếu đối tượng ra ngoài `this` trước khi constructor hoàn tất). Điều này làm cho các đối tượng bất biến (immutable objects) tự động đạt chuẩn thread-safe.
 
 #### Ví Dụ Mã Nguồn Biến Final
 ```java
@@ -143,16 +113,6 @@ public class Calculation {
 
 #### Lỗi Thường Gặp - Giả định các trường final bắt buộc phải khởi tạo khi khai báo
 Một biến thể hiện final không nhất thiết phải khởi tạo ngay khi khai báo; nó có thể được để trống lúc đầu và được khởi tạo bên trong hàm khởi dựng. Tuy nhiên, nó bắt buộc phải được gán giá trị trên mọi nhánh rẽ của tất cả các hàm khởi dựng trước khi trình biên dịch chấp nhận.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `Final variable` trong một câu.
-- Nhận biết `Final variable` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi logic, giới hạn hoặc sự đánh đổi liên quan đến `Final variable`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- `final int limit = 10;` không thể gán lại giá trị.
 
 ## Tại Sao Các Biến Final Ngăn Chặn Việc Gán Lại Giá Trị và Cho Phép Nhúng Mã (Inlining)
 
@@ -201,7 +161,8 @@ public class OptimizationDemo {
 
 `final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể.
 
-Sử dụng khái niệm này để dự đoán quy tắc chính xác của Java, các dạng được phép và các lỗi có thể xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ tên gọi.
+#### Sự dư thừa `private final`
+Mọi phương thức `private` đều không thể bị lớp con nhìn thấy, do đó hiển nhiên không thể bị ghi đè. Việc khai báo một phương thức là `private final` là hoàn toàn hợp lệ về mặt cú pháp nhưng thừa thãi. Trình biên dịch ngầm coi mọi phương thức `private` đều là `final`.
 
 #### Ví Dụ Mã Nguồn Phương Thức Final
 ```java
@@ -220,21 +181,14 @@ class Child extends Parent {
 #### Lỗi Thường Gặp - Cố gắng ghi đè (override) một phương thức final trong lớp con
 Nếu một lớp con cố gắng khai báo một phương thức có cùng chữ ký và kiểu trả về với một phương thức `final` trong lớp cha, trình biên dịch sẽ báo lỗi từ chối. Lưu ý rằng các phương thức `private` mặc nhiên là final một cách ngầm định, do đó việc khai báo chúng là final là hợp lệ nhưng dư thừa.
 
-Kiểm tra thực tế:
-
-- Định nghĩa `Final method` trong một câu.
-- Nhận biết `Final method` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi logic, giới hạn hoặc sự đánh đổi liên quan đến `Final method`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- `final int limit = 10;` không thể gán lại giá trị.
-
 ### Lớp final (Final class)
 
 `final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể.
 
-Sử dụng khái niệm này để dự đoán quy tắc chính xác của Java, các dạng được phép và các lỗi có thể xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ tên gọi.
+#### Tại sao `String` và `Integer` là lớp final?
+Các lớp cốt lõi trong Java như `String`, `Integer`, `Double` đều được thiết kế là lớp `final`. Quyết định này nhằm:
+1. **Bảo mật (Security)**: Ngăn chặn hacker tạo một lớp con mạo danh `String` với hành vi độc hại để vượt qua các khâu kiểm tra an ninh hệ thống.
+2. **Bất biến (Immutability)**: Đảm bảo trạng thái của chuỗi không bao giờ bị thay đổi sau khi tạo, giúp chia sẻ chuỗi an toàn trong môi trường đa luồng và String Pool.
 
 #### Ví Dụ Mã Nguồn Lớp Final
 ```java
@@ -251,21 +205,9 @@ public final class UtilityClass {
 #### Lỗi Thường Gặp - Giả định các trường trong một lớp final sẽ tự động là final
 Khai báo một lớp là `final` chỉ giúp ngăn chặn việc lớp đó bị mở rộng (kế thừa). Nó KHÔNG tự động biến các trường của lớp đó thành `final` hoặc bất biến (immutable). Nếu bạn muốn các trường là bất biến, bạn vẫn phải khai báo chúng là `final` một cách tường minh.
 
-Kiểm tra thực tế:
-
-- Định nghĩa `Final class` trong một câu.
-- Nhận biết `Final class` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi logic, giới hạn hoặc sự đánh đổi liên quan đến `Final class`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- `final int limit = 10;` không thể gán lại giá trị.
-
 ### Tham số final (Final parameter)
 
 `final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể.
-
-Sử dụng khái niệm này để dự đoán quy tắc chính xác của Java, các dạng được phép và các lỗi có thể xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ tên gọi.
 
 #### Ví Dụ Mã Nguồn Tham Số Final
 ```java
@@ -280,21 +222,15 @@ public class Logger {
 #### Lỗi Thường Gặp - Gán lại giá trị cho tham số của phương thức bên trong thân phương thức
 Khai báo tham số phương thức là `final` là một thực hành lập trình tốt để ngăn chặn việc vô tình gán lại giá trị cho tham số đó bên trong thân phương thức. Việc cố gắng gán một giá trị mới cho một tham số final sẽ dẫn đến lỗi tại thời điểm biên dịch.
 
-Kiểm tra thực tế:
-
-- Định nghĩa `Final parameter` trong một câu.
-- Nhận biết `Final parameter` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi logic, giới hạn hoặc sự đánh đổi liên quan đến `Final parameter`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- `final int limit = 10;` không thể gán lại giá trị.
-
 ### Biến final trống (Blank final variable)
 
 `final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể.
 
-Sử dụng khái niệm này để dự đoán quy tắc chính xác của Java, các dạng được phép và các lỗi có thể xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ tên gọi.
+#### Quy Ước Đặt Tên (Naming Convention)
+Khi kết hợp `static final` để tạo hằng số toàn cục, quy ước bắt buộc trong Java là sử dụng chữ in hoa phân cách bằng dấu gạch dưới (UPPER_SNAKE_CASE). Ví dụ: `public static final int MAX_USERS = 500;`.
+
+#### Thread-Safety Của Biến Final (JMM Guarantee)
+Biến `final` có một ý nghĩa đặc biệt trong Mô hình Bộ nhớ Java (JMM). JMM đảm bảo rằng nếu một biến `final` được khởi tạo trong constructor, thì **bất kỳ luồng nào** khi nhận được tham chiếu của đối tượng đó cũng sẽ nhìn thấy giá trị chính xác của biến `final` (miễn là không để lọt tham chiếu đối tượng ra ngoài `this` trước khi constructor hoàn tất). Điều này làm cho các đối tượng bất biến (immutable objects) tự động đạt chuẩn thread-safe.
 
 #### Ví Dụ Mã Nguồn Biến Final Trống
 ```java
@@ -314,16 +250,6 @@ public class Order {
 
 #### Lỗi Thường Gặp - Thất bại trong Phân Tích Gán Giá Trị Xác Định (Definite Assignment Analysis)
 Một trường final trống phải được gán giá trị chính xác một lần duy nhất. Nếu một hàm khởi dựng chứa một nhánh rẽ điều kiện (ví dụ: câu lệnh `if-else`) mà trường final trống chỉ được gán giá trị trong một nhánh, trình biên dịch sẽ báo lỗi "biến orderId có thể chưa được khởi tạo".
-
-Kiểm tra thực tế:
-
-- Định nghĩa `Blank final variable` trong một câu.
-- Nhận biết `Blank final variable` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi logic, giới hạn hoặc sự đánh đổi liên quan đến `Blank final variable`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- `final int limit = 10;` không thể gán lại giá trị.
 
 ## Các Câu Hỏi Ôn Tập Phổ Biến
 
