@@ -51,17 +51,17 @@
 - [x] `vi/18-generics/theory/03-raw-type-concepts.md` — Loại B + C (raw vs generic)
 - [x] `vi/18-generics/theory/generics.md` — Loại B (generics summary) *(compact delimiter)*
 
-## Phase 5 — Ch.19–20 (Collections + Comparable) — 0/9
+## Phase 5 — Ch.19–20 (Collections + Comparable) — 9/9
 
-- [ ] `vi/19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md` — Loại A
-- [ ] `vi/19-collections-framework/theory/02-arraylist-concepts.md` — Loại A
-- [ ] `vi/19-collections-framework/theory/03-treeset-concepts.md` — Loại A + C (outline + HashSet vs TreeSet vs LinkedHashSet)
-- [ ] `vi/19-collections-framework/theory/04-linkedlist-as-queue-concepts.md` — Loại A
-- [ ] `vi/19-collections-framework/theory/05-concurrenthashmap-concepts.md` — Loại A
-- [ ] `vi/19-collections-framework/theory/06-fail-fast-iterator-concepts.md` — Loại A
-- [ ] `vi/19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md` — Loại A
-- [ ] `vi/20-comparable-comparator/theory/01-comparable-concepts.md` — Loại A
-- [ ] `vi/20-comparable-comparator/theory/02-reverse-order-concepts.md` — Loại A
+- [x] `vi/19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md` — Loại A
+- [x] `vi/19-collections-framework/theory/02-arraylist-concepts.md` — Loại A
+- [x] `vi/19-collections-framework/theory/03-treeset-concepts.md` — Loại A + C (outline + HashSet vs TreeSet vs LinkedHashSet)
+- [x] `vi/19-collections-framework/theory/04-linkedlist-as-queue-concepts.md` — Loại A
+- [x] `vi/19-collections-framework/theory/05-concurrenthashmap-concepts.md` — Loại A
+- [x] `vi/19-collections-framework/theory/06-fail-fast-iterator-concepts.md` — Loại A
+- [x] `vi/19-collections-framework/theory/07-collections-unmodifiablelist-concepts.md` — Loại A
+- [x] `vi/20-comparable-comparator/theory/01-comparable-concepts.md` — Loại A
+- [x] `vi/20-comparable-comparator/theory/02-reverse-order-concepts.md` — Loại A *(compact delimiter)*
 
 ## Phase 6 — Ch.21–23 (Lambda + Functional + Stream) — 0/10
 
@@ -113,19 +113,19 @@
 - [x] `vi/34-jdbc/theory/02-rollback-concepts.md` — Loại A
 - [x] `vi/35-networking/theory/01-socket-programming-concepts.md` — Loại A
 - [x] `vi/35-networking/theory/02-httpurlconnection-concepts.md` — Loại A
-- [ ] `vi/36-security-basic/theory/01-basic-secure-coding-concepts.md` — Loại A
-- [ ] `vi/36-security-basic/theory/02-avoid-insecure-deserialization-concepts.md` — Loại A
-- [ ] `vi/37-jvm-advanced/theory/01-jvm-architecture-concepts.md` — Loại A
-- [ ] `vi/37-jvm-advanced/theory/02-execution-engine-concepts.md` — Loại A
-- [ ] `vi/37-jvm-advanced/theory/03-survivor-concepts.md` — Loại A
-- [ ] `vi/37-jvm-advanced/theory/04-shenandoah-concepts.md` — Loại A
-- [ ] `vi/37-jvm-advanced/theory/05-xx-concepts.md` — Loại A
-- [ ] `vi/38-build-compile-run/theory/01-javac-concepts.md` — Loại A
-- [ ] `vi/38-build-compile-run/theory/02-standard-project-structure-concepts.md` — Loại A
-- [ ] `vi/39-utility-apis/theory/01-math-concepts.md` — Loại A
-- [ ] `vi/39-utility-apis/theory/02-properties-concepts.md` — Loại A
-- [ ] `vi/40-modern-java-concepts/theory/01-var-concepts.md` — Loại A
-- [ ] `vi/40-modern-java-concepts/theory/02-sequenced-collections-concepts.md` — Loại A
+- [x] `vi/36-security-basic/theory/01-basic-secure-coding-concepts.md` — Loại A
+- [x] `vi/36-security-basic/theory/02-avoid-insecure-deserialization-concepts.md` — Loại A
+- [x] `vi/37-jvm-advanced/theory/01-jvm-architecture-concepts.md` — Loại A
+- [x] `vi/37-jvm-advanced/theory/02-execution-engine-concepts.md` — Loại A
+- [x] `vi/37-jvm-advanced/theory/03-survivor-concepts.md` — Loại A
+- [x] `vi/37-jvm-advanced/theory/04-shenandoah-concepts.md` — Loại A
+- [x] `vi/37-jvm-advanced/theory/05-xx-concepts.md` — Loại A
+- [x] `vi/38-build-compile-run/theory/01-javac-concepts.md` — Loại A
+- [x] `vi/38-build-compile-run/theory/02-standard-project-structure-concepts.md` — Loại A
+- [x] `vi/39-utility-apis/theory/01-math-concepts.md` — Loại A
+- [x] `vi/39-utility-apis/theory/02-properties-concepts.md` — Loại A
+- [x] `vi/40-modern-java-concepts/theory/01-var-concepts.md` — Loại A
+- [x] `vi/40-modern-java-concepts/theory/02-sequenced-collections-concepts.md` — Loại A
 
 ## Phase 10 — Ch.41–45 (Best Practices → Interview) — 0/10
 
