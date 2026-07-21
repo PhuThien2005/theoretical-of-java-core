@@ -6,16 +6,14 @@ Tài liệu này trình bày một phần trọng tâm của **Stream API**. Hã
 
 ## Nội Dung Khái Quát
 
-| Khái niệm | Những điều cần biết |
-| --- | --- |
-| `LongStream` | Luồng (Stream) là một đường ống (pipeline) để xử lý các phần tử thông qua các thao tác trì hoãn (lazy operations). |
-| `DoubleStream` | Luồng là một đường ống để xử lý các phần tử thông qua các thao tác trì hoãn. |
-| `Intermediate operations:` | Các thao tác trung gian (intermediate operations) là một nhóm các quy tắc liên quan trong Stream API nhằm gom nhóm một số chi tiết liên quan. |
-| `filter` | Bộ lọc (filter) là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và trạng thái lỗi (failure mode) của nó thay vì chỉ nhớ mỗi tên gọi. |
-| `map` | Bản đồ (Map) lưu trữ các cặp khóa - giá trị (key-value pairs) và truy xuất các giá trị theo khóa. |
-| `flatMap` | Bản đồ lưu trữ các cặp khóa - giá trị và truy xuất các giá trị theo khóa. |
-| `distinct` | Loại bỏ trùng lặp (distinct) là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và trạng thái lỗi của nó thay vì chỉ nhớ mỗi tên gọi. |
-| `sorted` | Sắp xếp (sorted) là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và trạng thái lỗi của nó thay vì chỉ nhớ mỗi tên gọi. |
+- **`LongStream`** — Luồng (Stream) là một đường ống (pipeline) để xử lý các phần tử thông qua các thao tác trì hoãn (lazy operations).
+- **`DoubleStream`** — Luồng là một đường ống để xử lý các phần tử thông qua các thao tác trì hoãn.
+- **`Intermediate operations:`** — Các thao tác trung gian (intermediate operations) là một nhóm các quy tắc liên quan trong Stream API nhằm gom nhóm một số chi tiết liên quan.
+- **`filter`** — Bộ lọc (filter) là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và trạng thái lỗi (failure mode) của nó thay vì chỉ nhớ mỗi tên gọi.
+- **`map`** — Bản đồ (Map) lưu trữ các cặp khóa - giá trị (key-value pairs) và truy xuất các giá trị theo khóa.
+- **`flatMap`** — Bản đồ lưu trữ các cặp khóa - giá trị và truy xuất các giá trị theo khóa.
+- **`distinct`** — Loại bỏ trùng lặp (distinct) là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và trạng thái lỗi của nó thay vì chỉ nhớ mỗi tên gọi.
+- **`sorted`** — Sắp xếp (sorted) là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và trạng thái lỗi của nó thay vì chỉ nhớ mỗi tên gọi.
 
 ## Ghi Chú Chi Tiết
 

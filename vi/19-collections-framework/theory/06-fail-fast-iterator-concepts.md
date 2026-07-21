@@ -6,16 +6,14 @@ File này đề cập đến một phần trọng tâm của **Cấu Trúc Tập
 
 ## Đề Cương Khái Niệm
 
-| Khái niệm | Những điều cần biết |
-| --- | --- |
-| `Fail-fast iterator` | Ném ra `ConcurrentModificationException` ngay lập tức nếu tập hợp bị sửa đổi cấu trúc trong quá trình duyệt (thông qua các phương thức khác ngoài phương thức của chính bộ lặp). |
-| `Fail-safe iterator` | Hoạt động trên một bản chụp (snapshot) hoặc một dạng xem nhất quán yếu (weakly consistent view) của tập hợp, cho phép sửa đổi trong quá trình duyệt mà không ném ra ngoại lệ. |
-| `ConcurrentModificationException` | Ngoại lệ thời gian chạy (runtime exception) được ném ra khi phát hiện sửa đổi cấu trúc trên một tập hợp trong quá trình duyệt đang diễn ra. |
-| `Collections.sort` | Sắp xếp một danh sách tại chỗ với thời gian trung bình/tệ nhất là $O(N \log N)$. |
-| `Collections.reverse` | Đảo ngược thứ tự các phần tử trong danh sách. |
-| `Collections.shuffle` | Hoán vị ngẫu nhiên các phần tử trong danh sách. |
-| `Collections.max` | Trả về phần tử lớn nhất trong một tập hợp theo thứ tự tự nhiên hoặc theo một bộ so sánh (comparator) tùy chỉnh. |
-| `Collections.min` | Trả về phần tử nhỏ nhất trong một tập hợp. |
+- **`Fail-fast iterator`** — Ném ra `ConcurrentModificationException` ngay lập tức nếu tập hợp bị sửa đổi cấu trúc trong quá trình duyệt (thông qua các phương thức khác ngoài phương thức của chính bộ lặp).
+- **`Fail-safe iterator`** — Hoạt động trên một bản chụp (snapshot) hoặc một dạng xem nhất quán yếu (weakly consistent view) của tập hợp, cho phép sửa đổi trong quá trình duyệt mà không ném ra ngoại lệ.
+- **`ConcurrentModificationException`** — Ngoại lệ thời gian chạy (runtime exception) được ném ra khi phát hiện sửa đổi cấu trúc trên một tập hợp trong quá trình duyệt đang diễn ra.
+- **`Collections.sort`** — Sắp xếp một danh sách tại chỗ với thời gian trung bình/tệ nhất là $O(N \log N)$.
+- **`Collections.reverse`** — Đảo ngược thứ tự các phần tử trong danh sách.
+- **`Collections.shuffle`** — Hoán vị ngẫu nhiên các phần tử trong danh sách.
+- **`Collections.max`** — Trả về phần tử lớn nhất trong một tập hợp theo thứ tự tự nhiên hoặc theo một bộ so sánh (comparator) tùy chỉnh.
+- **`Collections.min`** — Trả về phần tử nhỏ nhất trong một tập hợp.
 
 ## Ghi Chú Chi Tiết
 

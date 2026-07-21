@@ -6,10 +6,8 @@ File này đề cập đến một phần trọng tâm của **Phản Xạ (Refl
 
 ## Đề Cương Khái Niệm
 
-| Khái niệm | Những điều cần biết |
-| --- | --- |
-| `Ưu điểm và nhược điểm của phản xạ` | Các đánh đổi quan trọng của phản xạ liên quan đến hiệu năng, tính đóng gói trong thiết kế và khả năng mở rộng. |
-| `Phản xạ trong các framework như Spring` | Cách các framework doanh nghiệp hiện đại sử dụng phản xạ để đạt được Tiêm phụ thuộc (Dependency Injection - DI) và các hành vi động. |
+- **`Ưu điểm và nhược điểm của phản xạ`** — Các đánh đổi quan trọng của phản xạ liên quan đến hiệu năng, tính đóng gói trong thiết kế và khả năng mở rộng.
+- **`Phản xạ trong các framework như Spring`** — Cách các framework doanh nghiệp hiện đại sử dụng phản xạ để đạt được Tiêm phụ thuộc (Dependency Injection - DI) và các hành vi động.
 
 ---
 

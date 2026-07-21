@@ -6,16 +6,14 @@ Tài liệu này trình bày một phần trọng tâm của **JVM nâng cao (Ad
 
 ## Nội Dung Tổng Quan
 
-| Khái niệm | Điều cần biết |
-| --- | --- |
-| `Shenandoah` | `Shenandoah` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
-| `Stop-the-world` | `Stop-the-world` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
-| `Minor GC` | `Minor GC` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
-| `Major GC` | `Major GC` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
-| `Full GC` | `Full GC` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
-| `Basic JVM tuning:` | Tinh chỉnh JVM cơ bản (Basic JVM tuning) là một nhóm các quy tắc dùng để tối ưu hóa cách JVM thực thi mã byte và quản lý các dịch vụ thời gian chạy như bộ nhớ, JIT và GC. |
-| `-Xms` | `-Xms` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
-| `-Xmx` | `-Xmx` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
+- **`Shenandoah`** — `Shenandoah` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+- **`Stop-the-world`** — `Stop-the-world` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+- **`Minor GC`** — `Minor GC` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+- **`Major GC`** — `Major GC` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+- **`Full GC`** — `Full GC` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+- **`Basic JVM tuning:`** — Tinh chỉnh JVM cơ bản (Basic JVM tuning) là một nhóm các quy tắc dùng để tối ưu hóa cách JVM thực thi mã byte và quản lý các dịch vụ thời gian chạy như bộ nhớ, JIT và GC.
+- **`-Xms`** — `-Xms` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+- **`-Xmx`** — `-Xmx` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
 
 ## Ghi Chú Chi Tiết
 

@@ -6,15 +6,13 @@ File này đề cập đến một phần trọng tâm của **JDBC**. Hãy nghi
 
 ## Đề Cương Khái Niệm
 
-| Khái niệm | Những điều cần biết |
-| --- | --- |
-| `rollback` | rollback hủy bỏ các thay đổi của giao dịch (transaction) hiện tại kể từ lần commit gần nhất. |
-| `setAutoCommit` | setAutoCommit cấu hình xem các câu lệnh SQL được tự động commit hay được nhóm vào các giao dịch. |
-| `Xử lý theo lô (Batch processing)` | Xử lý theo lô (batch processing) là một khái niệm cụ thể trong JDBC; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại (failure mode) của nó thay vì chỉ nhớ mỗi tên gọi. |
-| `Tấn công chèn mã SQL (SQL Injection)` | Tấn công chèn mã SQL xảy ra khi đầu vào không đáng tin cậy làm thay đổi ý nghĩa của một lệnh SQL. |
-| `Nhóm kết nối cơ bản (Basic Connection Pool)` | Nhóm kết nối cơ bản (basic connection pool) là một khái niệm cụ thể trong JDBC; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi. |
-| `DataSource` | DataSource là một factory có thể cấu hình cho các kết nối cơ sở dữ liệu, thường được hỗ trợ bởi một nhóm kết nối. |
-| `CRUD sử dụng JDBC` | JDBC là API Java để kết nối với các cơ sở dữ liệu quan hệ. |
+- **`rollback`** — rollback hủy bỏ các thay đổi của giao dịch (transaction) hiện tại kể từ lần commit gần nhất.
+- **`setAutoCommit`** — setAutoCommit cấu hình xem các câu lệnh SQL được tự động commit hay được nhóm vào các giao dịch.
+- **`Xử lý theo lô (Batch processing)`** — Xử lý theo lô (batch processing) là một khái niệm cụ thể trong JDBC; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại (failure mode) của nó thay vì chỉ nhớ mỗi tên gọi.
+- **`Tấn công chèn mã SQL (SQL Injection)`** — Tấn công chèn mã SQL xảy ra khi đầu vào không đáng tin cậy làm thay đổi ý nghĩa của một lệnh SQL.
+- **`Nhóm kết nối cơ bản (Basic Connection Pool)`** — Nhóm kết nối cơ bản (basic connection pool) là một khái niệm cụ thể trong JDBC; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+- **`DataSource`** — DataSource là một factory có thể cấu hình cho các kết nối cơ sở dữ liệu, thường được hỗ trợ bởi một nhóm kết nối.
+- **`CRUD sử dụng JDBC`** — JDBC là API Java để kết nối với các cơ sở dữ liệu quan hệ.
 
 ## Ghi Chú Chi Tiết
 

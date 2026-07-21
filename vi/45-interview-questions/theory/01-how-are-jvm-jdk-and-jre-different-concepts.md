@@ -6,16 +6,14 @@ File này đề cập đến các câu hỏi phỏng vấn Java Core nền tản
 
 ## Đề Cương Khái Niệm
 
-| Khái niệm | Những điều cần biết |
-| --- | --- |
-| `JVM, JDK, và JRE khác nhau như thế nào?` | JDK là bộ công cụ phát triển, JRE là môi trường chạy (runtime) và JVM thực thi bytecode. |
-| `Java có truyền tham chiếu không?` | Java tuân thủ nghiêm ngặt việc truyền tham trị (pass-by-value). Nó truyền các bản sao giá trị tham chiếu (con trỏ), chứ không phải bản thân biến đó. |
-| `Sự khác biệt giữa == và .equals() là gì?` | `==` so sánh sự bằng nhau về địa chỉ bộ nhớ/tham chiếu; `.equals()` so sánh sự bằng nhau về giá trị logic. |
-| `Tại sao String lại bất biến (immutable)?` | Vì lý do bảo mật, an toàn đồng bộ hóa, lưu bộ đệm hashcode, và chia sẻ dữ liệu trong String Pool. |
-| `String, StringBuilder, và StringBuffer khác nhau như thế nào?` | String là bất biến; StringBuilder là khả biến (mutable) và không an toàn luồng; StringBuffer là khả biến và đồng bộ hóa. |
-| `HashMap hoạt động như thế nào?` | Sử dụng một mảng các bucket, băm các khóa (key), xử lý xung đột bằng liên kết danh sách và nút cây. |
-| `HashMap có những cải tiến gì trong Java 8?` | Chuyển đổi thành dạng cây (Treeification) đối với các bucket chứa từ 8 phần tử trở lên, giúp giảm thời gian tìm kiếm trong trường hợp xấu nhất từ O(N) xuống O(log N). |
-| `ArrayList và LinkedList khác nhau như thế nào?` | ArrayList sử dụng một mảng động (truy cập O(1)); LinkedList sử dụng một danh sách liên kết kép (chèn/xóa O(1)). |
+- **`JVM, JDK, và JRE khác nhau như thế nào?`** — JDK là bộ công cụ phát triển, JRE là môi trường chạy (runtime) và JVM thực thi bytecode.
+- **`Java có truyền tham chiếu không?`** — Java tuân thủ nghiêm ngặt việc truyền tham trị (pass-by-value). Nó truyền các bản sao giá trị tham chiếu (con trỏ), chứ không phải bản thân biến đó.
+- **`Sự khác biệt giữa == và .equals() là gì?`** — `==` so sánh sự bằng nhau về địa chỉ bộ nhớ/tham chiếu; `.equals()` so sánh sự bằng nhau về giá trị logic.
+- **`Tại sao String lại bất biến (immutable)?`** — Vì lý do bảo mật, an toàn đồng bộ hóa, lưu bộ đệm hashcode, và chia sẻ dữ liệu trong String Pool.
+- **`String, StringBuilder, và StringBuffer khác nhau như thế nào?`** — String là bất biến; StringBuilder là khả biến (mutable) và không an toàn luồng; StringBuffer là khả biến và đồng bộ hóa.
+- **`HashMap hoạt động như thế nào?`** — Sử dụng một mảng các bucket, băm các khóa (key), xử lý xung đột bằng liên kết danh sách và nút cây.
+- **`HashMap có những cải tiến gì trong Java 8?`** — Chuyển đổi thành dạng cây (Treeification) đối với các bucket chứa từ 8 phần tử trở lên, giúp giảm thời gian tìm kiếm trong trường hợp xấu nhất từ O(N) xuống O(log N).
+- **`ArrayList và LinkedList khác nhau như thế nào?`** — ArrayList sử dụng một mảng động (truy cập O(1)); LinkedList sử dụng một danh sách liên kết kép (chèn/xóa O(1)).
 
 ---
 

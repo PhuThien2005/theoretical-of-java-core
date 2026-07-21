@@ -4,31 +4,27 @@ Kiểu dữ liệu nguyên thủy (Primitive Types) là các kiểu dữ liệu 
 
 Java có 8 kiểu nguyên thủy:
 
-| Kiểu | Phân loại | Cách dùng phổ biến |
-| --- | --- | --- |
-| `byte` | số nguyên | các giá trị số nguyên rất nhỏ |
-| `short` | số nguyên | các giá trị số nguyên nhỏ |
-| `int` | số nguyên | lựa chọn số nguyên mặc định |
-| `long` | số nguyên | các giá trị số nguyên lớn |
-| `float` | số thực dấu phẩy động | các giá trị thập phân có độ chính xác thấp hơn |
-| `double` | số thực dấu phẩy động | lựa chọn số thập phân mặc định |
-| `char` | ký tự | một đơn vị mã UTF-16 đơn lẻ |
-| `boolean` | logic | `true` hoặc `false` |
+- **`byte`** — Kiểu số nguyên, dùng cho các giá trị số nguyên rất nhỏ.
+- **`short`** — Kiểu số nguyên, dùng cho các giá trị số nguyên nhỏ.
+- **`int`** — Kiểu số nguyên, là lựa chọn số nguyên mặc định.
+- **`long`** — Kiểu số nguyên, dùng cho các giá trị số nguyên lớn.
+- **`float`** — Kiểu số thực dấu phẩy động, dùng cho các giá trị thập phân có độ chính xác thấp hơn.
+- **`double`** — Kiểu số thực dấu phẩy động, là lựa chọn số thập phân mặc định.
+- **`char`** — Kiểu ký tự, lưu trữ một đơn vị mã UTF-16 đơn lẻ.
+- **`boolean`** — Kiểu logic, lưu trữ `true` hoặc `false`.
 
 ## Kích Thước Trong Bộ Nhớ (Size In Memory)
 
 Mỗi kiểu nguyên thủy đều có một **kích thước cố định, được đảm bảo** trong bộ nhớ. Đây là đặc tính định nghĩa của các kiểu nguyên thủy — JVM luôn biết chính xác cần cấp phát bao nhiêu bit trước khi chương trình chạy.
 
-| Kiểu | Kích thước (bit) | Kích thước (byte) | Phạm vi |
-| --- | --- | --- | --- |
-| `byte` | 8 | 1 | −128 đến 127 |
-| `short` | 16 | 2 | −32,768 đến 32,767 |
-| `int` | 32 | 4 | −2,147,483,648 đến 2,147,483,647 |
-| `long` | 64 | 8 | −9,223,372,036,854,775,808 đến 9,223,372,036,854,775,807 |
-| `float` | 32 | 4 | ±3.4 × 10³⁸ (~7 chữ số thập phân) |
-| `double` | 64 | 8 | ±1.7 × 10³⁰⁸ (~15 chữ số thập phân) |
-| `char` | 16 | 2 | 0 đến 65,535 (không dấu) |
-| `boolean` | Phụ thuộc vào JVM | thường là 1 | `true` hoặc `false` |
+- **`byte`** — 8 bit (1 byte), phạm vi từ −128 đến 127.
+- **`short`** — 16 bit (2 byte), phạm vi từ −32,768 đến 32,767.
+- **`int`** — 32 bit (4 byte), phạm vi từ −2,147,483,648 đến 2,147,483,647.
+- **`long`** — 64 bit (8 byte), phạm vi từ −9,223,372,036,854,775,808 đến 9,223,372,036,854,775,807.
+- **`float`** — 32 bit (4 byte), phạm vi ±3.4 × 10³⁸ (~7 chữ số thập phân).
+- **`double`** — 64 bit (8 byte), phạm vi ±1.7 × 10³⁰⁸ (~15 chữ số thập phân).
+- **`char`** — 16 bit (2 byte), phạm vi từ 0 đến 65,535 (không dấu).
+- **`boolean`** — Phụ thuộc vào JVM (thường là 1 byte), phạm vi `true` hoặc `false`.
 
 Kích thước cố định này là lý do tại sao các kiểu nguyên thủy có thể được lưu trữ trực tiếp trên Stack — xem [Kiểu Tham Chiếu và Mô Hình Bộ Nhớ (Reference Types and Memory Model)](02-reference-types.md) để biết chi tiết về việc lưu trữ trên Stack so với Heap.
 
@@ -130,12 +126,10 @@ Các trường (field) có giá trị mặc định.
 
 Các giá trị mặc định phổ biến:
 
-| Kiểu | Giá trị mặc định của trường |
-| --- | --- |
-| kiểu nguyên thủy số | `0` hoặc `0.0` |
-| `char` | `'\u0000'` |
-| `boolean` | `false` |
-| kiểu tham chiếu | `null` |
+- **Kiểu nguyên thủy số** — Giá trị mặc định của trường là `0` hoặc `0.0`.
+- **`char`** — Giá trị mặc định của trường là `'\u0000'`.
+- **`boolean`** — Giá trị mặc định của trường là `false`.
+- **Kiểu tham chiếu** — Giá trị mặc định của trường là `null`.
 
 ## Các Sai Lầm Thường Gặp (Common Mistakes)
 

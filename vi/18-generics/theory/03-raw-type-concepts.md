@@ -156,15 +156,13 @@ if (obj instanceof List)         { }   // OK — raw type check
 
 ## Bảng Tóm Tắt
 
-| Hạn chế (Limitation) | Nguyên nhân (Cause) | Giải pháp (Work-around) |
-|---|---|---|
-| `new T()` | Xóa kiểu | Sử dụng mã nhận diện `Class<T>` + Phản chiếu |
-| `new T[n]` | Hiện thực hóa kiểu mảng (Reification) | Sử dụng `List<T>` hoặc `(T[]) new Object[n]` |
-| `List<int>` | Kiểu nguyên thủy không phải đối tượng | Sử dụng `List<Integer>` + Tự động đóng hộp |
-| `static T field` | Trường tĩnh dùng chung giữa các kiểu | Trường không tĩnh |
-| `catch (T e)` | JVM cần kiểu dữ liệu cụ thể | Kiểu ngoại lệ cụ thể |
-| Nạp chồng phương thức có cùng kiểu xóa | Trùng chữ ký bytecode | Đổi tên phương thức |
-| `instanceof List<String>` | Kiểu bị xóa thông tin | Sử dụng `List<?>` hoặc kiểu nguyên bản |
+- **`new T()`** — Nguyên nhân: Xóa kiểu. Giải pháp: Sử dụng mã nhận diện `Class<T>` + Phản chiếu.
+- **`new T[n]`** — Nguyên nhân: Hiện thực hóa kiểu mảng (Reification). Giải pháp: Sử dụng `List<T>` hoặc `(T[]) new Object[n]`.
+- **`List<int>`** — Nguyên nhân: Kiểu nguyên thủy không phải đối tượng. Giải pháp: Sử dụng `List<Integer>` + Tự động đóng hộp.
+- **`static T field`** — Nguyên nhân: Trường tĩnh dùng chung giữa các kiểu. Giải pháp: Trường không tĩnh.
+- **`catch (T e)`** — Nguyên nhân: JVM cần kiểu dữ liệu cụ thể. Giải pháp: Kiểu ngoại lệ cụ thể.
+- **Nạp chồng phương thức có cùng kiểu xóa** — Nguyên nhân: Trùng chữ ký bytecode. Giải pháp: Đổi tên phương thức.
+- **`instanceof List<String>`** — Nguyên nhân: Kiểu bị xóa thông tin. Giải pháp: Sử dụng `List<?>` hoặc kiểu nguyên bản.
 
 ## Tại sao Kiểu Nguyên Bản Tồn tại và Mối Nguy hiểm của Chúng
 

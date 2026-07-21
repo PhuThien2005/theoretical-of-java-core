@@ -6,18 +6,16 @@ Tài liệu này trình bày một phần trọng tâm về **Chú Thích (Annot
 
 ## Khung Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Nội dung cần biết (What to know) |
-| --- | --- |
-| `What is an annotation?` | Chú thích đính kèm siêu dữ liệu (metadata) vào các phần tử của chương trình như lớp, phương thức hoặc các trường. |
-| `Built-in annotations:` | Java cung cấp sẵn một tập hợp các chú thích tiêu chuẩn dùng để hướng dẫn cho trình biên dịch hoặc bộ xử lý. |
-| `@Override` | Yêu cầu trình biên dịch xác minh xem phương thức được chú thích có thực sự ghi đè phương thức của lớp cha hay không. |
-| `@Deprecated` | Đánh dấu một phần tử chương trình là lỗi thời và không khuyến khích tiếp tục sử dụng. |
-| `@SuppressWarnings` | Yêu cầu trình biên dịch bỏ qua các cảnh báo cụ thể trong phạm vi được chú thích. |
-| `@FunctionalInterface` | Chỉ định rằng một giao diện được thiết kế để làm giao diện chức năng (chỉ chứa duy nhất một phương thức trừu tượng). |
-| `@SafeVarargs` | Đảm bảo với trình biên dịch rằng thân phương thức sử dụng tham số varargs generic một cách an toàn, tránh ô nhiễm heap. |
-| `Meta-annotations:` | Các chú thích siêu dữ liệu dùng để cấu hình hành vi cho các chú thích tự định nghĩa khác. |
-| `@Target` | Xác định các phần tử chương trình nào (lớp, phương thức, trường) mà chú thích có thể được áp dụng lên. |
-| `@Retention` | Xác định khoảng thời gian mà chú thích được lưu trữ (chỉ trong mã nguồn, trong tệp class, hay cả khi chạy runtime). |
+- **`What is an annotation?`** — Chú thích đính kèm siêu dữ liệu (metadata) vào các phần tử của chương trình như lớp, phương thức hoặc các trường.
+- **`Built-in annotations:`** — Java cung cấp sẵn một tập hợp các chú thích tiêu chuẩn dùng để hướng dẫn cho trình biên dịch hoặc bộ xử lý.
+- **`@Override`** — Yêu cầu trình biên dịch xác minh xem phương thức được chú thích có thực sự ghi đè phương thức của lớp cha hay không.
+- **`@Deprecated`** — Đánh dấu một phần tử chương trình là lỗi thời và không khuyến khích tiếp tục sử dụng.
+- **`@SuppressWarnings`** — Yêu cầu trình biên dịch bỏ qua các cảnh báo cụ thể trong phạm vi được chú thích.
+- **`@FunctionalInterface`** — Chỉ định rằng một giao diện được thiết kế để làm giao diện chức năng (chỉ chứa duy nhất một phương thức trừu tượng).
+- **`@SafeVarargs`** — Đảm bảo với trình biên dịch rằng thân phương thức sử dụng tham số varargs generic một cách an toàn, tránh ô nhiễm heap.
+- **`Meta-annotations:`** — Các chú thích siêu dữ liệu dùng để cấu hình hành vi cho các chú thích tự định nghĩa khác.
+- **`@Target`** — Xác định các phần tử chương trình nào (lớp, phương thức, trường) mà chú thích có thể được áp dụng lên.
+- **`@Retention`** — Xác định khoảng thời gian mà chú thích được lưu trữ (chỉ trong mã nguồn, trong tệp class, hay cả khi chạy runtime).
 
 ---
 

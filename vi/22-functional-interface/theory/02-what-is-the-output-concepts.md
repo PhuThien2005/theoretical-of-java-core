@@ -6,10 +6,8 @@ Tài liệu này tập trung vào một phần trọng tâm về **Giao Diện C
 
 ## Khung Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Nội dung cần biết (What to know) |
-| --- | --- |
-| `What is the output?` | Kết quả đầu ra là gì? (What is the output?) là câu hỏi cốt lõi để hiểu cách hoạt động của Giao diện chức năng. |
-| `When to use which interface?` | Khi nào nên sử dụng giao diện nào? (When to use which interface?) là định hướng lựa chọn giao diện chức năng chuẩn của JDK dựa trên số lượng tham số đầu vào và kiểu dữ liệu trả về. |
+- **`What is the output?`** — Kết quả đầu ra là gì? (What is the output?) là câu hỏi cốt lõi để hiểu cách hoạt động của Giao diện chức năng.
+- **`When to use which interface?`** — Khi nào nên sử dụng giao diện nào? (When to use which interface?) là định hướng lựa chọn giao diện chức năng chuẩn của JDK dựa trên số lượng tham số đầu vào và kiểu dữ liệu trả về.
 
 ---
 
@@ -47,14 +45,41 @@ public class OutputExample {
 #### Ma Trận Quyết Định (Decision Matrix)
 Sử dụng bảng hướng dẫn dưới đây để chọn giao diện chức năng phù hợp dựa trên số lượng đầu vào và kiểu dữ liệu đầu ra:
 
-| Tham số đầu vào | Kiểu đầu ra | Giao diện chuẩn | Ví dụ kiểu nguyên thủy | Biến thể hai tham số (Bi-Variant) |
-|---|---|---|---|---|
-| 0 | Kiểu `T` | `Supplier<T>` | `IntSupplier` | Không hỗ trợ |
-| 1 (`T`) | `void` | `Consumer<T>` | `DoubleConsumer` | `BiConsumer<T, U>` |
-| 1 (`T`) | `boolean` | `Predicate<T>` | `LongPredicate` | `BiPredicate<T, U>` |
-| 1 (`T`) | Kiểu `R` | `Function<T, R>` | `ToIntFunction<T>` | `BiFunction<T, U, R>` |
-| 1 (`T`) | Kiểu `T` | `UnaryOperator<T>` | `IntUnaryOperator` | Không hỗ trợ |
-| 2 (`T`, `T`) | Kiểu `T` | `BinaryOperator<T>` | `IntBinaryOperator` | Không hỗ trợ |
+**0 tham số đầu vào**
+- Kiểu đầu ra: Kiểu `T`
+- Giao diện chuẩn: `Supplier<T>`
+- Ví dụ kiểu nguyên thủy: `IntSupplier`
+- Biến thể hai tham số (Bi-Variant): Không hỗ trợ
+
+**1 tham số đầu vào (`T`)**
+- Kiểu đầu ra: `void`
+- Giao diện chuẩn: `Consumer<T>`
+- Ví dụ kiểu nguyên thủy: `DoubleConsumer`
+- Biến thể hai tham số (Bi-Variant): `BiConsumer<T, U>`
+
+**1 tham số đầu vào (`T`)**
+- Kiểu đầu ra: `boolean`
+- Giao diện chuẩn: `Predicate<T>`
+- Ví dụ kiểu nguyên thủy: `LongPredicate`
+- Biến thể hai tham số (Bi-Variant): `BiPredicate<T, U>`
+
+**1 tham số đầu vào (`T`)**
+- Kiểu đầu ra: Kiểu `R`
+- Giao diện chuẩn: `Function<T, R>`
+- Ví dụ kiểu nguyên thủy: `ToIntFunction<T>`
+- Biến thể hai tham số (Bi-Variant): `BiFunction<T, U, R>`
+
+**1 tham số đầu vào (`T`)**
+- Kiểu đầu ra: Kiểu `T`
+- Giao diện chuẩn: `UnaryOperator<T>`
+- Ví dụ kiểu nguyên thủy: `IntUnaryOperator`
+- Biến thể hai tham số (Bi-Variant): Không hỗ trợ
+
+**2 tham số đầu vào (`T`, `T`)**
+- Kiểu đầu ra: Kiểu `T`
+- Giao diện chuẩn: `BinaryOperator<T>`
+- Ví dụ kiểu nguyên thủy: `IntBinaryOperator`
+- Biến thể hai tham số (Bi-Variant): Không hỗ trợ
 
 ---
 

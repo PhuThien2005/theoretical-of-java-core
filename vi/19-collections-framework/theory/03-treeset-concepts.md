@@ -6,16 +6,14 @@ Tài liệu này đề cập đến một phần trọng tâm của **Khung tậ
 
 ## Khái quát nội dung (Outline Coverage)
 
-| Khái niệm (Concept) | Nội dung cần nắm vững (What to know) |
-| --- | --- |
-| `TreeSet` | Một tập hợp (Set) là một cấu trúc lưu trữ (collection) loại bỏ các phần tử trùng lặp (duplicates) theo các quy tắc bằng nhau (equality). |
-| `SortedSet` | Một tập hợp là một cấu trúc lưu trữ loại bỏ các phần tử trùng lặp theo các quy tắc bằng nhau. |
-| `NavigableSet` | Một tập hợp là một cấu trúc lưu trữ loại bỏ các phần tử trùng lặp theo các quy tắc bằng nhau. |
-| `Khi nào nên sử dụng tập hợp (Set)?` | Một tập hợp là một cấu trúc lưu trữ loại bỏ các phần tử trùng lặp theo các quy tắc bằng nhau. |
-| `Cơ chế loại bỏ trùng lặp` | Cơ chế loại bỏ trùng lặp (Duplicate removal mechanism) là một khái niệm cụ thể trong Khung tập hợp; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và lỗi thường gặp (failure mode) thay vì chỉ nhớ tên gọi. |
-| `Vai trò của equals() và hashCode()` | `equals()` định nghĩa sự bằng nhau về mặt logic (logical equality) giữa các đối tượng (objects). |
-| `PriorityQueue` | `PriorityQueue` loại bỏ các phần tử theo độ ưu tiên (priority) thay vì thứ tự chèn (insertion order). |
-| `ArrayDeque` | `ArrayDeque` là một hàng đợi hai đầu (Deque) mảng có thể thay đổi kích thước (resizable-array) thường được ưu tiên cho các hành vi của ngăn xếp (stack) hoặc hàng đợi (queue). |
+- **`TreeSet`** — Một tập hợp (Set) là một cấu trúc lưu trữ (collection) loại bỏ các phần tử trùng lặp (duplicates) theo các quy tắc bằng nhau (equality).
+- **`SortedSet`** — Một tập hợp là một cấu trúc lưu trữ loại bỏ các phần tử trùng lặp theo các quy tắc bằng nhau.
+- **`NavigableSet`** — Một tập hợp là một cấu trúc lưu trữ loại bỏ các phần tử trùng lặp theo các quy tắc bằng nhau.
+- **`Khi nào nên sử dụng tập hợp (Set)?`** — Một tập hợp là một cấu trúc lưu trữ loại bỏ các phần tử trùng lặp theo các quy tắc bằng nhau.
+- **`Cơ chế loại bỏ trùng lặp`** — Cơ chế loại bỏ trùng lặp (Duplicate removal mechanism) là một khái niệm cụ thể trong Khung tập hợp; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và lỗi thường gặp (failure mode) thay vì chỉ nhớ tên gọi.
+- **`Vai trò của equals() và hashCode()`** — `equals()` định nghĩa sự bằng nhau về mặt logic (logical equality) giữa các đối tượng (objects).
+- **`PriorityQueue`** — `PriorityQueue` loại bỏ các phần tử theo độ ưu tiên (priority) thay vì thứ tự chèn (insertion order).
+- **`ArrayDeque`** — `ArrayDeque` là một hàng đợi hai đầu (Deque) mảng có thể thay đổi kích thước (resizable-array) thường được ưu tiên cho các hành vi của ngăn xếp (stack) hoặc hàng đợi (queue).
 
 ## Ghi chú chi tiết (Detailed Notes)
 
@@ -40,12 +38,11 @@ Sử dụng một tập hợp khi các phần tử trùng lặp không được 
 
 ### So sánh HashSet với TreeSet và LinkedHashSet (Comparing HashSet vs TreeSet vs LinkedHashSet)
 
-| Thuộc tính (Property) | HashSet | TreeSet | LinkedHashSet |
-| --- | --- | --- | --- |
-| **Cấu trúc bên trong (Internal Structure)** | HashMap | TreeMap (Cây Đỏ-Đen (Red-Black tree)) | HashMap + Danh sách liên kết kép (Doubly-Linked List) |
-| **Độ phức tạp thời gian (Time Complexity)** | O(1) | O(log N) | O(1) |
-| **Thứ tự duyệt (Iteration Order)** | Chưa xác định | Được sắp xếp | Thứ tự chèn |
-| **Các phần tử Null (Null Elements)** | Được phép (một) | Bị từ chối (NullPointerException) | Được phép (một) |
+**HashSet** sử dụng cấu trúc bên trong là HashMap, độ phức tạp thời gian O(1), thứ tự duyệt chưa xác định, và được phép chứa một phần tử null.
+
+**TreeSet** sử dụng cấu trúc bên trong là TreeMap (Cây Đỏ-Đen (Red-Black tree)), độ phức tạp thời gian O(log N), thứ tự duyệt được sắp xếp, và từ chối phần tử null (ném NullPointerException).
+
+**LinkedHashSet** sử dụng cấu trúc bên trong là HashMap + Danh sách liên kết kép (Doubly-Linked List), độ phức tạp thời gian O(1), thứ tự duyệt theo thứ tự chèn, và được phép chứa một phần tử null.
 
 ### Cơ chế loại bỏ trùng lặp
 

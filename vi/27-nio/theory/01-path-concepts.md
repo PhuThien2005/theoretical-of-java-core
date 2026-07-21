@@ -6,18 +6,16 @@ Tài liệu này tập trung vào một phần trọng tâm của **NIO / NIO.2*
 
 ## Đề cương chi tiết
 
-| Khái niệm | Điều cần biết |
-| --- | --- |
-| `Path` | Path: Một giao diện đại diện cho một đường dẫn phân cấp đến một tệp hoặc thư mục; thay thế `java.io.File` bằng một API sạch sẽ và linh hoạt hơn. |
-| `Paths` | Paths: Một lớp tiện ích nhà máy chứa các phương thức tĩnh (như `Paths.get()`) để tạo một `Path` từ một chuỗi hoặc URI. |
-| `Files` | Files: Một lớp tiện ích hoạt động trên các đối tượng `Path`, cung cấp các phương thức tĩnh để tạo, xóa, sao chép tệp, kiểm tra siêu dữ liệu, và truy vấn luồng thư mục. |
-| `StandardOpenOption` | StandardOpenOption: Một enum định nghĩa các tùy chọn khi mở một tệp (ví dụ: `READ`, `WRITE`, `CREATE`, `APPEND`, `TRUNCATE_EXISTING`). |
-| `Read/write file using Files` | Đọc/ghi tệp bằng Files (Read/write file using Files): Đọc hoặc ghi nội dung tệp hàng loạt bằng các phương thức như `Files.readAllLines()` hoặc truyền luồng (streaming) qua `Files.lines()`. |
-| `Walk file tree` | Duyệt cây tệp (Walk file tree): Quét các cấu trúc thư mục một cách đệ quy bằng các thao tác dựa trên luồng như `Files.walk()`, `Files.find()`, hoặc các trình truy cập tùy chỉnh với `Files.walkFileTree()`. |
-| `Copy/move/delete file` | Sao chép/di chuyển/xóa tệp (Copy/move/delete file): Các thao tác trên đĩa sử dụng `Files.copy()`, `Files.move()`, và `Files.delete()` với các tùy chọn sao chép cấu hình được (như `REPLACE_EXISTING`). |
-| `Channel` | Kênh (Channel): Một kết nối đến một nguồn/đích I/O (như tệp hoặc socket) có khả năng thực hiện truyền dữ liệu hàng loạt, không chặn (non-blocking). |
-| `Buffer` | Bộ đệm (Buffer): Một khối bộ nhớ (bộ chứa dữ liệu nguyên thủy) được sử dụng làm nguồn hoặc đích khi đọc từ hoặc ghi vào một `Channel`. |
-| `ByteBuffer` | ByteBuffer: Một lớp `Buffer` dựa trên byte quản lý trạng thái bằng các biến: `position`, `limit`, và `capacity`. |
+- **`Path`** — Path: Một giao diện đại diện cho một đường dẫn phân cấp đến một tệp hoặc thư mục; thay thế `java.io.File` bằng một API sạch sẽ và linh hoạt hơn.
+- **`Paths`** — Paths: Một lớp tiện ích nhà máy chứa các phương thức tĩnh (như `Paths.get()`) để tạo một `Path` từ một chuỗi hoặc URI.
+- **`Files`** — Files: Một lớp tiện ích hoạt động trên các đối tượng `Path`, cung cấp các phương thức tĩnh để tạo, xóa, sao chép tệp, kiểm tra siêu dữ liệu, và truy vấn luồng thư mục.
+- **`StandardOpenOption`** — StandardOpenOption: Một enum định nghĩa các tùy chọn khi mở một tệp (ví dụ: `READ`, `WRITE`, `CREATE`, `APPEND`, `TRUNCATE_EXISTING`).
+- **`Read/write file using Files`** — Đọc/ghi tệp bằng Files (Read/write file using Files): Đọc hoặc ghi nội dung tệp hàng loạt bằng các phương thức như `Files.readAllLines()` hoặc truyền luồng (streaming) qua `Files.lines()`.
+- **`Walk file tree`** — Duyệt cây tệp (Walk file tree): Quét các cấu trúc thư mục một cách đệ quy bằng các thao tác dựa trên luồng như `Files.walk()`, `Files.find()`, hoặc các trình truy cập tùy chỉnh với `Files.walkFileTree()`.
+- **`Copy/move/delete file`** — Sao chép/di chuyển/xóa tệp (Copy/move/delete file): Các thao tác trên đĩa sử dụng `Files.copy()`, `Files.move()`, và `Files.delete()` với các tùy chọn sao chép cấu hình được (như `REPLACE_EXISTING`).
+- **`Channel`** — Kênh (Channel): Một kết nối đến một nguồn/đích I/O (như tệp hoặc socket) có khả năng thực hiện truyền dữ liệu hàng loạt, không chặn (non-blocking).
+- **`Buffer`** — Bộ đệm (Buffer): Một khối bộ nhớ (bộ chứa dữ liệu nguyên thủy) được sử dụng làm nguồn hoặc đích khi đọc từ hoặc ghi vào một `Channel`.
+- **`ByteBuffer`** — ByteBuffer: Một lớp `Buffer` dựa trên byte quản lý trạng thái bằng các biến: `position`, `limit`, và `capacity`.
 
 ## Ghi chú chi tiết
 

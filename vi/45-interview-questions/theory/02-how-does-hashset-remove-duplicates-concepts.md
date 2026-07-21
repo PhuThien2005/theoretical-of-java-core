@@ -6,16 +6,14 @@ Tài liệu này trình bày các câu hỏi phỏng vấn Java Core ở mức �
 
 ## Khung Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Nội dung cần biết (What to know) |
-| --- | --- |
-| `How does HashSet remove duplicates?` | Sử dụng một `HashMap` bên dưới để lưu trữ các phần tử dưới dạng các khóa; việc kiểm tra trùng lặp dựa trên hai phương thức `hashCode()` và `equals()`. |
-| `How are final, finally, and finalize different?` | `final` là một từ khóa bổ từ; `finally` là một khối lệnh trong cấu trúc try-catch; `finalize()` là một phương thức dọn dẹp tài nguyên đã bị loại bỏ (deprecated). |
-| `How are checked and unchecked exceptions different?` | Ngoại lệ checked phải được khai báo hoặc bắt lại tại thời điểm biên dịch; ngoại lệ unchecked đại diện cho các lỗi logic trong thời gian chạy. |
-| `How are abstract class and interface different?` | Lớp trừu tượng cho phép lưu trữ trạng thái và chỉ hỗ trợ đơn kế thừa; giao diện hỗ trợ đa kế thừa và định nghĩa các hành vi mặc định. |
-| `How are overload and override different?` | Nạp chồng (Overload) là tính đa hình tại thời điểm biên dịch (cùng tên, khác tham số); Ghi đè (Override) là tính đa hình tại thời điểm chạy (mối quan hệ cha-con). |
-| `Can static methods be overridden?` | Không. Chúng chỉ có thể bị ẩn đi (hidden) vì các phương thức static được liên kết tĩnh tại thời điểm biên dịch dựa trên kiểu dữ liệu của lớp. |
-| `Are constructors inherited?` | Không. Chúng phải được khai báo lại trong lớp con hoặc được gọi thông qua hàm khởi tạo của lớp cha bằng cách sử dụng `super()`. |
-| `How are this and super different?` | `this` tham chiếu đến thực thể hiện tại của lớp; `super` tham chiếu đến ngữ cảnh thực thể của lớp cha trực tiếp. |
+- **`How does HashSet remove duplicates?`** — Sử dụng một `HashMap` bên dưới để lưu trữ các phần tử dưới dạng các khóa; việc kiểm tra trùng lặp dựa trên hai phương thức `hashCode()` và `equals()`.
+- **`How are final, finally, and finalize different?`** — `final` là một từ khóa bổ từ; `finally` là một khối lệnh trong cấu trúc try-catch; `finalize()` là một phương thức dọn dẹp tài nguyên đã bị loại bỏ (deprecated).
+- **`How are checked and unchecked exceptions different?`** — Ngoại lệ checked phải được khai báo hoặc bắt lại tại thời điểm biên dịch; ngoại lệ unchecked đại diện cho các lỗi logic trong thời gian chạy.
+- **`How are abstract class and interface different?`** — Lớp trừu tượng cho phép lưu trữ trạng thái và chỉ hỗ trợ đơn kế thừa; giao diện hỗ trợ đa kế thừa và định nghĩa các hành vi mặc định.
+- **`How are overload and override different?`** — Nạp chồng (Overload) là tính đa hình tại thời điểm biên dịch (cùng tên, khác tham số); Ghi đè (Override) là tính đa hình tại thời điểm chạy (mối quan hệ cha-con).
+- **`Can static methods be overridden?`** — Không. Chúng chỉ có thể bị ẩn đi (hidden) vì các phương thức static được liên kết tĩnh tại thời điểm biên dịch dựa trên kiểu dữ liệu của lớp.
+- **`Are constructors inherited?`** — Không. Chúng phải được khai báo lại trong lớp con hoặc được gọi thông qua hàm khởi tạo của lớp cha bằng cách sử dụng `super()`.
+- **`How are this and super different?`** — `this` tham chiếu đến thực thể hiện tại của lớp; `super` tham chiếu đến ngữ cảnh thực thể của lớp cha trực tiếp.
 
 ---
 
@@ -62,12 +60,9 @@ public class HashSet<E> {
 
 ### Lớp Trừu Tượng vs. Giao Diện (Abstract Class vs. Interface)
 
-| Đặc tính | Lớp Trừu Tượng (Abstract Class) | Giao Diện (Interface) |
-| --- | --- | --- |
-| **Kế thừa (Inheritance)** | Đơn kế thừa (`extends`). | Đa kế thừa (`implements`). |
-| **Trạng thái (State)** | Có thể chứa các biến thực thể (trạng thái). | Chỉ có thể chứa các hằng số `public static final`. |
-| **Hàm khởi tạo (Constructors)** | Có thể định nghĩa các hàm khởi tạo. | Không thể chứa các hàm khởi tạo. |
-| **Phương thức (Methods)** | Có thể có các phương thức private, protected, cụ thể và trừu tượng. | Mặc định các phương thức trừu tượng là public. Có thể chứa các phương thức `default` và `static`. |
+**Lớp Trừu Tượng (Abstract Class)** hỗ trợ đơn kế thừa (`extends`), có thể chứa các biến thực thể (trạng thái), có thể định nghĩa các hàm khởi tạo và có thể có các phương thức private, protected, cụ thể và trừu tượng.
+
+**Giao Diện (Interface)** hỗ trợ đa kế thừa (`implements`), chỉ có thể chứa các hằng số `public static final`, không thể chứa các hàm khởi tạo và mặc định các phương thức trừu tượng là public (có thể chứa các phương thức `default` và `static`).
 
 ---
 

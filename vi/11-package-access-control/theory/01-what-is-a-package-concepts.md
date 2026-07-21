@@ -6,17 +6,15 @@ Tài liệu này tập trung vào một phần trọng tâm về **Gói và Ki�
 
 ## Khung Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Nội dung cần biết (What to know) |
-| --- | --- |
-| `What is a package?` | Gói (package) gom nhóm các lớp liên quan lại với nhau và tạo ra một không gian tên (namespace) cho chúng. |
-| `Create package` | Cách khai báo gói cho một lớp sử dụng từ khóa `package`. |
-| `Import package` | Cách sử dụng câu lệnh `import` để truy cập các lớp từ các gói khác. |
-| `import static` | Nhập tĩnh cho phép truy cập trực tiếp các thành viên tĩnh (trường, phương thức) của một lớp mà không cần tên lớp làm tiền tố. |
-| `Default package` | Gói mặc định (default package - gói không tên) được JVM tự động gán cho các lớp không khai báo từ khóa `package`. |
-| `Package naming convention` | Quy ước đặt tên gói sử dụng hoàn toàn chữ thường và cấu trúc tên miền ngược để tránh trùng lặp. |
-| `Access between packages` | Các quy tắc kiểm soát quyền truy cập (`public`, `protected`, package-private, `private`) giữa các gói khác nhau. |
-| `Classpath` | Đường dẫn lớp (Classpath) hướng dẫn cho trình biên dịch và JVM biết nơi tìm kiếm các lớp đã biên dịch và các tệp JAR. |
-| `Basic module path` | Đường dẫn module (Module path) là cơ chế thay thế cho classpath, hoạt động dựa trên hệ thống module được giới thiệu từ Java 9. |
+- **`What is a package?`** — Gói (package) gom nhóm các lớp liên quan lại với nhau và tạo ra một không gian tên (namespace) cho chúng.
+- **`Create package`** — Cách khai báo gói cho một lớp sử dụng từ khóa `package`.
+- **`Import package`** — Cách sử dụng câu lệnh `import` để truy cập các lớp từ các gói khác.
+- **`import static`** — Nhập tĩnh cho phép truy cập trực tiếp các thành viên tĩnh (trường, phương thức) của một lớp mà không cần tên lớp làm tiền tố.
+- **`Default package`** — Gói mặc định (default package - gói không tên) được JVM tự động gán cho các lớp không khai báo từ khóa `package`.
+- **`Package naming convention`** — Quy ước đặt tên gói sử dụng hoàn toàn chữ thường và cấu trúc tên miền ngược để tránh trùng lặp.
+- **`Access between packages`** — Các quy tắc kiểm soát quyền truy cập (`public`, `protected`, package-private, `private`) giữa các gói khác nhau.
+- **`Classpath`** — Đường dẫn lớp (Classpath) hướng dẫn cho trình biên dịch và JVM biết nơi tìm kiếm các lớp đã biên dịch và các tệp JAR.
+- **`Basic module path`** — Đường dẫn module (Module path) là cơ chế thay thế cho classpath, hoạt động dựa trên hệ thống module được giới thiệu từ Java 9.
 
 ---
 

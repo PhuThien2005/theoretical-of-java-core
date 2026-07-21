@@ -6,20 +6,18 @@ Tài liệu này trình bày một phần trọng tâm về **Enum (Kiểu liệ
 
 ## Khung Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Nội dung cần biết (What to know) |
-| --- | --- |
-| `What is an enum?` | Định nghĩa một tập hợp cố định các hằng số được đặt tên như một lớp an toàn kiểu kế thừa từ `java.lang.Enum`. |
-| `Declare enum` | Được khai báo bằng từ khóa `enum`; có thể ở cấp cao nhất (top-level) hoặc lồng nhau (ngầm định là static). |
-| `Enum constructor` | Được thực thi khi nạp lớp, bắt buộc phải là private, không thể khởi tạo bằng từ khóa `new`. |
-| `Enum field` | Các biến thực thể hoặc biến tĩnh được định nghĩa bên trong enum, thường được khai báo `final` để đảm bảo tính bất biến. |
-| `Enum method` | Có thể định nghĩa các phương thức tĩnh, phương thức thực thể, hoặc các phương thức trừu tượng được ghi đè bởi từng hằng số. |
-| `values()` | Phương thức tĩnh trả về một bản sao mảng chứa toàn bộ các hằng số theo đúng thứ tự khai báo. |
-| `valueOf()` | Phương thức tĩnh trả về hằng số enum khớp chính xác với chuỗi tên truyền vào (phân biệt chữ hoa/thường), hoặc ném ra `IllegalArgumentException`. |
-| `ordinal()` | Trả về chỉ số vị trí khai báo (bắt đầu từ 0); cực kỳ nguy hiểm nếu sử dụng cho việc lưu trữ cơ sở dữ liệu hoặc logic nghiệp vụ. |
-| `name()` | Phương thức final trả về chính xác chuỗi ký tự khai báo hằng số; không thể bị ghi đè. |
-| `Enum in switch` | Được sử dụng làm biểu thức lựa chọn; các nhãn case bắt buộc phải sử dụng tên hằng số ngắn gọn. Ném ra NPE nếu biến tham chiếu enum là null. |
-| `EnumSet` | Triển khai giao diện `Set` được tối ưu hóa cực mạnh bằng vectơ bit (bit-vector) dành riêng cho kiểu enum. |
-| `EnumMap` | Triển khai giao diện `Map` tốc độ siêu nhanh dựa trên cấu trúc mảng phẳng, sử dụng các hằng số enum làm khóa (key). |
+- **`What is an enum?`** — Định nghĩa một tập hợp cố định các hằng số được đặt tên như một lớp an toàn kiểu kế thừa từ `java.lang.Enum`.
+- **`Declare enum`** — Được khai báo bằng từ khóa `enum`; có thể ở cấp cao nhất (top-level) hoặc lồng nhau (ngầm định là static).
+- **`Enum constructor`** — Được thực thi khi nạp lớp, bắt buộc phải là private, không thể khởi tạo bằng từ khóa `new`.
+- **`Enum field`** — Các biến thực thể hoặc biến tĩnh được định nghĩa bên trong enum, thường được khai báo `final` để đảm bảo tính bất biến.
+- **`Enum method`** — Có thể định nghĩa các phương thức tĩnh, phương thức thực thể, hoặc các phương thức trừu tượng được ghi đè bởi từng hằng số.
+- **`values()`** — Phương thức tĩnh trả về một bản sao mảng chứa toàn bộ các hằng số theo đúng thứ tự khai báo.
+- **`valueOf()`** — Phương thức tĩnh trả về hằng số enum khớp chính xác với chuỗi tên truyền vào (phân biệt chữ hoa/thường), hoặc ném ra `IllegalArgumentException`.
+- **`ordinal()`** — Trả về chỉ số vị trí khai báo (bắt đầu từ 0); cực kỳ nguy hiểm nếu sử dụng cho việc lưu trữ cơ sở dữ liệu hoặc logic nghiệp vụ.
+- **`name()`** — Phương thức final trả về chính xác chuỗi ký tự khai báo hằng số; không thể bị ghi đè.
+- **`Enum in switch`** — Được sử dụng làm biểu thức lựa chọn; các nhãn case bắt buộc phải sử dụng tên hằng số ngắn gọn. Ném ra NPE nếu biến tham chiếu enum là null.
+- **`EnumSet`** — Triển khai giao diện `Set` được tối ưu hóa cực mạnh bằng vectơ bit (bit-vector) dành riêng cho kiểu enum.
+- **`EnumMap`** — Triển khai giao diện `Map` tốc độ siêu nhanh dựa trên cấu trúc mảng phẳng, sử dụng các hằng số enum làm khóa (key).
 
 ---
 

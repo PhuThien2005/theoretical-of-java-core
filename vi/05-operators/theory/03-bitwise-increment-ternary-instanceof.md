@@ -164,15 +164,13 @@ if (obj instanceof String text) {
 
 Các toán tử từng bit hoạt động trên biểu diễn nhị phân của các giá trị số nguyên.
 
-| Toán tử | Ý nghĩa |
-|---|---|
-| `&` | Phép AND từng bit |
-| `\|` | Phép OR từng bit |
-| `^` | Phép XOR từng bit |
-| `~` | Phép bù từng bit (complement) |
-| `<<` | Dịch trái (left shift) |
-| `>>` | Dịch phải có dấu (signed right shift) |
-| `>>>` | Dịch phải không dấu (unsigned right shift) |
+- **`&`** — Phép AND từng bit.
+- **`|`** — Phép OR từng bit.
+- **`^`** — Phép XOR từng bit.
+- **`~`** — Phép bù từng bit (complement).
+- **`<<`** — Dịch trái (left shift).
+- **`>>`** — Dịch phải có dấu (signed right shift).
+- **`>>>`** — Dịch phải không dấu (unsigned right shift).
 
 Mã Java cho người mới bắt đầu thường ít dùng toán tử từng bit, nhưng chúng xuất hiện nhiều trong các cờ (flag), phân quyền (permission), mã nguồn cấp thấp, hàm băm (hashing), mã nguồn tối ưu hiệu năng và một số thành phần nội bộ của thư viện.
 

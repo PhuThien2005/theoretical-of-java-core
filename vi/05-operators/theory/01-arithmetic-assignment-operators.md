@@ -6,13 +6,11 @@ Các toán tử số học thực hiện các phép toán số học. Các toán
 
 Java có năm toán tử số học phổ biến:
 
-| Toán tử | Ý nghĩa | Ví dụ | Kết quả |
-|---|---|---:|---:|
-| `+` | phép cộng | `7 + 3` | `10` |
-| `-` | phép trừ | `7 - 3` | `4` |
-| `*` | phép nhân | `7 * 3` | `21` |
-| `/` | phép chia | `7 / 3` | `2` khi cả hai toán hạng đều là số nguyên |
-| `%` | phép chia lấy dư | `7 % 3` | `1` |
+- **`+`** — phép cộng, ví dụ `7 + 3` cho kết quả `10`.
+- **`-`** — phép trừ, ví dụ `7 - 3` cho kết quả `4`.
+- **`*`** — phép nhân, ví dụ `7 * 3` cho kết quả `21`.
+- **`/`** — phép chia, ví dụ `7 / 3` cho kết quả `2` khi cả hai toán hạng đều là số nguyên.
+- **`%`** — phép chia lấy dư, ví dụ `7 % 3` cho kết quả `1`.
 
 Một biểu thức số học được đánh giá theo thứ tự ưu tiên của toán tử (operator precedence), sau đó từ trái sang phải đối với các toán tử có cùng mức độ ưu tiên. Phép nhân, phép chia và phép chia lấy dư có độ ưu tiên cao hơn phép cộng và phép trừ.
 

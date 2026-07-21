@@ -6,16 +6,14 @@ Tài liệu này tập trung vào một phần trọng tâm của **Lớp nội 
 
 ## Đề cương chi tiết
 
-| Khái niệm | Điều cần biết |
-| --- | --- |
-| `Nested class` | Lớp lồng nhau (Nested class): Một lớp được định nghĩa bên trong một lớp khác. Được chia thành các lớp lồng nhau tĩnh (static nested class) và các lớp lồng nhau phi tĩnh (non-static nested class, hay còn gọi là lớp nội bộ - inner class). |
-| `Static nested class` | Lớp lồng nhau tĩnh (Static nested class): Lớp lồng nhau được khai báo với từ khóa static; nó hoạt động giống như bất kỳ lớp cấp cao (top-level class) nào khác về mặt gói (package) nhưng được lồng vào để nhóm một cách logic, và không yêu cầu một thực thể lớp ngoài (outer instance). |
-| `Inner class` | Lớp nội bộ (Inner class): Lớp lồng nhau phi tĩnh gắn liền với một thực thể cụ thể của lớp ngoài. |
-| `Local inner class` | Lớp nội bộ cục bộ (Local inner class): Một lớp được định nghĩa bên trong một khối phương thức; nó chỉ có thể truy cập các biến cục bộ final hoặc hiệu dụng final (effectively final). |
-| `Anonymous inner class` | Lớp nội bộ vô danh (Anonymous inner class): Một lớp nội bộ không có tên được khai báo và khởi tạo trong một biểu thức duy nhất để mở rộng một lớp hoặc triển khai một giao diện. |
-| `Access variables outside the class` | Truy cập các biến bên ngoài lớp: Các quy tắc chi phối cách các lớp lồng nhau, lớp nội bộ, lớp cục bộ và lớp vô danh truy cập các thành viên của lớp bao bọc bên ngoài hoặc các biến cục bộ của phương thức. |
-| `Use case of inner class` | Trường hợp sử dụng của lớp nội bộ: Nhóm logic các lớp trợ giúp, đóng gói (ví dụ: Iterator), và duy trì không gian tên cấp cao sạch sẽ. |
-| `Anonymous class in event handler, thread, comparator` | Lớp vô danh trong trình xử lý sự kiện, luồng, bộ so sánh: Triển khai các hành vi nhanh chóng trước khi có lambda; hiểu tại sao phạm vi `this` và biên dịch khác biệt so với lambda. |
+- **`Nested class`** — Lớp lồng nhau (Nested class): Một lớp được định nghĩa bên trong một lớp khác. Được chia thành các lớp lồng nhau tĩnh (static nested class) và các lớp lồng nhau phi tĩnh (non-static nested class, hay còn gọi là lớp nội bộ - inner class).
+- **`Static nested class`** — Lớp lồng nhau tĩnh (Static nested class): Lớp lồng nhau được khai báo với từ khóa static; nó hoạt động giống như bất kỳ lớp cấp cao (top-level class) nào khác về mặt gói (package) nhưng được lồng vào để nhóm một cách logic, và không yêu cầu một thực thể lớp ngoài (outer instance).
+- **`Inner class`** — Lớp nội bộ (Inner class): Lớp lồng nhau phi tĩnh gắn liền với một thực thể cụ thể của lớp ngoài.
+- **`Local inner class`** — Lớp nội bộ cục bộ (Local inner class): Một lớp được định nghĩa bên trong một khối phương thức; nó chỉ có thể truy cập các biến cục bộ final hoặc hiệu dụng final (effectively final).
+- **`Anonymous inner class`** — Lớp nội bộ vô danh (Anonymous inner class): Một lớp nội bộ không có tên được khai báo và khởi tạo trong một biểu thức duy nhất để mở rộng một lớp hoặc triển khai một giao diện.
+- **`Access variables outside the class`** — Truy cập các biến bên ngoài lớp: Các quy tắc chi phối cách các lớp lồng nhau, lớp nội bộ, lớp cục bộ và lớp vô danh truy cập các thành viên của lớp bao bọc bên ngoài hoặc các biến cục bộ của phương thức.
+- **`Use case of inner class`** — Trường hợp sử dụng của lớp nội bộ: Nhóm logic các lớp trợ giúp, đóng gói (ví dụ: Iterator), và duy trì không gian tên cấp cao sạch sẽ.
+- **`Anonymous class in event handler, thread, comparator`** — Lớp vô danh trong trình xử lý sự kiện, luồng, bộ so sánh: Triển khai các hành vi nhanh chóng trước khi có lambda; hiểu tại sao phạm vi `this` và biên dịch khác biệt so với lambda.
 
 ---
 
@@ -354,12 +352,13 @@ class Test {
 
 ### Bảng tóm tắt quy tắc truy cập
 
-| Kiểu lớp | Nội bộ/Lồng nhau | Có thể truy cập thực thể ngoài? | Có thể truy cập biến cục bộ phương thức? | Cú pháp khởi tạo | Có thể định nghĩa thành viên tĩnh? |
-| --- | --- | --- | --- | --- | --- |
-| **Lồng nhau tĩnh (Static Nested)** | Lồng nhau | Không | Không áp dụng | `new Outer.StaticNested()` | Có |
-| **Lớp nội bộ (Inner Class)** | Nội bộ | Có | Không áp dụng | `outerInstance.new Inner()` | Có (Java 16+), Không (Trước Java 16 ngoại trừ các biến hằng số) |
-| **Lớp cục bộ (Local Class)** | Nội bộ | Có | Có (nếu là final/hiệu dụng final) | Chỉ bên trong thân phương thức | Có (Java 16+), Không (Trước Java 16 ngoại trừ các biến hằng số) |
-| **Lớp vô danh (Anonymous Class)** | Nội bộ | Có | Có (nếu là final/hiệu dụng final) | Khai báo & tạo trực tiếp | Có (Java 16+), Không (Trước Java 16 ngoại trừ các biến hằng số) |
+**Lồng nhau tĩnh (Static Nested)** là kiểu Lồng nhau. Nó Không thể truy cập thực thể ngoài, Không áp dụng việc truy cập biến cục bộ phương thức. Cú pháp khởi tạo là `new Outer.StaticNested()`. Có thể định nghĩa thành viên tĩnh.
+
+**Lớp nội bộ (Inner Class)** là kiểu Nội bộ. Nó Có thể truy cập thực thể ngoài, Không áp dụng việc truy cập biến cục bộ phương thức. Cú pháp khởi tạo là `outerInstance.new Inner()`. Có thể định nghĩa thành viên tĩnh từ Java 16+ (Không áp dụng trước Java 16 ngoại trừ các biến hằng số).
+
+**Lớp cục bộ (Local Class)** là kiểu Nội bộ. Nó Có thể truy cập thực thể ngoài, Có thể truy cập biến cục bộ phương thức (nếu là final/hiệu dụng final). Cú pháp khởi tạo là Chỉ bên trong thân phương thức. Có thể định nghĩa thành viên tĩnh từ Java 16+ (Không áp dụng trước Java 16 ngoại trừ các biến hằng số).
+
+**Lớp vô danh (Anonymous Class)** là kiểu Nội bộ. Nó Có thể truy cập thực thể ngoài, Có thể truy cập biến cục bộ phương thức (nếu là final/hiệu dụng final). Cú pháp khởi tạo là Khai báo & tạo trực tiếp. Có thể định nghĩa thành viên tĩnh từ Java 16+ (Không áp dụng trước Java 16 ngoại trừ các biến hằng số).
 
 ---
 

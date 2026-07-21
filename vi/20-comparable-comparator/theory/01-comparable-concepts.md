@@ -6,18 +6,16 @@ Tài liệu này tập trung vào một phần trọng tâm của **Comparable v
 
 ## Đề cương chi tiết
 
-| Khái niệm | Điều cần biết |
-| --- | --- |
-| `Comparable` | Comparable: Định nghĩa thứ tự sắp xếp tự nhiên (natural ordering) bên trong lớp được so sánh. |
-| `compareTo` | compareTo: compareTo là một phương thức cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó. |
-| `Comparator` | Comparator: Định nghĩa thứ tự sắp xếp tùy chỉnh bên ngoài (external custom ordering) cho các đối tượng. |
-| `compare` | compare: compare là một phương thức cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó. |
-| `Natural ordering` | Thứ tự sắp xếp tự nhiên (Natural ordering): Thứ tự sắp xếp tự nhiên là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó. |
-| `Custom ordering` | Thứ tự sắp xếp tùy chỉnh (Custom ordering): Thứ tự sắp xếp tùy chỉnh là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó. |
-| `Sort List object` | Sắp xếp đối tượng List (Sort List object): Sắp xếp các đối tượng danh sách thông qua Collections.sort hoặc List.sort. |
-| `Sort by multiple criteria` | Sắp xếp theo nhiều tiêu chí (Sort by multiple criteria): Sắp xếp theo nhiều tiêu chí là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó. |
-| `Comparator.comparing` | Comparator.comparing: Phương thức tĩnh hỗ trợ tạo một Comparator từ một hàm trích xuất khóa. |
-| `thenComparing` | thenComparing: thenComparing là một phương thức cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó. |
+- **`Comparable`** — Comparable: Định nghĩa thứ tự sắp xếp tự nhiên (natural ordering) bên trong lớp được so sánh.
+- **`compareTo`** — compareTo: compareTo là một phương thức cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+- **`Comparator`** — Comparator: Định nghĩa thứ tự sắp xếp tùy chỉnh bên ngoài (external custom ordering) cho các đối tượng.
+- **`compare`** — compare: compare là một phương thức cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+- **`Natural ordering`** — Thứ tự sắp xếp tự nhiên (Natural ordering): Thứ tự sắp xếp tự nhiên là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+- **`Custom ordering`** — Thứ tự sắp xếp tùy chỉnh (Custom ordering): Thứ tự sắp xếp tùy chỉnh là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+- **`Sort List object`** — Sắp xếp đối tượng List (Sort List object): Sắp xếp các đối tượng danh sách thông qua Collections.sort hoặc List.sort.
+- **`Sort by multiple criteria`** — Sắp xếp theo nhiều tiêu chí (Sort by multiple criteria): Sắp xếp theo nhiều tiêu chí là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+- **`Comparator.comparing`** — Comparator.comparing: Phương thức tĩnh hỗ trợ tạo một Comparator từ một hàm trích xuất khóa.
+- **`thenComparing`** — thenComparing: thenComparing là một phương thức cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
 
 ## Ghi chú chi tiết
 

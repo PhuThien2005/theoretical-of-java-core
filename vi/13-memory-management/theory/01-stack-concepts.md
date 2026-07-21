@@ -6,16 +6,14 @@ File này tập trung vào một phần cụ thể của **Quản Lý Bộ Nhớ
 
 ## Các Khái Niệm Được Đề Cập
 
-| Khái niệm | Cần biết |
-| --- | --- |
-| `Stack` | Stack lưu trữ khung phương thức, biến cục bộ và luồng gọi cho mỗi luồng. |
-| `Heap` | Heap lưu trữ các đối tượng được tạo lúc chạy. |
-| `Vùng Phương Thức / Metaspace` | Metaspace lưu siêu dữ liệu lớp bên ngoài Java heap thông thường trong các JVM hiện đại. |
-| `PC Register` | PC Register theo dõi lệnh JVM hiện tại đang thực thi của một luồng. |
-| `Native Method Stack` | Stack lưu trữ khung phương thức, biến cục bộ và luồng gọi cho mỗi luồng. |
-| `Vòng đời đối tượng` | Vòng đời đối tượng bao gồm tạo, khả năng truy cập, sử dụng và cuối cùng là thu gom rác. |
-| `Biến tham chiếu` | Biến tham chiếu lưu trữ tham chiếu đến đối tượng, không phải bản thân dữ liệu đối tượng. |
-| `Tham chiếu mạnh` | Tham chiếu mạnh giữ đối tượng có thể truy cập và ngăn nó bị thu gom rác. |
+- **`Stack`** — Stack lưu trữ khung phương thức, biến cục bộ và luồng gọi cho mỗi luồng.
+- **`Heap`** — Heap lưu trữ các đối tượng được tạo lúc chạy.
+- **`Vùng Phương Thức / Metaspace`** — Metaspace lưu siêu dữ liệu lớp bên ngoài Java heap thông thường trong các JVM hiện đại.
+- **`PC Register`** — PC Register theo dõi lệnh JVM hiện tại đang thực thi của một luồng.
+- **`Native Method Stack`** — Stack lưu trữ khung phương thức, biến cục bộ và luồng gọi cho mỗi luồng.
+- **`Vòng đời đối tượng`** — Vòng đời đối tượng bao gồm tạo, khả năng truy cập, sử dụng và cuối cùng là thu gom rác.
+- **`Biến tham chiếu`** — Biến tham chiếu lưu trữ tham chiếu đến đối tượng, không phải bản thân dữ liệu đối tượng.
+- **`Tham chiếu mạnh`** — Tham chiếu mạnh giữ đối tượng có thể truy cập và ngăn nó bị thu gom rác.
 
 ## Ghi Chú Chi Tiết
 

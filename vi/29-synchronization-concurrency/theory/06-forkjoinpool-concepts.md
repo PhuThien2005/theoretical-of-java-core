@@ -6,10 +6,8 @@ Tài liệu này trình bày về khung Fork/Join (`ForkJoinPool`, `RecursiveTas
 
 ## Nội Dung Tổng Quan
 
-| Khái niệm | Điều cần biết |
-| --- | --- |
-| `ForkJoinPool` | Một bể chứa trình thực thi (executor pool) chuyên dụng được thiết kế cho các tác vụ chia để trị (divide-and-conquer) bằng cách sử dụng thuật toán trộm công việc (work-stealing algorithm). |
-| `Parallel Stream` | Một chế độ thực thi luồng chia nhỏ dữ liệu của luồng và thực thi song song các giai đoạn xử lý, sử dụng `ForkJoinPool` chung. |
+- **`ForkJoinPool`** — Một bể chứa trình thực thi (executor pool) chuyên dụng được thiết kế cho các tác vụ chia để trị (divide-and-conquer) bằng cách sử dụng thuật toán trộm công việc (work-stealing algorithm).
+- **`Parallel Stream`** — Một chế độ thực thi luồng chia nhỏ dữ liệu của luồng và thực thi song song các giai đoạn xử lý, sử dụng `ForkJoinPool` chung.
 
 ## Ghi Chú Chi Tiết
 

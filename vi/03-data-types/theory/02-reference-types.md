@@ -118,13 +118,11 @@ Phần trước đã nêu rằng `String` không phải là kiểu nguyên thủ
 
 Câu trả lời xuất phát trực tiếp từ cách hoạt động của Stack: **các kiểu nguyên thủy phải có kích thước cố định, có thể dự đoán trước tại thời điểm biên dịch**. Mọi kiểu nguyên thủy trong Java đều có kích thước được đảm bảo:
 
-| Kiểu dữ liệu | Kích thước | Luôn giống nhau? |
-|---|---|---|
-| `byte` | 8 bit | ✅ Có |
-| `int` | 32 bit | ✅ Có |
-| `double` | 64 bit | ✅ Có |
-| `boolean` | Phụ thuộc vào JVM | ✅ Về mặt khái niệm là 1 bit |
-| `String` | ??? | ❌ **Không — phụ thuộc vào nội dung** |
+- **`byte`** — Kích thước 8 bit, luôn giống nhau (✅ Có).
+- **`int`** — Kích thước 32 bit, luôn giống nhau (✅ Có).
+- **`double`** — Kích thước 64 bit, luôn giống nhau (✅ Có).
+- **`boolean`** — Kích thước phụ thuộc vào JVM, luôn giống nhau (✅ Về mặt khái niệm là 1 bit).
+- **`String`** — Kích thước không xác định (???), không luôn giống nhau (❌ **Không — phụ thuộc vào nội dung**).
 
 Một `String` có thể dài 1 ký tự hoặc 1 triệu ký tự. Kích thước của nó là **thay đổi và không thể dự đoán trước tại thời điểm biên dịch**:
 

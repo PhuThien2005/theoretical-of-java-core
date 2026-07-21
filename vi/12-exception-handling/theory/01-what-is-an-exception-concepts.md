@@ -6,16 +6,14 @@ File này bao gồm một phần tập trung của **Xử Lý Ngoại Lệ (Exce
 
 ## Phạm Vi Đề Cương
 
-| Khái niệm | Cần biết |
-| --- | --- |
-| `Ngoại lệ là gì?` | Ngoại lệ (exception) đại diện cho một điều kiện bất thường mà chương trình có thể bắt hoặc lan truyền. |
-| `Error vs Exception` | Ngoại lệ đại diện cho điều kiện bất thường mà chương trình có thể bắt hoặc lan truyền. |
-| `Checked exception` | Ngoại lệ bắt buộc phải được xử lý hoặc khai báo theo quy tắc trình biên dịch. |
-| `Unchecked exception` | Ngoại lệ không bắt buộc phải bắt hoặc khai báo. |
-| `Runtime exception` | Ngoại lệ đại diện cho điều kiện bất thường mà chương trình có thể bắt hoặc lan truyền. |
-| `try` | `try` đánh dấu khối mà bạn muốn xử lý, dọn dẹp sau, hoặc lan truyền ngoại lệ của nó. |
-| `catch` | `catch` xử lý một kiểu ngoại lệ khớp được ném ra từ khối `try`. |
-| `multiple catch` | `multiple catch` cho phép các kiểu ngoại lệ khác nhau được xử lý bởi các trình xử lý khác nhau, sắp xếp từ cụ thể đến rộng. |
+- **`Ngoại lệ là gì?`** — Ngoại lệ (exception) đại diện cho một điều kiện bất thường mà chương trình có thể bắt hoặc lan truyền.
+- **`Error vs Exception`** — Ngoại lệ đại diện cho điều kiện bất thường mà chương trình có thể bắt hoặc lan truyền.
+- **`Checked exception`** — Ngoại lệ bắt buộc phải được xử lý hoặc khai báo theo quy tắc trình biên dịch.
+- **`Unchecked exception`** — Ngoại lệ không bắt buộc phải bắt hoặc khai báo.
+- **`Runtime exception`** — Ngoại lệ đại diện cho điều kiện bất thường mà chương trình có thể bắt hoặc lan truyền.
+- **`try`** — `try` đánh dấu khối mà bạn muốn xử lý, dọn dẹp sau, hoặc lan truyền ngoại lệ của nó.
+- **`catch`** — `catch` xử lý một kiểu ngoại lệ khớp được ném ra từ khối `try`.
+- **`multiple catch`** — `multiple catch` cho phép các kiểu ngoại lệ khác nhau được xử lý bởi các trình xử lý khác nhau, sắp xếp từ cụ thể đến rộng.
 
 ## Ghi Chú Chi Tiết
 

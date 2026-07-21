@@ -6,16 +6,14 @@ Tài liệu này tập trung vào một phần chuyên sâu của **API Ngày v�
 
 ## Tóm Tắt Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Điều cần biết (What to know) |
-| --- | --- |
-| `Period` | Biểu diễn bất biến, an toàn luồng của một lượng thời gian dựa trên ngày tính theo năm, tháng và ngày. |
-| `DateTimeFormatter` | Lớp hiện đại, bất biến, an toàn luồng để định dạng và phân tích cú pháp các giá trị ngày giờ. |
-| `ZoneId` | Trình nhận dạng múi giờ (ví dụ: `Asia/Tokyo`) được sử dụng để giải quyết các quy tắc giờ mùa hè và các chuyển đổi vùng. |
-| `Parse date/time` | Chuyển đổi một chuỗi thành một đối tượng thời gian bằng cách sử dụng bộ định dạng; ném ra ngoại lệ `DateTimeParseException` tại thời điểm chạy nếu thất bại. |
-| `Format date/time` | Chuyển đổi một đối tượng thời gian thành một chuỗi được định dạng; ném ra ngoại lệ `UnsupportedTemporalTypeException` nếu các trường định dạng không được hỗ trợ. |
-| `Compare date/time` | So sánh theo thứ tự thời gian bằng cách sử dụng `isBefore()`, `isAfter()`, `isEqual()`, và `compareTo()`. |
-| `Add/subtract date/time` | Thực hiện các phép toán số học bằng cách sử dụng các phương thức bất biến (plus/minus) hoặc điều chỉnh (with/TemporalAdjusters). |
-| `Timezone` | Lượng lệch thời gian địa lý được chuẩn hóa; được giải quyết bằng `ZoneId` và `ZoneOffset`. |
+- **`Period`** — Biểu diễn bất biến, an toàn luồng của một lượng thời gian dựa trên ngày tính theo năm, tháng và ngày.
+- **`DateTimeFormatter`** — Lớp hiện đại, bất biến, an toàn luồng để định dạng và phân tích cú pháp các giá trị ngày giờ.
+- **`ZoneId`** — Trình nhận dạng múi giờ (ví dụ: `Asia/Tokyo`) được sử dụng để giải quyết các quy tắc giờ mùa hè và các chuyển đổi vùng.
+- **`Parse date/time`** — Chuyển đổi một chuỗi thành một đối tượng thời gian bằng cách sử dụng bộ định dạng; ném ra ngoại lệ `DateTimeParseException` tại thời điểm chạy nếu thất bại.
+- **`Format date/time`** — Chuyển đổi một đối tượng thời gian thành một chuỗi được định dạng; ném ra ngoại lệ `UnsupportedTemporalTypeException` nếu các trường định dạng không được hỗ trợ.
+- **`Compare date/time`** — So sánh theo thứ tự thời gian bằng cách sử dụng `isBefore()`, `isAfter()`, `isEqual()`, và `compareTo()`.
+- **`Add/subtract date/time`** — Thực hiện các phép toán số học bằng cách sử dụng các phương thức bất biến (plus/minus) hoặc điều chỉnh (with/TemporalAdjusters).
+- **`Timezone`** — Lượng lệch thời gian địa lý được chuẩn hóa; được giải quyết bằng `ZoneId` và `ZoneOffset`.
 
 ## Ghi Chú Chi Tiết
 

@@ -6,12 +6,10 @@ Tài liệu này tập trung vào một phần trọng tâm của **JVM nâng ca
 
 ## Đề cương chi tiết
 
-| Khái niệm | Điều cần biết |
-| --- | --- |
-| `-XX` | -XX: -XX là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó. |
-| `Basic profiling` | Phân tích hiệu năng cơ bản (Basic profiling): Phân tích hiệu năng cơ bản là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó. |
-| `Memory dump` | Kết xuất bộ nhớ (Memory dump): Kết xuất bộ nhớ là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó. |
-| `Thread dump` | Kết xuất luồng (Thread dump): Kết xuất luồng là một bản chụp nhanh (snapshot) trạng thái và dấu vết ngăn xếp (stack trace) của tất cả các luồng đang hoạt động trong một JVM. |
+- **`-XX`** — -XX: -XX là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+- **`Basic profiling`** — Phân tích hiệu năng cơ bản (Basic profiling): Phân tích hiệu năng cơ bản là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+- **`Memory dump`** — Kết xuất bộ nhớ (Memory dump): Kết xuất bộ nhớ là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+- **`Thread dump`** — Kết xuất luồng (Thread dump): Kết xuất luồng là một bản chụp nhanh (snapshot) trạng thái và dấu vết ngăn xếp (stack trace) của tất cả các luồng đang hoạt động trong một JVM.
 
 ## Ghi chú chi tiết
 

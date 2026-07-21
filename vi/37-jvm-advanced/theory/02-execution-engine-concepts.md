@@ -6,16 +6,14 @@ Tài liệu này trình bày một phần trọng tâm của **JVM Nâng Cao (Ad
 
 ## Khung Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Nội dung cần biết (What to know) |
-| --- | --- |
-| `Execution Engine` | Bộ thực thi (Execution Engine) là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi (failure mode) thay vì chỉ nhớ tên khái niệm. |
-| `Interpreter` | Bộ thông dịch (Interpreter) là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm. |
-| `JIT Compiler` | Trình biên dịch JIT (JIT compiler) chuyển đổi mã byte (bytecode) được thực thi thường xuyên ("hot bytecode") thành mã máy tối ưu tại thời điểm chạy (runtime). |
-| `Garbage Collector` | Bộ thu gom rác (Garbage Collector) là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm. |
-| `Native Interface` | Giao diện bản địa (Native Interface) là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm. |
-| `Heap generation:` | Phân thế hệ vùng nhớ Heap (Heap generation) phân chia các đối tượng theo tuổi thọ để tối ưu hóa hiệu suất của bộ thu gom rác. |
-| `Young Generation` | Thế hệ Trẻ (Young Generation) là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm. |
-| `Eden` | Vùng Eden (Eden) là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm. |
+- **`Execution Engine`** — Bộ thực thi (Execution Engine) là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi (failure mode) thay vì chỉ nhớ tên khái niệm.
+- **`Interpreter`** — Bộ thông dịch (Interpreter) là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
+- **`JIT Compiler`** — Trình biên dịch JIT (JIT compiler) chuyển đổi mã byte (bytecode) được thực thi thường xuyên ("hot bytecode") thành mã máy tối ưu tại thời điểm chạy (runtime).
+- **`Garbage Collector`** — Bộ thu gom rác (Garbage Collector) là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
+- **`Native Interface`** — Giao diện bản địa (Native Interface) là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
+- **`Heap generation:`** — Phân thế hệ vùng nhớ Heap (Heap generation) phân chia các đối tượng theo tuổi thọ để tối ưu hóa hiệu suất của bộ thu gom rác.
+- **`Young Generation`** — Thế hệ Trẻ (Young Generation) là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
+- **`Eden`** — Vùng Eden (Eden) là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 

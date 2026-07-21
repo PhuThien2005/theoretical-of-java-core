@@ -6,11 +6,9 @@ Tài liệu này tập trung vào một phần chuyên sâu của **Lập Trình
 
 ## Tóm Tắt Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Điều cần biết (What to know) |
-| --- | --- |
-| `HttpURLConnection` | Lớp HTTP client kế thừa, gây chặn (blocking), thiếu hỗ trợ giao thức hiện đại, yêu cầu cấu hình thời gian chờ (timeout) rõ ràng. |
-| `Java 11 HttpClient` | Máy khách HTTP hiện đại, không gây chặn (non-blocking) hỗ trợ HTTP/2, WebSockets, và các hoạt động bất đồng bộ. |
-| `Client-server model` | Kiến trúc phân tán nơi các máy khách (client) khởi tạo yêu cầu và các máy chủ (server) xử lý và phản hồi chúng. |
+- **`HttpURLConnection`** — Lớp HTTP client kế thừa, gây chặn (blocking), thiếu hỗ trợ giao thức hiện đại, yêu cầu cấu hình thời gian chờ (timeout) rõ ràng.
+- **`Java 11 HttpClient`** — Máy khách HTTP hiện đại, không gây chặn (non-blocking) hỗ trợ HTTP/2, WebSockets, và các hoạt động bất đồng bộ.
+- **`Client-server model`** — Kiến trúc phân tán nơi các máy khách (client) khởi tạo yêu cầu và các máy chủ (server) xử lý và phản hồi chúng.
 
 ## Ghi Chú Chi Tiết
 

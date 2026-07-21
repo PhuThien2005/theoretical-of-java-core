@@ -6,16 +6,14 @@ Tài liệu này tập trung vào một phần trọng tâm của **Stream API**
 
 ## Đề cương chi tiết
 
-| Khái niệm | Điều cần biết |
-| --- | --- |
-| `Lazy evaluation` | Đánh giá lười biếng (Lazy evaluation): Đánh giá lười biếng là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó. |
-| `Short-circuiting` | Ngắt mạch (Short-circuiting): Ngắt mạch là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó. |
-| `Parallel stream` | Luồng song song (Parallel stream): Một Stream là một đường ống để xử lý các phần tử thông qua các thao tác lười biếng. |
-| `Collectors:` | Các bộ thu thập (Collectors:): Collectors là một nhóm các quy tắc liên quan trong Stream API nhóm một số chi tiết liên quan. |
-| `toSet` | toSet: Một Set là một bộ sưu tập từ chối các phần tử trùng lặp theo quy tắc bằng nhau. |
-| `toMap` | toMap: Một Map lưu trữ các cặp khóa-giá trị và truy xuất các giá trị theo khóa. |
-| `joining` | joining: joining là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó. |
-| `groupingBy` | groupingBy: groupingBy là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó. |
+- **`Lazy evaluation`** — Đánh giá lười biếng (Lazy evaluation): Đánh giá lười biếng là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+- **`Short-circuiting`** — Ngắt mạch (Short-circuiting): Ngắt mạch là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+- **`Parallel stream`** — Luồng song song (Parallel stream): Một Stream là một đường ống để xử lý các phần tử thông qua các thao tác lười biếng.
+- **`Collectors:`** — Các bộ thu thập (Collectors:): Collectors là một nhóm các quy tắc liên quan trong Stream API nhóm một số chi tiết liên quan.
+- **`toSet`** — toSet: Một Set là một bộ sưu tập từ chối các phần tử trùng lặp theo quy tắc bằng nhau.
+- **`toMap`** — toMap: Một Map lưu trữ các cặp khóa-giá trị và truy xuất các giá trị theo khóa.
+- **`joining`** — joining: joining là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+- **`groupingBy`** — groupingBy: groupingBy là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
 
 ## Ghi chú chi tiết
 

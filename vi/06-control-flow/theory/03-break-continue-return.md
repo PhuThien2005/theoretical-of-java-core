@@ -54,11 +54,9 @@ Trong một phương thức không có kiểu trả về void (non-void method),
 
 ## So Sánh Ba Từ Khóa
 
-| Câu lệnh | Thoát khỏi cái gì? | Cách dùng phổ biến |
-|---|---|---|
-| `break` | vòng lặp hoặc switch gần nhất | dừng tìm kiếm, ngăn hiện tượng fall-through trong switch |
-| `continue` | lần lặp hiện tại của vòng lặp | bỏ qua một phần tử và tiếp tục vòng lặp |
-| `return` | phương thức hiện tại | kết thúc phương thức sớm hoặc trả về kết quả |
+- **`break`** — thoát khỏi vòng lặp hoặc switch gần nhất. Cách dùng phổ biến là dừng tìm kiếm, ngăn hiện tượng fall-through trong switch.
+- **`continue`** — thoát khỏi lần lặp hiện tại của vòng lặp. Cách dùng phổ biến là bỏ qua một phần tử và tiếp tục vòng lặp.
+- **`return`** — thoát khỏi phương thức hiện tại. Cách dùng phổ biến là kết thúc phương thức sớm hoặc trả về kết quả.
 
 ## Thoát Sớm Và Khả Năng Đọc Mã Nguồn (Early Exit And Readability)
 

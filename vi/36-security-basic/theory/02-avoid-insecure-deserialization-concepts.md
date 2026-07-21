@@ -6,9 +6,7 @@ Tài liệu này trình bày một phần trọng tâm của **Bảo mật cơ b
 
 ## Nội Dung Tổng Quan
 
-| Khái niệm | Điều cần biết |
-| --- | --- |
-| `Avoid insecure deserialization` | Tuần tự hóa (Serialization) chuyển đổi một đồ thị đối tượng thành các byte để có thể lưu trữ hoặc truyền đi. |
+- **`Avoid insecure deserialization`** — Tuần tự hóa (Serialization) chuyển đổi một đồ thị đối tượng thành các byte để có thể lưu trữ hoặc truyền đi.
 
 ## Ghi Chú Chi Tiết
 

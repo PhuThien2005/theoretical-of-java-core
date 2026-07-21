@@ -6,10 +6,8 @@ Tài liệu này trình bày một phần trọng tâm của **Enum**. Hãy nghi
 
 ## Nội Dung Tổng Quan
 
-| Khái niệm | Điều cần biết |
-| --- | --- |
-| `Enum implements interface` | Enum không thể kế thừa lớp khác, nhưng chúng có thể triển khai các giao diện (interface) để hỗ trợ tính đa hình. |
-| `Enum Singleton pattern` | Triển khai một Singleton dưới dạng một enum có duy nhất một phần tử cung cấp khả năng bảo mật tích hợp sẵn chống lại các cuộc tấn công thông qua phản chiếu (reflection) và tuần tự hóa (serialization). |
+- **`Enum implements interface`** — Enum không thể kế thừa lớp khác, nhưng chúng có thể triển khai các giao diện (interface) để hỗ trợ tính đa hình.
+- **`Enum Singleton pattern`** — Triển khai một Singleton dưới dạng một enum có duy nhất một phần tử cung cấp khả năng bảo mật tích hợp sẵn chống lại các cuộc tấn công thông qua phản chiếu (reflection) và tuần tự hóa (serialization).
 
 ## Ghi Chú Chi Tiết
 

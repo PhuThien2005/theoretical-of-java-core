@@ -6,14 +6,12 @@ Tài liệu này trình bày các câu hỏi phỏng vấn Java Core nâng cao l
 
 ## Khung Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Nội dung cần biết (What to know) |
-| --- | --- |
-| `How are map and flatMap different?` | `map` biến đổi từng phần tử thành một giá trị đơn lẻ (quan hệ 1-1); `flatMap` biến đổi từng phần tử thành một Stream và làm phẳng chúng lại thành một Stream duy nhất (quan hệ 1-nhiều). |
-| `How are orElse and orElseGet different?` | `orElse` luôn luôn đánh giá tham số truyền vào; `orElseGet` chỉ đánh giá một cách trì hoãn (lazy) bằng cách sử dụng một `Supplier` khi đối tượng `Optional` rỗng. |
-| `How are HashMap, Hashtable, and ConcurrentHashMap different?` | `HashMap` không được đồng bộ hóa; `Hashtable` thực hiện khóa trên toàn bộ bảng; `ConcurrentHashMap` sử dụng phân đoạn khóa (lock striping) và các phép toán CAS để đạt hiệu năng đồng thời cao. |
-| `Why must overriding equals() also override hashCode()?` | Để duy trì ràng buộc rằng các đối tượng bằng nhau thì phải có mã băm bằng nhau, đảm bảo hành vi chính xác trong các bộ sưu tập băm (hash collections). |
-| `How does Garbage Collection work?` | Thu hồi bộ nhớ của các đối tượng không còn khả năng tiếp cận (unreachable); thông thường sử dụng lý thuyết phân thế hệ chia bộ nhớ heap thành thế hệ Trẻ (Young Gen) và thế hệ Già (Old Gen). |
-| `How are Stack and Heap different?` | Stack lưu trữ các biến cục bộ và các khung thực thi phương thức (dành riêng cho từng luồng); Heap lưu trữ tất cả các đối tượng và mảng (chia sẻ chung giữa các luồng). |
+- **`How are map and flatMap different?`** — `map` biến đổi từng phần tử thành một giá trị đơn lẻ (quan hệ 1-1); `flatMap` biến đổi từng phần tử thành một Stream và làm phẳng chúng lại thành một Stream duy nhất (quan hệ 1-nhiều).
+- **`How are orElse and orElseGet different?`** — `orElse` luôn luôn đánh giá tham số truyền vào; `orElseGet` chỉ đánh giá một cách trì hoãn (lazy) bằng cách sử dụng một `Supplier` khi đối tượng `Optional` rỗng.
+- **`How are HashMap, Hashtable, and ConcurrentHashMap different?`** — `HashMap` không được đồng bộ hóa; `Hashtable` thực hiện khóa trên toàn bộ bảng; `ConcurrentHashMap` sử dụng phân đoạn khóa (lock striping) và các phép toán CAS để đạt hiệu năng đồng thời cao.
+- **`Why must overriding equals() also override hashCode()?`** — Để duy trì ràng buộc rằng các đối tượng bằng nhau thì phải có mã băm bằng nhau, đảm bảo hành vi chính xác trong các bộ sưu tập băm (hash collections).
+- **`How does Garbage Collection work?`** — Thu hồi bộ nhớ của các đối tượng không còn khả năng tiếp cận (unreachable); thông thường sử dụng lý thuyết phân thế hệ chia bộ nhớ heap thành thế hệ Trẻ (Young Gen) và thế hệ Già (Old Gen).
+- **`How are Stack and Heap different?`** — Stack lưu trữ các biến cục bộ và các khung thực thi phương thức (dành riêng cho từng luồng); Heap lưu trữ tất cả các đối tượng và mảng (chia sẻ chung giữa các luồng).
 
 ---
 

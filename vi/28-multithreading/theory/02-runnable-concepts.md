@@ -6,16 +6,14 @@ Tài liệu này tập trung vào các trạng thái thực thi luồng, lập l
 
 ## Đề cương chi tiết
 
-| Khái niệm | Điều cần biết |
-| --- | --- |
-| `Runnable` (Thread State) | Trạng thái có thể chạy (Runnable): Trạng thái mà một luồng (thread) đang thực thi hoặc sẵn sàng/đủ điều kiện để thực thi, chờ trình lập lịch luồng (thread scheduler) của hệ điều hành phân phối thời gian CPU. |
-| `Running` | Đang chạy (Running): Trạng thái con mang tính khái niệm của `RUNNABLE`, nơi các lệnh của luồng đang thực sự được thực thi trên một nhân CPU. Java ánh xạ cả hai trạng thái sẵn sàng và đang chạy vào `Thread.State.RUNNABLE`. |
-| `Blocked` | Bị chặn (Blocked): Trạng thái của một luồng đang chờ để lấy khóa giám sát đối tượng (object monitor lock) (cho một khối/phương thức `synchronized`). |
-| `Waiting` | Chờ (Waiting): Trạng thái của một luồng đang chờ vô thời hạn để một luồng khác thực hiện một hành động cụ thể (thông qua `Object.wait()` hoặc `Thread.join()`). |
-| `Timed Waiting` | Chờ có thời hạn (Timed Waiting): Trạng thái của một luồng đang chờ trong một khoảng thời gian giới hạn (thông qua `Thread.sleep()`, `Object.wait(timeout)`, hoặc `Thread.join(timeout)`). |
-| `Terminated` | Bị hủy/Kết thúc (Terminated): Trạng thái của một luồng đã hoàn thành việc thực thi (hoặc bình thường hoặc bằng cách ném ra một ngoại lệ không được xử lý). |
-| `start() vs run()` | start() so với run(): `start()` cấp phát các tài nguyên hệ điều hành và lập lịch cho luồng thực thi bất đồng bộ; `run()` thực thi mã nhiệm vụ một cách đồng bộ trong luồng hiện tại. |
-| `sleep` | sleep: Một phương thức tĩnh (`Thread.sleep()`) tạm dừng thực thi luồng hiện tại trong một khoảng thời gian được chỉ định, giải phóng CPU nhưng **giữ nguyên** bất kỳ khóa nào đã lấy được. |
+- **`Runnable` (Thread State)** — Trạng thái có thể chạy (Runnable): Trạng thái mà một luồng (thread) đang thực thi hoặc sẵn sàng/đủ điều kiện để thực thi, chờ trình lập lịch luồng (thread scheduler) của hệ điều hành phân phối thời gian CPU.
+- **`Running`** — Đang chạy (Running): Trạng thái con mang tính khái niệm của `RUNNABLE`, nơi các lệnh của luồng đang thực sự được thực thi trên một nhân CPU. Java ánh xạ cả hai trạng thái sẵn sàng và đang chạy vào `Thread.State.RUNNABLE`.
+- **`Blocked`** — Bị chặn (Blocked): Trạng thái của một luồng đang chờ để lấy khóa giám sát đối tượng (object monitor lock) (cho một khối/phương thức `synchronized`).
+- **`Waiting`** — Chờ (Waiting): Trạng thái của một luồng đang chờ vô thời hạn để một luồng khác thực hiện một hành động cụ thể (thông qua `Object.wait()` hoặc `Thread.join()`).
+- **`Timed Waiting`** — Chờ có thời hạn (Timed Waiting): Trạng thái của một luồng đang chờ trong một khoảng thời gian giới hạn (thông qua `Thread.sleep()`, `Object.wait(timeout)`, hoặc `Thread.join(timeout)`).
+- **`Terminated`** — Bị hủy/Kết thúc (Terminated): Trạng thái của một luồng đã hoàn thành việc thực thi (hoặc bình thường hoặc bằng cách ném ra một ngoại lệ không được xử lý).
+- **`start() vs run()`** — start() so với run(): `start()` cấp phát các tài nguyên hệ điều hành và lập lịch cho luồng thực thi bất đồng bộ; `run()` thực thi mã nhiệm vụ một cách đồng bộ trong luồng hiện tại.
+- **`sleep`** — sleep: Một phương thức tĩnh (`Thread.sleep()`) tạm dừng thực thi luồng hiện tại trong một khoảng thời gian được chỉ định, giải phóng CPU nhưng **giữ nguyên** bất kỳ khóa nào đã lấy được.
 
 ## Ghi chú chi tiết
 

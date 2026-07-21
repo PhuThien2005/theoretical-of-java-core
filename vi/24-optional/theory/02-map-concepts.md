@@ -6,13 +6,11 @@ File này bao quát một phần tập trung của **Optional** (lớp tùy ch�
 
 ## Phạm Vi Đề Cương
 
-| Khái Niệm | Cần biết |
-| --- | --- |
-| `map` | `map` biến đổi giá trị được bọc nếu hiện diện và bọc kết quả trở lại thành Optional. |
-| `flatMap` | `flatMap` biến đổi giá trị được bọc bằng hàm ánh xạ trả về Optional, tránh lồng nhau. |
-| `filter` | `filter` là khái niệm cụ thể trong Optional; hãy học quy tắc Java, trường hợp dùng hợp lệ và chế độ thất bại. |
-| `Do not overuse Optional` | Optional là container có thể chứa hoặc không chứa một giá trị khác null. |
-| `Optional in return type` | Optional là container có thể chứa hoặc không chứa một giá trị khác null. |
+- **`map`** — `map` biến đổi giá trị được bọc nếu hiện diện và bọc kết quả trở lại thành Optional.
+- **`flatMap`** — `flatMap` biến đổi giá trị được bọc bằng hàm ánh xạ trả về Optional, tránh lồng nhau.
+- **`filter`** — `filter` là khái niệm cụ thể trong Optional; hãy học quy tắc Java, trường hợp dùng hợp lệ và chế độ thất bại.
+- **`Do not overuse Optional`** — Optional là container có thể chứa hoặc không chứa một giá trị khác null.
+- **`Optional in return type`** — Optional là container có thể chứa hoặc không chứa một giá trị khác null.
 
 ## Ghi Chú Chi Tiết
 

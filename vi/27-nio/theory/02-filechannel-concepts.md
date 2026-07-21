@@ -6,11 +6,9 @@ File này đề cập đến một phần trọng tâm của **NIO / NIO.2**. H�
 
 ## Đề Cương Khái Niệm
 
-| Khái niệm | Những điều cần biết |
-| --- | --- |
-| `FileChannel` | Một kênh an toàn luồng (thread-safe), hiệu năng cao để đọc, ghi, ánh xạ và khóa các tệp; hỗ trợ các thao tác truy cập ngẫu nhiên (random access). |
-| `Selector Cơ Bản (Basic Selector)` | Một bộ dồn kênh (multiplexor) của các kênh có thể lựa chọn, cho phép một luồng duy nhất quản lý và giám sát nhiều kênh mạng không chặn (non-blocking network channel/socket). |
-| `I/O Bất Đồng Bộ Cơ Bản (Basic Asynchronous IO)` | Các hoạt động I/O tệp không chặn chạy bất đồng bộ, trả về một `Future` hoặc thực thi một hàm gọi lại (callback) `CompletionHandler` sau khi hoàn thành. |
+- **`FileChannel`** — Một kênh an toàn luồng (thread-safe), hiệu năng cao để đọc, ghi, ánh xạ và khóa các tệp; hỗ trợ các thao tác truy cập ngẫu nhiên (random access).
+- **`Selector Cơ Bản (Basic Selector)`** — Một bộ dồn kênh (multiplexor) của các kênh có thể lựa chọn, cho phép một luồng duy nhất quản lý và giám sát nhiều kênh mạng không chặn (non-blocking network channel/socket).
+- **`I/O Bất Đồng Bộ Cơ Bản (Basic Asynchronous IO)`** — Các hoạt động I/O tệp không chặn chạy bất đồng bộ, trả về một `Future` hoặc thực thi một hàm gọi lại (callback) `CompletionHandler` sau khi hoàn thành.
 
 ## Ghi Chú Chi Tiết
 

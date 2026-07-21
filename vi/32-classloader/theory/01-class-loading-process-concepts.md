@@ -6,17 +6,15 @@ Tài liệu này đề cập đến một phần trọng tâm của trình nạp
 
 ## Nội Dung Khái Quát (Outline Coverage)
 
-| Khái Niệm (Concept) | Thông Tin Cần Biết (What to know) |
-| --- | --- |
-| `Class loading process` | Vòng đời gồm nhiều giai đoạn của việc nạp (Loading), liên kết (Linking), và khởi tạo (Initializing) các định nghĩa lớp vào bộ nhớ JVM (JVM memory). |
-| `Bootstrap ClassLoader` | Trình nạp lớp gốc bằng mã máy (native-code) chịu trách nhiệm nạp các lớp thời gian chạy cốt lõi (ví dụ: `java.lang.Object`). |
-| `Platform/Extension ClassLoader` | Trình nạp lớp nạp các mô-đun nền tảng không cốt lõi hoặc các API mở rộng. |
-| `Application ClassLoader` | Trình nạp lớp (trình nạp lớp hệ thống) nạp các lớp từ đường dẫn lớp (Classpath) của ứng dụng. |
-| `Parent delegation model` | Cơ chế trong đó các trình nạp lớp ủy quyền việc nạp cho trình nạp lớp cha trước khi tự mình thử nạp. |
-| `Dynamic class loading` | Nạp các lớp vào bộ nhớ JVM tại thời điểm chạy (runtime) theo yêu cầu thay vì lúc khởi động. |
-| `Class.forName` | Phương thức API phản chiếu (Reflection API) được dùng để nạp và có thể tùy chọn khởi tạo các lớp một cách động. |
-| `Classpath` | Tham số cấu hình chỉ định cho JVM nơi tìm kiếm các lớp và gói do người dùng định nghĩa. |
-| `Basic JAR loading` | Cách JVM phân giải các tệp lớp được đóng gói bên trong các tệp lưu trữ nén ZIP (JAR). |
+- **`Class loading process`** — Vòng đời gồm nhiều giai đoạn của việc nạp (Loading), liên kết (Linking), và khởi tạo (Initializing) các định nghĩa lớp vào bộ nhớ JVM (JVM memory).
+- **`Bootstrap ClassLoader`** — Trình nạp lớp gốc bằng mã máy (native-code) chịu trách nhiệm nạp các lớp thời gian chạy cốt lõi (ví dụ: `java.lang.Object`).
+- **`Platform/Extension ClassLoader`** — Trình nạp lớp nạp các mô-đun nền tảng không cốt lõi hoặc các API mở rộng.
+- **`Application ClassLoader`** — Trình nạp lớp (trình nạp lớp hệ thống) nạp các lớp từ đường dẫn lớp (Classpath) của ứng dụng.
+- **`Parent delegation model`** — Cơ chế trong đó các trình nạp lớp ủy quyền việc nạp cho trình nạp lớp cha trước khi tự mình thử nạp.
+- **`Dynamic class loading`** — Nạp các lớp vào bộ nhớ JVM tại thời điểm chạy (runtime) theo yêu cầu thay vì lúc khởi động.
+- **`Class.forName`** — Phương thức API phản chiếu (Reflection API) được dùng để nạp và có thể tùy chọn khởi tạo các lớp một cách động.
+- **`Classpath`** — Tham số cấu hình chỉ định cho JVM nơi tìm kiếm các lớp và gói do người dùng định nghĩa.
+- **`Basic JAR loading`** — Cách JVM phân giải các tệp lớp được đóng gói bên trong các tệp lưu trữ nén ZIP (JAR).
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 

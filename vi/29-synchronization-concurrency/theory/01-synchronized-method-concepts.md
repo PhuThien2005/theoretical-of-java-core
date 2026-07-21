@@ -6,16 +6,14 @@ Tài liệu này tập trung vào các nguyên ngữ khóa nội tại (intrinsi
 
 ## Khung Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Nội dung cần biết (What to know) |
-| --- | --- |
-| `synchronized method` | Khóa thực thể đối tượng (`this`) đối với phương thức thực thể, hoặc khóa đối tượng `Class` đối với phương thức tĩnh, ngăn chặn các luồng khác thực thi bất kỳ phương thức synchronized nào trên cùng một khóa đó. |
-| `synchronized block` | Khóa một tham chiếu đối tượng cụ thể, cho phép kiểm soát khóa ở phạm vi hẹp hơn (finer-grained locking) so với phương thức synchronized. |
-| `Object lock` | Khóa nội tại (monitor) được liên kết với một thực thể đối tượng cụ thể. Có thể chiếm giữ thông qua các phương thức synchronized thực thể hoặc các khối synchronized khóa trên thực thể đó. |
-| `Class lock` | Khóa nội tại được liên kết với đối tượng `java.lang.Class` của một lớp. Có thể chiếm giữ thông qua các phương thức synchronized tĩnh hoặc các khối synchronized khóa trên lớp văn bản (ví dụ: `MyClass.class`). |
-| `Monitor` | Cơ chế đồng bộ hóa cốt lõi bên dưới (sử dụng các chỉ thị mã byte `monitorenter` và `monitorexit`) để kiểm soát loại trừ tương hỗ (mutual exclusion) và truyền tín hiệu trong danh sách chờ. |
-| `wait` | Một phương thức kế thừa từ `java.lang.Object` dùng để giải phóng khóa monitor và đưa luồng hiện tại vào danh sách chờ của đối tượng. |
-| `notify` | Đánh thức một luồng ngẫu nhiên bất kỳ đang nằm chờ trong danh sách chờ của đối tượng. Luồng được đánh thức bắt buộc phải chiếm lại được khóa trước khi tiếp tục thực thi. |
-| `notifyAll` | Đánh thức toàn bộ các luồng đang nằm chờ trong danh sách chờ của đối tượng. Được khuyến khích sử dụng thay vì `notify` để tránh các lỗi mất tín hiệu. |
+- **`synchronized method`** — Khóa thực thể đối tượng (`this`) đối với phương thức thực thể, hoặc khóa đối tượng `Class` đối với phương thức tĩnh, ngăn chặn các luồng khác thực thi bất kỳ phương thức synchronized nào trên cùng một khóa đó.
+- **`synchronized block`** — Khóa một tham chiếu đối tượng cụ thể, cho phép kiểm soát khóa ở phạm vi hẹp hơn (finer-grained locking) so với phương thức synchronized.
+- **`Object lock`** — Khóa nội tại (monitor) được liên kết với một thực thể đối tượng cụ thể. Có thể chiếm giữ thông qua các phương thức synchronized thực thể hoặc các khối synchronized khóa trên thực thể đó.
+- **`Class lock`** — Khóa nội tại được liên kết với đối tượng `java.lang.Class` của một lớp. Có thể chiếm giữ thông qua các phương thức synchronized tĩnh hoặc các khối synchronized khóa trên lớp văn bản (ví dụ: `MyClass.class`).
+- **`Monitor`** — Cơ chế đồng bộ hóa cốt lõi bên dưới (sử dụng các chỉ thị mã byte `monitorenter` và `monitorexit`) để kiểm soát loại trừ tương hỗ (mutual exclusion) và truyền tín hiệu trong danh sách chờ.
+- **`wait`** — Một phương thức kế thừa từ `java.lang.Object` dùng để giải phóng khóa monitor và đưa luồng hiện tại vào danh sách chờ của đối tượng.
+- **`notify`** — Đánh thức một luồng ngẫu nhiên bất kỳ đang nằm chờ trong danh sách chờ của đối tượng. Luồng được đánh thức bắt buộc phải chiếm lại được khóa trước khi tiếp tục thực thi.
+- **`notifyAll`** — Đánh thức toàn bộ các luồng đang nằm chờ trong danh sách chờ của đối tượng. Được khuyến khích sử dụng thay vì `notify` để tránh các lỗi mất tín hiệu.
 
 ---
 

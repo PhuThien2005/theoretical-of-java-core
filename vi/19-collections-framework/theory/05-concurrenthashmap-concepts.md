@@ -6,15 +6,13 @@ Tài liệu này tập trung vào một phần trọng tâm của **Collections 
 
 ## Đề cương chi tiết
 
-| Khái niệm | Điều cần biết |
-| --- | --- |
-| `ConcurrentHashMap` | ConcurrentHashMap: Bản đồ an toàn luồng (thread-safe Map) hiệu năng cao sử dụng đồng bộ hóa đầu xô (bucket head synchronization) và các thao tác CAS (Compare-And-Swap) thay vì khóa toàn bộ bản đồ. |
-| `WeakHashMap` | WeakHashMap: Bản đồ có các khóa được bao bọc trong `WeakReference`, cho phép chúng bị thu gom rác khi không còn được sử dụng bên ngoài bản đồ. |
-| `IdentityHashMap` | IdentityHashMap: Bản đồ so sánh các khóa bằng cách sử dụng so sánh bằng tham chiếu (`==`) thay vì bằng bằng logic (`equals()`). |
-| `SortedMap` | SortedMap: Giao diện đại diện cho một Bản đồ được sắp xếp theo thứ tự tăng dần của các khóa. |
-| `NavigableMap` | NavigableMap: Mở rộng SortedMap, bổ sung các phương thức tìm kiếm/điều hướng như `lowerEntry()`, `floorKey()`, v.v. |
-| `Iterator` | Trình lặp (Iterator): Giao diện cung cấp khả năng duyệt qua bộ sưu tập theo chiều tiến với sự hỗ trợ xóa phần tử an toàn. |
-| `ListIterator` | ListIterator: Trình lặp hai chiều cho các đối tượng List cho phép duyệt tiến/lùi và sửa đổi phần tử. |
+- **`ConcurrentHashMap`** — ConcurrentHashMap: Bản đồ an toàn luồng (thread-safe Map) hiệu năng cao sử dụng đồng bộ hóa đầu xô (bucket head synchronization) và các thao tác CAS (Compare-And-Swap) thay vì khóa toàn bộ bản đồ.
+- **`WeakHashMap`** — WeakHashMap: Bản đồ có các khóa được bao bọc trong `WeakReference`, cho phép chúng bị thu gom rác khi không còn được sử dụng bên ngoài bản đồ.
+- **`IdentityHashMap`** — IdentityHashMap: Bản đồ so sánh các khóa bằng cách sử dụng so sánh bằng tham chiếu (`==`) thay vì bằng bằng logic (`equals()`).
+- **`SortedMap`** — SortedMap: Giao diện đại diện cho một Bản đồ được sắp xếp theo thứ tự tăng dần của các khóa.
+- **`NavigableMap`** — NavigableMap: Mở rộng SortedMap, bổ sung các phương thức tìm kiếm/điều hướng như `lowerEntry()`, `floorKey()`, v.v.
+- **`Iterator`** — Trình lặp (Iterator): Giao diện cung cấp khả năng duyệt qua bộ sưu tập theo chiều tiến với sự hỗ trợ xóa phần tử an toàn.
+- **`ListIterator`** — ListIterator: Trình lặp hai chiều cho các đối tượng List cho phép duyệt tiến/lùi và sửa đổi phần tử.
 
 ## Ghi chú chi tiết
 

@@ -6,16 +6,14 @@ File này đề cập đến một phần trọng tâm của **Stream API**. Hã
 
 ## Đề Cương Khái Niệm
 
-| Khái niệm | Những điều cần biết |
-| --- | --- |
-| `Stream là gì?` | Một Stream là một đường ống (pipeline) để xử lý các phần tử thông qua các hoạt động lười (lazy operation). |
-| `Stream so với Collection` | Một tập hợp là một đối tượng nhóm nhiều phần tử lại với nhau dưới một API chung. |
-| `Tạo Stream:` | Một Stream là một đường ống để xử lý các phần tử thông qua các hoạt động lười. |
-| `Từ List` | Một List là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí. |
-| `Từ Array` | từ Array là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại (failure mode) của nó thay vì chỉ nhớ mỗi tên gọi. |
-| `Từ Map` | Một Map lưu trữ các cặp khóa-giá trị và truy xuất các giá trị bằng khóa. |
-| `Stream.of` | Một Stream là một đường ống để xử lý các phần tử thông qua các hoạt động lười. |
-| `IntStream` | Một Stream là một đường ống để xử lý các phần tử thông qua các hoạt động lười. |
+- **`Stream là gì?`** — Một Stream là một đường ống (pipeline) để xử lý các phần tử thông qua các hoạt động lười (lazy operation).
+- **`Stream so với Collection`** — Một tập hợp là một đối tượng nhóm nhiều phần tử lại với nhau dưới một API chung.
+- **`Tạo Stream:`** — Một Stream là một đường ống để xử lý các phần tử thông qua các hoạt động lười.
+- **`Từ List`** — Một List là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí.
+- **`Từ Array`** — từ Array là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại (failure mode) của nó thay vì chỉ nhớ mỗi tên gọi.
+- **`Từ Map`** — Một Map lưu trữ các cặp khóa-giá trị và truy xuất các giá trị bằng khóa.
+- **`Stream.of`** — Một Stream là một đường ống để xử lý các phần tử thông qua các hoạt động lười.
+- **`IntStream`** — Một Stream là một đường ống để xử lý các phần tử thông qua các hoạt động lười.
 
 ## Ghi Chú Chi Tiết
 

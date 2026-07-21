@@ -6,18 +6,16 @@ Tài liệu này trình bày một phần trọng tâm của **Bảo mật Cơ b
 
 ## Khung Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Nội dung cần biết (What to know) |
-| --- | --- |
-| `Basic secure coding` | Lập trình an toàn cơ bản (Basic secure coding) là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi (failure mode) thay vì chỉ nhớ tên khái niệm. |
-| `Hashing` | Băm (Hashing) ánh xạ dữ liệu đầu vào thành một chuỗi đại diện (digest) có kích thước cố định và là hàm một chiều trong sử dụng thông thường. |
-| `MessageDigest` | `MessageDigest` là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm. |
-| `SHA-256` | SHA-256 là một thuật toán cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm. |
-| `Base64` | Base64 là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm. |
-| `Basic encryption/decryption` | Mã hóa/giải mã cơ bản (Basic encryption/decryption) là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm. |
-| `KeyStore` | `KeyStore` là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm. |
-| `Basic SSL/TLS` | SSL/TLS cơ bản (Basic SSL/TLS) là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm. |
-| `Input validation` | Kiểm chứng đầu vào (Input validation) là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm. |
-| `Avoid SQL Injection` | Tấn công tiêm mã SQL (SQL injection) xảy ra khi đầu vào không đáng tin cậy làm thay đổi ý nghĩa của một câu lệnh SQL. |
+- **`Basic secure coding`** — Lập trình an toàn cơ bản (Basic secure coding) là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi (failure mode) thay vì chỉ nhớ tên khái niệm.
+- **`Hashing`** — Băm (Hashing) ánh xạ dữ liệu đầu vào thành một chuỗi đại diện (digest) có kích thước cố định và là hàm một chiều trong sử dụng thông thường.
+- **`MessageDigest`** — `MessageDigest` là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
+- **`SHA-256`** — SHA-256 là một thuật toán cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
+- **`Base64`** — Base64 là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
+- **`Basic encryption/decryption`** — Mã hóa/giải mã cơ bản (Basic encryption/decryption) là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
+- **`KeyStore`** — `KeyStore` là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
+- **`Basic SSL/TLS`** — SSL/TLS cơ bản (Basic SSL/TLS) là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
+- **`Input validation`** — Kiểm chứng đầu vào (Input validation) là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
+- **`Avoid SQL Injection`** — Tấn công tiêm mã SQL (SQL injection) xảy ra khi đầu vào không đáng tin cậy làm thay đổi ý nghĩa của một câu lệnh SQL.
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 

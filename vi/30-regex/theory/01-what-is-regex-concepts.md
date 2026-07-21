@@ -6,18 +6,16 @@ Tài liệu này trình bày một phần trọng tâm về **Biểu Thức Chí
 
 ## Khung Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Nội dung cần biết (What to know) |
-| --- | --- |
-| `What is Regex?` | Biểu thức chính quy là một ngôn ngữ mẫu dùng để so khớp văn bản. |
-| `Pattern` | Pattern là biểu diễn đã được biên dịch của một biểu thức chính quy. |
-| `Matcher` | Matcher áp dụng một Pattern lên văn bản đầu vào và cung cấp các thao tác so khớp. |
-| `matches` | matches kiểm tra xem toàn bộ văn bản đầu vào có khớp với mẫu hay không. |
-| `find` | find tìm kiếm chuỗi con tiếp theo khớp với mẫu trong văn bản đầu vào. |
-| `group` | group trả về văn bản được bắt giữ bởi toàn bộ mẫu khớp hoặc bởi một nhóm bắt giữ cụ thể. |
-| `Character classes` | Lớp ký tự định nghĩa tập hợp các ký tự được phép chấp nhận như chữ số, chữ cái, hoặc các khoảng tự định nghĩa. |
-| `Quantifiers` | Bộ định lượng chỉ định số lần mã thông báo (token) phía trước được phép lặp lại. |
-| `Capturing group` | Nhóm bắt giữ lưu trữ một biểu thức con đã khớp vào bộ nhớ để truy xuất lại sau đó. |
-| `Non-capturing group` | Nhóm không bắt giữ gộp logic của mẫu lại mà không lưu trữ kết quả bắt giữ vào bộ nhớ. |
+- **`What is Regex?`** — Biểu thức chính quy là một ngôn ngữ mẫu dùng để so khớp văn bản.
+- **`Pattern`** — Pattern là biểu diễn đã được biên dịch của một biểu thức chính quy.
+- **`Matcher`** — Matcher áp dụng một Pattern lên văn bản đầu vào và cung cấp các thao tác so khớp.
+- **`matches`** — matches kiểm tra xem toàn bộ văn bản đầu vào có khớp với mẫu hay không.
+- **`find`** — find tìm kiếm chuỗi con tiếp theo khớp với mẫu trong văn bản đầu vào.
+- **`group`** — group trả về văn bản được bắt giữ bởi toàn bộ mẫu khớp hoặc bởi một nhóm bắt giữ cụ thể.
+- **`Character classes`** — Lớp ký tự định nghĩa tập hợp các ký tự được phép chấp nhận như chữ số, chữ cái, hoặc các khoảng tự định nghĩa.
+- **`Quantifiers`** — Bộ định lượng chỉ định số lần mã thông báo (token) phía trước được phép lặp lại.
+- **`Capturing group`** — Nhóm bắt giữ lưu trữ một biểu thức con đã khớp vào bộ nhớ để truy xuất lại sau đó.
+- **`Non-capturing group`** — Nhóm không bắt giữ gộp logic của mẫu lại mà không lưu trữ kết quả bắt giữ vào bộ nhớ.
 
 ---
 

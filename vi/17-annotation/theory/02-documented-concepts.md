@@ -6,14 +6,12 @@ Tài liệu này tập trung vào một phần chuyên sâu của **Chú thích 
 
 ## Tóm Tắt Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Điều cần biết (What to know) |
-| --- | --- |
-| `@Documented` | `@Documented` là một khái niệm cụ thể trong Chú thích; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại thay vì chỉ ghi nhớ tên gọi của nó. |
-| `@Inherited` | `@Inherited` là một khái niệm cụ thể trong Chú thích; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại thay vì chỉ ghi nhớ tên gọi của nó. |
-| `@Repeatable` | `@Repeatable` là một khái niệm cụ thể trong Chú thích; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại thay vì chỉ ghi nhớ tên gọi của nó. |
-| `Custom annotation` | Một chú thích đính kèm siêu dữ liệu (Metadata) vào các phần tử của chương trình như lớp (Class), phương thức (Method), hoặc trường dữ liệu (Field). |
-| `Runtime annotation` | Một chú thích đính kèm siêu dữ liệu vào các phần tử của chương trình như lớp, phương thức, hoặc trường dữ liệu. |
-| `Basic annotation processing` | Một chú thích đính kèm siêu dữ liệu vào các phần tử của chương trình như lớp, phương thức, hoặc trường dữ liệu. |
+- **`@Documented`** — `@Documented` là một khái niệm cụ thể trong Chú thích; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại thay vì chỉ ghi nhớ tên gọi của nó.
+- **`@Inherited`** — `@Inherited` là một khái niệm cụ thể trong Chú thích; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại thay vì chỉ ghi nhớ tên gọi của nó.
+- **`@Repeatable`** — `@Repeatable` là một khái niệm cụ thể trong Chú thích; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại thay vì chỉ ghi nhớ tên gọi của nó.
+- **`Custom annotation`** — Một chú thích đính kèm siêu dữ liệu (Metadata) vào các phần tử của chương trình như lớp (Class), phương thức (Method), hoặc trường dữ liệu (Field).
+- **`Runtime annotation`** — Một chú thích đính kèm siêu dữ liệu vào các phần tử của chương trình như lớp, phương thức, hoặc trường dữ liệu.
+- **`Basic annotation processing`** — Một chú thích đính kèm siêu dữ liệu vào các phần tử của chương trình như lớp, phương thức, hoặc trường dữ liệu.
 
 ## Ghi Chú Chi Tiết
 

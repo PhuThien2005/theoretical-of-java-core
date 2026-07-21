@@ -6,18 +6,16 @@ Tài liệu này bao gồm một phần trọng tâm về **lớp Object (Object
 
 ## Tóm Tắt Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Điều cần biết (What to know) |
-| --- | --- |
-| `toString()` | `toString()` trả về một chuỗi văn bản biểu diễn đối tượng dưới dạng con người có thể đọc được. |
-| `equals()` | `equals()` định nghĩa sự bằng nhau mang tính logic (logical equality) giữa các đối tượng. |
-| `hashCode()` | `hashCode()` trả về một số nguyên băm (hash value) được sử dụng bởi các tập hợp dựa trên mã băm (hash-based collection). |
-| `getClass()` | `getClass()` trả về đối tượng `Class` tại thời điểm chạy (runtime) của một thể hiện. |
-| `clone()` | `clone()` tạo ra một bản sao sao chép từng trường (field-by-field copy) khi việc sao chép được hỗ trợ, nhưng phương thức này thường bị tránh dùng trong thiết kế Java hiện đại. |
-| `finalize() (đã bị loại bỏ)` | Từ khóa final có nghĩa là biến, phương thức, lớp, hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể. |
-| `wait()` | `wait()` giải phóng bộ giám sát đối tượng (object monitor) và tạm dừng luồng (thread) hiện tại cho đến khi nhận được thông báo hoặc hết thời gian chờ. |
-| `notify()` | `notify()` đánh thức một luồng đang chờ trên cùng bộ giám sát đối tượng đó. |
-| `notifyAll()` | `notifyAll()` đánh thức tất cả các luồng đang chờ trên cùng bộ giám sát đối tượng đó. |
-| `Tại sao ghi đè equals() đồng nghĩa với việc bạn cũng phải ghi đè hashCode()` | `equals()` định nghĩa sự bằng nhau mang tính logic giữa các đối tượng. |
+- **`toString()`** — `toString()` trả về một chuỗi văn bản biểu diễn đối tượng dưới dạng con người có thể đọc được.
+- **`equals()`** — `equals()` định nghĩa sự bằng nhau mang tính logic (logical equality) giữa các đối tượng.
+- **`hashCode()`** — `hashCode()` trả về một số nguyên băm (hash value) được sử dụng bởi các tập hợp dựa trên mã băm (hash-based collection).
+- **`getClass()`** — `getClass()` trả về đối tượng `Class` tại thời điểm chạy (runtime) của một thể hiện.
+- **`clone()`** — `clone()` tạo ra một bản sao sao chép từng trường (field-by-field copy) khi việc sao chép được hỗ trợ, nhưng phương thức này thường bị tránh dùng trong thiết kế Java hiện đại.
+- **`finalize() (đã bị loại bỏ)`** — Từ khóa final có nghĩa là biến, phương thức, lớp, hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể.
+- **`wait()`** — `wait()` giải phóng bộ giám sát đối tượng (object monitor) và tạm dừng luồng (thread) hiện tại cho đến khi nhận được thông báo hoặc hết thời gian chờ.
+- **`notify()`** — `notify()` đánh thức một luồng đang chờ trên cùng bộ giám sát đối tượng đó.
+- **`notifyAll()`** — `notifyAll()` đánh thức tất cả các luồng đang chờ trên cùng bộ giám sát đối tượng đó.
+- **`Tại sao ghi đè equals() đồng nghĩa với việc bạn cũng phải ghi đè hashCode()`** — `equals()` định nghĩa sự bằng nhau mang tính logic giữa các đối tượng.
 
 ## Ghi Chú Chi Tiết
 

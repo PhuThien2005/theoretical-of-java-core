@@ -130,12 +130,9 @@ flowchart TD
 
 ### Bảng So Sánh
 
-| Tính năng | Terminal (`javac`/`java`) | IDE (IntelliJ, VS Code) |
-|---|---|---|
-| **Biên dịch** | Gọi thủ công `javac file.java`. | Biên dịch gia tăng tự động nền. |
-| **Quản lý Classpath** | Phải chỉ định thủ công qua `-cp` hoặc `-classpath`. | Quản lý tự động qua file build (Maven/Gradle). |
-| **Phản hồi lỗi** | Chỉ hiển thị sau khi chạy lệnh biên dịch. | Tô sáng ngay lập tức trong trình soạn thảo (phân tích tĩnh). |
-| **Trường hợp dùng** | Học nền tảng, scripting, pipeline CI/CD. | Phát triển chuyên nghiệp, tái cấu trúc, debug hệ thống phức tạp. |
+**Terminal (`javac`/`java`)** yêu cầu gọi biên dịch thủ công qua lệnh `javac file.java`. Bạn phải chỉ định thủ công quá trình quản lý Classpath thông qua cờ `-cp` hoặc `-classpath`. Phản hồi lỗi chỉ hiển thị sau khi chạy lệnh biên dịch. Phương pháp này phù hợp cho việc học nền tảng, scripting, hoặc tích hợp trong pipeline CI/CD.
+
+**IDE (IntelliJ, VS Code)** hỗ trợ biên dịch gia tăng tự động trong nền. Quản lý Classpath được xử lý tự động thông qua các file build như Maven hoặc Gradle. Phản hồi lỗi được tô sáng ngay lập tức trong trình soạn thảo thông qua phân tích tĩnh. IDE là lựa chọn tối ưu cho phát triển chuyên nghiệp, tái cấu trúc mã nguồn và debug hệ thống phức tạp.
 
 ### Ví Dụ Code: Biên Dịch Và Thực Thi Thủ Công
 

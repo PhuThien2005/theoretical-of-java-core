@@ -6,16 +6,14 @@ Tài liệu này trình bày một phần trọng tâm về **JVM Nâng Cao (Adv
 
 ## Khung Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Nội dung cần biết (What to know) |
-| --- | --- |
-| `Survivor` | Vùng Sống Sót (Survivor) là vùng nhớ trung gian trong thế hệ Trẻ (Young Generation) dùng để lưu trữ các đối tượng còn sống sau các đợt dọn rác phụ (Minor GC). |
-| `Old Generation` | Thế Hệ Già (Old Generation) là vùng nhớ lưu trữ các đối tượng sống lâu đã vượt qua ngưỡng tích tuổi (age threshold) ở thế hệ Trẻ. |
-| `GC algorithms:` | Nhóm các thuật toán thu gom rác (GC algorithms) khác nhau cung cấp các đặc tính hiệu năng, độ trễ và băng thông khác nhau cho JVM. |
-| `Serial GC` | Bộ thu gom rác sử dụng một luồng duy nhất (single thread) cho mọi thao tác dọn rác, phù hợp cho môi trường tài nguyên hạn chế. |
-| `Parallel GC` | Bộ thu gom rác sử dụng nhiều luồng đồng thời để thực hiện dọn rác nhằm tối ưu hóa băng thông (throughput) của ứng dụng. |
-| `old CMS` | Bộ thu gom rác thế hệ cũ (Concurrent Mark Sweep) tập trung vào giảm thời gian tạm dừng bằng cách dọn rác đồng thời với luồng ứng dụng (đã bị loại bỏ). |
-| `G1 GC` | Bộ thu gom rác (Garbage-First) phân chia bộ nhớ heap thành nhiều vùng ảo nhỏ, tự động tối ưu hóa và cân bằng giữa băng thông và độ trễ. |
-| `ZGC` | Bộ thu gom rác độ trễ siêu thấp (Z Garbage Collector), thực hiện hầu hết các thao tác dọn rác đồng thời với luồng ứng dụng, thời gian dừng dưới 10 mili giây. |
+- **`Survivor`** — Vùng Sống Sót (Survivor) là vùng nhớ trung gian trong thế hệ Trẻ (Young Generation) dùng để lưu trữ các đối tượng còn sống sau các đợt dọn rác phụ (Minor GC).
+- **`Old Generation`** — Thế Hệ Già (Old Generation) là vùng nhớ lưu trữ các đối tượng sống lâu đã vượt qua ngưỡng tích tuổi (age threshold) ở thế hệ Trẻ.
+- **`GC algorithms:`** — Nhóm các thuật toán thu gom rác (GC algorithms) khác nhau cung cấp các đặc tính hiệu năng, độ trễ và băng thông khác nhau cho JVM.
+- **`Serial GC`** — Bộ thu gom rác sử dụng một luồng duy nhất (single thread) cho mọi thao tác dọn rác, phù hợp cho môi trường tài nguyên hạn chế.
+- **`Parallel GC`** — Bộ thu gom rác sử dụng nhiều luồng đồng thời để thực hiện dọn rác nhằm tối ưu hóa băng thông (throughput) của ứng dụng.
+- **`old CMS`** — Bộ thu gom rác thế hệ cũ (Concurrent Mark Sweep) tập trung vào giảm thời gian tạm dừng bằng cách dọn rác đồng thời với luồng ứng dụng (đã bị loại bỏ).
+- **`G1 GC`** — Bộ thu gom rác (Garbage-First) phân chia bộ nhớ heap thành nhiều vùng ảo nhỏ, tự động tối ưu hóa và cân bằng giữa băng thông và độ trễ.
+- **`ZGC`** — Bộ thu gom rác độ trễ siêu thấp (Z Garbage Collector), thực hiện hầu hết các thao tác dọn rác đồng thời với luồng ứng dụng, thời gian dừng dưới 10 mili giây.
 
 ---
 

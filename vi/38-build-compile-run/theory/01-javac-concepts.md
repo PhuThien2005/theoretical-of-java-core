@@ -6,18 +6,16 @@ Tài liệu này trình bày một phần trọng tâm của **Biên Dịch, Đ�
 
 ## Khung Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Nội dung cần biết (What to know) |
-| --- | --- |
-| `javac` | Công cụ biên dịch Java (Java Compiler) giúp dịch mã nguồn (`.java`) thành mã byte của JVM (`.class`). |
-| `java` | Công cụ khởi chạy ứng dụng Java (Java Application Launcher) giúp khởi động JVM và chạy phương thức `main` của lớp được chỉ định. |
-| `jar` | Định dạng nén lưu trữ Java (Java Archive) dựa trên định dạng ZIP, được sử dụng để đóng gói các lớp, tài nguyên và siêu dữ liệu (metadata). |
-| `Create JAR file` | Quy trình và các câu lệnh được sử dụng để đóng gói các tệp tin thành một tệp lưu trữ `.jar` duy nhất. |
-| `Executable JAR` | Một tệp JAR đã được đóng gói chứa tệp Manifest chỉ định lớp điểm vào (`Main-Class`). |
-| `Classpath` | Tham số đường dẫn tìm kiếm (lookup path) chỉ cho trình biên dịch và JVM biết nơi chứa các lớp tự định nghĩa và các tệp JAR bên ngoài. |
-| `Manifest file` | Tệp siêu dữ liệu (`MANIFEST.MF`) chứa các thuộc tính cấu hình dạng khóa-giá trị (key-value) cho tệp JAR. |
-| `Basic Maven` | Một công cụ tự động hóa biên dịch tiêu chuẩn công nghiệp được cấu hình bằng tệp khai báo `pom.xml`. |
-| `Basic Gradle` | Một công cụ tự động hóa biên dịch linh hoạt sử dụng các kịch bản cấu hình Groovy/Kotlin DSL. |
-| `Dependency management` | Hệ thống giải quyết, tải xuống và tổ chức các thư viện phụ thuộc để tránh xung đột đường dẫn lớp (classpath). |
+- **`javac`** — Công cụ biên dịch Java (Java Compiler) giúp dịch mã nguồn (`.java`) thành mã byte của JVM (`.class`).
+- **`java`** — Công cụ khởi chạy ứng dụng Java (Java Application Launcher) giúp khởi động JVM và chạy phương thức `main` của lớp được chỉ định.
+- **`jar`** — Định dạng nén lưu trữ Java (Java Archive) dựa trên định dạng ZIP, được sử dụng để đóng gói các lớp, tài nguyên và siêu dữ liệu (metadata).
+- **`Create JAR file`** — Quy trình và các câu lệnh được sử dụng để đóng gói các tệp tin thành một tệp lưu trữ `.jar` duy nhất.
+- **`Executable JAR`** — Một tệp JAR đã được đóng gói chứa tệp Manifest chỉ định lớp điểm vào (`Main-Class`).
+- **`Classpath`** — Tham số đường dẫn tìm kiếm (lookup path) chỉ cho trình biên dịch và JVM biết nơi chứa các lớp tự định nghĩa và các tệp JAR bên ngoài.
+- **`Manifest file`** — Tệp siêu dữ liệu (`MANIFEST.MF`) chứa các thuộc tính cấu hình dạng khóa-giá trị (key-value) cho tệp JAR.
+- **`Basic Maven`** — Một công cụ tự động hóa biên dịch tiêu chuẩn công nghiệp được cấu hình bằng tệp khai báo `pom.xml`.
+- **`Basic Gradle`** — Một công cụ tự động hóa biên dịch linh hoạt sử dụng các kịch bản cấu hình Groovy/Kotlin DSL.
+- **`Dependency management`** — Hệ thống giải quyết, tải xuống và tổ chức các thư viện phụ thuộc để tránh xung đột đường dẫn lớp (classpath).
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 

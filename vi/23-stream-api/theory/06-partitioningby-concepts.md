@@ -6,13 +6,11 @@ Tài liệu này đề cập đến một phần trọng tâm của API Luồng 
 
 ## Nội Dung Tổng Quan (Outline Coverage)
 
-| Khái niệm | Điều cần biết |
-| --- | --- |
-| `partitioningBy` | `partitioningBy` là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại (failure mode) của nó thay vì chỉ nhớ mỗi tên gọi. |
-| `counting` | `counting` là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi. |
-| `summarizingInt` | `summarizingInt` là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi. |
-| `mapping` | Một cấu trúc Map (Map) lưu trữ các cặp khóa-giá trị (key-value pairs) và truy xuất giá trị bằng khóa. |
-| `reducing` | `reducing` là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi. |
+- **`partitioningBy`** — `partitioningBy` là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại (failure mode) của nó thay vì chỉ nhớ mỗi tên gọi.
+- **`counting`** — `counting` là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+- **`summarizingInt`** — `summarizingInt` là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+- **`mapping`** — Một cấu trúc Map (Map) lưu trữ các cặp khóa-giá trị (key-value pairs) và truy xuất giá trị bằng khóa.
+- **`reducing`** — `reducing` là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 

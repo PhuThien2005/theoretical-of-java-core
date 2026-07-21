@@ -6,15 +6,13 @@ Tài liệu này trình bày một phần trọng tâm của **Khung bộ sưu t
 
 ## Nội Dung Tổng Quan
 
-| Khái niệm | Điều cần biết |
-| --- | --- |
-| `LinkedList as Queue` | LinkedList triển khai giao diện Queue, cung cấp một hàng đợi FIFO tiêu chuẩn được hỗ trợ bởi một danh sách liên kết kép (doubly-linked list). |
-| `FIFO` | Thứ tự Vào trước - Ra trước (First-In-First-Out) trong đó các phần tử được chèn vào phần đuôi (tail) và lấy ra từ phần đầu (head). |
-| `LIFO` | Thứ tự Vào sau - Ra trước (Last-In-First-Out) (hành vi ngăn xếp - Stack) trong đó các phần tử được thêm vào và lấy ra từ cùng một đầu. |
-| `HashMap` | Bảng băm dựa trên cây đỏ-đen (Red-black tree) và danh sách liên kết ánh xạ khóa (key) sang giá trị (value). Không có thứ tự, cho phép một khóa null. |
-| `LinkedHashMap` | Triển khai giao diện Map dựa trên bảng băm và danh sách liên kết kép, giúp bảo toàn thứ tự chèn hoặc thứ tự truy cập. |
-| `TreeMap` | Triển khai NavigableMap dựa trên cây đỏ-đen, sắp xếp các khóa theo thứ tự tự nhiên hoặc thông qua một Bộ so sánh (Comparator) tùy chỉnh. |
-| `Hashtable` | Lớp map đồng bộ cũ (legacy synchronized map). Từ chối các khóa null và giá trị null. Đã lỗi thời (obsolete). |
+- **`LinkedList as Queue`** — LinkedList triển khai giao diện Queue, cung cấp một hàng đợi FIFO tiêu chuẩn được hỗ trợ bởi một danh sách liên kết kép (doubly-linked list).
+- **`FIFO`** — Thứ tự Vào trước - Ra trước (First-In-First-Out) trong đó các phần tử được chèn vào phần đuôi (tail) và lấy ra từ phần đầu (head).
+- **`LIFO`** — Thứ tự Vào sau - Ra trước (Last-In-First-Out) (hành vi ngăn xếp - Stack) trong đó các phần tử được thêm vào và lấy ra từ cùng một đầu.
+- **`HashMap`** — Bảng băm dựa trên cây đỏ-đen (Red-black tree) và danh sách liên kết ánh xạ khóa (key) sang giá trị (value). Không có thứ tự, cho phép một khóa null.
+- **`LinkedHashMap`** — Triển khai giao diện Map dựa trên bảng băm và danh sách liên kết kép, giúp bảo toàn thứ tự chèn hoặc thứ tự truy cập.
+- **`TreeMap`** — Triển khai NavigableMap dựa trên cây đỏ-đen, sắp xếp các khóa theo thứ tự tự nhiên hoặc thông qua một Bộ so sánh (Comparator) tùy chỉnh.
+- **`Hashtable`** — Lớp map đồng bộ cũ (legacy synchronized map). Từ chối các khóa null và giá trị null. Đã lỗi thời (obsolete).
 
 ## Ghi Chú Chi Tiết
 

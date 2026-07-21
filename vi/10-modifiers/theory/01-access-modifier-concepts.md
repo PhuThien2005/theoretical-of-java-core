@@ -6,16 +6,14 @@ Tài liệu này trình bày một phần trọng tâm của **các bổ từ tr
 
 ## Nội Dung Tổng Quan
 
-| Khái niệm | Điều cần biết |
-| --- | --- |
-| `Access modifier:` | Bổ từ truy cập (Access modifier) là một nhóm các quy tắc liên quan đến các bổ từ trong Java dùng để gom nhóm một số chi tiết liên quan. |
-| `public` | public cho phép truy cập từ bất kỳ gói (package) nào khi lớp hoặc thành viên đó có quyền hiển thị. |
-| `protected` | protected cho phép truy cập từ cùng một gói và từ các lớp con (subclass), kèm theo các quy tắc truy cập lớp con giữa các gói khác nhau. |
-| `default` | Quyền truy cập mặc định (Default access), hay còn gọi là package-private, chỉ cho phép truy cập bên trong cùng một gói. |
-| `private` | private giới hạn quyền truy cập chỉ trong phạm vi lớp khai báo. |
-| `Non-access modifier:` | Bổ từ phi truy cập (Non-access modifier) là một nhóm các quy tắc liên quan đến các bổ từ trong Java dùng để gom nhóm một số chi tiết liên quan. |
-| `static` | static có nghĩa là thành viên thuộc về lớp chứ không phải một đối tượng cụ thể nào. |
-| `final` | final có nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể. |
+- **`Access modifier:`** — Bổ từ truy cập (Access modifier) là một nhóm các quy tắc liên quan đến các bổ từ trong Java dùng để gom nhóm một số chi tiết liên quan.
+- **`public`** — public cho phép truy cập từ bất kỳ gói (package) nào khi lớp hoặc thành viên đó có quyền hiển thị.
+- **`protected`** — protected cho phép truy cập từ cùng một gói và từ các lớp con (subclass), kèm theo các quy tắc truy cập lớp con giữa các gói khác nhau.
+- **`default`** — Quyền truy cập mặc định (Default access), hay còn gọi là package-private, chỉ cho phép truy cập bên trong cùng một gói.
+- **`private`** — private giới hạn quyền truy cập chỉ trong phạm vi lớp khai báo.
+- **`Non-access modifier:`** — Bổ từ phi truy cập (Non-access modifier) là một nhóm các quy tắc liên quan đến các bổ từ trong Java dùng để gom nhóm một số chi tiết liên quan.
+- **`static`** — static có nghĩa là thành viên thuộc về lớp chứ không phải một đối tượng cụ thể nào.
+- **`final`** — final có nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể.
 
 ## Ghi Chú Chi Tiết
 
@@ -25,12 +23,10 @@ Bổ từ truy cập (Access modifier) là một nhóm các quy tắc liên quan
 
 
 #### Bảng Phạm Vi Hiển Thị Của Bổ Từ Truy Cập
-| Bổ từ | Cùng Lớp | Cùng Gói | Lớp con (Khác Gói) | Bên ngoài (Khác Gói) |
-| --- | --- | --- | --- | --- |
-| `public` | Có | Có | Có | Có |
-| `protected` | Có | Có | Có (chỉ qua kế thừa (inheritance)) | Không |
-| `default` (không từ khóa) | Có | Có | Không | Không |
-| `private` | Có | Không | Không | Không |
+- **`public`** — Truy cập được từ mọi nơi: cùng lớp, cùng gói, lớp con (khác gói), và bên ngoài (khác gói).
+- **`protected`** — Truy cập được từ cùng lớp, cùng gói, và lớp con ở khác gói (chỉ qua kế thừa). Không thể truy cập từ bên ngoài (khác gói).
+- **`default` (không từ khóa)** — Truy cập được từ cùng lớp và cùng gói. Không thể truy cập từ lớp con (khác gói) hay bên ngoài (khác gói).
+- **`private`** — Chỉ truy cập được từ bên trong cùng lớp. Không thể truy cập từ cùng gói, lớp con (khác gói), hay bên ngoài (khác gói).
 
 #### Quy Tắc Cốt Lõi: Ghi Đè (Overriding) và Phạm Vi Truy Cập
 Khi một lớp con ghi đè một phương thức của lớp cha, nó **không được phép thu hẹp** phạm vi truy cập của phương thức đó. Quy tắc này đảm bảo nguyên lý thay thế Liskov (Liskov Substitution Principle).

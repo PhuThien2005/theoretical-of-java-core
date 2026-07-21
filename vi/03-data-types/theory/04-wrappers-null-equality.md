@@ -2,16 +2,14 @@
 
 Lớp bao bọc (wrapper class) là phiên bản đối tượng của các kiểu dữ liệu nguyên thủy (primitive type).
 
-| Kiểu Nguyên Thủy | Lớp Bao Bọc |
-| --- | --- |
-| `byte` | `Byte` |
-| `short` | `Short` |
-| `int` | `Integer` |
-| `long` | `Long` |
-| `float` | `Float` |
-| `double` | `Double` |
-| `char` | `Character` |
-| `boolean` | `Boolean` |
+- **`byte`** — Lớp bao bọc tương ứng là `Byte`.
+- **`short`** — Lớp bao bọc tương ứng là `Short`.
+- **`int`** — Lớp bao bọc tương ứng là `Integer`.
+- **`long`** — Lớp bao bọc tương ứng là `Long`.
+- **`float`** — Lớp bao bọc tương ứng là `Float`.
+- **`double`** — Lớp bao bọc tương ứng là `Double`.
+- **`char`** — Lớp bao bọc tương ứng là `Character`.
+- **`boolean`** — Lớp bao bọc tương ứng là `Boolean`.
 
 ## Tại Sao Lớp Bao Bọc Tồn Tại (Why Wrappers Exist)
 
@@ -34,14 +32,9 @@ Bộ sưu tập Java (Java Collections) (chẳng hạn như `ArrayList`, `HashMa
 
 > Xem thêm: Ứng dụng của Wrapper Classes trong Generics, được trình bày chi tiết trong [Ch.18 - Generics](../../18-generics/README.md).
 
-| Đặc Tính | `int` (Kiểu Nguyên Thủy) | `Integer` (Lớp Bao Bọc) |
-| --- | --- | --- |
-| Vị trí bộ nhớ | Stack (thông thường) | Heap (đối tượng) |
-| Tốc độ | Nhanh — thao tác CPU trực tiếp | Chậm hơn — tốn chi phí tạo đối tượng + dọn rác (GC) |
-| Phương thức tiện ích | Không có | `parseInt()`, `valueOf()`, `compareTo()`, v.v. |
-| Có thể null | Không — luôn luôn có giá trị | Có — có thể là `null` |
-| Bộ sưu tập | Không thể dùng trong `List<>`, `Map<>` | Có thể dùng trong `List<Integer>`, v.v. |
-| Giá trị mặc định | `0` | `null` |
+**`int` (Kiểu Nguyên Thủy)** thông thường được lưu trữ trên bộ nhớ Stack. Tốc độ xử lý nhanh do các thao tác được thực hiện trực tiếp trên CPU. Kiểu này không có các phương thức tiện ích, không thể nhận giá trị `null` (luôn luôn có giá trị), và không thể dùng trong các bộ sưu tập như `List<>` hay `Map<>`. Giá trị mặc định của nó là `0`.
+
+**`Integer` (Lớp Bao Bọc)** là một đối tượng được lưu trữ trên bộ nhớ Heap. Tốc độ xử lý chậm hơn vì tốn chi phí tạo đối tượng và dọn rác (GC). Lớp này cung cấp nhiều phương thức tiện ích như `parseInt()`, `valueOf()`, `compareTo()`, v.v. Nó có thể nhận giá trị `null`, hoàn toàn dùng được trong các bộ sưu tập (ví dụ: `List<Integer>`). Giá trị mặc định của nó là `null`.
 
 **Ảnh hưởng hiệu suất:** Phép toán số học trên `int` là một thao tác CPU trực tiếp — cộng, trừ, so sánh diễn ra chỉ trong một lệnh máy duy nhất. Trong khi đó, phép toán số học trên `Integer` yêu cầu JVM cấp phát một đối tượng trên Heap, và sau đó bộ thu gom rác (garbage collector) phải thu hồi vùng nhớ đó. Trong các vòng lặp hẹp xử lý hàng triệu giá trị, sự khác biệt này có thể rất đáng kể.
 

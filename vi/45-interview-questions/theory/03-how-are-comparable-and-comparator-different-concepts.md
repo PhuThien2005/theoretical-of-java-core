@@ -6,16 +6,14 @@ Tài liệu này trình bày các câu hỏi phỏng vấn Java Core từ trung 
 
 ## Khung Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Nội dung cần biết (What to know) |
-| --- | --- |
-| `How are Comparable and Comparator different?` | `Comparable` định nghĩa thứ tự sắp xếp tự nhiên của một lớp thông qua `compareTo()`; `Comparator` định nghĩa các quy tắc sắp xếp tùy chỉnh bên ngoài thông qua `compare()`. |
-| `How are fail-fast and fail-safe iterators different?` | Bộ lặp fail-fast ném ra ngoại lệ `ConcurrentModificationException` ngay khi bộ sưu tập bị thay đổi cấu trúc; bộ lặp fail-safe hoạt động trên một bản sao, tránh được ngoại lệ này. |
-| `How are volatile and synchronized different?` | Từ khóa `volatile` đảm bảo tính hiển thị (visibility) và thứ tự lệnh của biến giữa các luồng; `synchronized` đảm bảo tính hiển thị, thứ tự lệnh VÀ tính nguyên tố (atomicity) thông qua cơ chế khóa. |
-| `What is deadlock?` | Là trạng thái bế tắc xảy ra khi hai hoặc nhiều luồng bị khóa vĩnh viễn, mỗi luồng đều chờ đợi khóa đang được giữ bởi luồng kia. |
-| `How are Thread start() and run() different?` | Phương thức `start()` tạo ra một luồng mới và thực thi logic trong `run()` bất đồng bộ; phương thức `run()` thực thi đồng bộ trong luồng gọi hiện tại. |
-| `How are sleep() and wait() different?` | Phương thức `sleep()` tạm dừng luồng hiện tại nhưng **không giải phóng khóa**; `wait()` tạm dừng luồng và **giải phóng khóa** để chờ thông báo từ luồng khác. |
-| `How are notify() and notifyAll() different?` | Phương thức `notify()` đánh thức ngẫu nhiên một luồng đơn lẻ đang chờ; `notifyAll()` đánh thức toàn bộ các luồng đang chờ trên màn hình giám sát đối tượng (object monitor). |
-| `Is Stream API lazy?` | Có. Các hoạt động trung gian (như `filter`, `map`) là trì hoãn (lazy) và chỉ được thực thi khi một hoạt động kết thúc (như `collect`) được gọi. |
+- **`How are Comparable and Comparator different?`** — `Comparable` định nghĩa thứ tự sắp xếp tự nhiên của một lớp thông qua `compareTo()`; `Comparator` định nghĩa các quy tắc sắp xếp tùy chỉnh bên ngoài thông qua `compare()`.
+- **`How are fail-fast and fail-safe iterators different?`** — Bộ lặp fail-fast ném ra ngoại lệ `ConcurrentModificationException` ngay khi bộ sưu tập bị thay đổi cấu trúc; bộ lặp fail-safe hoạt động trên một bản sao, tránh được ngoại lệ này.
+- **`How are volatile and synchronized different?`** — Từ khóa `volatile` đảm bảo tính hiển thị (visibility) và thứ tự lệnh của biến giữa các luồng; `synchronized` đảm bảo tính hiển thị, thứ tự lệnh VÀ tính nguyên tố (atomicity) thông qua cơ chế khóa.
+- **`What is deadlock?`** — Là trạng thái bế tắc xảy ra khi hai hoặc nhiều luồng bị khóa vĩnh viễn, mỗi luồng đều chờ đợi khóa đang được giữ bởi luồng kia.
+- **`How are Thread start() and run() different?`** — Phương thức `start()` tạo ra một luồng mới và thực thi logic trong `run()` bất đồng bộ; phương thức `run()` thực thi đồng bộ trong luồng gọi hiện tại.
+- **`How are sleep() and wait() different?`** — Phương thức `sleep()` tạm dừng luồng hiện tại nhưng **không giải phóng khóa**; `wait()` tạm dừng luồng và **giải phóng khóa** để chờ thông báo từ luồng khác.
+- **`How are notify() and notifyAll() different?`** — Phương thức `notify()` đánh thức ngẫu nhiên một luồng đơn lẻ đang chờ; `notifyAll()` đánh thức toàn bộ các luồng đang chờ trên màn hình giám sát đối tượng (object monitor).
+- **`Is Stream API lazy?`** — Có. Các hoạt động trung gian (như `filter`, `map`) là trì hoãn (lazy) và chỉ được thực thi khi một hoạt động kết thúc (như `collect`) được gọi.
 
 ---
 

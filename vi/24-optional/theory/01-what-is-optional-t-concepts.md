@@ -6,18 +6,16 @@ File này bao quát một phần tập trung của **Optional** (lớp tùy ch�
 
 ## Phạm Vi Đề Cương
 
-| Khái Niệm | Cần biết |
-| --- | --- |
-| `What is Optional<T>?` | Optional là container có thể chứa hoặc không chứa một giá trị khác null. |
-| `Avoid NullPointerException` | Exception (ngoại lệ) biểu diễn điều kiện bất thường mà chương trình có thể bắt hoặc lan truyền. |
-| `Optional.of` | Optional là container có thể chứa hoặc không chứa một giá trị khác null. |
-| `Optional.ofNullable` | Optional là container có thể chứa hoặc không chứa một giá trị khác null. |
-| `Optional.empty` | Optional là container có thể chứa hoặc không chứa một giá trị khác null. |
-| `isPresent` | `isPresent` là khái niệm cụ thể trong Optional; hãy học quy tắc Java, trường hợp dùng hợp lệ và chế độ thất bại thay vì chỉ nhớ tên. |
-| `ifPresent` | `ifPresent` là khái niệm cụ thể trong Optional; hãy học quy tắc Java, trường hợp dùng hợp lệ và chế độ thất bại thay vì chỉ nhớ tên. |
-| `orElse` | `orElse` là khái niệm cụ thể trong Optional; hãy học quy tắc Java, trường hợp dùng hợp lệ và chế độ thất bại thay vì chỉ nhớ tên. |
-| `orElseGet` | `orElseGet` là khái niệm cụ thể trong Optional; hãy học quy tắc Java, trường hợp dùng hợp lệ và chế độ thất bại thay vì chỉ nhớ tên. |
-| `orElseThrow` | `orElseThrow` trả về giá trị được bọc hoặc ném ngoại lệ nếu giá trị vắng mặt. |
+- **`What is Optional<T>?`** — Optional là container có thể chứa hoặc không chứa một giá trị khác null.
+- **`Avoid NullPointerException`** — Exception (ngoại lệ) biểu diễn điều kiện bất thường mà chương trình có thể bắt hoặc lan truyền.
+- **`Optional.of`** — Optional là container có thể chứa hoặc không chứa một giá trị khác null.
+- **`Optional.ofNullable`** — Optional là container có thể chứa hoặc không chứa một giá trị khác null.
+- **`Optional.empty`** — Optional là container có thể chứa hoặc không chứa một giá trị khác null.
+- **`isPresent`** — `isPresent` là khái niệm cụ thể trong Optional; hãy học quy tắc Java, trường hợp dùng hợp lệ và chế độ thất bại thay vì chỉ nhớ tên.
+- **`ifPresent`** — `ifPresent` là khái niệm cụ thể trong Optional; hãy học quy tắc Java, trường hợp dùng hợp lệ và chế độ thất bại thay vì chỉ nhớ tên.
+- **`orElse`** — `orElse` là khái niệm cụ thể trong Optional; hãy học quy tắc Java, trường hợp dùng hợp lệ và chế độ thất bại thay vì chỉ nhớ tên.
+- **`orElseGet`** — `orElseGet` là khái niệm cụ thể trong Optional; hãy học quy tắc Java, trường hợp dùng hợp lệ và chế độ thất bại thay vì chỉ nhớ tên.
+- **`orElseThrow`** — `orElseThrow` trả về giá trị được bọc hoặc ném ngoại lệ nếu giá trị vắng mặt.
 
 ## Ghi Chú Chi Tiết
 

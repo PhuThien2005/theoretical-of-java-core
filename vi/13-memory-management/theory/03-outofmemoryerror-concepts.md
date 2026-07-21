@@ -6,10 +6,8 @@ Tài liệu này bao gồm một phần nội dung trọng tâm về **Quản l�
 
 ## Đề Cương Nội Dung (Outline Coverage)
 
-| Khái Niệm | Những Điều Cần Biết |
-| --- | --- |
-| `OutOfMemoryError` | OutOfMemoryError là một khái niệm cụ thể trong Quản lý bộ nhớ Java; hãy học quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ mỗi tên gọi. |
-| `StackOverflowError` | Ngăn xếp (Stack) lưu trữ các khung phương thức (method frame), các biến cục bộ (local variable) và luồng gọi hàm cho từng luồng thực thi (thread). |
+- **`OutOfMemoryError`** — OutOfMemoryError là một khái niệm cụ thể trong Quản lý bộ nhớ Java; hãy học quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ mỗi tên gọi.
+- **`StackOverflowError`** — Ngăn xếp (Stack) lưu trữ các khung phương thức (method frame), các biến cục bộ (local variable) và luồng gọi hàm cho từng luồng thực thi (thread).
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 

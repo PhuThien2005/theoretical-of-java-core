@@ -6,16 +6,14 @@ Tài liệu này trình bày một phần trọng tâm của **Stream API**. Hã
 
 ## Nội Dung Tổng Quan
 
-| Khái niệm | Điều cần biết |
-| --- | --- |
-| `min` | `min` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
-| `max` | `max` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
-| `reduce` | `reduce` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
-| `anyMatch` | `anyMatch` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
-| `allMatch` | `allMatch` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
-| `noneMatch` | `noneMatch` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
-| `findFirst` | `findFirst` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
-| `findAny` | `findAny` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
+- **`min`** — `min` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+- **`max`** — `max` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+- **`reduce`** — `reduce` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+- **`anyMatch`** — `anyMatch` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+- **`allMatch`** — `allMatch` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+- **`noneMatch`** — `noneMatch` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+- **`findFirst`** — `findFirst` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+- **`findAny`** — `findAny` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
 
 ## Ghi Chú Chi Tiết
 

@@ -6,18 +6,16 @@ Tài liệu này trình bày một phần trọng tâm về **Cơ Chế Phản C
 
 ## Khung Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Nội dung cần biết (What to know) |
-| --- | --- |
-| `What is Reflection?` | Reflection cho phép chương trình kiểm tra và thao tác trên các lớp, các trường, các phương thức và các hàm khởi tạo tại thời điểm chạy (runtime). |
-| `Class<?>` | Lớp đại diện cho siêu dữ liệu (metadata) của một lớp hoặc giao diện Java đã được nạp vào máy ảo JVM. |
-| `Get class information` | Truy vấn các bổ từ truy cập, tên gói, lớp cha và các giao diện được triển khai tại thời điểm chạy. |
-| `Get field` | Lấy các đối tượng Field công khai hoặc được khai báo đại diện cho các trường của lớp. |
-| `Get method` | Lấy các đối tượng Method công khai hoặc được khai báo để kiểm tra chữ ký phương thức. |
-| `Get constructor` | Lấy các đối tượng Constructor công khai hoặc được khai báo để kiểm tra các hàm khởi tạo. |
-| `Invoke method using reflection` | Thực thi một phương thức một cách động tại thời điểm chạy thông qua reflection. |
-| `Create object using reflection` | Khởi tạo thực thể của lớp một cách động bằng cách sử dụng các hàm khởi tạo qua reflection. |
-| `Access private field/method` | Bỏ qua các kiểm tra bảo vệ quyền truy cập của ngôn ngữ để đọc/ghi các trường private hoặc gọi các phương thức private. |
-| `Annotation + reflection` | Truy vấn các siêu dữ liệu chú thích (annotations) tại thời điểm chạy sử dụng các phương thức của reflection. |
+- **`What is Reflection?`** — Reflection cho phép chương trình kiểm tra và thao tác trên các lớp, các trường, các phương thức và các hàm khởi tạo tại thời điểm chạy (runtime).
+- **`Class<?>`** — Lớp đại diện cho siêu dữ liệu (metadata) của một lớp hoặc giao diện Java đã được nạp vào máy ảo JVM.
+- **`Get class information`** — Truy vấn các bổ từ truy cập, tên gói, lớp cha và các giao diện được triển khai tại thời điểm chạy.
+- **`Get field`** — Lấy các đối tượng Field công khai hoặc được khai báo đại diện cho các trường của lớp.
+- **`Get method`** — Lấy các đối tượng Method công khai hoặc được khai báo để kiểm tra chữ ký phương thức.
+- **`Get constructor`** — Lấy các đối tượng Constructor công khai hoặc được khai báo để kiểm tra các hàm khởi tạo.
+- **`Invoke method using reflection`** — Thực thi một phương thức một cách động tại thời điểm chạy thông qua reflection.
+- **`Create object using reflection`** — Khởi tạo thực thể của lớp một cách động bằng cách sử dụng các hàm khởi tạo qua reflection.
+- **`Access private field/method`** — Bỏ qua các kiểm tra bảo vệ quyền truy cập của ngôn ngữ để đọc/ghi các trường private hoặc gọi các phương thức private.
+- **`Annotation + reflection`** — Truy vấn các siêu dữ liệu chú thích (annotations) tại thời điểm chạy sử dụng các phương thức của reflection.
 
 ---
 

@@ -6,12 +6,10 @@ Tài liệu này tập trung vào một phần chuyên sâu của **Biểu Thứ
 
 ## Tóm Tắt Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Điều cần biết (What to know) |
-| --- | --- |
-| `Basic lookahead / lookbehind` | Lookahead và lookbehind là các khẳng định có độ rộng bằng không nhằm so khớp một vị trí mà không tiêu thụ các ký tự. |
-| `Validate email, phone, password` | Các mẫu xác thực biểu mẫu bằng biểu thức chính quy, nhấn mạnh việc kiểm tra độ mạnh mật khẩu bằng lookaround. |
-| `Replace using regex` | Thay thế chuỗi con bằng biểu thức chính quy thông qua `replaceAll()`, tham chiếu ngược (backreference) và các phương thức thay thế của Matcher. |
-| `Split using regex` | Tách các chuỗi bằng biểu thức chính quy và xử lý các chuỗi rỗng ở cuối bằng cách sử dụng tham số limit. |
+- **`Basic lookahead / lookbehind`** — Lookahead và lookbehind là các khẳng định có độ rộng bằng không nhằm so khớp một vị trí mà không tiêu thụ các ký tự.
+- **`Validate email, phone, password`** — Các mẫu xác thực biểu mẫu bằng biểu thức chính quy, nhấn mạnh việc kiểm tra độ mạnh mật khẩu bằng lookaround.
+- **`Replace using regex`** — Thay thế chuỗi con bằng biểu thức chính quy thông qua `replaceAll()`, tham chiếu ngược (backreference) và các phương thức thay thế của Matcher.
+- **`Split using regex`** — Tách các chuỗi bằng biểu thức chính quy và xử lý các chuỗi rỗng ở cuối bằng cách sử dụng tham số limit.
 
 ---
 

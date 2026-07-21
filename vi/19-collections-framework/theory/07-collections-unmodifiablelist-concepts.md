@@ -6,16 +6,14 @@ Tài liệu này tập trung vào một phần nhỏ trong **Khung Bộ Sưu T�
 
 ## Khung Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Nội dung cần biết (What to know) |
-| --- | --- |
-| `Collections.unmodifiableList` | Trả về một chế độ xem chỉ đọc (read-only view) của một danh sách nền tảng bên dưới (backing list). Mọi nỗ lực sửa đổi danh sách này sẽ ném ra ngoại lệ `UnsupportedOperationException`. Tuy nhiên, các thay đổi trên danh sách gốc vẫn sẽ phản ánh lên chế độ xem này. |
-| `Collections.synchronizedList` | Trả về một danh sách an toàn luồng (thread-safe) được hỗ trợ bởi danh sách được chỉ định. Việc duyệt qua danh sách này yêu cầu đồng bộ hóa thủ công trên đối tượng danh sách. |
-| `Arrays.sort` | Sắp xếp các mảng nguyên thủy hoặc mảng đối tượng. Mảng đối tượng sử dụng thuật toán Timsort; mảng kiểu dữ liệu nguyên thủy sử dụng thuật toán Quicksort xoay kép (Dual-Pivot Quicksort). |
-| `Arrays.binarySearch` | Tìm kiếm trên một mảng đã được sắp xếp. Trả về chỉ mục của phần tử khớp, hoặc một giá trị âm đại diện cho điểm chèn (insertion point) nếu không tìm thấy. Kết quả không xác định nếu mảng chưa được sắp xếp. |
-| `Arrays.asList` | Trả về một danh sách có kích thước cố định được hỗ trợ bởi mảng được truyền vào. Các sửa đổi trên phần tử của danh sách sẽ ghi trực tiếp xuống mảng, nhưng các thay đổi cấu trúc (thêm/xóa phần tử) sẽ ném ra ngoại lệ `UnsupportedOperationException`. |
-| `Arrays.copyOf` | Sao chép mảng được chỉ định, cắt ngắn hoặc đệm thêm các giá trị mặc định nếu cần thiết. |
-| `Arrays.equals` | So sánh hai mảng 1 chiều xem chúng có bằng nhau hay không dựa trên nội dung của các phần tử. |
-| `Arrays.deepEquals` | So sánh đệ quy các mảng đa chiều xem chúng có bằng nhau sâu hay không. |
+- **`Collections.unmodifiableList`** — Trả về một chế độ xem chỉ đọc (read-only view) của một danh sách nền tảng bên dưới (backing list). Mọi nỗ lực sửa đổi danh sách này sẽ ném ra ngoại lệ `UnsupportedOperationException`. Tuy nhiên, các thay đổi trên danh sách gốc vẫn sẽ phản ánh lên chế độ xem này.
+- **`Collections.synchronizedList`** — Trả về một danh sách an toàn luồng (thread-safe) được hỗ trợ bởi danh sách được chỉ định. Việc duyệt qua danh sách này yêu cầu đồng bộ hóa thủ công trên đối tượng danh sách.
+- **`Arrays.sort`** — Sắp xếp các mảng nguyên thủy hoặc mảng đối tượng. Mảng đối tượng sử dụng thuật toán Timsort; mảng kiểu dữ liệu nguyên thủy sử dụng thuật toán Quicksort xoay kép (Dual-Pivot Quicksort).
+- **`Arrays.binarySearch`** — Tìm kiếm trên một mảng đã được sắp xếp. Trả về chỉ mục của phần tử khớp, hoặc một giá trị âm đại diện cho điểm chèn (insertion point) nếu không tìm thấy. Kết quả không xác định nếu mảng chưa được sắp xếp.
+- **`Arrays.asList`** — Trả về một danh sách có kích thước cố định được hỗ trợ bởi mảng được truyền vào. Các sửa đổi trên phần tử của danh sách sẽ ghi trực tiếp xuống mảng, nhưng các thay đổi cấu trúc (thêm/xóa phần tử) sẽ ném ra ngoại lệ `UnsupportedOperationException`.
+- **`Arrays.copyOf`** — Sao chép mảng được chỉ định, cắt ngắn hoặc đệm thêm các giá trị mặc định nếu cần thiết.
+- **`Arrays.equals`** — So sánh hai mảng 1 chiều xem chúng có bằng nhau hay không dựa trên nội dung của các phần tử.
+- **`Arrays.deepEquals`** — So sánh đệ quy các mảng đa chiều xem chúng có bằng nhau sâu hay không.
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 

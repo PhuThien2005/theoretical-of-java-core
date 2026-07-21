@@ -6,26 +6,22 @@ Tài liệu này tập trung vào một phần chuyên sâu của **Lập Trình
 
 ## Tóm Tắt Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Điều cần biết (What to know) |
-| --- | --- |
-| `Socket programming` | Một socket là một đầu cuối (endpoint) cho giao tiếp mạng. |
-| `TCP socket` | Một socket TCP thiết lập giao tiếp mạng hướng kết nối và đáng tin cậy. |
-| `UDP socket` | Một socket UDP gửi các gói tin không hướng kết nối và không đảm bảo độ tin cậy. |
-| `Socket` | Lớp đại diện cho một socket máy khách (client socket) trong Java. |
-| `ServerSocket` | Lớp đại diện cho một socket máy chủ lắng nghe kết nối TCP trong Java. |
-| `DatagramSocket` | Lớp Java dùng để gửi và nhận gói tin UDP. |
-| `InetAddress` | InetAddress là một khái niệm cụ thể trong Lập trình mạng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ lỗi của nó thay vì chỉ ghi nhớ tên gọi. |
-| `URL` | URL là một khái niệm cụ thể trong Lập trình mạng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ lỗi của nó thay vì chỉ ghi nhớ tên gọi. |
-| `URI` | URI là một khái niệm cụ thể trong Lập trình mạng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ lỗi của nó thay vì chỉ ghi nhớ tên gọi. |
-| `Basic HTTP request` | Yêu cầu HTTP cơ bản là một khái niệm cụ thể trong Lập trình mạng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ lỗi của nó thay vì chỉ ghi nhớ tên gọi. |
+- **`Socket programming`** — Một socket là một đầu cuối (endpoint) cho giao tiếp mạng.
+- **`TCP socket`** — Một socket TCP thiết lập giao tiếp mạng hướng kết nối và đáng tin cậy.
+- **`UDP socket`** — Một socket UDP gửi các gói tin không hướng kết nối và không đảm bảo độ tin cậy.
+- **`Socket`** — Lớp đại diện cho một socket máy khách (client socket) trong Java.
+- **`ServerSocket`** — Lớp đại diện cho một socket máy chủ lắng nghe kết nối TCP trong Java.
+- **`DatagramSocket`** — Lớp Java dùng để gửi và nhận gói tin UDP.
+- **`InetAddress`** — InetAddress là một khái niệm cụ thể trong Lập trình mạng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ lỗi của nó thay vì chỉ ghi nhớ tên gọi.
+- **`URL`** — URL là một khái niệm cụ thể trong Lập trình mạng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ lỗi của nó thay vì chỉ ghi nhớ tên gọi.
+- **`URI`** — URI là một khái niệm cụ thể trong Lập trình mạng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ lỗi của nó thay vì chỉ ghi nhớ tên gọi.
+- **`Basic HTTP request`** — Yêu cầu HTTP cơ bản là một khái niệm cụ thể trong Lập trình mạng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ lỗi của nó thay vì chỉ ghi nhớ tên gọi.
 
 ## Ghi Chú Chi Tiết
 
 ### Lập trình Socket (Socket programming)
 
 Một socket là một đầu cuối (endpoint) dành cho giao tiếp mạng.
-
-Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng thức được phép, và chế độ lỗi. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn lý thuyết.
 
 Kiểm tra thực tế:
 - Định nghĩa `Lập trình Socket` trong một câu.

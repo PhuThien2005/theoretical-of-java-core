@@ -19,7 +19,7 @@ class BankAccount {
     String address;
 
     int getBalance() {
-        return balance;
+        return balance-2;
     }
 
     public BankAccount(int balance, String name) {

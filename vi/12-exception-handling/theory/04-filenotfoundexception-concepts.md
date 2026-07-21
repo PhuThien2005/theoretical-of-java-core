@@ -6,11 +6,9 @@ File này tập trung vào một phần cụ thể của **Xử Lý Ngoại Lệ
 
 ## Các Khái Niệm Được Đề Cập
 
-| Khái niệm | Cần biết |
-| --- | --- |
-| `FileNotFoundException` | Lớp con của IOException, ném ra khi mở tệp thất bại do tệp không tồn tại hoặc vấn đề quyền truy cập. |
-| `SQLException` | Ngoại lệ đã kiểm tra (checked exception) biểu thị lỗi kết nối cơ sở dữ liệu hoặc lỗi thực thi truy vấn. |
-| `Các thực tiễn tốt nhất khi xử lý ngoại lệ` | Hướng dẫn kỹ thuật cốt lõi để xử lý ngoại lệ chắc chắn và giữ code dễ bảo trì. |
+- **`FileNotFoundException`** — Lớp con của IOException, ném ra khi mở tệp thất bại do tệp không tồn tại hoặc vấn đề quyền truy cập.
+- **`SQLException`** — Ngoại lệ đã kiểm tra (checked exception) biểu thị lỗi kết nối cơ sở dữ liệu hoặc lỗi thực thi truy vấn.
+- **`Các thực tiễn tốt nhất khi xử lý ngoại lệ`** — Hướng dẫn kỹ thuật cốt lõi để xử lý ngoại lệ chắc chắn và giữ code dễ bảo trì.
 
 ## Ghi Chú Chi Tiết
 

@@ -6,18 +6,16 @@ File này đề cập đến một phần trọng tâm của **I/O trong Java**.
 
 ## Đề Cương Khái Niệm
 
-| Khái niệm | Những điều cần biết |
-| --- | --- |
-| `BufferedInputStream` | Một luồng đầu vào lọc (filter input stream) thực hiện đệm (buffer) dữ liệu đầu vào bằng cách đọc các khối byte lớn vào một bộ đệm nội bộ (mặc định 8KB) để giảm thiểu việc truy cập đĩa trực tiếp từ hệ điều hành. |
-| `BufferedOutputStream` | Một luồng đầu ra lọc thực hiện đệm dữ liệu đầu ra bằng cách lưu trữ các byte đã ghi vào một bộ đệm nội bộ trước khi đẩy (flush) chúng đến luồng bên dưới. |
-| `Reader` | Lớp cơ sở trừu tượng đại diện cho một luồng đầu vào của các ký tự; được thiết kế để đọc dữ liệu văn bản với mã hóa ký tự (character encoding) phù hợp. |
-| `Writer` | Lớp cơ sở trừu tượng đại diện cho một luồng đầu ra của các ký tự; được thiết kế để ghi dữ liệu văn bản với mã hóa ký tự phù hợp. |
-| `FileReader` | Một lớp con cụ thể của `Reader` được sử dụng để đọc dữ liệu ký tự từ một tệp. |
-| `FileWriter` | Một lớp con cụ thể của `Writer` được sử dụng để ghi dữ liệu ký tự vào một tệp. |
-| `BufferedReader` | Một luồng đầu vào ký tự đệm cung cấp khả năng đọc ký tự, mảng và các dòng văn bản một cách hiệu quả thông qua phương thức `readLine()`. |
-| `BufferedWriter` | Một luồng đầu ra ký tự đệm cung cấp khả năng ghi ký tự, mảng và các dòng văn bản một cách hiệu quả thông qua phương thức `newLine()`. |
-| `ObjectInputStream` | Một luồng đầu vào được sử dụng để giải tuần tự hóa (deserialize) các dữ liệu nguyên thủy và đồ thị đối tượng đã được ghi trước đó bằng `ObjectOutputStream`. |
-| `ObjectOutputStream` | Một luồng đầu ra được sử dụng để tuần tự hóa (serialize) các đối tượng và dữ liệu nguyên thủy thành một luồng byte để lưu trữ hoặc truyền tải. |
+- **`BufferedInputStream`** — Một luồng đầu vào lọc (filter input stream) thực hiện đệm (buffer) dữ liệu đầu vào bằng cách đọc các khối byte lớn vào một bộ đệm nội bộ (mặc định 8KB) để giảm thiểu việc truy cập đĩa trực tiếp từ hệ điều hành.
+- **`BufferedOutputStream`** — Một luồng đầu ra lọc thực hiện đệm dữ liệu đầu ra bằng cách lưu trữ các byte đã ghi vào một bộ đệm nội bộ trước khi đẩy (flush) chúng đến luồng bên dưới.
+- **`Reader`** — Lớp cơ sở trừu tượng đại diện cho một luồng đầu vào của các ký tự; được thiết kế để đọc dữ liệu văn bản với mã hóa ký tự (character encoding) phù hợp.
+- **`Writer`** — Lớp cơ sở trừu tượng đại diện cho một luồng đầu ra của các ký tự; được thiết kế để ghi dữ liệu văn bản với mã hóa ký tự phù hợp.
+- **`FileReader`** — Một lớp con cụ thể của `Reader` được sử dụng để đọc dữ liệu ký tự từ một tệp.
+- **`FileWriter`** — Một lớp con cụ thể của `Writer` được sử dụng để ghi dữ liệu ký tự vào một tệp.
+- **`BufferedReader`** — Một luồng đầu vào ký tự đệm cung cấp khả năng đọc ký tự, mảng và các dòng văn bản một cách hiệu quả thông qua phương thức `readLine()`.
+- **`BufferedWriter`** — Một luồng đầu ra ký tự đệm cung cấp khả năng ghi ký tự, mảng và các dòng văn bản một cách hiệu quả thông qua phương thức `newLine()`.
+- **`ObjectInputStream`** — Một luồng đầu vào được sử dụng để giải tuần tự hóa (deserialize) các dữ liệu nguyên thủy và đồ thị đối tượng đã được ghi trước đó bằng `ObjectOutputStream`.
+- **`ObjectOutputStream`** — Một luồng đầu ra được sử dụng để tuần tự hóa (serialize) các đối tượng và dữ liệu nguyên thủy thành một luồng byte để lưu trữ hoặc truyền tải.
 
 ## Ghi Chú Chi Tiết
 

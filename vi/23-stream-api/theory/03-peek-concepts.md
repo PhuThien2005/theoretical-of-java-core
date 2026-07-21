@@ -6,16 +6,14 @@ Tài liệu này tập trung vào một phần chuyên sâu của **API Dòng Ch
 
 ## Tóm Tắt Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Điều cần biết (What to know) |
-| --- | --- |
-| `peek` | `peek` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
-| `limit` | `limit` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
-| `skip` | `skip` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
-| `Các thao tác kết thúc:` | Các thao tác kết thúc (Terminal operations) là một nhóm các quy tắc liên quan trong Stream API để gom nhóm nhiều chi tiết kỹ thuật có liên quan. |
-| `forEach` | `forEach` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
-| `collect` | `collect` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
-| `toList` | Một `List` là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí. |
-| `count` | `count` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
+- **`peek`** — `peek` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+- **`limit`** — `limit` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+- **`skip`** — `skip` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+- **`Các thao tác kết thúc:`** — Các thao tác kết thúc (Terminal operations) là một nhóm các quy tắc liên quan trong Stream API để gom nhóm nhiều chi tiết kỹ thuật có liên quan.
+- **`forEach`** — `forEach` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+- **`collect`** — `collect` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+- **`toList`** — Một `List` là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí.
+- **`count`** — `count` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
 
 ## Ghi Chú Chi Tiết
 

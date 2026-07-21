@@ -6,16 +6,14 @@ Tài liệu này tập trung vào một phần trọng tâm về **Các Bổ T�
 
 ## Khung Nội Dung (Outline Coverage)
 
-| Bổ từ (Modifier) | Nội dung cần biết (What to know) |
-| --- | --- |
-| `abstract` | Abstract nghĩa là chưa hoàn thiện theo thiết kế: các lớp con hoặc lớp triển khai bắt buộc phải cung cấp các hành vi còn thiếu. |
-| `synchronized` | Synchronized bảo vệ một phân đoạn quan trọng (critical section) bằng cách sử dụng khóa giám sát (monitor lock). |
-| `volatile` | Volatile cung cấp sự đảm bảo hiển thị đối với biến được chia sẻ giữa các luồng, nhưng nó không làm cho các hoạt động phức hợp trở thành nguyên tố (atomic). |
-| `transient` | Transient đánh dấu một trường cần được bỏ qua trong quá trình tuần tự hóa (serialization) đối tượng trong Java. |
-| `native` | Native chỉ ra rằng phương thức đó được triển khai bằng ngôn ngữ lập trình khác (như C/C++) thông qua Giao diện gốc Java (Java Native Interface - JNI). |
-| `strictfp` | strictfp đảm bảo rằng các tính toán số thực dấu phẩy động (floating-point) luôn tạo ra cùng một kết quả trên mọi nền tảng phần cứng. |
-| `Static variable` | Biến tĩnh nghĩa là thành viên đó thuộc về bản thân lớp chứ không thuộc về bất kỳ một đối tượng cụ thể nào. |
-| `Static method` | Phương thức tĩnh nghĩa là thành viên đó thuộc về bản thân lớp chứ không thuộc về bất kỳ một đối tượng cụ thể nào. |
+- **`abstract`** — Abstract nghĩa là chưa hoàn thiện theo thiết kế: các lớp con hoặc lớp triển khai bắt buộc phải cung cấp các hành vi còn thiếu.
+- **`synchronized`** — Synchronized bảo vệ một phân đoạn quan trọng (critical section) bằng cách sử dụng khóa giám sát (monitor lock).
+- **`volatile`** — Volatile cung cấp sự đảm bảo hiển thị đối với biến được chia sẻ giữa các luồng, nhưng nó không làm cho các hoạt động phức hợp trở thành nguyên tố (atomic).
+- **`transient`** — Transient đánh dấu một trường cần được bỏ qua trong quá trình tuần tự hóa (serialization) đối tượng trong Java.
+- **`native`** — Native chỉ ra rằng phương thức đó được triển khai bằng ngôn ngữ lập trình khác (như C/C++) thông qua Giao diện gốc Java (Java Native Interface - JNI).
+- **`strictfp`** — strictfp đảm bảo rằng các tính toán số thực dấu phẩy động (floating-point) luôn tạo ra cùng một kết quả trên mọi nền tảng phần cứng.
+- **`Static variable`** — Biến tĩnh nghĩa là thành viên đó thuộc về bản thân lớp chứ không thuộc về bất kỳ một đối tượng cụ thể nào.
+- **`Static method`** — Phương thức tĩnh nghĩa là thành viên đó thuộc về bản thân lớp chứ không thuộc về bất kỳ một đối tượng cụ thể nào.
 
 ---
 
@@ -59,12 +57,9 @@ Lớp trừu tượng là công cụ cốt lõi để triển khai mẫu thiết
 
 #### So Sánh Abstract Class và Interface
 Mặc dù cả hai đều dùng để định nghĩa các hợp đồng (contracts), chúng có sự khác biệt rõ rệt về thiết kế:
-| Tiêu chí | Abstract Class | Interface |
-|---|---|---|
-| Đa kế thừa | Chỉ kế thừa 1 lớp | Có thể triển khai nhiều Interface |
-| Trạng thái (Fields) | Có thể có biến thực thể (instance variables) | Chỉ chứa hằng số (`public static final`) |
-| Hàm khởi tạo | Có | Không |
-| Mục đích thiết kế | Khung sườn chung cho các lớp có quan hệ "IS-A" (cùng loại) | Định nghĩa khả năng/hành vi "CAN-DO" (xuyên suốt các loại khác nhau) |
+**Abstract Class** chỉ cho phép kế thừa 1 lớp, có thể chứa trạng thái (biến thực thể - instance variables), có hàm khởi tạo, và mục đích thiết kế là làm khung sườn chung cho các lớp có quan hệ "IS-A" (cùng loại).
+
+**Interface** cho phép triển khai nhiều Interface cùng lúc (hỗ trợ đa kế thừa), trạng thái chỉ chứa hằng số (`public static final`), không có hàm khởi tạo, và mục đích thiết kế là định nghĩa khả năng/hành vi "CAN-DO" (xuyên suốt các loại khác nhau).
 
 #### Sai lầm thường gặp — Khai báo phương thức abstract có thân phương thức hoặc khai báo bên trong lớp cụ thể
 Bất kỳ lớp nào chứa từ một phương thức `abstract` trở lên bắt buộc phải được khai báo là lớp `abstract`. Hơn nữa, phương thức `abstract` không được phép có thân phương thức (không có dấu ngoặc nhọn, chỉ kết thúc bằng dấu chấm phẩy). Việc viết `abstract void draw() {}` sẽ gây ra lỗi biên dịch vì cặp dấu ngoặc nhọn rỗng `{}` được coi là thân phương thức.

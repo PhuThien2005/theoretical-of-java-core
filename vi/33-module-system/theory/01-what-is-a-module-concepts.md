@@ -6,18 +6,16 @@ Tài liệu này tập trung vào **Hệ Thống Mô-đun Java** (được giớ
 
 ## Tóm Tắt Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Mô tả (Description) |
-| --- | --- |
-| `What is a module?` | Một tập hợp tự mô tả của mã nguồn (các gói) và dữ liệu (các tài nguyên) đi kèm với một bộ mô tả mô-đun. |
-| `module-info.java` | Tệp bộ mô tả mô-đun xác định tên mô-đun, các phụ thuộc, và các gói được xuất. |
-| `requires` | Chỉ thị khai báo một sự phụ thuộc vào một mô-đun khác. |
-| `exports` | Chỉ thị giúp các kiểu dữ liệu công khai (public type) trong một gói có thể truy cập được bởi các mô-đun khác tại thời điểm biên dịch và thời điểm chạy. |
-| `opens` | Chỉ thị cho phép phản chiếu sâu (deep reflection) tại thời điểm chạy trên một gói trong khi chặn quyền truy cập tại thời điểm biên dịch. |
-| `Named module` | Một mô-đun có tên được xác định trong tệp `module-info.class`, được tải từ đường dẫn mô-đun (module path). |
-| `Unnamed module` | Một mô-đun gom tất cả các lớp được tải từ classpath để duy trì khả năng tương thích ngược. |
-| `Automatic module` | Một mô-đun cầu nối được tạo ra khi một tệp JAR truyền thống (không chứa `module-info.class`) được đặt trên đường dẫn mô-đun (module path). |
-| `Module-level encapsulation` | Kiểm soát truy cập mạnh mẽ được thực thi ở cấp JVM, chặn việc rò rỉ API công khai và phản chiếu trái phép. |
-| `Module path vs Classpath` | Classpath là một danh sách phẳng, nhạy cảm với thứ tự của các tệp JAR; Module path là một tập hợp các mô-đun được đặt tên có nhận thức về cấu trúc. |
+- **`What is a module?`** — Một tập hợp tự mô tả của mã nguồn (các gói) và dữ liệu (các tài nguyên) đi kèm với một bộ mô tả mô-đun.
+- **`module-info.java`** — Tệp bộ mô tả mô-đun xác định tên mô-đun, các phụ thuộc, và các gói được xuất.
+- **`requires`** — Chỉ thị khai báo một sự phụ thuộc vào một mô-đun khác.
+- **`exports`** — Chỉ thị giúp các kiểu dữ liệu công khai (public type) trong một gói có thể truy cập được bởi các mô-đun khác tại thời điểm biên dịch và thời điểm chạy.
+- **`opens`** — Chỉ thị cho phép phản chiếu sâu (deep reflection) tại thời điểm chạy trên một gói trong khi chặn quyền truy cập tại thời điểm biên dịch.
+- **`Named module`** — Một mô-đun có tên được xác định trong tệp `module-info.class`, được tải từ đường dẫn mô-đun (module path).
+- **`Unnamed module`** — Một mô-đun gom tất cả các lớp được tải từ classpath để duy trì khả năng tương thích ngược.
+- **`Automatic module`** — Một mô-đun cầu nối được tạo ra khi một tệp JAR truyền thống (không chứa `module-info.class`) được đặt trên đường dẫn mô-đun (module path).
+- **`Module-level encapsulation`** — Kiểm soát truy cập mạnh mẽ được thực thi ở cấp JVM, chặn việc rò rỉ API công khai và phản chiếu trái phép.
+- **`Module path vs Classpath`** — Classpath là một danh sách phẳng, nhạy cảm với thứ tự của các tệp JAR; Module path là một tập hợp các mô-đun được đặt tên có nhận thức về cấu trúc.
 
 ---
 
@@ -109,12 +107,9 @@ module com.example.app {
 
 Một nguồn gây nhầm lẫn phổ biến là khi nào nên sử dụng `exports` và khi nào nên dùng `opens`. Chúng đại diện cho các phong cách kiểm soát truy cập khác nhau:
 
-| Tính năng | `exports` | `opens` |
-| --- | --- | --- |
-| **Truy cập lúc Biên dịch** | ✅ Cho phép (Các mô-đun khác có thể viết mã sử dụng các lớp này) | ❌ Bị chặn (Trình biên dịch ném lỗi "package does not exist") |
-| **Truy cập Trực tiếp lúc Chạy** | ✅ Cho phép | ❌ Bị chặn |
-| **Phản chiếu lúc Chạy (Nông)** | ✅ Cho phép (Chỉ các phần tử public mới có thể được kiểm tra) | ✅ Cho phép |
-| **Phản chiếu Sâu lúc Chạy** | ❌ Bị chặn (Truy cập các thành viên `private` sẽ ném ngoại lệ) | ✅ Cho phép (Có thể truy cập các trường/phương thức `private` qua `.setAccessible(true)`) |
+**`exports`** cho phép truy cập lúc biên dịch (các mô-đun khác có thể viết mã sử dụng các lớp này), cho phép truy cập trực tiếp lúc chạy, và cho phép phản chiếu lúc chạy (nông) (chỉ các phần tử public mới có thể được kiểm tra). Tuy nhiên, nó chặn phản chiếu sâu lúc chạy (truy cập các thành viên `private` sẽ ném ngoại lệ).
+
+**`opens`** chặn truy cập lúc biên dịch (trình biên dịch ném lỗi "package does not exist") và truy cập trực tiếp lúc chạy. Tuy nhiên, nó cho phép phản chiếu lúc chạy (nông) và phản chiếu sâu lúc chạy (có thể truy cập các trường/phương thức `private` qua `.setAccessible(true)`).
 
 #### Chặn Phản chiếu Sâu (Deep Reflection Block)
 
@@ -186,11 +181,11 @@ flowchart TD
 
 Để cho phép di chuyển từng bước từ Java 8, Java định nghĩa ba loại mô-đun:
 
-| Loại Mô-đun | Cách Định nghĩa | Được Tải Từ Đâu | exports / opens | Quy tắc Đọc (Readability) | Nguồn gốc Tên gọi |
-| --- | --- | --- | --- | --- | --- |
-| **Mô-đun được Đặt tên (Named Module)** | Có tệp `module-info.class` | Đường dẫn mô-đun (`--module-path`) | Tường minh theo định nghĩa | Có thể đọc các mô-đun được khai báo `requires` rõ ràng | Định nghĩa trong `module-info.java` |
-| **Mô-đun không Đặt tên (Unnamed Module)** | Không có `module-info.class` (Ngầm định) | Đường dẫn lớp (`-cp`) | Xuất khẩu tất cả các gói | Có thể đọc tất cả mô-đun trên Module Path | Không có (được gọi là không tên) |
-| **Mô-đun Tự động (Automatic Module)** | Tệp JAR cũ (Không có `module-info.class`) | Đường dẫn mô-đun (`--module-path`) | Xuất khẩu và mở tất cả các gói | Có thể đọc tất cả mô-đun (được đặt tên, không đặt tên, tự động) | Trích xuất từ tên tệp JAR hoặc thuộc tính Manifest |
+**Mô-đun được Đặt tên (Named Module)** được định nghĩa bằng tệp `module-info.class` và được tải từ đường dẫn mô-đun (`--module-path`). Việc xuất khẩu (exports) hoặc mở (opens) được thực hiện tường minh theo định nghĩa. Mô-đun này có thể đọc các mô-đun được khai báo `requires` rõ ràng. Nguồn gốc tên gọi được định nghĩa trong `module-info.java`.
+
+**Mô-đun không Đặt tên (Unnamed Module)** không có tệp `module-info.class` (ngầm định) và được tải từ đường dẫn lớp (`-cp`). Nó xuất khẩu tất cả các gói và có thể đọc tất cả mô-đun trên Module Path. Nó không có nguồn gốc tên gọi (được gọi là không tên).
+
+**Mô-đun Tự động (Automatic Module)** là tệp JAR cũ (không có `module-info.class`) và được tải từ đường dẫn mô-đun (`--module-path`). Nó xuất khẩu và mở tất cả các gói. Nó có thể đọc tất cả mô-đun (được đặt tên, không đặt tên, tự động). Tên của nó được trích xuất từ tên tệp JAR hoặc thuộc tính Manifest.
 
 #### Cơ chế Cầu nối Di cư
 Bởi vì các mô-đun được đặt tên không thể yêu cầu (requires) mô-đun không đặt tên (vì nó không có tên và không thể được tham chiếu tường minh), việc tải trực tiếp mã nguồn cũ vào một mô-đun được đặt tên sẽ bị lỗi. Để bắc cầu cho vấn đề này:

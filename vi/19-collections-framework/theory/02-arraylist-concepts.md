@@ -6,16 +6,14 @@ Tài liệu này tập trung vào một phần trọng tâm của **Khung Tập 
 
 ## Tóm Tắt Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Điều cần biết (What to know) |
-| --- | --- |
-| `ArrayList` | Một `List` là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí. |
-| `LinkedList` | Một `List` là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí. |
-| `Vector` | `Vector` là một khái niệm cụ thể trong Khung Tập Hợp; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
-| `Stack` | Ngăn xếp (Stack) lưu trữ các khung phương thức (Method frame), biến cục bộ và luồng gọi cho mỗi luồng (Thread). |
-| `So sánh ArrayList và LinkedList` | Một `List` là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí. |
-| `Khi nào nên sử dụng List?` | Một `List` là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí. |
-| `HashSet` | Một `Set` là một tập hợp từ chối các phần tử trùng lặp theo quy tắc bằng nhau (equality rules). |
-| `LinkedHashSet` | Một `Set` là một tập hợp từ chối các phần tử trùng lặp theo quy tắc bằng nhau. |
+- **`ArrayList`** — Một `List` là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí.
+- **`LinkedList`** — Một `List` là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí.
+- **`Vector`** — `Vector` là một khái niệm cụ thể trong Khung Tập Hợp; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+- **`Stack`** — Ngăn xếp (Stack) lưu trữ các khung phương thức (Method frame), biến cục bộ và luồng gọi cho mỗi luồng (Thread).
+- **`So sánh ArrayList và LinkedList`** — Một `List` là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí.
+- **`Khi nào nên sử dụng List?`** — Một `List` là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí.
+- **`HashSet`** — Một `Set` là một tập hợp từ chối các phần tử trùng lặp theo quy tắc bằng nhau (equality rules).
+- **`LinkedHashSet`** — Một `Set` là một tập hợp từ chối các phần tử trùng lặp theo quy tắc bằng nhau.
 
 ## Ghi Chú Chi Tiết
 
@@ -45,13 +43,15 @@ Lớp `Stack` đại diện cho một ngăn xếp đối tượng hoạt động
 
 ### So sánh ArrayList và LinkedList
 
-| Hoạt động | ArrayList | LinkedList | Ghi chú |
-|---|---|---|---|
-| **Truy cập (theo chỉ số)** | `O(1)` | `O(N)` | ArrayList sử dụng dịch chuyển địa chỉ trực tiếp trong mảng. |
-| **Thêm/Xóa (ở Cuối)** | `O(1)` (Phân bổ) | `O(1)` | ArrayList có thể kích hoạt tăng kích thước; LinkedList cập nhật các con trỏ. |
-| **Thêm/Xóa (ở Đầu)** | `O(N)` | `O(1)` | ArrayList dịch chuyển tất cả phần tử; LinkedList cập nhật con trỏ đầu. |
-| **Thêm/Xóa (ở Giữa)** | `O(N)` | `O(N)` | LinkedList phải duyệt đến vị trí giữa; ArrayList dịch chuyển phần tử. |
-| **Chi phí bộ nhớ bổ sung** | Thấp (mảng liên tục) | Cao (3 tham chiếu mỗi nút) | LinkedList tạo ra một đối tượng bao bọc cho mỗi phần tử. |
+**Truy cập (theo chỉ số)** — ArrayList mất thời gian `O(1)`, trong khi LinkedList mất `O(N)`. ArrayList sử dụng dịch chuyển địa chỉ trực tiếp trong mảng.
+
+**Thêm/Xóa (ở Cuối)** — ArrayList mất `O(1)` (Phân bổ), LinkedList mất `O(1)`. ArrayList có thể kích hoạt tăng kích thước; LinkedList cập nhật các con trỏ.
+
+**Thêm/Xóa (ở Đầu)** — ArrayList mất `O(N)`, LinkedList mất `O(1)`. ArrayList dịch chuyển tất cả phần tử; LinkedList cập nhật con trỏ đầu.
+
+**Thêm/Xóa (ở Giữa)** — ArrayList và LinkedList đều mất `O(N)`. LinkedList phải duyệt đến vị trí giữa; ArrayList dịch chuyển phần tử.
+
+**Chi phí bộ nhớ bổ sung** — ArrayList có chi phí thấp do dùng mảng liên tục, trong khi LinkedList có chi phí cao do cần 3 tham chiếu mỗi nút. LinkedList tạo ra một đối tượng bao bọc cho mỗi phần tử.
 
 #### Thân thiện với Bộ nhớ & Bộ đệm CPU
 `ArrayList` lưu trữ các phần tử trong một khối bộ nhớ liên tục. Điều này hoàn toàn phù hợp với cấu trúc bộ đệm CPU hiện đại: việc tải một phần tử sẽ kéo theo các phần tử liền kề vào bộ đệm L2/L3 (tính cục bộ không gian - Spatial locality). Trái lại, các nút của `LinkedList` có thể nằm rải rác khắp nơi trên heap, gây ra hiện tượng lỡ bộ đệm CPU (Cache miss) khi duyệt danh sách.

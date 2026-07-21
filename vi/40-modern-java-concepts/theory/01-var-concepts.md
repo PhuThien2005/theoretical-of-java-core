@@ -6,18 +6,16 @@ File này trình bày một mảng tập trung về **các tính năng Java hi�
 
 ## Nội Dung Đề Cương
 
-| Khái niệm | Cần biết |
-| --- | --- |
-| `var` | Từ khóa suy luận kiểu biến cục bộ (Local-Variable Type Inference - `var`) được giới thiệu trong Java 10. |
-| `Records` | Kiểu bản ghi (Record) dữ liệu tinh giản (compact) được giới thiệu trong Java 16 để biểu diễn các bản ghi dữ liệu bất biến. |
-| `Sealed class` | Lớp niêm phong (Sealed Class) dùng để kiểm soát phân cấp lớp được giới thiệu trong Java 17 để hạn chế kế thừa lớp con. |
-| `Pattern matching for instanceof` | Cơ chế khớp mẫu (Pattern Matching) cho phép ép kiểu đơn giản hóa được giới thiệu trong Java 16. |
-| `Switch expression` | Biểu thức switch (Switch Expression) dùng cú pháp mũi tên trả về giá trị, được giới thiệu trong Java 14. |
-| `Text blocks` | Khối văn bản (Text Block) định dạng chuỗi literal đa dòng (`"""`) được giới thiệu trong Java 15. |
-| `Thông báo NullPointerException được cải thiện` | Log lỗi JVM chi tiết, chính xác. |
-| `Virtual Threads` | Luồng ảo (Virtual Thread) là kiến trúc luồng nhẹ được giới thiệu trong Java 21 cho các khối lượng công việc đồng thời dạng blocking I/O. |
-| `Cơ bản về Structured Concurrency` | Lập trình đồng thời có cấu trúc (Structured Concurrency) tổ chức các tác vụ con thành một khối giao dịch đơn. |
-| `Pattern matching for switch` | Phân nhánh dựa trên kiểu và guard điều kiện bên trong switch (Java 21). |
+- **`var`** — Từ khóa suy luận kiểu biến cục bộ (Local-Variable Type Inference - `var`) được giới thiệu trong Java 10.
+- **`Records`** — Kiểu bản ghi (Record) dữ liệu tinh giản (compact) được giới thiệu trong Java 16 để biểu diễn các bản ghi dữ liệu bất biến.
+- **`Sealed class`** — Lớp niêm phong (Sealed Class) dùng để kiểm soát phân cấp lớp được giới thiệu trong Java 17 để hạn chế kế thừa lớp con.
+- **`Pattern matching for instanceof`** — Cơ chế khớp mẫu (Pattern Matching) cho phép ép kiểu đơn giản hóa được giới thiệu trong Java 16.
+- **`Switch expression`** — Biểu thức switch (Switch Expression) dùng cú pháp mũi tên trả về giá trị, được giới thiệu trong Java 14.
+- **`Text blocks`** — Khối văn bản (Text Block) định dạng chuỗi literal đa dòng (`"""`) được giới thiệu trong Java 15.
+- **`Thông báo NullPointerException được cải thiện`** — Log lỗi JVM chi tiết, chính xác.
+- **`Virtual Threads`** — Luồng ảo (Virtual Thread) là kiến trúc luồng nhẹ được giới thiệu trong Java 21 cho các khối lượng công việc đồng thời dạng blocking I/O.
+- **`Cơ bản về Structured Concurrency`** — Lập trình đồng thời có cấu trúc (Structured Concurrency) tổ chức các tác vụ con thành một khối giao dịch đơn.
+- **`Pattern matching for switch`** — Phân nhánh dựa trên kiểu và guard điều kiện bên trong switch (Java 21).
 
 ---
 

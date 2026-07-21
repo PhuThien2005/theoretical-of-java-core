@@ -6,18 +6,16 @@ Tài liệu này tập trung vào một phần chuyên sâu của **Giao Diện 
 
 ## Tóm Tắt Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Điều cần biết (What to know) |
-| --- | --- |
-| `Predicate<T>` | `Predicate<T>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
-| `Function<T, R>` | `Function<T, R>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
-| `Consumer<T>` | `Consumer<T>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
-| `Supplier<T>` | `Supplier<T>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
-| `UnaryOperator<T>` | `UnaryOperator<T>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
-| `BinaryOperator<T>` | `BinaryOperator<T>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
-| `BiPredicate<T, U>` | `BiPredicate<T, U>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
-| `BiFunction<T, U, R>` | `BiFunction<T, U, R>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
-| `BiConsumer<T, U>` | `BiConsumer<T, U>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi. |
-| `Đầu vào là gì?` | Đầu vào là gì? là một câu hỏi cốt lõi để thấu hiểu Giao Diện Chức Năng. |
+- **`Predicate<T>`** — `Predicate<T>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+- **`Function<T, R>`** — `Function<T, R>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+- **`Consumer<T>`** — `Consumer<T>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+- **`Supplier<T>`** — `Supplier<T>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+- **`UnaryOperator<T>`** — `UnaryOperator<T>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+- **`BinaryOperator<T>`** — `BinaryOperator<T>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+- **`BiPredicate<T, U>`** — `BiPredicate<T, U>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+- **`BiFunction<T, U, R>`** — `BiFunction<T, U, R>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+- **`BiConsumer<T, U>`** — `BiConsumer<T, U>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+- **`Đầu vào là gì?`** — Đầu vào là gì? là một câu hỏi cốt lõi để thấu hiểu Giao Diện Chức Năng.
 
 ## Ghi Chú Chi Tiết
 

@@ -6,18 +6,16 @@ Tài liệu này trình bày một phần trọng tâm của **Biểu thức Lam
 
 ## Nội Dung Tổng Quan
 
-| Khái niệm | Điều cần biết |
-| --- | --- |
-| `What is a lambda?` | Một biểu thức lambda là một khối dạng hàm nhỏ gọn được sử dụng ở những nơi mong đợi một giao diện chức năng (functional interface). |
-| `Lambda syntax` | Một biểu thức lambda là một khối dạng hàm nhỏ gọn được sử dụng ở những nơi mong đợi một giao diện chức năng. |
-| `Functional interface` | Một giao diện chức năng chỉ có duy nhất một phương thức trừu tượng (abstract method) và có thể được triển khai bởi một lambda. |
-| `@FunctionalInterface` | `@FunctionalInterface` là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
-| `Method reference:` | Tham chiếu phương thức (Method reference) là một nhóm các quy tắc liên quan đến Biểu thức Lambda dùng để gom nhóm một số chi tiết liên quan. |
-| `static method reference` | Static có nghĩa là thành viên thuộc về lớp chứ không phải một đối tượng cụ thể nào. |
-| `instance method reference` | Tham chiếu phương thức thể hiện (instance method reference) là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
-| `constructor reference` | Tham chiếu hàm khởi tạo (constructor reference) là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
-| `Variable capture` | Sao chụp biến (Variable capture) là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên. |
-| `Effectively final` | final có nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể. |
+- **`What is a lambda?`** — Một biểu thức lambda là một khối dạng hàm nhỏ gọn được sử dụng ở những nơi mong đợi một giao diện chức năng (functional interface).
+- **`Lambda syntax`** — Một biểu thức lambda là một khối dạng hàm nhỏ gọn được sử dụng ở những nơi mong đợi một giao diện chức năng.
+- **`Functional interface`** — Một giao diện chức năng chỉ có duy nhất một phương thức trừu tượng (abstract method) và có thể được triển khai bởi một lambda.
+- **`@FunctionalInterface`** — `@FunctionalInterface` là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+- **`Method reference:`** — Tham chiếu phương thức (Method reference) là một nhóm các quy tắc liên quan đến Biểu thức Lambda dùng để gom nhóm một số chi tiết liên quan.
+- **`static method reference`** — Static có nghĩa là thành viên thuộc về lớp chứ không phải một đối tượng cụ thể nào.
+- **`instance method reference`** — Tham chiếu phương thức thể hiện (instance method reference) là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+- **`constructor reference`** — Tham chiếu hàm khởi tạo (constructor reference) là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+- **`Variable capture`** — Sao chụp biến (Variable capture) là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+- **`Effectively final`** — final có nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể.
 
 ## Ghi Chú Chi Tiết
 
@@ -294,7 +292,6 @@ Khối try-catch bao bọc hoặc giao diện chức năng tùy chỉnh có thro
 
 Tham chiếu phương thức (Method reference) là một nhóm các quy tắc liên quan đến Biểu thức Lambda dùng để gom nhóm một số chi tiết liên quan.
 
-Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép, và các trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
 Kiểm tra thực tế:
 
@@ -317,7 +314,6 @@ Có 4 loại tham chiếu phương thức chính:
 
 static có nghĩa là thành viên thuộc về lớp chứ không phải một đối tượng cụ thể nào.
 
-Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép, và các trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
 Kiểm tra thực tế:
 
@@ -342,7 +338,6 @@ java.util.function.Function<String, Integer> parserRef = Integer::parseInt;
 
 Tham chiếu phương thức thể hiện (instance method reference) là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
 
-Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép, và các trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
 Kiểm tra thực tế:
 
@@ -372,7 +367,6 @@ java.util.function.BiFunction<String, String, String> unboundConcat = String::co
 
 Tham chiếu hàm khởi tạo (constructor reference) là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
 
-Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép, và các trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
 Kiểm tra thực tế:
 
@@ -452,7 +446,6 @@ Phương thức giao diện chức năng khớp chữ ký và thực thi thành 
 
 Sao chụp biến (Variable capture) là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
 
-Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép, và các trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
 Kiểm tra thực tế:
 

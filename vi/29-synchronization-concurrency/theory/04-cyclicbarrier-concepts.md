@@ -6,16 +6,14 @@ Tài liệu này tập trung vào các tập hợp đồng thời cấp cao (`Co
 
 ## Tóm Tắt Nội Dung (Outline Coverage)
 
-| Khái niệm (Concept) | Điều cần biết (What to know) |
-| --- | --- |
-| `CyclicBarrier` | Một thanh chắn đồng bộ hóa có thể tái sử dụng, nơi một số lượng luồng cố định phải chờ đợi lẫn nhau trước khi tiếp tục. |
-| `Phaser` | Một thanh chắn đồng bộ hóa linh hoạt, có thể tái sử dụng, hỗ trợ đăng ký động các bên và thực thi nhiều giai đoạn. |
-| `BlockingQueue` | Một giao diện hàng đợi an toàn luồng sẽ chặn các luồng ghi nếu hàng đợi đầy, và chặn các luồng đọc nếu hàng đợi trống. |
-| `Các tập hợp đồng thời:` | Các tập hợp an toàn luồng đặc biệt trong gói `java.util.concurrent` được tối ưu hóa cho thông lượng đồng thời cao mà không cần khóa toàn cục. |
-| `ConcurrentHashMap` | Một bản đồ băm an toàn luồng, hiệu năng cao sử dụng cơ chế phân mảnh khóa hạt mịn và các hoạt động CAS. Các thao tác đọc là không chặn. |
-| `CopyOnWriteArrayList` | Một danh sách an toàn luồng tạo ra một bản sao mới của mảng nền bất cứ khi nào có thao tác ghi. Hiệu quả cho các kịch bản đọc nhiều ghi ít. |
-| `ConcurrentLinkedQueue` | Một hàng đợi an toàn luồng không giới hạn dựa trên các liên kết nút đồng thời không dùng khóa (sử dụng CAS). |
-| `Khung công tác Executor:` | Một khung thư viện đơn giản hóa việc thực thi tác vụ bất đồng bộ bằng cách gom nhóm và quản lý các luồng làm việc (worker thread). |
+- **`CyclicBarrier`** — Một thanh chắn đồng bộ hóa có thể tái sử dụng, nơi một số lượng luồng cố định phải chờ đợi lẫn nhau trước khi tiếp tục.
+- **`Phaser`** — Một thanh chắn đồng bộ hóa linh hoạt, có thể tái sử dụng, hỗ trợ đăng ký động các bên và thực thi nhiều giai đoạn.
+- **`BlockingQueue`** — Một giao diện hàng đợi an toàn luồng sẽ chặn các luồng ghi nếu hàng đợi đầy, và chặn các luồng đọc nếu hàng đợi trống.
+- **`Các tập hợp đồng thời:`** — Các tập hợp an toàn luồng đặc biệt trong gói `java.util.concurrent` được tối ưu hóa cho thông lượng đồng thời cao mà không cần khóa toàn cục.
+- **`ConcurrentHashMap`** — Một bản đồ băm an toàn luồng, hiệu năng cao sử dụng cơ chế phân mảnh khóa hạt mịn và các hoạt động CAS. Các thao tác đọc là không chặn.
+- **`CopyOnWriteArrayList`** — Một danh sách an toàn luồng tạo ra một bản sao mới của mảng nền bất cứ khi nào có thao tác ghi. Hiệu quả cho các kịch bản đọc nhiều ghi ít.
+- **`ConcurrentLinkedQueue`** — Một hàng đợi an toàn luồng không giới hạn dựa trên các liên kết nút đồng thời không dùng khóa (sử dụng CAS).
+- **`Khung công tác Executor:`** — Một khung thư viện đơn giản hóa việc thực thi tác vụ bất đồng bộ bằng cách gom nhóm và quản lý các luồng làm việc (worker thread).
 
 ## Ghi Chú Chi Tiết
 

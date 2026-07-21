@@ -6,18 +6,16 @@ File này trình bày một lát cắt có trọng tâm về **Một Số Utilit
 
 ## Nội Dung Đề Cương
 
-| Khái Niệm | Cần Biết |
-| --- | --- |
-| `Math` | Lớp hàm toán học (`java.lang.Math`) với các thao tác tĩnh. |
-| `Random` | Lớp tạo số giả ngẫu nhiên (`java.util.Random`). |
-| `BigInteger` | Số nguyên độ chính xác tùy ý, bất biến (`java.math.BigInteger`). |
-| `BigDecimal` | Số thập phân độ chính xác tùy ý, bất biến (`java.math.BigDecimal`) cho tính toán tài chính chính xác. |
-| `UUID` | Tạo định danh duy nhất toàn cầu (`java.util.UUID`). |
-| `Objects` | Các tiện ích null-safe (`java.util.Objects`) để kiểm tra và xử lý đối tượng. |
-| `Optional` | Đối tượng container (`java.util.Optional`) bảo vệ khỏi `NullPointerException`. |
-| `System` | Lớp giao tiếp (`java.lang.System`) với thuộc tính JVM, biến môi trường, luồng I/O và bộ đếm thời gian. |
-| `Runtime` | Bộ điều khiển trạng thái thực thi JVM (`java.lang.Runtime`). |
-| `ProcessBuilder` | Trình quản lý tạo và quản lý tiến trình hệ thống. |
+- **`Math`** — Lớp hàm toán học (`java.lang.Math`) với các thao tác tĩnh.
+- **`Random`** — Lớp tạo số giả ngẫu nhiên (`java.util.Random`).
+- **`BigInteger`** — Số nguyên độ chính xác tùy ý, bất biến (`java.math.BigInteger`).
+- **`BigDecimal`** — Số thập phân độ chính xác tùy ý, bất biến (`java.math.BigDecimal`) cho tính toán tài chính chính xác.
+- **`UUID`** — Tạo định danh duy nhất toàn cầu (`java.util.UUID`).
+- **`Objects`** — Các tiện ích null-safe (`java.util.Objects`) để kiểm tra và xử lý đối tượng.
+- **`Optional`** — Đối tượng container (`java.util.Optional`) bảo vệ khỏi `NullPointerException`.
+- **`System`** — Lớp giao tiếp (`java.lang.System`) với thuộc tính JVM, biến môi trường, luồng I/O và bộ đếm thời gian.
+- **`Runtime`** — Bộ điều khiển trạng thái thực thi JVM (`java.lang.Runtime`).
+- **`ProcessBuilder`** — Trình quản lý tạo và quản lý tiến trình hệ thống.
 
 ---
 
@@ -185,11 +183,9 @@ Giá trị toán học của một `BigDecimal` là:
 $$\text{Giá trị} = \text{unscaledValue} \times 10^{-\text{scale}}$$
 
 ##### Bảng Ví Dụ Biểu Diễn
-| Số | Unscaled Value | Scale | Công Thức Toán Học |
-|---|---|---|---|
-| `123.45` | `12345` | `2` | $12345 \times 10^{-2}$ |
-| `0.0007` | `7` | `4` | $7 \times 10^{-4}$ |
-| `-50` | `-5` | `-1` | $-5 \times 10^{-(-1)} = -5 \times 10^1$ |
+- **`123.45`** — Unscaled Value: `12345`, Scale: `2`, Công Thức Toán Học: $12345 \times 10^{-2}$.
+- **`0.0007`** — Unscaled Value: `7`, Scale: `4`, Công Thức Toán Học: $7 \times 10^{-4}$.
+- **`-50`** — Unscaled Value: `-5`, Scale: `-1`, Công Thức Toán Học: $-5 \times 10^{-(-1)} = -5 \times 10^1$.
 
 #### Rủi Ro Khởi Tạo Sớm Bằng Literal Double
 Khi bạn viết `new BigDecimal(0.1)`, trình biên dịch trước tiên đánh giá literal `double` `0.1`, vốn đã không chính xác trong hệ nhị phân. Constructor `BigDecimal` sau đó nắm bắt giá trị không chính xác đó.

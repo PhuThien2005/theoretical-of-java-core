@@ -10,12 +10,10 @@ Java cung cấp các từ khóa đặc tả truy cập (access modifier) để g
 1. **Cấp độ lớp (Class-level):** Một lớp cấp cao nhất (top-level class) chỉ có thể được khai báo là `public` hoặc mặc định (package-private). Nó không thể được khai báo là `private` hoặc `protected` (ngoại trừ các lớp lồng nhau/lớp nội bộ).
 2. **Cấp độ thành viên (Member-level):** Các trường, phương thức và hàm khởi dựng (constructor) có thể sử dụng cả bốn cấp độ hiển thị.
 
-| Từ khóa đặc tả truy cập | Bên trong cùng lớp | Bên trong cùng package | Lớp con ở package khác | Mọi nơi (World) |
-| :--- | :---: | :---: | :---: | :---: |
-| **`private`** | Có | Không | Không | Không |
-| **`default`** (không khai báo) | Có | Có | Không | Không |
-| **`protected`** | Có | Có | Có (thông qua kế thừa) | Không |
-| **`public`** | Có | Có | Có | Có |
+- **`private`** — Chỉ truy cập được bên trong cùng lớp. Không thể truy cập từ bên trong cùng package, lớp con ở package khác, hay mọi nơi.
+- **`default` (không khai báo)** — Truy cập được từ bên trong cùng lớp và bên trong cùng package. Không thể truy cập bởi lớp con ở package khác hay mọi nơi.
+- **`protected`** — Truy cập được từ bên trong cùng lớp, bên trong cùng package, và lớp con ở package khác (thông qua kế thừa). Không thể truy cập từ mọi nơi.
+- **`public`** — Truy cập được từ mọi nơi: bên trong cùng lớp, bên trong cùng package, lớp con ở package khác, và mọi nơi (World).
 
 ### Giải Thích Các Phạm Vi Chính:
 - **`private`:** Giới hạn quyền truy cập nghiêm ngặt chỉ trong các thành viên của lớp định nghĩa nó. Khuyến nghị sử dụng cho tất cả các biến thể hiện.

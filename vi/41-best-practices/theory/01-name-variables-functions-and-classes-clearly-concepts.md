@@ -6,18 +6,16 @@ Tài liệu này tập trung vào các **Thực hành tốt nhất (Best Practic
 
 ## Đề cương chi tiết
 
-| Khái niệm | Điều cần biết |
-| --- | --- |
-| `Name variables, functions, and classes clearly` | Đặt tên rõ ràng cho các biến, hàm và lớp: Các quy tắc để viết mã tự tài liệu hóa với các tên mô tả rõ ràng. |
-| `Code according to convention` | Viết mã theo quy ước (Code according to convention): Tuân thủ các phong cách chuẩn camelCase, PascalCase, và UPPER_SNAKE_CASE. |
-| `Do not overuse static` | Không lạm dụng static (Do not overuse static): Sự đánh đổi khi lạm dụng các trạng thái và phương thức static (khả năng kiểm thử, các vấn đề về xử lý đồng thời). |
-| `Do not overuse inheritance` | Không lạm dụng kế thừa (Do not overuse inheritance): Các rủi ro liên kết chặt chẽ liên quan đến kế thừa lớp (`extends`). |
-| `Prefer composition over inheritance` | Ưu tiên thành phần hơn kế thừa (Prefer composition over inheritance): Mẫu thiết kế đạt được hành vi bằng cách sử dụng các mối quan hệ tham chiếu đối tượng thay vì tạo lớp con. |
-| `Override equals/hashCode correctly` | Ghi đè equals/hashCode chính xác: Duy trì giao ước logic nghiêm ngặt giữa `equals()` và `hashCode()`. |
-| `Use StringBuilder when concatenating strings many times` | Sử dụng StringBuilder khi cộng chuỗi nhiều lần: Tối ưu hóa việc cộng chuỗi trong vòng lặp để tránh tạo ra các đối tượng String dư thừa. |
-| `Use BigDecimal for money` | Sử dụng BigDecimal cho tiền tệ: Loại bỏ các sai số làm tròn của số dấu phẩy động nhị phân trong tính toán tiền tệ. |
-| `Use try-with-resources` | Sử dụng try-with-resources: Tự động dọn dẹp các luồng tài nguyên có triển khai `AutoCloseable`. |
-| `Do not catch overly broad Exception if unnecessary` | Không bắt Exception quá chung chung nếu không cần thiết: Tập trung bắt các ngoại lệ được kiểm tra (checked exception) cụ thể thay vì bắt một `Exception` chung chung. |
+- **`Name variables, functions, and classes clearly`** — Đặt tên rõ ràng cho các biến, hàm và lớp: Các quy tắc để viết mã tự tài liệu hóa với các tên mô tả rõ ràng.
+- **`Code according to convention`** — Viết mã theo quy ước (Code according to convention): Tuân thủ các phong cách chuẩn camelCase, PascalCase, và UPPER_SNAKE_CASE.
+- **`Do not overuse static`** — Không lạm dụng static (Do not overuse static): Sự đánh đổi khi lạm dụng các trạng thái và phương thức static (khả năng kiểm thử, các vấn đề về xử lý đồng thời).
+- **`Do not overuse inheritance`** — Không lạm dụng kế thừa (Do not overuse inheritance): Các rủi ro liên kết chặt chẽ liên quan đến kế thừa lớp (`extends`).
+- **`Prefer composition over inheritance`** — Ưu tiên thành phần hơn kế thừa (Prefer composition over inheritance): Mẫu thiết kế đạt được hành vi bằng cách sử dụng các mối quan hệ tham chiếu đối tượng thay vì tạo lớp con.
+- **`Override equals/hashCode correctly`** — Ghi đè equals/hashCode chính xác: Duy trì giao ước logic nghiêm ngặt giữa `equals()` và `hashCode()`.
+- **`Use StringBuilder when concatenating strings many times`** — Sử dụng StringBuilder khi cộng chuỗi nhiều lần: Tối ưu hóa việc cộng chuỗi trong vòng lặp để tránh tạo ra các đối tượng String dư thừa.
+- **`Use BigDecimal for money`** — Sử dụng BigDecimal cho tiền tệ: Loại bỏ các sai số làm tròn của số dấu phẩy động nhị phân trong tính toán tiền tệ.
+- **`Use try-with-resources`** — Sử dụng try-with-resources: Tự động dọn dẹp các luồng tài nguyên có triển khai `AutoCloseable`.
+- **`Do not catch overly broad Exception if unnecessary`** — Không bắt Exception quá chung chung nếu không cần thiết: Tập trung bắt các ngoại lệ được kiểm tra (checked exception) cụ thể thay vì bắt một `Exception` chung chung.
 
 ---
 

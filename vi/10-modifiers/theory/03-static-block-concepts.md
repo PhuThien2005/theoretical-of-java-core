@@ -6,22 +6,20 @@ Tài liệu này bao quát một phần trọng tâm của **Các Từ Khóa Đ�
 
 ## Đề Cương Bao Phủ (Outline Coverage)
 
-| Khái niệm | Những điều cần biết |
-| --- | --- |
-| `Static block` | `static` nghĩa là thành viên đó thuộc về lớp chứ không thuộc về một đối tượng cụ thể nào. |
-| `Static nested class` | `static` nghĩa là thành viên đó thuộc về lớp chứ không thuộc về một đối tượng cụ thể nào. |
-| `Static import` | `static` nghĩa là thành viên đó thuộc về lớp chứ không thuộc về một đối tượng cụ thể nào. |
-| `Final variable` | `final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể. |
-| `Final method` | `final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể. |
-| `Final class` | `final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể. |
-| `Final parameter` | `final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể. |
-| `Blank final variable` | `final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể. |
+- **`Static block`** — Khối mã chạy một lần duy nhất khi lớp được tải lần đầu bởi JVM, thường dùng để khởi tạo biến tĩnh.
+- **`Static nested class`** — Lớp lồng tĩnh hoạt động độc lập, không yêu cầu thể hiện của lớp bên ngoài để khởi tạo.
+- **`Static import`** — Cho phép truy cập trực tiếp các thành viên tĩnh (biến, phương thức) của lớp khác mà không cần tiền tố tên lớp.
+- **`Final variable`** — Biến có giá trị không thể bị thay đổi sau khi đã được khởi tạo (tạo ra hằng số hoặc đối tượng bất biến).
+- **`Final method`** — Phương thức không thể bị ghi đè (override) bởi bất kỳ lớp con nào.
+- **`Final class`** — Lớp không thể bị kế thừa (extend) bởi bất kỳ lớp nào khác, đảm bảo tính bảo mật và bất biến.
+- **`Final parameter`** — Tham số phương thức không thể bị gán lại giá trị mới bên trong thân phương thức.
+- **`Blank final variable`** — Biến `final` chưa được gán giá trị khi khai báo, nhưng bắt buộc phải được gán giá trị chính xác một lần trong constructor hoặc khối tĩnh.
 
 ## Ghi Chú Chi Tiết
 
 ### Khối tĩnh (Static block)
 
-`static` nghĩa là thành viên đó thuộc về lớp chứ không thuộc về một đối tượng cụ thể nào.
+Khối mã chạy một lần duy nhất khi lớp được tải lần đầu bởi JVM, thường dùng để khởi tạo biến tĩnh hoặc thực hiện các thiết lập ban đầu.
 
 Khái niệm này rất quan trọng vì mã nguồn xử lý đồng thời có thể hoạt động chính xác trong các bài kiểm tra đơn luồng nhưng lại thất bại khi chịu áp lực về mặt thời gian thực thi. Một sự nhầm lẫn phổ biến là giả định rằng khả năng hiển thị (visibility), thứ tự thực thi (ordering) và tính nguyên tử (atomicity) đều là các cơ chế đảm bảo giống nhau.
 
@@ -48,7 +46,7 @@ Các khối tĩnh chạy trong quá trình tải lớp, trước khi bất kỳ 
 
 ### Lớp lồng tĩnh (Static nested class)
 
-`static` nghĩa là thành viên đó thuộc về lớp chứ không thuộc về một đối tượng cụ thể nào.
+Lớp lồng tĩnh hoạt động độc lập, không chứa tham chiếu ngầm định đến thể hiện của lớp bên ngoài và không yêu cầu thể hiện của lớp ngoài để khởi tạo.
 
 #### Ví Dụ Mã Nguồn Lớp Lồng Tĩnh
 ```java
@@ -71,7 +69,7 @@ Một lớp lồng tĩnh không chứa một tham chiếu ngầm định đến 
 
 ### Import tĩnh (Static import)
 
-`static` nghĩa là thành viên đó thuộc về lớp chứ không thuộc về một đối tượng cụ thể nào.
+Cú pháp cho phép truy cập trực tiếp các thành viên tĩnh (biến, phương thức) của lớp khác mà không cần lặp lại tiền tố tên lớp, giúp mã nguồn ngắn gọn hơn.
 
 #### Ví Dụ Mã Nguồn Import Tĩnh
 ```java
@@ -92,7 +90,7 @@ Cú pháp bắt buộc phải là `import static package.Class.member;` hoặc `
 
 ### Biến final (Final variable)
 
-`final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể.
+Biến có giá trị không thể bị thay đổi sau khi đã được khởi tạo, thường được sử dụng để tạo các hằng số hoặc đảm bảo tính bất biến (immutability).
 
 #### Quy Ước Đặt Tên (Naming Convention)
 Khi kết hợp `static final` để tạo hằng số toàn cục, quy ước bắt buộc trong Java là sử dụng chữ in hoa phân cách bằng dấu gạch dưới (UPPER_SNAKE_CASE). Ví dụ: `public static final int MAX_USERS = 500;`.
@@ -159,7 +157,7 @@ public class OptimizationDemo {
 
 ### Phương thức final (Final method)
 
-`final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể.
+Phương thức không thể bị ghi đè (override) bởi các lớp con, đảm bảo hành vi nguyên bản của phương thức được giữ nguyên trong toàn bộ cây kế thừa.
 
 #### Sự dư thừa `private final`
 Mọi phương thức `private` đều không thể bị lớp con nhìn thấy, do đó hiển nhiên không thể bị ghi đè. Việc khai báo một phương thức là `private final` là hoàn toàn hợp lệ về mặt cú pháp nhưng thừa thãi. Trình biên dịch ngầm coi mọi phương thức `private` đều là `final`.
@@ -183,7 +181,7 @@ Nếu một lớp con cố gắng khai báo một phương thức có cùng ch�
 
 ### Lớp final (Final class)
 
-`final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể.
+Lớp không thể bị kế thừa (extend) bởi bất kỳ lớp nào khác, thường được sử dụng cho các lớp cốt lõi để đảm bảo tính bảo mật và ngăn chặn việc thay đổi hành vi chuẩn.
 
 #### Tại sao `String` và `Integer` là lớp final?
 Các lớp cốt lõi trong Java như `String`, `Integer`, `Double` đều được thiết kế là lớp `final`. Quyết định này nhằm:
@@ -207,7 +205,7 @@ Khai báo một lớp là `final` chỉ giúp ngăn chặn việc lớp đó b�
 
 ### Tham số final (Final parameter)
 
-`final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể.
+Tham số phương thức không thể bị gán lại giá trị mới bên trong thân phương thức, giúp ngăn chặn lỗi vô tình thay đổi đầu vào của hàm.
 
 #### Ví Dụ Mã Nguồn Tham Số Final
 ```java
@@ -224,13 +222,7 @@ Khai báo tham số phương thức là `final` là một thực hành lập tr�
 
 ### Biến final trống (Blank final variable)
 
-`final` nghĩa là biến, phương thức, lớp hoặc tham số đó bị giới hạn việc thay đổi sau này theo một cách cụ thể.
-
-#### Quy Ước Đặt Tên (Naming Convention)
-Khi kết hợp `static final` để tạo hằng số toàn cục, quy ước bắt buộc trong Java là sử dụng chữ in hoa phân cách bằng dấu gạch dưới (UPPER_SNAKE_CASE). Ví dụ: `public static final int MAX_USERS = 500;`.
-
-#### Thread-Safety Của Biến Final (JMM Guarantee)
-Biến `final` có một ý nghĩa đặc biệt trong Mô hình Bộ nhớ Java (JMM). JMM đảm bảo rằng nếu một biến `final` được khởi tạo trong constructor, thì **bất kỳ luồng nào** khi nhận được tham chiếu của đối tượng đó cũng sẽ nhìn thấy giá trị chính xác của biến `final` (miễn là không để lọt tham chiếu đối tượng ra ngoài `this` trước khi constructor hoàn tất). Điều này làm cho các đối tượng bất biến (immutable objects) tự động đạt chuẩn thread-safe.
+Biến `final` chưa được gán giá trị khi khai báo, nhưng bắt buộc phải được gán giá trị chính xác một lần (trong constructor đối với biến thể hiện, hoặc khối tĩnh đối với biến tĩnh).
 
 #### Ví Dụ Mã Nguồn Biến Final Trống
 ```java

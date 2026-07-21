@@ -6,16 +6,14 @@ Tài liệu này tập trung vào một phần chuyên sâu của **Quản Lý B
 
 ## Đề Cương Bao Phủ (Outline Coverage)
 
-| Khái niệm | Những điều cần biết |
-| --- | --- |
-| `Weak reference` | Tham chiếu yếu (weak reference) là một khái niệm cụ thể trong Quản lý Bộ nhớ Java; tìm hiểu quy tắc JVM, các trường hợp sử dụng hợp lệ và lỗi xảy ra thay vì chỉ nhớ tên gọi. |
-| `Soft reference` | Tham chiếu mềm (soft reference) là một khái niệm cụ thể trong Quản lý Bộ nhớ Java; tìm hiểu quy tắc JVM, các trường hợp sử dụng hợp lệ và lỗi xảy ra thay vì chỉ nhớ tên gọi. |
-| `Phantom reference` | Tham chiếu ảo (phantom reference) là một khái niệm cụ thể trong Quản lý Bộ nhớ Java; tìm hiểu quy tắc JVM, các trường hợp sử dụng hợp lệ và lỗi xảy ra thay vì chỉ nhớ tên gọi. |
-| `Garbage Collection` | Thu gom rác (Garbage Collection) thu hồi bộ nhớ từ các đối tượng không còn có thể tiếp cận được. |
-| `Conditions for an object to be GC'd` | Các điều kiện để một đối tượng bị thu gom rác; tìm hiểu quy tắc JVM, các trường hợp sử dụng hợp lệ và lỗi xảy ra thay vì chỉ nhớ tên gọi. |
-| `System.gc()` | `System.gc()` là một phương thức cụ thể trong Quản lý Bộ nhớ Java; tìm hiểu quy tắc JVM, các trường hợp sử dụng hợp lệ và lỗi xảy ra thay vì chỉ nhớ tên gọi. |
-| `Finalization, finalize() deprecated` | Các cơ chế finalize, và lý do tại sao phương thức `finalize()` bị phản đối sử dụng (deprecated). |
-| `Memory leak in Java` | Rò rỉ bộ nhớ trong Java (memory leak) là một khái niệm cụ thể trong Quản lý Bộ nhớ Java; tìm hiểu quy tắc JVM, các trường hợp sử dụng hợp lệ và lỗi xảy ra thay vì chỉ nhớ tên gọi. |
+- **`Weak reference`** — Tham chiếu yếu (weak reference) là một khái niệm cụ thể trong Quản lý Bộ nhớ Java; tìm hiểu quy tắc JVM, các trường hợp sử dụng hợp lệ và lỗi xảy ra thay vì chỉ nhớ tên gọi.
+- **`Soft reference`** — Tham chiếu mềm (soft reference) là một khái niệm cụ thể trong Quản lý Bộ nhớ Java; tìm hiểu quy tắc JVM, các trường hợp sử dụng hợp lệ và lỗi xảy ra thay vì chỉ nhớ tên gọi.
+- **`Phantom reference`** — Tham chiếu ảo (phantom reference) là một khái niệm cụ thể trong Quản lý Bộ nhớ Java; tìm hiểu quy tắc JVM, các trường hợp sử dụng hợp lệ và lỗi xảy ra thay vì chỉ nhớ tên gọi.
+- **`Garbage Collection`** — Thu gom rác (Garbage Collection) thu hồi bộ nhớ từ các đối tượng không còn có thể tiếp cận được.
+- **`Conditions for an object to be GC'd`** — Các điều kiện để một đối tượng bị thu gom rác; tìm hiểu quy tắc JVM, các trường hợp sử dụng hợp lệ và lỗi xảy ra thay vì chỉ nhớ tên gọi.
+- **`System.gc()`** — `System.gc()` là một phương thức cụ thể trong Quản lý Bộ nhớ Java; tìm hiểu quy tắc JVM, các trường hợp sử dụng hợp lệ và lỗi xảy ra thay vì chỉ nhớ tên gọi.
+- **`Finalization, finalize() deprecated`** — Các cơ chế finalize, và lý do tại sao phương thức `finalize()` bị phản đối sử dụng (deprecated).
+- **`Memory leak in Java`** — Rò rỉ bộ nhớ trong Java (memory leak) là một khái niệm cụ thể trong Quản lý Bộ nhớ Java; tìm hiểu quy tắc JVM, các trường hợp sử dụng hợp lệ và lỗi xảy ra thay vì chỉ nhớ tên gọi.
 
 ## Ghi Chú Chi Tiết
 

@@ -98,15 +98,13 @@ broken.compareTo(42);   // no compile error even for wrong type
 **Định nghĩa:** Một tên trình giữ chỗ được khai báo trong `<>` đại diện cho một kiểu dữ liệu chưa xác định trong một khai báo tổng quát.
 
 **Các quy ước ký tự đơn tiêu chuẩn:**
-| Ký tự | Ý nghĩa |
-|--------|---------|
-| `T` | Kiểu dữ liệu (chung) |
-| `E` | Phần tử (bộ sưu tập) |
-| `K` | Khóa (bản đồ) |
-| `V` | Giá trị (bản đồ) |
-| `N` | Số |
-| `R` | Kiểu trả về (hàm) |
-| `S`, `U` | Kiểu thứ hai, thứ ba (nhiều tham số) |
+- **`T`** — Kiểu dữ liệu (chung)
+- **`E`** — Phần tử (bộ sưu tập)
+- **`K`** — Khóa (bản đồ)
+- **`V`** — Giá trị (bản đồ)
+- **`N`** — Số
+- **`R`** — Kiểu trả về (hàm)
+- **`S`, `U`** — Kiểu thứ hai, thứ ba (nhiều tham số)
 
 **Phạm vi (Scope):** Tham số kiểu chỉ có hiệu lực bên trong lớp/phương thức/giao diện tổng quát nơi nó được khai báo.
 

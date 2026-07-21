@@ -6,10 +6,8 @@ Tài liệu này trình bày về bố cục cấu trúc dự án tiêu chuẩn 
 
 ## Nội Dung Tổng Quan
 
-| Khái niệm | Điều cần biết |
-| --- | --- |
-| `Standard project structure` | Bố cục thư mục tiêu chuẩn để tổ chức mã nguồn, tài nguyên (resource) và các bài kiểm thử (sử dụng bởi Maven, Gradle, v.v.). |
-| `Basic unit test with JUnit` | Các khung kiểm thử (test framework) tiêu chuẩn và thư viện khẳng định (assertion library) được sử dụng để xác minh chức năng đơn vị của mã nguồn. |
+- **`Standard project structure`** — Bố cục thư mục tiêu chuẩn để tổ chức mã nguồn, tài nguyên (resource) và các bài kiểm thử (sử dụng bởi Maven, Gradle, v.v.).
+- **`Basic unit test with JUnit`** — Các khung kiểm thử (test framework) tiêu chuẩn và thư viện khẳng định (assertion library) được sử dụng để xác minh chức năng đơn vị của mã nguồn.
 
 ## Ghi Chú Chi Tiết
 

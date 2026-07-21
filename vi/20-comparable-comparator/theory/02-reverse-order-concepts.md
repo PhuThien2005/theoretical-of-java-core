@@ -6,12 +6,10 @@ Tài liệu này trình bày một phần trọng tâm về **Comparable và Com
 
 ## Phạm Vi Nội Dung (Outline Coverage)
 
-| Khái niệm | Thông tin cần biết |
-| --- | --- |
-| `Reverse order` |Thứ tự đảo ngược (Reverse order) là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và các lỗi thường gặp của nó thay vì chỉ nhớ mỗi tên gọi. |
-| `Null handling:` |Xử lý giá trị null (Null handling) là một nhóm các quy tắc liên quan trong Comparable và Comparator, tập hợp nhiều chi tiết liên quan lại với nhau. |
-| `nullsFirst` |nullsFirst là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và các lỗi thường gặp của nó thay vì chỉ nhớ mỗi tên gọi. |
-| `nullsLast` |nullsLast là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và các lỗi thường gặp của nó thay vì chỉ nhớ mỗi tên gọi. |
+- **`Reverse order`** — Thứ tự đảo ngược (Reverse order) là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và các lỗi thường gặp của nó thay vì chỉ nhớ mỗi tên gọi.
+- **`Null handling:`** — Xử lý giá trị null (Null handling) là một nhóm các quy tắc liên quan trong Comparable và Comparator, tập hợp nhiều chi tiết liên quan lại với nhau.
+- **`nullsFirst`** — nullsFirst là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và các lỗi thường gặp của nó thay vì chỉ nhớ mỗi tên gọi.
+- **`nullsLast`** — nullsLast là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và các lỗi thường gặp của nó thay vì chỉ nhớ mỗi tên gọi.
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 
@@ -124,12 +122,13 @@ Stable Sort (TimSort):     [5♣, 5♥] (relative order of equal values is guara
 Unstable Sort (Quicksort): [5♥, 5♣] (equal values may have their relative order swapped)
 ```
 
-| Tiêu chí | Dual-Pivot Quicksort (Kiểu nguyên thủy) | TimSort (Đối tượng) |
-|---|---|---|
-| **Tính ổn định** | Không ổn định | Ổn định |
-| **Thời gian trong trường hợp xấu nhất** | $O(N^2)$ (hiếm gặp) / $O(N \log N)$ | $O(N \log N)$ |
-| **Thời gian trong trường hợp tốt nhất** | $O(N)$ (nếu đã được sắp xếp hoặc đồng nhất) | $O(N)$ (nếu các phần tử nằm trong các đoạn đã sắp xếp trước - run) |
-| **Độ phức tạp không gian** | $O(\log N)$ (ngăn xếp đệ quy tại chỗ) | $O(N)$ (yêu cầu mảng tạm thời để lưu các đoạn run) |
+**Tính ổn định** — Dual-Pivot Quicksort (Kiểu nguyên thủy) không ổn định, trong khi TimSort (Đối tượng) ổn định.
+
+**Thời gian trong trường hợp xấu nhất** — Dual-Pivot Quicksort (Kiểu nguyên thủy) mất $O(N^2)$ (hiếm gặp) hoặc $O(N \log N)$, trong khi TimSort (Đối tượng) mất $O(N \log N)$.
+
+**Thời gian trong trường hợp tốt nhất** — Dual-Pivot Quicksort (Kiểu nguyên thủy) mất $O(N)$ (nếu đã được sắp xếp hoặc đồng nhất), trong khi TimSort (Đối tượng) mất $O(N)$ (nếu các phần tử nằm trong các đoạn đã sắp xếp trước - run).
+
+**Độ phức tạp không gian** — Dual-Pivot Quicksort (Kiểu nguyên thủy) cần không gian $O(\log N)$ (ngăn xếp đệ quy tại chỗ), trong khi TimSort (Đối tượng) cần không gian $O(N)$ (yêu cầu mảng tạm thời để lưu các đoạn run).
 
 ### Ví Dụ Mã Nguồn: Minh họa Tầm quan trọng của Sắp xếp ổn định cho Đối tượng (Code Example: Illustrating the Importance of Stable Sorting for Objects)
 ```java

@@ -6,11 +6,9 @@ Tài liệu này trình bày về việc kiểm thử hành vi ngoại lệ, chi
 
 ## Nội Dung Tổng Quan
 
-| Khái niệm | Điều cần biết |
-| --- | --- |
-| `Test exception` | Xác minh rằng mã nguồn ném ra kiểu ngoại lệ mong đợi trong các điều kiện lỗi. |
-| `Test private logic indirectly` | Kiểm thử các phương thức bổ trợ private thông qua các điểm cuối API công khai thay vì phá vỡ tính đóng gói thông qua phản chiếu (reflection). |
-| `Basic code coverage` | Số liệu đo lường cho biết tỷ lệ phần trăm các dòng mã nguồn hoặc các nhánh rẽ được thực thi trong quá trình chạy bộ kiểm thử. |
+- **`Test exception`** — Xác minh rằng mã nguồn ném ra kiểu ngoại lệ mong đợi trong các điều kiện lỗi.
+- **`Test private logic indirectly`** — Kiểm thử các phương thức bổ trợ private thông qua các điểm cuối API công khai thay vì phá vỡ tính đóng gói thông qua phản chiếu (reflection).
+- **`Basic code coverage`** — Số liệu đo lường cho biết tỷ lệ phần trăm các dòng mã nguồn hoặc các nhánh rẽ được thực thi trong quá trình chạy bộ kiểm thử.
 
 ---
 
