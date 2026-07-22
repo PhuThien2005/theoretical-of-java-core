@@ -1,10 +1,10 @@
 {
-  "no09_oop": {
-    "generic-billing-system": {
+  "no32_classloader": {
+    "class-loader-hierarchy-printer": {
       "status": "success",
       "message": "Exercise verified successfully: starter fails, solution passes."
     },
-    "library-management-system": {
+    "custom-hot-class-loader": {
       "status": "success",
       "message": "Exercise verified successfully: starter fails, solution passes."
     }

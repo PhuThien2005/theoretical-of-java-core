@@ -47,8 +47,12 @@ public class CustomHotClassLoaderTest {
         // Load Version 1
         CustomHotClassLoader loader1 = new CustomHotClassLoader(classDir.getPath());
         Class<?> clazz1 = loader1.loadClass("HelloPlugin");
-        Object inst1 = clazz1.getDeclaredConstructor().newInstance();
-        String msg1 = (String) clazz1.getMethod("getMessage").invoke(inst1);
+        java.lang.reflect.Constructor<?> ctor1 = clazz1.getDeclaredConstructor();
+        ctor1.setAccessible(true);
+        Object inst1 = ctor1.newInstance();
+        java.lang.reflect.Method m1 = clazz1.getMethod("getMessage");
+        m1.setAccessible(true);
+        String msg1 = (String) m1.invoke(inst1);
         assertEquals("Hello Version 1", msg1, "First version loads successfully");
 
         // 2. Write and compile HelloPlugin Version 2 (same class name, different message)
@@ -58,8 +62,12 @@ public class CustomHotClassLoaderTest {
         // Load Version 2 (must use a NEW classloader instance!)
         CustomHotClassLoader loader2 = new CustomHotClassLoader(classDir.getPath());
         Class<?> clazz2 = loader2.loadClass("HelloPlugin");
-        Object inst2 = clazz2.getDeclaredConstructor().newInstance();
-        String msg2 = (String) clazz2.getMethod("getMessage").invoke(inst2);
+        java.lang.reflect.Constructor<?> ctor2 = clazz2.getDeclaredConstructor();
+        ctor2.setAccessible(true);
+        Object inst2 = ctor2.newInstance();
+        java.lang.reflect.Method m2 = clazz2.getMethod("getMessage");
+        m2.setAccessible(true);
+        String msg2 = (String) m2.invoke(inst2);
         
         // Assert hot reload was successful
         assertEquals("Hello Version 2", msg2, "Second version reloads successfully");

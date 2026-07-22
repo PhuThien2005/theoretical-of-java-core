@@ -1,9 +1,9 @@
 
 module translation.module {
     // Declares service interface consumption
-    uses my.service.ServiceLoaderProvider.TranslationService;
+    uses my.service.ServiceLoaderProviderSolution.TranslationService;
 
     // Declares service provider implementation using nested class path
-    provides my.service.ServiceLoaderProvider.TranslationService 
-        with my.service.ServiceLoaderProvider.SpanishTranslationService;
+    provides my.service.ServiceLoaderProviderSolution.TranslationService 
+        with my.service.ServiceLoaderProviderSolution.SpanishTranslationService;
 }
