@@ -22,5 +22,5 @@ Use this skill after generating or expanding Anki TSV files.
 
 ```bash
 ./r.sh audit-cards
-./r.sh audit-cards --topic 09-oop
+./r.sh audit-cards --topic no09_oop
 ```

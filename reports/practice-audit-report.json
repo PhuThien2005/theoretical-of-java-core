@@ -1,14 +1,12 @@
 {
-  "06-control-flow": {
-    "fizzbuzz-extended": {
+  "no09_oop": {
+    "generic-billing-system": {
       "status": "success",
-      "message": "All tests passed successfully!",
-      "log": "\u2705 All tests passed successfully!"
+      "message": "Exercise verified successfully: starter fails, solution passes."
     },
-    "switch-expression-calculator": {
+    "library-management-system": {
       "status": "success",
-      "message": "All tests passed successfully!",
-      "log": "\u2705 All tests passed successfully!"
+      "message": "Exercise verified successfully: starter fails, solution passes."
     }
   }
 }

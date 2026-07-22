@@ -30,7 +30,7 @@ Use this order:
 For one topic:
 
 ```bash
-./r.sh audit-links --topic 09-oop
+./r.sh audit-links --topic no09_oop
 ```
 
 The command writes:

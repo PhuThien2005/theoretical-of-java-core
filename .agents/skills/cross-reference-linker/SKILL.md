@@ -13,7 +13,7 @@ Add `> Xem thêm:` navigation links across the learning-java project so that rel
 
 ## Inputs
 
-- A target topic folder (e.g., `10-modifiers/`).
+- A target topic folder (e.g., `no10_modifiers/`).
 - The cross-reference relationship map (see `cross-reference-plan.md` or the embedded map below).
 - All files in the target topic: `README.md`, `theory/*.md`, `terms/*.md`.
 - The destination files in related chapters (to verify they exist and to add reverse links).
@@ -35,41 +35,41 @@ Use this map to determine which chapters should link to each other. The agent MU
 
 | Source Chapter | Target Chapter | Linking Concept |
 |---|---|---|
-| 03-data-types | 13-memory-management | Stack/Heap, reference types |
-| 10-modifiers (synchronized/volatile) | 29-synchronization-concurrency | Monitor Lock, memory visibility |
-| 10-modifiers (transient) | 26-io | Serialization |
-| 10-modifiers (abstract) | 11-interfaces | Abstract class vs Interface |
-| 10-modifiers (final) | 22-lambda | Effectively final |
+| no03_data_types | no13_memory_management | Stack/Heap, reference types |
+| no10_modifiers (synchronized/volatile) | no29_synchronization_concurrency | Monitor Lock, memory visibility |
+| no10_modifiers (transient) | no26_io | Serialization |
+| no10_modifiers (abstract) | 11-interfaces | Abstract class vs Interface |
+| no10_modifiers (final) | 22-lambda | Effectively final |
 | 11-interfaces (functional) | 22-lambda | Lambda implements FunctionalInterface |
 | 11-interfaces (functional) | 41-functional-interfaces | Predicate, Function, Consumer |
-| 22-lambda | 23-stream-api | Lambda in stream pipeline |
-| 14-object-class (hashCode/equals) | 19-collections-framework (HashMap) | HashMap key contract |
-| 15-generics | 19-collections-framework | Type parameter `<E>`, `<K,V>` |
-| 21-comparable-comparator | 19-collections-framework | Sorting, TreeMap |
-| 26-io | 27-nio | Traditional I/O vs NIO |
-| 28-multithreading | 29-synchronization-concurrency | Thread → Sync |
-| 28-multithreading | 30-executor-framework | Thread → Executor |
-| 32-classloader | 37-jvm-advanced | Class Loading in JVM |
-| 26-io (serialization) | 36-security-basic | Insecure deserialization |
+| 22-lambda | no23_stream_api | Lambda in stream pipeline |
+| no14_object_class (hashCode/equals) | no19_collections_framework (HashMap) | HashMap key contract |
+| 15-generics | no19_collections_framework | Type parameter `<E>`, `<K,V>` |
+| 21-comparable-comparator | no19_collections_framework | Sorting, TreeMap |
+| no26_io | no27_nio | Traditional I/O vs NIO |
+| no28_multithreading | no29_synchronization_concurrency | Thread → Sync |
+| no28_multithreading | 30-executor-framework | Thread → Executor |
+| no32_classloader | no37_jvm_advanced | Class Loading in JVM |
+| no26_io (serialization) | no36_security_basic | Insecure deserialization |
 
 ### Group B — Medium Relationships (Unidirectional →)
 
 | Source Chapter | Target Chapter | Linking Concept |
 |---|---|---|
-| 08-string (StringBuffer) | 28-multithreading | Thread-safe StringBuffer |
-| 09-oop (inheritance) | 12-exception | Exception hierarchy |
+| no08_string (StringBuffer) | no28_multithreading | Thread-safe StringBuffer |
+| no09_oop (inheritance) | 12-exception | Exception hierarchy |
 | 12-exception | 33-jdbc | SQLException handling |
-| 14-object-class (clone) | 26-io | Deep copy via Serialization |
-| 17-annotations | 31-reflection | Runtime annotation processing |
-| 19-collections (ConcurrentHashMap) | 29-synchronization-concurrency | Thread-safe collections |
-| 23-stream-api (parallel) | 30-executor-framework | ForkJoinPool |
-| 28-multithreading (thread-safety) | 43-design-patterns (Singleton) | Double-checked locking + volatile |
-| 42-record-sealed | 09-oop, 10-modifiers | Record is implicitly final |
-| 03-data-types (wrappers) | 15-generics | Wrappers required for generics |
-| 03-data-types (NullPointerException) | 12-exception | Unboxing null |
-| 07-arrays (covariance) | 15-generics | Array covariance vs generic invariance |
-| 08-string (immutability) | 19-collections-framework | String as HashMap key |
-| 24-optional | 26-io | Optional is not Serializable |
+| no14_object_class (clone) | no26_io | Deep copy via Serialization |
+| no17_annotations | no31_reflection | Runtime annotation processing |
+| 19-collections (ConcurrentHashMap) | no29_synchronization_concurrency | Thread-safe collections |
+| no23_stream_api (parallel) | 30-executor-framework | ForkJoinPool |
+| no28_multithreading (thread-safety) | no43_design_patterns (Singleton) | Double-checked locking + volatile |
+| 42-record-sealed | no09_oop, no10_modifiers | Record is implicitly final |
+| no03_data_types (wrappers) | 15-generics | Wrappers required for generics |
+| no03_data_types (NullPointerException) | 12-exception | Unboxing null |
+| no07_arrays (covariance) | 15-generics | Array covariance vs generic invariance |
+| no08_string (immutability) | no19_collections_framework | String as HashMap key |
+| no24_optional | no26_io | Optional is not Serializable |
 
 ---
 
@@ -170,9 +170,9 @@ When a section relates to 3+ other chapters, use this combined format:
 
 ```markdown
 > Xem thêm:
-> - Cơ chế Monitor Lock: [Ch.29 - Synchronized Method](../../29-synchronization-concurrency/theory/01-synchronized-method-concepts.md)
-> - Thread Safety và Race Condition: [Ch.28 - Thread Safety](../../28-multithreading/theory/04-thread-safety-concepts.md)
-> - Ứng dụng trong Singleton: [Ch.43 - Singleton](../../43-design-patterns/theory/01-singleton-concepts.md)
+> - Cơ chế Monitor Lock: [Ch.29 - Synchronized Method](../../no29_synchronization_concurrency/theory/01-synchronized-method-concepts.md)
+> - Thread Safety và Race Condition: [Ch.28 - Thread Safety](../../no28_multithreading/theory/04-thread-safety-concepts.md)
+> - Ứng dụng trong Singleton: [Ch.43 - Singleton](../../no43_design_patterns/theory/01-singleton-concepts.md)
 ```
 
 ---

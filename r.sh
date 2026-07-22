@@ -20,7 +20,7 @@ case "${1:-sync}" in
     shift || true
     if [ $# -lt 1 ]; then
       echo "Usage: ./r.sh topic <topic-folder>"
-      echo "Example: ./r.sh topic 01-overview"
+      echo "Example: ./r.sh topic no01_overview"
       exit 1
     fi
     python3 scripts/sync_anki.py --auto-url --topic "$1"
@@ -29,7 +29,7 @@ case "${1:-sync}" in
     shift || true
     if [ $# -lt 1 ]; then
       echo "Usage: ./r.sh dry-topic <topic-folder>"
-      echo "Example: ./r.sh dry-topic 01-overview"
+      echo "Example: ./r.sh dry-topic no01_overview"
       exit 1
     fi
     python3 scripts/sync_anki.py --auto-url --topic "$1" --dry-run
@@ -57,11 +57,11 @@ Usage:
   ./r.sh sync                Sync all cards
   ./r.sh check               Check AnkiConnect
   ./r.sh dry                 Dry-run all cards
-  ./r.sh topic 01-overview   Sync one topic
-  ./r.sh dry-topic 01-overview
+  ./r.sh topic no01_overview   Sync one topic
+  ./r.sh dry-topic no01_overview
   ./r.sh probe               Probe common WSL/AnkiConnect URLs
   ./r.sh augment             Add supplemental cards to reach 2x count
-  ./r.sh augment --topic 09-oop --dry-run
+  ./r.sh augment --topic no09_oop --dry-run
   ./r.sh audit-cards         Check card quality and TSV structure
   ./r.sh audit-links         Check reference links and source trust
 

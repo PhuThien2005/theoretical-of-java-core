@@ -19,7 +19,7 @@ card uses <img src="file.svg">
 ## Folder Layout
 
 ```text
-01-overview/
+no01_overview/
 ├── theory/
 ├── media/
 │   ├── mermaid/
@@ -35,7 +35,7 @@ card uses <img src="file.svg">
 If Mermaid CLI is installed:
 
 ```bash
-mmdc -i 01-overview/media/mermaid/compile-runtime-flow.mmd -o 01-overview/media/anki/overview-compile-runtime-flow.svg
+mmdc -i no01_overview/media/mermaid/compile-runtime-flow.mmd -o no01_overview/media/anki/overview-compile-runtime-flow.svg
 ```
 
 SVG is usually good for diagrams because it stays sharp.
@@ -43,7 +43,7 @@ SVG is usually good for diagrams because it stays sharp.
 PNG is also fine:
 
 ```bash
-mmdc -i 01-overview/media/mermaid/compile-runtime-flow.mmd -o 01-overview/media/anki/overview-compile-runtime-flow.png
+mmdc -i no01_overview/media/mermaid/compile-runtime-flow.mmd -o no01_overview/media/anki/overview-compile-runtime-flow.png
 ```
 
 ## Add Image To A Card
@@ -71,7 +71,7 @@ The sync script automatically uploads files in:
 Run:
 
 ```bash
-./r.sh topic 01-overview
+./r.sh topic no01_overview
 ```
 
 ## Rules

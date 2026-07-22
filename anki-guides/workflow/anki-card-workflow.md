@@ -13,7 +13,7 @@ For a large topic, keep `README.md` as the index and put detailed theory in `the
 Example:
 
 ```text
-03-data-types/
+no03_data_types/
 ├── README.md
 ├── theory/
 │   ├── 01-primitive-types.md
@@ -71,7 +71,7 @@ Add references in three places:
 Example `Source` field:
 
 ```text
-09-oop/theory/04-polymorphism.md | https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html
+no09_oop/theory/04-polymorphism.md | https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html
 ```
 
 When `Extra` or `Explanation` uses an external source for a deeper explanation, add a short `Reference:` line there too.
@@ -280,10 +280,10 @@ The sync script converts `\n` into real line breaks before sending the field to 
 
 ## 9. Put Cards Beside The Topic
 
-Cards for topic `03-data-types` should live in:
+Cards for topic `no03_data_types` should live in:
 
 ```text
-03-data-types/anki/
+no03_data_types/anki/
 ```
 
 This makes it easy to read theory and inspect flashcards without jumping to a separate global folder.
@@ -293,13 +293,13 @@ This makes it easy to read theory and inspect flashcards without jumping to a se
 Dry-run one topic:
 
 ```bash
-./r.sh dry-topic 01-overview
+./r.sh dry-topic no01_overview
 ```
 
 Sync one topic:
 
 ```bash
-./r.sh topic 01-overview
+./r.sh topic no01_overview
 ```
 
 Sync all cards:

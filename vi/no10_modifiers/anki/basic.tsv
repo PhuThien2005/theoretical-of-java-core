@@ -1,0 +1,12 @@
+ID	Front	Back	Code	Source	Tags
+10-mod-b-001	What does the `public` access modifier do in Java?	It allows access from any package, provided the class or member is visible.		vi/no10_modifiers/theory/01-access-modifier-concepts.md	java::core::modifiers
+10-mod-b-002	What does the `protected` access modifier do in Java?	It allows access from within the same package and from subclasses (with specific rules across packages).		vi/no10_modifiers/theory/01-access-modifier-concepts.md	java::core::modifiers
+10-mod-b-003	What is the default (package-private) access in Java?	It restricts access to within the same package only.		vi/no10_modifiers/theory/01-access-modifier-concepts.md	java::core::modifiers
+10-mod-b-004	What does the `private` access modifier do in Java?	It restricts access to within the declaring class only.		vi/no10_modifiers/theory/01-access-modifier-concepts.md	java::core::modifiers
+10-mod-b-005	What does the `abstract` modifier mean for a class or method?	It means it is incomplete by design: subclasses must provide the missing implementation.		vi/no10_modifiers/theory/02-abstract-concepts.md	java::core::modifiers
+10-mod-b-006	What is the purpose of the `synchronized` modifier?	It protects a critical section by acquiring a monitor lock.		vi/no10_modifiers/theory/02-abstract-concepts.md	java::core::modifiers java::core::concurrency
+10-mod-b-007	What guarantee does the `volatile` modifier provide?	It provides visibility guarantees across threads (but not atomicity for compound operations).		vi/no10_modifiers/theory/02-abstract-concepts.md	java::core::modifiers java::core::concurrency
+10-mod-b-008	What does the `transient` modifier do?	It marks a field to be ignored during Java object serialization.		vi/no10_modifiers/theory/02-abstract-concepts.md	java::core::modifiers java::core::io
+10-mod-b-009	What does the `native` modifier indicate?	It indicates the method is implemented in another language (like C/C++) using JNI.		vi/no10_modifiers/theory/02-abstract-concepts.md	java::core::modifiers
+10-mod-b-010	What does `static` mean for a variable or method?	It means the member belongs to the class itself, not to any specific instance.		vi/no10_modifiers/theory/02-abstract-concepts.md	java::core::modifiers
+10-mod-b-011	What does `final` mean for a variable, method, or class?	It restricts future modification: a constant variable, a non-overridable method, or a non-inheritable class.		vi/no10_modifiers/theory/03-static-block-concepts.md	java::core::modifiers

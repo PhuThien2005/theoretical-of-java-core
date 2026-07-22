@@ -27,7 +27,7 @@ For example, under `37. Advanced JVM`, extract concepts like:
 - Heap dump, thread dump
 
 ### Step 2: Audit Topic Content
-Check if the corresponding topic folder (e.g., `37-jvm-advanced/`) contains theory notes, definitions, or cards for each extracted concept.
+Check if the corresponding topic folder (e.g., `no37_jvm_advanced/`) contains theory notes, definitions, or cards for each extracted concept.
 - If a concept is missing in the topic files, add a section in `theory/*.md` and create corresponding Anki cards.
 - If a topic folder has extra Java concepts that are not listed in `outline.md`, add those concepts under the appropriate section of `outline.md`.
 

@@ -95,7 +95,7 @@ def check_url(url: str, timeout: float) -> tuple[str, str]:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--topic", help="Limit audit to one topic folder, e.g. 09-oop")
+    parser.add_argument("--topic", help="Limit audit to one topic folder, e.g. no09_oop")
     parser.add_argument("--timeout", type=float, default=8.0)
     parser.add_argument("--no-network", action="store_true", help="Only report extracted links and trust labels")
     parser.add_argument("--output", default="reports/reference-audit.tsv")

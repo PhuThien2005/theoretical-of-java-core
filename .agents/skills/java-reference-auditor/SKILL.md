@@ -22,7 +22,7 @@ Audit reference links used by Java Core theory notes and Anki cards.
 
 ```bash
 ./r.sh audit-links
-./r.sh audit-links --topic 09-oop
+./r.sh audit-links --topic no09_oop
 ```
 
 ## Output

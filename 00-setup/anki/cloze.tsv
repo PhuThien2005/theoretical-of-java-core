@@ -1,4 +1,0 @@
-ID	Text	Extra	Code	Source	Tags
-setup-cloze-001	Java has {{c1::javac}} to compile source code to {{c2::bytecode}}.	The output bytecode resides in `.class` files.		00-setup/theory/01-setup-basics.md | https://docs.oracle.com/javase/tutorial/getStarted/cupojava/index.html	java::core::setup
-setup-cloze-002	If a class `MyClass` is public, it must be declared in a file named {{c1::MyClass.java}}.	The filename is case-sensitive and must match the class name exactly.		00-setup/theory/01-setup-basics.md | https://docs.oracle.com/javase/tutorial/getStarted/cupojava/index.html	java::core::setup
-setup-cloze-003	The JRE includes the {{c1::JVM}} and the {{c2::runtime/core libraries}}, but lacks development tools like `javac`.	To compile Java source code, a JDK is required.		00-setup/theory/01-setup-basics.md | https://docs.oracle.com/javase/tutorial/getStarted/cupojava/index.html	java::core::setup

@@ -17,7 +17,7 @@ This repository is organized as a Java Core learning system: detailed theory not
 For larger topics, do not put everything into one giant README. Use this structure:
 
 ```text
-01-overview/
+no01_overview/
 ├── README.md
 ├── theory/
 │   ├── 01-what-is-java.md
@@ -55,7 +55,7 @@ Use the short helper script from the repository root:
 
 ```bash
 ./r.sh check
-./r.sh topic 01-overview
+./r.sh topic no01_overview
 ./r.sh
 ```
 
@@ -63,68 +63,68 @@ More commands:
 
 ```bash
 ./r.sh dry
-./r.sh dry-topic 01-overview
+./r.sh dry-topic no01_overview
 ./r.sh probe
 ```
 
 ## 45 Java Core Topics
 
-- `01-overview`: Java overview.
-- `02-basic-syntax`: Basic syntax.
-- `03-data-types`: Data types.
-- `04-variables-constants`: Variables and constants.
-- `05-operators`: Operators.
-- `06-control-flow`: Control flow.
-- `07-arrays`: Arrays.
-- `08-string`: String.
-- `09-oop`: Object-oriented programming.
-- `10-modifiers`: Java modifiers.
-- `11-package-access-control`: Packages and access control.
-- `12-exception-handling`: Exception handling.
-- `13-memory-management`: Java memory management.
-- `14-object-class`: The `Object` class.
-- `15-inner-nested-class`: Inner and nested classes.
-- `16-enum`: Enum.
-- `17-annotation`: Annotation.
-- `18-generics`: Generics.
-- `19-collections-framework`: Collections Framework.
-- `20-comparable-comparator`: Comparable and Comparator.
-- `21-lambda-expression`: Lambda expressions.
-- `22-functional-interface`: Functional interfaces.
-- `23-stream-api`: Stream API.
-- `24-optional`: Optional.
-- `25-date-time-api`: Date and Time API.
-- `26-io`: Java IO.
-- `27-nio`: NIO / NIO.2.
-- `28-multithreading`: Multithreading.
-- `29-synchronization-concurrency`: Synchronization and concurrency.
-- `30-regex`: Regular expressions.
-- `31-reflection`: Reflection.
-- `32-classloader`: ClassLoader.
-- `33-module-system`: Java Module System.
-- `34-jdbc`: JDBC.
-- `35-networking`: Networking.
-- `36-security-basic`: Basic security.
-- `37-jvm-advanced`: Advanced JVM.
-- `38-build-compile-run`: Build, compile, and run.
-- `39-utility-apis`: Common utility APIs.
-- `40-modern-java-concepts`: Modern Java concepts.
-- `41-best-practices`: Java best practices.
-- `42-design-principles`: Basic design principles.
-- `43-design-patterns`: Common Java design patterns.
-- `44-unit-testing`: Basic unit testing.
-- `45-interview-questions`: Common Java Core interview questions.
+- `no01_overview`: Java overview.
+- `no02_basic_syntax`: Basic syntax.
+- `no03_data_types`: Data types.
+- `no04_variables_constants`: Variables and constants.
+- `no05_operators`: Operators.
+- `no06_control_flow`: Control flow.
+- `no07_arrays`: Arrays.
+- `no08_string`: String.
+- `no09_oop`: Object-oriented programming.
+- `no10_modifiers`: Java modifiers.
+- `no11_package_access_control`: Packages and access control.
+- `no12_exception_handling`: Exception handling.
+- `no13_memory_management`: Java memory management.
+- `no14_object_class`: The `Object` class.
+- `no15_inner_nested_class`: Inner and nested classes.
+- `no16_enum`: Enum.
+- `no17_annotation`: Annotation.
+- `no18_generics`: Generics.
+- `no19_collections_framework`: Collections Framework.
+- `no20_comparable_comparator`: Comparable and Comparator.
+- `no21_lambda_expression`: Lambda expressions.
+- `no22_functional_interface`: Functional interfaces.
+- `no23_stream_api`: Stream API.
+- `no24_optional`: Optional.
+- `no25_date_time_api`: Date and Time API.
+- `no26_io`: Java IO.
+- `no27_nio`: NIO / NIO.2.
+- `no28_multithreading`: Multithreading.
+- `no29_synchronization_concurrency`: Synchronization and concurrency.
+- `no30_regex`: Regular expressions.
+- `no31_reflection`: Reflection.
+- `no32_classloader`: ClassLoader.
+- `no33_module_system`: Java Module System.
+- `no34_jdbc`: JDBC.
+- `no35_networking`: Networking.
+- `no36_security_basic`: Basic security.
+- `no37_jvm_advanced`: Advanced JVM.
+- `no38_build_compile_run`: Build, compile, and run.
+- `no39_utility_apis`: Common utility APIs.
+- `no40_modern_java_concepts`: Modern Java concepts.
+- `no41_best_practices`: Java best practices.
+- `no42_design_principles`: Basic design principles.
+- `no43_design_patterns`: Common Java design patterns.
+- `no44_unit_testing`: Basic unit testing.
+- `no45_interview_questions`: Common Java Core interview questions.
 
 ## Supporting Folders
 
-- `00-setup`: JDK, IDE, compile/run setup.
+- `no00_setup`: JDK, IDE, compile/run setup.
 - `skills`: Skills and rules for generating Java Core theory and Anki cards.
 - `agents`: Agent prompts for generating topic notes and flashcards.
 - `anki-guides`: Global Anki workflow and TSV templates.
 - `scripts`: Utility scripts, including AnkiConnect sync.
 - `practice`: Small Java practice files.
 - `extras`: Extra topics and mini projects.
-- `99-cheatsheets`: Fast review notes.
+- `no99_cheatsheets`: Fast review notes.
 
 ## Java Core Goal
 

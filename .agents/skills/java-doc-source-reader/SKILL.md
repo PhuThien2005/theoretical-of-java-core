@@ -38,7 +38,7 @@ When editing or creating theory files/cards for topics 01 to 08:
 3. Verify that default values, type ranges, or operators behavior are strictly correct.
 
 ### Step 2: Auto-Sync Changes
-Every time a file edit is completed in `01-overview`, `02-basic-syntax`, `03-data-types`, `04-variables-constants`, `05-operators`, `06-control-flow`, or `07-arrays`:
+Every time a file edit is completed in `no01_overview`, `no02_basic_syntax`, `no03_data_types`, `no04_variables_constants`, `no05_operators`, `no06_control_flow`, or `no07_arrays`:
 1. Verify format correctness using `./r.sh dry`.
 2. Execute the sync to Anki automatically by running `./r.sh` or `./r.sh topic <folder_name>` to synchronize the updated cards immediately.
 3. Commit and push the updated cards and documentation to GitHub.

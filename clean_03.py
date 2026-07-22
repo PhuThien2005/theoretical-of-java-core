@@ -1,6 +1,6 @@
 import re
 
-with open('/home/fhu_thjen/projects/learning-java/vi/10-modifiers/theory/03-static-block-concepts.md', 'r') as f:
+with open('/home/fhu_thjen/projects/learning-java/vi/no10_modifiers/theory/03-static-block-concepts.md', 'r') as f:
     content = f.read()
 
 # Remove the boilerplate "Sử dụng khái niệm này để dự đoán..."
@@ -43,6 +43,6 @@ Các lớp cốt lõi trong Java như `String`, `Integer`, `Double` đều đư�
 #### Ví Dụ Mã Nguồn Lớp Final"""
 content = content.replace("#### Ví Dụ Mã Nguồn Lớp Final", replacement_final_class)
 
-with open('/home/fhu_thjen/projects/learning-java/vi/10-modifiers/theory/03-static-block-concepts.md', 'w') as f:
+with open('/home/fhu_thjen/projects/learning-java/vi/no10_modifiers/theory/03-static-block-concepts.md', 'w') as f:
     f.write(content)
 

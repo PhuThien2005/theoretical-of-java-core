@@ -89,7 +89,7 @@ Open PowerShell in Windows and run the script from the WSL path:
 ```powershell
 cd \\wsl$\Ubuntu\home\fhu_thjen\projects\learning-java
 py scripts\sync_anki.py --check-connection
-py scripts\sync_anki.py --topic 01-overview
+py scripts\sync_anki.py --topic no01_overview
 ```
 
 Depending on your distro name, `Ubuntu` may be different. You can also open the project folder in File Explorer through WSL and copy the path.
@@ -162,7 +162,7 @@ python3 scripts/sync_anki.py --auto-url --check-connection
 Sync one topic with auto-detection:
 
 ```bash
-python3 scripts/sync_anki.py --auto-url --topic 01-overview
+python3 scripts/sync_anki.py --auto-url --topic no01_overview
 ```
 
 Sync everything with auto-detection:
@@ -177,7 +177,7 @@ From the repository root, you can use:
 
 ```bash
 ./r.sh check
-./r.sh topic 01-overview
+./r.sh topic no01_overview
 ./r.sh
 ```
 
@@ -188,15 +188,15 @@ Commands:
 ./r.sh sync                sync all cards
 ./r.sh check               check AnkiConnect
 ./r.sh dry                 dry-run all cards
-./r.sh topic 01-overview   sync one topic
-./r.sh dry-topic 01-overview
+./r.sh topic no01_overview   sync one topic
+./r.sh dry-topic no01_overview
 ./r.sh probe               probe common WSL URLs
 ```
 
 If that works, sync:
 
 ```bash
-python3 scripts/sync_anki.py --url http://172.24.96.1:8765 --topic 01-overview
+python3 scripts/sync_anki.py --url http://172.24.96.1:8765 --topic no01_overview
 ```
 
 If the connection still fails, Windows Firewall may be blocking WSL -> Windows access to port `8765`. In that case, Option A is usually easier.
@@ -355,7 +355,7 @@ Recommended long-term format:
 
 ```tsv
 ID	Front	Back	Source	Tags
-overview-001	What is Java?	Java is a general-purpose programming language.	01-overview/theory/01-what-is-java.md	java::core::overview
+overview-001	What is Java?	Java is a general-purpose programming language.	no01_overview/theory/01-what-is-java.md	java::core::overview
 ```
 
 ## Run A Dry Run
@@ -369,7 +369,7 @@ python3 scripts/sync_anki.py --dry-run
 Sync only one topic:
 
 ```bash
-python3 scripts/sync_anki.py --topic 01-overview --dry-run
+python3 scripts/sync_anki.py --topic no01_overview --dry-run
 ```
 
 ## Check AnkiConnect
@@ -397,7 +397,7 @@ python3 scripts/sync_anki.py
 Sync one topic:
 
 ```bash
-python3 scripts/sync_anki.py --topic 01-overview
+python3 scripts/sync_anki.py --topic no01_overview
 ```
 
 The script will:

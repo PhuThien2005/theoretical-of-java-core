@@ -17,7 +17,7 @@ Avoid shallow memorization. A learner should not only recall the word, but also 
 Each topic may have a `terms/` folder:
 
 ```text
-01-overview/
+no01_overview/
 ├── README.md
 ├── theory/
 ├── terms/

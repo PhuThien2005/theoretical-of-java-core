@@ -90,7 +90,7 @@ For all other topics:
 Do not explain concepts that belong to other topics. If a "why" section requires knowledge from a future topic, provide a brief forward reference:
 
 ```markdown
-> This relates to how the JVM manages memory, covered in detail in [13 - Memory Management](../13-memory-management/README.md).
+> This relates to how the JVM manages memory, covered in detail in [13 - Memory Management](../no13_memory_management/README.md).
 ```
 
 ### Rule 7: Add Reference Links
@@ -150,7 +150,7 @@ If the audit flagged `MISSING_SELFCHECK`:
 Append to `reports/theory-improvement-log.md`:
 
 ```markdown
-## 03-data-types — 2026-06-25
+## no03_data_types — 2026-06-25
 
 ### Files Modified
 - `theory/02-reference-types.md`: Added "Why String Is Not a Primitive", "Stack vs Heap Memory Model", "Why Primitives Are Stored Directly"

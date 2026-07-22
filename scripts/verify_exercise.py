@@ -154,7 +154,7 @@ def verify_solution_integrity(exercise_path):
 
 def main():
     root = Path(__file__).parent.parent.resolve()
-    topics = sorted([d for d in root.iterdir() if d.is_dir() and d.name[0].isdigit()])
+    topics = sorted([d for d in root.iterdir() if d.is_dir() and (d.name.startswith("no") or d.name[0].isdigit())])
     
     results = {}
     

@@ -15,7 +15,7 @@ This skill detects the "What without Why" anti-pattern: theory that lists facts,
 
 ## Inputs
 
-- Topic folder path (e.g., `03-data-types/`).
+- Topic folder path (e.g., `no03_data_types/`).
 - `README.md` (contains Self-Check questions, or should).
 - All `theory/*.md` files.
 - All `terms/*.md` files (if they exist).

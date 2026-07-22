@@ -376,7 +376,7 @@ def main():
         if parts[0] in ['vi', '.git', '.vscode', '.agents', '0.tmp', 'anki-guides', 'extras', 'references', 'reports', 'scratch', 'scripts', 'skills']:
             continue
         
-        if not (parts[0][:2].isdigit() or parts[0] == '99-cheatsheets'):
+        if not (parts[0][:2].isdigit() or parts[0] == 'no99_cheatsheets'):
             continue
 
         for file in files:

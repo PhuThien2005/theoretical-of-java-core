@@ -43,7 +43,7 @@ A strong card usually has:
 For one topic:
 
 ```bash
-./r.sh audit-cards --topic 09-oop
+./r.sh audit-cards --topic no09_oop
 ```
 
 The command writes:

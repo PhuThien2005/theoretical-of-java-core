@@ -26,7 +26,7 @@ Do not place topic cards in a separate global `anki/` folder.
 - If a card introduces an important term that is not explained elsewhere, explain it in `Extra`; do not leave it as a vague one-liner.
 - A strong `Extra` should explain the term's meaning, why it matters, common confusion, and a tiny example or counterexample when useful.
 - Use reference links for important or exact behavior. Prefer official Java documentation when available.
-- Add a local Markdown path and, when useful, a URL in the `Source` field, for example `09-oop/theory/04-polymorphism.md | https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html`.
+- Add a local Markdown path and, when useful, a URL in the `Source` field, for example `no09_oop/theory/04-polymorphism.md | https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html`.
 - If an `Extra` or `Explanation` expands an idea using an external source, include a short `Reference:` link there too.
 - Use Cloze cards for facts that must be recalled exactly.
 - Use Code Question cards for code, commands, output prediction, and bug-spotting.

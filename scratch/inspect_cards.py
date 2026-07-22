@@ -1,6 +1,6 @@
 import csv
 
-tsv_path = "/home/fhu_thjen/projects/learning-java/19-collections-framework/anki/basic.tsv"
+tsv_path = "/home/fhu_thjen/projects/learning-java/no19_collections_framework/anki/basic.tsv"
 with open(tsv_path, "r", encoding="utf-8") as f:
     reader = csv.reader(f, delimiter="\t")
     header = next(reader)

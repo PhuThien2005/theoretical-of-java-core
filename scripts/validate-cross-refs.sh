@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # validate-cross-refs.sh — Kiểm tra tính hợp lệ của tất cả liên kết chéo trong dự án
 # Sử dụng: bash scripts/validate-cross-refs.sh [chapter-dir]
-# Ví dụ:   bash scripts/validate-cross-refs.sh vi/10-modifiers
+# Ví dụ:   bash scripts/validate-cross-refs.sh vi/no10_modifiers
 #           bash scripts/validate-cross-refs.sh  (kiểm tra toàn bộ)
 
 set -uo pipefail
@@ -124,22 +124,22 @@ echo ""
 echo -e "${CYAN}--- Test 4: Bidirectional Links (Group A) ---${NC}"
 
 declare -a PAIRS=(
-    "10-modifiers:29-synchronization"
-    "10-modifiers:26-io"
-    "10-modifiers:11-interfaces"
-    "10-modifiers:22-lambda"
-    "03-data-types:13-memory"
+    "no10_modifiers:29-synchronization"
+    "no10_modifiers:no26_io"
+    "no10_modifiers:11-interfaces"
+    "no10_modifiers:22-lambda"
+    "no03_data_types:13-memory"
     "11-interfaces:22-lambda"
     "11-interfaces:41-functional"
     "22-lambda:23-stream"
-    "14-object-class:19-collections"
+    "no14_object_class:19-collections"
     "15-generics:19-collections"
     "21-comparable:19-collections"
-    "26-io:27-nio"
-    "28-multithreading:29-synchronization"
-    "28-multithreading:30-executor"
-    "32-classloader:37-jvm"
-    "26-io:36-security"
+    "no26_io:no27_nio"
+    "no28_multithreading:29-synchronization"
+    "no28_multithreading:30-executor"
+    "no32_classloader:37-jvm"
+    "no26_io:36-security"
 )
 
 BIDIR_OK=0

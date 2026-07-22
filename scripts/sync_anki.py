@@ -570,7 +570,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--deck", default=DEFAULT_DECK_NAME, help=f"Anki deck name. Default: {DEFAULT_DECK_NAME}")
     parser.add_argument("--url", default=DEFAULT_ANKI_CONNECT_URL, help=f"AnkiConnect URL. Default: {DEFAULT_ANKI_CONNECT_URL}")
     parser.add_argument("--api-version", type=int, default=DEFAULT_ANKI_CONNECT_API_VERSION, help=f"AnkiConnect API version. Default: {DEFAULT_ANKI_CONNECT_API_VERSION}")
-    parser.add_argument("--topic", action="append", default=[], help="Sync one topic folder. Can be repeated, e.g. --topic 01-overview.")
+    parser.add_argument("--topic", action="append", default=[], help="Sync one topic folder. Can be repeated, e.g. --topic no01_overview.")
     parser.add_argument("--dry-run", action="store_true", help="Read and validate TSV files without calling AnkiConnect.")
     parser.add_argument("--check-connection", action="store_true", help="Only check whether AnkiConnect is reachable.")
     parser.add_argument("--auto-url", action="store_true", help="Automatically use the first reachable AnkiConnect URL.")

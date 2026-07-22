@@ -15,11 +15,11 @@ Convert Java Core topic notes into:
 
 ## Inputs
 
-- A topic folder such as `01-overview/`.
-- A topic README such as `01-overview/README.md`.
-- Topic theory files such as `01-overview/theory/*.md`.
-- Optional topic term files such as `01-overview/terms/*.md`.
-- Optional Anki media files such as `01-overview/media/anki/*.svg`.
+- A topic folder such as `no01_overview/`.
+- A topic README such as `no01_overview/README.md`.
+- Topic theory files such as `no01_overview/theory/*.md`.
+- Optional topic term files such as `no01_overview/terms/*.md`.
+- Optional Anki media files such as `no01_overview/media/anki/*.svg`.
 - Optional code examples from `practice/`.
 - Optional reference links from official documentation, language specifications, trusted tutorials, or authoritative articles.
 
@@ -71,7 +71,7 @@ ID	Question	Code	Answer	Explanation	Source	Tags
 - Create `terms/*.md` when important terms are mentioned but not explained deeply enough in theory files.
 - Add reference links when they strengthen trust or clarify exact behavior. Prefer official Java documentation first, then reputable secondary sources.
 - Put references in theory files under `## Reference Links` or a local references section.
-- In Anki TSV files, the `Source` field may include both the local Markdown source and a URL, for example `09-oop/theory/03-inheritance.md | https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html`.
+- In Anki TSV files, the `Source` field may include both the local Markdown source and a URL, for example `no09_oop/theory/03-inheritance.md | https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html`.
 - Run card and link audits before finalizing generated cards.
 
 ## Tags

@@ -5,10 +5,10 @@ This folder contains global Anki workflow notes and TSV templates.
 Actual flashcards are stored inside each topic folder:
 
 ```text
-01-overview/anki/basic.tsv
-01-overview/anki/basic-extra.tsv
-01-overview/anki/cloze.tsv
-01-overview/anki/code-question.tsv
+no01_overview/anki/basic.tsv
+no01_overview/anki/basic-extra.tsv
+no01_overview/anki/cloze.tsv
+no01_overview/anki/code-question.tsv
 ```
 
 Use one deck:

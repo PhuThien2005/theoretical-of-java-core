@@ -26,13 +26,8 @@ if [[ "$TOPIC_ARG" =~ ^[0-9]$ ]]; then
   TOPIC_ARG="0$TOPIC_ARG"
 fi
 
-# Locate the matching directory
-MATCH_DIR=$(find . -maxdepth 1 -type d -name "${TOPIC_ARG}-*" | head -n 1)
-
-# Fallback: substring search (e.g. "oop" matches "09-oop")
-if [ -z "$MATCH_DIR" ]; then
-  MATCH_DIR=$(find . -maxdepth 1 -type d -name "*${TOPIC_ARG}*" | grep -E '\/[0-9]{2}-' | head -n 1)
-fi
+# Locate the matching directory (e.g. 9 or 09 or oop -> no09_oop)
+MATCH_DIR=$(find . -maxdepth 1 -type d \( -name "no${TOPIC_ARG}_*" -o -name "*${TOPIC_ARG}*" \) | grep -E '\/no[0-9]{2}_' | head -n 1)
 
 if [ -z "$MATCH_DIR" ] || [ ! -d "$MATCH_DIR" ]; then
   echo "❌ Error: No topic matching '$1' found."

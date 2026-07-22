@@ -2,7 +2,7 @@
 
 This log tracks the improvements made to the theory files across the 45 Java Core topics to enhance explanation depth and align them with Self-Check questions.
 
-## 42-design-principles — 2026-06-25
+## no42_design_principles — 2026-06-25
 
 ### Files Modified
 - `README.md`: Added Self-Check section with 5 conceptual why-questions linking to theory anchor sections (Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion).
@@ -19,7 +19,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 41-best-practices — 2026-06-25
+## no41_best_practices — 2026-06-25
 
 ### Files Modified
 - `README.md`: Added Self-Check section with 5 conceptual why-questions linking to theory anchor sections (descriptive naming, exception swallowing, checked vs unchecked custom exceptions, constant compile-time inlining, and early return guard clauses).
@@ -37,7 +37,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 45-interview-questions — 2026-06-25
+## no45_interview_questions — 2026-06-25
 
 ### Files Modified
 - `README.md`: Added Self-Check section with 5 conceptual why-questions linking to theory anchor sections (JDK/JRE/JVM differences, HashSet backing HashMap uniqueness, Comparable vs Comparator sorting design, map vs flatMap transformations, and compile-time generics vs type erasure).
@@ -55,7 +55,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 - Before: 0/5 Self-Check questions, 0 Why sections, placeholder key terms, 123 card quality audit warnings.
 - After: 5/5 PASS, 0 card quality warnings, all audit checks cleared.
 
-## 43-design-patterns — 2026-06-25
+## no43_design_patterns — 2026-06-25
 
 ### Files Modified
 - `README.md`: Added Self-Check section with 5 conceptual why-questions linking to theory anchor sections (Singleton volatile DCL, Bill Pugh JVM class loading, Observer decoupling, Factory Method instantiation dynamic dispatch, and Builder telescoping constructor replacement).
@@ -71,7 +71,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 - Before: 0/5 Self-Check questions, 0 Why sections, placeholder key terms, 83 card quality audit warnings.
 - After: 5/5 PASS, 0 card quality warnings, all audit checks cleared.
 
-## 29-synchronization-concurrency — 2026-06-25
+## no29_synchronization_concurrency — 2026-06-25
 
 ### Files Modified
 - `README.md`: Added Self-Check section with 6 conceptual why-questions linking to theory anchor sections (synchronized monitors/bytecode, deadlock resource acquisition sequence, lock-free atomic variables CAS, CyclicBarrier vs CountDownLatch await/reset, ExecutorService OS allocation/queue limit safety, and ForkJoinPool LIFO/FIFO work-stealing).
@@ -91,7 +91,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 - Before: 0/6 Self-Check questions, 0 Why sections, placeholder key terms, card quality audit warnings.
 - After: 6/6 PASS, 0 card quality audit warnings, all audit checks cleared.
 
-## 28-multithreading — 2026-06-25
+## no28_multithreading — 2026-06-25
 
 ### Files Modified
 - `README.md`: Added Self-Check section with 5 conceptual why-questions linking to theory anchor sections (OS process vs JVM thread resource allocation, Runnable/Callable task decoupling, Thread start() vs run() call stacks, thread join() wait/notify signaling, and race conditions/data visibility).
@@ -109,7 +109,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 - Before: 0/5 Self-Check questions, 0 Why sections, placeholder key terms, card quality audit warnings.
 - After: 5/5 PASS, 0 card quality audit warnings, all audit checks cleared.
 
-## 37-jvm-advanced — 2026-06-25
+## no37_jvm_advanced — 2026-06-25
 
 ### Files Modified
 - `README.md`: Added Self-Check section with 5 conceptual why-questions linking to theory anchor sections (ClassLoader subsystem phases, JIT and Interpreter tiered compilation, Survivor copy-and-evacuate mechanism, Shenandoah concurrent compaction, JVM flag classifications).
@@ -128,7 +128,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 - Before: 0/5 Self-Check questions, 0 Why sections, placeholder key terms, 150 card quality audit warnings.
 - After: 5/5 PASS, 0 card quality audit warnings, all audit checks cleared.
 
-## 18-generics — 2026-06-25
+## no18_generics — 2026-06-25
 
 ### Files Modified
 - `README.md`: Added Self-Check section with 5 conceptual why-questions linking to theory anchor sections (Type Erasure backwards compatibility, Generic invariance & PECS, Raw types dangers, Primitive generic limitations, Generic arrays & instanceof ban).
@@ -146,7 +146,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 19-collections-framework — 2026-06-25
+## no19_collections_framework — 2026-06-25
 
 ### Files Modified
 - `README.md`: Added Self-Check section with 6 conceptual why-questions linking to theory anchor sections (ArrayList growth and resizing cost, HashMap equals/hashCode contract corruption, TreeSet Comparable/Comparator sorting/duplicate detection, ConcurrentHashMap CAS/bucket-head synchronized blocks, fail-fast expectedModCount mechanism, Collections.unmodifiableList views vs List.copyOf immutable copy structures).
@@ -168,7 +168,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 23-stream-api — 2026-06-25
+## no23_stream_api — 2026-06-25
 
 ### Files Modified
 - `README.md`: Added Self-Check section with 6 conceptual why-questions linking to theory anchor sections (lazy evaluation AbstractPipeline/Sink mechanism, peek state mutation hazards, flatMap vs map transformations, primitive streams memory optimization, parallel streams common ForkJoinPool/Spliterator hazards, groupingBy vs partitioningBy structure differences).
@@ -189,7 +189,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 13-memory-management — 2026-06-25
+## no13_memory_management — 2026-06-25
 
 ### Files Modified
 - `README.md`: Added Self-Check section with 5 conceptual why-questions linking to theory anchor sections (Stack vs Heap primitives, Java pass-by-value, reference types GC behavior, islands of isolation GC, OOM vs StackOverflowError catching danger).
@@ -208,7 +208,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 12-exception-handling — 2026-06-25
+## no12_exception_handling — 2026-06-25
 
 ### Files Modified
 - `README.md`: Added Self-Check section with 5 conceptual why-questions linking to theory anchor sections (checked vs unchecked rationale, finally JVM guarantee, try-with-resources vs manual finally, exception chaining, broad catch danger).
@@ -225,7 +225,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 09-oop — 2026-06-25
+## no09_oop — 2026-06-25
 
 ### Files Modified
 - `README.md`: Updated Self-Check section with 5 anchor-linked questions pointing to new Why sections.
@@ -240,7 +240,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 44-unit-testing — 2026-06-25
+## no44_unit_testing — 2026-06-25
 
 ### Files Modified
 - `README.md`: Added Self-Check section with 5 conceptual why-questions linking to theory anchor sections (Mockito isolation, JUnit PER_METHOD instance lifecycle, private method indirect testing, assertThrows vs try-catch, coverage vs correctness).
@@ -257,7 +257,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 40-modern-java-concepts — 2026-06-25
+## no40_modern_java_concepts — 2026-06-25
 
 ### Files Modified
 - `README.md`: Added Self-Check section with 5 conceptual why-questions linking to theory anchor sections (var compile-time inference, Records immutability, Sealed Classes exhaustiveness, Pattern Matching dominance rule, Virtual Thread pinning).
@@ -273,7 +273,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 36-security-basic — 2026-06-25
+## no36_security_basic — 2026-06-25
 
 ### Files Modified
 - `README.md`: Added Self-Check section with 5 conceptual why-questions linking to theory anchor sections (SHA-256 one-way, Base64 not encryption, SecureRandom, insecure deserialization RCE, password char[] storage).
@@ -291,7 +291,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 35-networking — 2026-06-25
+## no35_networking — 2026-06-25
 
 ### Files Modified
 - `theory/01-socket-programming-concepts.md`: Existing file already contained 4 depth-rich "Why" sections (Why TCP Handshakes Differ, Why Blocking Socket Operations Must Not Run on the Main Thread, Why Sockets and Streams Must Be Closed Properly, Why Java 20 Deprecated URL Constructors). Placeholder detail sections for Socket, ServerSocket, DatagramSocket, InetAddress, URL, URI, Basic HTTP request were present but the self-check sections answer those via the Why sections. No additional Why sections needed.
@@ -308,7 +308,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 34-jdbc — 2026-06-25
+## no34_jdbc — 2026-06-25
 
 ### Files Modified
 - `theory/02-rollback-concepts.md`: Added "Why Disabling Auto-Commit Establishes Transactional ACID Boundaries" (explaining default auto-commit behavior vs manual-transaction commit/rollback logic, money transfer ACID consistency diagram, bank transaction code example, and rollback cause-effect chain). Added "Why Savepoints Enable Partial Rollbacks and Their Isolation Mechanics" (explaining checkpoint rollback boundaries, savepoint database checkpointing sequence model, partial rollback error recovery code example, and savepoint rollback cause-effect chain). Added "Why Database Connection Pools Yield Massive Performance Gains" (explaining socket connection creation and authentication overhead, pool pre-allocation, close-intercept reuse, HikariCP reuse lifecycle sequence, HikariDataSource code example, and connection pool latency cause-effect chain). Added Reference Links section.
@@ -324,7 +324,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 32-classloader — 2026-06-25
+## no32_classloader — 2026-06-25
 
 ### Files Modified
 - `anki/basic.tsv`: Overhauled and replaced all boilerplate placeholder cards with 15 high-quality conceptual cards covering classloader phases, classloader types, parent delegation, namespaces, TCCL, and Metaspace layout.
@@ -338,7 +338,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 31-reflection — 2026-06-25
+## no31_reflection — 2026-06-25
 
 ### Files Modified
 - `theory/02-advantages-and-disadvantages-of-reflection-concepts.md`: Added "Why Reflection Introduces Performance Penalties and How to Optimize It" explaining JIT compilation bypass, runtime type checks, autoboxing overhead, and MethodHandles optimization with a comparison diagram, benchmarking code example, and dynamic invocation latency cause-effect chain. Added "Why Reflective Instantiation and Classloading Pose Security and Stability Risks" explaining unsafe deserialization vulnerabilities, gadget classes, Metaspace memory leaks, an instantiation attack sequence diagram, insecure ProcessBuilder code example, and Remote Code Execution cause-effect chain. Added "Why Reflection Enables Dependency Injection and ORM Frameworks" explaining framework boot classpath annotation scanning, setAccessible private field access, factory boilerplate elimination, dependency injection flowchart, reflective populating field example, and modular decoupling cause-effect chain. Added Reference Links section.
@@ -352,7 +352,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 27-nio — 2026-06-25
+## no27_nio — 2026-06-25
 
 ### Files Modified
 - `README.md`: Added "Self-Check" section containing 5 deep conceptual "why" questions.
@@ -363,7 +363,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 26-io — 2026-06-25
+## no26_io — 2026-06-25
 
 ### Files Modified
 - `theory/02-bufferedinputstream-concepts.md`: Added "Why Buffered Streams Significantly Outperform Raw Streams" explaining user/kernel space context switches, BufferedInputStream internal buffer mechanics, OS block size alignment, and page caching. Added a user/kernel space buffering sequence diagram, benchmarking code example, and I/O context switch cause-effect chain. Added Reference Links section.
@@ -376,7 +376,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 21-lambda-expression — 2026-06-25
+## no21_lambda_expression — 2026-06-25
 
 ### Files Modified
 - `theory/01-what-is-a-lambda-concepts.md`: Added "Why Lambdas Use invokedynamic and Bootstrap Methods" (explaining class loading vs dynamic bootstrap method generation with metafactory, sequence diagram, dynamic class print example, and cause-effect chain), "Why Local Variables Captured by Lambdas Must Be Final or Effectively Final" (explaining stack vs heap lifetime desync, stack memory diagram, compile error example, and cause-effect chain), "How Method References Resolve Receivers and Signatures Under the Hood" (explaining parameter mapping and receiver assignment differences in static, bound, and unbound references, mapping diagram, code example, and cause-effect chain), "Why Lambdas Cannot Throw Checked Exceptions and How to Bypass It" (explaining functional interface throws signature checking, validation flow diagram, IOException handling code example, and cause-effect chain), and "Scope and Scoping Semantics: Lambdas vs Anonymous Inner Classes" (explaining lexical scoping boundaries, scoping layout diagram, this-reference printing example, and cause-effect chain). Added reference links to JLS, API docs, and Oracle tutorials.
@@ -389,7 +389,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 - Before: Missing Self-Check section, placeholder Anki cards with quality warnings.
 - After: 5/5 PASS, 0 quality warnings, all audit checks cleared.
 
-## 15-inner-nested-class — 2026-06-25
+## no15_inner_nested_class — 2026-06-25
 
 ### Files Modified
 - `theory/01-nested-class-concepts.md`: Added "Why Static Nested and Non-Static Inner Classes Differ in Initialization and Memory", "Why Non-Static Inner Classes Can Cause Memory Leaks", "Why Local and Anonymous Inner Classes Only Access Final or Effectively Final Variables", "Why JVM Generates Synthetic Accessors for Private Nested Access", and "Why Anonymous Classes Compile to Separate Class Files vs Lambdas". Each section contains detailed explanation, Mermaid diagrams/lifecycle models, code examples with expected outputs, cause-effect chains, and references.
@@ -405,7 +405,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 20-comparable-comparator — 2026-06-25
+## no20_comparable_comparator — 2026-06-25
 
 ### Files Modified
 - `theory/01-comparable-concepts.md`: Added "Why TreeSet and TreeMap Require Consistency with Equals" (explaining compareTo-based uniqueness vs equals/hashCode validation, with a flowchart, BigDecimal code example, and cause-effect chain), "Why Subtraction-Based Comparison Leads to Overflow Bugs" (explaining two's complement arithmetic overflow and sign bit flipping, with binary subtraction model, code example, and cause-effect chain), and "Why Java Separates Comparable and Comparator" (explaining single intrinsic natural order vs multiple extrinsic strategies, class diagram, code example, and cause-effect chain). Added "Why the Transitivity Contract is Critical for Sorting" (explaining linear ordering vs cyclic relationships, Rock-Paper-Scissors cycle diagram, sorting exception code example, and cause-effect chain). Added Reference Links section.
@@ -422,7 +422,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 14-object-class — 2026-06-25
+## no14_object_class — 2026-06-25
 
 ### Files Modified
 - `theory/01-tostring-concepts.md`: Added "Why toString is Auto-Invoked and How Circular References Cause Stack Overflow" (explaining `String.valueOf()` conversion and infinite recursion, with a sequence diagram, code example, and cause-effect chain) and "Why Overloading equals Instead of Overriding It Fails Silently" (explaining static overload resolution vs runtime dynamic dispatch in generic collections, with a flowchart, code example, and cause-effect chain). Added reference links to Oracle docs and the Java Language Specification.
@@ -439,7 +439,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 22-functional-interface — 2026-06-25
+## no22_functional_interface — 2026-06-25
 
 ### Files Modified
 - `theory/01-predicate-t-concepts.md`: Added "Why Use the @FunctionalInterface Annotation" (compile-time declaration checks, debugging localization) and "How the JLS Counts Abstract Methods and Treats java.lang.Object Overrides" (Object public methods exclusion from SAM count JLS §9.8). Added "Why Primitive Specializations Prevent Boxing Overhead" (autoboxing/unboxing heap allocations, generic type erasure constraints). Added Mermaid diagrams, code examples, and cause-effect chains.
@@ -453,7 +453,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 ---
 
 
-## 08-string — 2026-06-25
+## no08_string — 2026-06-25
 
 ### Files Modified
 - `theory/01-string-basics.md`: Added "Deep-Dive: The Mechanics and Security of Immutability" explaining security checks, thread safety, and hashcode caching with a sequence diagram and code examples. Added "Deep-Dive: Memory Optimization and Heap Mechanics of the String Pool" explaining reference sharing, heap memory layout, and the `new` keyword bypassing pool optimizations with a pool reference model diagram and cause-effect chains. Added "Deep-Dive: Reference Comparison (==) vs. Content Equality (.equals())" explaining memory addresses comparison versus character-by-character validation with a reference comparison model, code example, and cause-effect chains. Added a "Reference Links" section.
@@ -467,7 +467,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 11-package-access-control — 2026-06-25
+## no11_package_access_control — 2026-06-25
 
 ### Files Modified
 - `theory/01-what-is-a-package-concepts.md`: Added "Why Java Uses Packages for Namespace Isolation and Reverse DNS", "Why Directory Structures Must Mirror Package Declarations", "Why Static Imports Balance Readability and Naming Collision Risks", "Why the Default Package Should Be Avoided in Production", "Why Default (Package-Private) Access Controls Internal Package Access", and "Why Classpath and Module Path Differ in Package Access Constraints". Each section includes prose, a Mermaid diagram, a code example, and a cause-effect chain. Added a comprehensive "Reference Links" section.
@@ -483,7 +483,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 39-utility-apis — 2026-06-25
+## no39_utility_apis — 2026-06-25
 
 ### Files Modified
 - `theory/01-math-concepts.md`: Added "Why Random and Math.random() Have Flaws in Concurrency and Security" explaining AtomicLong CAS thread contention, LCG predictability vs. SecureRandom, and a vending machine analogy with a thread diagram. Added "Why BigDecimal is Precise: Unscaled Value and Scale Representation" explaining binary floating-point representation limits under IEEE 754 vs base-10 unscaledValue/scale, double initialization noise, and a sticky note/fraction analogy with a Mermaid diagram. Added "System vs. Runtime: Purpose and JVM Interaction" explaining the static wrapper class vs singleton JVM lifecycle interface, delegation wrappers, and a cruise ship captain/guest services analogy with a Mermaid flowchart.
@@ -498,7 +498,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 - After: 6/6 PASS
 
 
-## 38-build-compile-run — 2026-06-25
+## no38_build_compile_run — 2026-06-25
 
 ### Files Modified
 - `theory/01-javac-concepts.md`: Added "Why Executable JARs Need MANIFEST.MF" (JVM entry-point, Class-Path lookup, dependency jar configurations), "Why Classpath Resolution Fails: NoClassDefFoundError vs ClassNotFoundException" (checked exceptions vs linkage errors, librarian analogy, cause-effect chains), and "Why Build Tools (Maven/Gradle) Are Essential" (lifecycle orchestration, transitive dependency downloading, conflict resolution, pom.xml/build.gradle comparison). Added Mermaid diagrams, code examples, and cause-effect chains.
@@ -515,7 +515,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 33-module-system — 2026-06-25
+## no33_module_system — 2026-06-25
 
 
 ### Files Modified
@@ -533,7 +533,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 24-optional — 2026-06-25
+## no24_optional — 2026-06-25
 
 ### Files Modified
 - `theory/01-what-is-optional-t-concepts.md`: Added "Why orElse() and orElseGet() Differ in Evaluation Mechanics" explaining eager vs lazy evaluation with the vending machine analogy, Mermaid diagram, and code examples. Fixed Set boilerplate for `orElseThrow` and added links.
@@ -548,7 +548,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 - Before: Missing Self-Check section.
 - After: 7/7 PASS
 
-## 01-overview — 2026-06-25
+## no01_overview — 2026-06-25
 
 ### Files Modified
 - `theory/01-what-is-java.md`: Added "Why Java Runs on a Virtual Machine: Platform Abstraction" explaining C/C++ compilation problems vs JVM virtualization.
@@ -565,7 +565,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 - After: 6/6 PASS
 
 
-## 00-setup — 2026-06-25
+## no00_setup — 2026-06-25
 
 ### Files Created
 - `theory/01-setup-basics.md`: Created and explained JDK vs JRE, why filenames must match public class names, and terminal vs IDE compilation and execution. Included Mermaid diagrams, code snippets, analogies, and cause-effect chains.
@@ -582,7 +582,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 - After: 3/3 PASS
 
 
-## 03-data-types — 2026-06-25
+## no03_data_types — 2026-06-25
 
 ### Files Modified
 - `theory/01-primitive-types.md`: Added size table, cross-links
@@ -597,7 +597,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-## 05-operators — 2026-06-25
+## no05_operators — 2026-06-25
 
 ### Files Modified
 - `theory/01-arithmetic-assignment-operators.md`: Added "Why Compound Assignment Performs Implicit Casting"
@@ -614,7 +614,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 - After: 7/7 PASS
 
 
-## 02-basic-syntax — 2026-06-25
+## no02_basic_syntax — 2026-06-25
 
 ### Files Modified
 - `theory/01-program-anatomy.md`: Added "Why All Code Resides in Classes", "Why Java is Case-Sensitive", and updated Reference Links.
@@ -629,7 +629,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 - Before: 0/6 PASS, 6/6 PARTIAL
 - After: 6/6 PASS
 
-## 04-variables-constants — 2026-06-25
+## no04_variables_constants — 2026-06-25
 
 ### Files Modified
 - `theory/01-variable-categories.md`: Added "Local vs Instance vs Static: Memory Model and Lifetimes" detailing Stack frame vs Heap instance vs Metaspace memory allocations and lifetimes. Added JVM memory organization diagram, code example, and allocation/destruction cause-effect chains. Added Reference Links section.
@@ -646,7 +646,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 - Before: 0/6 PASS, 3/6 PARTIAL, 3/6 FAIL
 - After: 6/6 PASS
 
-## 16-enum — 2026-06-25
+## no16_enum — 2026-06-25
 
 ### Files Modified
 - `theory/01-what-is-an-enum-concepts.md`: Added "Why Enums Are Compiled to Final Classes Extending java.lang.Enum" (JLS inheritance limits, type safety), "Why Enum Constructors Must Be Private" (instance control, reflection blocks), "Why values() Can Be a Performance Bottleneck" (array cloning overhead), and "Why Enums Are Safe to Compare Using the == Operator" (reference identity, null-safety, type compatibility checks). Included class diagrams, execution flows, and cause-effect chains.
@@ -661,7 +661,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 - Before: Missing Self-Check section (0/6 PASS, 4/6 PARTIAL, 2/6 FAIL estimated)
 - After: 6/6 PASS
 
-## 30-regex — 2026-06-25
+## no30_regex — 2026-06-25
 
 ### Files Modified
 - `theory/01-what-is-regex-concepts.md`: Added "Why Pattern Compilation Is Expensive" (AST, NFA construction overhead), "Why Non-Capturing Groups Save Heap Allocations" (offsets/capture buffers bypass), and "Why Backtracking Occurs and How Quantifiers Prevent ReDoS" (quantifier backtracking dynamics, ReDoS prevention). Added diagrams, code examples, and cause-effect chains.
@@ -676,7 +676,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 - Before: Missing Self-Check section (0/6 PASS, 6/6 FAIL estimated)
 - After: 6/6 PASS
 
-## 17-annotation — 2026-06-25
+## no17_annotation — 2026-06-25
 
 ### Files Modified
 - `theory/01-what-is-an-annotation-concepts.md`: Added "Why @Target Exists: Restricting Scope and Preventing Misuse" and "Why @Retention Exists and How Retention Policies Differ". Added diagrams, analogies, and cause-effect chains.
@@ -691,7 +691,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 - Before: Missing Self-Check section (0/6 PASS, 4/6 PARTIAL, 2/6 FAIL estimated)
 - After: 6/6 PASS
 
-## 25-date-time-api — 2026-06-25
+## no25_date_time_api — 2026-06-25
 
 ### Files Modified
 - `theory/01-date-concepts.md`: Added "Why the Legacy Date, Calendar, and SimpleDateFormat APIs Are Flawed", "Why Modern Java 8 Date-Time Objects Are Immutable and Thread-Safe", and "Why We Distinguish Instant, OffsetDateTime, and ZonedDateTime". Added diagrams, analogies, and cause-effect chains.
@@ -706,7 +706,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 - Before: Missing Self-Check section (0/6 PASS, 6/6 FAIL estimated)
 - After: 6/6 PASS
 
-## 06-control-flow — 2026-06-25
+## no06_control_flow — 2026-06-25
 
 ### Files Modified
 - `theory/01-if-else-switch.md`: Added "Why Dangling Else Ambiguity Occurs and How Java Resolves It" detailing Context-Free Grammar syntax tree ambiguity, resolution by JLS nearest-match rule, code demonstration, and cause-effect chain. Added Reference Links section.
@@ -723,7 +723,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 - Before: Missing Self-Check section (0/6 PASS, 6/6 FAIL estimated)
 - After: 6/6 PASS
 
-## 07-arrays — 2026-06-25
+## no07_arrays — 2026-06-25
 
 
 ### Files Modified
@@ -738,7 +738,7 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 - Before: 0/6 PASS, 3/6 PARTIAL, 3/6 FAIL
 - After: 6/6 PASS
 
-## 10-modifiers — 2026-06-25
+## no10_modifiers — 2026-06-25
 
 ### Files Modified
 - `theory/01-access-modifier-concepts.md`: Added "Why Private Restricts Access and Supports Encapsulation" explaining how private visibility prevents direct access, forces control through public validation APIs, and protects class invariants with an encapsulation boundary diagram, a BankAccount code example, and a cause-effect chain.

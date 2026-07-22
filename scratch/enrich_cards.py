@@ -458,7 +458,7 @@ concepts = [
 ]
 
 def enrich_basic_tsv():
-    path = "/home/fhu_thjen/projects/learning-java/19-collections-framework/anki/basic.tsv"
+    path = "/home/fhu_thjen/projects/learning-java/no19_collections_framework/anki/basic.tsv"
     with open(path, "r", encoding="utf-8") as f:
         reader = csv.reader(f, delimiter="\t")
         header = next(reader)
@@ -491,7 +491,7 @@ def enrich_basic_tsv():
     print("Enriched basic.tsv")
 
 def enrich_basic_extra_tsv():
-    path = "/home/fhu_thjen/projects/learning-java/19-collections-framework/anki/basic-extra.tsv"
+    path = "/home/fhu_thjen/projects/learning-java/no19_collections_framework/anki/basic-extra.tsv"
     with open(path, "r", encoding="utf-8") as f:
         reader = csv.reader(f, delimiter="\t")
         header = next(reader)
@@ -531,7 +531,7 @@ def enrich_basic_extra_tsv():
     print("Enriched basic-extra.tsv")
 
 def enrich_cloze_tsv():
-    path = "/home/fhu_thjen/projects/learning-java/19-collections-framework/anki/cloze.tsv"
+    path = "/home/fhu_thjen/projects/learning-java/no19_collections_framework/anki/cloze.tsv"
     with open(path, "r", encoding="utf-8") as f:
         reader = csv.reader(f, delimiter="\t")
         header = next(reader)
@@ -559,7 +559,7 @@ code_questions = [
      "Set<String> names = new HashSet<>();\nnames.add(\"A\");\nnames.add(\"A\");\nSystem.out.println(names.size());",
      "1",
      "HashSet rejects duplicates based on equals() and hashCode() checks. Adding 'A' twice results in a set containing a single element.",
-     "19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
      
     ("collections_framework-code-002",
@@ -567,7 +567,7 @@ code_questions = [
      "ArrayList<Integer> list = new ArrayList<>(10);\nSystem.out.println(list.size());",
      "0",
      "The constructor parameter 10 sets the initial capacity of the underlying array, but the list's logical size remains 0 until elements are added.",
-     "19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-003",
@@ -575,7 +575,7 @@ code_questions = [
      "List<String> list = new ArrayList<>(List.of(\"A\", \"B\"));\nfor (String s : list) {\n    if (s.equals(\"A\")) list.remove(s);\n}",
      "ConcurrentModificationException",
      "Modifying a collection structurally during enhanced for-loop iteration using collection methods throws ConcurrentModificationException. Use Iterator.remove() instead.",
-     "19-collections-framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/06-fail-fast-iterator-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-004",
@@ -583,7 +583,7 @@ code_questions = [
      "Collection<Integer> nums = new ArrayList<>(List.of(1, 2, 3, 4));\nnums.removeIf(n -> n % 2 == 0);\nSystem.out.println(nums);",
      "[1, 3]",
      "removeIf takes a Predicate and removes all elements that satisfy the condition (even numbers in this case).",
-     "19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-005",
@@ -591,7 +591,7 @@ code_questions = [
      "List<String> list = new ArrayList<>(List.of(\"A\", \"B\", \"C\"));\nList<String> sub = list.subList(0, 2);\nsub.set(0, \"Z\");\nSystem.out.println(list.get(0));",
      "Z",
      "The list returned by subList is backed by the original list, so changes to the sublist propagate back to the original list.",
-     "19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-006",
@@ -599,7 +599,7 @@ code_questions = [
      "Set<String> set = new TreeSet<>();\nset.add(null);",
      "NullPointerException",
      "TreeSet sorts elements using Comparable natural order or a custom Comparator. Comparing any object to null throws a NullPointerException.",
-     "19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-007",
@@ -607,7 +607,7 @@ code_questions = [
      "// Queue capacity check",
      "offer() returns false; add() throws IllegalStateException",
      "Queue defines add() to throw IllegalStateException when capacity is exceeded, while offer() returns false on failure.",
-     "19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-008",
@@ -615,7 +615,7 @@ code_questions = [
      "Deque<String> stack = new ArrayDeque<>();\nstack.push(\"A\");\nstack.push(\"B\");\nSystem.out.println(stack.peek());",
      "B",
      "push() inserts elements at the front of the Deque (the head of the stack), so peek() returns the most recently pushed element.",
-     "19-collections-framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/01-what-is-the-collection-framework-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-009",
@@ -623,7 +623,7 @@ code_questions = [
      "Map<String, Integer> map = new HashMap<>();\nSystem.out.println(map.put(\"A\", 1));\nSystem.out.println(map.put(\"A\", 2));",
      "null then 1",
      "Map.put() returns the previous value associated with the key, or null if there was no prior mapping for the key.",
-     "19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-010",
@@ -631,7 +631,7 @@ code_questions = [
      "// Growth factor of ArrayList",
      "1.5x of current capacity",
      "ArrayList increases its capacity by approximately 50% (newCapacity = oldCapacity + (oldCapacity >> 1)) using System.arraycopy().",
-     "19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-011",
@@ -639,7 +639,7 @@ code_questions = [
      "// Memory comparison",
      "Every element is wrapped in a Node object containing two references (next, prev) and the value reference",
      "LinkedList allocates a Node object for every entry, incurring object header and three pointer references overhead.",
-     "19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-012",
@@ -647,7 +647,7 @@ code_questions = [
      "// Thread safety overhead",
      "All public methods are synchronized, incurring unnecessary locking overhead",
      "Using Vector in single-threaded scenarios hurts performance due to useless lock checks on every operation.",
-     "19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-013",
@@ -655,7 +655,7 @@ code_questions = [
      "Stack<String> stack = new Stack<>();\nstack.push(\"A\");\nstack.add(0, \"B\");\nSystem.out.println(stack.pop());",
      "B",
      "Since Stack extends Vector, it inherits all Vector methods like add(index, element), allowing elements to be inserted at the bottom, violating LIFO rules.",
-     "19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-014",
@@ -663,7 +663,7 @@ code_questions = [
      "// Time complexity comparison",
      "ArrayList is O(1); LinkedList is O(N)",
      "ArrayList uses direct array offset calculation; LinkedList must traverse nodes from head or tail.",
-     "19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-015",
@@ -671,7 +671,7 @@ code_questions = [
      "// Ordering and duplicates",
      "The List interface",
      "The List interface specifies an ordered collection that permits duplicate elements.",
-     "19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-016",
@@ -679,7 +679,7 @@ code_questions = [
      "// Order stability",
      "No",
      "HashSet makes no guarantees about iteration order. Adding elements can trigger table resizing/rehashing, changing bucket positions.",
-     "19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-017",
@@ -687,7 +687,7 @@ code_questions = [
      "Set<String> s2 = new LinkedHashSet<>(List.of(\"B\", \"A\"));\nSystem.out.println(s2);",
      "[B, A]",
      "LinkedHashSet preserves insertion order, so iterating or printing it always matches the order items were added.",
-     "19-collections-framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/02-arraylist-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-018",
@@ -695,7 +695,7 @@ code_questions = [
      "class Person {}\nSet<Person> set = new TreeSet<>();\nset.add(new Person());",
      "ClassCastException",
      "TreeSet sorts elements using Comparable. Since Person does not implement Comparable, it throws ClassCastException.",
-     "19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-019",
@@ -703,7 +703,7 @@ code_questions = [
      "SortedSet<Integer> set = new TreeSet<>(List.of(40, 10, 30));\nSystem.out.println(set.first() + \" \" + set.last());",
      "10 40",
      "SortedSet maintains elements in ascending order, so first() returns the lowest element (10) and last() returns the highest (40).",
-     "19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-020",
@@ -711,7 +711,7 @@ code_questions = [
      "NavigableSet<Integer> set = new TreeSet<>(List.of(10, 20, 30));\nSystem.out.println(set.floor(25) + \" \" + set.higher(20));",
      "20 30",
      "floor(e) returns the greatest element <= e (20); higher(e) returns the least element > e (30).",
-     "19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-021",
@@ -719,7 +719,7 @@ code_questions = [
      "// Duplicate check mechanism",
      "It calls compareTo() or compare() and checks if the result is 0",
      "TreeSet uses the comparator/comparable return value. It completely ignores equals() and hashCode() for duplicate checks.",
-     "19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-022",
@@ -727,7 +727,7 @@ code_questions = [
      "// Hashing contract",
      "Equal keys generate different hashCodes, placing them in different buckets and allowing duplicate keys",
      "If x.equals(y) is true, their hashCodes must match. Otherwise, map.get(x) won't find the entry put with key y.",
-     "19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-023",
@@ -735,7 +735,7 @@ code_questions = [
      "PriorityQueue<Integer> pq = new PriorityQueue<>();\npq.offer(30);\npq.offer(10);\npq.offer(20);\nSystem.out.println(pq.peek());",
      "10",
      "PriorityQueue is a min-heap by default, so peek() always retrieves the smallest element.",
-     "19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-024",
@@ -743,7 +743,7 @@ code_questions = [
      "Deque<Integer> deque = new ArrayDeque<>();\ndeque.add(null);",
      "NullPointerException",
      "ArrayDeque does not allow null elements and throws NullPointerException on any attempt to insert null.",
-     "19-collections-framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/03-treeset-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-025",
@@ -751,7 +751,7 @@ code_questions = [
      "Queue<Integer> q = new LinkedList<>();\nSystem.out.println(q.poll());\nq.remove();",
      "null then throws NoSuchElementException",
      "poll() returns null on an empty queue, while remove() throws NoSuchElementException.",
-     "19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-026",
@@ -759,7 +759,7 @@ code_questions = [
      "// Deque FIFO methods",
      "Use offerLast() to enqueue, and pollFirst() to dequeue",
      "To maintain FIFO queue behavior using Deque, you insert at the tail (offerLast) and remove from the head (pollFirst).",
-     "19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-027",
@@ -767,7 +767,7 @@ code_questions = [
      "// Deque LIFO methods",
      "Use push() to insert elements, and pop() to remove elements",
      "Deque provides push() (front insert) and pop() (front remove) which operate on the head of the deque.",
-     "19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-028",
@@ -775,7 +775,7 @@ code_questions = [
      "// Treeification threshold",
      "When list size exceeds 8 and total capacity is at least 64",
      "HashMap converts a bucket to a red-black tree (TREEIFY_THRESHOLD = 8) if the capacity is also >= 64.",
-     "19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-029",
@@ -783,7 +783,7 @@ code_questions = [
      "// Cache eviction override",
      "removeEldestEntry(Map.Entry eldest) returning true when size exceeds capacity",
      "Overriding removeEldestEntry to return true when size() > capacity automatically evicts the oldest entry on put.",
-     "19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-030",
@@ -791,7 +791,7 @@ code_questions = [
      "TreeMap<String, Integer> map = new TreeMap<>(Collections.reverseOrder());\nmap.put(\"A\", 1);\nmap.put(\"B\", 2);\nSystem.out.println(map.firstKey());",
      "B",
      "Since reverseOrder is specified, B is sorted before A, so firstKey() returns B.",
-     "19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-031",
@@ -799,7 +799,7 @@ code_questions = [
      "Map<String, Integer> table = new Hashtable<>();\ntable.put(null, 1);",
      "NullPointerException",
      "Hashtable is synchronized and does not allow null keys or null values, throwing NullPointerException.",
-     "19-collections-framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/04-linkedlist-as-queue-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code"),
 
     ("collections_framework-code-032",
@@ -807,12 +807,12 @@ code_questions = [
      "// Atomic Map write",
      "Yes",
      "putIfAbsent is guaranteed to be thread-safe and atomic on ConcurrentHashMap, preventing race conditions.",
-     "19-collections-framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
+     "no19_collections_framework/theory/05-concurrenthashmap-concepts.md | https://docs.oracle.com/javase/tutorial/collections/",
      "java::core::collections-framework java::code")
 ]
 
 def enrich_code_questions_tsv():
-    path = "/home/fhu_thjen/projects/learning-java/19-collections-framework/anki/code-question.tsv"
+    path = "/home/fhu_thjen/projects/learning-java/no19_collections_framework/anki/code-question.tsv"
     header = ["ID", "Question", "Code", "Answer", "Explanation", "Source", "Tags"]
     
     with open(path, "w", encoding="utf-8", newline="") as f:

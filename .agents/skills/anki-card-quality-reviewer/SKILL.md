@@ -87,7 +87,7 @@ Cards tagged `java::interview` must:
 ./r.sh audit-cards
 
 # Audit one topic
-./r.sh audit-cards --topic 03-data-types
+./r.sh audit-cards --topic no03_data_types
 
 # Audit and fail CI if any warnings exist
 ./r.sh audit-cards --fail-on-warn

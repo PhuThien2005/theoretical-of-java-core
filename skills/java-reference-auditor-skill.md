@@ -27,5 +27,5 @@ Use this skill when adding or reviewing reference links in:
 
 ```bash
 ./r.sh audit-links
-./r.sh audit-links --topic 09-oop
+./r.sh audit-links --topic no09_oop
 ```
