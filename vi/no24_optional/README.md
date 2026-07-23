@@ -36,7 +36,6 @@ Chủ đề này tuân theo đề cương chính trong [outline.md](../outline.m
 6. Tại sao flatMap() có thể ném NullPointerException khi hàm ánh xạ trả về null, còn map() thì không?
 7. Tại sao Optional không Serializable, và điều đó có ý nghĩa gì trong thiết kế class Java?
 
-
 ## Thẻ Anki
 
 - [Basic](anki/basic.tsv)

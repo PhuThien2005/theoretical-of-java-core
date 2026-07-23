@@ -123,7 +123,6 @@ public class RandomDemo {
 }
 ```
 
-
 ---
 
 ### BigInteger
@@ -258,7 +257,6 @@ public class BigDecimalDemo {
 }
 ```
 
-
 ---
 
 ### UUID
@@ -355,9 +353,9 @@ public class BigDecimalDemo {
 While both `java.lang.System` and `java.lang.Runtime` allow developers to interface with the environment in which the application is running, they serve different design roles and interact with the JVM at different levels of abstraction.
 
 #### Key Differences and Design Intent
-- **`java.lang.System` (Static Utility Wrapper)**:
+- **`java.lang.System`** — java.lang.System: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   `System` is a final class containing only `static` fields and methods. It cannot be instantiated. It acts as a high-level utility class to access standard I/O streams (`System.in`, `System.out`, `System.err`), system properties, environment variables, array copying (`System.arraycopy`), and low-level system timers (`currentTimeMillis` and `nanoTime`).
-- **`java.lang.Runtime` (JVM Lifecycle Instance Control)**:
+- **`java.lang.Runtime`** — java.lang.Runtime: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   `Runtime` represents the active, single instance of the Java Virtual Machine. It follows the Singleton design pattern; you obtain the current instance using `Runtime.getRuntime()`. Because it represents the virtual machine process itself, it provides methods to inspect memory usage (`freeMemory()`, `totalMemory()`, `maxMemory()`), register shutdown hooks, and spawn sub-processes.
 
 #### Delegating Wrappers
@@ -413,7 +411,6 @@ public class SystemRuntimeDemo {
     }
 }
 ```
-
 
 ---
 

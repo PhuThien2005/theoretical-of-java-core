@@ -4,7 +4,7 @@ Sử dụng tài liệu này khi một từ ngữ trong phần lý thuyết (the
 
 ## Lớp Object
 
-Lớp Object là một khái niệm cụ thể trong lớp Object; hãy tìm hiểu quy tắc Java (Java rule), các trường hợp sử dụng hợp lệ (valid use case) và trường hợp thất bại (failure mode) của nó thay vì chỉ nhớ mỗi tên gọi.
+**`Lớp Object`** — Lớp cha cao nhất của mọi lớp trong Java; tất cả các lớp đều kế thừa mặc định từ Object.
 
 Tầm quan trọng: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép (allowed form) và trường hợp thất bại. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn (label) của nó.
 
@@ -34,7 +34,7 @@ Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `hashCode contract` thay đ�
 
 ## So sánh bằng tham chiếu (reference equality)
 
-So sánh bằng tham chiếu là một khái niệm cụ thể trong lớp Object; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+**`So sánh bằng tham chiếu`** — Kiểm tra xem hai biến tham chiếu có cùng trỏ tới một địa chỉ ô nhớ trên heap hay không (dùng ==).
 
 Tầm quan trọng: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và trường hợp thất bại. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 
@@ -44,7 +44,7 @@ Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `reference equality` thay đ
 
 ## So sánh bằng giá trị (value equality)
 
-So sánh bằng giá trị là một khái niệm cụ thể trong lớp Object; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+**`So sánh bằng giá trị`** — Kiểm tra xem hai đối tượng có chứa trạng thái/giá trị bằng nhau về mặt logic hay không (dùng .equals()).
 
 Tầm quan trọng: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và trường hợp thất bại. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 
@@ -54,7 +54,7 @@ Ví dụ nhỏ: Khi đọc mã nguồn, hãy hỏi: `value equality` thay đổi
 
 ## Các phương thức giám sát (monitor methods)
 
-Các phương thức giám sát là một khái niệm cụ thể trong lớp Object; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+**`Các phương thức giám sát`** — Các phương thức wait(), notify(), notifyAll() dùng để đồng bộ hóa thread.
 
 Tầm quan trọng: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và trường hợp thất bại. Hãy xem lại nó với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 

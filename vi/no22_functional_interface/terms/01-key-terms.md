@@ -4,7 +4,7 @@ Sử dụng file này khi một từ trong phần lý thuyết có cảm giác q
 
 ## Predicate
 
-`Predicate` (Hàm điều kiện) là một khái niệm cụ thể trong Giao diện chức năng (Functional Interface); hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại (failure mode) của nó thay vì chỉ nhớ mỗi tên gọi.
+**`Predicate` (Hàm điều kiện)`** — Predicate` (Hàm điều kiện): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Tại sao điều này quan trọng: Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống (pipeline) kiểu lập trình hàm. Một nhầm lẫn phổ biến là quên mất hoạt động nào là lười (lazy) và hoạt động nào thực sự kích hoạt việc thực thi.
 
@@ -14,7 +14,7 @@ Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `Predicate` thay đổi
 
 ## Function
 
-`Function` (Hàm chuyển đổi) là một khái niệm cụ thể trong Giao diện chức năng; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+**`Function` (Hàm chuyển đổi)`** — Function` (Hàm chuyển đổi): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Tại sao điều này quan trọng: Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống kiểu lập trình hàm. Một nhầm lẫn phổ biến là quên mất hoạt động nào là lười (lazy) và hoạt động nào thực sự kích hoạt việc thực thi.
 
@@ -24,7 +24,7 @@ Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `Function` thay đổi,
 
 ## Consumer
 
-`Consumer` (Hàm tiêu thụ) là một khái niệm cụ thể trong Giao diện chức năng; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+**`Consumer` (Hàm tiêu thụ)`** — Consumer` (Hàm tiêu thụ): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Tại sao điều này quan trọng: Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống kiểu lập trình hàm. Một nhầm lẫn phổ biến là quên mất hoạt động nào là lười (lazy) và hoạt động nào thực sự kích hoạt việc thực thi.
 
@@ -34,7 +34,7 @@ Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `Consumer` thay đổi,
 
 ## Supplier
 
-`Supplier` (Hàm cung cấp) là một khái niệm cụ thể trong Giao diện chức năng; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+**`Supplier` (Hàm cung cấp)`** — Supplier` (Hàm cung cấp): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Tại sao điều này quan trọng: Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống kiểu lập trình hàm. Một nhầm lẫn phổ biến là quên mất hoạt động nào là lười (lazy) và hoạt động nào thực sự kích hoạt việc thực thi.
 
@@ -44,7 +44,7 @@ Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `Supplier` thay đổi,
 
 ## Operator
 
-`Operator` (Hàm toán tử) là một khái niệm cụ thể trong Giao diện chức năng; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+**`Operator` (Hàm toán tử)`** — Operator` (Hàm toán tử): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Tại sao điều này quan trọng: Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 
@@ -54,7 +54,7 @@ Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `Operator` thay đổi,
 
 ## Bi-interface
 
-`Bi-interface` (Giao diện kép) là một khái niệm cụ thể trong Giao diện chức năng; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+`Bi-**`interface` (Giao diện kép)`** — interface` (Giao diện kép): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Tại sao điều này quan trọng: Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 

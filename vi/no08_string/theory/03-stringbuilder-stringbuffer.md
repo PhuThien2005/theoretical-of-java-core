@@ -86,10 +86,10 @@ Nếu dung lượng mới này vẫn không đủ, JVM sẽ thiết lập dung l
 
 ## An Toàn Đa Luồng và Tranh Chấp Khóa (Thread Safety and Lock Contention)
 
-- **`StringBuffer`:** Tất cả các phương thức thay đổi (như `append()`, `insert()`, `delete()`) đều được đánh dấu bằng từ khóa `synchronized`. Điều này đảm bảo rằng tại một thời điểm chỉ có một luồng (thread) có thể sửa đổi bộ đệm. Tuy nhiên, sự đồng bộ hóa này đi kèm với chi phí hiệu năng:
+- **`StringBuffer`** — StringBuffer: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - Ngay cả trong chương trình đơn luồng, việc yêu cầu và giải phóng các khóa giám sát (monitor lock) vẫn tạo ra chi phí đồng bộ hóa luồng.
   - Trong môi trường đa luồng, nếu nhiều luồng cố gắng ghi vào cùng một đối tượng `StringBuffer` đồng thời, nó sẽ gây ra hiện tượng **tranh chấp khóa (lock contention)**, chặn đứng các luồng và làm giảm hiệu năng.
-- **`StringBuilder`:** Loại bỏ hoàn toàn các từ khóa `synchronized`. Nó không an toàn đa luồng. Nếu nhiều luồng ghi vào một thực thể `StringBuilder` duy nhất cùng một lúc, kết quả sẽ là dữ liệu bị sai lệch hoặc ném ra các ngoại lệ vượt quá chỉ mục mảng. Tuy nhiên, đối với các biến cục bộ bên trong một phương thức, `StringBuilder` luôn là lựa chọn được ưu tiên vì các biến cục bộ được giới hạn trong luồng (thread-confined).
+- **`StringBuilder`** — StringBuilder: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ### Đi Sâu: Chi Phí Đồng Bộ Hóa và Cơ Chế Tranh Chấp Khóa
 

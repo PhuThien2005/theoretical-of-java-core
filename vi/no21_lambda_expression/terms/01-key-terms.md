@@ -14,7 +14,7 @@ Một biểu thức lambda là một khối mã dạng hàm ngắn gọn đượ
 
 ## Suy luận kiểu đích (Target typing)
 
-Suy luận kiểu đích là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại thay vì chỉ ghi nhớ tên gọi của nó.
+**`Suy luận kiểu đích`** — Trình biên dịch suy luận kiểu của biểu thức lambda dựa trên ngữ cảnh gọi.
 
 **Tại sao điều này quan trọng:** Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 
@@ -24,7 +24,7 @@ Suy luận kiểu đích là một khái niệm cụ thể trong Biểu thức L
 
 ## Tham chiếu phương thức (Method reference)
 
-Tham chiếu phương thức là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại thay vì chỉ ghi nhớ tên gọi của nó.
+**`Tham chiếu phương thức`** — Cú pháp ngắn gọn (::) đại diện cho lambda chỉ thực hiện gọi một phương thức có sẵn.
 
 **Tại sao điều này quan trọng:** Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 
@@ -34,7 +34,7 @@ Tham chiếu phương thức là một khái niệm cụ thể trong Biểu th�
 
 ## Bắt giữ biến (Variable capture)
 
-Bắt giữ biến là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại thay vì chỉ ghi nhớ tên gọi của nó.
+**`Bắt giữ biến`** — Cơ chế lambda chụp giá trị của biến cục bộ ngoài phạm vi nếu biến đó là effectively final.
 
 **Tại sao điều này quan trọng:** Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 

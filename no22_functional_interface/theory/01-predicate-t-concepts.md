@@ -8,15 +8,15 @@ This file covers a focused slice of **Functional Interface**. Study each concept
 
 | Concept | What to know |
 | --- | --- |
-| `Predicate<T>` |Predicate<T> is a specific concept in Functional Interface; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Function<T, R>` |Function<T, R> is a specific concept in Functional Interface; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Consumer<T>` |Consumer<T> is a specific concept in Functional Interface; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Supplier<T>` |Supplier<T> is a specific concept in Functional Interface; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `UnaryOperator<T>` |UnaryOperator<T> is a specific concept in Functional Interface; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `BinaryOperator<T>` |BinaryOperator<T> is a specific concept in Functional Interface; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `BiPredicate<T, U>` |BiPredicate<T, U> is a specific concept in Functional Interface; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `BiFunction<T, U, R>` |BiFunction<T, U, R> is a specific concept in Functional Interface; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `BiConsumer<T, U>` |BiConsumer<T, U> is a specific concept in Functional Interface; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Predicate<T>` |`Predicate<T>` — Represents a boolean-valued function taking one argument (boolean test(T t)). |
+| `Function<T, R>` |`Function<T, R>` — Represents a function that accepts one argument and produces a result (R apply(T t)). |
+| `Consumer<T>` |`Consumer<T>` — Represents an operation that accepts a single input argument and returns no result (void accept(T t)). |
+| `Supplier<T>` |`Supplier<T>` — Supplier<T> provides specific functionality and rules in Java development. |
+| `UnaryOperator<T>` |`UnaryOperator<T>` — UnaryOperator<T> provides specific functionality and rules in Java development. |
+| `BinaryOperator<T>` |`BinaryOperator<T>` — BinaryOperator<T> provides specific functionality and rules in Java development. |
+| `BiPredicate<T, U>` |`BiPredicate<T, U>` — BiPredicate<T, U> provides specific functionality and rules in Java development. |
+| `BiFunction<T, U, R>` |`BiFunction<T, U, R>` — BiFunction<T, U, R> provides specific functionality and rules in Java development. |
+| `BiConsumer<T, U>` |`BiConsumer<T, U>` — BiConsumer<T, U> provides specific functionality and rules in Java development. |
 | `What is the input?` | What is the input is a key question for understanding Functional Interface. |
 
 ## Detailed Notes
@@ -141,7 +141,7 @@ public class JlsChecksDemo {
 
 ### Predicate<T>
 
-Predicate<T> is a specific concept in Functional Interface; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`Predicate<T>` — Represents a boolean-valued function taking one argument (boolean test(T t)).
 
 It matters because modern Java APIs use function-style pipelines heavily. A common confusion is forgetting which operations are lazy and which operation actually triggers execution.
 
@@ -205,7 +205,7 @@ public class PrimitivePredicateExample {
 
 ### Function<T, R>
 
-Function<T, R> is a specific concept in Functional Interface; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`Function<T, R>` — Represents a function that accepts one argument and produces a result (R apply(T t)).
 
 It matters because modern Java APIs use function-style pipelines heavily. A common confusion is forgetting which operations are lazy and which operation actually triggers execution.
 
@@ -268,7 +268,7 @@ public class PrimitiveFunctionExample {
 
 ### Consumer<T>
 
-Consumer<T> is a specific concept in Functional Interface; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`Consumer<T>` — Represents an operation that accepts a single input argument and returns no result (void accept(T t)).
 
 It matters because modern Java APIs use function-style pipelines heavily. A common confusion is forgetting which operations are lazy and which operation actually triggers execution.
 
@@ -323,7 +323,7 @@ public class PrimitiveConsumerExample {
 
 ### Supplier<T>
 
-Supplier<T> is a specific concept in Functional Interface; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`Supplier<T>` — Supplier<T> provides specific functionality and rules in Java development.
 
 It matters because modern Java APIs use function-style pipelines heavily. A common confusion is forgetting which operations are lazy and which operation actually triggers execution.
 
@@ -375,20 +375,6 @@ public class PrimitiveSupplierExample {
 
 ### UnaryOperator<T>
 
-UnaryOperator<T> is a specific concept in Functional Interface; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `UnaryOperator<T>` in one sentence.
-- Recognize `UnaryOperator<T>` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `UnaryOperator<T>`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `UnaryOperator<T>` change, allow, reject, or clarify?
-
 #### Detailed Explanation and Code Examples
 `UnaryOperator<T>` is a specialized `Function<T, T>` where the input and output are of the same type.
 - **Functional Method**: `T apply(T t)`
@@ -431,20 +417,6 @@ public class PrimitiveUnaryOperatorExample {
 
 ### BinaryOperator<T>
 
-BinaryOperator<T> is a specific concept in Functional Interface; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `BinaryOperator<T>` in one sentence.
-- Recognize `BinaryOperator<T>` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `BinaryOperator<T>`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `BinaryOperator<T>` change, allow, reject, or clarify?
-
 #### Detailed Explanation and Code Examples
 `BinaryOperator<T>` is a specialized `BiFunction<T, T, T>` where two inputs and the output all share the same type `T`.
 - **Functional Method**: `T apply(T t1, T t2)`
@@ -485,7 +457,7 @@ public class PrimitiveBinaryOperatorExample {
 
 ### BiPredicate<T, U>
 
-BiPredicate<T, U> is a specific concept in Functional Interface; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`BiPredicate<T, U>` — BiPredicate<T, U> provides specific functionality and rules in Java development.
 
 It matters because modern Java APIs use function-style pipelines heavily. A common confusion is forgetting which operations are lazy and which operation actually triggers execution.
 
@@ -519,7 +491,7 @@ public class BiPredicateExample {
 
 ### BiFunction<T, U, R>
 
-BiFunction<T, U, R> is a specific concept in Functional Interface; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`BiFunction<T, U, R>` — BiFunction<T, U, R> provides specific functionality and rules in Java development.
 
 It matters because modern Java APIs use function-style pipelines heavily. A common confusion is forgetting which operations are lazy and which operation actually triggers execution.
 
@@ -553,7 +525,7 @@ public class BiFunctionExample {
 
 ### BiConsumer<T, U>
 
-BiConsumer<T, U> is a specific concept in Functional Interface; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`BiConsumer<T, U>` — BiConsumer<T, U> provides specific functionality and rules in Java development.
 
 It matters because modern Java APIs use function-style pipelines heavily. A common confusion is forgetting which operations are lazy and which operation actually triggers execution.
 
@@ -594,18 +566,6 @@ public class BiConsumerExample {
 ### What is the input?
 
 What is the input is a key question for understanding Functional Interface.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `What is the input?` in one sentence.
-- Recognize `What is the input?` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `What is the input?`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `What is the input?` change, allow, reject, or clarify?
 
 #### Detailed Explanation and Code Examples
 When designing or choosing a functional interface, always analyze:

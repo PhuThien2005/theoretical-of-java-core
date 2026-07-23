@@ -20,7 +20,7 @@ This file covers testing exceptional behavior, the strategy for testing private 
 
 Unit tests must verify that code handles bad inputs or failure modes gracefully by throwing expected exceptions.
 
-- **`assertThrows` in JUnit 5**:
+- **`assertThrows`** — assertThrows: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - The standard approach is to use `Assertions.assertThrows(Class<T> expectedType, Executable executable)`.
   - It returns the thrown exception instance, which allows asserting further details like the exact error message or custom exception state.
 

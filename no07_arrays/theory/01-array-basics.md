@@ -211,7 +211,6 @@ public class AioobeExample {
 > [!IMPORTANT]
 > Since array indices in Java are calculated using 32-bit signed integers, the maximum index is `Integer.MAX_VALUE - 8` (exact value depends on JVM/heap constraints). Attempting to use a `long` value directly as an index results in a compile-time error.
 
-
 ---
 
 ## Multidimensional Arrays (Arrays of Arrays)

@@ -24,7 +24,7 @@ Một enum định nghĩa một tập hợp cố định các hằng số đư�
 
 ## Thứ tự ordinal (Ordinal)
 
-`ordinal` là một khái niệm cụ thể trong Enum; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại thay vì chỉ ghi nhớ tên gọi của nó.
+**`ordinal`** — Trả về vị trí chỉ số (bắt đầu từ 0) của hằng số enum theo thứ tự khai báo.
 
 **Tại sao điều này quan trọng:** Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 
@@ -34,7 +34,7 @@ Một enum định nghĩa một tập hợp cố định các hằng số đư�
 
 ## Phương thức valueOf (valueOf)
 
-`valueOf` là một khái niệm cụ thể trong Enum; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại thay vì chỉ ghi nhớ tên gọi của nó.
+**`valueOf`** — Chuyển đổi chuỗi tên thành hằng số enum tương ứng.
 
 **Tại sao điều này quan trọng:** Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 

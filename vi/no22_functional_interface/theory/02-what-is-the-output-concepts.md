@@ -6,8 +6,8 @@ Tài liệu này tập trung vào một phần trọng tâm về **Giao Diện C
 
 ## Khung Nội Dung (Outline Coverage)
 
-- **`What is the output?`** — Kết quả đầu ra là gì? (What is the output?) là câu hỏi cốt lõi để hiểu cách hoạt động của Giao diện chức năng.
-- **`When to use which interface?`** — Khi nào nên sử dụng giao diện nào? (When to use which interface?) là định hướng lựa chọn giao diện chức năng chuẩn của JDK dựa trên số lượng tham số đầu vào và kiểu dữ liệu trả về.
+- **`What is the output?`** — What is the output?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`When to use which interface?`** — When to use which interface?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

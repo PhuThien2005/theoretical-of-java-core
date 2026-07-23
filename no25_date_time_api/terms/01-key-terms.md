@@ -14,7 +14,7 @@ Ví dụ nhỏ: Khi đọc code, hỏi: `LocalDate` thay đổi, cho phép, từ
 
 ## LocalTime
 
-`LocalTime` là một khái niệm cụ thể trong API Ngày Giờ; hãy học quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ học tên.
+**`LocalTime`** — Biểu diễn giờ-phút-giây không kèm múi giờ trong hệ thống ISO-8601.
 
 Tại sao quan trọng: Dùng nó để dự đoán quy tắc Java chính xác, dạng cho phép và chế độ lỗi. Ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
 
@@ -34,7 +34,7 @@ Ví dụ nhỏ: Khi đọc code, hỏi: `Instant` thay đổi, cho phép, từ c
 
 ## Duration
 
-`Duration` là một khái niệm cụ thể trong API Ngày Giờ; hãy học quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ học tên.
+**`Duration`** — Khoảng thời gian dựa trên thời gian thực (giây, nanosecond).
 
 Tại sao quan trọng: Dùng nó để dự đoán quy tắc Java chính xác, dạng cho phép và chế độ lỗi. Ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
 
@@ -44,7 +44,7 @@ Ví dụ nhỏ: Khi đọc code, hỏi: `Duration` thay đổi, cho phép, từ 
 
 ## Period
 
-`Period` là một khái niệm cụ thể trong API Ngày Giờ; hãy học quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ học tên.
+**`Period`** — Khoảng thời gian dựa trên ngày tháng (năm, tháng, ngày).
 
 Tại sao quan trọng: Dùng nó để dự đoán quy tắc Java chính xác, dạng cho phép và chế độ lỗi. Ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
 
@@ -54,7 +54,7 @@ Ví dụ nhỏ: Khi đọc code, hỏi: `Period` thay đổi, cho phép, từ ch
 
 ## ZoneId
 
-`ZoneId` là một khái niệm cụ thể trong API Ngày Giờ; hãy học quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ học tên.
+**`ZoneId`** — Mã định danh múi giờ dùng để chuyển đổi giữa thời gian thực và địa phương.
 
 Tại sao quan trọng: Dùng nó để dự đoán quy tắc Java chính xác, dạng cho phép và chế độ lỗi. Ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
 
@@ -64,7 +64,7 @@ Ví dụ nhỏ: Khi đọc code, hỏi: `ZoneId` thay đổi, cho phép, từ ch
 
 ## DateTimeFormatter
 
-`DateTimeFormatter` là một khái niệm cụ thể trong API Ngày Giờ; hãy học quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ học tên.
+**`DateTimeFormatter`** — Định dạng và phân tích chuỗi ngày-giờ theo các mẫu pattern chỉ định.
 
 Tại sao quan trọng: Dùng nó để dự đoán quy tắc Java chính xác, dạng cho phép và chế độ lỗi. Ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
 

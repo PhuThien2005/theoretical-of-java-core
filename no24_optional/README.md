@@ -36,7 +36,6 @@ Chủ đề này tuân theo đề cương chính trong [outline.md](../outline.m
 6. Tại sao `flatMap()` có thể ném `NullPointerException` khi hàm ánh xạ trả về `null`, trong khi `map()` thì không?
 7. Tại sao `Optional` không triển khai `Serializable`, và điều này ảnh hưởng như thế nào đến thiết kế lớp Java?
 
-
 ## Thẻ Anki
 
 - [Basic](anki/basic.tsv)

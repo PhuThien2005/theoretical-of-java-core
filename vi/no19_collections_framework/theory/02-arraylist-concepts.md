@@ -6,14 +6,14 @@ Tài liệu này tập trung vào một phần trọng tâm của **Khung Tập 
 
 ## Tóm Tắt Nội Dung (Outline Coverage)
 
-- **`ArrayList`** — Một `List` là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí.
-- **`LinkedList`** — Một `List` là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí.
-- **`Vector`** — `Vector` là một khái niệm cụ thể trong Khung Tập Hợp; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
-- **`Stack`** — Ngăn xếp (Stack) lưu trữ các khung phương thức (Method frame), biến cục bộ và luồng gọi cho mỗi luồng (Thread).
-- **`So sánh ArrayList và LinkedList`** — Một `List` là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí.
-- **`Khi nào nên sử dụng List?`** — Một `List` là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí.
-- **`HashSet`** — Một `Set` là một tập hợp từ chối các phần tử trùng lặp theo quy tắc bằng nhau (equality rules).
-- **`LinkedHashSet`** — Một `Set` là một tập hợp từ chối các phần tử trùng lặp theo quy tắc bằng nhau.
+- **`ArrayList`** — ArrayList: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`LinkedList`** — LinkedList: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Vector`** — Vector: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Stack`** — Stack: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`So sánh ArrayList và LinkedList`** — So sánh ArrayList và LinkedList: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Khi nào nên sử dụng List?`** — Khi nào nên sử dụng List?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`HashSet`** — HashSet: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`LinkedHashSet`** — LinkedHashSet: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

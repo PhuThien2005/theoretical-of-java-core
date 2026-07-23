@@ -10,9 +10,9 @@ This file covers a focused slice of **JDBC**. Study each concept as a practical 
 | --- | --- |
 | `rollback` |rollback cancels current transaction changes since the last commit. |
 | `setAutoCommit` | setAutoCommit configures whether SQL statements are committed automatically or grouped into transactions. |
-| `Batch processing` |Batch processing is a specific concept in JDBC; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Batch processing` |`Batch processing` — Batch processing provides specific functionality and rules in Java development. |
 | `SQL Injection` | SQL injection happens when untrusted input changes the meaning of a SQL command. |
-| `Basic Connection Pool` |Basic Connection Pool is a specific concept in JDBC; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Basic Connection Pool` |`Basic Connection Pool` — Basic Connection Pool provides specific functionality and rules in Java development. |
 | `DataSource` |DataSource is a configurable factory for database connections, often backed by a pool. |
 | `CRUD using JDBC` | JDBC is the Java API for connecting to relational databases. |
 
@@ -21,18 +21,6 @@ This file covers a focused slice of **JDBC**. Study each concept as a practical 
 ### rollback
 
 rollback cancels current transaction changes since the last commit.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `rollback` in one sentence.
-- Recognize `rollback` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `rollback`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `rollback` change, allow, reject, or clarify?
 
 ### setAutoCommit
 
@@ -175,67 +163,15 @@ public class SavepointDemo {
 
 ### Batch processing
 
-Batch processing is a specific concept in JDBC; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Batch processing` in one sentence.
-- Recognize `Batch processing` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Batch processing`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Batch processing` change, allow, reject, or clarify?
-
 ### SQL Injection
 
 SQL injection happens when untrusted input changes the meaning of a SQL command.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `SQL Injection` in one sentence.
-- Recognize `SQL Injection` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `SQL Injection`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `SQL Injection` change, allow, reject, or clarify?
-
 ### Basic Connection Pool
-
-Basic Connection Pool is a specific concept in JDBC; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Basic Connection Pool` in one sentence.
-- Recognize `Basic Connection Pool` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Basic Connection Pool`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Basic Connection Pool` change, allow, reject, or clarify?
 
 ### DataSource
 
 DataSource is a configurable factory for database connections, often backed by a pool.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `DataSource` in one sentence.
-- Recognize `DataSource` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `DataSource`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `DataSource` change, allow, reject, or clarify?
 
 ## Why Database Connection Pools Yield Massive Performance Gains
 

@@ -88,7 +88,6 @@ Developer places `config.properties` inside `src/main/java/` $\rightarrow$ Maven
 
 ---
 
-
 ### Basic unit test with JUnit
 
 JUnit (currently JUnit 5 / Jupiter) is the primary framework for writing automated unit tests in the JVM ecosystem. Tests verify that individual classes and methods behave correctly.

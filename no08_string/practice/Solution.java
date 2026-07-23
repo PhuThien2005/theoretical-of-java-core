@@ -1,3 +1,5 @@
+package no08_string.practice;
+
 import java.util.ArrayList;
 import java.util.List;
 

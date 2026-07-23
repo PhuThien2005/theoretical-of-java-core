@@ -6,18 +6,18 @@ Tài liệu này tập trung vào một phần chuyên sâu của **Chú thích 
 
 ## Tóm Tắt Nội Dung (Outline Coverage)
 
-- **`@Documented`** — `@Documented` là một khái niệm cụ thể trong Chú thích; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại thay vì chỉ ghi nhớ tên gọi của nó.
-- **`@Inherited`** — `@Inherited` là một khái niệm cụ thể trong Chú thích; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại thay vì chỉ ghi nhớ tên gọi của nó.
-- **`@Repeatable`** — `@Repeatable` là một khái niệm cụ thể trong Chú thích; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại thay vì chỉ ghi nhớ tên gọi của nó.
-- **`Custom annotation`** — Một chú thích đính kèm siêu dữ liệu (Metadata) vào các phần tử của chương trình như lớp (Class), phương thức (Method), hoặc trường dữ liệu (Field).
-- **`Runtime annotation`** — Một chú thích đính kèm siêu dữ liệu vào các phần tử của chương trình như lớp, phương thức, hoặc trường dữ liệu.
-- **`Basic annotation processing`** — Một chú thích đính kèm siêu dữ liệu vào các phần tử của chương trình như lớp, phương thức, hoặc trường dữ liệu.
+- **`@Documented`** — @Documented: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`@Inherited`** — @Inherited: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`@Repeatable`** — @Repeatable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Custom annotation`** — Custom annotation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Runtime annotation`** — Runtime annotation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Basic annotation processing`** — Basic annotation processing: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 
 ### @Documented
 
-`@Documented` là một khái niệm cụ thể trong Chú thích; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại thay vì chỉ ghi nhớ tên gọi của nó.
+**`@Documented`** — Quy định chú thích sẽ xuất hiện trong tài liệu Javadoc được sinh ra.
 
 Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 
@@ -54,7 +54,7 @@ public class JavadocDemo {
 
 ### @Inherited
 
-`@Inherited` là một khái niệm cụ thể trong Chú thích; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại thay vì chỉ ghi nhớ tên gọi của nó.
+**`@Inherited`** — Cho phép lớp con tự động kế thừa chú thích từ lớp cha.
 
 Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 
@@ -100,7 +100,7 @@ class SubClass extends SuperClass {}
 
 ### @Repeatable
 
-`@Repeatable` là một khái niệm cụ thể trong Chú thích; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại thay vì chỉ ghi nhớ tên gọi của nó.
+**`@Repeatable`** — Cho phép áp dụng cùng một chú thích nhiều lần trên một khai báo.
 
 Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 

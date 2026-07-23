@@ -51,9 +51,9 @@ The **Stack** stores method call frames. Each time a method is called, a new fra
 
 Key properties of the Stack:
 
-- **Fixed-size frames** — the JVM knows exactly how many bytes each variable needs **at compile time**.
-- **Fast allocation** — adding a variable is just moving a pointer, no searching required.
-- **Automatic cleanup** — when a method returns, its entire frame is popped off instantly.
+- **`Fixed-size frames`** — Fixed-size frames: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Fast allocation`** — Fast allocation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Automatic cleanup`** — Automatic cleanup: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **Stores**: primitive values (`int`, `double`, `boolean`, etc.) and reference addresses (pointers to Heap objects).
 
 ### Heap Memory
@@ -62,9 +62,9 @@ The **Heap** stores objects and arrays. When you write `new Student()` or `new S
 
 Key properties of the Heap:
 
-- **Dynamic allocation** — objects can be any size, determined **at runtime**.
-- **Slower allocation** — the JVM must find a suitable block of free memory.
-- **Garbage collected** — objects remain on the Heap until the garbage collector determines they are no longer reachable.
+- **`Dynamic allocation`** — Dynamic allocation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Slower allocation`** — Slower allocation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Garbage collected`** — Garbage collected: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **Stores**: all objects (`String`, arrays, `Student`, wrapper classes, etc.).
 
 ### Why Primitives Go On The Stack And Objects Go On The Heap
@@ -291,9 +291,9 @@ System.out.println(greeting.toUpperCase()); // NullPointerException at runtime!
 
 `NullPointerException` (NPE) is the single most common runtime exception in Java because:
 
-- **The compiler cannot detect it** — `null` is a valid value for any reference type, so the code compiles without error.
-- **It only appears at runtime** — the crash happens only when the code actually executes the method call on `null`.
-- **Any reference variable can be null** — method parameters, return values, fields — any of them could be `null` unexpectedly.
+- **`null`** — null: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`null`** — null: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`null`** — null: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ```java
 public static String findUser(int id) {

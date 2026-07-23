@@ -6,14 +6,14 @@ Tài liệu này đề cập đến các nguyên hàm đồng bộ luồng (Thre
 
 ## Nội Dung Khái Quát (Outline Coverage)
 
-- **`join`** — Một phương thức thể hiện (Instance Method) (`thread.join()`) làm nghẽn luồng gọi (Calling Thread) cho đến khi luồng đích (Target Thread) kết thúc.
-- **`yield`** — Một phương thức tĩnh (Static Method) (`Thread.yield()`) gợi ý bộ lập lịch (Scheduler) tạm dừng luồng hiện tại để cho phép các luồng khác chạy. Bộ lập lịch có quyền bỏ qua gợi ý này.
-- **`interrupt`** — Một cơ chế truyền tín hiệu để yêu cầu một luồng dừng công việc hiện tại. Cơ chế này thiết lập trạng thái ngắt (Interrupt Status) của luồng và đánh thức các luồng đang bị nghẽn trong các phương thức như `sleep()` hoặc `wait()`.
-- **`Luồng daemon`** — Một luồng chạy nền (Background Thread) (chẳng hạn như dọn rác (Garbage Collection)) không giữ cho máy ảo Java (JVM - Java Virtual Machine) hoạt động. JVM sẽ thoát khi chỉ còn lại các luồng daemon.
-- **`Luồng người dùng (User Thread)`** — Một luồng tiêu chuẩn (chẳng hạn như luồng chính (Main Thread)). JVM tiếp tục thực thi chừng nào còn ít nhất một luồng người dùng đang hoạt động.
-- **`Độ ưu tiên của luồng (Thread Priority)`** — Một gợi ý bằng số (từ 1 đến 10) cho bộ lập lịch luồng của hệ điều hành (OS Thread Scheduler). Hành vi này phụ thuộc rất nhiều vào nền tảng (Platform-dependent) và không nên được dựa dẫm để đảm bảo tính đúng đắn của chương trình.
-- **`Tình trạng tương tranh (Race Condition)`** — Một lỗi đồng thời (Concurrency Bug) mà kết quả của chương trình phụ thuộc vào sự đan xen không thể dự đoán trước giữa các bước thực thi của nhiều luồng khác nhau.
-- **`Vùng tới hạn (Critical Section)`** — Một khối mã nguồn truy cập vào tài nguyên chia sẻ có thể thay đổi (Shared Mutable Resource) và không được phép truy cập đồng thời bởi nhiều luồng.
+- **`join`** — join: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`yield`** — yield: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`interrupt`** — interrupt: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Luồng daemon`** — Luồng daemon: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Luồng người dùng (User Thread)`** — Luồng người dùng (User Thread): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Độ ưu tiên của luồng (Thread Priority)`** — Độ ưu tiên của luồng (Thread Priority): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Tình trạng tương tranh (Race Condition)`** — Tình trạng tương tranh (Race Condition): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Vùng tới hạn (Critical Section)`** — Vùng tới hạn (Critical Section): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 

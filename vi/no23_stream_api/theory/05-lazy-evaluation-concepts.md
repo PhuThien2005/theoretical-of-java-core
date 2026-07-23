@@ -6,20 +6,20 @@ Tài liệu này tập trung vào một phần trọng tâm của **Stream API**
 
 ## Đề cương chi tiết
 
-- **`Lazy evaluation`** — Đánh giá lười biếng (Lazy evaluation): Đánh giá lười biếng là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
-- **`Short-circuiting`** — Ngắt mạch (Short-circuiting): Ngắt mạch là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
-- **`Parallel stream`** — Luồng song song (Parallel stream): Một Stream là một đường ống để xử lý các phần tử thông qua các thao tác lười biếng.
-- **`Collectors:`** — Các bộ thu thập (Collectors:): Collectors là một nhóm các quy tắc liên quan trong Stream API nhóm một số chi tiết liên quan.
-- **`toSet`** — toSet: Một Set là một bộ sưu tập từ chối các phần tử trùng lặp theo quy tắc bằng nhau.
-- **`toMap`** — toMap: Một Map lưu trữ các cặp khóa-giá trị và truy xuất các giá trị theo khóa.
-- **`joining`** — joining: joining là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
-- **`groupingBy`** — groupingBy: groupingBy là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+- **`Lazy evaluation`** — Lazy evaluation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Short-circuiting`** — Short-circuiting: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Parallel stream`** — Parallel stream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Collectors:`** — Collectors:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`toSet`** — toSet: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`toMap`** — toMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`joining`** — joining: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`groupingBy`** — groupingBy: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi chú chi tiết
 
 ### Đánh giá lười biếng (Lazy evaluation)
 
-Đánh giá lười biếng (lazy evaluation) là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+**`Đánh giá lười biếng (lazy evaluation)`** — Đánh giá lười biếng (lazy evaluation): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 
@@ -42,7 +42,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### Ngắt mạch (Short-circuiting)
 
-Ngắt mạch (short-circuiting) là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+Ngắt mạch (short-**`circuiting)`** — circuiting): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 
@@ -170,7 +170,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### joining
 
-joining là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+**`joining`** — joining: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 
@@ -191,7 +191,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### groupingBy
 
-groupingBy là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+**`groupingBy`** — groupingBy: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 

@@ -6,14 +6,14 @@ Tài liệu này tập trung vào một phần trọng tâm về **Các Bổ T�
 
 ## Khung Nội Dung (Outline Coverage)
 
-- **`abstract`** — Abstract nghĩa là chưa hoàn thiện theo thiết kế: các lớp con hoặc lớp triển khai bắt buộc phải cung cấp các hành vi còn thiếu.
-- **`synchronized`** — Synchronized bảo vệ một phân đoạn quan trọng (critical section) bằng cách sử dụng khóa giám sát (monitor lock).
-- **`volatile`** — Volatile cung cấp sự đảm bảo hiển thị đối với biến được chia sẻ giữa các luồng, nhưng nó không làm cho các hoạt động phức hợp trở thành nguyên tố (atomic).
-- **`transient`** — Transient đánh dấu một trường cần được bỏ qua trong quá trình tuần tự hóa (serialization) đối tượng trong Java.
-- **`native`** — Native chỉ ra rằng phương thức đó được triển khai bằng ngôn ngữ lập trình khác (như C/C++) thông qua Giao diện gốc Java (Java Native Interface - JNI).
-- **`strictfp`** — strictfp đảm bảo rằng các tính toán số thực dấu phẩy động (floating-point) luôn tạo ra cùng một kết quả trên mọi nền tảng phần cứng.
-- **`Static variable`** — Biến tĩnh nghĩa là thành viên đó thuộc về bản thân lớp chứ không thuộc về bất kỳ một đối tượng cụ thể nào.
-- **`Static method`** — Phương thức tĩnh nghĩa là thành viên đó thuộc về bản thân lớp chứ không thuộc về bất kỳ một đối tượng cụ thể nào.
+- **`abstract`** — abstract: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`synchronized`** — synchronized: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`volatile`** — volatile: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`transient`** — transient: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`native`** — native: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`strictfp`** — strictfp: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Static variable`** — Static variable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Static method`** — Static method: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

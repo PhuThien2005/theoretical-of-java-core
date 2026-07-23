@@ -6,20 +6,20 @@ Tài liệu này tập trung vào một phần chuyên sâu của **API Dòng Ch
 
 ## Tóm Tắt Nội Dung (Outline Coverage)
 
-- **`peek`** — `peek` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
-- **`limit`** — `limit` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
-- **`skip`** — `skip` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
-- **`Các thao tác kết thúc:`** — Các thao tác kết thúc (Terminal operations) là một nhóm các quy tắc liên quan trong Stream API để gom nhóm nhiều chi tiết kỹ thuật có liên quan.
-- **`forEach`** — `forEach` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
-- **`collect`** — `collect` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
-- **`toList`** — Một `List` là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí.
-- **`count`** — `count` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+- **`peek`** — peek: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`limit`** — limit: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`skip`** — skip: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Các thao tác kết thúc:`** — Các thao tác kết thúc:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`forEach`** — forEach: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`collect`** — collect: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`toList`** — toList: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`count`** — count: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 
 ### peek
 
-`peek` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+**`peek`** — Thực hiện một thao tác phụ trên từng phần tử khi stream được tiêu thụ (dùng để debug).
 
 Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 
@@ -44,7 +44,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### limit
 
-`limit` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+**`limit`** — limit: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 
@@ -66,7 +66,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### skip
 
-`skip` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+**`skip`** — skip: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 
@@ -108,7 +108,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### forEach
 
-`forEach` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+**`forEach`** — forEach: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 
@@ -128,7 +128,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### collect
 
-`collect` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+**`collect`** — collect: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 
@@ -168,7 +168,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### count
 
-`count` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
+**`count`** — count: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 

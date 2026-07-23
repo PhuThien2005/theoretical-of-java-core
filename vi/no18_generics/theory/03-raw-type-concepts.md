@@ -156,13 +156,13 @@ if (obj instanceof List)         { }   // OK — raw type check
 
 ## Bảng Tóm Tắt
 
-- **`new T()`** — Nguyên nhân: Xóa kiểu. Giải pháp: Sử dụng mã nhận diện `Class<T>` + Phản chiếu.
-- **`new T[n]`** — Nguyên nhân: Hiện thực hóa kiểu mảng (Reification). Giải pháp: Sử dụng `List<T>` hoặc `(T[]) new Object[n]`.
-- **`List<int>`** — Nguyên nhân: Kiểu nguyên thủy không phải đối tượng. Giải pháp: Sử dụng `List<Integer>` + Tự động đóng hộp.
-- **`static T field`** — Nguyên nhân: Trường tĩnh dùng chung giữa các kiểu. Giải pháp: Trường không tĩnh.
-- **`catch (T e)`** — Nguyên nhân: JVM cần kiểu dữ liệu cụ thể. Giải pháp: Kiểu ngoại lệ cụ thể.
-- **Nạp chồng phương thức có cùng kiểu xóa** — Nguyên nhân: Trùng chữ ký bytecode. Giải pháp: Đổi tên phương thức.
-- **`instanceof List<String>`** — Nguyên nhân: Kiểu bị xóa thông tin. Giải pháp: Sử dụng `List<?>` hoặc kiểu nguyên bản.
+- **`new T()`** — new T(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`new T[n]`** — new T[n]: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`List<int>`** — List<int>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`static T field`** — static T field: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`catch (T e)`** — catch (T e): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Nạp chồng phương thức có cùng kiểu xóa`** — Nạp chồng phương thức có cùng kiểu xóa: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`instanceof List<String>`** — instanceof List<String>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Tại sao Kiểu Nguyên Bản Tồn tại và Mối Nguy hiểm của Chúng
 

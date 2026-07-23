@@ -260,7 +260,6 @@ class Client {
 - **Secondary Effect**: Mutability is channeled exclusively through public method APIs that enforce business logic validation rules.
 - **Ultimate Outcome**: The object guarantees its own state invariants, remaining decoupled from client classes.
 
-
 ### Non-access modifier:
 
 Non-access modifier is a group of related rules in Modifiers in Java that groups several related details.

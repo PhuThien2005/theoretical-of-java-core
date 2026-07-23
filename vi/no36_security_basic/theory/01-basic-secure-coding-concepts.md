@@ -6,34 +6,22 @@ Tài liệu này trình bày một phần trọng tâm của **Bảo mật Cơ b
 
 ## Khung Nội Dung (Outline Coverage)
 
-- **`Basic secure coding`** — Lập trình an toàn cơ bản (Basic secure coding) là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi (failure mode) thay vì chỉ nhớ tên khái niệm.
-- **`Hashing`** — Băm (Hashing) ánh xạ dữ liệu đầu vào thành một chuỗi đại diện (digest) có kích thước cố định và là hàm một chiều trong sử dụng thông thường.
-- **`MessageDigest`** — `MessageDigest` là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-- **`SHA-256`** — SHA-256 là một thuật toán cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-- **`Base64`** — Base64 là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-- **`Basic encryption/decryption`** — Mã hóa/giải mã cơ bản (Basic encryption/decryption) là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-- **`KeyStore`** — `KeyStore` là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-- **`Basic SSL/TLS`** — SSL/TLS cơ bản (Basic SSL/TLS) là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-- **`Input validation`** — Kiểm chứng đầu vào (Input validation) là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-- **`Avoid SQL Injection`** — Tấn công tiêm mã SQL (SQL injection) xảy ra khi đầu vào không đáng tin cậy làm thay đổi ý nghĩa của một câu lệnh SQL.
+- **`Basic secure coding`** — Thực hành viết mã nguồn an toàn chống lại các lỗ hổng và nguy cơ khai thác bảo mật.
+- **`Hashing`** — Hashing: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`MessageDigest`** — Lớp cung cấp chức năng của các thuật toán băm mật mã (SHA-256, MD5).
+- **`SHA-256`** — Thuật toán băm mật mã tạo ra giá trị băm 256-bit (32-byte).
+- **`Base64`** — Phương thức mã hóa dữ liệu nhị phân thành chuỗi ký tự văn bản ASCII.
+- **`Basic encryption/decryption`** — Mã hóa đối xứng/bất đối xứng bảo vệ dữ liệu khi lưu trữ và truyền tải.
+- **`KeyStore`** — Kho lưu trữ an toàn chứa các khóa mật mã (private/public key) và chứng chỉ số.
+- **`Basic SSL/TLS`** — Giao thức mật mã đảm bảo an toàn và mã hóa đường truyền mạng.
+- **`Input validation`** — Lọc và xác thực đầu vào từ người dùng để phòng chống các lỗ hổng injection.
+- **`Avoid SQL Injection`** — Avoid SQL Injection: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 
 ### Lập trình an toàn cơ bản (Basic secure coding)
 
-Lập trình an toàn cơ bản là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi. Hãy xem xét nó thông qua một ví dụ nhỏ thay vì chỉ học thuộc lòng nhãn tên.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `Basic secure coding` trong một câu.
-- Nhận diện `Basic secure coding` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `Basic secure coding`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `Basic secure coding` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+**`Lập trình an toàn cơ bản`** — Thực hành viết mã chống lại các lỗ hổng bảo mật và khai thác mạng.
 
 ### Băm (Hashing)
 
@@ -53,131 +41,35 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### MessageDigest
 
-`MessageDigest` là một lớp cụ thể cung cấp chức năng của thuật toán băm mật mã trong Java; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi. Hãy xem xét nó thông qua một ví dụ nhỏ thay vì chỉ học thuộc lòng nhãn tên.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `MessageDigest` trong một câu.
-- Nhận diện `MessageDigest` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `MessageDigest`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `MessageDigest` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+`MessageDigest` là một lớp thuộc gói `java.security` cung cấp chức năng của các thuật toán băm mật mã như SHA-256 hoặc MD5 để tạo chuỗi digest từ dữ liệu đầu vào.
 
 ### SHA-256
 
-SHA-256 là một thuật toán băm mật mã cụ thể tạo ra chuỗi băm 256-bit; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi. Hãy xem xét nó thông qua một ví dụ nhỏ thay vì chỉ học thuộc lòng nhãn tên.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `SHA-256` trong một câu.
-- Nhận diện `SHA-256` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `SHA-256`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `SHA-256` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+SHA-256 là thuật toán băm mật mã thuộc họ SHA-2, tạo ra chuỗi digest 256-bit (32-byte) cố định, không thể đảo ngược, thường được dùng để kiểm tra tính toàn vẹn dữ liệu.
 
 ### Base64
 
-Base64 là một cơ chế mã hóa nhị phân thành văn bản ASCII; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi. Hãy xem xét nó thông qua một ví dụ nhỏ thay vì chỉ học thuộc lòng nhãn tên.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `Base64` trong một câu.
-- Nhận diện `Base64` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `Base64`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `Base64` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+Base64 là cơ chế mã hóa nhị phân thành chuỗi ký tự ASCII (gồm 64 ký tự an toàn) để có thể truyền tải an toàn qua các giao thức dựa trên văn bản như HTTP hay Email.
 
 ### Mã hóa/giải mã cơ bản (Basic encryption/decryption)
 
-Mã hóa/giải mã cơ bản là một khái niệm cụ thể trong Bảo mật Cơ bản; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi. Hãy xem xét nó thông qua một ví dụ nhỏ thay vì chỉ học thuộc lòng nhãn tên.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `Basic encryption/decryption` trong một câu.
-- Nhận diện `Basic encryption/decryption` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `Basic encryption/decryption`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `Basic encryption/decryption` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+Thực hành mã hóa đối xứng (AES) hoặc bất đối xứng (RSA) để bảo vệ dữ liệu bí mật khi lưu trữ (at rest) hoặc truyền tải qua mạng (in transit).
 
 ### KeyStore
 
-`KeyStore` là một kho lưu trữ an toàn chứa các khóa mật mã và chứng chỉ; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi. Hãy xem xét nó thông qua một ví dụ nhỏ thay vì chỉ học thuộc lòng nhãn tên.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `KeyStore` trong một câu.
-- Nhận diện `KeyStore` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `KeyStore`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `KeyStore` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+`KeyStore` (`java.security.KeyStore`) là kho lưu trữ bảo mật dùng để quản lý các khóa mật mã (private/public key) và các chứng chỉ số (certificates).
 
 ### SSL/TLS cơ bản (Basic SSL/TLS)
 
-SSL/TLS cơ bản là giao thức truyền thông an toàn trên mạng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi. Hãy xem xét nó thông qua một ví dụ nhỏ thay vì chỉ học thuộc lòng nhãn tên.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `Basic SSL/TLS` trong một câu.
-- Nhận diện `Basic SSL/TLS` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `Basic SSL/TLS`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `Basic SSL/TLS` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+Giao thức mật mã hoạt động trên lớp vận chuyển (Transport Layer) để xác thực máy chủ và mã hóa toàn bộ dữ liệu trao đổi giữa client và server.
 
 ### Kiểm chứng đầu vào (Input validation)
 
-Kiểm chứng đầu vào là quá trình đảm bảo dữ liệu đầu vào đáp ứng các tiêu chí an toàn trước khi xử lý; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi. Hãy xem xét nó thông qua một ví dụ nhỏ thay vì chỉ học thuộc lòng nhãn tên.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `Input validation` trong một câu.
-- Nhận diện `Input validation` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `Input validation`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `Input validation` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+Quá trình kiểm tra, lọc và làm sạch (sanitize) mọi dữ liệu từ bên ngoài trước khi đưa vào hệ thống nhằm ngăn chặn các lỗ hổng như Injection hay XSS.
 
 ### Tránh SQL Injection (Avoid SQL Injection)
 
 Tấn công tiêm mã SQL xảy ra khi đầu vào không đáng tin cậy làm thay đổi ý nghĩa của một câu lệnh SQL.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi. Hãy xem xét nó thông qua một ví dụ nhỏ thay vì chỉ học thuộc lòng nhãn tên.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `Avoid SQL Injection` trong một câu.
-- Nhận diện `Avoid SQL Injection` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `Avoid SQL Injection`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `Avoid SQL Injection` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ## Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)
 
@@ -325,7 +217,6 @@ Base64("Hello") = "SGVsbG8="  ← Bất kỳ ai cũng có thể giải mã
      v
 Base64.decode("SGVsbG8=") = "Hello"  ← Đảo ngược dễ dàng
 
-
 [Mã hóa bảo mật AES — Yêu cầu Khóa bí mật]
 Văn bản gốc: "Hello" + Khóa bí mật (256 bits) + IV
      |
@@ -374,7 +265,6 @@ Lớp `java.util.Random` của Java là bộ tạo số ngẫu nhiên giả tuy�
 hạt giống (seed) = 12345
 Chuỗi đầu ra ngẫu nhiên: 6, 3, 1, 8, 2, 7, ...
 Kẻ tấn công quan sát 3 đầu ra → Tái dựng hạt giống → Dự đoán tất cả đầu ra tương lai
-
 
 [java.security.SecureRandom — Không thể dự đoán]
 Nguồn Entropy: thời gian phím, ngắt phần cứng, /dev/urandom

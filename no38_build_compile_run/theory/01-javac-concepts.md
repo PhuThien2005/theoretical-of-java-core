@@ -190,7 +190,6 @@ java -jar myapp.jar
 
 ---
 
-
 ### Classpath
 
 The Classpath defines the search path that the compiler (`javac`) and the JVM runtime (`java`) use to locate user-defined classes, packages, and third-party libraries.
@@ -253,7 +252,6 @@ public class Main {
 Compiler builds class reference successfully $\rightarrow$ Class definition is omitted from the runtime classpath flag (`-cp`) $\rightarrow$ JVM executes instruction calling class constructor $\rightarrow$ Class loader searches classpath and returns null $\rightarrow$ JVM linker throws `NoClassDefFoundError`.
 
 ---
-
 
 ### Manifest file
 

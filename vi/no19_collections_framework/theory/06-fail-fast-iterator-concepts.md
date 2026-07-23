@@ -6,14 +6,14 @@ File này đề cập đến một phần trọng tâm của **Cấu Trúc Tập
 
 ## Đề Cương Khái Niệm
 
-- **`Fail-fast iterator`** — Ném ra `ConcurrentModificationException` ngay lập tức nếu tập hợp bị sửa đổi cấu trúc trong quá trình duyệt (thông qua các phương thức khác ngoài phương thức của chính bộ lặp).
-- **`Fail-safe iterator`** — Hoạt động trên một bản chụp (snapshot) hoặc một dạng xem nhất quán yếu (weakly consistent view) của tập hợp, cho phép sửa đổi trong quá trình duyệt mà không ném ra ngoại lệ.
-- **`ConcurrentModificationException`** — Ngoại lệ thời gian chạy (runtime exception) được ném ra khi phát hiện sửa đổi cấu trúc trên một tập hợp trong quá trình duyệt đang diễn ra.
-- **`Collections.sort`** — Sắp xếp một danh sách tại chỗ với thời gian trung bình/tệ nhất là $O(N \log N)$.
-- **`Collections.reverse`** — Đảo ngược thứ tự các phần tử trong danh sách.
-- **`Collections.shuffle`** — Hoán vị ngẫu nhiên các phần tử trong danh sách.
-- **`Collections.max`** — Trả về phần tử lớn nhất trong một tập hợp theo thứ tự tự nhiên hoặc theo một bộ so sánh (comparator) tùy chỉnh.
-- **`Collections.min`** — Trả về phần tử nhỏ nhất trong một tập hợp.
+- **`Fail-fast iterator`** — Fail-fast iterator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Fail-safe iterator`** — Fail-safe iterator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`ConcurrentModificationException`** — ConcurrentModificationException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Collections.sort`** — Collections.sort: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Collections.reverse`** — Collections.reverse: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Collections.shuffle`** — Collections.shuffle: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Collections.max`** — Collections.max: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Collections.min`** — Collections.min: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 
@@ -77,10 +77,10 @@ public class FailSafeDemo {
 ### Lớp Tiện Ích Collections
 
 `java.util.Collections` cung cấp các thuật toán tĩnh hoạt động trên các tập hợp.
-- **`sort(List<T> list)`**: Sắp xếp danh sách. Sử dụng thuật toán Timsort. Sửa đổi danh sách tại chỗ.
-- **`reverse(List<?> list)`**: Đảo ngược thứ tự các phần tử của danh sách.
-- **`shuffle(List<?> list)`**: Sắp xếp lại ngẫu nhiên các phần tử.
-- **`max(Collection<? extends T> coll)`** / **`min(Collection<? extends T> coll)`**: Tìm các phần tử cực trị dựa trên thứ tự sắp xếp.
+- **`sort(List<T> list)`** — sort(List<T> list): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`reverse(List<?> list)`** — reverse(List<?> list): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`shuffle(List<?> list)`** — shuffle(List<?> list): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`max(Collection<? extends T> coll)`** — max(Collection<? extends T> coll): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 **Ví dụ Mã Nguồn Chạy Được:**
 ```java

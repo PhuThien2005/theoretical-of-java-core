@@ -10,17 +10,17 @@ Java cung cấp các từ khóa đặc tả truy cập (access modifier) để g
 1. **Cấp độ lớp (Class-level):** Một lớp cấp cao nhất (top-level class) chỉ có thể được khai báo là `public` hoặc mặc định (package-private). Nó không thể được khai báo là `private` hoặc `protected` (ngoại trừ các lớp lồng nhau/lớp nội bộ).
 2. **Cấp độ thành viên (Member-level):** Các trường, phương thức và hàm khởi dựng (constructor) có thể sử dụng cả bốn cấp độ hiển thị.
 
-- **`private`** — Chỉ truy cập được bên trong cùng lớp. Không thể truy cập từ bên trong cùng package, lớp con ở package khác, hay mọi nơi.
-- **`default` (không khai báo)** — Truy cập được từ bên trong cùng lớp và bên trong cùng package. Không thể truy cập bởi lớp con ở package khác hay mọi nơi.
-- **`protected`** — Truy cập được từ bên trong cùng lớp, bên trong cùng package, và lớp con ở package khác (thông qua kế thừa). Không thể truy cập từ mọi nơi.
-- **`public`** — Truy cập được từ mọi nơi: bên trong cùng lớp, bên trong cùng package, lớp con ở package khác, và mọi nơi (World).
+- **`private`** — private: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`default`** — default: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`protected`** — protected: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`public`** — public: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ### Giải Thích Các Phạm Vi Chính:
-- **`private`:** Giới hạn quyền truy cập nghiêm ngặt chỉ trong các thành viên của lớp định nghĩa nó. Khuyến nghị sử dụng cho tất cả các biến thể hiện.
-- **`default` (package-private):** Các thành viên chỉ có thể được truy cập bởi các lớp nằm trong cùng một package.
-- **`protected`:** Có thể truy cập được bởi các lớp nằm trong cùng package, và bởi các lớp con (subclass) nằm ở các package khác.
+- **`private`** — private: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`default`** — default: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`protected`** — protected: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   *Lưu ý:* Một lớp con ở package khác chỉ có thể truy cập thành viên `protected` của lớp cha thông qua cơ chế kế thừa (sử dụng biến tham chiếu thuộc kiểu lớp con), chứ không thể thông qua biến tham chiếu thuộc kiểu lớp cha.
-- **`public`:** Quyền truy cập không giới hạn.
+- **`public`** — public: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

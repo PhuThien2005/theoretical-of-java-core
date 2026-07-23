@@ -12,7 +12,7 @@ This file covers a focused slice of **Collections Framework**. Study each concep
 | `SortedSet` | A Set is a collection that rejects duplicates according to equality rules. |
 | `NavigableSet` | A Set is a collection that rejects duplicates according to equality rules. |
 | `When to use Set?` | A Set is a collection that rejects duplicates according to equality rules. |
-| `Duplicate removal mechanism` |Duplicate removal mechanism is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Duplicate removal mechanism` |`Duplicate removal mechanism` — TreeSet uses compareTo/compare results (0) rather than equals() to detect and eliminate duplicate elements. |
 | `Role of equals() and hashCode()` | equals() defines logical equality between objects. |
 | `PriorityQueue` |PriorityQueue removes elements by priority rather than insertion order. |
 | `ArrayDeque` |ArrayDeque is a resizable-array Deque often preferred for stack or queue behavior. |

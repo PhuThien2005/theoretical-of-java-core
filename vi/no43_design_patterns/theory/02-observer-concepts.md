@@ -6,16 +6,16 @@ File này đề cập đến các mẫu thiết kế hành vi (behavioral patter
 
 ## Đề Cương Khái Niệm
 
-- **`Observer`** — Mô hình đăng ký cho phép nhiều đối tượng lắng nghe phản ứng với các thay đổi trạng thái của đối tượng chính.
-- **`Template Method`** — Định nghĩa khung của một thuật toán trong một phương thức abstract, nhường các bước triển khai cho các lớp con.
-- **`Command`** — Đóng gói các yêu cầu thành các đối tượng, hỗ trợ ghi log hoạt động, xếp hàng và hoàn tác.
-- **`Iterator`** — Duyệt tuần tự qua một collection trong khi ẩn đi cấu trúc nội bộ của nó.
-- **`State`** — Cho phép một đối tượng thay đổi hành vi của nó khi trạng thái nội bộ thay đổi (các trạng thái đóng vai trò là các lớp).
-- **`MVC`** — Mẫu phân tách kiến trúc gồm Model (dữ liệu), View (giao diện người dùng) và Controller (logic).
-- **`DAO`** — Trừu tượng hóa Data Access Object phân tách các truy vấn DB cấp thấp khỏi logic nghiệp vụ.
-- **`DTO`** — Data Transfer Object vận chuyển dữ liệu qua các ranh giới tiến trình/mạng (không chứa logic nghiệp vụ).
-- **`Repository`** — Mẫu thiết kế hướng miền (domain-driven) mô phỏng một collection trên bộ nhớ ánh xạ tới việc lưu trữ cơ sở dữ liệu.
-- **`Service Layer`** — Ranh giới đóng gói cho các giao dịch nghiệp vụ cốt lõi.
+- **`Observer`** — Observer: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Template Method`** — Template Method: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Command`** — Command: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Iterator`** — Iterator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`State`** — State: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`MVC`** — MVC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`DAO`** — DAO: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`DTO`** — DTO: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Repository`** — Repository: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Service Layer`** — Service Layer: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

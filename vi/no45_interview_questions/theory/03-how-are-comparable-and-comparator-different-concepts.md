@@ -6,14 +6,14 @@ Tài liệu này trình bày các câu hỏi phỏng vấn Java Core từ trung 
 
 ## Khung Nội Dung (Outline Coverage)
 
-- **`How are Comparable and Comparator different?`** — `Comparable` định nghĩa thứ tự sắp xếp tự nhiên của một lớp thông qua `compareTo()`; `Comparator` định nghĩa các quy tắc sắp xếp tùy chỉnh bên ngoài thông qua `compare()`.
-- **`How are fail-fast and fail-safe iterators different?`** — Bộ lặp fail-fast ném ra ngoại lệ `ConcurrentModificationException` ngay khi bộ sưu tập bị thay đổi cấu trúc; bộ lặp fail-safe hoạt động trên một bản sao, tránh được ngoại lệ này.
-- **`How are volatile and synchronized different?`** — Từ khóa `volatile` đảm bảo tính hiển thị (visibility) và thứ tự lệnh của biến giữa các luồng; `synchronized` đảm bảo tính hiển thị, thứ tự lệnh VÀ tính nguyên tố (atomicity) thông qua cơ chế khóa.
-- **`What is deadlock?`** — Là trạng thái bế tắc xảy ra khi hai hoặc nhiều luồng bị khóa vĩnh viễn, mỗi luồng đều chờ đợi khóa đang được giữ bởi luồng kia.
-- **`How are Thread start() and run() different?`** — Phương thức `start()` tạo ra một luồng mới và thực thi logic trong `run()` bất đồng bộ; phương thức `run()` thực thi đồng bộ trong luồng gọi hiện tại.
-- **`How are sleep() and wait() different?`** — Phương thức `sleep()` tạm dừng luồng hiện tại nhưng **không giải phóng khóa**; `wait()` tạm dừng luồng và **giải phóng khóa** để chờ thông báo từ luồng khác.
-- **`How are notify() and notifyAll() different?`** — Phương thức `notify()` đánh thức ngẫu nhiên một luồng đơn lẻ đang chờ; `notifyAll()` đánh thức toàn bộ các luồng đang chờ trên màn hình giám sát đối tượng (object monitor).
-- **`Is Stream API lazy?`** — Có. Các hoạt động trung gian (như `filter`, `map`) là trì hoãn (lazy) và chỉ được thực thi khi một hoạt động kết thúc (như `collect`) được gọi.
+- **`How are Comparable and Comparator different?`** — How are Comparable and Comparator different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`How are fail-fast and fail-safe iterators different?`** — How are fail-fast and fail-safe iterators different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`How are volatile and synchronized different?`** — How are volatile and synchronized different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`What is deadlock?`** — What is deadlock?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`How are Thread start() and run() different?`** — How are Thread start() and run() different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`How are sleep() and wait() different?`** — How are sleep() and wait() different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`How are notify() and notifyAll() different?`** — How are notify() and notifyAll() different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Is Stream API lazy?`** — Is Stream API lazy?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 
@@ -21,11 +21,11 @@ Tài liệu này trình bày các câu hỏi phỏng vấn Java Core từ trung 
 
 ### Comparable vs. Comparator
 
-- **`Comparable`**:
+- **`Comparable`** — Comparable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - Nằm trong gói `java.lang`.
   - Được sử dụng để định nghĩa **thứ tự sắp xếp tự nhiên (natural ordering)** của các phần tử (ví dụ: thứ tự bảng chữ cái đối với String, thứ tự tăng dần đối với Integer).
   - Bản thân lớp triển khai giao diện `Comparable<T>` và ghi đè phương thức `compareTo(T o)`.
-- **`Comparator`**:
+- **`Comparator`** — Comparator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - Nằm trong gói `java.util`.
   - Được sử dụng để định nghĩa **thứ tự sắp xếp tùy chỉnh/thay thế (custom ordering)** (ví dụ: sắp xếp chuỗi theo độ dài hoặc theo các trường tùy chỉnh).
   - Được triển khai ở một lớp riêng biệt hoặc dưới dạng biểu thức lambda truyền trực tiếp vào `Collections.sort()` hoặc `list.sort()`.
@@ -58,11 +58,11 @@ Comparator<Person> nameComparator = (p1, p2) -> p1.name.compareTo(p2.name);
 
 ### volatile vs. synchronized
 
-- **`volatile`**:
+- **`volatile`** — volatile: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - Là bổ từ cho biến.
   - Đảm bảo **tính hiển thị (visibility)** (các thao tác đọc/ghi được thực hiện trực tiếp trên bộ nhớ chính, bỏ qua bộ nhớ đệm CPU) và ngăn chặn trình biên dịch **tái sắp xếp chỉ thị (instruction reordering)**.
   - *Không* đảm bảo **tính nguyên tố (atomicity)** (ví dụ: phép toán `count++` không phải là nguyên tố và vẫn cần đồng bộ hóa).
-- **`synchronized`**:
+- **`synchronized`** — synchronized: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - Bổ từ cho phương thức hoặc khối lệnh.
   - Đảm bảo **tính hiển thị**, **thứ tự lệnh**, và **tính nguyên tố** bằng cách chiếm giữ khóa giám sát đối tượng. Chỉ có một luồng duy nhất có thể thực thi khối mã tại một thời điểm.
 
@@ -81,10 +81,10 @@ Bế tắc (Deadlock) xảy ra khi Luồng 1 giữ Khóa A và chờ Khóa B, tr
 
 ### Luồng `start()` vs. `run()` (Thread start() vs. run())
 
-- **`thread.start()`**:
+- **`thread.start()`** — thread.start(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - Cấp phát tài nguyên hệ thống, tạo một luồng thực thi mới trong JVM và lên lịch chạy cho nó.
   - JVM sẽ gọi phương thức `run()` của luồng đó một cách bất đồng bộ trong ngữ cảnh luồng mới.
-- **`thread.run()`**:
+- **`thread.run()`** — thread.run(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - Chỉ là một lời gọi phương thức thông thường. Không có luồng mới nào được tạo ra.
   - Thực thi đồng bộ bên trong ngăn xếp (stack) của luồng gọi hiện tại.
 
@@ -92,11 +92,11 @@ Bế tắc (Deadlock) xảy ra khi Luồng 1 giữ Khóa A và chờ Khóa B, tr
 
 ### sleep() vs. wait()
 
-- **`Thread.sleep(millis)`**:
+- **`Thread.sleep(millis)`** — Thread.sleep(millis): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - Là phương thức tĩnh (static) của lớp `Thread`.
   - Luồng sẽ tạm dừng trong một khoảng thời gian nhưng **vẫn giữ tất cả các khóa mà nó đang sở hữu**.
   - Có thể được gọi ở bất cứ đâu trong mã nguồn.
-- **`object.wait()`**:
+- **`object.wait()`** — object.wait(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - Là phương thức thực thể (instance method) của lớp `java.lang.Object`.
   - Luồng sẽ nhường quyền thực thi và **giải phóng khóa** trên màn hình giám sát đối tượng, cho phép các luồng khác có thể truy cập.
   - Bắt buộc phải được gọi bên trong một khối đồng bộ `synchronized` của đối tượng đó.
@@ -105,8 +105,8 @@ Bế tắc (Deadlock) xảy ra khi Luồng 1 giữ Khóa A và chờ Khóa B, tr
 
 ### notify() vs. notifyAll()
 
-- **`notify()`**: Đánh thức một luồng duy nhất đang chờ trên màn hình giám sát đối tượng. Việc luồng nào được đánh thức là không xác định (do bộ lập lịch luồng của JVM quyết định).
-- **`notifyAll()`**: Đánh thức tất cả các luồng đang chờ trên màn hình giám sát đối tượng. Sau đó chúng sẽ cạnh tranh để giành lại khóa; luồng chiến thắng sẽ tiếp tục thực thi, các luồng khác tiếp tục bị chặn. Cách này nhìn chung an toàn hơn để tránh mất tín hiệu thông báo.
+- **`notify()`** — notify(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`notifyAll()`** — notifyAll(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

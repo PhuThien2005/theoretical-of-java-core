@@ -6,15 +6,15 @@ Tài liệu này tập trung vào một phần chuyên sâu của **Vào/Ra (IO)
 
 ## Tóm Tắt Nội Dung (Outline Coverage)
 
-- **`Serialization`** — Quá trình chuyển đổi trạng thái của một đối tượng thành một luồng byte để có thể lưu vào tệp hoặc gửi qua mạng.
-- **`Deserialization`** — Quá trình tái cấu trúc một đối tượng từ một luồng byte đã tuần tự hóa.
-- **`Serializable`** — Một giao diện đánh dấu (không có phương thức) bắt buộc phải được triển khai bởi một lớp để các thực thể của nó đủ điều kiện tuần tự hóa.
-- **`serialVersionUID`** — Một mã nhận diện 64-bit duy nhất được sử dụng trong quá trình giải tuần tự hóa để xác minh rằng bên gửi và bên nhận của đối tượng tuần tự hóa đã tải các lớp tương thích với nó.
-- **`transient`** — Một từ khóa sửa đổi trường cho biết rằng biến đó không được tuần tự hóa; giá trị của nó được khôi phục về giá trị mặc định (ví dụ: `null` hoặc `0`) trong quá trình giải tuần tự hóa.
-- **`Scanner`** — Một lớp tiện ích quét văn bản dùng để phân tích cú pháp các kiểu dữ liệu nguyên thủy và chuỗi bằng cách sử dụng biểu thức chính quy (regular expression) từ một luồng vào hoặc chuỗi.
-- **`System.in`** — Luồng vào tiêu chuẩn (thực thể của `InputStream`), thường được ánh xạ tới đầu vào từ bàn phím.
-- **`System.out`** — Luồng ra tiêu chuẩn (thực thể của `PrintStream`), thường được ánh xạ tới đầu ra console.
-- **`System.err`** — Luồng lỗi tiêu chuẩn (thực thể của `PrintStream`), được sử dụng để in các thông báo lỗi ra console ngay lập tức.
+- **`Serialization`** — Serialization: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Deserialization`** — Deserialization: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Serializable`** — Serializable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`serialVersionUID`** — serialVersionUID: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`transient`** — transient: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Scanner`** — Scanner: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`System.in`** — System.in: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`System.out`** — System.out: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`System.err`** — System.err: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

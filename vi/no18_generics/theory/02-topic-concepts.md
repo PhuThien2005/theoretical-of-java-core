@@ -85,8 +85,8 @@ Object o  = list.get(0);   // OK – Object is always a safe assignment
 
 **Mẹo ghi nhớ (Mnemonic):** _PECS — Producer Extends, Consumer Super_
 
-- **Nhà sản xuất (Producer)** — Sử dụng ký tự đại diện `<? extends T>`. Có thể đọc giá trị có kiểu (✅ Có `T`), nhưng không thể thêm giá trị có kiểu (❌ Không).
-- **Bên tiêu thụ (Consumer)** — Sử dụng ký tự đại diện `<? super T>`. Không thể đọc giá trị có kiểu (❌ Chỉ `Object`), nhưng có thể thêm giá trị có kiểu (✅ Có `T`).
+- **`<? extends T>`** — <? extends T>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`<? super T>`** — <? super T>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 **Quy tắc quyết định:**
 - Nếu một tham số **sản xuất** (bạn đọc các giá trị `T` từ nó) &rarr; `<? extends T>`.
@@ -121,12 +121,12 @@ nums.add(1);   // COMPILE ERROR — cannot add to upper-bounded wildcard
 
 Mọi giao diện (interface) trong Cấu trúc tập hợp (Collections Framework) của Java đều sử dụng generic. Việc hiểu rõ tham số kiểu sẽ giúp bạn làm chủ toàn bộ hợp đồng (contract) của chúng.
 
-- **`List<E>`** — Khai báo: `interface List<E>`, Ràng buộc chính: Có thứ tự, dựa trên chỉ số (index), cho phép trùng lặp.
-- **`Set<E>`** — Khai báo: `interface Set<E>`, Ràng buộc chính: Không trùng lặp (thông qua `equals`/`hashCode`).
-- **`Map<K,V>`** — Khai báo: `interface Map<K,V>`, Ràng buộc chính: Khóa là duy nhất; mỗi khóa tương ứng với một giá trị.
-- **`Queue<E>`** — Khai báo: `interface Queue<E>`, Ràng buộc chính: Vào trước ra trước (FIFO); `peek`/`poll` từ đầu hàng đợi.
-- **`Deque<E>`** — Khai báo: `interface Deque<E>`, Ràng buộc chính: Hàng đợi hai đầu (Double-ended); có thể làm ngăn xếp (stack) hoặc hàng đợi (queue).
-- **`Optional<T>`** — Khai báo: `class Optional<T>`, Ràng buộc chính: Chứa 0 hoặc 1 giá trị; giúp tránh lỗi null.
+- **`List<E>`** — List<E>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Set<E>`** — Set<E>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Map<K,V>`** — Map<K,V>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Queue<E>`** — Queue<E>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Deque<E>`** — Deque<E>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Optional<T>`** — Optional<T>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 **Sử dụng ký tự đại diện với collections:**
 ```java
@@ -179,11 +179,11 @@ String first = (String) names.get(0);   // cast inserted by compiler
 
 **Hệ quả của xóa bỏ kiểu:**
 
-- **`if (obj instanceof List<String>)`** — Lý do: Kiểu generic không được biết đến tại thời điểm chạy (runtime).
-- **`new T[10]`** — Lý do: Không thể tạo mảng generic.
-- **`new T()`** — Lý do: Không thể khởi tạo thực thể của tham số kiểu.
-- **Nạp chồng các phương thức chỉ khác nhau ở kiểu generic** — Lý do: Sau khi xóa bỏ kiểu, chúng có chữ ký phương thức hoàn toàn giống nhau.
-- **Bắt ngoại lệ generic: `catch (SomeException<T> e)`** — Lý do: Không hợp lệ — thông tin generic đã bị xóa bỏ.
+- **`if (obj instanceof List<String>)`** — if (obj instanceof List<String>): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`new T[10]`** — new T[10]: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`new T()`** — new T(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Nạp chồng các phương thức chỉ khác nhau ở kiểu generic`** — Nạp chồng các phương thức chỉ khác nhau ở kiểu generic: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`catch (SomeException<T> e)`** — catch (SomeException<T> e): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 **Giải pháp thay thế (Work-arounds):**
 - Truyền `Class<T> clazz` như một token để tạo các thực thể thông qua `clazz.getDeclaredConstructor().newInstance()`.

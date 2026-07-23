@@ -8,12 +8,12 @@ Các toán tử so sánh tạo ra kết quả kiểu boolean. Các toán tử lo
 
 Các toán tử so sánh trong Java bao gồm:
 
-- **`==`** — bằng.
-- **`!=`** — không bằng.
-- **`>`** — lớn hơn.
-- **`<`** — nhỏ hơn.
-- **`>=`** — lớn hơn hoặc bằng.
-- **`<=`** — nhỏ hơn hoặc bằng.
+- **`==`** — ==: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`!=`** — !=: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`>`** — >: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`<`** — <: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`>=`** — >=: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`<=`** — <=: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 Ví dụ:
 
@@ -61,9 +61,9 @@ Hãy sử dụng phương thức `.equals()` khi bạn muốn so sánh tính b�
 
 Các toán tử logic dùng để kết hợp nhiều biểu thức boolean lại với nhau.
 
-- **`&&`** — phép AND logic. Chỉ trả về true khi cả hai vế đều đúng.
-- **`||`** — phép OR logic. Trả về true khi có ít nhất một vế đúng.
-- **`!`** — phép phủ định NOT logic. Đảo ngược giá trị boolean hiện tại.
+- **`&&`** — &&: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`||`** — ||: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`!`** — !: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ```java
 boolean canEnter = age >= 18 && hasTicket;

@@ -6,20 +6,20 @@ Tài liệu này trình bày một phần trọng tâm của **Stream API**. Hã
 
 ## Nội Dung Tổng Quan
 
-- **`min`** — `min` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-- **`max`** — `max` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-- **`reduce`** — `reduce` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-- **`anyMatch`** — `anyMatch` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-- **`allMatch`** — `allMatch` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-- **`noneMatch`** — `noneMatch` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-- **`findFirst`** — `findFirst` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-- **`findAny`** — `findAny` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+- **`min`** — min: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`max`** — max: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`reduce`** — reduce: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`anyMatch`** — anyMatch: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`allMatch`** — allMatch: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`noneMatch`** — noneMatch: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`findFirst`** — findFirst: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`findAny`** — findAny: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 
 ### min
 
-`min` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+**`min`** — Trả về phần tử nhỏ nhất trong stream dựa trên Comparator cung cấp.
 
 Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
@@ -42,7 +42,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### max
 
-`max` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+**`max`** — max: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
@@ -65,7 +65,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### reduce
 
-`reduce` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+**`reduce`** — reduce: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
@@ -88,7 +88,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### anyMatch
 
-`anyMatch` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+**`anyMatch`** — anyMatch: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
@@ -111,7 +111,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### allMatch
 
-`allMatch` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+**`allMatch`** — allMatch: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
@@ -134,7 +134,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### noneMatch
 
-`noneMatch` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+**`noneMatch`** — noneMatch: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
@@ -157,7 +157,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### findFirst
 
-`findFirst` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+**`findFirst`** — findFirst: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 
@@ -180,7 +180,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### findAny
 
-`findAny` là một khái niệm cụ thể trong Stream API; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+**`findAny`** — findAny: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
 

@@ -6,14 +6,14 @@ Tài liệu này tập trung vào các vấn đề đồng bộ hóa nâng cao (
 
 ## Đề cương chi tiết
 
-- **`Deadlock`** — Khóa chết (Deadlock): Tình huống mà hai hoặc nhiều luồng bị chặn vĩnh viễn, mỗi luồng chờ một khóa do luồng khác nắm giữ.
-- **`Livelock`** — Khóa động (Livelock): Kịch bản mà các luồng tích cực thay đổi trạng thái của chúng để phản hồi lẫn nhau, nhưng không thể tạo ra bất kỳ tiến trình thực thi nào.
-- **`Starvation`** — Đói tài nguyên (Starvation): Tình trạng một luồng liên tục bị từ chối truy cập vào tài nguyên chia sẻ hoặc chu kỳ CPU do các luồng tham lam hoặc định kiến lập lịch.
-- **`Volatile`** — Biến volatile (Volatile): Từ khóa đảm bảo việc đọc và ghi vào một trường sẽ đi trực tiếp vào bộ nhớ chính, bỏ qua bộ nhớ đệm CPU. Ngăn chặn việc sắp xếp lại lệnh (instruction reordering) nhưng **không** đảm bảo tính nguyên tử.
-- **`Atomic classes:`** — Các lớp nguyên tử (Atomic classes): Tập hợp các lớp trong `java.util.concurrent.atomic` sử dụng các chỉ thị phần cứng So sánh và Hoán đổi (Compare-And-Swap - CAS) không dùng khóa để đạt được tính an toàn luồng.
-- **`AtomicInteger`** — AtomicInteger: Trình bao bọc nguyên tử cho kiểu dữ liệu `int` (các phương thức: `incrementAndGet()`, `compareAndSet()`).
-- **`AtomicLong`** — AtomicLong: Trình bao bọc nguyên tử cho kiểu dữ liệu `long`.
-- **`AtomicBoolean`** — AtomicBoolean: Trình bao bọc nguyên tử cho kiểu dữ liệu `boolean`.
+- **`Deadlock`** — Deadlock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Livelock`** — Livelock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Starvation`** — Starvation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Volatile`** — Volatile: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Atomic classes:`** — Atomic classes:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`AtomicInteger`** — AtomicInteger: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`AtomicLong`** — AtomicLong: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`AtomicBoolean`** — AtomicBoolean: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi chú chi tiết
 

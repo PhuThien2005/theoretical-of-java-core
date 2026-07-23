@@ -109,7 +109,6 @@ Call to bis.read()
     ↳ If present, returns byte instantly (bypasses system calls and OS kernel context switches)
 ```
 
-
 ```java
 // Wrapping file stream with buffered stream
 try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream("input.dat"));

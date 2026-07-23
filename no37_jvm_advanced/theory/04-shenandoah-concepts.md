@@ -8,52 +8,24 @@ This file covers a focused slice of **Advanced JVM**. Study each concept as a pr
 
 | Concept | What to know |
 | --- | --- |
-| `Shenandoah` |Shenandoah is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Stop-the-world` |Stop-the-world is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Minor GC` |Minor GC is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Major GC` |Major GC is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Full GC` |Full GC is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Shenandoah` |`Shenandoah` — Shenandoah provides specific functionality and rules in Java development. |
+| `Stop-the-world` |`Stop-the-world` — Stop-the-world provides specific functionality and rules in Java development. |
+| `Minor GC` |`Minor GC` — Minor GC provides specific functionality and rules in Java development. |
+| `Major GC` |`Major GC` — Major GC provides specific functionality and rules in Java development. |
+| `Full GC` |`Full GC` — Full GC provides specific functionality and rules in Java development. |
 | `Basic JVM tuning:` | The JVM executes bytecode and manages runtime services such as memory, JIT, and GC. |
-| `-Xms` |-Xms is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `-Xmx` |-Xmx is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `-Xms` |`Xms` — Xms provides specific functionality and rules in Java development. |
+| `-Xmx` |`Xmx` — Xmx provides specific functionality and rules in Java development. |
 
 ## Detailed Notes
 
 ### Shenandoah
 
-Shenandoah is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Shenandoah` in one sentence.
-- Recognize `Shenandoah` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Shenandoah`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Shenandoah` change, allow, reject, or clarify?
-
 ### Stop-the-world
-
-Stop-the-world is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Stop-the-world` in one sentence.
-- Recognize `Stop-the-world` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Stop-the-world`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Stop-the-world` change, allow, reject, or clarify?
 
 ### Minor GC
 
-Minor GC is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`Minor GC` — Minor GC provides specific functionality and rules in Java development.
 
 It matters because runtime behavior explains performance, memory errors, startup behavior, and many interview questions. A common confusion is mixing compile-time concepts with JVM runtime services.
 
@@ -69,7 +41,7 @@ Tiny example or mental model:
 
 ### Major GC
 
-Major GC is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`Major GC` — Major GC provides specific functionality and rules in Java development.
 
 It matters because runtime behavior explains performance, memory errors, startup behavior, and many interview questions. A common confusion is mixing compile-time concepts with JVM runtime services.
 
@@ -85,7 +57,7 @@ Tiny example or mental model:
 
 ### Full GC
 
-Full GC is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`Full GC` — Full GC provides specific functionality and rules in Java development.
 
 It matters because runtime behavior explains performance, memory errors, startup behavior, and many interview questions. A common confusion is mixing compile-time concepts with JVM runtime services.
 
@@ -117,35 +89,7 @@ Tiny example or mental model:
 
 ### -Xms
 
--Xms is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `-Xms` in one sentence.
-- Recognize `-Xms` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `-Xms`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Xms` change, allow, reject, or clarify?
-
 ### -Xmx
-
--Xmx is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `-Xmx` in one sentence.
-- Recognize `-Xmx` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `-Xmx`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Xmx` change, allow, reject, or clarify?
 
 ## Code Examples
 

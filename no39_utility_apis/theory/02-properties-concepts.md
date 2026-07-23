@@ -109,7 +109,6 @@ public class PropertiesLspDemo {
 }
 ```
 
-
 ---
 
 ### ResourceBundle

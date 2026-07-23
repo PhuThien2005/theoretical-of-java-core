@@ -6,14 +6,14 @@ File này tập trung vào một phần cụ thể của **Xử Lý Ngoại Lệ
 
 ## Các Khái Niệm Được Đề Cập
 
-- **`ArrayIndexOutOfBoundsException`** — Ném ra khi truy cập mảng với chỉ số không hợp lệ (âm hoặc >= kích thước mảng).
-- **`StringIndexOutOfBoundsException`** — Ném ra bởi các phương thức của String (charAt, substring) khi chỉ số vượt giới hạn.
-- **`ClassCastException`** — Ném ra khi ép kiểu một tham chiếu đối tượng sang kiểu mà nó không kế thừa hoặc không triển khai.
-- **`NumberFormatException`** — Lớp con của IllegalArgumentException, ném ra khi phân tích chuỗi số không hợp lệ.
-- **`ArithmeticException`** — Ném ra khi xảy ra điều kiện số học bất thường, ví dụ chia số nguyên cho không.
-- **`IllegalArgumentException`** — Ném ra khi một phương thức nhận được đối số không hợp lệ hoặc không phù hợp.
-- **`IllegalStateException`** — Ném ra khi môi trường hoặc trạng thái đối tượng không phù hợp với thao tác được yêu cầu.
-- **`IOException`** — Lớp cơ sở cho các ngoại lệ I/O đã kiểm tra (checked), bao gồm lỗi mạng, hệ thống tệp, v.v.
+- **`ArrayIndexOutOfBoundsException`** — ArrayIndexOutOfBoundsException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`StringIndexOutOfBoundsException`** — StringIndexOutOfBoundsException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`ClassCastException`** — ClassCastException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`NumberFormatException`** — NumberFormatException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`ArithmeticException`** — ArithmeticException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`IllegalArgumentException`** — IllegalArgumentException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`IllegalStateException`** — IllegalStateException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`IOException`** — IOException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

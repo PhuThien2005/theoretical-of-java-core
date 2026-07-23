@@ -6,9 +6,9 @@ Tài liệu này bao gồm một phần nội dung trọng tâm về **lớp Obj
 
 ## Đề Cương Nội Dung (Outline Coverage)
 
-- **`Quy ước của equals()`** — Phương thức `equals()` định nghĩa tính bằng nhau về mặt logic giữa các đối tượng.
-- **`Quy ước của hashCode()`** — Phương thức `hashCode()` trả về một giá trị băm kiểu số nguyên được sử dụng bởi các bộ sưu tập dựa trên bảng băm.
-- **`So sánh đối tượng bằng tham chiếu và bằng giá trị`** — So sánh đối tượng bằng tham chiếu và bằng giá trị là một khái niệm cụ thể trong lớp Object; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ mỗi tên gọi.
+- **`Quy ước của equals()`** — Quy ước của equals(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Quy ước của hashCode()`** — Quy ước của hashCode(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`So sánh đối tượng bằng tham chiếu và bằng giá trị`** — So sánh đối tượng bằng tham chiếu và bằng giá trị: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 

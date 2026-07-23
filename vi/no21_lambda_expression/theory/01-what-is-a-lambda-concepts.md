@@ -6,16 +6,16 @@ Tài liệu này trình bày một phần trọng tâm của **Biểu thức Lam
 
 ## Nội Dung Tổng Quan
 
-- **`What is a lambda?`** — Một biểu thức lambda là một khối dạng hàm nhỏ gọn được sử dụng ở những nơi mong đợi một giao diện chức năng (functional interface).
-- **`Lambda syntax`** — Một biểu thức lambda là một khối dạng hàm nhỏ gọn được sử dụng ở những nơi mong đợi một giao diện chức năng.
-- **`Functional interface`** — Một giao diện chức năng chỉ có duy nhất một phương thức trừu tượng (abstract method) và có thể được triển khai bởi một lambda.
-- **`@FunctionalInterface`** — `@FunctionalInterface` là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-- **`Method reference:`** — Tham chiếu phương thức (Method reference) là một nhóm các quy tắc liên quan đến Biểu thức Lambda dùng để gom nhóm một số chi tiết liên quan.
-- **`static method reference`** — Static có nghĩa là thành viên thuộc về lớp chứ không phải một đối tượng cụ thể nào.
-- **`instance method reference`** — Tham chiếu phương thức thể hiện (instance method reference) là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-- **`constructor reference`** — Tham chiếu hàm khởi tạo (constructor reference) là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-- **`Variable capture`** — Sao chụp biến (Variable capture) là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-- **`Effectively final`** — final có nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể.
+- **`What is a lambda?`** — What is a lambda?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Lambda syntax`** — Lambda syntax: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Functional interface`** — Functional interface: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`@FunctionalInterface`** — @FunctionalInterface: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Method reference:`** — Method reference:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`static method reference`** — static method reference: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`instance method reference`** — instance method reference: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`constructor reference`** — constructor reference: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Variable capture`** — Variable capture: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Effectively final`** — Effectively final: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 
@@ -183,7 +183,7 @@ interface ObjectOverride {
 
 ### @FunctionalInterface
 
-`@FunctionalInterface` là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+**`@FunctionalInterface`** — Bắt buộc interface chỉ có duy nhất một phương thức trừu tượng (SAM).
 
 Khái niệm này rất quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống xử lý dạng hàm (function-style pipeline). Hiểu lầm phổ biến là quên mất thao tác nào là lười biếng (lazy) và thao tác nào thực sự kích hoạt quá trình thực thi.
 
@@ -292,7 +292,6 @@ Khối try-catch bao bọc hoặc giao diện chức năng tùy chỉnh có thro
 
 Tham chiếu phương thức (Method reference) là một nhóm các quy tắc liên quan đến Biểu thức Lambda dùng để gom nhóm một số chi tiết liên quan.
 
-
 Kiểm tra thực tế:
 
 - Định nghĩa `Method reference:` trong một câu.
@@ -313,7 +312,6 @@ Có 4 loại tham chiếu phương thức chính:
 ### Tham chiếu phương thức tĩnh (static method reference)
 
 static có nghĩa là thành viên thuộc về lớp chứ không phải một đối tượng cụ thể nào.
-
 
 Kiểm tra thực tế:
 
@@ -336,8 +334,7 @@ java.util.function.Function<String, Integer> parserRef = Integer::parseInt;
 
 ### Tham chiếu phương thức thể hiện (instance method reference)
 
-Tham chiếu phương thức thể hiện (instance method reference) là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-
+**`Tham chiếu phương thức thể hiện (instance method reference)`** — Tham chiếu phương thức thể hiện (instance method reference): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Kiểm tra thực tế:
 
@@ -365,8 +362,7 @@ java.util.function.BiFunction<String, String, String> unboundConcat = String::co
 
 ### Tham chiếu hàm khởi tạo (constructor reference)
 
-Tham chiếu hàm khởi tạo (constructor reference) là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-
+**`Tham chiếu hàm khởi tạo (constructor reference)`** — Tham chiếu hàm khởi tạo (constructor reference): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Kiểm tra thực tế:
 
@@ -444,8 +440,7 @@ Phương thức giao diện chức năng khớp chữ ký và thực thi thành 
 
 ### Sao chụp biến (Variable capture)
 
-Sao chụp biến (Variable capture) là một khái niệm cụ thể trong Biểu thức Lambda; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-
+**`Sao chụp biến (Variable capture)`** — Sao chụp biến (Variable capture): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Kiểm tra thực tế:
 

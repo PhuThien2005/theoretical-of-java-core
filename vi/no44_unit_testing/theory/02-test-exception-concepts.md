@@ -6,9 +6,9 @@ Tài liệu này trình bày về việc kiểm thử hành vi ngoại lệ, chi
 
 ## Nội Dung Tổng Quan
 
-- **`Test exception`** — Xác minh rằng mã nguồn ném ra kiểu ngoại lệ mong đợi trong các điều kiện lỗi.
-- **`Test private logic indirectly`** — Kiểm thử các phương thức bổ trợ private thông qua các điểm cuối API công khai thay vì phá vỡ tính đóng gói thông qua phản chiếu (reflection).
-- **`Basic code coverage`** — Số liệu đo lường cho biết tỷ lệ phần trăm các dòng mã nguồn hoặc các nhánh rẽ được thực thi trong quá trình chạy bộ kiểm thử.
+- **`Test exception`** — Test exception: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Test private logic indirectly`** — Test private logic indirectly: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Basic code coverage`** — Basic code coverage: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 
@@ -18,7 +18,7 @@ Tài liệu này trình bày về việc kiểm thử hành vi ngoại lệ, chi
 
 Các bài kiểm thử đơn vị phải xác minh rằng mã nguồn xử lý các đầu vào tồi hoặc các chế độ lỗi một cách khéo léo bằng cách ném ra các ngoại lệ mong đợi.
 
-- **`assertThrows` trong JUnit 5**:
+- **`assertThrows`** — assertThrows: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - Cách tiếp cận tiêu chuẩn là sử dụng `Assertions.assertThrows(Class<T> expectedType, Executable executable)`.
   - Nó trả về thể hiện ngoại lệ được ném ra, cho phép khẳng định thêm các chi tiết như thông báo lỗi chính xác hoặc trạng thái ngoại lệ tùy chỉnh.
 

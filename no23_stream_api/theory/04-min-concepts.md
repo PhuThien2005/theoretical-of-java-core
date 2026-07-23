@@ -8,20 +8,20 @@ This file covers a focused slice of **Stream API**. Study each concept as a prac
 
 | Concept | What to know |
 | --- | --- |
-| `min` |min is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `max` |max is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `reduce` |reduce is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `anyMatch` |anyMatch is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `allMatch` |allMatch is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `noneMatch` |noneMatch is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `findFirst` |findFirst is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `findAny` |findAny is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `min` |`min` — Returns the minimum element of the stream according to the provided Comparator. |
+| `max` |`max` — max provides specific functionality and rules in Java development. |
+| `reduce` |`reduce` — reduce provides specific functionality and rules in Java development. |
+| `anyMatch` |`anyMatch` — anyMatch provides specific functionality and rules in Java development. |
+| `allMatch` |`allMatch` — allMatch provides specific functionality and rules in Java development. |
+| `noneMatch` |`noneMatch` — noneMatch provides specific functionality and rules in Java development. |
+| `findFirst` |`findFirst` — findFirst provides specific functionality and rules in Java development. |
+| `findAny` |`findAny` — findAny provides specific functionality and rules in Java development. |
 
 ## Detailed Notes
 
 ### min
 
-min is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`min` — Returns the minimum element of the stream according to the provided Comparator.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
@@ -44,7 +44,7 @@ Tiny example or mental model:
 
 ### max
 
-max is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`max` — max provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
@@ -67,7 +67,7 @@ Tiny example or mental model:
 
 ### reduce
 
-reduce is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`reduce` — reduce provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
@@ -90,7 +90,7 @@ Tiny example or mental model:
 
 ### anyMatch
 
-anyMatch is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`anyMatch` — anyMatch provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
@@ -113,7 +113,7 @@ Tiny example or mental model:
 
 ### allMatch
 
-allMatch is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`allMatch` — allMatch provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
@@ -136,7 +136,7 @@ Tiny example or mental model:
 
 ### noneMatch
 
-noneMatch is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`noneMatch` — noneMatch provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
@@ -159,7 +159,7 @@ Tiny example or mental model:
 
 ### findFirst
 
-findFirst is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`findFirst` — findFirst provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
@@ -182,7 +182,7 @@ Tiny example or mental model:
 
 ### findAny
 
-findAny is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`findAny` — findAny provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 

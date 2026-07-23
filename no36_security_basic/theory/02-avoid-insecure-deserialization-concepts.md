@@ -79,7 +79,6 @@ ObjectInputStream.readObject() instantiates all classes                       |
     → GadgetClass3.compare() calls Runtime.exec("rm -rf /")  ←--------------+
          ↑ Arbitrary OS command executed!
 
-
 With ObjectInputFilter:
 [SerializedPayload] → Filter checks: is GadgetClass1 in whitelist? NO → REJECT
 → Exception thrown before any class is instantiated → No code execution

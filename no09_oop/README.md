@@ -58,7 +58,6 @@ Before moving to the next topic, verify that you can answer these questions:
 - [Cloze](anki/cloze.tsv)
 - [Code Question](anki/code-question.tsv)
 
-
 ## Reference Links
 
 - Oracle Java Tutorials - OOP concepts: https://docs.oracle.com/javase/tutorial/java/concepts/

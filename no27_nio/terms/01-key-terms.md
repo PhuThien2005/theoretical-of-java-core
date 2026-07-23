@@ -4,60 +4,25 @@ Use this file when a word in the theory feels too compressed. Each term has mean
 
 ## Path
 
-Path is a specific concept in NIO / NIO.2; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `Path` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `Path` change, allow, reject, or clarify?
+`Path` — NIO object representing a hierarchical path to a file or directory.
 
 ## Files
 
-Files is a specific concept in NIO / NIO.2; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `Files` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `Files` change, allow, reject, or clarify?
+`Files` — NIO utility class containing static methods for operating on files and directories.
 
 ## Channel
 
-Channel is a specific concept in NIO / NIO.2; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `Channel` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `Channel` change, allow, reject, or clarify?
+`Channel` — NIO open connection to an I/O device capable of performing read/write operations.
 
 ## Buffer
 
-Buffer is a specific concept in NIO / NIO.2; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `Buffer` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `Buffer` change, allow, reject, or clarify?
+`Buffer` — NIO container for data of a specific primitive type, forming the basis of NIO channels.
 
 ## Selector
 
-Selector is a specific concept in NIO / NIO.2; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `Selector` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `Selector` change, allow, reject, or clarify?
+`Selector` — Selector provides specific functionality and rules in Java development.
 
 ## asynchronous IO
 
-asynchronous IO is a specific concept in NIO / NIO.2; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`asynchronous IO` — asynchronous IO provides specific functionality and rules in Java development.
 
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `asynchronous IO` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `asynchronous IO` change, allow, reject, or clarify?

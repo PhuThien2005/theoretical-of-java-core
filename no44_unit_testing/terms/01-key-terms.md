@@ -14,7 +14,7 @@ Small example: When reading code, ask: what does `JUnit` change, allow, reject, 
 
 ## test case
 
-test case is a specific concept in Basic Unit Testing; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`test case` — test case provides specific functionality and rules in Java development.
 
 Why it matters: It matters because tests protect behavior during change. A common confusion is testing implementation details instead of observable behavior.
 
@@ -24,7 +24,7 @@ Small example: When reading code, ask: what does `test case` change, allow, reje
 
 ## assertion
 
-assertion is a specific concept in Basic Unit Testing; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`assertion` — assertion provides specific functionality and rules in Java development.
 
 Why it matters: It matters because tests protect behavior during change. A common confusion is testing implementation details instead of observable behavior.
 
@@ -34,13 +34,7 @@ Small example: When reading code, ask: what does `assertion` change, allow, reje
 
 ## fixture
 
-fixture is a specific concept in Basic Unit Testing; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `fixture` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `fixture` change, allow, reject, or clarify?
+`fixture` — fixture provides specific functionality and rules in Java development.
 
 ## Mockito
 
@@ -54,7 +48,7 @@ Small example: When reading code, ask: what does `Mockito` change, allow, reject
 
 ## mock object
 
-mock object is a specific concept in Basic Unit Testing; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`mock object` — mock object provides specific functionality and rules in Java development.
 
 Why it matters: It matters because tests protect behavior during change. A common confusion is testing implementation details instead of observable behavior.
 
@@ -64,10 +58,5 @@ Small example: When reading code, ask: what does `mock object` change, allow, re
 
 ## code coverage
 
-code coverage is a specific concept in Basic Unit Testing; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`code coverage` — code coverage provides specific functionality and rules in Java development.
 
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `code coverage` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `code coverage` change, allow, reject, or clarify?

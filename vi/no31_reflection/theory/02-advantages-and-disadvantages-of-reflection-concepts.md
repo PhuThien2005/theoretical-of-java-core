@@ -6,8 +6,8 @@ File này đề cập đến một phần trọng tâm của **Phản Xạ (Refl
 
 ## Đề Cương Khái Niệm
 
-- **`Ưu điểm và nhược điểm của phản xạ`** — Các đánh đổi quan trọng của phản xạ liên quan đến hiệu năng, tính đóng gói trong thiết kế và khả năng mở rộng.
-- **`Phản xạ trong các framework như Spring`** — Cách các framework doanh nghiệp hiện đại sử dụng phản xạ để đạt được Tiêm phụ thuộc (Dependency Injection - DI) và các hành vi động.
+- **`Ưu điểm và nhược điểm của phản xạ`** — Ưu điểm và nhược điểm của phản xạ: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Phản xạ trong các framework như Spring`** — Phản xạ trong các framework như Spring: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

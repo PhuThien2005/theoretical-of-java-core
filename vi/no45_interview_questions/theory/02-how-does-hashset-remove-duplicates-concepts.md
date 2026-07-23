@@ -6,14 +6,14 @@ Tài liệu này trình bày các câu hỏi phỏng vấn Java Core ở mức �
 
 ## Khung Nội Dung (Outline Coverage)
 
-- **`How does HashSet remove duplicates?`** — Sử dụng một `HashMap` bên dưới để lưu trữ các phần tử dưới dạng các khóa; việc kiểm tra trùng lặp dựa trên hai phương thức `hashCode()` và `equals()`.
-- **`How are final, finally, and finalize different?`** — `final` là một từ khóa bổ từ; `finally` là một khối lệnh trong cấu trúc try-catch; `finalize()` là một phương thức dọn dẹp tài nguyên đã bị loại bỏ (deprecated).
-- **`How are checked and unchecked exceptions different?`** — Ngoại lệ checked phải được khai báo hoặc bắt lại tại thời điểm biên dịch; ngoại lệ unchecked đại diện cho các lỗi logic trong thời gian chạy.
-- **`How are abstract class and interface different?`** — Lớp trừu tượng cho phép lưu trữ trạng thái và chỉ hỗ trợ đơn kế thừa; giao diện hỗ trợ đa kế thừa và định nghĩa các hành vi mặc định.
-- **`How are overload and override different?`** — Nạp chồng (Overload) là tính đa hình tại thời điểm biên dịch (cùng tên, khác tham số); Ghi đè (Override) là tính đa hình tại thời điểm chạy (mối quan hệ cha-con).
-- **`Can static methods be overridden?`** — Không. Chúng chỉ có thể bị ẩn đi (hidden) vì các phương thức static được liên kết tĩnh tại thời điểm biên dịch dựa trên kiểu dữ liệu của lớp.
-- **`Are constructors inherited?`** — Không. Chúng phải được khai báo lại trong lớp con hoặc được gọi thông qua hàm khởi tạo của lớp cha bằng cách sử dụng `super()`.
-- **`How are this and super different?`** — `this` tham chiếu đến thực thể hiện tại của lớp; `super` tham chiếu đến ngữ cảnh thực thể của lớp cha trực tiếp.
+- **`How does HashSet remove duplicates?`** — How does HashSet remove duplicates?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`How are final, finally, and finalize different?`** — How are final, finally, and finalize different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`How are checked and unchecked exceptions different?`** — How are checked and unchecked exceptions different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`How are abstract class and interface different?`** — How are abstract class and interface different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`How are overload and override different?`** — How are overload and override different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Can static methods be overridden?`** — Can static methods be overridden?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Are constructors inherited?`** — Are constructors inherited?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`How are this and super different?`** — How are this and super different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 
@@ -38,12 +38,12 @@ public class HashSet<E> {
 
 ### phân biệt final vs. finally vs. finalize()
 
-- **`final`**: Một từ khóa bổ từ (modifier):
+- **`final`** — final: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - **Biến (Variable)**: Cấm gán lại giá trị (trở thành hằng số).
   - **Phương thức (Method)**: Cấm các lớp con ghi đè phương thức này.
   - **Lớp (Class)**: Cấm lớp khác kế thừa (ví dụ: `String`, `Integer`).
-- **`finally`**: Một khối mã được sử dụng trong cấu trúc `try-catch-finally`. Nó đảm bảo luôn được thực thi bất kể ngoại lệ có bị ném ra hay được bắt lại hay không, giúp nó trở nên lý tưởng cho việc dọn dẹp các tài nguyên (đóng file, ngắt kết nối mạng).
-- **`finalize()`**: Một phương thức trong lớp `java.lang.Object`. Trong lịch sử, nó được gọi bởi Bộ thu gom rác trước khi thu hồi bộ nhớ của đối tượng. Phương thức này đã bị **loại bỏ (deprecated)** kể từ Java 9 vì nó hoạt động không thể dự đoán trước, làm giảm hiệu năng và dễ gây rò rỉ tài nguyên.
+- **`finally`** — finally: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`finalize()`** — finalize(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 
@@ -108,8 +108,8 @@ Không, các hàm khởi tạo không được kế thừa bởi các lớp con.
 
 ### phân biệt this vs. super
 
-- **`this`**: Đại diện cho con trỏ thực thể hiện tại của lớp. Được sử dụng để gọi các hàm khởi tạo khác của cùng một lớp (`this()`), tham chiếu đến các biến thực thể khi bị trùng tên với tham số (`this.name = name`), hoặc truyền đối tượng hiện tại làm tham số.
-- **`super`**: Đại diện cho ngữ cảnh thực thể của lớp cha trực tiếp. Được sử dụng để gọi các hàm khởi tạo của lớp cha (`super()`) hoặc truy cập các phương thức bị ghi đè của lớp cha (`super.doWork()`).
+- **`this`** — this: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`super`** — super: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

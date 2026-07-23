@@ -8,17 +8,17 @@ This file covers a focused slice of **Stream API**. Study each concept as a prac
 
 | Concept | What to know |
 | --- | --- |
-| `partitioningBy` |partitioningBy is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `counting` |counting is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `summarizingInt` |summarizingInt is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `partitioningBy` |`partitioningBy` — Collector that partitions stream elements into two groups based on a Predicate. |
+| `counting` |`counting` — counting provides specific functionality and rules in Java development. |
+| `summarizingInt` |`summarizingInt` — summarizingInt provides specific functionality and rules in Java development. |
 | `mapping` | A Map stores key-value pairs and retrieves values by key. |
-| `reducing` |reducing is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `reducing` |`reducing` — reducing provides specific functionality and rules in Java development. |
 
 ## Detailed Notes
 
 ### partitioningBy
 
-partitioningBy is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`partitioningBy` — Collector that partitions stream elements into two groups based on a Predicate.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
@@ -42,7 +42,7 @@ Tiny example or mental model:
 
 ### counting
 
-counting is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`counting` — counting provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
@@ -69,7 +69,7 @@ Tiny example or mental model:
 
 ### summarizingInt
 
-summarizingInt is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`summarizingInt` — summarizingInt provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
@@ -120,7 +120,7 @@ Tiny example or mental model:
 
 ### reducing
 
-reducing is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`reducing` — reducing provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 

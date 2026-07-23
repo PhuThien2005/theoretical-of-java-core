@@ -79,10 +79,10 @@ public class FailSafeDemo {
 ### Collections Utility Class
 
 `java.util.Collections` provides static algorithms that operate on collections.
-- **`sort(List<T> list)`**: Sorts the list. Utilizes Timsort. Modifies list in place.
-- **`reverse(List<?> list)`**: Reverses the order of list elements.
-- **`shuffle(List<?> list)`**: Randomly reorders elements.
-- **`max(Collection<? extends T> coll)`** / **`min(Collection<? extends T> coll)`**: Finds extreme elements based on sorting order.
+- **`sort(List<T> list)`** — sort(List<T> list): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`reverse(List<?> list)`** — reverse(List<?> list): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`shuffle(List<?> list)`** — shuffle(List<?> list): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`max(Collection<? extends T> coll)`** — max(Collection<? extends T> coll): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 **Runnable Code Example:**
 ```java

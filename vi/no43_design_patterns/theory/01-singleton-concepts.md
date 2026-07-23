@@ -6,16 +6,16 @@ File này đề cập đến một phần trọng tâm của các **Mẫu thiế
 
 ## Đề Cương Khái Niệm
 
-- **`Singleton`** — Giới hạn việc khởi tạo lớp thành một đối tượng duy nhất với điểm truy cập toàn cục.
-- **`Factory Method`** — Ủy quyền khởi tạo đối tượng cho các lớp con bằng cách sử dụng một chữ ký phương thức nhà máy (factory method).
-- **`Abstract Factory`** — Interface tạo ra các họ đối tượng có liên quan với nhau mà không cần chỉ định các lớp cụ thể của chúng.
-- **`Builder`** — Xây dựng từng bước các đối tượng phức tạp bằng cách sử dụng một API dạng chuỗi (fluent API).
-- **`Prototype`** — Tạo các đối tượng mới bằng cách nhân bản một thực thể đã được cấu hình trước.
-- **`Adapter`** — Thống nhất các interface không tương thích bằng cách bọc một lớp nguồn bên trong một adapter.
-- **`Decorator`** — Thêm các tính năng vào một đối tượng một cách động bằng cách bọc các biến thực thể.
-- **`Facade`** — Cung cấp một API đơn giản hóa đóng vai trò là giao diện cho một tầng phân hệ (subsystem) phức tạp.
-- **`Proxy`** — Cung cấp một đối tượng đại diện (placeholder) để kiểm soát truy cập, ghi log hoặc tải lười (lazy-load) các thực thể đích.
-- **`Strategy`** — Đóng gói các thuật toán có thể hoán đổi cho nhau và được lựa chọn tại thời điểm chạy.
+- **`Singleton`** — Singleton: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Factory Method`** — Factory Method: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Abstract Factory`** — Abstract Factory: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Builder`** — Builder: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Prototype`** — Prototype: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Adapter`** — Adapter: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Decorator`** — Decorator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Facade`** — Facade: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Proxy`** — Proxy: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Strategy`** — Strategy: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

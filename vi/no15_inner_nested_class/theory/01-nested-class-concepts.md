@@ -6,14 +6,14 @@ Tài liệu này tập trung vào một phần trọng tâm của **Lớp nội 
 
 ## Đề cương chi tiết
 
-- **`Nested class`** — Lớp lồng nhau (Nested class): Một lớp được định nghĩa bên trong một lớp khác. Được chia thành các lớp lồng nhau tĩnh (static nested class) và các lớp lồng nhau phi tĩnh (non-static nested class, hay còn gọi là lớp nội bộ - inner class).
-- **`Static nested class`** — Lớp lồng nhau tĩnh (Static nested class): Lớp lồng nhau được khai báo với từ khóa static; nó hoạt động giống như bất kỳ lớp cấp cao (top-level class) nào khác về mặt gói (package) nhưng được lồng vào để nhóm một cách logic, và không yêu cầu một thực thể lớp ngoài (outer instance).
-- **`Inner class`** — Lớp nội bộ (Inner class): Lớp lồng nhau phi tĩnh gắn liền với một thực thể cụ thể của lớp ngoài.
-- **`Local inner class`** — Lớp nội bộ cục bộ (Local inner class): Một lớp được định nghĩa bên trong một khối phương thức; nó chỉ có thể truy cập các biến cục bộ final hoặc hiệu dụng final (effectively final).
-- **`Anonymous inner class`** — Lớp nội bộ vô danh (Anonymous inner class): Một lớp nội bộ không có tên được khai báo và khởi tạo trong một biểu thức duy nhất để mở rộng một lớp hoặc triển khai một giao diện.
-- **`Access variables outside the class`** — Truy cập các biến bên ngoài lớp: Các quy tắc chi phối cách các lớp lồng nhau, lớp nội bộ, lớp cục bộ và lớp vô danh truy cập các thành viên của lớp bao bọc bên ngoài hoặc các biến cục bộ của phương thức.
-- **`Use case of inner class`** — Trường hợp sử dụng của lớp nội bộ: Nhóm logic các lớp trợ giúp, đóng gói (ví dụ: Iterator), và duy trì không gian tên cấp cao sạch sẽ.
-- **`Anonymous class in event handler, thread, comparator`** — Lớp vô danh trong trình xử lý sự kiện, luồng, bộ so sánh: Triển khai các hành vi nhanh chóng trước khi có lambda; hiểu tại sao phạm vi `this` và biên dịch khác biệt so với lambda.
+- **`Nested class`** — Nested class: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Static nested class`** — Static nested class: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Inner class`** — Inner class: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Local inner class`** — Local inner class: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Anonymous inner class`** — Anonymous inner class: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Access variables outside the class`** — Access variables outside the class: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Use case of inner class`** — Use case of inner class: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Anonymous class in event handler, thread, comparator`** — Anonymous class in event handler, thread, comparator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

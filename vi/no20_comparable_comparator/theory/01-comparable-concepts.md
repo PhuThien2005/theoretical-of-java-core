@@ -6,16 +6,16 @@ Tài liệu này tập trung vào một phần trọng tâm của **Comparable v
 
 ## Đề cương chi tiết
 
-- **`Comparable`** — Comparable: Định nghĩa thứ tự sắp xếp tự nhiên (natural ordering) bên trong lớp được so sánh.
-- **`compareTo`** — compareTo: compareTo là một phương thức cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
-- **`Comparator`** — Comparator: Định nghĩa thứ tự sắp xếp tùy chỉnh bên ngoài (external custom ordering) cho các đối tượng.
-- **`compare`** — compare: compare là một phương thức cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
-- **`Natural ordering`** — Thứ tự sắp xếp tự nhiên (Natural ordering): Thứ tự sắp xếp tự nhiên là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
-- **`Custom ordering`** — Thứ tự sắp xếp tùy chỉnh (Custom ordering): Thứ tự sắp xếp tùy chỉnh là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
-- **`Sort List object`** — Sắp xếp đối tượng List (Sort List object): Sắp xếp các đối tượng danh sách thông qua Collections.sort hoặc List.sort.
-- **`Sort by multiple criteria`** — Sắp xếp theo nhiều tiêu chí (Sort by multiple criteria): Sắp xếp theo nhiều tiêu chí là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
-- **`Comparator.comparing`** — Comparator.comparing: Phương thức tĩnh hỗ trợ tạo một Comparator từ một hàm trích xuất khóa.
-- **`thenComparing`** — thenComparing: thenComparing là một phương thức cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+- **`Comparable`** — Comparable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`compareTo`** — compareTo: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Comparator`** — Comparator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`compare`** — compare: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Natural ordering`** — Natural ordering: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Custom ordering`** — Custom ordering: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Sort List object`** — Sort List object: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Sort by multiple criteria`** — Sort by multiple criteria: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Comparator.comparing`** — Comparator.comparing: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`thenComparing`** — thenComparing: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi chú chi tiết
 
@@ -100,7 +100,7 @@ public class ConsistencyExample {
 
 ### compareTo
 
-compareTo là một phương thức cụ thể trong Comparable được sử dụng để định nghĩa các quy tắc thứ tự sắp xếp tự nhiên.
+compareTo compareTo: Khái niệm cốt lõi cung cấp các quy tắc và cơ chế hoạt động trong Java.
 
 Phương thức `compareTo(T o)` là phương thức trừu tượng duy nhất của giao diện `Comparable`. Nó so sánh đối tượng hiện tại (`this`) với đối tượng được chỉ định `o`.
 - Trả về một **số nguyên âm** nếu `this` nhỏ hơn `o`.

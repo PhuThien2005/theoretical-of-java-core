@@ -6,16 +6,16 @@ Tài liệu này tập trung vào một phần trọng tâm của **JDBC**. Hãy
 
 ## Đề cương chi tiết
 
-- **`What is JDBC?`** — JDBC là gì? (What is JDBC?): JDBC là API Java để kết nối với các cơ sở dữ liệu quan hệ.
-- **`Driver`** — Trình điều khiển (Driver): Trình điều khiển là một khái niệm cụ thể trong JDBC; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
-- **`DriverManager`** — Trình quản lý trình điều khiển (DriverManager): DriverManager là một khái niệm cụ thể trong JDBC; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
-- **`Connection`** — Kết nối (Connection): Kết nối đại diện cho một kết nối cơ sở dữ liệu đang hoạt động được sử dụng để tạo các câu lệnh và quản lý các giao dịch.
-- **`Statement`** — Câu lệnh (Statement): Câu lệnh thực thi các câu lệnh SQL tĩnh nhưng không nên được sử dụng với đầu vào không đáng tin cậy.
-- **`PreparedStatement`** — Câu lệnh chuẩn bị trước (PreparedStatement): PreparedStatement biên dịch trước SQL với các tham số giữ chỗ và liên kết các giá trị một cách an sau.
-- **`CallableStatement`** — Câu lệnh gọi hàm (CallableStatement): CallableStatement gọi các thủ tục lưu trữ (stored procedure) thông qua JDBC.
-- **`ResultSet`** — Tập kết quả (ResultSet): ResultSet đại diện cho một tập hợp kết quả cơ sở dữ liệu, cung cấp quyền truy cập vào dữ liệu đã truy xuất.
-- **`Transaction:`** — Giao dịch (Transaction): Giao dịch là một nhóm các quy tắc liên quan trong JDBC tập hợp một số chi tiết liên quan.
-- **`commit`** — commit: commit lưu các thay đổi của giao dịch hiện tại một cách vĩnh viễn.
+- **`What is JDBC?`** — What is JDBC?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Driver`** — Driver: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`DriverManager`** — DriverManager: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Connection`** — Connection: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Statement`** — Statement: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`PreparedStatement`** — PreparedStatement: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`CallableStatement`** — CallableStatement: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`ResultSet`** — ResultSet: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Transaction:`** — Transaction:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`commit`** — commit: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi chú chi tiết
 
@@ -37,7 +37,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### Trình điều khiển (Driver)
 
-Trình điều khiển (Driver) là một khái niệm cụ thể trong JDBC; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+**`Trình điều khiển (Driver)`** — Trình điều khiển (Driver): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 
@@ -53,7 +53,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### Trình quản lý trình điều khiển (DriverManager)
 
-Trình quản lý trình điều khiển (DriverManager) là một khái niệm cụ thể trong JDBC; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+**`Trình quản lý trình điều khiển (DriverManager)`** — Trình quản lý trình điều khiển (DriverManager): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 

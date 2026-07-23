@@ -8,20 +8,20 @@ This file covers a focused slice of **Stream API**. Study each concept as a prac
 
 | Concept | What to know |
 | --- | --- |
-| `Lazy evaluation` |Lazy evaluation is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Short-circuiting` |Short-circuiting is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Lazy evaluation` |`Lazy evaluation` — Intermediate stream operations are not executed until a terminal operation is invoked. |
+| `Short-circuiting` |`Short-circuiting` — Short-circuiting provides specific functionality and rules in Java development. |
 | `Parallel stream` | A Stream is a pipeline for processing elements through lazy operations. |
 | `Collectors:` | Collectors is a group of related rules in Stream API that groups several related details. |
 | `toSet` | A Set is a collection that rejects duplicates according to equality rules. |
 | `toMap` | A Map stores key-value pairs and retrieves values by key. |
-| `joining` |joining is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `groupingBy` |groupingBy is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `joining` |`joining` — joining provides specific functionality and rules in Java development. |
+| `groupingBy` |`groupingBy` — groupingBy provides specific functionality and rules in Java development. |
 
 ## Detailed Notes
 
 ### Lazy evaluation
 
-Lazy evaluation is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`Lazy evaluation` — Intermediate stream operations are not executed until a terminal operation is invoked.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
@@ -46,7 +46,7 @@ Tiny example or mental model:
 
 ### Short-circuiting
 
-Short-circuiting is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`Short-circuiting` — Short-circuiting provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
@@ -184,7 +184,7 @@ Tiny example or mental model:
 
 ### joining
 
-joining is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`joining` — joining provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
@@ -207,7 +207,7 @@ Tiny example or mental model:
 
 ### groupingBy
 
-groupingBy is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`groupingBy` — groupingBy provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 

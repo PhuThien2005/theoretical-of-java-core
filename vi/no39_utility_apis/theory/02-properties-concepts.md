@@ -6,12 +6,12 @@ File này trình bày các API tiện ích về tài nguyên đa ngôn ngữ, c�
 
 ## Nội Dung Đề Cương
 
-- **`Properties`** — Lớp cấu hình key-value dạng văn bản (`java.util.Properties`).
-- **`ResourceBundle`** — Lớp quốc tế hóa (`java.util.ResourceBundle`) để tải file dịch theo vùng.
-- **`Locale`** — Lớp biểu diễn vùng địa lý/văn hóa (`java.util.Locale`).
-- **`Currency`** — Biểu diễn tiền tệ ISO 4217 (`java.util.Currency`).
-- **`Formatter`** — Tiện ích định dạng (`java.util.Formatter`) cho bố cục in kiểu C.
-- **`Scanner`** — Trình phân tích văn bản/luồng dựa trên token (`java.util.Scanner`).
+- **`Properties`** — Properties: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`ResourceBundle`** — ResourceBundle: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Locale`** — Locale: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Currency`** — Currency: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Formatter`** — Formatter: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Scanner`** — Scanner: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

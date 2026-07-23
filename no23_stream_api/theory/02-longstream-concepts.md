@@ -11,11 +11,11 @@ This file covers a focused slice of **Stream API**. Study each concept as a prac
 | `LongStream` | A Stream is a pipeline for processing elements through lazy operations. |
 | `DoubleStream` | A Stream is a pipeline for processing elements through lazy operations. |
 | `Intermediate operations:` | Intermediate operations is a group of related rules in Stream API that groups several related details. |
-| `filter` |filter is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `filter` |`filter` — filter provides specific functionality and rules in Java development. |
 | `map` | A Map stores key-value pairs and retrieves values by key. |
 | `flatMap` | A Map stores key-value pairs and retrieves values by key. |
-| `distinct` |distinct is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `sorted` |sorted is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `distinct` |`distinct` — distinct provides specific functionality and rules in Java development. |
+| `sorted` |`sorted` — sorted provides specific functionality and rules in Java development. |
 
 ## Detailed Notes
 
@@ -92,7 +92,7 @@ Tiny example or mental model:
 
 ### filter
 
-filter is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`filter` — filter provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
@@ -159,12 +159,12 @@ nestedList.stream()
 ### Case Study: FlatMap vs Map in detail
 
 #### The difference in signatures and return types
-- **`map`**: Takes a `Function<T, R>` mapping one element of type `T` to one element of type `R`. Returns `Stream<R>`.
-- **`flatMap`**: Takes a `Function<T, Stream<R>>` mapping one element of type `T` to a `Stream<R>`. It then "flattens" these individual streams into a single consolidated `Stream<R>`.
+- **`map`** — map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`flatMap`** — flatMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 #### When to use which?
-- Use **`map`** for simple one-to-one transformations (e.g., transforming a string to its length, converting an object to its ID).
-- Use **`flatMap`** when each element maps to a collection/array/stream, or when dealing with nested structures (e.g., extracting a list of orders from a list of customers).
+- **`map`** — map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`flatMap`** — flatMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 #### Visualizing the flattening
 If we have a stream of streams:
@@ -184,7 +184,7 @@ Tiny example or mental model:
 
 ### distinct
 
-distinct is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`distinct` — distinct provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
@@ -208,7 +208,7 @@ Tiny example or mental model:
 
 ### sorted
 
-sorted is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`sorted` — sorted provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 

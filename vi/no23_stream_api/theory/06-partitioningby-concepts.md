@@ -6,17 +6,17 @@ Tài liệu này đề cập đến một phần trọng tâm của API Luồng 
 
 ## Nội Dung Tổng Quan (Outline Coverage)
 
-- **`partitioningBy`** — `partitioningBy` là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại (failure mode) của nó thay vì chỉ nhớ mỗi tên gọi.
-- **`counting`** — `counting` là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
-- **`summarizingInt`** — `summarizingInt` là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
-- **`mapping`** — Một cấu trúc Map (Map) lưu trữ các cặp khóa-giá trị (key-value pairs) và truy xuất giá trị bằng khóa.
-- **`reducing`** — `reducing` là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+- **`partitioningBy`** — Collector phân chia các phần tử của stream thành 2 nhóm (true/false) dựa trên Predicate.
+- **`counting`** — Collector đếm số lượng phần tử trong stream và trả về kết quả kiểu Long.
+- **`summarizingInt`** — Collector thu thập các thống kê tổng hợp (count, sum, min, average, max) cho các phần tử int.
+- **`mapping`** — mapping: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`reducing`** — reducing: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 
 ### partitioningBy
 
-`partitioningBy` là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+**`partitioningBy`** — Collector phân chia các phần tử của stream thành 2 nhóm dựa trên Predicate.
 
 Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được cho phép, và chế độ thất bại. Xem lại khái niệm này với một ví dụ nhỏ thay vì chỉ ghi nhớ máy móc mỗi nhãn tên.
 
@@ -40,7 +40,7 @@ Ví dụ nhỏ hoặc mô hình tư duy (mental model):
 
 ### counting
 
-`counting` là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+**`counting`** — counting: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được cho phép, và chế độ thất bại. Xem lại khái niệm này với một ví dụ nhỏ thay vì chỉ ghi nhớ máy móc mỗi nhãn tên.
 
@@ -67,7 +67,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### summarizingInt
 
-`summarizingInt` là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+**`summarizingInt`** — summarizingInt: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được cho phép, và chế độ thất bại. Xem lại khái niệm này với một ví dụ nhỏ thay vì chỉ ghi nhớ máy móc mỗi nhãn tên.
 
@@ -118,7 +118,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### reducing
 
-`reducing` là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+**`reducing`** — reducing: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được cho phép, và chế độ thất bại. Xem lại khái niệm này với một ví dụ nhỏ thay vì chỉ ghi nhớ máy móc mỗi nhãn tên.
 

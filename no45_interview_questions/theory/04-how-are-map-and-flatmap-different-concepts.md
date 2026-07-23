@@ -22,8 +22,8 @@ This file covers advanced Java Core interview questions regarding Stream transfo
 ### map() vs. flatMap()
 
 Both are Stream/Optional intermediate operations, but they differ in mapping style:
-- **`map`**: Transforms `Stream<T>` to `Stream<R>` using a function `T -> R`.
-- **`flatMap`**: Transforms `Stream<T>` to `Stream<R>` using a function `T -> Stream<R>`. It merges (flattens) multiple inner streams into a single outer stream.
+- **`map`** — map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`flatMap`** — flatMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ```java
 // map: [ ["a", "b"], ["c"] ] -> [ 2, 1 ] (lengths)
@@ -38,8 +38,8 @@ Stream<String> flat = list.stream().flatMap(Collection::stream);
 
 ### Optional: `orElse` vs. `orElseGet`
 
-- **`orElse(T other)`**: The default value `other` is evaluated **eagerly**, even if the `Optional` is not empty.
-- **`orElseGet(Supplier<? extends T> other)`**: The default value is evaluated **lazily** (using a lambda) only if the `Optional` is empty.
+- **`orElse(T other)`** — orElse(T other): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`orElseGet(Supplier<? extends T> other)`** — orElseGet(Supplier<? extends T> other): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ```java
 public String getDatabaseValue() {
@@ -56,9 +56,9 @@ optional.orElseGet(() -> getDatabaseValue()); // DOES NOT PRINT (lazy evaluation
 
 ### HashMap vs. Hashtable vs. ConcurrentHashMap
 
-- **`HashMap`**: Non-synchronized, accepts one `null` key and multiple `null` values. High performance for single-threaded or external synchronizations.
-- **`Hashtable`**: Legacy class. Synchronizes every method on the entire map instance. Poor concurrent performance. Rejects `null` keys/values.
-- **`ConcurrentHashMap`**: Highly concurrent. In Java 8+, it uses a combination of Compare-And-Swap (CAS) and synchronized locks at the bucket/node level (lock striping), allowing concurrent reads and writes in different buckets. Rejects `null` keys/values.
+- **`HashMap`** — HashMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Hashtable`** — Hashtable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`ConcurrentHashMap`** — ConcurrentHashMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

@@ -44,7 +44,6 @@ Before moving to the next topic, verify that you can answer these questions:
 5. Why can spawning an external process using `ProcessBuilder` cause the Java application to hang indefinitely, and how do we prevent this?
 6. Why is using `Map` methods like `put()` on a `Properties` instance dangerous, and what is the proper way to set property values?
 
-
 ## Mermaid Overview
 
 ```mermaid

@@ -12,7 +12,7 @@ This file covers a focused slice of **Stream API**. Study each concept as a prac
 | `Stream vs Collection` | A collection is an object that groups multiple elements under a common API. |
 | `Create Stream:` | A Stream is a pipeline for processing elements through lazy operations. |
 | `from List` | A List is an ordered collection that can contain duplicates and supports positional access. |
-| `from Array` |from Array is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `from Array` |`from Array` — from Array provides specific functionality and rules in Java development. |
 | `from Map` | A Map stores key-value pairs and retrieves values by key. |
 | `Stream.of` | A Stream is a pipeline for processing elements through lazy operations. |
 | `IntStream` | A Stream is a pipeline for processing elements through lazy operations. |
@@ -122,7 +122,7 @@ Tiny example or mental model:
 
 ### from Array
 
-from Array is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`from Array` — from Array provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 

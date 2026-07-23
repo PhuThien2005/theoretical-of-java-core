@@ -9,7 +9,7 @@ This file covers a focused slice of **Advanced JVM**. Study each concept as a pr
 | Concept | What to know |
 | --- | --- |
 | `JVM architecture` | The JVM executes bytecode and manages runtime services such as memory, JIT, and GC. |
-| `Class Loader Subsystem` |Class Loader Subsystem is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Class Loader Subsystem` |`Class Loader Subsystem` — Class Loader Subsystem provides specific functionality and rules in Java development. |
 | `Runtime Data Areas:` | Runtime Data Areas is a group of related rules in Advanced JVM that groups several related details. |
 | `Heap` | Heap stores objects created at runtime. |
 | `Stack` | Stack stores method frames, local variables, and call flow for each thread. |
@@ -37,35 +37,9 @@ Tiny example or mental model:
 
 ### Class Loader Subsystem
 
-Class Loader Subsystem is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Class Loader Subsystem` in one sentence.
-- Recognize `Class Loader Subsystem` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Class Loader Subsystem`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Class Loader Subsystem` change, allow, reject, or clarify?
-
 ### Runtime Data Areas:
 
 Runtime Data Areas is a group of related rules in Advanced JVM that groups several related details.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Runtime Data Areas:` in one sentence.
-- Recognize `Runtime Data Areas:` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Runtime Data Areas:`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Runtime Data Areas:` change, allow, reject, or clarify?
 
 ### Heap
 
@@ -103,33 +77,9 @@ Tiny example or mental model:
 
 Metaspace stores class metadata outside the ordinary Java heap in modern JVMs.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Method Area / Metaspace` in one sentence.
-- Recognize `Method Area / Metaspace` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Method Area / Metaspace`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Method Area / Metaspace` change, allow, reject, or clarify?
-
 ### PC Register
 
 The PC register tracks the current JVM instruction for a thread.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `PC Register` in one sentence.
-- Recognize `PC Register` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `PC Register`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `PC Register` change, allow, reject, or clarify?
 
 ### Native Method Stack
 

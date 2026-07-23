@@ -6,48 +6,20 @@ Tài liệu này trình bày một phần trọng tâm của **JVM Nâng Cao (Ad
 
 ## Khung Nội Dung (Outline Coverage)
 
-- **`Execution Engine`** — Bộ thực thi (Execution Engine) là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi (failure mode) thay vì chỉ nhớ tên khái niệm.
-- **`Interpreter`** — Bộ thông dịch (Interpreter) là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-- **`JIT Compiler`** — Trình biên dịch JIT (JIT compiler) chuyển đổi mã byte (bytecode) được thực thi thường xuyên ("hot bytecode") thành mã máy tối ưu tại thời điểm chạy (runtime).
-- **`Garbage Collector`** — Bộ thu gom rác (Garbage Collector) là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-- **`Native Interface`** — Giao diện bản địa (Native Interface) là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-- **`Heap generation:`** — Phân thế hệ vùng nhớ Heap (Heap generation) phân chia các đối tượng theo tuổi thọ để tối ưu hóa hiệu suất của bộ thu gom rác.
-- **`Young Generation`** — Thế hệ Trẻ (Young Generation) là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-- **`Eden`** — Vùng Eden (Eden) là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
+- **`Execution Engine`** — Bộ thực thi bytecode của JVM bao gồm Interpreter, JIT Compiler và Garbage Collector.
+- **`Interpreter`** — Bộ thông dịch đọc và thực thi từng câu lệnh bytecode theo thứ tự.
+- **`JIT Compiler`** — JIT Compiler: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Garbage Collector`** — Tiến trình dọn dẹp bộ nhớ tự động thu hồi các đối tượng không còn được trỏ tới.
+- **`Native Interface`** — Native Interface: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Heap generation:`** — Heap generation:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Young Generation`** — Young Generation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Eden`** — Eden: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 
 ### Bộ thực thi (Execution Engine)
 
-Bộ thực thi là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi. Hãy xem xét nó thông qua một ví dụ nhỏ thay vì chỉ học thuộc lòng nhãn tên.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `Execution Engine` trong một câu.
-- Nhận diện `Execution Engine` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `Execution Engine`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `Execution Engine` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### Bộ thông dịch (Interpreter)
-
-Bộ thông dịch là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi. Hãy xem xét nó thông qua một ví dụ nhỏ thay vì chỉ học thuộc lòng nhãn tên.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `Interpreter` trong một câu.
-- Nhận diện `Interpreter` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `Interpreter`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `Interpreter` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ### Trình biên dịch JIT (JIT Compiler)
 
@@ -67,35 +39,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### Bộ thu gom rác (Garbage Collector)
 
-Bộ thu gom rác là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi. Hãy xem xét nó thông qua một ví dụ nhỏ thay vì chỉ học thuộc lòng nhãn tên.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `Garbage Collector` trong một câu.
-- Nhận diện `Garbage Collector` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `Garbage Collector`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `Garbage Collector` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### Giao diện bản địa (Native Interface)
-
-Giao diện bản địa là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi. Hãy xem xét nó thông qua một ví dụ nhỏ thay vì chỉ học thuộc lòng nhãn tên.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `Native Interface` trong một câu.
-- Nhận diện `Native Interface` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `Native Interface`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `Native Interface` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ### Phân thế hệ vùng nhớ Heap (Heap generation)
 
@@ -115,35 +59,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### Thế hệ Trẻ (Young Generation)
 
-Thế hệ Trẻ là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi. Hãy xem xét nó thông qua một ví dụ nhỏ thay vì chỉ học thuộc lòng nhãn tên.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `Young Generation` trong một câu.
-- Nhận diện `Young Generation` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `Young Generation`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `Young Generation` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### Vùng Eden (Eden)
-
-Vùng Eden là một khái niệm cụ thể trong JVM Nâng Cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ tên khái niệm.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, biểu mẫu được phép và chế độ lỗi. Hãy xem xét nó thông qua một ví dụ nhỏ thay vì chỉ học thuộc lòng nhãn tên.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `Eden` trong một câu.
-- Nhận diện `Eden` trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `Eden`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `Eden` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ## Ví Dụ Mã Nguồn (Code Examples)
 

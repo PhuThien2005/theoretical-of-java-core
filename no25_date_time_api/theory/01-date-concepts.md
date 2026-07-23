@@ -270,7 +270,6 @@ System.out.println("Days between: " + period.getDays()); // 3
 ### 3. Sharing SimpleDateFormat
 Using a static or shared instance of `SimpleDateFormat` across threads causes corrupt parse/format values or crash errors. Use `java.time.format.DateTimeFormatter` instead, which is completely thread-safe.
 
-
 ## Common Review Prompts
 
 - Which concepts here are compile-time rules?

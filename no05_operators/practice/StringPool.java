@@ -1,3 +1,4 @@
+package no05_operators.practice;
 
 public class StringPool {
     public static void main(String[] args) {
@@ -9,8 +10,10 @@ public class StringPool {
 
         // Case 2: Unsafe non-short-circuit evaluation
         try {
-            boolean isNotEmptyUnsafe = (name != null & name.length() > 0);
+            boolean isNotEmptyUnsafe = (name != null && name.length() > 0);
+            System.out.println(isNotEmptyUnsafe);
         } catch (NullPointerException e) {
+
             System.out.println("Caught NullPointerException!"); // Prints: Caught NullPointerException!
         }
 

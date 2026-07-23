@@ -6,16 +6,16 @@ File này trình bày một mảng tập trung về **các tính năng Java hi�
 
 ## Nội Dung Đề Cương
 
-- **`var`** — Từ khóa suy luận kiểu biến cục bộ (Local-Variable Type Inference - `var`) được giới thiệu trong Java 10.
-- **`Records`** — Kiểu bản ghi (Record) dữ liệu tinh giản (compact) được giới thiệu trong Java 16 để biểu diễn các bản ghi dữ liệu bất biến.
-- **`Sealed class`** — Lớp niêm phong (Sealed Class) dùng để kiểm soát phân cấp lớp được giới thiệu trong Java 17 để hạn chế kế thừa lớp con.
-- **`Pattern matching for instanceof`** — Cơ chế khớp mẫu (Pattern Matching) cho phép ép kiểu đơn giản hóa được giới thiệu trong Java 16.
-- **`Switch expression`** — Biểu thức switch (Switch Expression) dùng cú pháp mũi tên trả về giá trị, được giới thiệu trong Java 14.
-- **`Text blocks`** — Khối văn bản (Text Block) định dạng chuỗi literal đa dòng (`"""`) được giới thiệu trong Java 15.
-- **`Thông báo NullPointerException được cải thiện`** — Log lỗi JVM chi tiết, chính xác.
-- **`Virtual Threads`** — Luồng ảo (Virtual Thread) là kiến trúc luồng nhẹ được giới thiệu trong Java 21 cho các khối lượng công việc đồng thời dạng blocking I/O.
-- **`Cơ bản về Structured Concurrency`** — Lập trình đồng thời có cấu trúc (Structured Concurrency) tổ chức các tác vụ con thành một khối giao dịch đơn.
-- **`Pattern matching for switch`** — Phân nhánh dựa trên kiểu và guard điều kiện bên trong switch (Java 21).
+- **`var`** — var: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Records`** — Records: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Sealed class`** — Sealed class: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Pattern matching for instanceof`** — Pattern matching for instanceof: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Switch expression`** — Switch expression: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Text blocks`** — Text blocks: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Thông báo NullPointerException được cải thiện`** — Thông báo NullPointerException được cải thiện: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Virtual Threads`** — Virtual Threads: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Cơ bản về Structured Concurrency`** — Cơ bản về Structured Concurrency: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Pattern matching for switch`** — Pattern matching for switch: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 
@@ -306,8 +306,8 @@ Trình biên dịch tạo ra:
 - **Field `private final`** cho mỗi thành phần record — không thể thay đổi sau khi khởi tạo.
 - **Canonical constructor** với tất cả thành phần là tham số để gán mỗi field.
 - **Phương thức Accessor** đặt tên theo field (ví dụ: `point.x()`, không phải `getX()`) — các accessor khớp tên field theo thiết kế để làm cho truy cập thành phần có thể khám phá.
-- **`equals()` và `hashCode()`** so sánh tất cả thành phần theo giá trị.
-- **`toString()`** in tất cả thành phần.
+- **`equals()`** — equals(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`toString()`** — toString(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 Record là `final` ngầm định và không thể kế thừa các lớp khác (chúng ngầm định kế thừa `java.lang.Record`). Điều này ngăn chặn thay đổi thông qua phân lớp. Cú pháp compact constructor cho phép xác thực mà không cần khai báo lại tham số.
 

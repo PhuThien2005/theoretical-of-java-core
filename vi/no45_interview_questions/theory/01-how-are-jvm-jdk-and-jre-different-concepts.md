@@ -6,14 +6,14 @@ File này đề cập đến các câu hỏi phỏng vấn Java Core nền tản
 
 ## Đề Cương Khái Niệm
 
-- **`JVM, JDK, và JRE khác nhau như thế nào?`** — JDK là bộ công cụ phát triển, JRE là môi trường chạy (runtime) và JVM thực thi bytecode.
-- **`Java có truyền tham chiếu không?`** — Java tuân thủ nghiêm ngặt việc truyền tham trị (pass-by-value). Nó truyền các bản sao giá trị tham chiếu (con trỏ), chứ không phải bản thân biến đó.
-- **`Sự khác biệt giữa == và .equals() là gì?`** — `==` so sánh sự bằng nhau về địa chỉ bộ nhớ/tham chiếu; `.equals()` so sánh sự bằng nhau về giá trị logic.
-- **`Tại sao String lại bất biến (immutable)?`** — Vì lý do bảo mật, an toàn đồng bộ hóa, lưu bộ đệm hashcode, và chia sẻ dữ liệu trong String Pool.
-- **`String, StringBuilder, và StringBuffer khác nhau như thế nào?`** — String là bất biến; StringBuilder là khả biến (mutable) và không an toàn luồng; StringBuffer là khả biến và đồng bộ hóa.
-- **`HashMap hoạt động như thế nào?`** — Sử dụng một mảng các bucket, băm các khóa (key), xử lý xung đột bằng liên kết danh sách và nút cây.
-- **`HashMap có những cải tiến gì trong Java 8?`** — Chuyển đổi thành dạng cây (Treeification) đối với các bucket chứa từ 8 phần tử trở lên, giúp giảm thời gian tìm kiếm trong trường hợp xấu nhất từ O(N) xuống O(log N).
-- **`ArrayList và LinkedList khác nhau như thế nào?`** — ArrayList sử dụng một mảng động (truy cập O(1)); LinkedList sử dụng một danh sách liên kết kép (chèn/xóa O(1)).
+- **`JVM, JDK, và JRE khác nhau như thế nào?`** — JVM, JDK, và JRE khác nhau như thế nào?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Java có truyền tham chiếu không?`** — Java có truyền tham chiếu không?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Sự khác biệt giữa == và .equals() là gì?`** — Sự khác biệt giữa == và .equals() là gì?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Tại sao String lại bất biến (immutable)?`** — Tại sao String lại bất biến (immutable)?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`String, StringBuilder, và StringBuffer khác nhau như thế nào?`** — String, StringBuilder, và StringBuffer khác nhau như thế nào?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`HashMap hoạt động như thế nào?`** — HashMap hoạt động như thế nào?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`HashMap có những cải tiến gì trong Java 8?`** — HashMap có những cải tiến gì trong Java 8?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`ArrayList và LinkedList khác nhau như thế nào?`** — ArrayList và LinkedList khác nhau như thế nào?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 
@@ -57,8 +57,8 @@ public class ReferenceTest {
 
 ### == so với .equals()
 
-- **`==`**: So sánh các kiểu nguyên thủy về mặt giá trị, hoặc các tham chiếu đối tượng để kiểm tra xem chúng có trỏ đến cùng một vị trí bộ nhớ chính xác trên heap hay không.
-- **`.equals()`**: Một phương thức trong lớp `java.lang.Object`. Theo mặc định, nó sử dụng `==` để so sánh danh tính đối tượng. Các lớp như `String`, `Integer`, và `Double` ghi đè phương thức này để thực hiện việc **so sánh logic** dữ liệu thực tế.
+- **`==`** — ==: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`.equals()`** — .equals(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

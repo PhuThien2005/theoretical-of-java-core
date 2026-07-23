@@ -6,14 +6,14 @@ Tài liệu này đề cập đến một phần trọng tâm của **Khung tậ
 
 ## Khái quát nội dung (Outline Coverage)
 
-- **`TreeSet`** — Một tập hợp (Set) là một cấu trúc lưu trữ (collection) loại bỏ các phần tử trùng lặp (duplicates) theo các quy tắc bằng nhau (equality).
-- **`SortedSet`** — Một tập hợp là một cấu trúc lưu trữ loại bỏ các phần tử trùng lặp theo các quy tắc bằng nhau.
-- **`NavigableSet`** — Một tập hợp là một cấu trúc lưu trữ loại bỏ các phần tử trùng lặp theo các quy tắc bằng nhau.
-- **`Khi nào nên sử dụng tập hợp (Set)?`** — Một tập hợp là một cấu trúc lưu trữ loại bỏ các phần tử trùng lặp theo các quy tắc bằng nhau.
-- **`Cơ chế loại bỏ trùng lặp`** — Cơ chế loại bỏ trùng lặp (Duplicate removal mechanism) là một khái niệm cụ thể trong Khung tập hợp; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và lỗi thường gặp (failure mode) thay vì chỉ nhớ tên gọi.
-- **`Vai trò của equals() và hashCode()`** — `equals()` định nghĩa sự bằng nhau về mặt logic (logical equality) giữa các đối tượng (objects).
-- **`PriorityQueue`** — `PriorityQueue` loại bỏ các phần tử theo độ ưu tiên (priority) thay vì thứ tự chèn (insertion order).
-- **`ArrayDeque`** — `ArrayDeque` là một hàng đợi hai đầu (Deque) mảng có thể thay đổi kích thước (resizable-array) thường được ưu tiên cho các hành vi của ngăn xếp (stack) hoặc hàng đợi (queue).
+- **`TreeSet`** — TreeSet: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`SortedSet`** — SortedSet: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`NavigableSet`** — NavigableSet: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Khi nào nên sử dụng tập hợp (Set)?`** — Khi nào nên sử dụng tập hợp (Set)?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Cơ chế loại bỏ trùng lặp`** — Cơ chế loại bỏ trùng lặp: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Vai trò của equals() và hashCode()`** — Vai trò của equals() và hashCode(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`PriorityQueue`** — PriorityQueue: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`ArrayDeque`** — ArrayDeque: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi chú chi tiết (Detailed Notes)
 

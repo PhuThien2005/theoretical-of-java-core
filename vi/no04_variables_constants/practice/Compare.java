@@ -1,3 +1,5 @@
+package vi.no04_variables_constants.practice;
+
 class Student {
     String name;
     static String schoolName;

@@ -6,16 +6,16 @@ Tài liệu này tập trung vào một phần chuyên sâu của **Giao Diện 
 
 ## Tóm Tắt Nội Dung (Outline Coverage)
 
-- **`Predicate<T>`** — `Predicate<T>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
-- **`Function<T, R>`** — `Function<T, R>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
-- **`Consumer<T>`** — `Consumer<T>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
-- **`Supplier<T>`** — `Supplier<T>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
-- **`UnaryOperator<T>`** — `UnaryOperator<T>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
-- **`BinaryOperator<T>`** — `BinaryOperator<T>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
-- **`BiPredicate<T, U>`** — `BiPredicate<T, U>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
-- **`BiFunction<T, U, R>`** — `BiFunction<T, U, R>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
-- **`BiConsumer<T, U>`** — `BiConsumer<T, U>` là một khái niệm cụ thể trong Giao Diện Chức Năng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và kịch bản thất bại của nó thay vì chỉ ghi nhớ tên gọi.
-- **`Đầu vào là gì?`** — Đầu vào là gì? là một câu hỏi cốt lõi để thấu hiểu Giao Diện Chức Năng.
+- **`Predicate<T>`** — Predicate<T>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Function<T, R>`** — Function<T, R>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Consumer<T>`** — Consumer<T>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Supplier<T>`** — Supplier<T>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`UnaryOperator<T>`** — UnaryOperator<T>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`BinaryOperator<T>`** — BinaryOperator<T>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`BiPredicate<T, U>`** — BiPredicate<T, U>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`BiFunction<T, U, R>`** — BiFunction<T, U, R>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`BiConsumer<T, U>`** — BiConsumer<T, U>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Đầu vào là gì?`** — Đầu vào là gì?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

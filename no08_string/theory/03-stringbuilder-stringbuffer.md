@@ -86,10 +86,10 @@ If this new capacity is still insufficient, the JVM sets the capacity to the exa
 
 ## Thread Safety and Lock Contention
 
-- **`StringBuffer`:** All write operations (like `append()`, `insert()`, `delete()`) are marked with the `synchronized` keyword. This ensures that only one thread can modify the buffer at a time. However, this synchronization has a performance cost:
+- **`StringBuffer`** — StringBuffer: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - Even in a single-threaded program, acquiring and releasing monitor locks introduces thread synchronization overhead.
   - In multi-threaded environments, if multiple threads attempt to write to the same `StringBuffer` concurrently, it causes **lock contention**, blocking threads and degrading performance.
-- **`StringBuilder`:** Removes all `synchronized` keywords. It is not thread-safe. If multiple threads write to a single `StringBuilder` instance simultaneously, it will result in corrupted data or index out of bounds exceptions. However, for local variables inside a method, `StringBuilder` is always preferred since local variables are thread-confined.
+- **`StringBuilder`** — StringBuilder: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ### Deep-Dive: Synchronization Overhead and Lock Contention Mechanics
 

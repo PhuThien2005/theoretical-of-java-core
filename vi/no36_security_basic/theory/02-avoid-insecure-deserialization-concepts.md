@@ -6,7 +6,7 @@ Tài liệu này trình bày một phần trọng tâm của **Bảo mật cơ b
 
 ## Nội Dung Tổng Quan
 
-- **`Avoid insecure deserialization`** — Tuần tự hóa (Serialization) chuyển đổi một đồ thị đối tượng thành các byte để có thể lưu trữ hoặc truyền đi.
+- **`Avoid insecure deserialization`** — Avoid insecure deserialization: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

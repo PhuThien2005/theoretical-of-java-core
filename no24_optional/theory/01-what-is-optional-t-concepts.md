@@ -13,10 +13,10 @@ This file covers a focused slice of **Optional**. Study each concept as a practi
 | `Optional.of` | Optional is a container that may or may not hold a non-null value. |
 | `Optional.ofNullable` | Optional is a container that may or may not hold a non-null value. |
 | `Optional.empty` | Optional is a container that may or may not hold a non-null value. |
-| `isPresent` |isPresent is a specific concept in Optional; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `ifPresent` |ifPresent is a specific concept in Optional; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `orElse` |orElse is a specific concept in Optional; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `orElseGet` |orElseGet is a specific concept in Optional; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `isPresent` |`isPresent` — isPresent provides specific functionality and rules in Java development. |
+| `ifPresent` |`ifPresent` — ifPresent provides specific functionality and rules in Java development. |
+| `orElse` |`orElse` — orElse provides specific functionality and rules in Java development. |
+| `orElseGet` |`orElseGet` — orElseGet provides specific functionality and rules in Java development. |
 | `orElseThrow` | orElseThrow returns the wrapped value or throws an exception if the value is absent. |
 
 ## Detailed Notes
@@ -234,20 +234,6 @@ Returning `null` instead of `Optional.empty()` from a method designed to return 
 
 ### isPresent
 
-isPresent is a specific concept in Optional; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `isPresent` in one sentence.
-- Recognize `isPresent` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `isPresent`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `isPresent` change, allow, reject, or clarify?
-
 #### Detailed Explanation
 `isPresent()` returns `true` if there is a value present, otherwise `false`. Java 11 also introduced `isEmpty()`, which returns `true` if empty. Both are state-querying methods.
 
@@ -275,20 +261,6 @@ public class IsPresentExample {
 Falling back to imperative null-like checks by using `if (opt.isPresent()) { ... opt.get() ... }`. This is called the "isPresent/get anti-pattern." Whenever possible, replace it with functional methods like `ifPresent`, `orElse`, or `map`.
 
 ### ifPresent
-
-ifPresent is a specific concept in Optional; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `ifPresent` in one sentence.
-- Recognize `ifPresent` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `ifPresent`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `ifPresent` change, allow, reject, or clarify?
 
 #### Detailed Explanation
 `ifPresent(Consumer<? super T> action)` takes a lambda consumer and executes it only if a value is present. If the Optional is empty, it does nothing. In Java 9, `ifPresentOrElse(Consumer<? super T> action, Runnable emptyAction)` was introduced to handle both presence and absence.
@@ -318,20 +290,6 @@ public class IfPresentExample {
 Executing blocks with side effects inside `ifPresent` when a return value is needed. If you want to transform the value and retrieve a result, use `map()` or `flatMap()` instead of performing side effects inside `ifPresent`.
 
 ### orElse
-
-orElse is a specific concept in Optional; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `orElse` in one sentence.
-- Recognize `orElse` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `orElse`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `orElse` change, allow, reject, or clarify?
 
 #### Detailed Explanation
 `orElse(T other)` returns the wrapped value if present, otherwise returns the default value `other`.
@@ -364,20 +322,6 @@ public class OrElseExample {
 Using `orElse` to call constructors, methods with side effects, or database fetches. This leads to performance degradation and unintended side effects since the fallback is evaluated even when not needed. Use `orElseGet` to evaluate the fallback lazily.
 
 ### orElseGet
-
-orElseGet is a specific concept in Optional; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `orElseGet` in one sentence.
-- Recognize `orElseGet` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `orElseGet`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `orElseGet` change, allow, reject, or clarify?
 
 #### Detailed Explanation
 `orElseGet(Supplier<? super T> supplier)` takes a `Supplier` lambda. If the value is present, it returns the value directly. If the value is empty, it evaluates the supplier and returns the result. This evaluates the fallback lazily, avoiding performance penalties when the default value is not needed.
@@ -479,7 +423,6 @@ Practical check:
 Tiny example or mental model:
 
 - `opt.orElseThrow(() -> new IllegalArgumentException("Required value missing"))`
-
 
 #### Detailed Explanation
 `orElseThrow()` returns the contained value if present. If empty, it throws a `NoSuchElementException`. In Java 10, the no-argument `orElseThrow()` was added as the preferred alternative to `.get()`.

@@ -1,10 +1,460 @@
 {
+  "no00_setup": {
+    "environment-verifier": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "path-validator": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no01_overview": {
+    "platform-compatibility-checker": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "runtime-inspector": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no02_basic_syntax": {
+    "code-style-checker": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "comments-stripper": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no03_data_types": {
+    "binary-data-parser": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "safe-math-operations": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no04_variables_constants": {
+    "default-initializer": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "scope-tracker": {
+      "status": "fail",
+      "message": "Starter code passed tests but was expected to FAIL."
+    }
+  },
+  "no05_operators": {
+    "bitwise-base-converter": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "logical-expression-evaluator": {
+      "status": "fail",
+      "message": "Starter code passed tests but was expected to FAIL."
+    }
+  },
+  "no06_control_flow": {
+    "fizzbuzz-extended": {
+      "status": "fail",
+      "message": "Starter code passed tests but was expected to FAIL."
+    },
+    "switch-expression-calculator": {
+      "status": "fail",
+      "message": "Starter code passed tests but was expected to FAIL."
+    }
+  },
+  "no07_arrays": {
+    "inplace-array-rotator": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "matrix-transposer": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no08_string": {
+    "custom-string-builder": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "palindrome-anagram-analyzer": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no09_oop": {
+    "generic-billing-system": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "library-management-system": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no10_modifiers": {
+    "immutable-user-session": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "thread-safe-singleton": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no11_package_access_control": {
+    "cross-package-visibility-test": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "encapsulation-boundary-simulator": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no12_exception_handling": {
+    "chained-exception-tracker": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "safe-resource-reader": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no13_memory_management": {
+    "memory-leak-simulator": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "weak-reference-cache": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no14_object_class": {
+    "consistent-hash-key": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "object-deep-cloner": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no15_inner_nested_class": {
+    "builder-pattern-inner": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "custom-iterable-stack": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no16_enum": {
+    "card-deck-simulator": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "order-status-workflow": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no17_annotation": {
+    "json-serializer-prototype": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "validation-annotation-processor": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no18_generics": {
+    "generic-repository-pattern": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "wildcard-utility": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no19_collections_framework": {
+    "bracket-matching-stack": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "lru-cache": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no20_comparable_comparator": {
+    "custom-sort-heap": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "multi-criteria-employee-sorter": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no21_lambda_expression": {
+    "callback-registry": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "lazy-evaluator": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no22_functional_interface": {
+    "data-validation-pipeline": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "functional-transformer": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no23_stream_api": {
+    "sales-reporting-aggregator": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "stream-custom-collector": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no24_optional": {
+    "null-safety-refactoring": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "optional-monadic-chain": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no25_date_time_api": {
+    "date-interval-calculator": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "global-meeting-scheduler": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no26_io": {
+    "log-file-tailer": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "object-graph-serializer": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no27_nio": {
+    "file-tree-duplicate-finder": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "nio-fast-file-copy": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no28_multithreading": {
+    "parallel-task-executor": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "thread-safe-counter": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no29_synchronization_concurrency": {
+    "deadlock-simulator": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "thread-safe-bounded-queue": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no30_regex": {
+    "html-link-extractor": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "log-parser-regex": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no31_reflection": {
+    "dependency-injection-container": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "private-field-mutator": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
   "no32_classloader": {
     "class-loader-hierarchy-printer": {
       "status": "success",
       "message": "Exercise verified successfully: starter fails, solution passes."
     },
     "custom-hot-class-loader": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no33_module_system": {
+    "modular-app": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "service-loader-provider": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no34_jdbc": {
+    "connection-pool-impl": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "transaction-rollback-service": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no35_networking": {
+    "chat-server": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "http-client-downloader": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no36_security_basic": {
+    "keystore-manager": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "secure-vault": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no37_jvm_advanced": {
+    "gc-tuning-observer": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "memory-profiler-simulator": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no38_build_compile_run": {
+    "class-dependency-parser": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "jar-packager": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no39_utility_apis": {
+    "financial-calculator": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "system-property-dumper": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no40_modern_java_concepts": {
+    "pattern-matching-record": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "sealed-class-hierarchies": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no41_best_practices": {
+    "code-smell-refactoring": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "refactored-collection-usage": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no42_design_principles": {
+    "composite-pattern-design": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "solid-violations-refactoring": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no43_design_patterns": {
+    "dynamic-proxy-logger": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "notification-service-observer": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no44_unit_testing": {
+    "parameterized-custom-test": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "user-service-test": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    }
+  },
+  "no45_interview_questions": {
+    "custom-hash-map-impl": {
+      "status": "success",
+      "message": "Exercise verified successfully: starter fails, solution passes."
+    },
+    "linked-list-cycle-detector": {
       "status": "success",
       "message": "Exercise verified successfully: starter fails, solution passes."
     }

@@ -6,16 +6,16 @@ File này bao quát một phần tập trung của **Optional** (lớp tùy ch�
 
 ## Phạm Vi Đề Cương
 
-- **`What is Optional<T>?`** — Optional là container có thể chứa hoặc không chứa một giá trị khác null.
-- **`Avoid NullPointerException`** — Exception (ngoại lệ) biểu diễn điều kiện bất thường mà chương trình có thể bắt hoặc lan truyền.
-- **`Optional.of`** — Optional là container có thể chứa hoặc không chứa một giá trị khác null.
-- **`Optional.ofNullable`** — Optional là container có thể chứa hoặc không chứa một giá trị khác null.
-- **`Optional.empty`** — Optional là container có thể chứa hoặc không chứa một giá trị khác null.
-- **`isPresent`** — `isPresent` là khái niệm cụ thể trong Optional; hãy học quy tắc Java, trường hợp dùng hợp lệ và chế độ thất bại thay vì chỉ nhớ tên.
-- **`ifPresent`** — `ifPresent` là khái niệm cụ thể trong Optional; hãy học quy tắc Java, trường hợp dùng hợp lệ và chế độ thất bại thay vì chỉ nhớ tên.
-- **`orElse`** — `orElse` là khái niệm cụ thể trong Optional; hãy học quy tắc Java, trường hợp dùng hợp lệ và chế độ thất bại thay vì chỉ nhớ tên.
-- **`orElseGet`** — `orElseGet` là khái niệm cụ thể trong Optional; hãy học quy tắc Java, trường hợp dùng hợp lệ và chế độ thất bại thay vì chỉ nhớ tên.
-- **`orElseThrow`** — `orElseThrow` trả về giá trị được bọc hoặc ném ngoại lệ nếu giá trị vắng mặt.
+- **`What is Optional<T>?`** — What is Optional<T>?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Avoid NullPointerException`** — Avoid NullPointerException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Optional.of`** — Optional.of: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Optional.ofNullable`** — Optional.ofNullable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Optional.empty`** — Optional.empty: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`isPresent`** — isPresent: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`ifPresent`** — ifPresent: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`orElse`** — orElse: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`orElseGet`** — orElseGet: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`orElseThrow`** — orElseThrow: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 
@@ -473,7 +473,6 @@ Kiểm tra thực tế:
 Ví dụ nhỏ hoặc mô hình tư duy:
 
 - `opt.orElseThrow(() -> new IllegalArgumentException("Giá trị bắt buộc bị thiếu"))`
-
 
 #### Giải Thích Chi Tiết
 `orElseThrow()` trả về giá trị được chứa nếu có. Nếu rỗng, nó ném `NoSuchElementException`. Trong Java 10, `orElseThrow()` không tham số được thêm vào như lựa chọn ưu tiên thay cho `.get()`.

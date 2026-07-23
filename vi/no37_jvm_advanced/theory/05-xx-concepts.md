@@ -6,16 +6,16 @@ Tài liệu này tập trung vào một phần trọng tâm của **JVM nâng ca
 
 ## Đề cương chi tiết
 
-- **`-XX`** — -XX: -XX là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
-- **`Basic profiling`** — Phân tích hiệu năng cơ bản (Basic profiling): Phân tích hiệu năng cơ bản là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
-- **`Memory dump`** — Kết xuất bộ nhớ (Memory dump): Kết xuất bộ nhớ là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
-- **`Thread dump`** — Kết xuất luồng (Thread dump): Kết xuất luồng là một bản chụp nhanh (snapshot) trạng thái và dấu vết ngăn xếp (stack trace) của tất cả các luồng đang hoạt động trong một JVM.
+- **`-XX`** — Cờ tùy chỉnh dòng lệnh của JVM dùng để thiết lập nâng cao các tham số hệ thống và GC.
+- **`Basic profiling`** — Phân tích đo lường hiệu năng ứng dụng (CPU, bộ nhớ, thread) để tìm điểm nghẽn.
+- **`Memory dump`** — Bản chụp toàn bộ trạng thái bộ nhớ Heap tại một thời điểm phục vụ phân tích rò rỉ bộ nhớ.
+- **`Thread dump`** — Thread dump: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi chú chi tiết
 
 ### -XX
 
--XX là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+- **`XX`** — XX: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 
@@ -31,7 +31,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### Phân tích hiệu năng cơ bản (Basic profiling)
 
-Phân tích hiệu năng cơ bản là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+**`Phân tích hiệu năng cơ bản`** — Phân tích hiệu năng cơ bản: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 
@@ -47,7 +47,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### Kết xuất bộ nhớ (Memory dump)
 
-Kết xuất bộ nhớ là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+**`Kết xuất bộ nhớ`** — Kết xuất bộ nhớ: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 

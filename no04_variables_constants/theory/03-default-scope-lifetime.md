@@ -64,7 +64,6 @@ public class InitializationDemo {
 JVM allocates object on heap $\rightarrow$ Memory range is zero-filled to prevent memory leaks from old objects $\rightarrow$ Fields read 0, false, or null by default.
 Method is invoked $\rightarrow$ Stack frame is pushed without zeroing memory to preserve performance $\rightarrow$ Java Compiler checks all code branches for definite assignment $\rightarrow$ Compiler rejects uninitialized local variable reads $\rightarrow$ Local memory remains safe without runtime zeroing overhead.
 
-
 ## Scope
 
 Scope is the region of code where a variable can be accessed.

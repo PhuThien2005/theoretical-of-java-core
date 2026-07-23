@@ -195,7 +195,6 @@ public class OptimizationDemo {
 - **Secondary Effect**: If the value is a compile-time constant, the compiler can substitute the literal value directly wherever the variable is referenced.
 - **Ultimate Outcome**: Variable reassignments are blocked at compile time, and runtime performance is enhanced via JIT/compiler inlining.
 
-
 ### Final method
 
 Final means the variable, method, class, or parameter is restricted from later change in a specific way.

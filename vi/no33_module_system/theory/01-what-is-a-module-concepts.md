@@ -6,16 +6,16 @@ Tài liệu này tập trung vào **Hệ Thống Mô-đun Java** (được giớ
 
 ## Tóm Tắt Nội Dung (Outline Coverage)
 
-- **`What is a module?`** — Một tập hợp tự mô tả của mã nguồn (các gói) và dữ liệu (các tài nguyên) đi kèm với một bộ mô tả mô-đun.
-- **`module-info.java`** — Tệp bộ mô tả mô-đun xác định tên mô-đun, các phụ thuộc, và các gói được xuất.
-- **`requires`** — Chỉ thị khai báo một sự phụ thuộc vào một mô-đun khác.
-- **`exports`** — Chỉ thị giúp các kiểu dữ liệu công khai (public type) trong một gói có thể truy cập được bởi các mô-đun khác tại thời điểm biên dịch và thời điểm chạy.
-- **`opens`** — Chỉ thị cho phép phản chiếu sâu (deep reflection) tại thời điểm chạy trên một gói trong khi chặn quyền truy cập tại thời điểm biên dịch.
-- **`Named module`** — Một mô-đun có tên được xác định trong tệp `module-info.class`, được tải từ đường dẫn mô-đun (module path).
-- **`Unnamed module`** — Một mô-đun gom tất cả các lớp được tải từ classpath để duy trì khả năng tương thích ngược.
-- **`Automatic module`** — Một mô-đun cầu nối được tạo ra khi một tệp JAR truyền thống (không chứa `module-info.class`) được đặt trên đường dẫn mô-đun (module path).
-- **`Module-level encapsulation`** — Kiểm soát truy cập mạnh mẽ được thực thi ở cấp JVM, chặn việc rò rỉ API công khai và phản chiếu trái phép.
-- **`Module path vs Classpath`** — Classpath là một danh sách phẳng, nhạy cảm với thứ tự của các tệp JAR; Module path là một tập hợp các mô-đun được đặt tên có nhận thức về cấu trúc.
+- **`What is a module?`** — What is a module?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`module-info.java`** — module-info.java: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`requires`** — requires: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`exports`** — exports: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`opens`** — opens: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Named module`** — Named module: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Unnamed module`** — Unnamed module: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Automatic module`** — Automatic module: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Module-level encapsulation`** — Module-level encapsulation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Module path vs Classpath`** — Module path vs Classpath: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

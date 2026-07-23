@@ -8,20 +8,20 @@ This file covers a focused slice of **Stream API**. Study each concept as a prac
 
 | Concept | What to know |
 | --- | --- |
-| `peek` |peek is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `limit` |limit is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `skip` |skip is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `peek` |`peek` — Performs an action on each element as elements are consumed from the stream, mainly for debugging. |
+| `limit` |`limit` — limit provides specific functionality and rules in Java development. |
+| `skip` |`skip` — skip provides specific functionality and rules in Java development. |
 | `Terminal operations:` | Terminal operations is a group of related rules in Stream API that groups several related details. |
-| `forEach` |forEach is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `collect` |collect is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `forEach` |`forEach` — forEach provides specific functionality and rules in Java development. |
+| `collect` |`collect` — collect provides specific functionality and rules in Java development. |
 | `toList` | A List is an ordered collection that can contain duplicates and supports positional access. |
-| `count` |count is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `count` |`count` — count provides specific functionality and rules in Java development. |
 
 ## Detailed Notes
 
 ### peek
 
-peek is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`peek` — Performs an action on each element as elements are consumed from the stream, mainly for debugging.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
@@ -48,7 +48,7 @@ Tiny example or mental model:
 
 ### limit
 
-limit is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`limit` — limit provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
@@ -72,7 +72,7 @@ Tiny example or mental model:
 
 ### skip
 
-skip is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`skip` — skip provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
@@ -118,7 +118,7 @@ Tiny example or mental model:
 
 ### forEach
 
-forEach is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`forEach` — forEach provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
@@ -140,7 +140,7 @@ Tiny example or mental model:
 
 ### collect
 
-collect is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`collect` — collect provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
@@ -184,7 +184,7 @@ Tiny example or mental model:
 
 ### count
 
-count is a specific concept in Stream API; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`count` — count provides specific functionality and rules in Java development.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 

@@ -6,14 +6,14 @@ Tài liệu này tập trung vào Framework Executor của Java (`Executor`, `Ex
 
 ## Khung Nội Dung (Outline Coverage)
 
-- **`Executor`** — Giao diện đơn giản nhất định nghĩa việc thực thi tác vụ thông qua phương thức `execute(Runnable)`.
-- **`ExecutorService`** — Giao diện con bổ sung khả năng quản lý vòng đời tác vụ, gửi tác vụ trả về một `Future` (`submit()`), và các phương thức đóng nhóm luồng.
-- **`ScheduledExecutorService`** — Giao diện con hỗ trợ lên lịch chạy tác vụ sau một khoảng thời gian trễ, hoặc thực thi định kỳ.
-- **`ThreadPoolExecutor`** — Lớp triển khai nhóm luồng tiêu chuẩn, được cấu hình qua các tham số như kích thước luồng cốt lõi, kích thước luồng tối đa, dung lượng hàng đợi, và bộ xử lý từ chối.
-- **`Executors`** — Lớp tiện ích nhà máy (factory utility class) chứa các phương thức tĩnh để tạo nhanh các nhóm luồng được cấu hình sẵn (như fixed, cached, scheduled).
-- **`Future`** — Đại diện cho kết quả đang chờ xử lý của một phép tính bất đồng bộ. Gọi phương thức `.get()` để chặn luồng hiện tại và lấy về kết quả.
-- **`Callable`** — Một tác vụ đại diện cho một phép tính có trả về kết quả và có thể ném ra một ngoại lệ checked.
-- **`CompletableFuture`** — Lớp triển khai cả `Future` và `CompletionStage`, hỗ trợ các hàm gọi lại không chặn (non-blocking callbacks), lập chuỗi các công đoạn xử lý, và kết hợp nhiều tác vụ bất đồng bộ.
+- **`Executor`** — Executor: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`ExecutorService`** — ExecutorService: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`ScheduledExecutorService`** — ScheduledExecutorService: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`ThreadPoolExecutor`** — ThreadPoolExecutor: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Executors`** — Executors: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Future`** — Future: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Callable`** — Callable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`CompletableFuture`** — CompletableFuture: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

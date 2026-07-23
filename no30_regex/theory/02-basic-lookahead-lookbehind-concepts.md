@@ -139,7 +139,6 @@ public class LookbehindLimitDemo {
 
 Lookbehind pattern compiled → Engine checks if pattern width is bounded → If unbounded (`*` or `+`), maximum step-back size is infinite/unknown → Throws `PatternSyntaxException` at compile-time to prevent inefficient memory scans.
 
-
 ---
 
 ### Validate email, phone, password
@@ -183,8 +182,8 @@ public class PasswordValidator {
 
 Java supports replacing substrings matching a regex through String and Matcher methods.
 
-- **`String.replaceAll(regex, replacement)`**: Replaces every subsequence that matches `regex` with `replacement`.
-- **`String.replace(target, replacement)`**: Does **not** use regex; it performs a literal search and replace on the char sequences.
+- **`String.replaceAll(regex, replacement)`** — String.replaceAll(regex, replacement): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`String.replace(target, replacement)`** — String.replace(target, replacement): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **Backreferences in Replacement**: You can reference captured groups in the replacement string using `$groupNumber` (e.g. `$1`).
 - **Advanced Replacement (`appendReplacement`/`appendTail`)**: `Matcher` provides a loop-based replacement mechanism to dynamically calculate replacements (e.g. transforming text uppercase, evaluating math expressions).
 
@@ -316,7 +315,6 @@ Separator matched at end of input → Engine creates empty string array element 
 
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html#split(java.lang.String,int) (String.split Java Documentation)
 - https://docs.oracle.com/javase/tutorial/essential/regex/bounds.html (Boundary Matchers Oracle Java Tutorial)
-
 
 ---
 

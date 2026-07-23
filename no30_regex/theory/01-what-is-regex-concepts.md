@@ -120,7 +120,6 @@ public class PatternCompilationCost {
 
 `String.matches("regex")` called or `Pattern.compile("regex")` called in loop → Engine must parse pattern string and allocate AST nodes → JVM compiles AST into NFA state machine on the heap → Matching runs on the input → Compiled state machine discarded and garbage collected → Repeated execution causes high CPU utilization and GC thrashing.
 
-
 ---
 
 ### Matcher
@@ -416,7 +415,6 @@ Using `(pattern)` → Engine reserves capture slot → Records start/end index o
 
 Using `(?:pattern)` → Engine groups logic without reservation → Skips offset recording → Saves heap allocations and reduces GC pressure.
 
-
 ---
 
 ## Case Study: Regex Backtracking and ReDoS Prevention
@@ -501,7 +499,6 @@ Nested/overlapping quantifiers → Input contains almost-matching sequence follo
 
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/regex/Pattern.html (Pattern Java Documentation)
 - https://docs.oracle.com/javase/tutorial/essential/regex/ (Oracle Java Regex Tutorial)
-
 
 ---
 

@@ -6,14 +6,14 @@ Tài liệu này trình bày các nguyên lý cơ bản về tạo luồng, các
 
 ## Nội Dung Tổng Quan
 
-- **`Process vs Thread`** — Một tiến trình (process) là một môi trường thực thi biệt lập có không gian bộ nhớ riêng; một luồng (thread) là một đường dẫn thực thi nhẹ bên trong một tiến trình và chia sẻ bộ nhớ với các luồng khác của cùng tiến trình đó.
-- **`Create thread using:`** — Các luồng có thể được tạo bằng cách tạo lớp con của `Thread`, triển khai `Runnable`, hoặc triển khai `Callable` (các tác vụ có giá trị trả về).
-- **`extends Thread`** — Kế thừa từ `java.lang.Thread` và ghi đè `run()`. Việc này hạn chế khả năng kế thừa lớp khác do quy tắc đơn kế thừa của Java.
-- **`implements Runnable`** — Triển khai giao diện chức năng `Runnable` (với phương thức `run()`), tách biệt logic tác vụ khỏi cơ chế thực thi.
-- **`implements Callable`** — Triển khai giao diện chức năng `Callable<V>` (với phương thức `call()`), trả về một kết quả và có thể ném các ngoại lệ được kiểm tra (checked exception).
-- **`ExecutorService`** — Một công cụ quản lý luồng cấp cao từ gói `java.util.concurrent` quản lý một bể chứa luồng (thread pool) và tách biệt việc gửi tác vụ khỏi việc thực thi.
-- **`Lifecycle of Thread`** — Các trạng thái mà một luồng có thể chuyển qua: `NEW`, `RUNNABLE`, `BLOCKED`, `WAITING`, `TIMED_WAITING` và `TERMINATED`.
-- **`New`** — Trạng thái của một luồng vừa được khởi tạo (`new Thread()`) nhưng phương thức `start()` của nó chưa được gọi.
+- **`Process vs Thread`** — Process vs Thread: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Create thread using:`** — Create thread using:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`extends Thread`** — extends Thread: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`implements Runnable`** — implements Runnable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`implements Callable`** — implements Callable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`ExecutorService`** — ExecutorService: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Lifecycle of Thread`** — Lifecycle of Thread: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`New`** — New: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

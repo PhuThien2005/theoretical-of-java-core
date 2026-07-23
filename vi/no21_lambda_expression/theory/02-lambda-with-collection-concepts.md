@@ -6,9 +6,9 @@ Tệp (File) này cung cấp một phần trọng tâm về **biểu thức Lamb
 
 ## Nội Dung Tóm Tắt
 
-- **`Lambda with Collection`** — Một bộ sưu tập (Collection) là một đối tượng nhóm nhiều phần tử lại với nhau dưới một giao diện lập trình ứng dụng (API) chung.
-- **`Lambda with Thread`** — Một biểu thức Lambda là một khối tương tự như hàm ngắn gọn được sử dụng ở những nơi mong đợi một giao diện chức năng (Functional Interface).
-- **`Lambda with Comparator`** — Comparator định nghĩa việc sắp xếp tùy chỉnh bên ngoài cho các đối tượng (Object).
+- **`Lambda with Collection`** — Lambda with Collection: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Lambda with Thread`** — Lambda with Thread: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Lambda with Comparator`** — Lambda with Comparator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

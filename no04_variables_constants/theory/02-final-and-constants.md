@@ -88,7 +88,6 @@ class AppConfig {
 
 Class has non-static `final` fields $\rightarrow$ Every `new` invocation allocates Heap space for those fields $\rightarrow$ Redundant copies of identical values occupy heap space $\rightarrow$ Class is modified to use `static final` $\rightarrow$ JVM loads class bytecode $\rightarrow$ Constant is stored once in Metaspace $\rightarrow$ All instances read from the single Metaspace slot $\rightarrow$ Garbage collector overhead is reduced, and Heap space is preserved.
 
-
 ## Why Constants Matter
 
 Constants remove magic numbers and magic strings.
@@ -158,7 +157,6 @@ public class OptimizationDemo {
 ### Optimization Cause-Effect Chain
 
 Variable declared as `final` $\rightarrow$ Java compiler guarantees value is read-only $\rightarrow$ Compiler replaces variable references with the literal value directly in bytecode (Inlining) $\rightarrow$ Expressions with constants are pre-calculated at compile time (Folding) $\rightarrow$ Execution speed increases as variable resolution lookup and runtime calculations are bypassed.
-
 
 ## Case Study: `final` Reference vs Immutable Object
 

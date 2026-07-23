@@ -21,7 +21,7 @@ class BankAccount {
     String address;
 
     int getBalance() {
-        return balance-2;
+        return balance - 2;
     }
 
     public BankAccount(int balance, String name) {
@@ -45,6 +45,10 @@ class BankAccountUrban extends BankAccount {
 
     public BankAccountUrban() {
         super(2);
+    }
+
+    public double getTax() {
+        return tax;
     }
 }
 

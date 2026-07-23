@@ -9,15 +9,15 @@ This file covers a focused slice of **Comparable and Comparator**. Study each co
 | Concept | What to know |
 | --- | --- |
 | `Comparable` | Comparable defines natural ordering inside the class being compared. |
-| `compareTo` |compareTo is a specific concept in Comparable and Comparator; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `compareTo` |`compareTo` — Compares this object with specified object, returning negative, zero, or positive int. |
 | `Comparator` | Comparator defines external custom ordering for objects. |
-| `compare` |compare is a specific concept in Comparable and Comparator; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Natural ordering` |Natural ordering is a specific concept in Comparable and Comparator; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Custom ordering` |Custom ordering is a specific concept in Comparable and Comparator; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `compare` |`compare` — Compares two arguments for order using a custom Comparator. |
+| `Natural ordering` |`Natural ordering` — The default sort order defined by a class implementing Comparable<T>. |
+| `Custom ordering` |`Custom ordering` — An explicit sort order defined separately using a Comparator<T>. |
 | `Sort List object` | A List is an ordered collection that can contain duplicates and supports positional access. |
-| `Sort by multiple criteria` |Sort by multiple criteria is a specific concept in Comparable and Comparator; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Sort by multiple criteria` |`Sort by multiple criteria` — Chaining multiple Comparators using thenComparing to sort by primary, secondary, etc. fields. |
 | `Comparator.comparing` | Comparator defines external custom ordering for objects. |
-| `thenComparing` |thenComparing is a specific concept in Comparable and Comparator; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `thenComparing` |`thenComparing` — thenComparing provides specific functionality and rules in Java development. |
 
 ## Detailed Notes
 
@@ -579,7 +579,6 @@ Collections.sort(names); // Throws NullPointerException!
 ```java
 names.sort(Comparator.nullsFirst(Comparator.naturalOrder())); // [null, Alice, Bob]
 ```
-
 
 ## Common Review Prompts
 

@@ -142,7 +142,6 @@ Java is designed for distributed environments. It has built-in support for netwo
 ## The "Write once, run anywhere" mechanism
 This is Java's core portability promise. Compiled bytecode is completely platform-independent. To execute it on any operating system, that system only needs a compatible Java Virtual Machine (JVM). The JVM acts as a translator between bytecode and the native machine code of the OS.
 
-
 ## Common Misunderstandings
 
 ### Misunderstanding: Java code runs directly on every operating system

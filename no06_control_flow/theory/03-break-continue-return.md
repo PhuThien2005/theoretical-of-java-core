@@ -160,7 +160,6 @@ Compiler parses labeled control command (`break outer`) $\rightarrow$ Compiler m
 
 ---
 
-
 ## Common Mistakes
 
 ### Mistake 1 — Unreachable statements
@@ -287,19 +286,19 @@ for (int i = 1; i <= 3; i++) {
 
 **Step-by-Step Execution Trace:**
 1. **`i = 1`**: Outer loop begins.
-   - **`j = 1`**: Condition `i==2 && j==2` is false. Prints `i=1, j=1`.
-   - **`j = 2`**: Condition is false. Prints `i=1, j=2`.
-   - **`j = 3`**: Condition is false. Prints `i=1, j=3`.
+- **`j = 1`** — j = 1: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`j = 2`** — j = 2: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`j = 3`** — j = 3: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 2. **`i = 2`**: Outer loop updates to 2.
-   - **`j = 1`**: Condition `i==2 && j==1` is false. Prints `i=2, j=1`.
-   - **`j = 2`**: Condition `i==2 && j==2` is **true**.
+- **`j = 1`** — j = 1: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`j = 2`** — j = 2: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
      - `continue outer` runs.
      - Execution jumps immediately to the update step of the `outer` loop (`i++`).
      - The inner loop iteration for `j=3` is completely skipped.
 3. **`i = 3`**: Outer loop updates to 3.
-   - **`j = 1`**: Condition is false. Prints `i=3, j=1`.
-   - **`j = 2`**: Condition is false. Prints `i=3, j=2`.
-   - **`j = 3`**: Condition is false. Prints `i=3, j=3`.
+- **`j = 1`** — j = 1: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`j = 2`** — j = 2: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`j = 3`** — j = 3: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 **Output:**
 ```text
@@ -330,12 +329,12 @@ for (int i = 1; i <= 3; i++) {
 
 **Step-by-Step Execution Trace:**
 1. **`i = 1`**: Outer loop begins.
-   - **`j = 1`**: Prints `i=1, j=1`.
-   - **`j = 2`**: Prints `i=1, j=2`.
-   - **`j = 3`**: Prints `i=1, j=3`.
+- **`j = 1`** — j = 1: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`j = 2`** — j = 2: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`j = 3`** — j = 3: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 2. **`i = 2`**: Outer loop updates to 2.
-   - **`j = 1`**: Prints `i=2, j=1`.
-   - **`j = 2`**: Condition `i==2 && j==2` is **true**.
+- **`j = 1`** — j = 1: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`j = 2`** — j = 2: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
      - `break outer` runs.
      - Execution breaks completely out of the loop labeled `outer`.
      - The program resumes at the statement immediately following the outer loop block.

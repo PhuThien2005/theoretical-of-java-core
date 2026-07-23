@@ -10,7 +10,7 @@ This file covers a focused slice of **Collections Framework**. Study each concep
 | --- | --- |
 | `ArrayList` | A List is an ordered collection that can contain duplicates and supports positional access. |
 | `LinkedList` | A List is an ordered collection that can contain duplicates and supports positional access. |
-| `Vector` |Vector is a specific concept in Collections Framework; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Vector` |`Vector` — A synchronized, thread-safe legacy List implementation backed by a dynamically resizing array. |
 | `Stack` | Stack stores method frames, local variables, and call flow for each thread. |
 | `Comparing ArrayList and LinkedList` | A List is an ordered collection that can contain duplicates and supports positional access. |
 | `When to use List?` | A List is an ordered collection that can contain duplicates and supports positional access. |

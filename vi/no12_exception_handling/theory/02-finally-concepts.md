@@ -6,14 +6,14 @@ File này bao gồm một phần tập trung của **Xử Lý Ngoại Lệ (Exce
 
 ## Phạm Vi Đề Cương
 
-- **`finally`** — Khối luôn được thực thi khi khối `try` thoát, đảm bảo việc dọn dẹp xảy ra.
-- **`throw`** — Dùng để ném rõ ràng một ngoại lệ từ một phương thức hoặc khối.
-- **`throws`** — Khai báo trong chữ ký phương thức những ngoại lệ nào phương thức có thể lan truyền.
-- **`try-with-resources`** — Tự động đóng tài nguyên implement `AutoCloseable` khi thoát khối.
-- **`Custom exception`** — Lớp ngoại lệ do người dùng định nghĩa, kế thừa `Exception` hoặc `RuntimeException`.
-- **`Exception propagation`** — Quá trình ngoại lệ chưa được xử lý được truyền lên call stack đến người gọi.
-- **`Common exceptions:`** — Các ngoại lệ tích hợp tiêu chuẩn như NPE, ClassCastException, v.v.
-- **`NullPointerException`** — Ngoại lệ được ném khi truy cập vào một tham chiếu đối tượng null.
+- **`finally`** — finally: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`throw`** — throw: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`throws`** — throws: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`try-with-resources`** — try-with-resources: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Custom exception`** — Custom exception: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Exception propagation`** — Exception propagation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Common exceptions:`** — Common exceptions:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`NullPointerException`** — NullPointerException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

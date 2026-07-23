@@ -8,14 +8,14 @@ This file covers a focused slice of **Java Memory Management**. Study each conce
 
 | Concept | What to know |
 | --- | --- |
-| `Weak reference` |Weak reference is a specific concept in Java Memory Management; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Soft reference` |Soft reference is a specific concept in Java Memory Management; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Phantom reference` |Phantom reference is a specific concept in Java Memory Management; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Weak reference` |`Weak reference` — Allows referent reclamation on the next GC cycle once all strong references are removed. |
+| `Soft reference` |`Soft reference` — Retains referent until the JVM runs low on heap memory, ideal for memory-sensitive caches. |
+| `Phantom reference` |`Phantom reference` — Enables post-mortem resource cleanup via ReferenceQueue; calling .get() always returns null. |
 | `Garbage Collection` | Garbage collection reclaims memory from objects that are no longer reachable. |
-| `Conditions for an object to be GC'd` |Conditions for an object to be GC'd is a specific concept in Java Memory Management; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `System.gc()` |System.gc() is a specific concept in Java Memory Management; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Conditions for an object to be GC'd` |`Conditions for an object to be GC'd` — An object is eligible for GC when it is no longer reachable via any chain of strong references from GC Roots. |
+| `System.gc()` |`System.gc()` — Requests the JVM to run Garbage Collector, though execution is not guaranteed. |
 | `Finalization, finalize() deprecated` | Final means the variable, method, class, or parameter is restricted from later change in a specific way. |
-| `Memory leak in Java` |Memory leak in Java is a specific concept in Java Memory Management; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Memory leak in Java` |`Memory leak in Java` — Occurs when unused objects remain strongly reachable, preventing GC reclamation. |
 
 ## Detailed Notes
 

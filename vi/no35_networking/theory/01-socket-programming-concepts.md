@@ -6,16 +6,16 @@ Tài liệu này tập trung vào một phần chuyên sâu của **Lập Trình
 
 ## Tóm Tắt Nội Dung (Outline Coverage)
 
-- **`Socket programming`** — Một socket là một đầu cuối (endpoint) cho giao tiếp mạng.
-- **`TCP socket`** — Một socket TCP thiết lập giao tiếp mạng hướng kết nối và đáng tin cậy.
-- **`UDP socket`** — Một socket UDP gửi các gói tin không hướng kết nối và không đảm bảo độ tin cậy.
-- **`Socket`** — Lớp đại diện cho một socket máy khách (client socket) trong Java.
-- **`ServerSocket`** — Lớp đại diện cho một socket máy chủ lắng nghe kết nối TCP trong Java.
-- **`DatagramSocket`** — Lớp Java dùng để gửi và nhận gói tin UDP.
-- **`InetAddress`** — InetAddress là một khái niệm cụ thể trong Lập trình mạng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ lỗi của nó thay vì chỉ ghi nhớ tên gọi.
-- **`URL`** — URL là một khái niệm cụ thể trong Lập trình mạng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ lỗi của nó thay vì chỉ ghi nhớ tên gọi.
-- **`URI`** — URI là một khái niệm cụ thể trong Lập trình mạng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ lỗi của nó thay vì chỉ ghi nhớ tên gọi.
-- **`Basic HTTP request`** — Yêu cầu HTTP cơ bản là một khái niệm cụ thể trong Lập trình mạng; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ, và chế độ lỗi của nó thay vì chỉ ghi nhớ tên gọi.
+- **`Socket programming`** — Socket programming: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`TCP socket`** — TCP socket: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`UDP socket`** — UDP socket: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Socket`** — Socket: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`ServerSocket`** — ServerSocket: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`DatagramSocket`** — DatagramSocket: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`InetAddress`** — Lớp đại diện cho địa chỉ IP (IPv4 hoặc IPv6) trong lập trình mạng Java.
+- **`URL`** — Định dạng địa chỉ tài nguyên thống nhất trên mạng (Uniform Resource Locator).
+- **`URI`** — Định danh tài nguyên thống nhất (Uniform Resource Identifier) tổng quát hơn URL.
+- **`Basic HTTP request`** — Basic HTTP request: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

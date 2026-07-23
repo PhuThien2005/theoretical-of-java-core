@@ -6,8 +6,8 @@ Tài liệu này trình bày về bố cục cấu trúc dự án tiêu chuẩn 
 
 ## Nội Dung Tổng Quan
 
-- **`Standard project structure`** — Bố cục thư mục tiêu chuẩn để tổ chức mã nguồn, tài nguyên (resource) và các bài kiểm thử (sử dụng bởi Maven, Gradle, v.v.).
-- **`Basic unit test with JUnit`** — Các khung kiểm thử (test framework) tiêu chuẩn và thư viện khẳng định (assertion library) được sử dụng để xác minh chức năng đơn vị của mã nguồn.
+- **`Standard project structure`** — Standard project structure: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Basic unit test with JUnit`** — Basic unit test with JUnit: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 
@@ -85,7 +85,6 @@ if (input == null) {
 Lập trình viên đặt `config.properties` bên trong `src/main/java/` &rarr; Tác vụ `compiler:compile` của Maven biên dịch các tệp Java nhưng bỏ qua các tệp không phải Java trong `src/main/java` &rarr; Thư mục đóng gói đích không chứa `config.properties` &rarr; Phương thức `getResourceAsStream()` của ClassLoader trả về `null` tại thời điểm chạy &rarr; Ứng dụng ném ra `NullPointerException` khi truy cập luồng tài nguyên.
 
 ---
-
 
 ### Kiểm thử đơn vị cơ bản với JUnit (Basic unit test with JUnit)
 

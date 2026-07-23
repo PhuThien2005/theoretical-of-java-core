@@ -6,9 +6,9 @@ File này đề cập đến các nguyên tắc an toàn luồng (thread safety)
 
 ## Đề Cương Khái Niệm
 
-- **`An toàn luồng (Thread safety)`** — Đặc tính của một đối tượng hoặc phương thức đảm bảo nó hoạt động chính xác khi được truy cập đồng thời bởi nhiều luồng mà không cần thêm sự đồng bộ hóa bên ngoài.
-- **`Đối tượng bất biến (Immutable object)`** — Một đối tượng có trạng thái không thể thay đổi sau khi được tạo ra. Các đối tượng bất biến vốn dĩ đã an toàn luồng.
-- **`Hoạt động nguyên tử (Atomic operation)`** — Một hoạt động được thực thi như một đơn vị công việc duy nhất, không thể chia cắt. Các trạng thái trung gian không bao giờ hiển thị đối với các luồng khác.
+- **`An toàn luồng (Thread safety)`** — An toàn luồng (Thread safety): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Đối tượng bất biến (Immutable object)`** — Đối tượng bất biến (Immutable object): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Hoạt động nguyên tử (Atomic operation)`** — Hoạt động nguyên tử (Atomic operation): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

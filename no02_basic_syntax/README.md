@@ -65,7 +65,6 @@ flowchart TD
 - Why is local variable scope restricted to its declaring block, and how does this restriction help memory management and safety (preventing shadowing errors)?
 - Why does Java enforce case sensitivity at both compile-time and runtime?
 
-
 ## Anki Cards
 
 - [Basic cards](anki/basic.tsv)

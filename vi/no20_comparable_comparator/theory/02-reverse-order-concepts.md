@@ -6,10 +6,10 @@ Tài liệu này trình bày một phần trọng tâm về **Comparable và Com
 
 ## Phạm Vi Nội Dung (Outline Coverage)
 
-- **`Reverse order`** — Thứ tự đảo ngược (Reverse order) là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và các lỗi thường gặp của nó thay vì chỉ nhớ mỗi tên gọi.
-- **`Null handling:`** — Xử lý giá trị null (Null handling) là một nhóm các quy tắc liên quan trong Comparable và Comparator, tập hợp nhiều chi tiết liên quan lại với nhau.
-- **`nullsFirst`** — nullsFirst là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và các lỗi thường gặp của nó thay vì chỉ nhớ mỗi tên gọi.
-- **`nullsLast`** — nullsLast là một khái niệm cụ thể trong Comparable và Comparator; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và các lỗi thường gặp của nó thay vì chỉ nhớ mỗi tên gọi.
+- **`Reverse order`** — Reverse order: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Null handling:`** — Null handling:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`nullsFirst`** — nullsFirst: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`nullsLast`** — nullsLast: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 

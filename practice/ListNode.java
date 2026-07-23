@@ -1,3 +1,4 @@
+package practice;
 
 public class ListNode {
     int val;
@@ -32,6 +33,7 @@ public class ListNode {
         }
         Solution s = new Solution();
         ListNode d = s.addTwoNumbers(a, b);
+        System.out.println(d);
     }
 }
 

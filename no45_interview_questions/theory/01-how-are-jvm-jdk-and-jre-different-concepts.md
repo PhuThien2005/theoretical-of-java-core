@@ -59,8 +59,8 @@ public class ReferenceTest {
 
 ### == vs .equals()
 
-- **`==`**: Compares primitives for value equality, or object references to check if they point to the exact same memory location on the heap.
-- **`.equals()`**: A method in `java.lang.Object`. By default, it uses `==` for identity comparison. Classes like `String`, `Integer`, and `Double` override it to perform **logical comparison** of actual data.
+- **`==`** — ==: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`.equals()`** — .equals(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

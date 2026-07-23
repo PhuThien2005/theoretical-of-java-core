@@ -6,14 +6,14 @@ Tài liệu này bao quát một phần trọng tâm của **Các Từ Khóa Đ�
 
 ## Đề Cương Bao Phủ (Outline Coverage)
 
-- **`Static block`** — Khối mã chạy một lần duy nhất khi lớp được tải lần đầu bởi JVM, thường dùng để khởi tạo biến tĩnh.
-- **`Static nested class`** — Lớp lồng tĩnh hoạt động độc lập, không yêu cầu thể hiện của lớp bên ngoài để khởi tạo.
-- **`Static import`** — Cho phép truy cập trực tiếp các thành viên tĩnh (biến, phương thức) của lớp khác mà không cần tiền tố tên lớp.
-- **`Final variable`** — Biến có giá trị không thể bị thay đổi sau khi đã được khởi tạo (tạo ra hằng số hoặc đối tượng bất biến).
-- **`Final method`** — Phương thức không thể bị ghi đè (override) bởi bất kỳ lớp con nào.
-- **`Final class`** — Lớp không thể bị kế thừa (extend) bởi bất kỳ lớp nào khác, đảm bảo tính bảo mật và bất biến.
-- **`Final parameter`** — Tham số phương thức không thể bị gán lại giá trị mới bên trong thân phương thức.
-- **`Blank final variable`** — Biến `final` chưa được gán giá trị khi khai báo, nhưng bắt buộc phải được gán giá trị chính xác một lần trong constructor hoặc khối tĩnh.
+- **`Static block`** — Static block: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Static nested class`** — Static nested class: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Static import`** — Static import: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Final variable`** — Final variable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Final method`** — Final method: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Final class`** — Final class: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Final parameter`** — Final parameter: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Blank final variable`** — Blank final variable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

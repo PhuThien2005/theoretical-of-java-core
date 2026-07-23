@@ -6,16 +6,16 @@ Tài liệu này trình bày một phần trọng tâm về **Cơ Chế Phản C
 
 ## Khung Nội Dung (Outline Coverage)
 
-- **`What is Reflection?`** — Reflection cho phép chương trình kiểm tra và thao tác trên các lớp, các trường, các phương thức và các hàm khởi tạo tại thời điểm chạy (runtime).
-- **`Class<?>`** — Lớp đại diện cho siêu dữ liệu (metadata) của một lớp hoặc giao diện Java đã được nạp vào máy ảo JVM.
-- **`Get class information`** — Truy vấn các bổ từ truy cập, tên gói, lớp cha và các giao diện được triển khai tại thời điểm chạy.
-- **`Get field`** — Lấy các đối tượng Field công khai hoặc được khai báo đại diện cho các trường của lớp.
-- **`Get method`** — Lấy các đối tượng Method công khai hoặc được khai báo để kiểm tra chữ ký phương thức.
-- **`Get constructor`** — Lấy các đối tượng Constructor công khai hoặc được khai báo để kiểm tra các hàm khởi tạo.
-- **`Invoke method using reflection`** — Thực thi một phương thức một cách động tại thời điểm chạy thông qua reflection.
-- **`Create object using reflection`** — Khởi tạo thực thể của lớp một cách động bằng cách sử dụng các hàm khởi tạo qua reflection.
-- **`Access private field/method`** — Bỏ qua các kiểm tra bảo vệ quyền truy cập của ngôn ngữ để đọc/ghi các trường private hoặc gọi các phương thức private.
-- **`Annotation + reflection`** — Truy vấn các siêu dữ liệu chú thích (annotations) tại thời điểm chạy sử dụng các phương thức của reflection.
+- **`What is Reflection?`** — What is Reflection?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Class<?>`** — Class<?>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Get class information`** — Get class information: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Get field`** — Get field: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Get method`** — Get method: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Get constructor`** — Get constructor: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Invoke method using reflection`** — Invoke method using reflection: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Create object using reflection`** — Create object using reflection: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Access private field/method`** — Access private field/method: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Annotation + reflection`** — Annotation + reflection: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 
@@ -150,7 +150,7 @@ public class ModifierInspector {
 
 Các trường thuộc tính được kiểm tra thông qua lớp `java.lang.reflect.Field`.
 
-- **`getField(name)` vs `getDeclaredField(name)`**:
+- **`getField(name)`** — getField(name): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - `getField(name)` trả về trường thuộc tính **public** được chỉ định, thực hiện tìm kiếm trên chính lớp đó và toàn bộ các lớp cha của nó.
   - `getDeclaredField(name)` trả về trường thuộc tính được khai báo **trực tiếp** trong lớp (bao gồm cả private, protected, package-private), nhưng bỏ qua các trường kế thừa từ lớp cha.
 - **Liệt kê các trường**: `getFields()` vs `getDeclaredFields()` tuân thủ cùng các quy tắc phạm vi tìm kiếm nêu trên.
@@ -299,7 +299,7 @@ public class Instantiator {
 Reflection có thể vượt qua các kiểm soát quyền truy cập ngôn ngữ (như `private`, `protected`, hoặc package-private) bằng cách gọi phương thức `AccessibleObject.setAccessible(true)`.
 
 - **AccessibleObject**: Là lớp cha của `Field`, `Method`, và `Constructor`.
-- **`setAccessible(true)`**: Vô hiệu hóa các kiểm tra bổ từ truy cập tại thời điểm chạy cho riêng thực thể phản chiếu cụ thể đó.
+- **`setAccessible(true)`** — setAccessible(true): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **Các giới hạn ràng buộc**: 
   - Một `SecurityManager` (nếu hoạt động) có thể chặn hành động này.
   - Hệ thống Module của Java (từ Java 9 trở đi) sẽ chặn việc phản chiếu sâu vào các gói không được xuất (non-exported packages) của các module có tên trừ khi tham số `--add-opens` được truyền vào lúc khởi động JVM.

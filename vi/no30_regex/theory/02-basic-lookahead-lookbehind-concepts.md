@@ -6,10 +6,10 @@ Tài liệu này tập trung vào một phần chuyên sâu của **Biểu Thứ
 
 ## Tóm Tắt Nội Dung (Outline Coverage)
 
-- **`Basic lookahead / lookbehind`** — Lookahead và lookbehind là các khẳng định có độ rộng bằng không nhằm so khớp một vị trí mà không tiêu thụ các ký tự.
-- **`Validate email, phone, password`** — Các mẫu xác thực biểu mẫu bằng biểu thức chính quy, nhấn mạnh việc kiểm tra độ mạnh mật khẩu bằng lookaround.
-- **`Replace using regex`** — Thay thế chuỗi con bằng biểu thức chính quy thông qua `replaceAll()`, tham chiếu ngược (backreference) và các phương thức thay thế của Matcher.
-- **`Split using regex`** — Tách các chuỗi bằng biểu thức chính quy và xử lý các chuỗi rỗng ở cuối bằng cách sử dụng tham số limit.
+- **`Basic lookahead / lookbehind`** — Basic lookahead / lookbehind: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Validate email, phone, password`** — Validate email, phone, password: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Replace using regex`** — Replace using regex: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Split using regex`** — Split using regex: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 
@@ -180,8 +180,8 @@ public class PasswordValidator {
 
 Java hỗ trợ thay thế các chuỗi con khớp với một regex thông qua các phương thức của String và Matcher.
 
-- **`String.replaceAll(regex, replacement)`**: Thay thế mọi chuỗi con khớp với `regex` bằng `replacement`.
-- **`String.replace(target, replacement)`**: **Không** sử dụng regex; nó thực hiện tìm kiếm và thay thế chuỗi ký tự thuần túy.
+- **`String.replaceAll(regex, replacement)`** — String.replaceAll(regex, replacement): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`String.replace(target, replacement)`** — String.replace(target, replacement): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **Tham chiếu ngược trong Thay thế**: Bạn có thể tham chiếu các nhóm đã chụp trong chuỗi thay thế bằng ký tự `$groupNumber` (ví dụ: `$1`).
 - **Thay thế Nâng cao (`appendReplacement`/`appendTail`)**: Lớp `Matcher` cung cấp cơ chế thay thế dựa trên vòng lặp để tính toán động các chuỗi thay thế (ví dụ: chuyển văn bản thành chữ hoa, tính toán các biểu thức toán học).
 

@@ -51,7 +51,6 @@ Trước khi chuyển sang chủ đề tiếp theo, hãy xác nhận rằng bạ
 5. Tại sao việc tạo mảng generic và kiểm tra kiểu tại thời điểm chạy (như `instanceof List<String>`) lại bị cấm trong Java?
    &rarr; Xem [Why Generic Array Creation and Runtime Type Checks Are Forbidden](theory/03-raw-type-concepts.md#why-generic-array-creation-and-runtime-type-checks-are-forbidden)
 
-
 ## Sơ Đồ Mermaid Tổng Quan
 
 ```mermaid

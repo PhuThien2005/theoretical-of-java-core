@@ -6,12 +6,12 @@ Code Java dễ đọc phụ thuộc nhiều vào việc đặt tên nhất quán
 
 Quy ước đặt tên trong Java không chỉ là phong cách. Chúng giúp các nhà phát triển khác hiểu được ý nghĩa của một tên.
 
-- **Class** — Sử dụng quy ước PascalCase, ví dụ: `StudentService`.
-- **Interface** — Sử dụng quy ước PascalCase, ví dụ: `Runnable`.
-- **Method** — Sử dụng quy ước camelCase, ví dụ: `calculateTotal`.
-- **Biến** — Sử dụng quy ước camelCase, ví dụ: `studentName`.
-- **Hằng số** — Sử dụng quy ước UPPER_SNAKE_CASE, ví dụ: `MAX_RETRY_COUNT`.
-- **Package** — Sử dụng chữ thường, ví dụ: `com.example.learning`.
+- **`StudentService`** — StudentService: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Runnable`** — Runnable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`calculateTotal`** — calculateTotal: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`studentName`** — studentName: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`MAX_RETRY_COUNT`** — MAX_RETRY_COUNT: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`com.example.learning`** — com.example.learning: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Tên Biến Tốt
 

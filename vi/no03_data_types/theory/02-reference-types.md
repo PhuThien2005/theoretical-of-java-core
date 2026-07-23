@@ -51,9 +51,9 @@ Stack lưu trữ các khung gọi phương thức (Method Call Frames). Mỗi kh
 
 Các đặc tính chính của Stack:
 
-- **Khung có kích thước cố định** — JVM biết chính xác mỗi biến cần bao nhiêu byte **tại thời điểm biên dịch (Compile Time)**.
-- **Cấp phát nhanh** — việc thêm một biến chỉ đơn giản là di chuyển một con trỏ, không cần tìm kiếm vùng nhớ trống.
-- **Tự động dọn dẹp** — khi một phương thức trả về, toàn bộ khung của nó sẽ được lấy ra (Pop) ngay lập tức.
+- **`Khung có kích thước cố định`** — Khung có kích thước cố định: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Cấp phát nhanh`** — Cấp phát nhanh: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Tự động dọn dẹp`** — Tự động dọn dẹp: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **Lưu trữ**: các giá trị nguyên thủy (`int`, `double`, `boolean`, v.v.) và các địa chỉ tham chiếu (các con trỏ trỏ đến các đối tượng trên Heap).
 
 ### Bộ Nhớ Heap (Heap Memory)
@@ -62,9 +62,9 @@ Heap lưu trữ các đối tượng và mảng. Khi bạn viết `new Student()
 
 Các đặc tính chính của Heap:
 
-- **Cấp phát động** — các đối tượng có thể có kích thước bất kỳ, được xác định **tại thời điểm chạy (Runtime)**.
-- **Cấp phát chậm hơn** — JVM phải tìm kiếm một khối bộ nhớ trống phù hợp.
-- **Được dọn rác** — các đối tượng vẫn tồn tại trên Heap cho đến khi bộ dọn rác (Garbage Collector) xác định chúng không còn có thể truy cập được nữa.
+- **`Cấp phát động`** — Cấp phát động: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Cấp phát chậm hơn`** — Cấp phát chậm hơn: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Được dọn rác`** — Được dọn rác: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **Lưu trữ**: tất cả các đối tượng (`String`, mảng, `Student`, các lớp bao bọc, v.v.).
 
 ### Tại Sao Kiểu Nguyên Thủy Nằm Trên Stack Và Đối Tượng Nằm Trên Heap (Why Primitives Go On The Stack And Objects Go On The Heap)
@@ -118,11 +118,11 @@ Phần trước đã nêu rằng `String` không phải là kiểu nguyên thủ
 
 Câu trả lời xuất phát trực tiếp từ cách hoạt động của Stack: **các kiểu nguyên thủy phải có kích thước cố định, có thể dự đoán trước tại thời điểm biên dịch**. Mọi kiểu nguyên thủy trong Java đều có kích thước được đảm bảo:
 
-- **`byte`** — Kích thước 8 bit, luôn giống nhau (✅ Có).
-- **`int`** — Kích thước 32 bit, luôn giống nhau (✅ Có).
-- **`double`** — Kích thước 64 bit, luôn giống nhau (✅ Có).
-- **`boolean`** — Kích thước phụ thuộc vào JVM, luôn giống nhau (✅ Về mặt khái niệm là 1 bit).
-- **`String`** — Kích thước không xác định (???), không luôn giống nhau (❌ **Không — phụ thuộc vào nội dung**).
+- **`byte`** — byte: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`int`** — int: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`double`** — double: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`boolean`** — boolean: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`String`** — String: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 Một `String` có thể dài 1 ký tự hoặc 1 triệu ký tự. Kích thước của nó là **thay đổi và không thể dự đoán trước tại thời điểm biên dịch**:
 
@@ -289,9 +289,9 @@ System.out.println(greeting.toUpperCase()); // NullPointerException at runtime!
 
 `NullPointerException` (NPE) là ngoại lệ thời điểm chạy (Runtime Exception) phổ biến nhất trong Java vì:
 
-- **Trình biên dịch không thể phát hiện ra nó** — `null` là một giá trị hợp lệ cho bất kỳ kiểu tham chiếu nào, vì vậy mã nguồn vẫn được biên dịch mà không có lỗi.
-- **Nó chỉ xuất hiện tại thời điểm chạy** — sự cố chỉ xảy ra khi mã nguồn thực sự thực thi lượt gọi phương thức trên giá trị `null`.
-- **Bất kỳ biến tham chiếu nào cũng có thể nhận giá trị null** — các tham số phương thức, giá trị trả về, các trường dữ liệu (Fields) — bất kỳ thành phần nào trong số đó đều có thể mang giá trị `null` một cách ngoài ý muốn.
+- **`null`** — null: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`null`** — null: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`null`** — null: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ```java
 public static String findUser(int id) {

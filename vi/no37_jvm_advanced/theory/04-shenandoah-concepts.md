@@ -6,52 +6,28 @@ Tài liệu này trình bày một phần trọng tâm của **JVM nâng cao (Ad
 
 ## Nội Dung Tổng Quan
 
-- **`Shenandoah`** — `Shenandoah` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-- **`Stop-the-world`** — `Stop-the-world` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-- **`Minor GC`** — `Minor GC` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-- **`Major GC`** — `Major GC` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-- **`Full GC`** — `Full GC` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-- **`Basic JVM tuning:`** — Tinh chỉnh JVM cơ bản (Basic JVM tuning) là một nhóm các quy tắc dùng để tối ưu hóa cách JVM thực thi mã byte và quản lý các dịch vụ thời gian chạy như bộ nhớ, JIT và GC.
-- **`-Xms`** — `-Xms` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-- **`-Xmx`** — `-Xmx` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+- **`Shenandoah`** — Bộ thu gom rác độ trễ cực thấp thực hiện nén bộ nhớ song song với luồng ứng dụng.
+- **`Stop-the-world`** — Thời điểm JVM tạm dừng tất cả các luồng ứng dụng để thực hiện các thao tác quản lý bộ nhớ an toàn.
+- **`Minor GC`** — Đợt thu gom rác chỉ diễn ra trên vùng nhớ Young Generation.
+- **`Major GC`** — Major GC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Full GC`** — Full GC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Basic JVM tuning:`** — Basic JVM tuning:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`-Xms`** — -Xms: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`-Xmx`** — -Xmx: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 
 ### Shenandoah
 
-`Shenandoah` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `Shenandoah` trong một câu.
-- Nhận biết `Shenandoah` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `Shenandoah`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `Shenandoah` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+**`Shenandoah`** — Bộ thu gom rác độ trễ cực thấp thực hiện nén bộ nhớ song song.
 
 ### Stop-the-world
 
-`Stop-the-world` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `Stop-the-world` trong một câu.
-- Nhận biết `Stop-the-world` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `Stop-the-world`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `Stop-the-world` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+`Stop-the-**`world`** — world: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 ### Minor GC
 
-`Minor GC` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+**`Minor GC`** — Minor GC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Khái niệm này rất quan trọng vì hành vi thời gian chạy sẽ giải thích các vấn đề về hiệu năng, lỗi bộ nhớ, hành vi khi khởi động và nhiều câu hỏi phỏng vấn. Hiểu lầm phổ biến là trộn lẫn các khái niệm biên dịch (compile-time) với các dịch vụ thời gian chạy của JVM.
 
@@ -67,7 +43,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### Major GC
 
-`Major GC` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+**`Major GC`** — Major GC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Khái niệm này rất quan trọng vì hành vi thời gian chạy sẽ giải thích các vấn đề về hiệu năng, lỗi bộ nhớ, hành vi khi khởi động và nhiều câu hỏi phỏng vấn. Hiểu lầm phổ biến là trộn lẫn các khái niệm biên dịch (compile-time) với các dịch vụ thời gian chạy của JVM.
 
@@ -83,7 +59,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### Full GC
 
-`Full GC` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
+**`Full GC`** — Full GC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Khái niệm này rất quan trọng vì hành vi thời gian chạy sẽ giải thích các vấn đề về hiệu năng, lỗi bộ nhớ, hành vi khi khởi động và nhiều câu hỏi phỏng vấn. Hiểu lầm phổ biến là trộn lẫn các khái niệm biên dịch (compile-time) với các dịch vụ thời gian chạy của JVM.
 
@@ -115,35 +91,11 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### -Xms
 
-`-Xms` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `-Xms` trong một câu.
-- Nhận biết `-Xms` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `-Xms`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `Xms` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+`-**`Xms`** — Xms: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 ### -Xmx
 
-`-Xmx` là một khái niệm cụ thể trong JVM nâng cao; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và trường hợp lỗi của nó thay vì chỉ nhớ mỗi tên.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `-Xmx` trong một câu.
-- Nhận biết `-Xmx` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `-Xmx`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `Xmx` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+`-**`Xmx`** — Xmx: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 ## Các Ví Dụ Mã Nguồn
 

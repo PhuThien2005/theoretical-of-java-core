@@ -6,14 +6,14 @@ File này đề cập đến một phần trọng tâm của **Kiến Trúc JVM 
 
 ## Đề Cương Khái Niệm
 
-- **`Kiến trúc JVM`** — JVM thực thi bytecode và quản lý các dịch vụ thời gian chạy (runtime) như bộ nhớ, trình biên dịch JIT và bộ thu gom rác GC.
-- **`Phân hệ Class Loader`** — Phân hệ Class Loader là một khái niệm cụ thể trong JVM nâng cao; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
-- **`Vùng dữ liệu thời gian chạy:`** — Vùng dữ liệu thời gian chạy là một nhóm các quy tắc liên quan trong JVM nâng cao nhóm nhiều chi tiết liên quan.
-- **`Heap`** — Heap lưu trữ các đối tượng được tạo ra tại thời điểm chạy.
-- **`Stack`** — Stack lưu trữ các khung phương thức (method frame), các biến cục bộ và luồng cuộc gọi cho mỗi luồng.
-- **`Method Area / Metaspace`** — Metaspace lưu trữ siêu dữ liệu lớp (class metadata) bên ngoài heap Java thông thường trong các JVM hiện đại.
-- **`Thanh ghi PC`** — Thanh ghi PC theo dõi chỉ thị lệnh JVM hiện tại của một luồng.
-- **`Native Method Stack`** — Native Method Stack lưu trữ các khung để thực thi các phương thức bản địa (native - không phải Java).
+- **`Kiến trúc JVM`** — Kiến trúc JVM: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Phân hệ Class Loader`** — Thành phần JVM chịu trách nhiệm tải, liên kết và khởi tạo các tệp .class vào bộ nhớ.
+- **`Vùng dữ liệu thời gian chạy:`** — Vùng dữ liệu thời gian chạy:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Heap`** — Heap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Stack`** — Stack: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Method Area / Metaspace`** — Method Area / Metaspace: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Thanh ghi PC`** — Thanh ghi PC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Native Method Stack`** — Native Method Stack: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 
@@ -35,7 +35,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### Phân Hệ Class Loader (Class Loader Subsystem)
 
-Phân hệ Class Loader là một khái niệm cụ thể trong JVM nâng cao; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+**`Phân hệ Class Loader`** — Phân hệ Class Loader: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 

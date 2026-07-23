@@ -11,12 +11,12 @@ This file covers a focused slice of **Lambda Expression**. Study each concept as
 | `What is a lambda?` | A lambda expression is a compact function-like block used where a functional interface is expected. |
 | `Lambda syntax` | A lambda expression is a compact function-like block used where a functional interface is expected. |
 | `Functional interface` | A functional interface has exactly one abstract method and can be implemented by a lambda. |
-| `@FunctionalInterface` |@FunctionalInterface is a specific concept in Lambda Expression; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `@FunctionalInterface` |`@FunctionalInterface` — Enforces that an interface contains exactly one abstract method. |
 | `Method reference:` | Method reference is a group of related rules in Lambda Expression that groups several related details. |
 | `static method reference` | Static means the member belongs to the class rather than to one particular object. |
-| `instance method reference` |instance method reference is a specific concept in Lambda Expression; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `constructor reference` |constructor reference is a specific concept in Lambda Expression; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Variable capture` |Variable capture is a specific concept in Lambda Expression; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `instance method reference` |`instance method reference` — Refers to an instance method of a particular object or arbitrary object of a type. |
+| `constructor reference` |`constructor reference` — Shorthand syntax (Class::new) for a lambda that instantiates a new object. |
+| `Variable capture` |`Variable capture` — Inner/local classes capturing local variables from enclosing scope if they are effectively final. |
 | `Effectively final` | Final means the variable, method, class, or parameter is restricted from later change in a specific way. |
 
 ## Detailed Notes
@@ -183,7 +183,7 @@ interface ObjectOverride {
 
 ### @FunctionalInterface
 
-@FunctionalInterface is a specific concept in Lambda Expression; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`@FunctionalInterface` — Enforces that an interface contains exactly one abstract method.
 
 It matters because modern Java APIs use function-style pipelines heavily. A common confusion is forgetting which operations are lazy and which operation actually triggers execution.
 
@@ -292,18 +292,6 @@ Wrapper try-catch or custom functional interface with throws resolves the signat
 
 Method reference is a group of related rules in Lambda Expression that groups several related details.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Method reference:` in one sentence.
-- Recognize `Method reference:` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Method reference:`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Method reference:` change, allow, reject, or clarify?
-
 #### Classification of Method References
 There are 4 main kinds of method references:
 1. Static method reference: `ContainingClass::staticMethodName`
@@ -338,20 +326,6 @@ java.util.function.Function<String, Integer> parserRef = Integer::parseInt;
 
 ### instance method reference
 
-instance method reference is a specific concept in Lambda Expression; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `instance method reference` in one sentence.
-- Recognize `instance method reference` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `instance method reference`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `instance method reference` change, allow, reject, or clarify?
-
 #### Bound vs Unbound Instance Method References
 - **Bound Method Reference**: Refers to an instance method of an existing object. The receiver of the method call is fixed at compile time.
 - **Unbound Method Reference**: Refers to an instance method of an arbitrary object of a particular type. The first parameter of the lambda is used as the receiver of the call.
@@ -367,20 +341,6 @@ java.util.function.BiFunction<String, String, String> unboundConcat = String::co
 ```
 
 ### constructor reference
-
-constructor reference is a specific concept in Lambda Expression; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `constructor reference` in one sentence.
-- Recognize `constructor reference` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `constructor reference`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `constructor reference` change, allow, reject, or clarify?
 
 #### Code Example: Constructor References
 ```java
@@ -447,20 +407,6 @@ Functional interface method matches signature and executes successfully
 ```
 
 ### Variable capture
-
-Variable capture is a specific concept in Lambda Expression; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Variable capture` in one sentence.
-- Recognize `Variable capture` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Variable capture`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Variable capture` change, allow, reject, or clarify?
 
 #### Code Example: Capturing Variables from Enclosing Scope
 Lambdas can read static variables, instance variables, and local variables. However, local variables must be final or effectively final.

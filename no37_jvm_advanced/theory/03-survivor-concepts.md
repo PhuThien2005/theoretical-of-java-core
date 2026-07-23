@@ -8,48 +8,20 @@ This file covers a focused slice of **Advanced JVM**. Study each concept as a pr
 
 | Concept | What to know |
 | --- | --- |
-| `Survivor` |Survivor is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Old Generation` |Old Generation is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Survivor` |`Survivor` — Survivor provides specific functionality and rules in Java development. |
+| `Old Generation` |`Old Generation` — Old Generation provides specific functionality and rules in Java development. |
 | `GC algorithms:` | GC algorithms is a group of related rules in Advanced JVM that groups several related details. |
-| `Serial GC` |Serial GC is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Parallel GC` |Parallel GC is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `old CMS` |old CMS is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `G1 GC` |G1 GC is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `ZGC` |ZGC is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Serial GC` |`Serial GC` — Serial GC provides specific functionality and rules in Java development. |
+| `Parallel GC` |`Parallel GC` — Parallel GC provides specific functionality and rules in Java development. |
+| `old CMS` |`old CMS` — old CMS provides specific functionality and rules in Java development. |
+| `G1 GC` |`G1 GC` — G1 GC provides specific functionality and rules in Java development. |
+| `ZGC` |`ZGC` — ZGC provides specific functionality and rules in Java development. |
 
 ## Detailed Notes
 
 ### Survivor
 
-Survivor is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Survivor` in one sentence.
-- Recognize `Survivor` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Survivor`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Survivor` change, allow, reject, or clarify?
-
 ### Old Generation
-
-Old Generation is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Old Generation` in one sentence.
-- Recognize `Old Generation` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Old Generation`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Old Generation` change, allow, reject, or clarify?
 
 ### GC algorithms:
 
@@ -69,7 +41,7 @@ Tiny example or mental model:
 
 ### Serial GC
 
-Serial GC is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`Serial GC` — Serial GC provides specific functionality and rules in Java development.
 
 It matters because runtime behavior explains performance, memory errors, startup behavior, and many interview questions. A common confusion is mixing compile-time concepts with JVM runtime services.
 
@@ -85,7 +57,7 @@ Tiny example or mental model:
 
 ### Parallel GC
 
-Parallel GC is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`Parallel GC` — Parallel GC provides specific functionality and rules in Java development.
 
 It matters because runtime behavior explains performance, memory errors, startup behavior, and many interview questions. A common confusion is mixing compile-time concepts with JVM runtime services.
 
@@ -101,23 +73,9 @@ Tiny example or mental model:
 
 ### old CMS
 
-old CMS is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `old CMS` in one sentence.
-- Recognize `old CMS` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `old CMS`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `old CMS` change, allow, reject, or clarify?
-
 ### G1 GC
 
-G1 GC is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`G1 GC` — G1 GC provides specific functionality and rules in Java development.
 
 It matters because runtime behavior explains performance, memory errors, startup behavior, and many interview questions. A common confusion is mixing compile-time concepts with JVM runtime services.
 
@@ -133,7 +91,7 @@ Tiny example or mental model:
 
 ### ZGC
 
-ZGC is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`ZGC` — ZGC provides specific functionality and rules in Java development.
 
 It matters because runtime behavior explains performance, memory errors, startup behavior, and many interview questions. A common confusion is mixing compile-time concepts with JVM runtime services.
 

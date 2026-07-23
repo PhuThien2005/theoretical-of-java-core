@@ -6,16 +6,16 @@ File này đề cập đến một phần trọng tâm của **API Ngày và Gi�
 
 ## Đề Cương Khái Niệm
 
-- **`Date`** — Lớp cũ (legacy) có trạng thái thay đổi được (mutable) đại diện cho một thời điểm với độ chính xác mili giây; gặp phải các vấn đề về an toàn luồng (thread-safety), tháng bắt đầu từ chỉ số 0, và cách xử lý múi giờ gây nhầm lẫn.
-- **`Calendar`** — Lớp trừu tượng cũ có trạng thái thay đổi được dùng để thao tác với ngày tháng; thiếu an toàn kiểu dữ liệu (sử dụng các hằng số nguyên), không an toàn luồng, và vẫn giữ tháng bắt đầu từ chỉ số 0.
-- **`SimpleDateFormat`** — Lớp định dạng và phân tích cú pháp ngày tháng cũ; không an toàn luồng và tuyệt đối không được chia sẻ giữa các luồng nếu không có sự đồng bộ hóa bên ngoài.
-- **`LocalDate`** — Lớp bất biến (immutable), an toàn luồng đại diện cho một ngày không có giờ hoặc múi giờ (ví dụ: `2026-06-12`) sử dụng tháng bắt đầu từ chỉ số 1.
-- **`LocalTime`** — Lớp bất biến, an toàn luồng đại diện cho thời gian không có ngày hoặc múi giờ (ví dụ: `13:45:00`) với độ chính xác đến nano giây.
-- **`LocalDateTime`** — Lớp bất biến, an toàn luồng kết hợp ngày và giờ không có múi giờ (ví dụ: `2026-06-12T13:45:00`).
-- **`ZonedDateTime`** — Lớp bất biến, an toàn luồng đại diện cho ngày và giờ với ngữ cảnh múi giờ địa lý đầy đủ (tự động xử lý giờ mùa hè - DST và các khoảng lệch - offset).
-- **`OffsetDateTime`** — Lớp bất biến, an toàn luồng đại diện cho ngày và giờ với khoảng lệch (offset) cố định so với giờ UTC, không đi kèm các quy tắc giờ mùa hè.
-- **`Instant`** — Lớp bất biến, an toàn luồng đại diện cho một thời điểm duy nhất trên dòng thời gian UTC (tính bằng giây và nano giây kể từ thời điểm mốc Epoch).
-- **`Duration`** — Biểu diễn bất biến của một khoảng thời gian dựa trên thời gian (giây và nano giây) để so sánh các thời điểm hoặc giờ.
+- **`Date`** — Date: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Calendar`** — Calendar: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`SimpleDateFormat`** — SimpleDateFormat: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`LocalDate`** — LocalDate: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`LocalTime`** — LocalTime: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`LocalDateTime`** — LocalDateTime: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`ZonedDateTime`** — ZonedDateTime: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`OffsetDateTime`** — OffsetDateTime: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Instant`** — Instant: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Duration`** — Duration: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

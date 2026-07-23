@@ -4,60 +4,25 @@ Use this file when a word in the theory feels too compressed. Each term has mean
 
 ## natural ordering
 
-natural ordering is a specific concept in Comparable and Comparator; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `natural ordering` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `natural ordering` change, allow, reject, or clarify?
+`natural ordering` — The default sort order defined by a class implementing Comparable<T>.
 
 ## custom ordering
 
-custom ordering is a specific concept in Comparable and Comparator; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `custom ordering` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `custom ordering` change, allow, reject, or clarify?
+`custom ordering` — An explicit sort order defined separately using a Comparator<T>.
 
 ## compareTo
 
-compareTo is a specific concept in Comparable and Comparator; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `compareTo` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `compareTo` change, allow, reject, or clarify?
+`compareTo` — Compares this object with specified object, returning negative, zero, or positive int.
 
 ## Comparator chain
 
 Comparator defines external custom ordering for objects.
 
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `Comparator chain` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `Comparator chain` change, allow, reject, or clarify?
-
 ## reverse order
 
-reverse order is a specific concept in Comparable and Comparator; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `reverse order` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `reverse order` change, allow, reject, or clarify?
+`reverse order` — Inverts the comparison result to sort elements in descending order.
 
 ## null handling
 
-null handling is a specific concept in Comparable and Comparator; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`null handling` — null handling provides specific functionality and rules in Java development.
 
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `null handling` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `null handling` change, allow, reject, or clarify?

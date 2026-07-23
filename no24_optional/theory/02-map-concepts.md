@@ -10,7 +10,7 @@ This file covers a focused slice of **Optional**. Study each concept as a practi
 | --- | --- |
 | `map` | map transforms the wrapped value if present and wraps the result back into an Optional. |
 | `flatMap` | flatMap transforms the wrapped value using a mapper that returns an Optional, avoiding nesting. |
-| `filter` |filter is a specific concept in Optional; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `filter` |`filter` — filter provides specific functionality and rules in Java development. |
 | `Do not overuse Optional` | Optional is a container that may or may not hold a non-null value. |
 | `Optional in return type` | Optional is a container that may or may not hold a non-null value. |
 
@@ -31,7 +31,6 @@ Practical check:
 Tiny example or mental model:
 
 - `opt.map(String::toUpperCase)`
-
 
 #### Detailed Explanation
 `map(Function<? super T, ? extends U> mapper)` is used to transform the value inside the `Optional`. If a value is present, it applies the mapping function to the value. If the mapping function returns a non-null value, it returns an `Optional` containing that result. If the `Optional` is empty or if the mapper returns `null`, it returns an empty `Optional`.
@@ -74,7 +73,6 @@ Practical check:
 Tiny example or mental model:
 
 - `optUser.flatMap(User::getEmail)`
-
 
 #### Detailed Explanation
 `flatMap(Function<? super T, ? extends Optional<? extends U>> mapper)` is similar to `map`, but is used when the mapping function returns an `Optional`. Instead of wrapping the returned `Optional` into another `Optional`, `flatMap` flattens the result by returning the mapper's `Optional` directly.
@@ -121,8 +119,8 @@ The core difference between `map()` and `flatMap()` is how they handle the retur
 
 ### Mental Model: The Nested Box Analogy
 
-- **`map` (Automatic Wrapping)**: You open a box (the original `Optional`), extract the item, apply a change, and the compiler automatically places the changed item back into a new box. If the item you extracted was already inside a smaller box, you end up with a box inside a box.
-- **`flatMap` (Manual Flattening)**: You open a box, extract the item (which is already inside its own smaller box), apply a change, and return that smaller box directly. The outer box is discarded, so you only have one single level of boxing.
+- **`map`** — map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`flatMap`** — flatMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ```mermaid
 flowchart LR
@@ -179,20 +177,6 @@ public class MapVsFlatMapDemo {
 Mapping function passed to `flatMap()` returns `null` instead of an `Optional` instance → `flatMap()` internal implementation checks if mapper result is null → result is null → JVM throws `NullPointerException` → Execution halts, alerting the developer that the mapping function violated the API contract.
 
 ### filter
-
-filter is a specific concept in Optional; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `filter` in one sentence.
-- Recognize `filter` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `filter`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `filter` change, allow, reject, or clarify?
 
 #### Detailed Explanation
 `filter(Predicate<? super T> predicate)` allows you to conditionally discard a value. If a value is present and matches the given predicate, the `Optional` is returned as-is. If the value does not match the predicate, or if the `Optional` is empty, an empty `Optional` is returned.

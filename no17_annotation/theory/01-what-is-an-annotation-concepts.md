@@ -10,32 +10,20 @@ This file covers a focused slice of **Annotation**. Study each concept as a prac
 | --- | --- |
 | `What is an annotation?` | An annotation attaches metadata to program elements such as classes, methods, or fields. |
 | `Built-in annotations:` | An annotation attaches metadata to program elements such as classes, methods, or fields. |
-| `@Override` |@Override is a specific concept in Annotation; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `@Deprecated` |@Deprecated is a specific concept in Annotation; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `@SuppressWarnings` |@SuppressWarnings is a specific concept in Annotation; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `@FunctionalInterface` |@FunctionalInterface is a specific concept in Annotation; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `@SafeVarargs` |@SafeVarargs is a specific concept in Annotation; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `@Override` |`@Override` — Ensures the annotated method correctly overrides a superclass method or interface contract. |
+| `@Deprecated` |`@Deprecated` — Marks an API as obsolete and discourages its usage due to danger or replacement. |
+| `@SuppressWarnings` |`@SuppressWarnings` — Instructs the compiler to silence specific warnings for the annotated scope. |
+| `@FunctionalInterface` |`@FunctionalInterface` — Enforces that an interface contains exactly one abstract method. |
+| `@SafeVarargs` |`@SafeVarargs` — Suppresses unsafe varargs warnings on final/static/private methods with generic parameters. |
 | `Meta-annotations:` | An annotation attaches metadata to program elements such as classes, methods, or fields. |
-| `@Target` |@Target is a specific concept in Annotation; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `@Retention` |@Retention is a specific concept in Annotation; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `@Target` |`@Target` — @Target provides specific functionality and rules in Java development. |
+| `@Retention` |`@Retention` — @Retention provides specific functionality and rules in Java development. |
 
 ## Detailed Notes
 
 ### What is an annotation?
 
 An annotation attaches metadata to program elements such as classes, methods, or fields.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `What is an annotation?` in one sentence.
-- Recognize `What is an annotation?` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `What is an annotation?`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `What is an annotation?` change, allow, reject, or clarify?
 
 #### Concrete Explanation & Java Rules
 Annotations are a form of syntactic metadata that can be added to Java source code. They declare a type of tag, using the `@interface` keyword, which does not directly affect program execution by itself. However, they can be processed:
@@ -66,18 +54,6 @@ public class AnnotationDemo {
 
 An annotation attaches metadata to program elements such as classes, methods, or fields.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Built-in annotations:` in one sentence.
-- Recognize `Built-in annotations:` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Built-in annotations:`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Built-in annotations:` change, allow, reject, or clarify?
-
 #### Concrete Explanation & Java Rules
 Java provides standard built-in annotations. Those defined in `java.lang` (e.g., `@Override`, `@Deprecated`, `@SuppressWarnings`, `@SafeVarargs`, `@FunctionalInterface`) are used primarily by the compiler. Those defined in `java.lang.annotation` (e.g., `@Target`, `@Retention`, `@Documented`, `@Inherited`, `@Repeatable`) are meta-annotations applied to custom annotations to define their behavior.
 
@@ -93,20 +69,6 @@ public class BuiltInDemo {
 ---
 
 ### @Override
-
-@Override is a specific concept in Annotation; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `@Override` in one sentence.
-- Recognize `@Override` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `@Override`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `@Override` change, allow, reject, or clarify?
 
 #### Concrete Explanation & Java Rules
 The `@Override` annotation instructs the compiler to verify that the annotated method overrides or implements a method declared in a superclass or superinterface. If the signature does not match exactly (due to spelling mistakes, parameter type differences, or incorrect return types), the compiler throws a compilation error.
@@ -140,20 +102,6 @@ Private methods cannot be overridden. If a subclass declares a method with the s
 
 ### @Deprecated
 
-@Deprecated is a specific concept in Annotation; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `@Deprecated` in one sentence.
-- Recognize `@Deprecated` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `@Deprecated`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `@Deprecated` change, allow, reject, or clarify?
-
 #### Concrete Explanation & Java Rules
 `@Deprecated` marks a program element (class, method, field, constructor) as obsolete. If other code uses a deprecated element, the compiler generates a warning. Starting in Java 9, it includes elements:
 - `since`: A `String` indicating the version in which the element was deprecated.
@@ -171,20 +119,6 @@ public class DeprecatedExample {
 ---
 
 ### @SuppressWarnings
-
-@SuppressWarnings is a specific concept in Annotation; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `@SuppressWarnings` in one sentence.
-- Recognize `@SuppressWarnings` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `@SuppressWarnings`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `@SuppressWarnings` change, allow, reject, or clarify?
 
 #### Concrete Explanation & Java Rules
 `@SuppressWarnings` suppresses specific compiler warnings in the annotated element and its descendants. It has a single element of type `String[]` (the array of warning names to suppress, such as `"unchecked"`, `"deprecation"`, `"rawtypes"`, or `"all"`).
@@ -207,7 +141,7 @@ public class SuppressExample {
 
 ### @FunctionalInterface
 
-@FunctionalInterface is a specific concept in Annotation; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`@FunctionalInterface` — Enforces that an interface contains exactly one abstract method.
 
 It matters because modern Java APIs use function-style pipelines heavily. A common confusion is forgetting which operations are lazy and which operation actually triggers execution.
 
@@ -249,20 +183,6 @@ public interface MathOperation {
 
 ### @SafeVarargs
 
-@SafeVarargs is a specific concept in Annotation; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `@SafeVarargs` in one sentence.
-- Recognize `@SafeVarargs` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `@SafeVarargs`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `@SafeVarargs` change, allow, reject, or clarify?
-
 #### Concrete Explanation & Java Rules
 `@SafeVarargs` suppresses warnings about "potential heap pollution" when using generic varargs parameters. Java varargs are implemented using arrays, which do not preserve generic type information at runtime (reification). 
 Because of this, writing `T...` exposes the method to class cast exceptions if an incompatible array type is passed. 
@@ -297,38 +217,12 @@ public class SafeVarargsDemo {
 
 An annotation attaches metadata to program elements such as classes, methods, or fields.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Meta-annotations:` in one sentence.
-- Recognize `Meta-annotations:` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Meta-annotations:`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Meta-annotations:` change, allow, reject, or clarify?
-
 #### Concrete Explanation & Java Rules
 Meta-annotations are annotations applied to other annotation declarations. They specify how the custom annotation behaves (e.g., where it can be applied, how long it is kept in compiled code, whether it is inherited, etc.).
 
 ---
 
 ### @Target
-
-@Target is a specific concept in Annotation; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `@Target` in one sentence.
-- Recognize `@Target` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `@Target`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `@Target` change, allow, reject, or clarify?
 
 #### Concrete Explanation & Java Rules
 `@Target` specifies the contexts (program elements) where the annotation can be applied. It takes an array of `ElementType` values, including:
@@ -397,20 +291,6 @@ public class TargetDemo {
 ---
 
 ### @Retention
-
-@Retention is a specific concept in Annotation; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `@Retention` in one sentence.
-- Recognize `@Retention` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `@Retention`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `@Retention` change, allow, reject, or clarify?
 
 #### Concrete Explanation & Java Rules
 `@Retention` defines how long an annotation is preserved. It takes a `RetentionPolicy` enum value:

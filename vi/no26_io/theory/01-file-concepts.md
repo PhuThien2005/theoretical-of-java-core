@@ -6,16 +6,16 @@ Tài liệu này tập trung vào một phần trọng tâm của **Vào/Ra (I/O
 
 ## Đề cương chi tiết
 
-- **`File`** — File: Đại diện cho đường dẫn tệp hoặc thư mục trong bộ nhớ; không mở hoặc đọc trực tiếp nội dung thực tế của tệp.
-- **`Create file`** — Tạo tệp (Create file): Được xử lý thông qua `file.createNewFile()`, trả về `true` nếu thành công, hoặc ném ra `IOException` nếu đường dẫn không hợp lệ hoặc thiếu quyền truy cập.
-- **`Delete file`** — Xóa tệp (Delete file): Được xử lý thông qua `file.delete()`, trả về một giá trị boolean. Nó thất bại (trả về `false`) nếu tệp không tồn tại hoặc nếu mục tiêu là một thư mục không trống.
-- **`Check existence`** — Kiểm tra tồn tại (Check existence): Được xác minh bằng `file.exists()`, cùng với các phương thức bổ trợ `file.isFile()` và `file.isDirectory()` để xác định kiểu.
-- **`Read file metadata`** — Đọc siêu dữ liệu tệp (Read file metadata): Truy cập các thuộc tính như kích thước tệp (`file.length()`), tên (`file.getName()`), đường dẫn (`file.getAbsolutePath()`), và quyền truy cập (`file.canRead()`, `file.canWrite()`).
-- **`Create directory`** — Tạo thư mục (Create directory): Được tạo thông qua `file.mkdir()` (thất bại nếu các thư mục cha không tồn tại) hoặc `file.mkdirs()` (tạo đệ quy tất cả các thư mục cha còn thiếu).
-- **`InputStream`** — InputStream: Lớp cơ sở trừu tượng đại diện cho một luồng đầu vào của các byte; được sử dụng để đọc dữ liệu nhị phân thô.
-- **`OutputStream`** — OutputStream: Lớp cơ sở trừu tượng đại diện cho một luồng đầu ra của các byte; được sử dụng để ghi dữ liệu nhị phân thô.
-- **`FileInputStream`** — FileInputStream: Một lớp con cụ thể của `InputStream` đọc các byte tuần tự từ một tệp.
-- **`FileOutputStream`** — FileOutputStream: Một lớp con cụ thể của `OutputStream` ghi các byte tuần tự vào một tệp.
+- **`File`** — File: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Create file`** — Create file: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Delete file`** — Delete file: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Check existence`** — Check existence: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Read file metadata`** — Read file metadata: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Create directory`** — Create directory: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`InputStream`** — InputStream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`OutputStream`** — OutputStream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`FileInputStream`** — FileInputStream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`FileOutputStream`** — FileOutputStream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi chú chi tiết
 

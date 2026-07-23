@@ -6,16 +6,16 @@ Tài liệu này trình bày các nguyên lý cơ bản của kiểm thử đơn
 
 ## Nội Dung Tổng Quan
 
-- **`JUnit`** — Khung kiểm thử Java để viết và chạy các bài kiểm thử đơn vị tự động.
-- **`Test case`** — Một phương thức được chú thích bằng `@Test` dùng để xác minh một hành vi cụ thể của một lớp.
-- **`Assertion`** — Các phương thức tĩnh từ `org.junit.jupiter.api.Assertions` để xác minh kết quả mong đợi.
-- **`@Test`** — Chú thích đánh dấu một phương thức là một trường hợp kiểm thử; không được là private hoặc static.
-- **`@BeforeEach`** — Chạy trước mỗi phương thức `@Test` để thiết lập các môi trường kiểm thử (fixture).
-- **`@AfterEach`** — Chạy sau mỗi phương thức `@Test` để dọn dẹp trạng thái.
-- **`@BeforeAll`** — Chạy một lần duy nhất trước tất cả các bài kiểm thử trong một lớp; phải là static trừ khi sử dụng vòng đời per-class.
-- **`@AfterAll`** — Chạy một lần duy nhất sau tất cả các bài kiểm thử trong một lớp; phải là static trừ khi sử dụng vòng đời per-class.
-- **`Basic Mockito`** — Khung công tác giả lập (mocking framework) được sử dụng để cô lập đơn vị cần kiểm thử bằng cách mô phỏng các phụ thuộc.
-- **`Mock object`** — Một phụ thuộc được mô phỏng cấu hình để trả về các phản hồi được chuẩn bị trước hoặc xác minh các lệnh gọi phương thức.
+- **`JUnit`** — JUnit: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Test case`** — Test case: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Assertion`** — Assertion: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`@Test`** — @Test: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`@BeforeEach`** — @BeforeEach: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`@AfterEach`** — @AfterEach: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`@BeforeAll`** — @BeforeAll: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`@AfterAll`** — @AfterAll: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Basic Mockito`** — Basic Mockito: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Mock object`** — Mock object: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

@@ -24,7 +24,7 @@ Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `Matcher` thay đổi, 
 
 ## Lớp Ký Tự (Character Class)
 
-`character class` (lớp ký tự) là một khái niệm cụ thể trong Biểu thức chính quy; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+**`character class` (lớp ký tự)`** — character class` (lớp ký tự): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Tại sao điều này quan trọng: Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 
@@ -34,7 +34,7 @@ Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `character class` thay 
 
 ## Bộ Lượng Hóa (Quantifier)
 
-`quantifier` (bộ lượng hóa) là một khái niệm cụ thể trong Biểu thức chính quy; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+**`quantifier` (bộ lượng hóa)`** — quantifier` (bộ lượng hóa): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Tại sao điều này quan trọng: Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 
@@ -44,7 +44,7 @@ Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `quantifier` thay đổ
 
 ## Nhóm Thu Nạp (Capturing Group)
 
-`capturing group` (nhóm thu nạp) là một khái niệm cụ thể trong Biểu thức chính quy; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+**`capturing group` (nhóm thu nạp)`** — capturing group` (nhóm thu nạp): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Tại sao điều này quan trọng: Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 
@@ -54,7 +54,7 @@ Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `capturing group` thay 
 
 ## Khớp Nhìn Xung Quanh (Lookaround)
 
-`lookaround` (khớp nhìn xung quanh) là một khái niệm cụ thể trong Biểu thức chính quy; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+**`lookaround` (khớp nhìn xung quanh)`** — lookaround` (khớp nhìn xung quanh): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Tại sao điều này quan trọng: Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 

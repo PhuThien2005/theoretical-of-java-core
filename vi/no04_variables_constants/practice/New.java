@@ -1,3 +1,5 @@
+package vi.no04_variables_constants.practice;
+
 public class New {
     public static final int BASE = 100; // Hằng số thời gian biên dịch
 

@@ -8,9 +8,9 @@ This file covers a focused slice of **Annotation**. Study each concept as a prac
 
 | Concept | What to know |
 | --- | --- |
-| `@Documented` |@Documented is a specific concept in Annotation; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `@Inherited` |@Inherited is a specific concept in Annotation; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `@Repeatable` |@Repeatable is a specific concept in Annotation; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `@Documented` |`@Documented` — Indicates that the annotation should be included in generated Javadoc output. |
+| `@Inherited` |`@Inherited` — Allows subclassing classes to automatically inherit annotations from their superclass. |
+| `@Repeatable` |`@Repeatable` — Enables applying the same annotation multiple times to a single declaration. |
 | `Custom annotation` | An annotation attaches metadata to program elements such as classes, methods, or fields. |
 | `Runtime annotation` | An annotation attaches metadata to program elements such as classes, methods, or fields. |
 | `Basic annotation processing` | An annotation attaches metadata to program elements such as classes, methods, or fields. |
@@ -18,20 +18,6 @@ This file covers a focused slice of **Annotation**. Study each concept as a prac
 ## Detailed Notes
 
 ### @Documented
-
-@Documented is a specific concept in Annotation; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `@Documented` in one sentence.
-- Recognize `@Documented` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `@Documented`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `@Documented` change, allow, reject, or clarify?
 
 #### Concrete Explanation & Java Rules
 By default, annotations applied to a class, method, or field are NOT included in the generated Javadoc. When a custom annotation declaration is annotated with the meta-annotation `@Documented`, any code elements annotated with this custom annotation will have it displayed in their generated API documentation.
@@ -57,20 +43,6 @@ public class JavadocDemo {
 ---
 
 ### @Inherited
-
-@Inherited is a specific concept in Annotation; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `@Inherited` in one sentence.
-- Recognize `@Inherited` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `@Inherited`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `@Inherited` change, allow, reject, or clarify?
 
 #### Concrete Explanation & Java Rules
 `@Inherited` indicates that an annotation on a class is automatically inherited by its subclasses. If a class `Child` extends `Parent`, and `Parent` has an annotation marked `@Inherited`, reflection queries for the annotation on `Child` will succeed even if `Child` has no annotation declaration.
@@ -105,20 +77,6 @@ class SubClass extends SuperClass {}
 ---
 
 ### @Repeatable
-
-@Repeatable is a specific concept in Annotation; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `@Repeatable` in one sentence.
-- Recognize `@Repeatable` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `@Repeatable`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `@Repeatable` change, allow, reject, or clarify?
 
 #### Concrete Explanation & Java Rules
 Introduced in Java 8, `@Repeatable` allows applying the same annotation multiple times to the same element. It requires a "container annotation" type, which must have a `value()` method returning an array of the repeatable annotation type. The container annotation must have a retention policy at least as long as the repeatable annotation.
@@ -156,18 +114,6 @@ public class ScheduleDemo {
 
 An annotation attaches metadata to program elements such as classes, methods, or fields.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Custom annotation` in one sentence.
-- Recognize `Custom annotation` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Custom annotation`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Custom annotation` change, allow, reject, or clarify?
-
 #### Concrete Explanation & Java Rules
 Custom annotations are declared using the `@interface` syntax. They implicitly extend `java.lang.annotation.Annotation`. Their elements are defined like parameterless methods and can specify default values using the `default` keyword.
 
@@ -200,18 +146,6 @@ public @interface Configuration {
 
 An annotation attaches metadata to program elements such as classes, methods, or fields.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Runtime annotation` in one sentence.
-- Recognize `Runtime annotation` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Runtime annotation`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Runtime annotation` change, allow, reject, or clarify?
-
 #### Concrete Explanation & Java Rules
 Runtime annotations are declared with `@Retention(RetentionPolicy.RUNTIME)`. The JVM keeps their metadata in memory, which allows them to be examined dynamically via Reflection. 
 
@@ -230,18 +164,6 @@ public @interface Priority {
 ### Basic annotation processing
 
 An annotation attaches metadata to program elements such as classes, methods, or fields.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Basic annotation processing` in one sentence.
-- Recognize `Basic annotation processing` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Basic annotation processing`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Basic annotation processing` change, allow, reject, or clarify?
 
 #### Concrete Explanation & Java Rules
 Annotation processing can happen at compile-time (using the standard `Processor` API in `javax.annotation.processing`) or at runtime (using the Reflection API).

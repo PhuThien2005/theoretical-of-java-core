@@ -59,12 +59,12 @@
   - `Stream<T> map(Function<? super T, ? extends R>)`
 
 ## 9. Generic với Collection
-- **`List`** — Khai báo điển hình: `List<E>` – `E` là kiểu phần tử. Lý do: Cho phép thêm/lấy ra một cách an toàn kiểu dữ liệu.
-- **`Set`** — Khai báo điển hình: `Set<E>` – không có phần tử trùng lặp thuộc kiểu `E`.
-- **`Map`** — Khai báo điển hình: `Map<K,V>` – `K` khóa, `V` giá trị. Lý do: Cho phép kiểm tra kiểu dữ liệu của cả khóa và giá trị tại thời điểm biên dịch.
-- **`Queue`** — Khai báo điển hình: `Queue<E>` – ngữ nghĩa vào trước ra trước (FIFO).
-- **`Deque`** — Khai báo điển hình: `Deque<E>` – hàng đợi hai đầu (double-ended queue).
-- **`Optional`** — Khai báo điển hình: `Optional<T>` – lớp chứa cho giá trị có thể bị khuyết (vắng mặt).
+- **`List`** — List: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Set`** — Set: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Map`** — Map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Queue`** — Queue: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Deque`** — Deque: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Optional`** — Optional: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 **Ví dụ:**
 ```java
@@ -91,11 +91,11 @@ void addAll(List<? super Integer> ints) { ints.add(1); }
 - **Khi nào cần tránh**: Hầu như luôn luôn; chỉ sử dụng khi tương tác với mã nguồn cũ (legacy code) từ trước thời kỳ generic (trước Java 5).
 
 ## 12. Các Hạn Chế Của Generic
-- **Không có mảng generic** — Giải thích: `new T[10]` không hợp lệ vì cơ chế xóa kiểu. Biện pháp thay thế: Sử dụng `List<T>` hoặc `Array.newInstance(clazz, size)` với một thẻ `Class<T>`.
-- **Không có kiểu dữ liệu nguyên thủy generic** — Giải thích: Các tham số kiểu phải là các kiểu tham chiếu (reference type). Biện pháp thay thế: Sử dụng các lớp bao bọc (wrapper class) (`Integer`, `Double`).
-- **Không có trường tĩnh thuộc kiểu tham số** — Giải thích: Các thành viên tĩnh thuộc về lớp chứ không thuộc về một đối số kiểu cụ thể nào. Biện pháp thay thế: Sử dụng các trường phi tĩnh hoặc thu nhận kiểu bằng một đối số `Class<T>`.
-- **Không thể tạo các lớp con generic từ các lớp phi generic với các đối số kiểu cụ thể** — Giải thích: Ví dụ `class MyStringList extends ArrayList<String>` được phép, nhưng sau đó bạn không thể coi nó là `ArrayList<T>`.
-- **Giới hạn suy luận kiểu** — Giải thích: Các generic lồng nhau phức tạp có thể yêu cầu chỉ định đối số kiểu rõ ràng. Biện pháp thay thế: Cung cấp các tham số kiểu rõ ràng hoặc sử dụng các phương thức bổ trợ.
+- **`new T[10]`** — new T[10]: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Integer`** — Integer: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Class<T>`** — Class<T>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`class MyStringList extends ArrayList<String>`** — class MyStringList extends ArrayList<String>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Giới hạn suy luận kiểu`** — Giới hạn suy luận kiểu: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## 13. Ví Dụ Tổng Hợp
 ```java

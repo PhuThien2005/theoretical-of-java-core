@@ -6,12 +6,12 @@ Tài liệu này trình bày các câu hỏi phỏng vấn Java Core nâng cao l
 
 ## Khung Nội Dung (Outline Coverage)
 
-- **`How are map and flatMap different?`** — `map` biến đổi từng phần tử thành một giá trị đơn lẻ (quan hệ 1-1); `flatMap` biến đổi từng phần tử thành một Stream và làm phẳng chúng lại thành một Stream duy nhất (quan hệ 1-nhiều).
-- **`How are orElse and orElseGet different?`** — `orElse` luôn luôn đánh giá tham số truyền vào; `orElseGet` chỉ đánh giá một cách trì hoãn (lazy) bằng cách sử dụng một `Supplier` khi đối tượng `Optional` rỗng.
-- **`How are HashMap, Hashtable, and ConcurrentHashMap different?`** — `HashMap` không được đồng bộ hóa; `Hashtable` thực hiện khóa trên toàn bộ bảng; `ConcurrentHashMap` sử dụng phân đoạn khóa (lock striping) và các phép toán CAS để đạt hiệu năng đồng thời cao.
-- **`Why must overriding equals() also override hashCode()?`** — Để duy trì ràng buộc rằng các đối tượng bằng nhau thì phải có mã băm bằng nhau, đảm bảo hành vi chính xác trong các bộ sưu tập băm (hash collections).
-- **`How does Garbage Collection work?`** — Thu hồi bộ nhớ của các đối tượng không còn khả năng tiếp cận (unreachable); thông thường sử dụng lý thuyết phân thế hệ chia bộ nhớ heap thành thế hệ Trẻ (Young Gen) và thế hệ Già (Old Gen).
-- **`How are Stack and Heap different?`** — Stack lưu trữ các biến cục bộ và các khung thực thi phương thức (dành riêng cho từng luồng); Heap lưu trữ tất cả các đối tượng và mảng (chia sẻ chung giữa các luồng).
+- **`How are map and flatMap different?`** — How are map and flatMap different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`How are orElse and orElseGet different?`** — How are orElse and orElseGet different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`How are HashMap, Hashtable, and ConcurrentHashMap different?`** — How are HashMap, Hashtable, and ConcurrentHashMap different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Why must overriding equals() also override hashCode()?`** — Why must overriding equals() also override hashCode()?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`How does Garbage Collection work?`** — How does Garbage Collection work?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`How are Stack and Heap different?`** — How are Stack and Heap different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 
@@ -20,8 +20,8 @@ Tài liệu này trình bày các câu hỏi phỏng vấn Java Core nâng cao l
 ### map() vs. flatMap()
 
 Cả hai đều là các hoạt động trung gian của Stream/Optional, nhưng chúng khác nhau về phong cách ánh xạ:
-- **`map`**: Biến đổi `Stream<T>` thành `Stream<R>` bằng cách sử dụng một hàm chuyển đổi `T -> R`.
-- **`flatMap`**: Biến đổi `Stream<T>` thành `Stream<R>` bằng cách sử dụng một hàm chuyển đổi `T -> Stream<R>`. Nó gộp (làm phẳng) nhiều stream con bên trong thành một stream lớn duy nhất bên ngoài.
+- **`map`** — map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`flatMap`** — flatMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ```java
 // map: [ ["a", "b"], ["c"] ] -> [ 2, 1 ] (kích thước của các danh sách con)
@@ -36,8 +36,8 @@ Stream<String> flat = list.stream().flatMap(Collection::stream);
 
 ### Optional: `orElse` vs. `orElseGet`
 
-- **`orElse(T other)`**: Giá trị mặc định `other` được đánh giá **ngay lập tức (eagerly)**, ngay cả khi đối tượng `Optional` không rỗng.
-- **`orElseGet(Supplier<? extends T> other)`**: Giá trị mặc định được đánh giá **trì hoãn (lazily)** (thông qua một biểu thức lambda) chỉ khi đối tượng `Optional` thực sự rỗng.
+- **`orElse(T other)`** — orElse(T other): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`orElseGet(Supplier<? extends T> other)`** — orElseGet(Supplier<? extends T> other): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ```java
 public String getDatabaseValue() {
@@ -54,9 +54,9 @@ optional.orElseGet(() -> getDatabaseValue()); // KHÔNG IN RA (đánh giá trì 
 
 ### HashMap vs. Hashtable vs. ConcurrentHashMap
 
-- **`HashMap`**: Không được đồng bộ hóa, chấp nhận một khóa `null` và nhiều giá trị `null`. Đạt hiệu năng cao cho các ứng dụng đơn luồng hoặc khi được đồng bộ hóa từ bên ngoài.
-- **`Hashtable`**: Lớp di sản cổ điển. Đồng bộ hóa tất cả các phương thức trên toàn bộ thực thể map, dẫn đến hiệu năng đồng thời kém. Từ chối các khóa/giá trị `null`.
-- **`ConcurrentHashMap`**: Hỗ trợ đồng thời cao. Từ Java 8+, nó kết hợp các phép toán So sánh và Tráo đổi (Compare-And-Swap - CAS) cùng khối khóa `synchronized` ở cấp độ từng thùng/nút (cơ chế phân đoạn khóa - lock striping), cho phép nhiều luồng cùng đọc và ghi trên các thùng khác nhau mà không gây nghẽn. Từ chối các khóa/giá trị `null`.
+- **`HashMap`** — HashMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Hashtable`** — Hashtable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`ConcurrentHashMap`** — ConcurrentHashMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

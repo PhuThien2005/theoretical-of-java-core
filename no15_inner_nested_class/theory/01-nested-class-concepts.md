@@ -213,7 +213,6 @@ Long-lived reference holds inner class instance -> inner class instance retains 
 
 ---
 
-
 ### Local inner class
 
 A **local inner class** is defined within a block of code, typically inside a method body. Its scope is restricted entirely to that block.

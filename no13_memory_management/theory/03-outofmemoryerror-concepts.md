@@ -8,7 +8,7 @@ This file covers a focused slice of **Java Memory Management**. Study each conce
 
 | Concept | What to know |
 | --- | --- |
-| `OutOfMemoryError` |OutOfMemoryError is a specific concept in Java Memory Management; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `OutOfMemoryError` |`OutOfMemoryError` — Thrown when the JVM cannot allocate an object due to insufficient heap or native memory. |
 | `StackOverflowError` | Stack stores method frames, local variables, and call flow for each thread. |
 
 ## Detailed Notes
@@ -20,9 +20,9 @@ This file covers a focused slice of **Java Memory Management**. Study each conce
 #### JVM Rule
 - OOM is an **Error** (extends `java.lang.VirtualMachineError`), indicating a fatal system failure that standard applications should not catch or attempt to recover from.
 - It can occur in different memory regions, signaled by the error message:
-  - **`java.lang.OutOfMemoryError: Java heap space`**: The heap is full of reachable objects.
-  - **`java.lang.OutOfMemoryError: GC OverLimit exceeded`**: The GC is spending too much time (98%) reclaiming too little memory (<2%).
-  - **`java.lang.OutOfMemoryError: Metaspace`**: Metaspace native memory is exhausted due to excessive class loading.
+- **`java.lang.OutOfMemoryError: Java heap space`** — java.lang.OutOfMemoryError: Java heap space: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`java.lang.OutOfMemoryError: GC OverLimit exceeded`** — java.lang.OutOfMemoryError: GC OverLimit exceeded: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`java.lang.OutOfMemoryError: Metaspace`** — java.lang.OutOfMemoryError: Metaspace: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **Diagnostics**: Use `-XX:+HeapDumpOnOutOfMemoryError` and `-XX:HeapDumpPath` to generate a `.hprof` binary file for heap analysis when OOM occurs.
 
 #### Code Example: OutOfMemoryError Scenario

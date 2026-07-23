@@ -6,11 +6,11 @@ File này bao quát một phần tập trung của **Optional** (lớp tùy ch�
 
 ## Phạm Vi Đề Cương
 
-- **`map`** — `map` biến đổi giá trị được bọc nếu hiện diện và bọc kết quả trở lại thành Optional.
-- **`flatMap`** — `flatMap` biến đổi giá trị được bọc bằng hàm ánh xạ trả về Optional, tránh lồng nhau.
-- **`filter`** — `filter` là khái niệm cụ thể trong Optional; hãy học quy tắc Java, trường hợp dùng hợp lệ và chế độ thất bại.
-- **`Do not overuse Optional`** — Optional là container có thể chứa hoặc không chứa một giá trị khác null.
-- **`Optional in return type`** — Optional là container có thể chứa hoặc không chứa một giá trị khác null.
+- **`map`** — map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`flatMap`** — flatMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`filter`** — filter: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Do not overuse Optional`** — Do not overuse Optional: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Optional in return type`** — Optional in return type: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 
@@ -29,7 +29,6 @@ Kiểm tra thực tế:
 Ví dụ nhỏ hoặc mô hình tư duy:
 
 - `opt.map(String::toUpperCase)`
-
 
 #### Giải Thích Chi Tiết
 `map(Function<? super T, ? extends U> mapper)` dùng để biến đổi giá trị bên trong `Optional`. Nếu giá trị hiện diện, nó áp dụng hàm ánh xạ lên giá trị đó. Nếu hàm ánh xạ trả về giá trị khác null, nó trả về `Optional` chứa kết quả đó. Nếu `Optional` rỗng hoặc mapper trả về `null`, nó trả về `Optional` rỗng.
@@ -72,7 +71,6 @@ Kiểm tra thực tế:
 Ví dụ nhỏ hoặc mô hình tư duy:
 
 - `optUser.flatMap(User::getEmail)`
-
 
 #### Giải Thích Chi Tiết
 `flatMap(Function<? super T, ? extends Optional<? extends U>> mapper)` tương tự `map`, nhưng dùng khi hàm ánh xạ trả về `Optional`. Thay vì bọc `Optional` trả về vào một `Optional` khác, `flatMap` làm phẳng kết quả bằng cách trả về trực tiếp `Optional` của mapper.
@@ -119,8 +117,8 @@ Sự khác biệt cốt lõi giữa `map()` và `flatMap()` là cách chúng x�
 
 ### Mô Hình Tư Duy: Phép Ẩn Dụ Hộp Lồng Nhau
 
-- **`map` (Tự Động Bọc)**: Bạn mở một hộp (Optional gốc), lấy vật phẩm ra, áp dụng thay đổi, và trình biên dịch tự động đặt vật phẩm đã thay đổi vào hộp mới. Nếu vật phẩm bạn lấy ra đã nằm trong hộp nhỏ hơn, bạn sẽ có hộp bên trong hộp.
-- **`flatMap` (Làm Phẳng Thủ Công)**: Bạn mở hộp, lấy vật phẩm (đã nằm trong hộp nhỏ riêng của nó), áp dụng thay đổi, và trả về hộp nhỏ đó trực tiếp. Hộp ngoài bị loại bỏ, vì vậy bạn chỉ có một cấp độ bao bọc duy nhất.
+- **`map`** — map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`flatMap`** — flatMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ```mermaid
 flowchart LR

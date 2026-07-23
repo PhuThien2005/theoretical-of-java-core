@@ -6,8 +6,8 @@ Tài liệu này trình bày các khái niệm về Sequenced Collections và St
 
 ## Khái Quát Nội Dung (Outline Coverage)
 
-- **`Sequenced Collections`** — Các giao diện được giới thiệu trong Java 21 đại diện cho các bộ sưu tập có thứ tự gặp gỡ được xác định (defined encounter order).
-- **`String templates were once preview; currently they should not be used as a stable feature`** — Trạng thái và các giải pháp thay thế cho tính năng xem trước Mẫu chuỗi (String Templates) đã bị loại bỏ của Java 21.
+- **`Sequenced Collections`** — Sequenced Collections: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`String templates were once preview; currently they should not be used as a stable feature`** — String templates were once preview; currently they should not be used as a stable feature: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

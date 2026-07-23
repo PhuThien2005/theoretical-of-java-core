@@ -34,7 +34,7 @@ Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `meta-annotation` thay 
 
 ## Phạm Vi Tồn Tại (Retention)
 
-`retention` là một khái niệm cụ thể trong Annotation; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+**`retention`** — Xác định vòng đời lưu trữ của annotation (SOURCE, CLASS, hoặc RUNTIME).
 
 Tại sao điều này quan trọng: Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 
@@ -44,7 +44,7 @@ Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `retention` thay đổi
 
 ## Đối Tượng Áp Dụng (Target)
 
-`target` là một khái niệm cụ thể trong Annotation; hãy tìm hiểu quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại của nó thay vì chỉ nhớ mỗi tên gọi.
+**`target`** — Xác định vị trí phần tử Java (TYPE, METHOD, FIELD...) được phép áp dụng chú thích.
 
 Tại sao điều này quan trọng: Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 

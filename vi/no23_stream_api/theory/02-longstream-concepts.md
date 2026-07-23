@@ -6,14 +6,14 @@ Tài liệu này trình bày một phần trọng tâm của **Stream API**. Hã
 
 ## Nội Dung Khái Quát
 
-- **`LongStream`** — Luồng (Stream) là một đường ống (pipeline) để xử lý các phần tử thông qua các thao tác trì hoãn (lazy operations).
-- **`DoubleStream`** — Luồng là một đường ống để xử lý các phần tử thông qua các thao tác trì hoãn.
-- **`Intermediate operations:`** — Các thao tác trung gian (intermediate operations) là một nhóm các quy tắc liên quan trong Stream API nhằm gom nhóm một số chi tiết liên quan.
-- **`filter`** — Bộ lọc (filter) là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và trạng thái lỗi (failure mode) của nó thay vì chỉ nhớ mỗi tên gọi.
-- **`map`** — Bản đồ (Map) lưu trữ các cặp khóa - giá trị (key-value pairs) và truy xuất các giá trị theo khóa.
-- **`flatMap`** — Bản đồ lưu trữ các cặp khóa - giá trị và truy xuất các giá trị theo khóa.
-- **`distinct`** — Loại bỏ trùng lặp (distinct) là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và trạng thái lỗi của nó thay vì chỉ nhớ mỗi tên gọi.
-- **`sorted`** — Sắp xếp (sorted) là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và trạng thái lỗi của nó thay vì chỉ nhớ mỗi tên gọi.
+- **`LongStream`** — LongStream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`DoubleStream`** — DoubleStream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Intermediate operations:`** — Intermediate operations:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`filter`** — filter: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`map`** — map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`flatMap`** — flatMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`distinct`** — distinct: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`sorted`** — sorted: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 
@@ -90,7 +90,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### Bộ lọc (filter)
 
-`filter` là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và trạng thái lỗi của nó thay vì chỉ nhớ mỗi tên gọi.
+**`filter`** — filter: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được phép và trạng thái lỗi. Hãy ôn tập nó bằng một ví dụ nhỏ thay vì chỉ ghi nhớ mỗi nhãn tên.
 
@@ -157,12 +157,12 @@ nestedList.stream()
 ### Ví Dụ Thực Tế: So sánh chi tiết flatMap và map
 
 #### Sự khác biệt về chữ ký phương thức (signatures) và kiểu trả về (return types)
-- **`map`**: Nhận một `Function<T, R>` ánh xạ một phần tử kiểu `T` thành một phần tử kiểu `R`. Trả về `Stream<R>`.
-- **`flatMap`**: Nhận một `Function<T, Stream<R>>` ánh xạ một phần tử kiểu `T` thành một `Stream<R>`. Sau đó, nó "làm phẳng" (flatten) các luồng riêng lẻ này thành một `Stream<R>` hợp nhất duy nhất.
+- **`map`** — map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`flatMap`** — flatMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 #### Khi nào nên sử dụng phương thức nào?
-- Sử dụng **`map`** cho các phép biến đổi một-đối-một (one-to-one transformations) đơn giản (ví dụ: biến đổi một chuỗi thành độ dài của nó, chuyển đổi một đối tượng thành định danh của nó).
-- Sử dụng **`flatMap`** khi mỗi phần tử ánh xạ tới một bộ sưu tập (collection)/mảng (array)/luồng, hoặc khi làm việc với các cấu trúc lồng nhau (nested structures) (ví dụ: trích xuất danh sách đơn hàng từ danh sách khách hàng).
+- **`map`** — map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`flatMap`** — flatMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 #### Trực quan hóa việc làm phẳng
 Nếu chúng ta có một luồng của các luồng:
@@ -182,7 +182,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### Loại bỏ trùng lặp (distinct)
 
-`distinct` là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và trạng thái lỗi của nó thay vì chỉ nhớ mỗi tên gọi.
+**`distinct`** — distinct: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được phép và trạng thái lỗi. Hãy ôn tập nó bằng một ví dụ nhỏ thay vì chỉ ghi nhớ mỗi nhãn tên.
 
@@ -206,7 +206,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### Sắp xếp (sorted)
 
-`sorted` là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và trạng thái lỗi của nó thay vì chỉ nhớ mỗi tên gọi.
+**`sorted`** — sorted: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được phép và trạng thái lỗi. Hãy ôn tập nó bằng một ví dụ nhỏ thay vì chỉ ghi nhớ mỗi nhãn tên.
 

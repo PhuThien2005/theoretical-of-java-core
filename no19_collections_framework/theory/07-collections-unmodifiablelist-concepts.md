@@ -81,11 +81,11 @@ public class SynchronizedListDemo {
 
 ### Arrays Utility Class
 
-- **`Arrays.sort()`**: In-place sorting.
-- **`Arrays.binarySearch()`**: Requires the array to be sorted.
+- **`Arrays.sort()`** — Arrays.sort(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Arrays.binarySearch()`** — Arrays.binarySearch(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - **Rule**: If the element is found, it returns the index. If not found, it returns `-(insertion point) - 1`.
-- **`Arrays.asList()`**: Wraps an array into a fixed-size list.
-- **`Arrays.equals()` vs `Arrays.deepEquals()`**: `equals()` compares reference elements of 1D arrays; `deepEquals()` recursively compares sub-arrays in multi-dimensional arrays.
+- **`Arrays.asList()`** — Arrays.asList(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Arrays.equals()`** — Arrays.equals(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 **Runnable Code Example:**
 ```java

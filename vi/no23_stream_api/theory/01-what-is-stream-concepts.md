@@ -6,14 +6,14 @@ File này đề cập đến một phần trọng tâm của **Stream API**. Hã
 
 ## Đề Cương Khái Niệm
 
-- **`Stream là gì?`** — Một Stream là một đường ống (pipeline) để xử lý các phần tử thông qua các hoạt động lười (lazy operation).
-- **`Stream so với Collection`** — Một tập hợp là một đối tượng nhóm nhiều phần tử lại với nhau dưới một API chung.
-- **`Tạo Stream:`** — Một Stream là một đường ống để xử lý các phần tử thông qua các hoạt động lười.
-- **`Từ List`** — Một List là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí.
-- **`Từ Array`** — từ Array là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại (failure mode) của nó thay vì chỉ nhớ mỗi tên gọi.
-- **`Từ Map`** — Một Map lưu trữ các cặp khóa-giá trị và truy xuất các giá trị bằng khóa.
-- **`Stream.of`** — Một Stream là một đường ống để xử lý các phần tử thông qua các hoạt động lười.
-- **`IntStream`** — Một Stream là một đường ống để xử lý các phần tử thông qua các hoạt động lười.
+- **`Stream là gì?`** — Stream là gì?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Stream so với Collection`** — Stream so với Collection: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Tạo Stream:`** — Tạo Stream:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Từ List`** — Từ List: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Từ Array`** — Từ Array: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Từ Map`** — Từ Map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Stream.of`** — Stream.of: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`IntStream`** — IntStream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 
@@ -122,7 +122,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### Từ Array
 
-từ Array là một khái niệm cụ thể trong Stream API; hãy học quy tắc Java, các trường hợp sử dụng hợp lệ và chế độ thất bại (failure mode) của nó thay vì chỉ nhớ mỗi tên gọi.
+**`từ Array`** — từ Array: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 

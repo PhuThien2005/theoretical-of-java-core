@@ -88,7 +88,6 @@ $ java HelloWorld
 ### Cause-Effect Chain
 Developer writes `.java` source code $\rightarrow$ JDK's `javac` compiles it into `.class` bytecode $\rightarrow$ Production server only receives `.class` bytecode $\rightarrow$ JRE's `java` launcher launches JVM to execute the bytecode $\rightarrow$ Server runs the application securely without compiler overhead.
 
-
 ## Relationship
 
 ```mermaid

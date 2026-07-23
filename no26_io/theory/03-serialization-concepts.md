@@ -206,7 +206,6 @@ Untrusted byte stream received
         ↳ Reflective method execution -> ProcessBuilder spawned -> System RCE compromised
 ```
 
-
 ### Serializing and Deserializing Code Example
 We write the object using `ObjectOutputStream` and read it back using `ObjectInputStream`.
 

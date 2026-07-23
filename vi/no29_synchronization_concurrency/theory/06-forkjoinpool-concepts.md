@@ -6,8 +6,8 @@ Tài liệu này trình bày về khung Fork/Join (`ForkJoinPool`, `RecursiveTas
 
 ## Nội Dung Tổng Quan
 
-- **`ForkJoinPool`** — Một bể chứa trình thực thi (executor pool) chuyên dụng được thiết kế cho các tác vụ chia để trị (divide-and-conquer) bằng cách sử dụng thuật toán trộm công việc (work-stealing algorithm).
-- **`Parallel Stream`** — Một chế độ thực thi luồng chia nhỏ dữ liệu của luồng và thực thi song song các giai đoạn xử lý, sử dụng `ForkJoinPool` chung.
+- **`ForkJoinPool`** — ForkJoinPool: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Parallel Stream`** — Parallel Stream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

@@ -6,14 +6,14 @@ File này đề cập đến Lock API tường minh của Java (`Lock`, `Reentra
 
 ## Đề Cương Khái Niệm
 
-- **`AtomicReference`** — Cung cấp các hoạt động nguyên tử, không dùng khóa (lock-free) trên các tham chiếu đối tượng bằng cách sử dụng Compare-And-Swap.
-- **`Lock API:`** — Framework `java.util.concurrent.locks` cung cấp các khả năng khóa linh hoạt và mạnh mẽ hơn các khối `synchronized`.
-- **`Lock`** — Giao diện gốc định nghĩa các hoạt động tranh chấp khóa (`lock()`, `tryLock()`, `unlock()`).
-- **`ReentrantLock`** — Một khóa loại trừ tương hỗ (mutual exclusion lock) có cùng hành vi như các khóa monitor nội tại (intrinsic monitor lock), nhưng cung cấp các tính năng như tính công bằng (fairness), thời gian chờ (timeout), và tranh chấp khóa có thể bị gián đoạn (interruptible lock acquisition).
-- **`ReadWriteLock`** — Một cặp khóa cho phép nhiều luồng đọc đồng thời, nhưng hạn chế quyền truy cập ghi độc quyền cho duy nhất một luồng.
-- **`StampedLock`** — Một khóa nâng cao có ba chế độ (write, read, optimistic read) và xác thực dựa trên dấu vết (stamp). Nó **không** hỗ trợ khả năng reentrant.
-- **`Semaphore`** — Một bộ đồng bộ hóa duy trì một tập hợp các giấy phép (permits) để giới hạn quyền truy cập đồng thời vào một nhóm tài nguyên (resource pool).
-- **`CountDownLatch`** — Một công cụ hỗ trợ đồng bộ hóa cho phép một hoặc nhiều luồng chờ cho đến khi một tập hợp các hoạt động được thực hiện trong các luồng khác hoàn thành.
+- **`AtomicReference`** — AtomicReference: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Lock API:`** — Lock API:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Lock`** — Lock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`ReentrantLock`** — ReentrantLock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`ReadWriteLock`** — ReadWriteLock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`StampedLock`** — StampedLock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Semaphore`** — Semaphore: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`CountDownLatch`** — CountDownLatch: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

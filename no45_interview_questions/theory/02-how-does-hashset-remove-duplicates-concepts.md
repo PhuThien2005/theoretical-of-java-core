@@ -40,12 +40,12 @@ public class HashSet<E> {
 
 ### final vs. finally vs. finalize()
 
-- **`final`**: A modifier keyword:
+- **`final`** — final: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - **Variable**: Reassignment is prohibited (constant).
   - **Method**: Cannot be overridden by subclasses.
   - **Class**: Cannot be extended (e.g., `String`, `Integer`).
-- **`finally`**: A block used in `try-catch-finally` constructs. It guarantees execution regardless of whether an exception is thrown or caught, making it ideal for cleaning up resources.
-- **`finalize()`**: A method in `java.lang.Object`. Historically called by the Garbage Collector before reclaiming memory. It is **deprecated** since Java 9 because it is unpredictable, slow, and prone to resource leaks.
+- **`finally`** — finally: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`finalize()`** — finalize(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 
@@ -113,8 +113,8 @@ No, constructors are not inherited by subclasses.
 
 ### this vs. super
 
-- **`this`**: Represents the current class instance pointer. Used to call class constructors (`this()`), refer to instance variables when shadowed by parameters (`this.name = name`), or pass the current object as a parameter.
-- **`super`**: Represents the parent class instance context. Used to call parent class constructors (`super()`) or access overridden parent methods (`super.doWork()`).
+- **`this`** — this: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`super`** — super: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

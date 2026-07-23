@@ -452,7 +452,6 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ---
 
-
 ## no08_string — 2026-06-25
 
 ### Files Modified
@@ -497,7 +496,6 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 - Before: Missing Self-Check section.
 - After: 6/6 PASS
 
-
 ## no38_build_compile_run — 2026-06-25
 
 ### Files Modified
@@ -516,7 +514,6 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 ---
 
 ## no33_module_system — 2026-06-25
-
 
 ### Files Modified
 - `theory/01-what-is-a-module-concepts.md`: Rewrote entirely to explain strong encapsulation, Project Jigsaw, reliable configuration, `exports` vs `opens` (reflective access differences), modular vs flat classloading, and automatic/unnamed modules migration. Added analogies, Mermaid diagrams, and cause-effect chains.
@@ -564,7 +561,6 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 - Before: 0/6 PASS, 4/6 PARTIAL, 2/6 FAIL
 - After: 6/6 PASS
 
-
 ## no00_setup — 2026-06-25
 
 ### Files Created
@@ -580,7 +576,6 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 ### Self-Check Coverage
 - Before: 0/3 PASS, 0/3 PARTIAL, 3/3 FAIL (no theory existed)
 - After: 3/3 PASS
-
 
 ## no03_data_types — 2026-06-25
 
@@ -612,7 +607,6 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 ### Self-Check Coverage
 - Before: Missing Self-Check section.
 - After: 7/7 PASS
-
 
 ## no02_basic_syntax — 2026-06-25
 
@@ -725,7 +719,6 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 
 ## no07_arrays — 2026-06-25
 
-
 ### Files Modified
 - `theory/01-array-basics.md`: Added "Why Array Elements are Automatically Zero-Initialized" (detailing stack frame reuse vs. heap memory security, zero-filling, safety guarantees) and "Why Arrays Have Fixed Size and Contiguous Memory Layout" (detailing heap contiguous blocks, direct access offset math, O(1) performance limits, and ArrayList resizing mechanics). Added "Why Multidimensional Arrays are Arrays of Arrays" (detailing ragged/jagged array heap references representation, memory layout flexibility, and JVM representation simplification). Added Reference Links section.
 - `theory/02-array-operations.md`: Added "Why System.arraycopy is Performant and Shallow" (native execution, OS/hardware memmove, loop overhead bypass, reference address copy vs underlying duplication). Added "Why Binary Search Requires Sorted Arrays and How Its Return Code Math Works" (halving assumptions, sorted contract requirement, negative insertionPoint offset math to avoid 0 index collision). Added "Why Arrays.equals Fails on Multidimensional Arrays" (single-level reference comparison vs nested value traversal with deepEquals). Added Reference Links section.
@@ -754,6 +747,4 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 ### Self-Check Coverage
 - Before: Missing Self-Check section, skeletal key terms, and 91 generic template-generated Anki card warnings.
 - After: 5/5 PASS, 0 quality warnings.
-
-
 

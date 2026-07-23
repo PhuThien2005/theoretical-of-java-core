@@ -8,48 +8,20 @@ This file covers a focused slice of **Advanced JVM**. Study each concept as a pr
 
 | Concept | What to know |
 | --- | --- |
-| `Execution Engine` |Execution Engine is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Interpreter` |Interpreter is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Execution Engine` |`Execution Engine` — JVM component that executes bytecode via Interpreter and JIT Compiler. |
+| `Interpreter` |`Interpreter` — Interpreter provides specific functionality and rules in Java development. |
 | `JIT Compiler` | The JIT compiler turns hot bytecode into optimized machine code at runtime. |
-| `Garbage Collector` |Garbage Collector is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Native Interface` |Native Interface is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Garbage Collector` |`Garbage Collector` — Garbage Collector provides specific functionality and rules in Java development. |
+| `Native Interface` |`Native Interface` — Native Interface provides specific functionality and rules in Java development. |
 | `Heap generation:` | Heap generation separates objects by age to optimize garbage collection efficiency. |
-| `Young Generation` |Young Generation is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Eden` |Eden is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Young Generation` |`Young Generation` — Young Generation provides specific functionality and rules in Java development. |
+| `Eden` |`Eden` — Eden provides specific functionality and rules in Java development. |
 
 ## Detailed Notes
 
 ### Execution Engine
 
-Execution Engine is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Execution Engine` in one sentence.
-- Recognize `Execution Engine` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Execution Engine`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Execution Engine` change, allow, reject, or clarify?
-
 ### Interpreter
-
-Interpreter is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Interpreter` in one sentence.
-- Recognize `Interpreter` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Interpreter`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Interpreter` change, allow, reject, or clarify?
 
 ### JIT Compiler
 
@@ -69,35 +41,7 @@ Tiny example or mental model:
 
 ### Garbage Collector
 
-Garbage Collector is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Garbage Collector` in one sentence.
-- Recognize `Garbage Collector` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Garbage Collector`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Garbage Collector` change, allow, reject, or clarify?
-
 ### Native Interface
-
-Native Interface is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Native Interface` in one sentence.
-- Recognize `Native Interface` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Native Interface`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Native Interface` change, allow, reject, or clarify?
 
 ### Heap generation:
 
@@ -117,35 +61,7 @@ Tiny example or mental model:
 
 ### Young Generation
 
-Young Generation is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Young Generation` in one sentence.
-- Recognize `Young Generation` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Young Generation`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Young Generation` change, allow, reject, or clarify?
-
 ### Eden
-
-Eden is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Eden` in one sentence.
-- Recognize `Eden` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Eden`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Eden` change, allow, reject, or clarify?
 
 ## Code Examples
 

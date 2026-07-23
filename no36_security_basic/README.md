@@ -43,7 +43,6 @@ Before moving to the next topic, verify that you can answer these questions:
 5. Why should sensitive data (like passwords) be stored in `char[]` rather than `String`, and what JVM memory mechanism makes `String` retention a security liability?
    &rarr; See [Why Passwords Must Not Be Stored in Strings](theory/01-basic-secure-coding-concepts.md#why-passwords-must-not-be-stored-in-strings)
 
-
 ```mermaid
 flowchart TD
     A[Basic Security] --> B[Definitions]

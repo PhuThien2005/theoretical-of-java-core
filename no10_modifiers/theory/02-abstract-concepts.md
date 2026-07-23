@@ -12,8 +12,8 @@ This file covers a focused slice of **Modifiers in Java**. Study each concept as
 | `synchronized` | Synchronized protects a critical section by using a monitor lock. |
 | `volatile` | Volatile gives visibility guarantees for a variable shared between threads, but it does not make compound operations atomic. |
 | `transient` | Transient marks a field that should be skipped during Java serialization. |
-| `native` |native is a specific concept in Modifiers in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `strictfp` |strictfp is a specific concept in Modifiers in Java; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `native` |`native` — native modifier indicates that a method is implemented in platform-dependent native code (C/C++) via JNI. |
+| `strictfp` |`strictfp` — strictfp restricts floating-point calculations to ensure exact IEEE 754 portability across platforms. |
 | `Static variable` | Static means the member belongs to the class rather than to one particular object. |
 | `Static method` | Static means the member belongs to the class rather than to one particular object. |
 
@@ -152,7 +152,6 @@ public class ReentrantDemo {
 - **Secondary Effect**: Nested synchronized calls on the same object proceed safely without self-deadlock.
 - **Ultimate Outcome**: Thread-safe execution is achieved while avoiding recursive blocking states.
 
-
 ### volatile
 
 Volatile gives visibility guarantees for a variable shared between threads, but it does not make compound operations atomic.
@@ -244,54 +243,13 @@ public class VolatileCounter implements Runnable {
 - **Secondary Effect**: Reads and writes sync directly with main memory, guaranteeing visibility of updates.
 - **Ultimate Outcome**: Thread visibility is achieved, but multi-step operations remain non-atomic without synchronization.
 
-
 ### transient
 
 Transient marks a field that should be skipped during Java serialization.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `transient` in one sentence.
-- Recognize `transient` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `transient`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `transient` change, allow, reject, or clarify?
-
 ### native
 
-native is a specific concept in Modifiers in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `native` in one sentence.
-- Recognize `native` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `native`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `native` change, allow, reject, or clarify?
-
 ### strictfp
-
-strictfp is a specific concept in Modifiers in Java; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `strictfp` in one sentence.
-- Recognize `strictfp` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `strictfp`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `strictfp` change, allow, reject, or clarify?
 
 ### Static variable
 
@@ -356,7 +314,6 @@ public class Counter {
 - **Immediate Effect**: Memory is allocated within Metaspace during class loading, before object instantiation.
 - **Secondary Effect**: Only a single copy of the variable exists, accessible via the class name or any instance reference.
 - **Ultimate Outcome**: All instances share access to the same memory address, facilitating shared class-level state.
-
 
 ### Static method
 

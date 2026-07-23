@@ -24,18 +24,6 @@ This file covers a focused slice of **Package and Access Control**. Study each c
 
 A package groups related classes and gives them a namespace.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `What is a package?` in one sentence.
-- Recognize `What is a package?` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `What is a package?`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `What is a package?` change, allow, reject, or clarify?
-
 #### Enriched Details & Code Example
 A package is a grouping of related types (classes, interfaces, enums, annotations) providing access protection and namespace management. It solves naming conflicts by prefixing class names with package names.
 
@@ -86,18 +74,6 @@ public class NamespaceDemo {
 
 A package groups related classes and gives them a namespace.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Create package` in one sentence.
-- Recognize `Create package` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Create package`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Create package` change, allow, reject, or clarify?
-
 #### Enriched Details & Code Example
 A package is declared using the `package` statement. It must be the very first non-whitespace, non-comment statement in the Java source file. The physical directory path of the source and class files must mirror the package namespace structure.
 
@@ -144,18 +120,6 @@ public class MathUtils {
 ### Import package
 
 A package groups related classes and gives them a namespace.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Import package` in one sentence.
-- Recognize `Import package` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Import package`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Import package` change, allow, reject, or clarify?
 
 #### Enriched Details & Code Example
 To use a class from another package without its fully qualified name, use the `import` statement.
@@ -254,18 +218,6 @@ public class StaticCollision {
 
 A package groups related classes and gives them a namespace.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Default package` in one sentence.
-- Recognize `Default package` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Default package`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Default package` change, allow, reject, or clarify?
-
 #### Enriched Details & Code Example
 If a source file does not have a `package` statement, it belongs to the unnamed **default package**.
 
@@ -315,18 +267,6 @@ public class App {
 
 A package groups related classes and gives them a namespace.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Package naming convention` in one sentence.
-- Recognize `Package naming convention` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Package naming convention`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Package naming convention` change, allow, reject, or clarify?
-
 #### Enriched Details & Code Example
 Package names are always written in lowercase to avoid naming conflicts with classes. They use reversed internet domain names as a prefix to ensure uniqueness across different organizations.
 
@@ -341,18 +281,6 @@ public class Controller {
 ### Access between packages
 
 A package groups related classes and gives them a namespace.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Access between packages` in one sentence.
-- Recognize `Access between packages` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Access between packages`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Access between packages` change, allow, reject, or clarify?
 
 #### Enriched Details & Code Example
 Java has four access levels:
@@ -434,18 +362,6 @@ public class App {
 
 Classpath tells the JVM and compiler where to find classes and JARs.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Classpath` in one sentence.
-- Recognize `Classpath` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Classpath`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Classpath` change, allow, reject, or clarify?
-
 #### Enriched Details & Code Example
 The classpath tells the compiler (`javac`) and the JVM (`java`) where to find user-defined classes and packages. It can be specified via the `CLASSPATH` environment variable or the `-cp` / `-classpath` command line flags.
 
@@ -460,18 +376,6 @@ java -cp "lib/*:bin" com.example.Main
 ### Basic module path
 
 Module path is the module-system-aware alternative to classpath for named modules.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Basic module path` in one sentence.
-- Recognize `Basic module path` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Basic module path`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Basic module path` change, allow, reject, or clarify?
 
 #### Enriched Details & Code Example
 Introduced in Java 9, the module path (`--module-path` or `-p`) is the modular alternative to the classpath. It specifies the location of application and library modules. Unlike the classpath, it enforces strong encapsulation and checks module dependencies at startup.

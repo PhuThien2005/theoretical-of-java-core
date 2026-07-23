@@ -8,34 +8,20 @@ This file covers a focused slice of **Basic Security**. Study each concept as a 
 
 | Concept | What to know |
 | --- | --- |
-| `Basic secure coding` |Basic secure coding is a specific concept in Basic Security; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Basic secure coding` |`Basic secure coding` — Practices ensuring software resilience against security exploits and vulnerabilities. |
 | `Hashing` | Hashing maps input data to a fixed-size digest and is one-way in normal use. |
-| `MessageDigest` |MessageDigest is a specific concept in Basic Security; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `SHA-256` |SHA-256 is a specific concept in Basic Security; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Base64` |Base64 is a specific concept in Basic Security; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Basic encryption/decryption` |Basic encryption/decryption is a specific concept in Basic Security; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `KeyStore` |KeyStore is a specific concept in Basic Security; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Basic SSL/TLS` |Basic SSL/TLS is a specific concept in Basic Security; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Input validation` |Input validation is a specific concept in Basic Security; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `MessageDigest` |`MessageDigest` — Provides cryptographic hash algorithm functionality (e.g., SHA-256, MD5). |
+| `SHA-256` |`SHA-256` — Cryptographic hash algorithm producing a 256-bit (32-byte) hash value. |
+| `Base64` |`Base64` — Binary-to-text encoding scheme representing binary data in ASCII format. |
+| `Basic encryption/decryption` |`Basic encryption/decryption` — Symmetric and asymmetric encryption algorithms securing data at rest and in transit. |
+| `KeyStore` |`KeyStore` — Secure storage repository for cryptographic keys and public key certificates. |
+| `Basic SSL/TLS` |`Basic SSL/TLS` — Cryptographic protocols providing secure, encrypted communications over a network. |
+| `Input validation` |`Input validation` — Sanitizing and validating untrusted user input to prevent security exploits. |
 | `Avoid SQL Injection` | SQL injection happens when untrusted input changes the meaning of a SQL command. |
 
 ## Detailed Notes
 
 ### Basic secure coding
-
-Basic secure coding is a specific concept in Basic Security; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Basic secure coding` in one sentence.
-- Recognize `Basic secure coding` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Basic secure coding`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Basic secure coding` change, allow, reject, or clarify?
 
 ### Hashing
 
@@ -55,131 +41,21 @@ Tiny example or mental model:
 
 ### MessageDigest
 
-MessageDigest is a specific concept in Basic Security; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `MessageDigest` in one sentence.
-- Recognize `MessageDigest` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `MessageDigest`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `MessageDigest` change, allow, reject, or clarify?
-
 ### SHA-256
-
-SHA-256 is a specific concept in Basic Security; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `SHA-256` in one sentence.
-- Recognize `SHA-256` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `SHA-256`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `SHA-256` change, allow, reject, or clarify?
 
 ### Base64
 
-Base64 is a specific concept in Basic Security; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Base64` in one sentence.
-- Recognize `Base64` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Base64`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Base64` change, allow, reject, or clarify?
-
 ### Basic encryption/decryption
-
-Basic encryption/decryption is a specific concept in Basic Security; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Basic encryption/decryption` in one sentence.
-- Recognize `Basic encryption/decryption` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Basic encryption/decryption`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Basic encryption/decryption` change, allow, reject, or clarify?
 
 ### KeyStore
 
-KeyStore is a specific concept in Basic Security; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `KeyStore` in one sentence.
-- Recognize `KeyStore` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `KeyStore`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `KeyStore` change, allow, reject, or clarify?
-
 ### Basic SSL/TLS
 
-Basic SSL/TLS is a specific concept in Basic Security; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Basic SSL/TLS` in one sentence.
-- Recognize `Basic SSL/TLS` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Basic SSL/TLS`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Basic SSL/TLS` change, allow, reject, or clarify?
-
 ### Input validation
-
-Input validation is a specific concept in Basic Security; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Input validation` in one sentence.
-- Recognize `Input validation` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Input validation`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Input validation` change, allow, reject, or clarify?
 
 ### Avoid SQL Injection
 
 SQL injection happens when untrusted input changes the meaning of a SQL command.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Avoid SQL Injection` in one sentence.
-- Recognize `Avoid SQL Injection` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Avoid SQL Injection`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Avoid SQL Injection` change, allow, reject, or clarify?
 
 ## Common Review Prompts
 
@@ -327,7 +203,6 @@ Base64("Hello") = "SGVsbG8="  ← Anyone can decode this
      v
 Base64.decode("SGVsbG8=") = "Hello"  ← Trivially reversible
 
-
 [AES Encryption — Requires Secret Key]
 Plaintext: "Hello"  + Secret Key (256 bits) + IV
      |
@@ -376,7 +251,6 @@ Java's `java.util.Random` is a Linear Congruential Generator (LCG), a pseudorand
 seed = 12345
 Random output sequence: 6, 3, 1, 8, 2, 7, ...
 Attacker observes 3 outputs → Reconstructs seed → Predicts all future outputs
-
 
 [java.security.SecureRandom — Unpredictable]
 Entropy pool: keyboard timings, hardware interrupts, /dev/urandom

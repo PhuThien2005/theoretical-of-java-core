@@ -6,8 +6,8 @@ Tài liệu này bao gồm một phần nội dung trọng tâm về **Quản l�
 
 ## Đề Cương Nội Dung (Outline Coverage)
 
-- **`OutOfMemoryError`** — OutOfMemoryError là một khái niệm cụ thể trong Quản lý bộ nhớ Java; hãy học quy tắc Java của nó, các trường hợp sử dụng hợp lệ và chế độ lỗi thay vì chỉ nhớ mỗi tên gọi.
-- **`StackOverflowError`** — Ngăn xếp (Stack) lưu trữ các khung phương thức (method frame), các biến cục bộ (local variable) và luồng gọi hàm cho từng luồng thực thi (thread).
+- **`OutOfMemoryError`** — Ngoại lệ nghiêm trọng xảy ra khi JVM không thể cấp phát bộ nhớ heap/native.
+- **`StackOverflowError`** — StackOverflowError: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 
@@ -18,9 +18,9 @@ Tài liệu này bao gồm một phần nội dung trọng tâm về **Quản l�
 #### Quy Tắc JVM (JVM Rule)
 - OOM là một **Lỗi (Error)** (kế thừa từ `java.lang.VirtualMachineError`), biểu thị một sự cố hệ thống nghiêm trọng mà các ứng dụng thông thường không nên cố gắng bắt lấy (catch) hoặc phục hồi.
 - Lỗi này có thể xảy ra ở các phân vùng bộ nhớ khác nhau, được phân biệt qua thông báo lỗi:
-  - **`java.lang.OutOfMemoryError: Java heap space`**: Bộ nhớ Heap đã đầy các đối tượng có thể tiếp cận (reachable objects).
-  - **`java.lang.OutOfMemoryError: GC OverLimit exceeded`** (hoặc `GC Overhead Limit exceeded`): GC đang dành quá nhiều thời gian (trên 98%) nhưng chỉ giải phóng được lượng bộ nhớ quá ít (dưới 2%).
-  - **`java.lang.OutOfMemoryError: Metaspace`**: Vùng nhớ native Metaspace đã cạn kiệt do việc tải quá nhiều lớp (class loading) vào bộ nhớ.
+- **`java.lang.OutOfMemoryError: Java heap space`** — java.lang.OutOfMemoryError: Java heap space: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`java.lang.OutOfMemoryError: GC OverLimit exceeded`** — java.lang.OutOfMemoryError: GC OverLimit exceeded: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`java.lang.OutOfMemoryError: Metaspace`** — java.lang.OutOfMemoryError: Metaspace: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **Chẩn đoán (Diagnostics)**: Sử dụng các cờ cấu hình JVM `-XX:+HeapDumpOnOutOfMemoryError` và `-XX:HeapDumpPath` để tự động tạo ra tệp tin Heap dump nhị phân dạng `.hprof` nhằm phân tích heap khi xảy ra lỗi OOM.
 
 #### Ví Dụ Minh Họa Code: Kịch Bản Gây Ra OutOfMemoryError (Code Example: OutOfMemoryError Scenario)

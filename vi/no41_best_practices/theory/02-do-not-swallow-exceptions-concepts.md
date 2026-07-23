@@ -6,14 +6,14 @@ Tài liệu này tập trung vào các **Thực hành tốt nhất (Best Practic
 
 ## Đề cương chi tiết
 
-- **`Do not swallow exceptions`** — Không nuốt ngoại lệ (Do not swallow exceptions): Các quy tắc xử lý hoặc lan truyền ngoại lệ thay vì bỏ qua chúng.
-- **`Use interface type when declaring Collection`** — Sử dụng kiểu giao diện khi khai báo bộ sưu tập (Use interface type when declaring Collection): Viết mã hướng tới các giao diện (`List`, `Set`, `Map`) thay vì các lớp cụ thể.
-- **`List<String> list = new ArrayList<>();`** — List<String> list = new ArrayList<>();: Khai báo các bộ sưu tập an toàn kiểu bằng cách sử dụng suy luận kiểu kim cương (diamond inference).
-- **`Avoid raw type`** — Tránh kiểu thô (Avoid raw type): Ngăn ngừa các cảnh báo kiểu dữ liệu tại thời điểm biên dịch bằng cách tránh các lớp thô không sử dụng generic.
-- **`Avoid null when possible`** — Tránh null khi có thể (Avoid null when possible): Các kỹ thuật để ngăn chặn NullPointerException.
-- **`Write testable code`** — Viết mã nguồn có thể kiểm thử (Write testable code): Các quy tắc cấu trúc (Tiêm phụ thuộc, khả năng tương thích giả lập) để phục vụ kiểm thử.
-- **`Separate class/method responsibilities`** — Phân chia rõ ràng trách nhiệm của lớp/phương thức: Áp dụng Nguyên lý đơn nhiệm (SRP) để giữ cho mã nguồn dễ bảo trì.
-- **`Immutability when appropriate`** — Tính bất biến khi thích hợp (Immutability when appropriate): Tạo các lớp bất biến sử dụng record, các trường final, và các dạng xem không thể sửa đổi (unmodifiable view).
+- **`Do not swallow exceptions`** — Do not swallow exceptions: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Use interface type when declaring Collection`** — Use interface type when declaring Collection: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`List<String> list = new ArrayList<>();`** — List<String> list = new ArrayList<>();: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Avoid raw type`** — Avoid raw type: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Avoid null when possible`** — Avoid null when possible: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Write testable code`** — Write testable code: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Separate class/method responsibilities`** — Separate class/method responsibilities: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Immutability when appropriate`** — Immutability when appropriate: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

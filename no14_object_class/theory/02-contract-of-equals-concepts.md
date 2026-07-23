@@ -10,7 +10,7 @@ This file covers a focused slice of **Object class**. Study each concept as a pr
 | --- | --- |
 | `Contract of equals()` | equals() defines logical equality between objects. |
 | `Contract of hashCode()` | hashCode() returns an integer hash used by hash-based collections. |
-| `Comparing objects by reference and by value` |Comparing objects by reference and by value is a specific concept in Object class; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `Comparing objects by reference and by value` |`Comparing objects by reference and by value` — Reference equality (==) checks memory addresses; value equality (.equals()) compares logical content. |
 
 ## Detailed Notes
 

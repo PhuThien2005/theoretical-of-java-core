@@ -6,14 +6,14 @@ Tài liệu này tập trung vào một phần chuyên sâu của **Quản Lý B
 
 ## Đề Cương Bao Phủ (Outline Coverage)
 
-- **`Weak reference`** — Tham chiếu yếu (weak reference) là một khái niệm cụ thể trong Quản lý Bộ nhớ Java; tìm hiểu quy tắc JVM, các trường hợp sử dụng hợp lệ và lỗi xảy ra thay vì chỉ nhớ tên gọi.
-- **`Soft reference`** — Tham chiếu mềm (soft reference) là một khái niệm cụ thể trong Quản lý Bộ nhớ Java; tìm hiểu quy tắc JVM, các trường hợp sử dụng hợp lệ và lỗi xảy ra thay vì chỉ nhớ tên gọi.
-- **`Phantom reference`** — Tham chiếu ảo (phantom reference) là một khái niệm cụ thể trong Quản lý Bộ nhớ Java; tìm hiểu quy tắc JVM, các trường hợp sử dụng hợp lệ và lỗi xảy ra thay vì chỉ nhớ tên gọi.
-- **`Garbage Collection`** — Thu gom rác (Garbage Collection) thu hồi bộ nhớ từ các đối tượng không còn có thể tiếp cận được.
-- **`Conditions for an object to be GC'd`** — Các điều kiện để một đối tượng bị thu gom rác; tìm hiểu quy tắc JVM, các trường hợp sử dụng hợp lệ và lỗi xảy ra thay vì chỉ nhớ tên gọi.
-- **`System.gc()`** — `System.gc()` là một phương thức cụ thể trong Quản lý Bộ nhớ Java; tìm hiểu quy tắc JVM, các trường hợp sử dụng hợp lệ và lỗi xảy ra thay vì chỉ nhớ tên gọi.
-- **`Finalization, finalize() deprecated`** — Các cơ chế finalize, và lý do tại sao phương thức `finalize()` bị phản đối sử dụng (deprecated).
-- **`Memory leak in Java`** — Rò rỉ bộ nhớ trong Java (memory leak) là một khái niệm cụ thể trong Quản lý Bộ nhớ Java; tìm hiểu quy tắc JVM, các trường hợp sử dụng hợp lệ và lỗi xảy ra thay vì chỉ nhớ tên gọi.
+- **`Weak reference`** — JVM sẽ thu hồi ngay trong lượt GC tiếp theo nếu đối tượng không còn tham chiếu mạnh nào trỏ tới.
+- **`Soft reference`** — JVM chỉ thu hồi khi bộ nhớ heap sắp cạn kiệt, phù hợp cho bộ nhớ đệm.
+- **`Phantom reference`** — Sử dụng cùng ReferenceQueue để dọn dẹp tài nguyên sau khi đối tượng bị giải phóng.
+- **`Garbage Collection`** — Garbage Collection: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Conditions for an object to be GC'd`** — Đối tượng đủ điều kiện bị GC khi không còn đường dẫn tham chiếu mạnh nào từ GC Roots.
+- **`System.gc()`** — Yêu cầu JVM chạy GC nhưng không đảm bảo thực thi ngay lập tức.
+- **`Finalization, finalize() deprecated`** — Finalization, finalize() deprecated: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Memory leak in Java`** — Xảy ra khi các đối tượng không còn dùng đến vẫn bị giữ lại bởi tham chiếu mạnh.
 
 ## Ghi Chú Chi Tiết
 

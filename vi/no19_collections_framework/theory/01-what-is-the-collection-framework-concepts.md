@@ -6,14 +6,14 @@ File này đề cập đến một phần trọng tâm của **Cấu Trúc Tập
 
 ## Đề Cương Khái Niệm
 
-- **`Cấu trúc tập hợp (Collection Framework) là gì?`** — Một tập hợp (collection) là một đối tượng nhóm nhiều phần tử lại với nhau dưới một API chung.
-- **`Iterable`** — Iterable là hợp đồng duyệt gốc cho phép một đối tượng được sử dụng trong các vòng lặp for cải tiến (enhanced for loop).
-- **`Collection`** — Một tập hợp (collection) là một đối tượng nhóm nhiều phần tử lại với nhau dưới một API chung.
-- **`List`** — Một List là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí.
-- **`Set`** — Một Set là một tập hợp loại bỏ các phần tử trùng lặp theo các quy tắc so sánh bằng.
-- **`Queue`** — Queue đại diện cho một tập hợp được thiết kế để giữ các phần tử trước khi xử lý, thường theo cơ chế FIFO.
-- **`Deque`** — Deque là một hàng đợi hai đầu hỗ trợ việc chèn và xóa ở cả hai đầu.
-- **`Map`** — Một Map lưu trữ các cặp khóa-giá trị (key-value pair) và truy xuất các giá trị bằng khóa.
+- **`Cấu trúc tập hợp (Collection Framework) là gì?`** — Cấu trúc tập hợp (Collection Framework) là gì?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Iterable`** — Iterable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Collection`** — Collection: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`List`** — List: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Set`** — Set: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Queue`** — Queue: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Deque`** — Deque: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Map`** — Map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

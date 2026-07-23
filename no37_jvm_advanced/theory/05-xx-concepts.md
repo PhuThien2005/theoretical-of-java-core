@@ -8,60 +8,18 @@ This file covers a focused slice of **Advanced JVM**. Study each concept as a pr
 
 | Concept | What to know |
 | --- | --- |
-| `-XX` |-XX is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Basic profiling` |Basic profiling is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
-| `Memory dump` |Memory dump is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name. |
+| `-XX` |`XX` — XX provides specific functionality and rules in Java development. |
+| `Basic profiling` |`Basic profiling` — Basic profiling provides specific functionality and rules in Java development. |
+| `Memory dump` |`Memory dump` — Memory dump provides specific functionality and rules in Java development. |
 | `Thread dump` | A thread dump is a snapshot of the state and stack trace of all active threads in a JVM. |
 
 ## Detailed Notes
 
 ### -XX
 
--XX is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `-XX` in one sentence.
-- Recognize `-XX` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `-XX`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `XX` change, allow, reject, or clarify?
-
 ### Basic profiling
 
-Basic profiling is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Basic profiling` in one sentence.
-- Recognize `Basic profiling` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Basic profiling`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Basic profiling` change, allow, reject, or clarify?
-
 ### Memory dump
-
-Memory dump is a specific concept in Advanced JVM; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `Memory dump` in one sentence.
-- Recognize `Memory dump` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Memory dump`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Memory dump` change, allow, reject, or clarify?
 
 ### Thread dump
 

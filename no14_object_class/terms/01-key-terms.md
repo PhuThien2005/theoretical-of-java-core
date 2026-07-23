@@ -4,23 +4,11 @@ Use this file when a word in the theory feels too compressed. Each term has mean
 
 ## Object class
 
-Object class is a specific concept in Object class; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `Object class` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `Object class` change, allow, reject, or clarify?
+`Object class` — The root class of the Java class hierarchy; every class implicitly inherits from Object.
 
 ## equals contract
 
 equals() defines logical equality between objects.
-
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `equals contract` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `equals contract` change, allow, reject, or clarify?
 
 ## hashCode contract
 
@@ -34,30 +22,13 @@ Small example: When reading code, ask: what does `hashCode contract` change, all
 
 ## reference equality
 
-reference equality is a specific concept in Object class; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `reference equality` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `reference equality` change, allow, reject, or clarify?
+`reference equality` — Checks whether two reference variables point to the exact same memory location on the heap (using ==).
 
 ## value equality
 
-value equality is a specific concept in Object class; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `value equality` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `value equality` change, allow, reject, or clarify?
+`value equality` — Checks whether two distinct objects contain logically equivalent state (using .equals()).
 
 ## monitor methods
 
-monitor methods is a specific concept in Object class; learn its Java rule, valid use cases, and failure mode rather than only its name.
+`monitor methods` — Methods in Object (wait, notify, notifyAll) used for thread synchronization on object monitors.
 
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `monitor methods` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `monitor methods` change, allow, reject, or clarify?

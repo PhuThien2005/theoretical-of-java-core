@@ -12,7 +12,7 @@ Một gói (package) nhóm các lớp có liên quan lại với nhau và cung c
 
 ## nhập (import)
 
-nhập (import) là một khái niệm cụ thể trong Gói và Kiểm soát truy cập; hãy tìm hiểu quy tắc Java của nó, các trường hợp sử dụng hợp lệ và trạng thái lỗi thay vì chỉ nhớ tên của nó.
+**`nhập (import)`** — Cho phép tham chiếu các lớp từ gói khác bằng tên ngắn gọn thay vì tên gói đầy đủ.
 
 * **Tầm quan trọng**: Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 * **Hiểu lầm thường gặp**: Người học thường ghi nhớ từ `import` như một từ vựng đơn thuần nhưng không thể giải thích nó giải quyết vấn đề gì hoặc nó thay đổi quy tắc nào.

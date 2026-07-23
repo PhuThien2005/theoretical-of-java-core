@@ -51,7 +51,6 @@ Before moving to the next topic, verify that you can answer these questions:
 5. Why are generic array creation and runtime type checks (like `instanceof List<String>`) forbidden in Java?
    &rarr; See [Why Generic Array Creation and Runtime Type Checks Are Forbidden](theory/03-raw-type-concepts.md#why-generic-array-creation-and-runtime-type-checks-are-forbidden)
 
-
 ## Mermaid Overview
 
 ```mermaid

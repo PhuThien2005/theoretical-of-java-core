@@ -308,8 +308,8 @@ Trình biên dịch tạo ra:
 - **Field `private final`** cho mỗi thành phần record — không thể thay đổi sau khi khởi tạo.
 - **Canonical constructor** với tất cả thành phần là tham số để gán mỗi field.
 - **Phương thức Accessor** đặt tên theo field (ví dụ: `point.x()`, không phải `getX()`) — các accessor khớp tên field theo thiết kế để làm cho truy cập thành phần có thể khám phá.
-- **`equals()` và `hashCode()`** so sánh tất cả thành phần theo giá trị.
-- **`toString()`** in tất cả thành phần.
+- **`equals()`** — equals(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`toString()`** — toString(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 Record là `final` ngầm định và không thể kế thừa các lớp khác (chúng ngầm định kế thừa `java.lang.Record`). Điều này ngăn chặn thay đổi thông qua phân lớp. Cú pháp compact constructor cho phép xác thực mà không cần khai báo lại tham số.
 

@@ -34,7 +34,6 @@ This topic follows the master outline in [outline.md](../outline.md). The goal i
 
 ## Anki Cards
 
-
 - [Basic](anki/basic.tsv)
 - [Basic Extra](anki/basic-extra.tsv)
 - [Cloze](anki/cloze.tsv)

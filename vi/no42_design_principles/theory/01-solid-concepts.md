@@ -6,16 +6,16 @@ File này đề cập đến các **Nguyên tắc thiết kế (Design Principle
 
 ## Đề Cương Khái Niệm
 
-- **`SOLID`** — Năm nguyên tắc thiết kế hướng đối tượng cốt lõi để xây dựng phần mềm dễ bảo trì và dễ mở rộng.
-- **`DRY`** — "Don't Repeat Yourself" (Đừng lặp lại chính mình) – tránh sự dư thừa trong mã nguồn và tri thức hệ thống.
-- **`KISS`** — "Keep It Simple, Stupid" (Giữ mọi thứ đơn giản) – ưu tiên các cấu trúc đơn giản, dễ đọc hơn là các trừu tượng hóa phức tạp.
-- **`YAGNI`** — "You Aren't Gonna Need It" (Bạn chưa cần đến nó đâu) – tránh triển khai các tính năng sớm cho đến khi chúng thực sự cần thiết.
-- **`Ưu tiên thành phần hơn kế thừa`** — Tái sử dụng hành vi bằng cách bao bọc các biến thực thể (instance variable) thay vì kế thừa các lớp.
-- **`Tính liên kết (Coupling)`** — Mức độ phụ thuộc lẫn nhau giữa các lớp; mục tiêu là liên kết lỏng (loose coupling).
-- **`Tính gắn kết (Cohesion)`** — Mức độ tập trung của một lớp vào một nhiệm vụ duy nhất; mục tiêu là gắn kết cao (high cohesion).
-- **`Tiêm phụ thuộc cơ bản`** — Tiêm các phụ thuộc bên ngoài qua các tham số của hàm khởi tạo hoặc phương thức để tạo điều kiện thuận lợi cho việc kiểm thử.
-- **`Lập trình phòng thủ`** — Xác thực các điều kiện tiên quyết, đầu vào và các giả định trạng thái để viết mã nguồn chống sụp đổ chương trình (crash-resistant).
-- **`Quy tắc viết code sạch cơ bản`** — Viết mã nguồn Java dễ đọc, có định dạng và dễ dàng tái cấu trúc (refactoring).
+- **`SOLID`** — SOLID: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`DRY`** — DRY: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`KISS`** — KISS: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`YAGNI`** — YAGNI: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Ưu tiên thành phần hơn kế thừa`** — Ưu tiên thành phần hơn kế thừa: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Tính liên kết (Coupling)`** — Tính liên kết (Coupling): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Tính gắn kết (Cohesion)`** — Tính gắn kết (Cohesion): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Tiêm phụ thuộc cơ bản`** — Tiêm phụ thuộc cơ bản: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Lập trình phòng thủ`** — Lập trình phòng thủ: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`Quy tắc viết code sạch cơ bản`** — Quy tắc viết code sạch cơ bản: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

@@ -53,8 +53,6 @@ This report summarizes the depth audit results across all Java Core topics, eval
 | [no41_best_practices](file:///home/fhu_thjen/projects/learning-java/no41_best_practices) | 5 | 5 | 0 | 0 | 100% | 🟢 A | 2026-06-25 |
 | [no42_design_principles](file:///home/fhu_thjen/projects/learning-java/no42_design_principles) | 5 | 5 | 0 | 0 | 100% | 🟢 A | 2026-06-25 |
 
-
-
 ---
 
 ## Grading System Details

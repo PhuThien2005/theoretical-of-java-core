@@ -14,33 +14,15 @@ Small example: `n -> n > 0` is a lambda used as a predicate.
 
 ## target typing
 
-target typing is a specific concept in Lambda Expression; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `target typing` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `target typing` change, allow, reject, or clarify?
+`target typing` — The compiler infers the type of a lambda expression based on target context.
 
 ## method reference
 
-method reference is a specific concept in Lambda Expression; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `method reference` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `method reference` change, allow, reject, or clarify?
+`method reference` — Shorthand syntax (::) for a lambda that simply invokes an existing method.
 
 ## variable capture
 
-variable capture is a specific concept in Lambda Expression; learn its Java rule, valid use cases, and failure mode rather than only its name.
-
-Why it matters: Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Common confusion: learners often memorize `variable capture` as a word but cannot explain what problem it solves or what rule it changes.
-
-Small example: When reading code, ask: what does `variable capture` change, allow, reject, or clarify?
+`variable capture` — Inner/local classes capturing local variables from enclosing scope if they are effectively final.
 
 ## effectively final
 
