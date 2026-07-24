@@ -1,30 +1,37 @@
 /* ==========================================================================
-   JAVA CORE AUDIO STUDIO - VS CODE STYLESHEET (MATCHING IMAGE COPY 12)
+   JAVA CORE AUDIO STUDIO - NEUMORPHISM (SOFT UI) DESIGN SYSTEM
    ========================================================================== */
 
 :root {
-  --bg-primary: #1e1e1e;
-  --bg-secondary: #252526;
-  --bg-tertiary: #2d2d2d;
-  --bg-card: #252526;
-  --bg-hover: #37373d;
+  /* Neumorphic Base Colors */
+  --bg-primary: #1e222d;
+  --bg-secondary: #191c25;
+  --bg-card: #222734;
   
-  --text-main: #cccccc;
+  /* Dual Shadows for Extruded Neumorphism */
+  --neu-shadow-dark: 6px 6px 14px #151820;
+  --neu-shadow-light: -6px -6px 14px #272c3a;
+  --neu-shadow-flat: 6px 6px 14px #151820, -6px -6px 14px #272c3a;
+  --neu-shadow-pressed: inset 4px 4px 8px #14171f, inset -4px -4px 8px #282d3b;
+  --neu-shadow-glow: 0 0 20px rgba(0, 242, 254, 0.4);
+  
+  /* Text Colors */
+  --text-main: #d0d7de;
   --text-bright: #ffffff;
-  --text-muted: #858585;
-  --text-dim: #6e6e6e;
+  --text-muted: #8b949e;
+  --text-dim: #6e7681;
   
-  --teal-accent: #14b8a6;
-  --teal-hover: #0d9488;
-  --teal-light: rgba(20, 184, 166, 0.15);
-  --teal-border: #06b6d4;
-  --teal-glow: rgba(6, 182, 212, 0.25);
+  /* Accent Colors (Cyan/Neon Gradient) */
+  --accent-cyan: #00f2fe;
+  --accent-blue: #4facfe;
+  --accent-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  --accent-orange: #ff7b72;
   
-  --border-color: #3e3e42;
+  --border-subtle: rgba(255, 255, 255, 0.04);
   
-  --sidebar-width: 300px;
-  --header-height: 52px;
-  --player-height: 72px;
+  --sidebar-width: 320px;
+  --header-height: 64px;
+  --player-height: 84px;
   
   --font-main: 'Inter', system-ui, -apple-system, sans-serif;
   --font-heading: 'Outfit', sans-serif;
@@ -41,13 +48,12 @@ body {
   font-family: var(--font-main);
   background-color: var(--bg-primary);
   color: var(--text-main);
-  line-height: 1.7;
+  line-height: 1.75;
   overflow: hidden;
   height: 100vh;
   width: 100vw;
 }
 
-/* APP CONTAINER */
 .app-container {
   display: flex;
   flex-direction: column;
@@ -55,52 +61,56 @@ body {
   width: 100vw;
 }
 
-/* ---------------- TOP NAVBAR (VS CODE TAB STYLE) ---------------- */
+/* ---------------- NEUMORPHIC TOP NAVBAR ---------------- */
 .navbar {
   height: var(--header-height);
-  background-color: var(--bg-secondary);
-  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 16px;
+  padding: 0 24px;
   z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .nav-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-family: var(--font-heading);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--text-bright);
 }
 
 .brand-icon {
-  color: #e5532d;
-  font-size: 1.3rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.5rem;
 }
 
 .badge {
-  font-size: 0.7rem;
-  padding: 2px 8px;
-  border-radius: 10px;
-  background: var(--teal-light);
-  color: var(--teal-accent);
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: var(--bg-primary);
+  color: var(--accent-cyan);
   font-weight: 600;
+  box-shadow: var(--neu-shadow-pressed);
 }
 
 .nav-center {
   flex: 1;
-  max-width: 450px;
-  margin: 0 16px;
+  max-width: 480px;
+  margin: 0 20px;
 }
 
 .search-box {
@@ -110,7 +120,7 @@ body {
 
 .search-icon {
   position: absolute;
-  left: 12px;
+  left: 16px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--text-dim);
@@ -118,33 +128,46 @@ body {
 
 .search-box input {
   width: 100%;
-  padding: 6px 12px 6px 36px;
+  padding: 10px 16px 10px 44px;
   background-color: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
+  border: none;
+  border-radius: 20px;
   color: var(--text-bright);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   outline: none;
+  box-shadow: var(--neu-shadow-pressed);
+  transition: all 0.25s ease;
 }
 
 .search-box input:focus {
-  border-color: var(--teal-accent);
+  box-shadow: var(--neu-shadow-pressed), 0 0 10px rgba(0, 242, 254, 0.3);
 }
 
+/* NEUMORPHIC BUTTONS */
 .icon-btn {
-  background: none;
+  background: var(--bg-primary);
   border: none;
   color: var(--text-muted);
-  font-size: 1rem;
-  padding: 6px 10px;
-  border-radius: 4px;
+  font-size: 1.05rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.2s;
+  box-shadow: var(--neu-shadow-flat);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
 }
 
 .icon-btn:hover {
-  background-color: var(--bg-hover);
-  color: var(--text-bright);
+  color: var(--accent-cyan);
+  transform: translateY(-1px);
+}
+
+.icon-btn:active {
+  box-shadow: var(--neu-shadow-pressed);
+  transform: translateY(1px);
 }
 
 /* ---------------- MAIN BODY ---------------- */
@@ -153,19 +176,18 @@ body {
   flex: 1;
   height: calc(100vh - var(--header-height) - var(--player-height));
   overflow: hidden;
-  position: relative;
 }
 
-/* SIDEBAR */
+/* NEUMORPHIC SIDEBAR */
 .sidebar {
   width: var(--sidebar-width);
-  background-color: var(--bg-secondary);
-  border-right: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
   display: flex;
   flex-direction: column;
-  transition: margin-left 0.25s ease;
+  transition: margin-left 0.3s ease;
   z-index: 50;
   flex-shrink: 0;
+  border-right: 1px solid var(--border-subtle);
 }
 
 .sidebar.collapsed {
@@ -173,61 +195,70 @@ body {
 }
 
 .sidebar-header {
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--border-color);
+  padding: 16px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .sidebar-header h3 {
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.88rem;
+  font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
 }
 
 .badge-count {
   font-size: 0.75rem;
-  background-color: var(--bg-tertiary);
-  color: var(--text-muted);
-  padding: 2px 6px;
-  border-radius: 4px;
+  background-color: var(--bg-primary);
+  color: var(--accent-cyan);
+  padding: 4px 10px;
+  border-radius: 10px;
+  box-shadow: var(--neu-shadow-pressed);
 }
 
 .sidebar-content {
   flex: 1;
   overflow-y: auto;
-  padding: 8px 6px;
+  padding: 12px 14px;
 }
 
 .chapter-group {
-  margin-bottom: 4px;
+  margin-bottom: 12px;
 }
 
 .chapter-header {
-  padding: 8px 10px;
-  font-size: 0.82rem;
+  padding: 12px 16px;
+  font-size: 0.86rem;
   font-weight: 600;
-  color: var(--text-muted);
+  color: var(--text-bright);
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 14px;
+  background: var(--bg-primary);
+  box-shadow: var(--neu-shadow-flat);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: background 0.15s;
+  transition: all 0.2s ease;
 }
 
 .chapter-header:hover {
-  background-color: var(--bg-hover);
-  color: var(--text-bright);
+  color: var(--accent-cyan);
+}
+
+.chapter-header .arrow-icon {
+  transition: transform 0.25s ease;
+}
+
+.chapter-group.open .chapter-header .arrow-icon {
+  transform: rotate(180deg);
+  color: var(--accent-cyan);
 }
 
 .chapter-lessons {
   display: none;
-  padding-left: 8px;
-  margin-top: 2px;
+  padding: 8px 4px 4px 12px;
 }
 
 .chapter-group.open .chapter-lessons {
@@ -235,86 +266,86 @@ body {
 }
 
 .lesson-item {
-  padding: 6px 10px;
-  font-size: 0.82rem;
+  padding: 10px 14px;
+  font-size: 0.84rem;
   color: var(--text-main);
-  border-radius: 4px;
+  border-radius: 12px;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 2px;
-  transition: all 0.15s;
+  gap: 10px;
+  margin-bottom: 6px;
+  background: var(--bg-primary);
+  box-shadow: 3px 3px 8px #151820, -3px -3px 8px #272c3a;
+  transition: all 0.2s ease;
   text-decoration: none;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .lesson-item:hover {
-  background-color: var(--bg-hover);
-  color: var(--text-bright);
+  color: var(--accent-cyan);
+  transform: translateX(3px);
 }
 
 .lesson-item.active {
-  background-color: var(--teal-light);
-  color: var(--teal-accent);
+  box-shadow: var(--neu-shadow-pressed);
+  color: var(--accent-cyan);
   font-weight: 600;
 }
 
-/* CONTENT VIEWER (DOCUMENT READER) */
+/* CONTENT VIEWER (NEUMORPHIC READER AREA) */
 .content-viewer {
   flex: 1;
   overflow-y: auto;
-  padding: 30px 50px 100px 50px;
+  padding: 36px 60px 120px 60px;
   scroll-behavior: smooth;
   background-color: var(--bg-primary);
 }
 
 .content-header {
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 28px;
+  padding: 24px;
+  background: var(--bg-primary);
+  border-radius: 20px;
+  box-shadow: var(--neu-shadow-flat);
 }
 
 .breadcrumb {
   font-size: 0.8rem;
   color: var(--text-dim);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .lesson-title {
   font-family: var(--font-heading);
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--text-bright);
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .lesson-meta {
   display: flex;
-  gap: 10px;
+  gap: 12px;
 }
 
 .meta-tag {
-  font-size: 0.75rem;
-  padding: 3px 8px;
-  background-color: var(--bg-secondary);
+  font-size: 0.78rem;
+  padding: 4px 12px;
+  background-color: var(--bg-primary);
   color: var(--text-muted);
-  border-radius: 4px;
-  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: var(--neu-shadow-pressed);
   display: inline-flex;
   align-items: center;
   gap: 6px;
 }
 
-/* MARKDOWN STYLING & SYNC FOCUS HIGHLIGHT (MATCHING IMAGE COPY 12) */
+/* MARKDOWN STYLING & NEUMORPHIC ACTIVE FOCUS HIGHLIGHT */
 .markdown-container {
-  max-width: 860px;
+  max-width: 880px;
   margin: 0 auto;
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: #d4d4d4;
+  font-size: 1.06rem;
+  line-height: 1.85;
 }
 
 .markdown-container h1,
@@ -322,112 +353,123 @@ body {
 .markdown-container h3,
 .markdown-container h4 {
   color: var(--text-bright);
-  margin-top: 1.6rem;
-  margin-bottom: 0.8rem;
+  margin-top: 1.8rem;
+  margin-bottom: 1rem;
   font-family: var(--font-heading);
 }
 
 .markdown-container p,
 .markdown-container li,
 .markdown-container blockquote {
-  margin-bottom: 1rem;
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid transparent;
-  transition: all 0.2s ease;
+  margin-bottom: 1.2rem;
+  padding: 12px 18px;
+  border-radius: 16px;
+  background: var(--bg-primary);
+  box-shadow: 4px 4px 10px #161922, -4px -4px 10px #262b38;
+  transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .markdown-container p:hover,
 .markdown-container li:hover {
-  background-color: rgba(255, 255, 255, 0.02);
+  transform: translateY(-1px);
+  color: var(--text-bright);
 }
 
-/* ACTIVE HIGHLIGHT SYNC (TEAL CYAN BOX LIKE EXTENSION IMAGE COPY 12) */
+/* ACTIVE HIGHLIGHT SYNC (GLOWING NEUMORPHIC CONCAVE BOX) */
 .markdown-container .active-sync {
-  background-color: var(--teal-light) !important;
-  border: 2px solid var(--teal-border) !important;
-  box-shadow: 0 0 16px var(--teal-glow);
-  color: var(--text-bright) !important;
+  box-shadow: var(--neu-shadow-pressed), var(--neu-shadow-glow) !important;
+  border: 2px solid var(--accent-cyan) !important;
+  color: #ffffff !important;
   font-weight: 500;
+  transform: scale(1.01);
 }
 
 .markdown-container pre {
-  background-color: #141414;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  padding: 14px 16px;
+  background-color: var(--bg-secondary);
+  border-radius: 16px;
+  padding: 18px 22px;
   overflow-x: auto;
-  margin: 1.2rem 0;
+  margin: 1.5rem 0;
+  box-shadow: var(--neu-shadow-pressed);
 }
 
 .markdown-container code {
   font-family: var(--font-code);
-  font-size: 0.9rem;
-  color: #ce9178;
+  font-size: 0.92rem;
+  color: #ff7b72;
 }
 
 /* WELCOME CARD */
 .welcome-card {
   text-align: center;
-  padding: 50px 30px;
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
+  padding: 60px 40px;
+  background-color: var(--bg-primary);
+  border-radius: 24px;
+  box-shadow: var(--neu-shadow-flat);
   margin-top: 30px;
 }
 
 .welcome-icon {
-  font-size: 3.5rem;
-  color: #e5532d;
-  margin-bottom: 16px;
+  font-size: 4rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
 }
 
 .welcome-card h2 {
   font-family: var(--font-heading);
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: var(--text-bright);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .welcome-card p {
   color: var(--text-muted);
-  max-width: 580px;
-  margin: 0 auto 20px auto;
+  max-width: 600px;
+  margin: 0 auto 24px auto;
 }
 
 .btn {
-  padding: 8px 20px;
+  padding: 12px 28px;
   border-radius: 20px;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   border: none;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.25s ease;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .btn-primary {
-  background-color: var(--teal-accent);
-  color: #fff;
+  background: var(--accent-gradient);
+  color: #000;
+  font-weight: 700;
+  box-shadow: var(--neu-shadow-flat), var(--neu-shadow-glow);
 }
 
 .btn-primary:hover {
-  background-color: var(--teal-hover);
+  transform: translateY(-2px);
 }
 
-/* ---------------- AUDIO PLAYER BAR (TEAL CYAN CONTROLS MATCHING IMAGE 12) ---------------- */
+.btn-primary:active {
+  box-shadow: var(--neu-shadow-pressed);
+}
+
+/* ---------------- NEUMORPHIC AUDIO PLAYER BAR ---------------- */
 .audio-player-bar {
   height: var(--player-height);
-  background-color: #181818;
-  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 28px;
   z-index: 100;
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.3);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .player-left {
@@ -435,8 +477,8 @@ body {
 }
 
 .audio-title {
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: 700;
+  font-size: 0.95rem;
   color: var(--text-bright);
   white-space: nowrap;
   overflow: hidden;
@@ -444,8 +486,8 @@ body {
 }
 
 .audio-snippet {
-  font-size: 0.78rem;
-  color: var(--teal-accent);
+  font-size: 0.8rem;
+  color: var(--accent-cyan);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -456,64 +498,80 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 }
 
 .controls {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
 }
 
 .ctrl-btn {
-  background: none;
+  background: var(--bg-primary);
   border: none;
   color: var(--text-muted);
   font-size: 1.1rem;
-  cursor: pointer;
-  transition: color 0.15s;
-}
-
-.ctrl-btn:hover {
-  color: var(--text-bright);
-}
-
-/* TEAL ROUND PLAY BUTTON (MATCHING IMAGE 12) */
-.play-main-btn {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: var(--teal-accent);
-  color: #fff;
-  border: none;
-  font-size: 1.1rem;
+  box-shadow: var(--neu-shadow-flat);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s;
-  box-shadow: 0 0 12px var(--teal-glow);
+}
+
+.ctrl-btn:hover {
+  color: var(--accent-cyan);
+  transform: translateY(-1px);
+}
+
+.ctrl-btn:active {
+  box-shadow: var(--neu-shadow-pressed);
+}
+
+/* NEUMORPHIC MAIN PLAY BUTTON WITH CYAN NEON GLOW */
+.play-main-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  color: #000;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--neu-shadow-flat), var(--neu-shadow-glow);
+  transition: all 0.25s ease;
 }
 
 .play-main-btn:hover {
-  background-color: var(--teal-hover);
-  transform: scale(1.06);
+  transform: scale(1.08);
+}
+
+.play-main-btn:active {
+  box-shadow: var(--neu-shadow-pressed);
 }
 
 .progress-container {
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 0.75rem;
+  gap: 12px;
+  font-size: 0.78rem;
   color: var(--text-muted);
 }
 
 .progress-bar-wrapper {
   flex: 1;
-  height: 5px;
-  background-color: #333333;
-  border-radius: 3px;
+  height: 8px;
+  background-color: var(--bg-primary);
+  border-radius: 4px;
+  box-shadow: var(--neu-shadow-pressed);
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -522,8 +580,8 @@ body {
 .progress-bar {
   height: 100%;
   width: 0%;
-  background-color: var(--teal-accent);
-  border-radius: 3px;
+  background: var(--accent-gradient);
+  border-radius: 4px;
   transition: width 0.1s linear;
 }
 
@@ -532,23 +590,24 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 16px;
+  gap: 18px;
 }
 
 .speed-selector {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   color: var(--text-muted);
 }
 
 .speed-selector select {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
   color: var(--text-bright);
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  padding: 3px 6px;
+  border: none;
+  border-radius: 10px;
+  padding: 6px 10px;
+  box-shadow: var(--neu-shadow-flat);
   outline: none;
   cursor: pointer;
 }
@@ -556,12 +615,12 @@ body {
 .volume-container {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .volume-container input[type="range"] {
-  width: 70px;
-  accent-color: var(--teal-accent);
+  width: 76px;
+  accent-color: var(--accent-cyan);
   cursor: pointer;
 }
 
@@ -570,9 +629,9 @@ body {
   .sidebar {
     position: absolute;
     height: calc(100vh - var(--header-height) - var(--player-height));
-    box-shadow: 4px 0 20px rgba(0,0,0,0.5);
+    box-shadow: 6px 0 24px rgba(0,0,0,0.6);
   }
   .content-viewer {
-    padding: 16px;
+    padding: 20px;
   }
 }
