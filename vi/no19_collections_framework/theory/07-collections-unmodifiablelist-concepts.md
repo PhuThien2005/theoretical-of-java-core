@@ -104,8 +104,8 @@ public class ArraysDemo {
         System.out.println("Index of 30: " + index); // In ra: 2
 
         // 3. So sánh equals vs deepEquals
-        int[][] matrix1 = {{1, 2}, {3, 4}};
-        int[][] matrix2 = {{1, 2}, {3, 4}};
+        int[][] matrix1 = { {1, 2}, {3, 4}};
+        int[][] matrix2 = { {1, 2}, {3, 4}};
         System.out.println("Equals: " + Arrays.equals(matrix1, matrix2)); // false (so sánh định danh tham chiếu mảng 1 chiều)
         System.out.println("Deep Equals: " + Arrays.deepEquals(matrix1, matrix2)); // true (so sánh đệ quy nội dung lồng nhau)
     }

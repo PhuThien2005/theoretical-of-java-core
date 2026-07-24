@@ -259,8 +259,8 @@ So sánh hai mảng đa chiều.
 - `Arrays.deepEquals()` duyệt đệ quy qua các mảng lồng nhau, so sánh giá trị ở cấp thấp nhất.
 
 ```java
-int[][] matrix1 = {{1, 2}};
-int[][] matrix2 = {{1, 2}};
+int[][] matrix1 = { {1, 2}};
+int[][] matrix2 = { {1, 2}};
  
 System.out.println(Arrays.equals(matrix1, matrix2));     // false (địa chỉ dòng bên trong khác nhau)
 System.out.println(Arrays.deepEquals(matrix1, matrix2)); // true (các nội dung được so sánh đệ quy)
@@ -294,8 +294,8 @@ import java.util.Arrays;
  
 public class ArrayEqualityDemo {
     public static void main(String[] args) {
-        int[][] m1 = {{10, 20}};
-        int[][] m2 = {{10, 20}};
+        int[][] m1 = { {10, 20}};
+        int[][] m2 = { {10, 20}};
         System.out.println("Arrays.equals: " + Arrays.equals(m1, m2));         // Kết quả: false
         System.out.println("Arrays.deepEquals: " + Arrays.deepEquals(m1, m2)); // Kết quả: true
     }
@@ -329,8 +329,8 @@ System.out.println(Arrays.equals(a, b)); // true
 ### 3. Sử dụng `Arrays.equals()` cho mảng đa chiều
 `Arrays.equals()` chỉ so sánh các tham chiếu ở cấp cao nhất khi chạy trên các mảng đa chiều. Nếu các tham chiếu đó khác nhau, nó sẽ trả về `false` ngay cả khi các giá trị bên dưới giống hệt nhau. Hãy sử dụng `Arrays.deepEquals()` để thay thế.
 ```java
-int[][] m1 = {{1, 2}};
-int[][] m2 = {{1, 2}};
+int[][] m1 = { {1, 2}};
+int[][] m2 = { {1, 2}};
 System.out.println(Arrays.equals(m1, m2));     // false
 System.out.println(Arrays.deepEquals(m1, m2)); // true
 ```

@@ -352,7 +352,7 @@ Gọi `System.out.println(arr)` trên một mảng sẽ in ra biểu diễn dư�
 int[] arr = {1, 2, 3};
 System.out.println(Arrays.toString(arr)); // Output: [1, 2, 3]
 
-int[][] matrix = {{1, 2}, {3, 4}};
+int[][] matrix = { {1, 2}, {3, 4}};
 System.out.println(Arrays.deepToString(matrix)); // Output: [[1, 2], [3, 4]]
 ```
 
