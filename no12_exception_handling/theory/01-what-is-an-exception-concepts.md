@@ -8,329 +8,467 @@ This file covers a focused slice of **Exception Handling**. Study each concept a
 
 | Concept | What to know |
 | --- | --- |
-| `What is an exception?` | An exception represents an abnormal condition that a program may catch or propagate. |
-| `Error vs Exception` | An exception represents an abnormal condition that a program may catch or propagate. |
-| `Checked exception` | A checked exception must be handled or declared by compiler rules. |
-| `Unchecked exception` | An unchecked exception is not required to be caught or declared. |
-| `Runtime exception` | An exception represents an abnormal condition that a program may catch or propagate. |
-| `try` |try marks the block whose exceptions you want to handle, clean up after, or propagate. |
-| `catch` |catch handles a matching exception type thrown from the try block. |
-| `multiple catch` |multiple catch lets different exception types be handled by different handlers, ordered from specific to broad. |
+| `What is an exception?` | An abnormal event during program execution that disrupts the normal flow of instructions and can be caught or propagated. |
+| `Error vs Exception` | Errors represent critical JVM-level failures that applications should not catch, while Exceptions are program-level conditions that are recoverable. |
+| `Checked exception` | Exceptions checked at compile-time; the compiler forces the developer to handle or declare them using try-catch or throws. |
+| `Unchecked exception` | Exceptions not checked at compile-time (subclasses of RuntimeException); they represent programming bugs. |
+| `Runtime exception` | The parent class of all unchecked exceptions, representing bugs or logical failures in code. |
+| `try` | try marks the block whose exceptions you want to handle, clean up after, or propagate. |
+| `catch` | catch handles a matching exception type thrown from the try block. |
+| `multiple catch` | multiple catch lets different exception types be handled by different handlers, ordered from specific to broad. |
 
 ## Detailed Notes
 
 ### What is an exception?
 
-An exception represents an abnormal condition that a program may catch or propagate.
+An exception (ngoại lệ) is an event that occurs during the execution of a program, disrupting the normal flow of instructions. When an error occurs within a method, the method creates an object—the **exception object**—and hands it off to the runtime system (JVM). This object contains information about the error, including its type and the state of the program when the error occurred. Creating an exception object and handing it to the runtime system is called **throwing an exception**.
 
-It matters because exception behavior decides whether failures are handled locally, propagated, or allowed to stop the program. A common confusion is treating every exception the same instead of separating recoverable conditions from programming bugs.
+Understanding exceptions is crucial because they separate error-handling code from regular program logic. Instead of polluting every method with nested conditional checks to detect failures, Java uses exceptions to propagate errors up the call stack until an appropriate handler is found. A common confusion is treating exceptions as fatal crashes; in reality, they are structured signals designed to help programs degrade gracefully or recover from unexpected runtime conditions.
 
-Practical check:
+#### Technical Mechanism: Stack Unwinding
+When an exception is thrown, the JVM searches the call stack for a method containing a compatible exception handler (a `catch` block matching the exception type). This search starts from the method where the error occurred and proceeds backward through the call stack (the sequence of method calls) in reverse order of invocation. This process of searching and traversing back through the stack is called **stack unwinding**. If the JVM finds a matching handler, it passes the exception object to that handler. If no handler is found after searching the entire stack (including the `main` method), the JVM's default exception handler takes over, prints the stack trace, and terminates the thread.
 
-- Define `What is an exception?` in one sentence.
-- Recognize `What is an exception?` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `What is an exception?`.
+#### Mental Model: The Control Flow Deviation
+```mermaid
+sequenceDiagram
+    participant Main as main()
+    participant MethodA as methodA()
+    participant MethodB as methodB()
+    
+    Main->>MethodA: call methodA()
+    MethodA->>MethodB: call methodB()
+    Note over MethodB: Exception occurs!
+    Note over MethodB: 1. Create Exception Object
+    Note over MethodB: 2. Throw Exception
+    MethodB-->>MethodA: Search for catch block (Not found)
+    Note over MethodA: Stack unwinds...
+    MethodA-->>Main: Search for catch block (Found!)
+    Note over Main: 3. Handle Exception (catch block)
+    Note over Main: Normal execution resumes in main()
+```
 
-Tiny example or mental model:
-
-- When reading code, ask: what does `What is an exception?` change, allow, reject, or clarify?
-
-#### Runnable Code Example: Throwing and Catching an Exception
-Below is a basic example of throwing a standard `Exception` and catching it locally.
+#### Runnable Code Example: Exception Life Cycle
+Below is a runnable example demonstrating how an exception is thrown, how normal execution is interrupted, and how control flows to the matching catch block.
 
 ```java
-public class ExceptionDemo {
+public class ExceptionLifeCycleDemo {
+    public static void performDivision() {
+        System.out.println("  [performDivision] About to divide by zero...");
+        int result = 10 / 0; // Throws ArithmeticException
+        System.out.println("  [performDivision] This line will never execute!");
+    }
+
     public static void main(String[] args) {
+        System.out.println("[main] Starting program");
         try {
-            System.out.println("Before exception throw");
-            throw new Exception("Something went wrong");
-            // System.out.println("Unreachable"); // Compile error: unreachable statement
-        } catch (Exception e) {
-            System.out.println("Caught exception: " + e.getMessage());
+            System.out.println("[main] Entering try block");
+            performDivision();
+            System.out.println("[main] Leaving try block (will not print)");
+        } catch (ArithmeticException e) {
+            System.out.println("[main] Caught exception: " + e.getClass().getSimpleName() + " - " + e.getMessage());
         }
-        System.out.println("Execution continues normally.");
+        System.out.println("[main] Program continues normally after try-catch");
     }
 }
+/*
+Expected Output:
+[main] Starting program
+[main] Entering try block
+  [performDivision] About to divide by zero...
+[main] Caught exception: ArithmeticException - / by zero
+[main] Program continues normally after try-catch
+*/
 ```
+
+#### Cause-Effect Chain
+Error in code (e.g., dividing by zero) &rarr; JVM detects invalid operation &rarr; Exception object (`ArithmeticException`) created and populated with stack trace &rarr; Current execution path halted &rarr; JVM traverses back through call stack &rarr; Matches catch block in `main` &rarr; Control transferred to catch block &rarr; Program avoids crashing and resumes normal flow.
+
+---
 
 ### Error vs Exception
 
-An exception represents an abnormal condition that a program may catch or propagate.
+The root class of all exception-related classes in Java is `java.lang.Throwable`. Beneath `Throwable`, the hierarchy splits into two primary, distinct branches: `java.lang.Error` and `java.lang.Exception`.
 
-It matters because exception behavior decides whether failures are handled locally, propagated, or allowed to stop the program. A common confusion is treating every exception the same instead of separating recoverable conditions from programming bugs.
+#### Detailed Definitions
 
-Practical check:
+*   **Error (`java.lang.Error`)**: Represents serious, catastrophic runtime failures that are external to the application itself. These are typically resource exhaustion at the JVM level, hardware limitations, or library loading failures. Under normal conditions, an application **should not attempt to catch an Error** or try to recover from it. When an `Error` occurs, the JVM itself is often unstable, and attempting to continue execution can lead to corrupt states or silent failures.
+*   **Exception (`java.lang.Exception`)**: Represents exceptional conditions that a well-written application should anticipate and handle. These are logic errors, resource unavailability (like missing files or database offline), or bad input. Exceptions are meant to be caught, logged, and recovered from, allowing the application to continue running or shut down clean.
 
-- Define `Error vs Exception` in one sentence.
-- Recognize `Error vs Exception` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Error vs Exception`.
+#### Key Differences: Error vs Exception
+| Feature | Error (`java.lang.Error`) | Exception (`java.lang.Exception`) |
+| :--- | :--- | :--- |
+| **Origin** | JVM, system resources, or compiler-linker mismatches. | Application code logic, input data, or external resources. |
+| **Recoverability** | Unrecoverable. Program should be allowed to crash. | Recoverable. Application can handle, fallback, or retry. |
+| **Compiler Enforced** | Unchecked. Compiler never requires catching or declaring. | Can be Checked (required) or Unchecked (subclasses of RuntimeException). |
+| **Common Examples** | `OutOfMemoryError`, `StackOverflowError`, `NoClassDefFoundError`. | `NullPointerException`, `IOException`, `FileNotFoundException`. |
 
-Tiny example or mental model:
+#### Deep-Dive: Common Errors Explained
+1.  **`OutOfMemoryError`**:
+    *   *Cause*: The JVM runs out of Java heap space and the Garbage Collector (GC) cannot reclaim enough memory to allocate a new object.
+    *   *Why catching it is bad*: If memory is completely exhausted, the code inside a catch block (e.g., logging, clean-up) will also fail to allocate memory, resulting in cascading allocation failures.
+2.  **`StackOverflowError`**:
+    *   *Cause*: The call stack frame allocation exceeds the configured stack size limit, typically due to deep or infinite recursion.
+    *   *Why catching it is bad*: The thread has run out of stack space. Trying to execute a catch block or any subsequent method requires pushing a new stack frame, which immediately triggers another stack overflow.
+3.  **`NoClassDefFoundError`**:
+    *   *Cause*: The JVM's ClassLoader tries to load the definition of a class at runtime but cannot find the corresponding `.class` file, even though the class was present during compilation. This usually indicates classpath configuration issues or missing runtime dependency JARs.
 
-- When reading code, ask: what does `Error vs Exception` change, allow, reject, or clarify?
+#### Deep-Dive: Common Exceptions Explained
+Java exceptions are split into two categories depending on when they are checked (at compile-time or runtime).
+*   **Checked Exceptions**: Inherit directly from `Exception` but *not* `RuntimeException`. They represent predictable errors in external resources (e.g., `IOException`, `SQLException`).
+*   **Unchecked Exceptions**: Inherit from `RuntimeException`. They represent programming bugs or invalid states (e.g., `NullPointerException`, `IndexOutOfBoundsException`).
 
-#### Runnable Code Example: Recovering from Exception vs Crashing on Error
-Errors (like `StackOverflowError` or `OutOfMemoryError`) indicate serious problems that a reasonable application should not try to catch. Exceptions (like `IOException` or `NullPointerException`) are conditions that a reasonable application might want to catch.
+#### Mental Model: The Throwable Hierarchy
+```mermaid
+graph TD
+    Throwable["java.lang.Throwable"]
+    Error["java.lang.Error (Unchecked)"]
+    Exception["java.lang.Exception"]
+    
+    Throwable --> Error
+    Throwable --> Exception
+    
+    RuntimeException["java.lang.RuntimeException (Unchecked)"]
+    OtherExceptions["Other Exceptions (Checked)"]
+    
+    Exception --> RuntimeException
+    Exception --> OtherExceptions
+    
+    OutOfMemoryError["OutOfMemoryError"] --> Error
+    StackOverflowError["StackOverflowError"] --> Error
+    NoClassDefFoundError["NoClassDefFoundError"] --> Error
+    
+    NullPointerException["NullPointerException"] --> RuntimeException
+    ArithmeticException["ArithmeticException"] --> RuntimeException
+    
+    IOException["IOException"] --> OtherExceptions
+    FileNotFoundException["FileNotFoundException"] --> IOException
+```
+
+#### Runnable Code Example: Sapping Resources (Error) vs Handling Business Logic (Exception)
+Below is a program that shows the destructive nature of a `StackOverflowError` compared to an `ArithmeticException`. Note that while we catch the `StackOverflowError` here for demonstration purposes, this is **highly discouraged** in production code.
 
 ```java
 public class ThrowableHierarchyDemo {
-    // 1. Error: Stack Overflow due to infinite recursion (JVM-level disaster)
-    public static void causeStackOverflow() {
-        causeStackOverflow();
+    // 1. Error: Stack Overflow via infinite recursion
+    public static void recursiveCall(int depth) {
+        // Will exhaust stack space and throw StackOverflowError
+        recursiveCall(depth + 1);
     }
 
-    // 2. Exception: Division by zero (recoverable program-level issue)
-    public static void causeException() {
-        int result = 10 / 0;
+    // 2. Exception: Division by zero (recoverable arithmetic issue)
+    public static int divideNumbers(int a, int b) {
+        return a / b;
     }
 
     public static void main(String[] args) {
-        // Recovering from Exception
+        // Recovering from Exception: Normal application flow
         try {
-            causeException();
+            int result = divideNumbers(10, 0);
         } catch (ArithmeticException e) {
-            System.out.println("Recovered from exception: " + e.getMessage());
+            System.out.println("[Exception] Recovered from division error: " + e.getMessage());
         }
 
-        // Running into Error (Avoid catching Errors in production code!)
+        // JVM Disaster: Caught only to show it happened
         try {
-            causeStackOverflow();
+            recursiveCall(1);
         } catch (StackOverflowError err) {
-            System.err.println("Caught StackOverflowError (Highly discouraged to catch Errors): " + err);
+            System.err.println("[Error] Stack overflow occurred! JVM stack frames exhausted.");
         }
     }
 }
+/*
+Expected Output:
+[Exception] Recovered from division error: / by zero
+[Error] Stack overflow occurred! JVM stack frames exhausted.
+*/
 ```
 
-#### Class Hierarchy Diagram
-```mermaid
-graph TD
-    Throwable["java.lang.Throwable"] --> Error["java.lang.Error (Unchecked)"]
-    Throwable --> Exception["java.lang.Exception"]
-    Exception --> RuntimeException["java.lang.RuntimeException (Unchecked)"]
-    Exception --> CheckedException["Other Exceptions (Checked, e.g., IOException, SQLException)"]
-```
+#### Cause-Effect Chain
+Deep recursive call &rarr; Call stack allocates a new stack frame for each call &rarr; Thread's stack limit exceeded &rarr; JVM throws `StackOverflowError` &rarr; Current thread halts immediately &rarr; Resources are too depleted for normal processing &rarr; Thread terminates (JVM may exit if it's the main thread).
+
+---
 
 ### Checked exception
 
-A checked exception must be handled or declared by compiler rules.
+A **checked exception** is an exception that is checked by the compiler at compile-time. Java mandates that you must acknowledge and handle these exceptions explicitly before your code will compile.
 
-It matters because exception behavior decides whether failures are handled locally, propagated, or allowed to stop the program. A common confusion is treating every exception the same instead of separating recoverable conditions from programming bugs.
+#### Technical Mechanism: The Compiler's Catch-or-Specify Requirement
+When a method contains code that could throw a checked exception (e.g., calling a method that declares `throws IOException`), the compiler enforces the **Catch-or-Specify Requirement**. You must do one of two things:
+1.  **Catch**: Wrap the risky code in a `try` block and catch the exception in a corresponding `catch` block.
+2.  **Specify**: Declare that the method itself throws the checked exception by appending `throws ExceptionType` to the method signature, passing the responsibility to handle the exception up to the caller.
 
-Practical check:
+Checked exceptions represent issues with external resources (file system, network, database) that are out of the application's control but are highly predictable. For example, when reading a file, the compiler knows the file might not exist. By forcing the developer to handle this possibility upfront, Java attempts to make production code robust against environmental failures.
 
-- Define `Checked exception` in one sentence.
-- Recognize `Checked exception` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Checked exception`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Checked exception` change, allow, reject, or clarify?
+#### Common Checked Exceptions Analyzed
+*   **`IOException` / `FileNotFoundException`**:
+    *   *Trigger*: A file path is invalid, a disk is full, or a network stream terminates abruptly during read/write.
+    *   *Why checked*: External I/O is notoriously unstable. Java forces you to define a fallback plan (e.g., asking the user for a different path, logging the error, or failing cleanly) instead of letting the application crash unexpectedly.
+*   **`ClassNotFoundException`**:
+    *   *Trigger*: Code attempts to load a class dynamically using its string name (e.g., `Class.forName("com.mysql.jdbc.Driver")`), but the class loader cannot find the class in the current classpath.
+    *   *Why checked*: Dynamic loading is prone to runtime typos or missing library JARs. Java forces the developer to handle this configuration failure.
 
 #### Runnable Code Example: Handling Checked Exceptions
-Checked exceptions represent conditions outside the immediate control of the program (e.g., file system or network issues). The compiler enforces that you either catch them using `try-catch` or declare them in the method signature using `throws`.
-
 ```java
 import java.io.FileReader;
 import java.io.FileNotFoundException;
 
 public class CheckedExceptionDemo {
-    // Option 1: Declaring the checked exception using 'throws'
-    public static void readFileWithThrows() throws FileNotFoundException {
-        FileReader fr = new FileReader("non_existent_file.txt");
+    // Option 1: Specify the checked exception in the method signature
+    public static void openFile(String path) throws FileNotFoundException {
+        // If file does not exist, FileReader constructor throws FileNotFoundException (checked)
+        FileReader fr = new FileReader(path);
     }
 
-    // Option 2: Handling the checked exception using 'try-catch'
-    public static void readFileWithTryCatch() {
+    // Option 2: Catch the checked exception in a try-catch block
+    public static void readConfiguration() {
         try {
-            FileReader fr = new FileReader("non_existent_file.txt");
+            openFile("config.json");
         } catch (FileNotFoundException e) {
-            System.out.println("Handled checked exception: File not found!");
+            System.out.println("[Handled] Configuration file config.json not found. Loading default settings.");
         }
     }
 
     public static void main(String[] args) {
-        readFileWithTryCatch();
+        readConfiguration();
     }
 }
+/*
+Expected Output:
+[Handled] Configuration file config.json not found. Loading default settings.
+*/
 ```
+
+#### Cause-Effect Chain
+Code attempts to instantiate `FileReader` with a non-existent file path &rarr; Constructor checks file existence &rarr; File is missing &rarr; Constructor throws `FileNotFoundException` &rarr; Compiler checks if the calling code handles or declares the exception &rarr; If not handled/declared: compile-time error occurs &rarr; If handled: normal program execution resumes in the catch block.
+
+---
 
 ### Unchecked exception
 
-An unchecked exception is not required to be caught or declared.
+An **unchecked exception** (also known as a runtime exception) is an exception that is **not** checked by the compiler. The compiler does not require you to catch or declare unchecked exceptions in method signatures.
 
-It matters because exception behavior decides whether failures are handled locally, propagated, or allowed to stop the program. A common confusion is treating every exception the same instead of separating recoverable conditions from programming bugs.
+#### Technical Mechanism: Runtime Failures
+Unchecked exceptions represent **programming bugs**—mistakes made by the developer that could have been avoided by writing better code. Examples include accessing elements beyond array bounds, dereferencing a null pointer, or performing invalid division. Because these bugs can theoretically happen in almost any method call, forcing the developer to declare them everywhere would lead to excessive boilerplate code. Unchecked exceptions bypass compile-time checks and propagate up the stack at runtime until they are either caught or terminate the thread.
 
-Practical check:
+#### Common Unchecked Exceptions Analyzed
+1.  **`NullPointerException` (NPE)**:
+    *   *Trigger*: Attempting to invoke an instance method, access an instance field, or modify an array element on a reference variable that points to `null`.
+    *   *Prevention*: Use explicit null checks (`if (obj != null)`) or Java's `Optional` class instead of catching NPEs.
+2.  **`ArrayIndexOutOfBoundsException`**:
+    *   *Trigger*: Accessing an array with an index that is negative, or greater than or equal to the array's length.
+    *   *Prevention*: Verify indices against `array.length` before accessing elements.
+3.  **`ArithmeticException`**:
+    *   *Trigger*: An exceptional arithmetic condition occurs (e.g., dividing an integer by zero).
+    *   *Prevention*: Ensure the denominator is not zero before executing integer division.
+4.  **`ClassCastException`**:
+    *   *Trigger*: Attempting to cast an object to a subclass of which it is not an instance (e.g., casting a `String` to an `Integer`).
+    *   *Prevention*: Use `instanceof` check (or pattern matching) before casting.
+5.  **`IllegalArgumentException` / `NumberFormatException`**:
+    *   *Trigger*: Passing an illegal or inappropriate argument to a method, or trying to convert a string of invalid format into a numeric type.
+    *   *Prevention*: Validate arguments or use helper validation libraries (like `Objects.requireNonNull`).
 
-- Define `Unchecked exception` in one sentence.
-- Recognize `Unchecked exception` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Unchecked exception`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Unchecked exception` change, allow, reject, or clarify?
-
-#### Runnable Code Example: Unchecked Exceptions (RuntimeExceptions)
-Unchecked exceptions represent programming errors (e.g., logic errors, improper use of APIs). The compiler does not force you to handle or declare them.
-
+#### Runnable Code Example: Unchecked Exceptions in Action
 ```java
 public class UncheckedExceptionDemo {
     public static void main(String[] args) {
-        String text = null;
-        
-        // This line throws NullPointerException at runtime.
-        // It compiles successfully without any try-catch or throws declaration.
+        String data = null;
+
+        // Code compiles perfectly without try-catch or throws
         try {
-            int length = text.length();
+            int length = data.length(); // Throws NullPointerException
         } catch (NullPointerException e) {
-            System.out.println("Caught unchecked NullPointerException: " + e.getMessage());
+            System.out.println("[Unchecked] Caught NullPointerException! (Variable was null)");
+        }
+
+        try {
+            int number = Integer.parseInt("invalid_number"); // Throws NumberFormatException
+        } catch (NumberFormatException e) {
+            System.out.println("[Unchecked] Caught NumberFormatException! (String could not be parsed)");
         }
     }
 }
+/*
+Expected Output:
+[Unchecked] Caught NullPointerException! (Variable was null)
+[Unchecked] Caught NumberFormatException! (String could not be parsed)
+*/
 ```
+
+#### Cause-Effect Chain
+Code invokes `.length()` on reference pointing to null &rarr; JVM attempts to dereference memory address &rarr; JVM detects null reference &rarr; JVM throws `NullPointerException` &rarr; Call stack unwinds looking for catch block &rarr; Match found in `main` &rarr; Exception caught and message printed.
+
+---
 
 ### Runtime exception
 
-An exception represents an abnormal condition that a program may catch or propagate.
+`java.lang.RuntimeException` is the parent class of all unchecked exceptions in Java. It is itself a subclass of `java.lang.Exception`.
 
-It matters because exception behavior decides whether failures are handled locally, propagated, or allowed to stop the program. A common confusion is treating every exception the same instead of separating recoverable conditions from programming bugs.
+#### Technical Mechanism: Inheriting Runtime Behavior
+The Java language rules define that any exception class that is a subclass of `RuntimeException` is unchecked. Conversely, any exception class that inherits from `Exception` but is *not* a subclass of `RuntimeException` is a checked exception.
 
-Practical check:
+When designing custom exceptions:
+*   Extend `RuntimeException` if the error represents a **programming bug** or a **business logic violation** from which recovery is unlikely (e.g., `InvalidUserCredentialsException`).
+*   Extend `Exception` if the error represents a **legitimate external failure** that the calling code can and should recover from (e.g., `PaymentGatewayOfflineException`).
 
-- Define `Runtime exception` in one sentence.
-- Recognize `Runtime exception` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Runtime exception`.
+#### Mental Model: Checked vs Unchecked Inheritance Path
+```
+java.lang.Throwable
+   │
+   ├── java.lang.Error (Unchecked)
+   │
+   └── java.lang.Exception
+         │
+         ├── java.lang.RuntimeException (Unchecked - and all its subclasses)
+         │     ├── NullPointerException
+         │     ├── ArithmeticException
+         │     └── IllegalArgumentException
+         │
+         └── [Checked Exceptions] (Inherit Exception but NOT RuntimeException)
+               ├── IOException
+               ├── SQLException
+               └── ClassNotFoundException
+```
 
-Tiny example or mental model:
-
-- When reading code, ask: what does `Runtime exception` change, allow, reject, or clarify?
-
-#### Runnable Code Example: Runtime Exceptions (Subclasses of RuntimeException)
-`RuntimeException` is the superclass of those exceptions that can be thrown during the normal operation of the Java Virtual Machine.
-
+#### Runnable Code Example: Custom Runtime Exception
 ```java
+class InvalidAgeException extends RuntimeException {
+    public InvalidAgeException(String message) {
+        super(message);
+    }
+}
+
 public class RuntimeExceptionDemo {
+    public static void registerUser(int age) {
+        if (age < 18) {
+            // Throwing an unchecked custom exception
+            throw new InvalidAgeException("User must be at least 18 years old.");
+        }
+        System.out.println("Registration successful for age: " + age);
+    }
+
     public static void main(String[] args) {
-        // ArithmeticException is a subclass of RuntimeException
         try {
-            int result = 50 / 0;
-        } catch (ArithmeticException e) {
-            System.out.println("Caught RuntimeException subclass (ArithmeticException): " + e.getMessage());
+            registerUser(15);
+        } catch (InvalidAgeException e) {
+            System.out.println("[RuntimeException] Registration failed: " + e.getMessage());
         }
     }
 }
+/*
+Expected Output:
+[RuntimeException] Registration failed: User must be at least 18 years old.
+*/
 ```
+
+---
 
 ### try
 
-try marks the block whose exceptions you want to handle, clean up after, or propagate.
+The `try` block is used to enclose a block of code that might throw one or more exceptions.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-Practical check:
-
-- Define `try` in one sentence.
-- Recognize `try` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `try`.
-
-Tiny example or mental model:
-
-- `try { ... } catch (IOException ex) { ... }` handles a specific failure path.
+#### Technical Mechanism: Scope and Control Flow
+A `try` block cannot stand alone. It must be followed by either one or more `catch` blocks, a `finally` block, or both.
+*   **Scope**: Variables declared inside a `try` block are local to that block. They cannot be accessed in the `catch` or `finally` blocks, or anywhere else in the method.
+*   **Execution Flow**: If an exception occurs inside the `try` block, execution of the block is suspended immediately, and control jumps directly to the matching `catch` block. If no exception occurs, the `try` block completes normally, any matching `catch` blocks are skipped, and the program executes the `finally` block (if present) before continuing.
 
 #### Runnable Code Example: Try Block Scope
-A `try` block cannot exist by itself. It must be followed by at least one `catch` block, a `finally` block, or both. Variables declared inside the `try` block are local to that block and cannot be accessed outside of it.
-
 ```java
 public class TryScopeDemo {
     public static void main(String[] args) {
         try {
-            int x = 10;
-            System.out.println("x in try: " + x);
+            int computedValue = 42; // Declared within try block scope
+            System.out.println("[Scope] computedValue inside try: " + computedValue);
         } catch (Exception e) {
-            // System.out.println(x); // Compile error: x is out of scope here
+            // System.out.println(computedValue); // COMPILE ERROR: computedValue is out of scope here!
         }
-        // System.out.println(x); // Compile error: x is out of scope here
+        // System.out.println(computedValue); // COMPILE ERROR: computedValue is out of scope here!
     }
 }
+/*
+Expected Output:
+[Scope] computedValue inside try: 42
+*/
 ```
+
+---
 
 ### catch
 
-catch handles a matching exception type thrown from the try block.
+The `catch` block is an exception handler that contains code to handle a specific type of exception thrown from the preceding `try` block.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+#### Technical Mechanism: Type Matching and Exception Binding
+When an exception is thrown inside the `try` block, the JVM searches the subsequent `catch` blocks in order from top to bottom.
+*   **Type Matching**: The JVM checks if the thrown exception object is an instance of the parameter class declared in the `catch` block (e.g., `catch (IOException e)` matches `IOException` and all its subclasses like `FileNotFoundException`).
+*   **Exception Binding**: Once a match is found, the exception object is bound to the parameter variable (typically named `e`), and the code inside the `catch` block executes. Only **one** catch block will execute per exception thrown.
 
-Practical check:
-
-- Define `catch` in one sentence.
-- Recognize `catch` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `catch`.
-
-Tiny example or mental model:
-
-- `try { ... } catch (IOException ex) { ... }` handles a specific failure path.
-
-#### Runnable Code Example: Catching Specific Exception
-When an exception is thrown in the `try` block, Java matches the exception type to the parameter type of the `catch` block.
-
+#### Runnable Code Example: Catching Specific Exception Type
 ```java
 public class CatchDemo {
     public static void main(String[] args) {
         try {
-            String str = "abc";
-            int num = Integer.parseInt(str); // Throws NumberFormatException
+            String value = "123a";
+            int number = Integer.parseInt(value); // Throws NumberFormatException
         } catch (NumberFormatException e) {
-            System.out.println("Caught NumberFormatException: " + e.getMessage());
+            System.out.println("[Catch] Caught NumberFormatException: Failed to parse input string.");
         }
     }
 }
+/*
+Expected Output:
+[Catch] Caught NumberFormatException: Failed to parse input string.
+*/
 ```
+
+---
 
 ### multiple catch
 
-multiple catch lets different exception types be handled by different handlers, ordered from specific to broad.
+Java allows you to specify **multiple catch blocks** for a single `try` block to handle different exceptions differently.
 
-Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
+#### Technical Mechanism: Specific to Broad Ordering
+Because the JVM matches catch blocks in sequential order from top to bottom, **more specific exception classes (subclasses) must be declared before more general exception classes (superclasses)**. If you place a superclass handler (e.g., `catch (Exception e)`) before a subclass handler (e.g., `catch (IOException e)`), the subclass handler is unreachable, and the compiler will throw a compilation error.
 
-Practical check:
+#### Union Catch Block (Multi-Catch)
+Since Java 7, if multiple exceptions require the exact same handling logic, you can combine them into a single `catch` block using the pipe (`|`) operator:
+```java
+catch (NullPointerException | ArithmeticException e) { ... }
+```
+*Rules of Multi-Catch*:
+*   The exceptions combined with `|` cannot have a parent-child relationship (e.g., `catch (IOException | FileNotFoundException e)` is a compiler error because `FileNotFoundException` is already covered by `IOException`).
+*   The exception variable `e` in a multi-catch block is implicitly `final`. You cannot assign a new value to it within the catch block.
 
-- Define `multiple catch` in one sentence.
-- Recognize `multiple catch` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `multiple catch`.
-
-Tiny example or mental model:
-
-- `try { ... } catch (IOException ex) { ... }` handles a specific failure path.
-
-#### Runnable Code Example: Multiple Catch Blocks vs Multi-Catch (Union Catch)
-Java allows you to define multiple `catch` blocks for a single `try` block, or catch multiple exception types in a single `catch` block using the pipe (`|`) operator.
-
+#### Runnable Code Example: Multiple Catch and Multi-Catch
 ```java
 public class MultipleCatchDemo {
     public static void main(String[] args) {
-        // Scenario 1: Multiple catch blocks (ordered from specific to general)
+        // Scenario 1: Multiple catch blocks (ordered specific to general)
         try {
-            int[] arr = new int[3];
-            arr[5] = 10; // ArrayIndexOutOfBoundsException
+            int[] numbers = new int[3];
+            numbers[5] = 42; // Throws ArrayIndexOutOfBoundsException
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Caught specific index out of bounds exception");
+            System.out.println("[Multiple] Caught specific: Index out of bounds!");
         } catch (RuntimeException e) {
-            System.out.println("Caught general RuntimeException");
+            System.out.println("[Multiple] Caught general: RuntimeException");
         }
 
         // Scenario 2: Multi-catch (Union catch block)
         try {
-            String str = null;
-            str.length(); // NullPointerException
+            String text = null;
+            text.trim(); // Throws NullPointerException
         } catch (NullPointerException | ArithmeticException e) {
-            // Note: 'e' is implicitly final in a multi-catch block
-            // e = new NullPointerException(); // Compile error: cannot assign a value to final variable e
-            System.out.println("Caught NullPointerException or ArithmeticException: " + e.getClass().getSimpleName());
+            System.out.println("[Multi-Catch] Caught exception of type: " + e.getClass().getSimpleName());
+            // e = new NullPointerException(); // COMPILE ERROR: variable e is implicitly final!
         }
     }
 }
+/*
+Expected Output:
+[Multiple] Caught specific: Index out of bounds!
+[Multi-Catch] Caught exception of type: NullPointerException
+*/
 ```
+
+---
 
 ## Common Mistakes
 

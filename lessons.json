@@ -495,7 +495,7 @@
         },
         {
           "id": "01-what-is-an-exception-concepts",
-          "title": "Xử Lý Ngoại Lệ - Phần 1",
+          "title": "Xử lý ngoại lệ - Phần 1 (Exception Handling - Part 1)",
           "md_path": "vi/no12_exception_handling/theory/01-what-is-an-exception-concepts.md",
           "mp3_path": "vi/no12_exception_handling/theory/audio/01-what-is-an-exception-concepts.mp3",
           "json_path": "vi/no12_exception_handling/theory/audio/01-what-is-an-exception-concepts.json",

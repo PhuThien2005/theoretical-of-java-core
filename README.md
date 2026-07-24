@@ -115,6 +115,23 @@ More commands:
 - `no44_unit_testing`: Basic unit testing.
 - `no45_interview_questions`: Common Java Core interview questions.
 
+## Localization & Audio Studio
+
+The repository supports translating lessons to Vietnamese and generating synchronized audio narrations (using `edge-tts` with a high-quality Vietnamese AI voice):
+
+1. **Translation**: Synchronize English markdown updates to Vietnamese (`vi/` folder):
+   ```bash
+   python3 -c "import sys; sys.path.append('scripts'); from translate_optimized import translate_markdown_file; translate_markdown_file('<src_path>', '<dest_path>')"
+   ```
+2. **Audio & Timestamp Generation**: Re-generate `.mp3` voice and `.json` alignment timestamps:
+   ```bash
+   python3 generate_single_lesson.py vi/<topic_folder>/theory/<lesson>.md vi/<topic_folder>/theory/audio/<lesson>.json
+   ```
+3. **Rebuild Manifest**: Re-compile `lessons.json` for the frontend application:
+   ```bash
+   python3 build_site_manifest.py
+   ```
+
 ## Supporting Folders
 
 - `no00_setup`: JDK, IDE, compile/run setup.
