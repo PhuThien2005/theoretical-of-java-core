@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const json = await jsonRes.json();
         currentTimestamps = json.timestamps || [];
         
-        audioEngine.src = lesson.mp3_path;
+        audioEngine.src = lesson.mp3_path + '?t=' + Date.now();
         audioEngine.load();
         totalTimeEl.textContent = formatTime(json.total_duration_seconds || 0);
       } catch (e) {
