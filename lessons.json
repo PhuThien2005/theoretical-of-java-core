@@ -1,10 +1,18 @@
 {
-  "total_lessons": 129,
+  "total_lessons": 175,
   "chapters": [
     {
       "id": "no00_setup",
       "title": "No00 Setup",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no00_setup/README.md",
+          "mp3_path": "vi/no00_setup/audio/README.mp3",
+          "json_path": "vi/no00_setup/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-setup-basics",
           "title": "Kiến Thức Cơ Bản Về Cài Đặt",
@@ -19,6 +27,14 @@
       "id": "no01_overview",
       "title": "No01 Overview",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no01_overview/README.md",
+          "mp3_path": "vi/no01_overview/audio/README.mp3",
+          "json_path": "vi/no01_overview/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-what-is-java",
           "title": "Java Là Gì",
@@ -58,6 +74,14 @@
       "title": "No02 Basic Syntax",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no02_basic_syntax/README.md",
+          "mp3_path": "vi/no02_basic_syntax/audio/README.mp3",
+          "json_path": "vi/no02_basic_syntax/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-program-anatomy",
           "title": "Cấu Trúc Chương Trình Java (Program Anatomy)",
           "md_path": "vi/no02_basic_syntax/theory/01-program-anatomy.md",
@@ -95,6 +119,14 @@
       "id": "no03_data_types",
       "title": "No03 Data Types",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no03_data_types/README.md",
+          "mp3_path": "vi/no03_data_types/audio/README.mp3",
+          "json_path": "vi/no03_data_types/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-primitive-types",
           "title": "Kiểu Dữ Liệu Nguyên Thủy (Primitive Types)",
@@ -134,6 +166,14 @@
       "title": "No04 Variables Constants",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no04_variables_constants/README.md",
+          "mp3_path": "vi/no04_variables_constants/audio/README.mp3",
+          "json_path": "vi/no04_variables_constants/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-variable-categories",
           "title": "Phân Loại Biến (Variable Categories)",
           "md_path": "vi/no04_variables_constants/theory/01-variable-categories.md",
@@ -171,6 +211,14 @@
       "id": "no05_operators",
       "title": "No05 Operators",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no05_operators/README.md",
+          "mp3_path": "vi/no05_operators/audio/README.mp3",
+          "json_path": "vi/no05_operators/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-arithmetic-assignment-operators",
           "title": "Các Toán Tử Số Học Và Gán (Arithmetic and Assignment Operators)",
@@ -210,6 +258,14 @@
       "title": "No06 Control Flow",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no06_control_flow/README.md",
+          "mp3_path": "vi/no06_control_flow/audio/README.mp3",
+          "json_path": "vi/no06_control_flow/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-if-else-switch",
           "title": "if, else, và switch",
           "md_path": "vi/no06_control_flow/theory/01-if-else-switch.md",
@@ -248,6 +304,14 @@
       "title": "No07 Arrays",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no07_arrays/README.md",
+          "mp3_path": "vi/no07_arrays/audio/README.mp3",
+          "json_path": "vi/no07_arrays/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-array-basics",
           "title": "Kiến Thức Cơ Bản Về Mảng (Array Basics)",
           "md_path": "vi/no07_arrays/theory/01-array-basics.md",
@@ -269,6 +333,14 @@
       "id": "no08_string",
       "title": "No08 String",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no08_string/README.md",
+          "mp3_path": "vi/no08_string/audio/README.mp3",
+          "json_path": "vi/no08_string/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-string-basics",
           "title": "Kiến Thức Cơ Bản Về Chuỗi (String Basics)",
@@ -299,6 +371,14 @@
       "id": "no09_oop",
       "title": "No09 Oop",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no09_oop/README.md",
+          "mp3_path": "vi/no09_oop/audio/README.mp3",
+          "json_path": "vi/no09_oop/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-classes-objects",
           "title": "Lớp và Đối Tượng (Classes and Objects)",
@@ -346,6 +426,14 @@
       "title": "No10 Modifiers",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no10_modifiers/README.md",
+          "mp3_path": "vi/no10_modifiers/audio/README.mp3",
+          "json_path": "vi/no10_modifiers/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-access-modifier-concepts",
           "title": "Các bổ từ trong Java (Modifiers in Java) - Phần 1",
           "md_path": "vi/no10_modifiers/theory/01-access-modifier-concepts.md",
@@ -376,6 +464,14 @@
       "title": "No11 Package Access Control",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no11_package_access_control/README.md",
+          "mp3_path": "vi/no11_package_access_control/audio/README.mp3",
+          "json_path": "vi/no11_package_access_control/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-what-is-a-package-concepts",
           "title": "Gói và Kiểm Soát Truy Cập - Phần 1 (Package and Access Control - Part 1)",
           "md_path": "vi/no11_package_access_control/theory/01-what-is-a-package-concepts.md",
@@ -389,6 +485,14 @@
       "id": "no12_exception_handling",
       "title": "No12 Exception Handling",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no12_exception_handling/README.md",
+          "mp3_path": "vi/no12_exception_handling/audio/README.mp3",
+          "json_path": "vi/no12_exception_handling/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-what-is-an-exception-concepts",
           "title": "Xử Lý Ngoại Lệ - Phần 1",
@@ -428,6 +532,14 @@
       "title": "No13 Memory Management",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no13_memory_management/README.md",
+          "mp3_path": "vi/no13_memory_management/audio/README.mp3",
+          "json_path": "vi/no13_memory_management/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-stack-concepts",
           "title": "Quản Lý Bộ Nhớ Java (Java Memory Management) - Phần 1",
           "md_path": "vi/no13_memory_management/theory/01-stack-concepts.md",
@@ -458,6 +570,14 @@
       "title": "No14 Object Class",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no14_object_class/README.md",
+          "mp3_path": "vi/no14_object_class/audio/README.mp3",
+          "json_path": "vi/no14_object_class/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-tostring-concepts",
           "title": "Lớp Object - Phần 1",
           "md_path": "vi/no14_object_class/theory/01-tostring-concepts.md",
@@ -480,6 +600,14 @@
       "title": "No15 Inner Nested Class",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no15_inner_nested_class/README.md",
+          "mp3_path": "vi/no15_inner_nested_class/audio/README.mp3",
+          "json_path": "vi/no15_inner_nested_class/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-nested-class-concepts",
           "title": "Lớp nội bộ và Lớp lồng nhau - Phần 1 (Inner Class and Nested Class - Part 1)",
           "md_path": "vi/no15_inner_nested_class/theory/01-nested-class-concepts.md",
@@ -493,6 +621,14 @@
       "id": "no16_enum",
       "title": "No16 Enum",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no16_enum/README.md",
+          "mp3_path": "vi/no16_enum/audio/README.mp3",
+          "json_path": "vi/no16_enum/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-what-is-an-enum-concepts",
           "title": "Enum (Kiểu liệt kê) - Phần 1 (Enum - Part 1)",
@@ -516,6 +652,14 @@
       "title": "No17 Annotation",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no17_annotation/README.md",
+          "mp3_path": "vi/no17_annotation/audio/README.mp3",
+          "json_path": "vi/no17_annotation/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-what-is-an-annotation-concepts",
           "title": "Chú Thích - Phần 1 (Annotation - Part 1)",
           "md_path": "vi/no17_annotation/theory/01-what-is-an-annotation-concepts.md",
@@ -537,6 +681,14 @@
       "id": "no18_generics",
       "title": "No18 Generics",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no18_generics/README.md",
+          "mp3_path": "vi/no18_generics/audio/README.mp3",
+          "json_path": "vi/no18_generics/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-generic-class-concepts",
           "title": "Kiểu chung (Generics) – Phần 1: Lớp tổng quát (Generic Class), Phương thức (Method), Giao diện (Interface), Tham số kiểu (Type Parameters), Giới hạn (Bounds)",
@@ -575,6 +727,14 @@
       "id": "no19_collections_framework",
       "title": "No19 Collections Framework",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no19_collections_framework/README.md",
+          "mp3_path": "vi/no19_collections_framework/audio/README.mp3",
+          "json_path": "vi/no19_collections_framework/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-what-is-the-collection-framework-concepts",
           "title": "Cấu Trúc Tập Hợp (Collections Framework) - Phần 1",
@@ -638,6 +798,14 @@
       "title": "No20 Comparable Comparator",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no20_comparable_comparator/README.md",
+          "mp3_path": "vi/no20_comparable_comparator/audio/README.mp3",
+          "json_path": "vi/no20_comparable_comparator/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-comparable-concepts",
           "title": "Comparable và Comparator - Phần 1 (Comparable and Comparator - Part 1)",
           "md_path": "vi/no20_comparable_comparator/theory/01-comparable-concepts.md",
@@ -659,6 +827,14 @@
       "id": "no21_lambda_expression",
       "title": "No21 Lambda Expression",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no21_lambda_expression/README.md",
+          "mp3_path": "vi/no21_lambda_expression/audio/README.mp3",
+          "json_path": "vi/no21_lambda_expression/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-what-is-a-lambda-concepts",
           "title": "Biểu Thức Lambda (Lambda Expression) - Phần 1",
@@ -682,6 +858,14 @@
       "title": "No22 Functional Interface",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no22_functional_interface/README.md",
+          "mp3_path": "vi/no22_functional_interface/audio/README.mp3",
+          "json_path": "vi/no22_functional_interface/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-predicate-t-concepts",
           "title": "Giao Diện Chức Năng (Functional Interface) - Phần 1",
           "md_path": "vi/no22_functional_interface/theory/01-predicate-t-concepts.md",
@@ -703,6 +887,14 @@
       "id": "no23_stream_api",
       "title": "No23 Stream Api",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no23_stream_api/README.md",
+          "mp3_path": "vi/no23_stream_api/audio/README.mp3",
+          "json_path": "vi/no23_stream_api/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-what-is-stream-concepts",
           "title": "Stream API - Phần 1",
@@ -758,6 +950,14 @@
       "title": "No24 Optional",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no24_optional/README.md",
+          "mp3_path": "vi/no24_optional/audio/README.mp3",
+          "json_path": "vi/no24_optional/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-what-is-optional-t-concepts",
           "title": "Optional - Phần 1",
           "md_path": "vi/no24_optional/theory/01-what-is-optional-t-concepts.md",
@@ -780,6 +980,14 @@
       "title": "No25 Date Time Api",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no25_date_time_api/README.md",
+          "mp3_path": "vi/no25_date_time_api/audio/README.mp3",
+          "json_path": "vi/no25_date_time_api/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-date-concepts",
           "title": "API Ngày và Giờ (Date and Time API) - Phần 1",
           "md_path": "vi/no25_date_time_api/theory/01-date-concepts.md",
@@ -801,6 +1009,14 @@
       "id": "no26_io",
       "title": "No26 Io",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no26_io/README.md",
+          "mp3_path": "vi/no26_io/audio/README.mp3",
+          "json_path": "vi/no26_io/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-file-concepts",
           "title": "Vào/Ra (I/O) trong Java - Phần 1 (IO in Java - Part 1)",
@@ -832,6 +1048,14 @@
       "title": "No27 Nio",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no27_nio/README.md",
+          "mp3_path": "vi/no27_nio/audio/README.mp3",
+          "json_path": "vi/no27_nio/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-path-concepts",
           "title": "NIO / NIO.2 - Phần 1 (NIO / NIO.2 - Part 1)",
           "md_path": "vi/no27_nio/theory/01-path-concepts.md",
@@ -853,6 +1077,14 @@
       "id": "no28_multithreading",
       "title": "No28 Multithreading",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no28_multithreading/README.md",
+          "mp3_path": "vi/no28_multithreading/audio/README.mp3",
+          "json_path": "vi/no28_multithreading/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-process-vs-thread-concepts",
           "title": "Đa Luồng (Multithreading) - Phần 1",
@@ -891,6 +1123,14 @@
       "id": "no29_synchronization_concurrency",
       "title": "No29 Synchronization Concurrency",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no29_synchronization_concurrency/README.md",
+          "mp3_path": "vi/no29_synchronization_concurrency/audio/README.mp3",
+          "json_path": "vi/no29_synchronization_concurrency/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-synchronized-method-concepts",
           "title": "Đồng Bộ Hóa và Đồng Thời - Phần 1 (Synchronization and Concurrency - Part 1)",
@@ -946,6 +1186,14 @@
       "title": "No30 Regex",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no30_regex/README.md",
+          "mp3_path": "vi/no30_regex/audio/README.mp3",
+          "json_path": "vi/no30_regex/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-what-is-regex-concepts",
           "title": "Biểu Thức Chính Quy - Phần 1 (Regular Expression - Part 1)",
           "md_path": "vi/no30_regex/theory/01-what-is-regex-concepts.md",
@@ -967,6 +1215,14 @@
       "id": "no31_reflection",
       "title": "No31 Reflection",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no31_reflection/README.md",
+          "mp3_path": "vi/no31_reflection/audio/README.mp3",
+          "json_path": "vi/no31_reflection/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-what-is-reflection-concepts",
           "title": "Cơ Chế Phản Chiếu - Phần 1 (Reflection - Part 1)",
@@ -990,6 +1246,14 @@
       "title": "No32 Classloader",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no32_classloader/README.md",
+          "mp3_path": "vi/no32_classloader/audio/README.mp3",
+          "json_path": "vi/no32_classloader/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-class-loading-process-concepts",
           "title": "Trình nạp lớp (ClassLoader) - Phần 1",
           "md_path": "vi/no32_classloader/theory/01-class-loading-process-concepts.md",
@@ -1004,6 +1268,14 @@
       "title": "No33 Module System",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no33_module_system/README.md",
+          "mp3_path": "vi/no33_module_system/audio/README.mp3",
+          "json_path": "vi/no33_module_system/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-what-is-a-module-concepts",
           "title": "Hệ Thống Mô-đun Java (Java Module System) - Phần 1",
           "md_path": "vi/no33_module_system/theory/01-what-is-a-module-concepts.md",
@@ -1017,6 +1289,14 @@
       "id": "no34_jdbc",
       "title": "No34 Jdbc",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no34_jdbc/README.md",
+          "mp3_path": "vi/no34_jdbc/audio/README.mp3",
+          "json_path": "vi/no34_jdbc/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-what-is-jdbc-concepts",
           "title": "JDBC - Phần 1 (JDBC - Part 1)",
@@ -1040,6 +1320,14 @@
       "title": "No35 Networking",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no35_networking/README.md",
+          "mp3_path": "vi/no35_networking/audio/README.mp3",
+          "json_path": "vi/no35_networking/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-socket-programming-concepts",
           "title": "Lập Trình Mạng (Networking) - Phần 1",
           "md_path": "vi/no35_networking/theory/01-socket-programming-concepts.md",
@@ -1062,6 +1350,14 @@
       "title": "No36 Security Basic",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no36_security_basic/README.md",
+          "mp3_path": "vi/no36_security_basic/audio/README.mp3",
+          "json_path": "vi/no36_security_basic/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-basic-secure-coding-concepts",
           "title": "Bảo Mật Cơ Bản - Phần 1 (Basic Security - Part 1)",
           "md_path": "vi/no36_security_basic/theory/01-basic-secure-coding-concepts.md",
@@ -1083,6 +1379,14 @@
       "id": "no37_jvm_advanced",
       "title": "No37 Jvm Advanced",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no37_jvm_advanced/README.md",
+          "mp3_path": "vi/no37_jvm_advanced/audio/README.mp3",
+          "json_path": "vi/no37_jvm_advanced/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-jvm-architecture-concepts",
           "title": "Kiến Trúc JVM Nâng Cao (Advanced JVM) - Phần 1",
@@ -1130,6 +1434,14 @@
       "title": "No38 Build Compile Run",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no38_build_compile_run/README.md",
+          "mp3_path": "vi/no38_build_compile_run/audio/README.mp3",
+          "json_path": "vi/no38_build_compile_run/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-javac-concepts",
           "title": "Biên Dịch, Đóng Gói, Thực Thi - Phần 1 (Build, Compile, Run - Part 1)",
           "md_path": "vi/no38_build_compile_run/theory/01-javac-concepts.md",
@@ -1151,6 +1463,14 @@
       "id": "no39_utility_apis",
       "title": "No39 Utility Apis",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no39_utility_apis/README.md",
+          "mp3_path": "vi/no39_utility_apis/audio/README.mp3",
+          "json_path": "vi/no39_utility_apis/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-math-concepts",
           "title": "Một Số Utility API Thông Dụng — Phần 1",
@@ -1174,6 +1494,14 @@
       "title": "No40 Modern Java Concepts",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no40_modern_java_concepts/README.md",
+          "mp3_path": "vi/no40_modern_java_concepts/audio/README.mp3",
+          "json_path": "vi/no40_modern_java_concepts/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-var-concepts",
           "title": "Các Khái Niệm Java Hiện Đại Cần Biết - Phần 1",
           "md_path": "vi/no40_modern_java_concepts/theory/01-var-concepts.md",
@@ -1195,6 +1523,14 @@
       "id": "no41_best_practices",
       "title": "No41 Best Practices",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no41_best_practices/README.md",
+          "mp3_path": "vi/no41_best_practices/audio/README.mp3",
+          "json_path": "vi/no41_best_practices/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-name-variables-functions-and-classes-clearly-concepts",
           "title": "Thực hành tốt nhất trong Java - Phần 1 (Best Practices in Java - Part 1)",
@@ -1218,6 +1554,14 @@
       "title": "No42 Design Principles",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no42_design_principles/README.md",
+          "mp3_path": "vi/no42_design_principles/audio/README.mp3",
+          "json_path": "vi/no42_design_principles/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-solid-concepts",
           "title": "Các Nguyên Tắc Thiết Kế Cơ Bản Thường Đi Kèm Với Java Core - Phần 1",
           "md_path": "vi/no42_design_principles/theory/01-solid-concepts.md",
@@ -1231,6 +1575,14 @@
       "id": "no43_design_patterns",
       "title": "No43 Design Patterns",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no43_design_patterns/README.md",
+          "mp3_path": "vi/no43_design_patterns/audio/README.mp3",
+          "json_path": "vi/no43_design_patterns/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-singleton-concepts",
           "title": "Các Mẫu Thiết Kế Cơ Bản Thường Gặp Trong Java - Phần 1",
@@ -1254,6 +1606,14 @@
       "title": "No44 Unit Testing",
       "lessons": [
         {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no44_unit_testing/README.md",
+          "mp3_path": "vi/no44_unit_testing/audio/README.mp3",
+          "json_path": "vi/no44_unit_testing/audio/README.json",
+          "has_audio": false
+        },
+        {
           "id": "01-junit-concepts",
           "title": "Kiểm thử đơn vị cơ bản - Phần 1: Các kiến thức cơ bản về JUnit 5 & Mockito",
           "md_path": "vi/no44_unit_testing/theory/01-junit-concepts.md",
@@ -1275,6 +1635,14 @@
       "id": "no45_interview_questions",
       "title": "No45 Interview Questions",
       "lessons": [
+        {
+          "id": "README",
+          "title": "Tổng Quan Chương (README)",
+          "md_path": "vi/no45_interview_questions/README.md",
+          "mp3_path": "vi/no45_interview_questions/audio/README.mp3",
+          "json_path": "vi/no45_interview_questions/audio/README.json",
+          "has_audio": false
+        },
         {
           "id": "01-how-are-jvm-jdk-and-jre-different-concepts",
           "title": "Các Câu Hỏi Phỏng Vấn Java Core Thường Gặp - Phần 1",

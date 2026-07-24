@@ -146,7 +146,33 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // Apply syntax highlighting
       if (window.hljs) {
-        markdownContainer.querySelectorAll('pre code').forEach((el) => hljs.highlightElement(el));
+        markdownContainer.querySelectorAll('pre code').forEach((el) => {
+          if (!el.classList.contains('language-mermaid')) {
+            hljs.highlightElement(el);
+          }
+        });
+      }
+
+      // Convert language-mermaid blocks for rendering
+      markdownContainer.querySelectorAll('pre code.language-mermaid').forEach((codeEl) => {
+        const preEl = codeEl.parentElement;
+        const divEl = document.createElement('div');
+        divEl.className = 'mermaid';
+        divEl.textContent = codeEl.textContent;
+        preEl.replaceWith(divEl);
+      });
+
+      // Render Mermaid diagrams
+      if (window.mermaid) {
+        try {
+          const isLight = document.body.classList.contains('light-theme');
+          mermaid.initialize({ startOnLoad: false, theme: isLight ? 'default' : 'dark' });
+          mermaid.run({
+            querySelector: '.mermaid'
+          });
+        } catch (e) {
+          console.error('Mermaid render error:', e);
+        }
       }
       
       // Map paragraphs
@@ -169,13 +195,20 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn('Could not load timestamps JSON:', e);
         currentTimestamps = [];
       }
+    } else {
+      audioEngine.src = '';
+      currentTimestamps = [];
+      totalTimeEl.textContent = '00:00';
+      currentTimeEl.textContent = '00:00';
+      progressBar.style.width = '0%';
+      playerSnippet.textContent = 'Nội dung đọc trực tiếp (Không có file audio)';
     }
   }
 
   // MAP PARAGRAPH ELEMENTS FOR CLICK-TO-SEEK & SYNC
   function mapParagraphElements() {
     paragraphElements = [];
-    const elements = markdownContainer.querySelectorAll('p, li, h1, h2, h3, h4');
+    const elements = markdownContainer.querySelectorAll('p, li, h1, h2, h3, h4, pre');
     
     elements.forEach((el, index) => {
       const segId = index + 1; // 1-indexed matching JSON
