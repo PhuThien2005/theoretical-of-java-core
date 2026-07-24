@@ -6,6 +6,7 @@ import edge_tts
 
 VOICE = "vi-VN-HoaiMyNeural"
 PROJECT_DIR = "/home/fhu_thjen/projects/learning-java"
+SEMAPHORE_LIMIT = 2  # Keep it low to prevent rate limits from edge-tts
 
 async def get_marked_blocks(md_path):
     cmd = ["node", "scratch_extract_blocks.js", md_path]
@@ -25,26 +26,38 @@ async def get_marked_blocks(md_path):
         
     return json.loads(stdout.decode('utf-8'))
 
-async def process_chunk_parallel(chunk_idx, chunk):
+async def process_chunk_parallel(chunk_idx, chunk, sem):
     texts = [item[1] for item in chunk]
     full_chunk_text = " . ".join(texts)
     
     cues = []
     chunk_audio_bytes = bytearray()
-    try:
-        communicate = edge_tts.Communicate(full_chunk_text, VOICE)
-        async for item in communicate.stream():
-            if item["type"] == "audio":
-                chunk_audio_bytes.extend(item["data"])
-            elif item["type"] == "SentenceBoundary":
-                cues.append({
-                    "start": item["offset"] / 10000000.0,
-                    "duration": item["duration"] / 10000000.0,
-                    "text": item["text"]
-                })
-    except Exception as e:
-        # Safe fallback if chunk fails
-        pass
+    
+    # Retry up to 5 times for resilience
+    for attempt in range(5):
+        async with sem:
+            cues = []
+            chunk_audio_bytes = bytearray()
+            try:
+                communicate = edge_tts.Communicate(full_chunk_text, VOICE)
+                async for item in communicate.stream():
+                    if item["type"] == "audio":
+                        chunk_audio_bytes.extend(item["data"])
+                    elif item["type"] == "SentenceBoundary":
+                        cues.append({
+                            "start": item["offset"] / 10000000.0,
+                            "duration": item["duration"] / 10000000.0,
+                            "text": item["text"]
+                        })
+                if len(chunk_audio_bytes) > 0:
+                    break
+            except Exception as e:
+                print(f"   [Chunk {chunk_idx}] Attempt {attempt+1} failed: {e}. Retrying...", flush=True)
+                await asyncio.sleep(2)
+                
+    if len(chunk_audio_bytes) == 0:
+        raise RuntimeError(f"Failed to generate audio for chunk {chunk_idx} after 5 attempts.")
+        
     return chunk_idx, cues, chunk_audio_bytes
 
 async def main():
@@ -55,9 +68,7 @@ async def main():
     md_path = sys.argv[1]
     json_path = sys.argv[2]
     
-    # Infer mp3 path by replacing .json extension with .mp3
     mp3_path = os.path.splitext(json_path)[0] + ".mp3"
-    
     lesson_name = os.path.splitext(os.path.basename(md_path))[0]
     
     blocks = await get_marked_blocks(md_path)
@@ -69,20 +80,26 @@ async def main():
     current_chunk = []
     current_char_count = 0
     
+    # Split into smaller chunks to prevent edge-tts timeout/truncation
     for idx, b in enumerate(blocks):
         current_chunk.append((idx, b))
         current_char_count += len(b)
-        if len(current_chunk) >= 5 or current_char_count >= 4000:
+        if len(current_chunk) >= 4 or current_char_count >= 2500:
             chunks.append(current_chunk)
             current_chunk = []
             current_char_count = 0
     if current_chunk:
         chunks.append(current_chunk)
         
-    # Process chunks in parallel to achieve 15x speedup
-    tasks = [process_chunk_parallel(i, c) for i, c in enumerate(chunks)]
-    chunk_results = await asyncio.gather(*tasks)
+    sem = asyncio.Semaphore(SEMAPHORE_LIMIT)
+    tasks = [process_chunk_parallel(i, c, sem) for i, c in enumerate(chunks)]
     
+    try:
+        chunk_results = await asyncio.gather(*tasks)
+    except Exception as e:
+        print(f"❌ Failed generating lesson {lesson_name}: {e}")
+        sys.exit(1)
+        
     # Sort by chunk index to maintain order
     chunk_results.sort(key=lambda x: x[0])
     
