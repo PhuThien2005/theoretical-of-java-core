@@ -246,22 +246,31 @@ document.addEventListener('DOMContentLoaded', () => {
   // MAP PARAGRAPH ELEMENTS FOR CLICK-TO-SEEK & SYNC
   function mapParagraphElements() {
     paragraphElements = [];
-    const elements = markdownContainer.querySelectorAll('p, li, h1, h2, h3, h4, pre');
+    const elements = markdownContainer.querySelectorAll('p, li, h1, h2, h3, h4, pre, div.mermaid');
     
-    elements.forEach((el, index) => {
-      const segId = index + 1; // 1-indexed matching JSON
-      el.dataset.paragraphId = segId;
-      paragraphElements.push(el);
+    let segId = 1;
+    elements.forEach((el) => {
+      let text = el.textContent.trim();
+      if (el.tagName === 'PRE' || el.classList.contains('mermaid')) {
+        text = 'Đoạn mã mẫu Java:';
+      }
       
-      // Click to seek
-      el.addEventListener('click', () => {
-        if (!currentTimestamps.length) return;
-        const ts = currentTimestamps.find(t => t.paragraph_id === segId);
-        if (ts) {
-          audioEngine.currentTime = ts.start;
-          if (!isPlaying) playAudio();
-        }
-      });
+      if (text) {
+        el.dataset.paragraphId = segId;
+        paragraphElements.push(el);
+        
+        // Click to seek
+        const currentSegId = segId;
+        el.addEventListener('click', () => {
+          if (!currentTimestamps.length) return;
+          const ts = currentTimestamps.find(t => t.paragraph_id === currentSegId);
+          if (ts) {
+            audioEngine.currentTime = ts.start;
+            if (!isPlaying) playAudio();
+          }
+        });
+        segId++;
+      }
     });
   }
 
