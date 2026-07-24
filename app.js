@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupEventListeners();
     
     try {
-      const res = await fetch('lessons.json');
+      const res = await fetch('lessons.json?t=' + Date.now());
       if (!res.ok) throw new Error('Không thể tải file lessons.json');
       manifestData = await res.json();
       
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load Markdown content
     try {
       markdownContainer.innerHTML = '<div class="loading-spinner"><i class="fa-solid fa-spinner fa-spin"></i> Đang nạp bài học...</div>';
-      const mdRes = await fetch(lesson.md_path);
+      const mdRes = await fetch(lesson.md_path + '?t=' + Date.now());
       const mdText = await mdRes.text();
       
       const htmlContent = marked.parse(mdText);
@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load Audio & Timestamps
     if (lesson.has_audio) {
       try {
-        const jsonRes = await fetch(lesson.json_path);
+        const jsonRes = await fetch(lesson.json_path + '?t=' + Date.now());
         const json = await jsonRes.json();
         currentTimestamps = json.timestamps || [];
         
