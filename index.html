@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java Core Theory & Audio Sync Studio</title>
+  <meta name="description" content="Hệ thống học Lý Thuyết Java Core với Audio Đồng Bộ Real-time & Highlight theo giọng đọc Hoài My Neural.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Highlight.js CSS for Code Highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Application Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+
+  <div class="app-container">
+    <!-- TOP NAVIGATION BAR -->
+    <header class="navbar">
+      <div class="nav-left">
+        <button id="sidebar-toggle-btn" class="icon-btn" title="Đóng/Mở Danh Mục">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="brand">
+          <i class="fa-brands fa-java brand-icon"></i>
+          <span class="brand-title">Java Core <span class="badge">Audio Studio</span></span>
+        </div>
+      </div>
+      <div class="nav-center">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="search-input" placeholder="Tìm kiếm bài học, từ khóa Java...">
+        </div>
+      </div>
+      <div class="nav-right">
+        <button id="theme-toggle-btn" class="icon-btn" title="Đổi Giao Diện Sáng/Tối">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN WORKSPACE -->
+    <div class="main-body">
+      <!-- SIDEBAR NAVIGATION -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <h3><i class="fa-solid fa-book-bookmark"></i> 46 Chương Lý Thuyết</h3>
+          <span id="lesson-count" class="badge-count">129 bài</span>
+        </div>
+        <nav class="sidebar-content" id="sidebar-content">
+          <div class="loading-spinner"><i class="fa-solid fa-spinner fa-spin"></i> Đang tải bài học...</div>
+        </nav>
+      </aside>
+
+      <!-- CONTENT READER AREA -->
+      <main class="content-viewer" id="content-viewer">
+        <div class="content-header">
+          <div class="breadcrumb" id="breadcrumb">Trang chủ / Nền tảng Java</div>
+          <h1 id="lesson-title" class="lesson-title">Vui lòng chọn bài học từ danh mục bên trái</h1>
+          <div class="lesson-meta" id="lesson-meta">
+            <span class="meta-tag"><i class="fa-solid fa-headphones"></i> Giọng Nữ Hoài My Neural</span>
+            <span class="meta-tag"><i class="fa-solid fa-bolt"></i> Auto-Scroll Sync</span>
+          </div>
+        </div>
+
+        <div class="markdown-container" id="markdown-container">
+          <div class="welcome-card">
+            <i class="fa-brands fa-java welcome-icon"></i>
+            <h2>Chào Mừng Bạn Đến Với Java Core Audio Studio</h2>
+            <p>Hệ thống hỗ trợ 100% 129 Bài Học Lý Thuyết Java Core với file MP3 giọng Nữ Hoài My Neural và tính năng <strong>Highlight + Auto-Scroll tự động</strong> theo lời đọc.</p>
+            <div class="welcome-actions">
+              <button class="btn btn-primary" id="start-learning-btn">
+                <i class="fa-solid fa-play"></i> Bắt Đầu Học Bài Đầu Tiên
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- BOTTOM STICKY AUDIO PLAYER BAR -->
+    <footer class="audio-player-bar" id="audio-player-bar">
+      <div class="player-left">
+        <div class="audio-info">
+          <div class="audio-title" id="player-lesson-title">Chưa chọn bài học</div>
+          <div class="audio-snippet" id="player-snippet">Hãy chọn bài học để phát âm thanh</div>
+        </div>
+      </div>
+
+      <div class="player-center">
+        <div class="controls">
+          <button id="prev-seg-btn" class="ctrl-btn" title="Đoạn Trước (Phím ◄)"><i class="fa-solid fa-backward-step"></i></button>
+          <button id="rewind-btn" class="ctrl-btn" title="Lùi 5s"><i class="fa-solid fa-rotate-left"></i></button>
+          <button id="play-btn" class="play-main-btn" title="Phát/Tạm Dừng (Spacebar)"><i class="fa-solid fa-play"></i></button>
+          <button id="forward-btn" class="ctrl-btn" title="Tiến 5s"><i class="fa-solid fa-rotate-right"></i></button>
+          <button id="next-seg-btn" class="ctrl-btn" title="Đoạn Sau (Phím ►)"><i class="fa-solid fa-forward-step"></i></button>
+        </div>
+        <div class="progress-container">
+          <span id="current-time">00:00</span>
+          <div class="progress-bar-wrapper" id="progress-bar-wrapper">
+            <div class="progress-bar" id="progress-bar"></div>
+          </div>
+          <span id="total-time">00:00</span>
+        </div>
+      </div>
+
+      <div class="player-right">
+        <div class="speed-selector">
+          <i class="fa-solid fa-gauge-high"></i>
+          <select id="speed-select" title="Tốc độ phát">
+            <option value="0.75">0.75x</option>
+            <option value="1" selected>1.0x (Nổi bật)</option>
+            <option value="1.25">1.25x</option>
+            <option value="1.5">1.5x</option>
+            <option value="2">2.0x</option>
+          </select>
+        </div>
+        <div class="volume-container">
+          <button id="mute-btn" class="icon-btn" title="Bật/Tắt âm thanh"><i class="fa-solid fa-volume-high"></i></button>
+          <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="1">
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- HTML5 Audio Element -->
+  <audio id="audio-engine" preload="auto"></audio>
+
+  <!-- External Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/11.1.1/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/java.min.js"></script>
+
+  <!-- Main Application Script -->
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1313 @@
+{
+  "total_lessons": 129,
+  "chapters": [
+    {
+      "id": "no00_setup",
+      "title": "No00 Setup",
+      "lessons": [
+        {
+          "id": "01-setup-basics",
+          "title": "Kiến Thức Cơ Bản Về Cài Đặt",
+          "md_path": "vi/no00_setup/theory/01-setup-basics.md",
+          "mp3_path": "vi/no00_setup/theory/audio/01-setup-basics.mp3",
+          "json_path": "vi/no00_setup/theory/audio/01-setup-basics.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no01_overview",
+      "title": "No01 Overview",
+      "lessons": [
+        {
+          "id": "01-what-is-java",
+          "title": "Java Là Gì",
+          "md_path": "vi/no01_overview/theory/01-what-is-java.md",
+          "mp3_path": "vi/no01_overview/theory/audio/01-what-is-java.mp3",
+          "json_path": "vi/no01_overview/theory/audio/01-what-is-java.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-jvm-jre-jdk",
+          "title": "JVM, JRE Và JDK",
+          "md_path": "vi/no01_overview/theory/02-jvm-jre-jdk.md",
+          "mp3_path": "vi/no01_overview/theory/audio/02-jvm-jre-jdk.mp3",
+          "json_path": "vi/no01_overview/theory/audio/02-jvm-jre-jdk.json",
+          "has_audio": true
+        },
+        {
+          "id": "03-compile-runtime-flow",
+          "title": "Luồng Biên Dịch Và Runtime",
+          "md_path": "vi/no01_overview/theory/03-compile-runtime-flow.md",
+          "mp3_path": "vi/no01_overview/theory/audio/03-compile-runtime-flow.mp3",
+          "json_path": "vi/no01_overview/theory/audio/03-compile-runtime-flow.json",
+          "has_audio": true
+        },
+        {
+          "id": "04-editions-and-versions",
+          "title": "Các Phiên Bản Và Ấn Bản Java (Java Editions And Versions)",
+          "md_path": "vi/no01_overview/theory/04-editions-and-versions.md",
+          "mp3_path": "vi/no01_overview/theory/audio/04-editions-and-versions.mp3",
+          "json_path": "vi/no01_overview/theory/audio/04-editions-and-versions.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no02_basic_syntax",
+      "title": "No02 Basic Syntax",
+      "lessons": [
+        {
+          "id": "01-program-anatomy",
+          "title": "Cấu Trúc Chương Trình Java (Program Anatomy)",
+          "md_path": "vi/no02_basic_syntax/theory/01-program-anatomy.md",
+          "mp3_path": "vi/no02_basic_syntax/theory/audio/01-program-anatomy.mp3",
+          "json_path": "vi/no02_basic_syntax/theory/audio/01-program-anatomy.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-main-method",
+          "title": "Phương Thức `main`",
+          "md_path": "vi/no02_basic_syntax/theory/02-main-method.md",
+          "mp3_path": "vi/no02_basic_syntax/theory/audio/02-main-method.mp3",
+          "json_path": "vi/no02_basic_syntax/theory/audio/02-main-method.json",
+          "has_audio": true
+        },
+        {
+          "id": "03-comments-packages-imports",
+          "title": "Chú Thích, Gói, Và Câu Lệnh Import",
+          "md_path": "vi/no02_basic_syntax/theory/03-comments-packages-imports.md",
+          "mp3_path": "vi/no02_basic_syntax/theory/audio/03-comments-packages-imports.mp3",
+          "json_path": "vi/no02_basic_syntax/theory/audio/03-comments-packages-imports.json",
+          "has_audio": true
+        },
+        {
+          "id": "04-naming-keywords-blocks-scope",
+          "title": "Đặt Tên, Từ Khóa, Khối, Và Phạm Vi",
+          "md_path": "vi/no02_basic_syntax/theory/04-naming-keywords-blocks-scope.md",
+          "mp3_path": "vi/no02_basic_syntax/theory/audio/04-naming-keywords-blocks-scope.mp3",
+          "json_path": "vi/no02_basic_syntax/theory/audio/04-naming-keywords-blocks-scope.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no03_data_types",
+      "title": "No03 Data Types",
+      "lessons": [
+        {
+          "id": "01-primitive-types",
+          "title": "Kiểu Dữ Liệu Nguyên Thủy (Primitive Types)",
+          "md_path": "vi/no03_data_types/theory/01-primitive-types.md",
+          "mp3_path": "vi/no03_data_types/theory/audio/01-primitive-types.mp3",
+          "json_path": "vi/no03_data_types/theory/audio/01-primitive-types.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-reference-types",
+          "title": "Kiểu Tham Chiếu (Reference Types) Và Mô Hình Bộ Nhớ (Memory Model)",
+          "md_path": "vi/no03_data_types/theory/02-reference-types.md",
+          "mp3_path": "vi/no03_data_types/theory/audio/02-reference-types.mp3",
+          "json_path": "vi/no03_data_types/theory/audio/02-reference-types.json",
+          "has_audio": true
+        },
+        {
+          "id": "03-literals-casting-numeric-behavior",
+          "title": "Giá Trị Trực Tiếp, Ép Kiểu, Và Hành Vi Số Học (Literals, Casting, and Numeric Behavior)",
+          "md_path": "vi/no03_data_types/theory/03-literals-casting-numeric-behavior.md",
+          "mp3_path": "vi/no03_data_types/theory/audio/03-literals-casting-numeric-behavior.mp3",
+          "json_path": "vi/no03_data_types/theory/audio/03-literals-casting-numeric-behavior.json",
+          "has_audio": true
+        },
+        {
+          "id": "04-wrappers-null-equality",
+          "title": "Lớp Bao Bọc, Đóng Hộp, Null và So Sánh Bằng (Wrapper Classes, Boxing, Null, And Equality)",
+          "md_path": "vi/no03_data_types/theory/04-wrappers-null-equality.md",
+          "mp3_path": "vi/no03_data_types/theory/audio/04-wrappers-null-equality.mp3",
+          "json_path": "vi/no03_data_types/theory/audio/04-wrappers-null-equality.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no04_variables_constants",
+      "title": "No04 Variables Constants",
+      "lessons": [
+        {
+          "id": "01-variable-categories",
+          "title": "Phân Loại Biến (Variable Categories)",
+          "md_path": "vi/no04_variables_constants/theory/01-variable-categories.md",
+          "mp3_path": "vi/no04_variables_constants/theory/audio/01-variable-categories.mp3",
+          "json_path": "vi/no04_variables_constants/theory/audio/01-variable-categories.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-final-and-constants",
+          "title": "Biến Final và Hằng Số (Final Variables And Constants)",
+          "md_path": "vi/no04_variables_constants/theory/02-final-and-constants.md",
+          "mp3_path": "vi/no04_variables_constants/theory/audio/02-final-and-constants.mp3",
+          "json_path": "vi/no04_variables_constants/theory/audio/02-final-and-constants.json",
+          "has_audio": true
+        },
+        {
+          "id": "03-default-scope-lifetime",
+          "title": "Giá Trị Mặc Định, Phạm Vi Và Vòng Đời (Default Values, Scope, And Lifetime)",
+          "md_path": "vi/no04_variables_constants/theory/03-default-scope-lifetime.md",
+          "mp3_path": "vi/no04_variables_constants/theory/audio/03-default-scope-lifetime.mp3",
+          "json_path": "vi/no04_variables_constants/theory/audio/03-default-scope-lifetime.json",
+          "has_audio": true
+        },
+        {
+          "id": "04-var-type-inference",
+          "title": "`var` Và Suy Luận Kiểu (Type Inference)",
+          "md_path": "vi/no04_variables_constants/theory/04-var-type-inference.md",
+          "mp3_path": "vi/no04_variables_constants/theory/audio/04-var-type-inference.mp3",
+          "json_path": "vi/no04_variables_constants/theory/audio/04-var-type-inference.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no05_operators",
+      "title": "No05 Operators",
+      "lessons": [
+        {
+          "id": "01-arithmetic-assignment-operators",
+          "title": "Các Toán Tử Số Học Và Gán (Arithmetic and Assignment Operators)",
+          "md_path": "vi/no05_operators/theory/01-arithmetic-assignment-operators.md",
+          "mp3_path": "vi/no05_operators/theory/audio/01-arithmetic-assignment-operators.mp3",
+          "json_path": "vi/no05_operators/theory/audio/01-arithmetic-assignment-operators.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-comparison-logical-operators",
+          "title": "Toán Tử So Sánh và Toán Tử Logic (Comparison and Logical Operators)",
+          "md_path": "vi/no05_operators/theory/02-comparison-logical-operators.md",
+          "mp3_path": "vi/no05_operators/theory/audio/02-comparison-logical-operators.mp3",
+          "json_path": "vi/no05_operators/theory/audio/02-comparison-logical-operators.json",
+          "has_audio": true
+        },
+        {
+          "id": "03-bitwise-increment-ternary-instanceof",
+          "title": "Toán Tử Từng Bit, Tăng/Giảm, Ba Ngôi, Và instanceof (Bitwise, Increment, Ternary, and instanceof)",
+          "md_path": "vi/no05_operators/theory/03-bitwise-increment-ternary-instanceof.md",
+          "mp3_path": "vi/no05_operators/theory/audio/03-bitwise-increment-ternary-instanceof.mp3",
+          "json_path": "vi/no05_operators/theory/audio/03-bitwise-increment-ternary-instanceof.json",
+          "has_audio": true
+        },
+        {
+          "id": "04-precedence-short-circuit",
+          "title": "Độ Ưu Tiên và Đánh Giá Ngắn Mạch (Precedence and Short-Circuit Evaluation)",
+          "md_path": "vi/no05_operators/theory/04-precedence-short-circuit.md",
+          "mp3_path": "vi/no05_operators/theory/audio/04-precedence-short-circuit.mp3",
+          "json_path": "vi/no05_operators/theory/audio/04-precedence-short-circuit.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no06_control_flow",
+      "title": "No06 Control Flow",
+      "lessons": [
+        {
+          "id": "01-if-else-switch",
+          "title": "if, else, và switch",
+          "md_path": "vi/no06_control_flow/theory/01-if-else-switch.md",
+          "mp3_path": "vi/no06_control_flow/theory/audio/01-if-else-switch.mp3",
+          "json_path": "vi/no06_control_flow/theory/audio/01-if-else-switch.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-loops",
+          "title": "Vòng Lặp (Loops)",
+          "md_path": "vi/no06_control_flow/theory/02-loops.md",
+          "mp3_path": "vi/no06_control_flow/theory/audio/02-loops.mp3",
+          "json_path": "vi/no06_control_flow/theory/audio/02-loops.json",
+          "has_audio": true
+        },
+        {
+          "id": "03-break-continue-return",
+          "title": "break, continue, và return",
+          "md_path": "vi/no06_control_flow/theory/03-break-continue-return.md",
+          "mp3_path": "vi/no06_control_flow/theory/audio/03-break-continue-return.mp3",
+          "json_path": "vi/no06_control_flow/theory/audio/03-break-continue-return.json",
+          "has_audio": true
+        },
+        {
+          "id": "04-switch-expression-labeled-control",
+          "title": "Biểu Thức Switch và Điều Khiển Bằng Nhãn (Switch Expressions and Labeled Control)",
+          "md_path": "vi/no06_control_flow/theory/04-switch-expression-labeled-control.md",
+          "mp3_path": "vi/no06_control_flow/theory/audio/04-switch-expression-labeled-control.mp3",
+          "json_path": "vi/no06_control_flow/theory/audio/04-switch-expression-labeled-control.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no07_arrays",
+      "title": "No07 Arrays",
+      "lessons": [
+        {
+          "id": "01-array-basics",
+          "title": "Kiến Thức Cơ Bản Về Mảng (Array Basics)",
+          "md_path": "vi/no07_arrays/theory/01-array-basics.md",
+          "mp3_path": "vi/no07_arrays/theory/audio/01-array-basics.mp3",
+          "json_path": "vi/no07_arrays/theory/audio/01-array-basics.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-array-operations",
+          "title": "Các Thao Tác Trên Mảng (Array Operations)",
+          "md_path": "vi/no07_arrays/theory/02-array-operations.md",
+          "mp3_path": "vi/no07_arrays/theory/audio/02-array-operations.mp3",
+          "json_path": "vi/no07_arrays/theory/audio/02-array-operations.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no08_string",
+      "title": "No08 String",
+      "lessons": [
+        {
+          "id": "01-string-basics",
+          "title": "Kiến Thức Cơ Bản Về Chuỗi (String Basics)",
+          "md_path": "vi/no08_string/theory/01-string-basics.md",
+          "mp3_path": "vi/no08_string/theory/audio/01-string-basics.mp3",
+          "json_path": "vi/no08_string/theory/audio/01-string-basics.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-string-methods",
+          "title": "Các phương thức và Định dạng Chuỗi (String Methods and Formatting)",
+          "md_path": "vi/no08_string/theory/02-string-methods.md",
+          "mp3_path": "vi/no08_string/theory/audio/02-string-methods.mp3",
+          "json_path": "vi/no08_string/theory/audio/02-string-methods.json",
+          "has_audio": true
+        },
+        {
+          "id": "03-stringbuilder-stringbuffer",
+          "title": "StringBuilder và StringBuffer",
+          "md_path": "vi/no08_string/theory/03-stringbuilder-stringbuffer.md",
+          "mp3_path": "vi/no08_string/theory/audio/03-stringbuilder-stringbuffer.mp3",
+          "json_path": "vi/no08_string/theory/audio/03-stringbuilder-stringbuffer.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no09_oop",
+      "title": "No09 Oop",
+      "lessons": [
+        {
+          "id": "01-classes-objects",
+          "title": "Lớp và Đối Tượng (Classes and Objects)",
+          "md_path": "vi/no09_oop/theory/01-classes-objects.md",
+          "mp3_path": "vi/no09_oop/theory/audio/01-classes-objects.mp3",
+          "json_path": "vi/no09_oop/theory/audio/01-classes-objects.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-encapsulation",
+          "title": "Đóng Gói (Encapsulation)",
+          "md_path": "vi/no09_oop/theory/02-encapsulation.md",
+          "mp3_path": "vi/no09_oop/theory/audio/02-encapsulation.mp3",
+          "json_path": "vi/no09_oop/theory/audio/02-encapsulation.json",
+          "has_audio": true
+        },
+        {
+          "id": "03-inheritance",
+          "title": "Tính Kế Thừa (Inheritance)",
+          "md_path": "vi/no09_oop/theory/03-inheritance.md",
+          "mp3_path": "vi/no09_oop/theory/audio/03-inheritance.mp3",
+          "json_path": "vi/no09_oop/theory/audio/03-inheritance.json",
+          "has_audio": true
+        },
+        {
+          "id": "04-polymorphism",
+          "title": "Đa hình (Polymorphism)",
+          "md_path": "vi/no09_oop/theory/04-polymorphism.md",
+          "mp3_path": "vi/no09_oop/theory/audio/04-polymorphism.mp3",
+          "json_path": "vi/no09_oop/theory/audio/04-polymorphism.json",
+          "has_audio": true
+        },
+        {
+          "id": "05-abstraction",
+          "title": "Trừu Tượng (Abstraction)",
+          "md_path": "vi/no09_oop/theory/05-abstraction.md",
+          "mp3_path": "vi/no09_oop/theory/audio/05-abstraction.mp3",
+          "json_path": "vi/no09_oop/theory/audio/05-abstraction.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no10_modifiers",
+      "title": "No10 Modifiers",
+      "lessons": [
+        {
+          "id": "01-access-modifier-concepts",
+          "title": "Các bổ từ trong Java (Modifiers in Java) - Phần 1",
+          "md_path": "vi/no10_modifiers/theory/01-access-modifier-concepts.md",
+          "mp3_path": "vi/no10_modifiers/theory/audio/01-access-modifier-concepts.mp3",
+          "json_path": "vi/no10_modifiers/theory/audio/01-access-modifier-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-abstract-concepts",
+          "title": "Các Bổ Từ Trong Java - Phần 2 (Modifiers in Java - Part 2)",
+          "md_path": "vi/no10_modifiers/theory/02-abstract-concepts.md",
+          "mp3_path": "vi/no10_modifiers/theory/audio/02-abstract-concepts.mp3",
+          "json_path": "vi/no10_modifiers/theory/audio/02-abstract-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "03-static-block-concepts",
+          "title": "Các Từ Khóa Đặc Tả Trong Java - Phần 3 (Modifiers in Java - Part 3)",
+          "md_path": "vi/no10_modifiers/theory/03-static-block-concepts.md",
+          "mp3_path": "vi/no10_modifiers/theory/audio/03-static-block-concepts.mp3",
+          "json_path": "vi/no10_modifiers/theory/audio/03-static-block-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no11_package_access_control",
+      "title": "No11 Package Access Control",
+      "lessons": [
+        {
+          "id": "01-what-is-a-package-concepts",
+          "title": "Gói và Kiểm Soát Truy Cập - Phần 1 (Package and Access Control - Part 1)",
+          "md_path": "vi/no11_package_access_control/theory/01-what-is-a-package-concepts.md",
+          "mp3_path": "vi/no11_package_access_control/theory/audio/01-what-is-a-package-concepts.mp3",
+          "json_path": "vi/no11_package_access_control/theory/audio/01-what-is-a-package-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no12_exception_handling",
+      "title": "No12 Exception Handling",
+      "lessons": [
+        {
+          "id": "01-what-is-an-exception-concepts",
+          "title": "Xử Lý Ngoại Lệ - Phần 1",
+          "md_path": "vi/no12_exception_handling/theory/01-what-is-an-exception-concepts.md",
+          "mp3_path": "vi/no12_exception_handling/theory/audio/01-what-is-an-exception-concepts.mp3",
+          "json_path": "vi/no12_exception_handling/theory/audio/01-what-is-an-exception-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-finally-concepts",
+          "title": "Xử Lý Ngoại Lệ - Phần 2",
+          "md_path": "vi/no12_exception_handling/theory/02-finally-concepts.md",
+          "mp3_path": "vi/no12_exception_handling/theory/audio/02-finally-concepts.mp3",
+          "json_path": "vi/no12_exception_handling/theory/audio/02-finally-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "03-arrayindexoutofboundsexception-concepts",
+          "title": "Xử Lý Ngoại Lệ (Exception Handling) - Phần 3",
+          "md_path": "vi/no12_exception_handling/theory/03-arrayindexoutofboundsexception-concepts.md",
+          "mp3_path": "vi/no12_exception_handling/theory/audio/03-arrayindexoutofboundsexception-concepts.mp3",
+          "json_path": "vi/no12_exception_handling/theory/audio/03-arrayindexoutofboundsexception-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "04-filenotfoundexception-concepts",
+          "title": "Xử Lý Ngoại Lệ (Exception Handling) - Phần 4",
+          "md_path": "vi/no12_exception_handling/theory/04-filenotfoundexception-concepts.md",
+          "mp3_path": "vi/no12_exception_handling/theory/audio/04-filenotfoundexception-concepts.mp3",
+          "json_path": "vi/no12_exception_handling/theory/audio/04-filenotfoundexception-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no13_memory_management",
+      "title": "No13 Memory Management",
+      "lessons": [
+        {
+          "id": "01-stack-concepts",
+          "title": "Quản Lý Bộ Nhớ Java (Java Memory Management) - Phần 1",
+          "md_path": "vi/no13_memory_management/theory/01-stack-concepts.md",
+          "mp3_path": "vi/no13_memory_management/theory/audio/01-stack-concepts.mp3",
+          "json_path": "vi/no13_memory_management/theory/audio/01-stack-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-weak-reference-concepts",
+          "title": "Quản Lý Bộ Nhớ Java - Phần 2 (Java Memory Management - Part 2)",
+          "md_path": "vi/no13_memory_management/theory/02-weak-reference-concepts.md",
+          "mp3_path": "vi/no13_memory_management/theory/audio/02-weak-reference-concepts.mp3",
+          "json_path": "vi/no13_memory_management/theory/audio/02-weak-reference-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "03-outofmemoryerror-concepts",
+          "title": "Quản Lý Bộ Nhớ Java - Phần 3 (Java Memory Management - Part 3)",
+          "md_path": "vi/no13_memory_management/theory/03-outofmemoryerror-concepts.md",
+          "mp3_path": "vi/no13_memory_management/theory/audio/03-outofmemoryerror-concepts.mp3",
+          "json_path": "vi/no13_memory_management/theory/audio/03-outofmemoryerror-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no14_object_class",
+      "title": "No14 Object Class",
+      "lessons": [
+        {
+          "id": "01-tostring-concepts",
+          "title": "Lớp Object - Phần 1",
+          "md_path": "vi/no14_object_class/theory/01-tostring-concepts.md",
+          "mp3_path": "vi/no14_object_class/theory/audio/01-tostring-concepts.mp3",
+          "json_path": "vi/no14_object_class/theory/audio/01-tostring-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-contract-of-equals-concepts",
+          "title": "Lớp Object - Phần 2 (Object class - Part 2)",
+          "md_path": "vi/no14_object_class/theory/02-contract-of-equals-concepts.md",
+          "mp3_path": "vi/no14_object_class/theory/audio/02-contract-of-equals-concepts.mp3",
+          "json_path": "vi/no14_object_class/theory/audio/02-contract-of-equals-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no15_inner_nested_class",
+      "title": "No15 Inner Nested Class",
+      "lessons": [
+        {
+          "id": "01-nested-class-concepts",
+          "title": "Lớp nội bộ và Lớp lồng nhau - Phần 1 (Inner Class and Nested Class - Part 1)",
+          "md_path": "vi/no15_inner_nested_class/theory/01-nested-class-concepts.md",
+          "mp3_path": "vi/no15_inner_nested_class/theory/audio/01-nested-class-concepts.mp3",
+          "json_path": "vi/no15_inner_nested_class/theory/audio/01-nested-class-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no16_enum",
+      "title": "No16 Enum",
+      "lessons": [
+        {
+          "id": "01-what-is-an-enum-concepts",
+          "title": "Enum (Kiểu liệt kê) - Phần 1 (Enum - Part 1)",
+          "md_path": "vi/no16_enum/theory/01-what-is-an-enum-concepts.md",
+          "mp3_path": "vi/no16_enum/theory/audio/01-what-is-an-enum-concepts.mp3",
+          "json_path": "vi/no16_enum/theory/audio/01-what-is-an-enum-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-enum-implements-interface-concepts",
+          "title": "Enum - Phần 2",
+          "md_path": "vi/no16_enum/theory/02-enum-implements-interface-concepts.md",
+          "mp3_path": "vi/no16_enum/theory/audio/02-enum-implements-interface-concepts.mp3",
+          "json_path": "vi/no16_enum/theory/audio/02-enum-implements-interface-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no17_annotation",
+      "title": "No17 Annotation",
+      "lessons": [
+        {
+          "id": "01-what-is-an-annotation-concepts",
+          "title": "Chú Thích - Phần 1 (Annotation - Part 1)",
+          "md_path": "vi/no17_annotation/theory/01-what-is-an-annotation-concepts.md",
+          "mp3_path": "vi/no17_annotation/theory/audio/01-what-is-an-annotation-concepts.mp3",
+          "json_path": "vi/no17_annotation/theory/audio/01-what-is-an-annotation-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-documented-concepts",
+          "title": "Chú thích - Phần 2",
+          "md_path": "vi/no17_annotation/theory/02-documented-concepts.md",
+          "mp3_path": "vi/no17_annotation/theory/audio/02-documented-concepts.mp3",
+          "json_path": "vi/no17_annotation/theory/audio/02-documented-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no18_generics",
+      "title": "No18 Generics",
+      "lessons": [
+        {
+          "id": "01-generic-class-concepts",
+          "title": "Kiểu chung (Generics) – Phần 1: Lớp tổng quát (Generic Class), Phương thức (Method), Giao diện (Interface), Tham số kiểu (Type Parameters), Giới hạn (Bounds)",
+          "md_path": "vi/no18_generics/theory/01-generic-class-concepts.md",
+          "mp3_path": "vi/no18_generics/theory/audio/01-generic-class-concepts.mp3",
+          "json_path": "vi/no18_generics/theory/audio/01-generic-class-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-topic-concepts",
+          "title": "Generics – Phần 2: Ký Tự Đại Diện (Wildcards), PECS, Generics với Cấu Trúc Tập Hợp (Collections), Xóa Bỏ Kiểu (Type Erasure)",
+          "md_path": "vi/no18_generics/theory/02-topic-concepts.md",
+          "mp3_path": "vi/no18_generics/theory/audio/02-topic-concepts.mp3",
+          "json_path": "vi/no18_generics/theory/audio/02-topic-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "03-raw-type-concepts",
+          "title": "Generics (Kiểu Chung) - Phần 3: Kiểu Nguyên Bản (Raw Type) và Hạn Chế của Kiểu Chung",
+          "md_path": "vi/no18_generics/theory/03-raw-type-concepts.md",
+          "mp3_path": "vi/no18_generics/theory/audio/03-raw-type-concepts.mp3",
+          "json_path": "vi/no18_generics/theory/audio/03-raw-type-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "generics",
+          "title": "Kiểu Chung (Generics) trong Java – Lý Thuyết Chi Tiết",
+          "md_path": "vi/no18_generics/theory/generics.md",
+          "mp3_path": "vi/no18_generics/theory/audio/generics.mp3",
+          "json_path": "vi/no18_generics/theory/audio/generics.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no19_collections_framework",
+      "title": "No19 Collections Framework",
+      "lessons": [
+        {
+          "id": "01-what-is-the-collection-framework-concepts",
+          "title": "Cấu Trúc Tập Hợp (Collections Framework) - Phần 1",
+          "md_path": "vi/no19_collections_framework/theory/01-what-is-the-collection-framework-concepts.md",
+          "mp3_path": "vi/no19_collections_framework/theory/audio/01-what-is-the-collection-framework-concepts.mp3",
+          "json_path": "vi/no19_collections_framework/theory/audio/01-what-is-the-collection-framework-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-arraylist-concepts",
+          "title": "Khung Tập Hợp (Collections Framework) - Phần 2",
+          "md_path": "vi/no19_collections_framework/theory/02-arraylist-concepts.md",
+          "mp3_path": "vi/no19_collections_framework/theory/audio/02-arraylist-concepts.mp3",
+          "json_path": "vi/no19_collections_framework/theory/audio/02-arraylist-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "03-treeset-concepts",
+          "title": "Khung tập hợp (Collections Framework) - Phần 3",
+          "md_path": "vi/no19_collections_framework/theory/03-treeset-concepts.md",
+          "mp3_path": "vi/no19_collections_framework/theory/audio/03-treeset-concepts.mp3",
+          "json_path": "vi/no19_collections_framework/theory/audio/03-treeset-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "04-linkedlist-as-queue-concepts",
+          "title": "Khung bộ sưu tập (Collections Framework) - Phần 4",
+          "md_path": "vi/no19_collections_framework/theory/04-linkedlist-as-queue-concepts.md",
+          "mp3_path": "vi/no19_collections_framework/theory/audio/04-linkedlist-as-queue-concepts.mp3",
+          "json_path": "vi/no19_collections_framework/theory/audio/04-linkedlist-as-queue-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "05-concurrenthashmap-concepts",
+          "title": "Collections Framework - Phần 5 (Collections Framework - Part 5)",
+          "md_path": "vi/no19_collections_framework/theory/05-concurrenthashmap-concepts.md",
+          "mp3_path": "vi/no19_collections_framework/theory/audio/05-concurrenthashmap-concepts.mp3",
+          "json_path": "vi/no19_collections_framework/theory/audio/05-concurrenthashmap-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "06-fail-fast-iterator-concepts",
+          "title": "Cấu Trúc Tập Hợp (Collections Framework) - Phần 6",
+          "md_path": "vi/no19_collections_framework/theory/06-fail-fast-iterator-concepts.md",
+          "mp3_path": "vi/no19_collections_framework/theory/audio/06-fail-fast-iterator-concepts.mp3",
+          "json_path": "vi/no19_collections_framework/theory/audio/06-fail-fast-iterator-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "07-collections-unmodifiablelist-concepts",
+          "title": "Khung Bộ Sưu Tập - Phần 7 (Collections Framework - Part 7)",
+          "md_path": "vi/no19_collections_framework/theory/07-collections-unmodifiablelist-concepts.md",
+          "mp3_path": "vi/no19_collections_framework/theory/audio/07-collections-unmodifiablelist-concepts.mp3",
+          "json_path": "vi/no19_collections_framework/theory/audio/07-collections-unmodifiablelist-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no20_comparable_comparator",
+      "title": "No20 Comparable Comparator",
+      "lessons": [
+        {
+          "id": "01-comparable-concepts",
+          "title": "Comparable và Comparator - Phần 1 (Comparable and Comparator - Part 1)",
+          "md_path": "vi/no20_comparable_comparator/theory/01-comparable-concepts.md",
+          "mp3_path": "vi/no20_comparable_comparator/theory/audio/01-comparable-concepts.mp3",
+          "json_path": "vi/no20_comparable_comparator/theory/audio/01-comparable-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-reverse-order-concepts",
+          "title": "Comparable và Comparator - Phần 2",
+          "md_path": "vi/no20_comparable_comparator/theory/02-reverse-order-concepts.md",
+          "mp3_path": "vi/no20_comparable_comparator/theory/audio/02-reverse-order-concepts.mp3",
+          "json_path": "vi/no20_comparable_comparator/theory/audio/02-reverse-order-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no21_lambda_expression",
+      "title": "No21 Lambda Expression",
+      "lessons": [
+        {
+          "id": "01-what-is-a-lambda-concepts",
+          "title": "Biểu Thức Lambda (Lambda Expression) - Phần 1",
+          "md_path": "vi/no21_lambda_expression/theory/01-what-is-a-lambda-concepts.md",
+          "mp3_path": "vi/no21_lambda_expression/theory/audio/01-what-is-a-lambda-concepts.mp3",
+          "json_path": "vi/no21_lambda_expression/theory/audio/01-what-is-a-lambda-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-lambda-with-collection-concepts",
+          "title": "Biểu Thức Lambda (Lambda Expression) - Phần 2",
+          "md_path": "vi/no21_lambda_expression/theory/02-lambda-with-collection-concepts.md",
+          "mp3_path": "vi/no21_lambda_expression/theory/audio/02-lambda-with-collection-concepts.mp3",
+          "json_path": "vi/no21_lambda_expression/theory/audio/02-lambda-with-collection-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no22_functional_interface",
+      "title": "No22 Functional Interface",
+      "lessons": [
+        {
+          "id": "01-predicate-t-concepts",
+          "title": "Giao Diện Chức Năng (Functional Interface) - Phần 1",
+          "md_path": "vi/no22_functional_interface/theory/01-predicate-t-concepts.md",
+          "mp3_path": "vi/no22_functional_interface/theory/audio/01-predicate-t-concepts.mp3",
+          "json_path": "vi/no22_functional_interface/theory/audio/01-predicate-t-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-what-is-the-output-concepts",
+          "title": "Giao Diện Chức Năng - Phần 2 (Functional Interface - Part 2)",
+          "md_path": "vi/no22_functional_interface/theory/02-what-is-the-output-concepts.md",
+          "mp3_path": "vi/no22_functional_interface/theory/audio/02-what-is-the-output-concepts.mp3",
+          "json_path": "vi/no22_functional_interface/theory/audio/02-what-is-the-output-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no23_stream_api",
+      "title": "No23 Stream Api",
+      "lessons": [
+        {
+          "id": "01-what-is-stream-concepts",
+          "title": "Stream API - Phần 1",
+          "md_path": "vi/no23_stream_api/theory/01-what-is-stream-concepts.md",
+          "mp3_path": "vi/no23_stream_api/theory/audio/01-what-is-stream-concepts.mp3",
+          "json_path": "vi/no23_stream_api/theory/audio/01-what-is-stream-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-longstream-concepts",
+          "title": "Stream API - Phần 2",
+          "md_path": "vi/no23_stream_api/theory/02-longstream-concepts.md",
+          "mp3_path": "vi/no23_stream_api/theory/audio/02-longstream-concepts.mp3",
+          "json_path": "vi/no23_stream_api/theory/audio/02-longstream-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "03-peek-concepts",
+          "title": "API Dòng Chảy (Stream API) - Phần 3",
+          "md_path": "vi/no23_stream_api/theory/03-peek-concepts.md",
+          "mp3_path": "vi/no23_stream_api/theory/audio/03-peek-concepts.mp3",
+          "json_path": "vi/no23_stream_api/theory/audio/03-peek-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "04-min-concepts",
+          "title": "Stream API - Phần 4",
+          "md_path": "vi/no23_stream_api/theory/04-min-concepts.md",
+          "mp3_path": "vi/no23_stream_api/theory/audio/04-min-concepts.mp3",
+          "json_path": "vi/no23_stream_api/theory/audio/04-min-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "05-lazy-evaluation-concepts",
+          "title": "Stream API - Phần 5 (Stream API - Part 5)",
+          "md_path": "vi/no23_stream_api/theory/05-lazy-evaluation-concepts.md",
+          "mp3_path": "vi/no23_stream_api/theory/audio/05-lazy-evaluation-concepts.mp3",
+          "json_path": "vi/no23_stream_api/theory/audio/05-lazy-evaluation-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "06-partitioningby-concepts",
+          "title": "API Luồng (Stream API) - Phần 6",
+          "md_path": "vi/no23_stream_api/theory/06-partitioningby-concepts.md",
+          "mp3_path": "vi/no23_stream_api/theory/audio/06-partitioningby-concepts.mp3",
+          "json_path": "vi/no23_stream_api/theory/audio/06-partitioningby-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no24_optional",
+      "title": "No24 Optional",
+      "lessons": [
+        {
+          "id": "01-what-is-optional-t-concepts",
+          "title": "Optional - Phần 1",
+          "md_path": "vi/no24_optional/theory/01-what-is-optional-t-concepts.md",
+          "mp3_path": "vi/no24_optional/theory/audio/01-what-is-optional-t-concepts.mp3",
+          "json_path": "vi/no24_optional/theory/audio/01-what-is-optional-t-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-map-concepts",
+          "title": "Optional - Phần 2",
+          "md_path": "vi/no24_optional/theory/02-map-concepts.md",
+          "mp3_path": "vi/no24_optional/theory/audio/02-map-concepts.mp3",
+          "json_path": "vi/no24_optional/theory/audio/02-map-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no25_date_time_api",
+      "title": "No25 Date Time Api",
+      "lessons": [
+        {
+          "id": "01-date-concepts",
+          "title": "API Ngày và Giờ (Date and Time API) - Phần 1",
+          "md_path": "vi/no25_date_time_api/theory/01-date-concepts.md",
+          "mp3_path": "vi/no25_date_time_api/theory/audio/01-date-concepts.mp3",
+          "json_path": "vi/no25_date_time_api/theory/audio/01-date-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-period-concepts",
+          "title": "API Ngày và Giờ (Date and Time API) - Phần 2",
+          "md_path": "vi/no25_date_time_api/theory/02-period-concepts.md",
+          "mp3_path": "vi/no25_date_time_api/theory/audio/02-period-concepts.mp3",
+          "json_path": "vi/no25_date_time_api/theory/audio/02-period-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no26_io",
+      "title": "No26 Io",
+      "lessons": [
+        {
+          "id": "01-file-concepts",
+          "title": "Vào/Ra (I/O) trong Java - Phần 1 (IO in Java - Part 1)",
+          "md_path": "vi/no26_io/theory/01-file-concepts.md",
+          "mp3_path": "vi/no26_io/theory/audio/01-file-concepts.mp3",
+          "json_path": "vi/no26_io/theory/audio/01-file-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-bufferedinputstream-concepts",
+          "title": "I/O trong Java - Phần 2",
+          "md_path": "vi/no26_io/theory/02-bufferedinputstream-concepts.md",
+          "mp3_path": "vi/no26_io/theory/audio/02-bufferedinputstream-concepts.mp3",
+          "json_path": "vi/no26_io/theory/audio/02-bufferedinputstream-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "03-serialization-concepts",
+          "title": "Vào/Ra (IO) trong Java - Phần 3",
+          "md_path": "vi/no26_io/theory/03-serialization-concepts.md",
+          "mp3_path": "vi/no26_io/theory/audio/03-serialization-concepts.mp3",
+          "json_path": "vi/no26_io/theory/audio/03-serialization-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no27_nio",
+      "title": "No27 Nio",
+      "lessons": [
+        {
+          "id": "01-path-concepts",
+          "title": "NIO / NIO.2 - Phần 1 (NIO / NIO.2 - Part 1)",
+          "md_path": "vi/no27_nio/theory/01-path-concepts.md",
+          "mp3_path": "vi/no27_nio/theory/audio/01-path-concepts.mp3",
+          "json_path": "vi/no27_nio/theory/audio/01-path-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-filechannel-concepts",
+          "title": "NIO / NIO.2 - Phần 2",
+          "md_path": "vi/no27_nio/theory/02-filechannel-concepts.md",
+          "mp3_path": "vi/no27_nio/theory/audio/02-filechannel-concepts.mp3",
+          "json_path": "vi/no27_nio/theory/audio/02-filechannel-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no28_multithreading",
+      "title": "No28 Multithreading",
+      "lessons": [
+        {
+          "id": "01-process-vs-thread-concepts",
+          "title": "Đa Luồng (Multithreading) - Phần 1",
+          "md_path": "vi/no28_multithreading/theory/01-process-vs-thread-concepts.md",
+          "mp3_path": "vi/no28_multithreading/theory/audio/01-process-vs-thread-concepts.mp3",
+          "json_path": "vi/no28_multithreading/theory/audio/01-process-vs-thread-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-runnable-concepts",
+          "title": "Đa luồng - Phần 2 (Multithreading - Part 2)",
+          "md_path": "vi/no28_multithreading/theory/02-runnable-concepts.md",
+          "mp3_path": "vi/no28_multithreading/theory/audio/02-runnable-concepts.mp3",
+          "json_path": "vi/no28_multithreading/theory/audio/02-runnable-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "03-join-concepts",
+          "title": "Đa luồng (Multithreading) - Phần 3",
+          "md_path": "vi/no28_multithreading/theory/03-join-concepts.md",
+          "mp3_path": "vi/no28_multithreading/theory/audio/03-join-concepts.mp3",
+          "json_path": "vi/no28_multithreading/theory/audio/03-join-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "04-thread-safety-concepts",
+          "title": "Đa Luồng (Multithreading) - Phần 4",
+          "md_path": "vi/no28_multithreading/theory/04-thread-safety-concepts.md",
+          "mp3_path": "vi/no28_multithreading/theory/audio/04-thread-safety-concepts.mp3",
+          "json_path": "vi/no28_multithreading/theory/audio/04-thread-safety-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no29_synchronization_concurrency",
+      "title": "No29 Synchronization Concurrency",
+      "lessons": [
+        {
+          "id": "01-synchronized-method-concepts",
+          "title": "Đồng Bộ Hóa và Đồng Thời - Phần 1 (Synchronization and Concurrency - Part 1)",
+          "md_path": "vi/no29_synchronization_concurrency/theory/01-synchronized-method-concepts.md",
+          "mp3_path": "vi/no29_synchronization_concurrency/theory/audio/01-synchronized-method-concepts.mp3",
+          "json_path": "vi/no29_synchronization_concurrency/theory/audio/01-synchronized-method-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-deadlock-concepts",
+          "title": "Đồng bộ hóa và Đồng thời - Phần 2 (Synchronization and Concurrency - Part 2)",
+          "md_path": "vi/no29_synchronization_concurrency/theory/02-deadlock-concepts.md",
+          "mp3_path": "vi/no29_synchronization_concurrency/theory/audio/02-deadlock-concepts.mp3",
+          "json_path": "vi/no29_synchronization_concurrency/theory/audio/02-deadlock-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "03-atomicreference-concepts",
+          "title": "Đồng Bộ Hóa và Độ Đồng Thời (Synchronization and Concurrency) - Phần 3",
+          "md_path": "vi/no29_synchronization_concurrency/theory/03-atomicreference-concepts.md",
+          "mp3_path": "vi/no29_synchronization_concurrency/theory/audio/03-atomicreference-concepts.mp3",
+          "json_path": "vi/no29_synchronization_concurrency/theory/audio/03-atomicreference-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "04-cyclicbarrier-concepts",
+          "title": "Đồng bộ hóa và Tính đồng thời (Synchronization and Concurrency) - Phần 4",
+          "md_path": "vi/no29_synchronization_concurrency/theory/04-cyclicbarrier-concepts.md",
+          "mp3_path": "vi/no29_synchronization_concurrency/theory/audio/04-cyclicbarrier-concepts.mp3",
+          "json_path": "vi/no29_synchronization_concurrency/theory/audio/04-cyclicbarrier-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "05-executor-concepts",
+          "title": "Đồng Bộ Hóa và Đồng Thời - Phần 5 (Synchronization and Concurrency - Part 5)",
+          "md_path": "vi/no29_synchronization_concurrency/theory/05-executor-concepts.md",
+          "mp3_path": "vi/no29_synchronization_concurrency/theory/audio/05-executor-concepts.mp3",
+          "json_path": "vi/no29_synchronization_concurrency/theory/audio/05-executor-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "06-forkjoinpool-concepts",
+          "title": "Đồng bộ hóa và Đồng thời - Phần 6",
+          "md_path": "vi/no29_synchronization_concurrency/theory/06-forkjoinpool-concepts.md",
+          "mp3_path": "vi/no29_synchronization_concurrency/theory/audio/06-forkjoinpool-concepts.mp3",
+          "json_path": "vi/no29_synchronization_concurrency/theory/audio/06-forkjoinpool-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no30_regex",
+      "title": "No30 Regex",
+      "lessons": [
+        {
+          "id": "01-what-is-regex-concepts",
+          "title": "Biểu Thức Chính Quy - Phần 1 (Regular Expression - Part 1)",
+          "md_path": "vi/no30_regex/theory/01-what-is-regex-concepts.md",
+          "mp3_path": "vi/no30_regex/theory/audio/01-what-is-regex-concepts.mp3",
+          "json_path": "vi/no30_regex/theory/audio/01-what-is-regex-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-basic-lookahead-lookbehind-concepts",
+          "title": "Biểu Thức Chính Quy (Regular Expression) - Phần 2",
+          "md_path": "vi/no30_regex/theory/02-basic-lookahead-lookbehind-concepts.md",
+          "mp3_path": "vi/no30_regex/theory/audio/02-basic-lookahead-lookbehind-concepts.mp3",
+          "json_path": "vi/no30_regex/theory/audio/02-basic-lookahead-lookbehind-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no31_reflection",
+      "title": "No31 Reflection",
+      "lessons": [
+        {
+          "id": "01-what-is-reflection-concepts",
+          "title": "Cơ Chế Phản Chiếu - Phần 1 (Reflection - Part 1)",
+          "md_path": "vi/no31_reflection/theory/01-what-is-reflection-concepts.md",
+          "mp3_path": "vi/no31_reflection/theory/audio/01-what-is-reflection-concepts.mp3",
+          "json_path": "vi/no31_reflection/theory/audio/01-what-is-reflection-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-advantages-and-disadvantages-of-reflection-concepts",
+          "title": "Phản Xạ (Reflection) - Phần 2",
+          "md_path": "vi/no31_reflection/theory/02-advantages-and-disadvantages-of-reflection-concepts.md",
+          "mp3_path": "vi/no31_reflection/theory/audio/02-advantages-and-disadvantages-of-reflection-concepts.mp3",
+          "json_path": "vi/no31_reflection/theory/audio/02-advantages-and-disadvantages-of-reflection-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no32_classloader",
+      "title": "No32 Classloader",
+      "lessons": [
+        {
+          "id": "01-class-loading-process-concepts",
+          "title": "Trình nạp lớp (ClassLoader) - Phần 1",
+          "md_path": "vi/no32_classloader/theory/01-class-loading-process-concepts.md",
+          "mp3_path": "vi/no32_classloader/theory/audio/01-class-loading-process-concepts.mp3",
+          "json_path": "vi/no32_classloader/theory/audio/01-class-loading-process-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no33_module_system",
+      "title": "No33 Module System",
+      "lessons": [
+        {
+          "id": "01-what-is-a-module-concepts",
+          "title": "Hệ Thống Mô-đun Java (Java Module System) - Phần 1",
+          "md_path": "vi/no33_module_system/theory/01-what-is-a-module-concepts.md",
+          "mp3_path": "vi/no33_module_system/theory/audio/01-what-is-a-module-concepts.mp3",
+          "json_path": "vi/no33_module_system/theory/audio/01-what-is-a-module-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no34_jdbc",
+      "title": "No34 Jdbc",
+      "lessons": [
+        {
+          "id": "01-what-is-jdbc-concepts",
+          "title": "JDBC - Phần 1 (JDBC - Part 1)",
+          "md_path": "vi/no34_jdbc/theory/01-what-is-jdbc-concepts.md",
+          "mp3_path": "vi/no34_jdbc/theory/audio/01-what-is-jdbc-concepts.mp3",
+          "json_path": "vi/no34_jdbc/theory/audio/01-what-is-jdbc-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-rollback-concepts",
+          "title": "JDBC - Phần 2",
+          "md_path": "vi/no34_jdbc/theory/02-rollback-concepts.md",
+          "mp3_path": "vi/no34_jdbc/theory/audio/02-rollback-concepts.mp3",
+          "json_path": "vi/no34_jdbc/theory/audio/02-rollback-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no35_networking",
+      "title": "No35 Networking",
+      "lessons": [
+        {
+          "id": "01-socket-programming-concepts",
+          "title": "Lập Trình Mạng (Networking) - Phần 1",
+          "md_path": "vi/no35_networking/theory/01-socket-programming-concepts.md",
+          "mp3_path": "vi/no35_networking/theory/audio/01-socket-programming-concepts.mp3",
+          "json_path": "vi/no35_networking/theory/audio/01-socket-programming-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-httpurlconnection-concepts",
+          "title": "Lập Trình Mạng (Networking) - Phần 2",
+          "md_path": "vi/no35_networking/theory/02-httpurlconnection-concepts.md",
+          "mp3_path": "vi/no35_networking/theory/audio/02-httpurlconnection-concepts.mp3",
+          "json_path": "vi/no35_networking/theory/audio/02-httpurlconnection-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no36_security_basic",
+      "title": "No36 Security Basic",
+      "lessons": [
+        {
+          "id": "01-basic-secure-coding-concepts",
+          "title": "Bảo Mật Cơ Bản - Phần 1 (Basic Security - Part 1)",
+          "md_path": "vi/no36_security_basic/theory/01-basic-secure-coding-concepts.md",
+          "mp3_path": "vi/no36_security_basic/theory/audio/01-basic-secure-coding-concepts.mp3",
+          "json_path": "vi/no36_security_basic/theory/audio/01-basic-secure-coding-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-avoid-insecure-deserialization-concepts",
+          "title": "Bảo mật cơ bản (Basic Security) - Phần 2",
+          "md_path": "vi/no36_security_basic/theory/02-avoid-insecure-deserialization-concepts.md",
+          "mp3_path": "vi/no36_security_basic/theory/audio/02-avoid-insecure-deserialization-concepts.mp3",
+          "json_path": "vi/no36_security_basic/theory/audio/02-avoid-insecure-deserialization-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no37_jvm_advanced",
+      "title": "No37 Jvm Advanced",
+      "lessons": [
+        {
+          "id": "01-jvm-architecture-concepts",
+          "title": "Kiến Trúc JVM Nâng Cao (Advanced JVM) - Phần 1",
+          "md_path": "vi/no37_jvm_advanced/theory/01-jvm-architecture-concepts.md",
+          "mp3_path": "vi/no37_jvm_advanced/theory/audio/01-jvm-architecture-concepts.mp3",
+          "json_path": "vi/no37_jvm_advanced/theory/audio/01-jvm-architecture-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-execution-engine-concepts",
+          "title": "Máy Ảo JVM Nâng Cao - Phần 2 (Advanced JVM - Part 2)",
+          "md_path": "vi/no37_jvm_advanced/theory/02-execution-engine-concepts.md",
+          "mp3_path": "vi/no37_jvm_advanced/theory/audio/02-execution-engine-concepts.mp3",
+          "json_path": "vi/no37_jvm_advanced/theory/audio/02-execution-engine-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "03-survivor-concepts",
+          "title": "JVM Nâng Cao - Phần 3 (Advanced JVM - Part 3)",
+          "md_path": "vi/no37_jvm_advanced/theory/03-survivor-concepts.md",
+          "mp3_path": "vi/no37_jvm_advanced/theory/audio/03-survivor-concepts.mp3",
+          "json_path": "vi/no37_jvm_advanced/theory/audio/03-survivor-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "04-shenandoah-concepts",
+          "title": "JVM nâng cao (Advanced JVM) - Phần 4",
+          "md_path": "vi/no37_jvm_advanced/theory/04-shenandoah-concepts.md",
+          "mp3_path": "vi/no37_jvm_advanced/theory/audio/04-shenandoah-concepts.mp3",
+          "json_path": "vi/no37_jvm_advanced/theory/audio/04-shenandoah-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "05-xx-concepts",
+          "title": "JVM nâng cao - Phần 5 (Advanced JVM - Part 5)",
+          "md_path": "vi/no37_jvm_advanced/theory/05-xx-concepts.md",
+          "mp3_path": "vi/no37_jvm_advanced/theory/audio/05-xx-concepts.mp3",
+          "json_path": "vi/no37_jvm_advanced/theory/audio/05-xx-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no38_build_compile_run",
+      "title": "No38 Build Compile Run",
+      "lessons": [
+        {
+          "id": "01-javac-concepts",
+          "title": "Biên Dịch, Đóng Gói, Thực Thi - Phần 1 (Build, Compile, Run - Part 1)",
+          "md_path": "vi/no38_build_compile_run/theory/01-javac-concepts.md",
+          "mp3_path": "vi/no38_build_compile_run/theory/audio/01-javac-concepts.mp3",
+          "json_path": "vi/no38_build_compile_run/theory/audio/01-javac-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-standard-project-structure-concepts",
+          "title": "Xây dựng, Biên dịch, Chạy (Build, Compile, Run) - Phần 2",
+          "md_path": "vi/no38_build_compile_run/theory/02-standard-project-structure-concepts.md",
+          "mp3_path": "vi/no38_build_compile_run/theory/audio/02-standard-project-structure-concepts.mp3",
+          "json_path": "vi/no38_build_compile_run/theory/audio/02-standard-project-structure-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no39_utility_apis",
+      "title": "No39 Utility Apis",
+      "lessons": [
+        {
+          "id": "01-math-concepts",
+          "title": "Một Số Utility API Thông Dụng — Phần 1",
+          "md_path": "vi/no39_utility_apis/theory/01-math-concepts.md",
+          "mp3_path": "vi/no39_utility_apis/theory/audio/01-math-concepts.mp3",
+          "json_path": "vi/no39_utility_apis/theory/audio/01-math-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-properties-concepts",
+          "title": "Một Số Utility API Thông Dụng — Phần 2",
+          "md_path": "vi/no39_utility_apis/theory/02-properties-concepts.md",
+          "mp3_path": "vi/no39_utility_apis/theory/audio/02-properties-concepts.mp3",
+          "json_path": "vi/no39_utility_apis/theory/audio/02-properties-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no40_modern_java_concepts",
+      "title": "No40 Modern Java Concepts",
+      "lessons": [
+        {
+          "id": "01-var-concepts",
+          "title": "Các Khái Niệm Java Hiện Đại Cần Biết - Phần 1",
+          "md_path": "vi/no40_modern_java_concepts/theory/01-var-concepts.md",
+          "mp3_path": "vi/no40_modern_java_concepts/theory/audio/01-var-concepts.mp3",
+          "json_path": "vi/no40_modern_java_concepts/theory/audio/01-var-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-sequenced-collections-concepts",
+          "title": "Các Khái Niệm Java Hiện Đại Cần Biết - Phần 2 (Modern Java Concepts To Know - Part 2)",
+          "md_path": "vi/no40_modern_java_concepts/theory/02-sequenced-collections-concepts.md",
+          "mp3_path": "vi/no40_modern_java_concepts/theory/audio/02-sequenced-collections-concepts.mp3",
+          "json_path": "vi/no40_modern_java_concepts/theory/audio/02-sequenced-collections-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no41_best_practices",
+      "title": "No41 Best Practices",
+      "lessons": [
+        {
+          "id": "01-name-variables-functions-and-classes-clearly-concepts",
+          "title": "Thực hành tốt nhất trong Java - Phần 1 (Best Practices in Java - Part 1)",
+          "md_path": "vi/no41_best_practices/theory/01-name-variables-functions-and-classes-clearly-concepts.md",
+          "mp3_path": "vi/no41_best_practices/theory/audio/01-name-variables-functions-and-classes-clearly-concepts.mp3",
+          "json_path": "vi/no41_best_practices/theory/audio/01-name-variables-functions-and-classes-clearly-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-do-not-swallow-exceptions-concepts",
+          "title": "Thực hành tốt nhất trong Java - Phần 2 (Best Practices in Java - Part 2)",
+          "md_path": "vi/no41_best_practices/theory/02-do-not-swallow-exceptions-concepts.md",
+          "mp3_path": "vi/no41_best_practices/theory/audio/02-do-not-swallow-exceptions-concepts.mp3",
+          "json_path": "vi/no41_best_practices/theory/audio/02-do-not-swallow-exceptions-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no42_design_principles",
+      "title": "No42 Design Principles",
+      "lessons": [
+        {
+          "id": "01-solid-concepts",
+          "title": "Các Nguyên Tắc Thiết Kế Cơ Bản Thường Đi Kèm Với Java Core - Phần 1",
+          "md_path": "vi/no42_design_principles/theory/01-solid-concepts.md",
+          "mp3_path": "vi/no42_design_principles/theory/audio/01-solid-concepts.mp3",
+          "json_path": "vi/no42_design_principles/theory/audio/01-solid-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no43_design_patterns",
+      "title": "No43 Design Patterns",
+      "lessons": [
+        {
+          "id": "01-singleton-concepts",
+          "title": "Các Mẫu Thiết Kế Cơ Bản Thường Gặp Trong Java - Phần 1",
+          "md_path": "vi/no43_design_patterns/theory/01-singleton-concepts.md",
+          "mp3_path": "vi/no43_design_patterns/theory/audio/01-singleton-concepts.mp3",
+          "json_path": "vi/no43_design_patterns/theory/audio/01-singleton-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-observer-concepts",
+          "title": "Các Mẫu Thiết Kế Cơ Bản Thường Gặp Trong Java - Phần 2",
+          "md_path": "vi/no43_design_patterns/theory/02-observer-concepts.md",
+          "mp3_path": "vi/no43_design_patterns/theory/audio/02-observer-concepts.mp3",
+          "json_path": "vi/no43_design_patterns/theory/audio/02-observer-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no44_unit_testing",
+      "title": "No44 Unit Testing",
+      "lessons": [
+        {
+          "id": "01-junit-concepts",
+          "title": "Kiểm thử đơn vị cơ bản - Phần 1: Các kiến thức cơ bản về JUnit 5 & Mockito",
+          "md_path": "vi/no44_unit_testing/theory/01-junit-concepts.md",
+          "mp3_path": "vi/no44_unit_testing/theory/audio/01-junit-concepts.mp3",
+          "json_path": "vi/no44_unit_testing/theory/audio/01-junit-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-test-exception-concepts",
+          "title": "Kiểm thử đơn vị cơ bản - Phần 2: Ngoại lệ, Logic Private & Độ bao phủ mã nguồn",
+          "md_path": "vi/no44_unit_testing/theory/02-test-exception-concepts.md",
+          "mp3_path": "vi/no44_unit_testing/theory/audio/02-test-exception-concepts.mp3",
+          "json_path": "vi/no44_unit_testing/theory/audio/02-test-exception-concepts.json",
+          "has_audio": true
+        }
+      ]
+    },
+    {
+      "id": "no45_interview_questions",
+      "title": "No45 Interview Questions",
+      "lessons": [
+        {
+          "id": "01-how-are-jvm-jdk-and-jre-different-concepts",
+          "title": "Các Câu Hỏi Phỏng Vấn Java Core Thường Gặp - Phần 1",
+          "md_path": "vi/no45_interview_questions/theory/01-how-are-jvm-jdk-and-jre-different-concepts.md",
+          "mp3_path": "vi/no45_interview_questions/theory/audio/01-how-are-jvm-jdk-and-jre-different-concepts.mp3",
+          "json_path": "vi/no45_interview_questions/theory/audio/01-how-are-jvm-jdk-and-jre-different-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "02-how-does-hashset-remove-duplicates-concepts",
+          "title": "Các Câu Hỏi Phỏng Vấn Java Core Thường Gặp - Phần 2 (Common Java Core Interview Questions - Part 2)",
+          "md_path": "vi/no45_interview_questions/theory/02-how-does-hashset-remove-duplicates-concepts.md",
+          "mp3_path": "vi/no45_interview_questions/theory/audio/02-how-does-hashset-remove-duplicates-concepts.mp3",
+          "json_path": "vi/no45_interview_questions/theory/audio/02-how-does-hashset-remove-duplicates-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "03-how-are-comparable-and-comparator-different-concepts",
+          "title": "Các Câu Hỏi Phỏng Vấn Java Core Thường Gặp - Phần 3 (Common Java Core Interview Questions - Part 3)",
+          "md_path": "vi/no45_interview_questions/theory/03-how-are-comparable-and-comparator-different-concepts.md",
+          "mp3_path": "vi/no45_interview_questions/theory/audio/03-how-are-comparable-and-comparator-different-concepts.mp3",
+          "json_path": "vi/no45_interview_questions/theory/audio/03-how-are-comparable-and-comparator-different-concepts.json",
+          "has_audio": true
+        },
+        {
+          "id": "04-how-are-map-and-flatmap-different-concepts",
+          "title": "Các Câu Hỏi Phỏng Vấn Java Core Thường Gặp - Phần 4 (Common Java Core Interview Questions - Part 4)",
+          "md_path": "vi/no45_interview_questions/theory/04-how-are-map-and-flatmap-different-concepts.md",
+          "mp3_path": "vi/no45_interview_questions/theory/audio/04-how-are-map-and-flatmap-different-concepts.mp3",
+          "json_path": "vi/no45_interview_questions/theory/audio/04-how-are-map-and-flatmap-different-concepts.json",
+          "has_audio": true
+        }
+      ]
+    }
+  ]
+}
