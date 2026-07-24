@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         itemEl.className = 'lesson-item';
         itemEl.dataset.lessonId = lesson.id;
         itemEl.innerHTML = `
-          <i class="fa-solid fa-circle-play" style="font-size:0.75rem; color:${lesson.has_audio ? '#14b8a6' : '#64748b'};"></i>
+          <i class="fa-solid fa-circle-play" style="font-size:0.75rem; color:${lesson.has_audio ? '#00f2fe' : '#64748b'};"></i>
           <span>${lesson.title}</span>
         `;
         itemEl.onclick = (e) => {
@@ -257,6 +257,15 @@ document.addEventListener('DOMContentLoaded', () => {
     playBtn.onclick = togglePlay;
     
     sidebarToggleBtn.onclick = () => sidebar.classList.toggle('collapsed');
+    
+    // THEME TOGGLE (DARK / LIGHT NEUMORPHISM)
+    if (themeToggleBtn) {
+      themeToggleBtn.onclick = () => {
+        document.body.classList.toggle('light-theme');
+        const isLight = document.body.classList.contains('light-theme');
+        themeToggleBtn.innerHTML = isLight ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+      };
+    }
 
     rewindBtn.onclick = () => { audioEngine.currentTime = Math.max(0, audioEngine.currentTime - 5); };
     forwardBtn.onclick = () => { audioEngine.currentTime = Math.min(audioEngine.duration, audioEngine.currentTime + 5); };
