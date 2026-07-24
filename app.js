@@ -256,9 +256,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (targetEl) {
       targetEl.classList.add('active-sync');
       
-      // Smooth auto-scroll to center
-      targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      
       const segNum = idx + 1;
       const totalSegs = paragraphElements.length;
       playerSnippet.textContent = `[Đoạn ${segNum}/${totalSegs}] ${tsObj.text_snippet || targetEl.textContent.slice(0, 70)}`;
