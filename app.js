@@ -67,14 +67,51 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('lesson-count').textContent = `${manifestData.total_lessons} bài`;
       renderSidebar(manifestData.chapters);
 
-      // Auto-load first lesson by default
-      if (manifestData.chapters.length > 0 && manifestData.chapters[0].lessons.length > 0) {
-        const firstLesson = manifestData.chapters[0].lessons[0];
-        selectLesson(firstLesson, manifestData.chapters[0].title);
-      }
+      // Listen for hash change for routing
+      window.addEventListener('hashchange', handleRouting);
+
+      // Initialize route based on hash
+      handleRouting();
     } catch (err) {
       console.error('Error loading manifest:', err);
       sidebarContent.innerHTML = `<div class="error-msg" style="padding:16px; color:#ef4444;"><i class="fa-solid fa-triangle-exclamation"></i> Lỗi nạp danh sách bài học</div>`;
+    }
+  }
+
+  // HASH-BASED ROUTING
+  function handleRouting() {
+    if (!manifestData) return;
+    
+    const hash = window.location.hash; // E.g., #/no12_exception_handling/01-what-is-an-exception-concepts
+    
+    if (hash && hash.startsWith('#/')) {
+      const parts = hash.slice(2).split('/');
+      if (parts.length >= 2) {
+        const chapterId = parts[0];
+        const lessonId = parts[1];
+        
+        const chapter = manifestData.chapters.find(c => c.id === chapterId);
+        if (chapter) {
+          const lesson = chapter.lessons.find(l => l.id === lessonId);
+          if (lesson) {
+            // Expand the selected chapter group in the sidebar
+            const activeSidebarItem = document.querySelector(`.lesson-item[href="#/${chapterId}/${lessonId}"]`);
+            if (activeSidebarItem) {
+              const groupEl = activeSidebarItem.closest('.chapter-group');
+              if (groupEl) groupEl.classList.add('open');
+            }
+            selectLesson(lesson, chapter.title);
+            return;
+          }
+        }
+      }
+    }
+    
+    // Fallback: Load first lesson of first chapter by default if no hash
+    if (manifestData.chapters.length > 0 && manifestData.chapters[0].lessons.length > 0) {
+      const firstChapter = manifestData.chapters[0];
+      const firstLesson = firstChapter.lessons[0];
+      window.location.hash = `#/${firstChapter.id}/${firstLesson.id}`;
     }
   }
 
@@ -101,14 +138,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const itemEl = document.createElement('a');
         itemEl.className = 'lesson-item';
         itemEl.dataset.lessonId = lesson.id;
+        itemEl.href = `#/${chapter.id}/${lesson.id}`;
         itemEl.innerHTML = `
           <i class="fa-solid fa-circle-play" style="font-size:0.75rem; color:${lesson.has_audio ? '#00f2fe' : '#64748b'};"></i>
           <span>${lesson.title}</span>
         `;
-        itemEl.onclick = (e) => {
-          e.preventDefault();
-          selectLesson(lesson, chapter.title);
-        };
         lessonsContainer.appendChild(itemEl);
       });
       
@@ -124,9 +158,13 @@ document.addEventListener('DOMContentLoaded', () => {
     activeParagraphIdx = -1;
     if (isPlaying) pauseAudio();
     
+    // Extract chapterId from path to highlight correct item (avoids README duplicates conflicts)
+    const pathParts = lesson.md_path.split('/');
+    const chapterId = pathParts[1] || '';
+    
     // Highlight sidebar active item
     document.querySelectorAll('.lesson-item').forEach(el => el.classList.remove('active'));
-    const activeItem = document.querySelector(`.lesson-item[data-lesson-id="${lesson.id}"]`);
+    const activeItem = document.querySelector(`.lesson-item[href="#/${chapterId}/${lesson.id}"]`);
     if (activeItem) activeItem.classList.add('active');
     
     // Update headers

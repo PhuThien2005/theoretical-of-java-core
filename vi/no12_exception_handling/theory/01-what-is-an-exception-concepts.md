@@ -6,16 +6,14 @@ Tệp này bao gồm một phần tập trung vào **Xử lý ngoại lệ**. Ng
 
 ## Đề cương Bảo hiểm (Outline Coverage)
 
-| Ý tưởng | Những điều cần biết |
-| --- | --- |
-| `What is an exception?` | Một sự kiện bất thường trong quá trình thực hiện chương trình làm gián đoạn luồng (Thread) lệnh thông thường và có thể bị phát hiện hoặc truyền bá. |
-| `Error vs Exception` | Lỗi thể hiện các lỗi nghiêm trọng ở cấp độ JVM mà các ứng dụng không nên phát hiện, trong khi Ngoại lệ là các điều kiện ở cấp độ chương trình có thể phục hồi được. |
-| `Checked exception` | Các ngoại lệ được kiểm tra tại thời điểm biên dịch; trình biên dịch buộc nhà phát triển xử lý hoặc khai báo chúng bằng cách sử dụng try-catch hoặc ném. |
-| `Unchecked exception` | Các ngoại lệ không được kiểm tra tại thời điểm biên dịch (các lớp con của RuntimeException); chúng đại diện cho các lỗi lập trình. |
-| `Runtime exception` | Lớp cha của tất cả các ngoại lệ không được kiểm tra, thể hiện lỗi hoặc lỗi logic trong mã. |
-| `try` | thử đánh dấu khối có ngoại lệ mà bạn muốn xử lý, dọn dẹp sau hoặc truyền bá. |
-| `catch` | Catch xử lý một loại ngoại lệ phù hợp được ném ra từ khối try. |
-| `multiple catch` | nhiều lần bắt cho phép các loại ngoại lệ khác nhau được xử lý bởi các trình xử lý khác nhau, được sắp xếp từ cụ thể đến rộng. |
+- ** `What is an exception?` ** — Một sự kiện bất thường trong quá trình thực thi chương trình làm gián đoạn luồng (Thread) lệnh thông thường và có thể bị phát hiện hoặc truyền bá.
+- ** `Error vs Exception` ** — Lỗi biểu thị các lỗi nghiêm trọng ở cấp độ JVM mà các ứng dụng không nên phát hiện, trong khi Ngoại lệ là các điều kiện ở cấp độ chương trình có thể phục hồi được.
+- ** `Checked exception` ** — Các ngoại lệ được kiểm tra tại thời điểm biên dịch; trình biên dịch buộc nhà phát triển xử lý hoặc khai báo chúng bằng cách sử dụng try-catch hoặc ném.
+- ** `Unchecked exception` ** — Các ngoại lệ không được kiểm tra tại thời điểm biên dịch (các lớp con của RuntimeException); chúng đại diện cho các lỗi lập trình.
+- ** `Runtime exception` ** — Lớp cha của tất cả các ngoại lệ không được kiểm tra, biểu thị các lỗi hoặc lỗi logic trong mã.
+- ** `try` ** — thử đánh dấu khối có ngoại lệ mà bạn muốn xử lý, dọn dẹp sau hoặc truyền bá.
+- ** `catch` ** — lệnh bắt xử lý loại ngoại lệ phù hợp được đưa ra từ khối thử.
+- ** `multiple catch` ** — nhiều lần bắt cho phép các loại ngoại lệ khác nhau được xử lý bởi các trình xử lý khác nhau, được sắp xếp từ cụ thể đến rộng.
 
 ## Ghi chú chi tiết (Detailed Notes)
 
@@ -26,7 +24,7 @@ Ngoại lệ (ngoại lệ) là một sự kiện xảy ra trong quá trình th�
 Hiểu các ngoại lệ là rất quan trọng vì chúng tách biệt mã xử lý lỗi khỏi logic chương trình thông thường. Thay vì làm ô nhiễm mọi phương thức bằng các kiểm tra có điều kiện lồng nhau để phát hiện lỗi, Java sử dụng các ngoại lệ để truyền lỗi lên ngăn xếp cuộc gọi cho đến khi tìm thấy trình xử lý thích hợp. Một sự nhầm lẫn phổ biến là coi các trường hợp ngoại lệ là sự cố nghiêm trọng; trên thực tế, chúng là các tín hiệu có cấu trúc được thiết kế để giúp các chương trình xuống cấp một cách nhẹ nhàng hoặc phục hồi sau các điều kiện thời gian chạy không mong muốn.
 
 #### Cơ chế kỹ thuật: Stack Unwinding (Technical Mechanism: Stack Unwinding)
-Khi một ngoại lệ được ném ra, JVM sẽ tìm kiếm trong ngăn xếp lệnh gọi một phương thức chứa trình xử lý ngoại lệ tương thích (khối `catch` khớp với loại ngoại lệ). Việc tìm kiếm này bắt đầu từ phương thức xảy ra lỗi và tiến hành ngược lại qua ngăn xếp cuộc gọi (chuỗi các lệnh gọi phương thức) theo thứ tự ngược lại của lệnh gọi. Quá trình tìm kiếm và duyệt ngược qua ngăn xếp này được gọi là **giải phóng ngăn xếp**. Nếu JVM tìm thấy trình xử lý phù hợp, nó sẽ chuyển đối tượng ngoại lệ tới trình xử lý đó. Nếu không tìm thấy trình xử lý nào sau khi tìm kiếm toàn bộ ngăn xếp (bao gồm phương thức `main`), trình xử lý ngoại lệ mặc định của JVM sẽ tiếp quản, in dấu vết ngăn xếp và chấm dứt luồng.
+Khi một ngoại lệ được ném ra, JVM sẽ tìm kiếm trong ngăn xếp lệnh gọi một phương thức chứa trình xử lý ngoại lệ tương thích (khối `catch` khớp với loại ngoại lệ). Việc tìm kiếm này bắt đầu từ phương thức xảy ra lỗi và tiến hành ngược lại qua ngăn xếp cuộc gọi (chuỗi các cuộc gọi phương thức) theo thứ tự ngược lại của lệnh gọi. Quá trình tìm kiếm và duyệt ngược qua ngăn xếp này được gọi là **giải phóng ngăn xếp**. Nếu JVM tìm thấy trình xử lý phù hợp, nó sẽ chuyển đối tượng ngoại lệ tới trình xử lý đó. Nếu không tìm thấy trình xử lý nào sau khi tìm kiếm toàn bộ ngăn xếp (bao gồm phương thức `main`), trình xử lý ngoại lệ mặc định của JVM sẽ tiếp quản, in dấu vết ngăn xếp và chấm dứt luồng.
 
 #### Mô hình tư duy: Độ lệch luồng điều khiển (Control Flow) (Mental Model: The Control Flow Deviation)
 ```mermaid
@@ -48,7 +46,7 @@ sequenceDiagram
 ```
 
 #### Ví dụ về mã có thể chạy được: Vòng đời (Lifetime) ngoại lệ (Runnable Code Example: Exception Life Cycle)
-Dưới đây là một ví dụ có thể chạy được minh họa cách ném một ngoại lệ, cách thực thi thông thường bị gián đoạn và cách điều khiển chuyển đến khối bắt phù hợp.
+Dưới đây là một ví dụ có thể chạy được minh họa cách ném ngoại lệ, cách thực thi thông thường bị gián đoạn và cách điều khiển chuyển đến khối bắt phù hợp.
 
 ```java
 public class ExceptionLifeCycleDemo {
@@ -95,12 +93,18 @@ Lớp gốc của tất cả các lớp liên quan đến ngoại lệ trong Jav
 *   **Ngoại lệ ( `java.lang.Exception` )**: Thể hiện các điều kiện đặc biệt mà một ứng dụng được viết tốt nên lường trước và xử lý. Đây là các lỗi logic, không có sẵn tài nguyên (như thiếu tệp hoặc cơ sở dữ liệu ngoại tuyến) hoặc đầu vào không hợp lệ. Các ngoại lệ có nghĩa là được phát hiện, ghi lại và khôi phục, cho phép ứng dụng tiếp tục chạy hoặc tắt sạch.
 
 #### Sự khác biệt chính: Lỗi và Ngoại lệ (Key Differences: Error vs Exception)
-| Tính năng | Lỗi ( `java.lang.Error` ) | Ngoại lệ ( `java.lang.Exception` ) |
-| :--- | :--- | :--- |
-| **Nguồn gốc** | JVM, tài nguyên hệ thống hoặc trình liên kết trình biên dịch không khớp. | Logic mã ứng dụng, dữ liệu đầu vào hoặc tài nguyên bên ngoài. |
-| **Khả năng phục hồi** | Không thể phục hồi. Chương trình nên được phép gặp sự cố. | Có thể phục hồi. Ứng dụng có thể xử lý, dự phòng hoặc thử lại. |
-| **Đã thực thi trình biên dịch** | Đã bỏ chọn. Trình biên dịch không bao giờ yêu cầu bắt hoặc khai báo. | Có thể được chọn (bắt buộc) hoặc không được chọn (các lớp con của RuntimeException). |
-| **Ví dụ phổ biến** |  `OutOfMemoryError` ,  `StackOverflowError` ,  `NoClassDefFoundError` . |  `NullPointerException` ,  `IOException` ,  `FileNotFoundException` . |
+
+**Lỗi ( `java.lang.Error` )** có các đặc điểm chính sau:
+- **Nguồn gốc**: JVM, tài nguyên hệ thống hoặc trình liên kết trình biên dịch không khớp.
+- **Khả năng phục hồi**: Không thể phục hồi. Chương trình nên được phép gặp sự cố.
+- **Đã thực thi trình biên dịch**: Không được chọn. Trình biên dịch không bao giờ yêu cầu bắt hoặc khai báo.
+- **Ví dụ phổ biến**: `OutOfMemoryError` , `StackOverflowError` , `NoClassDefFoundError` .
+
+**Ngoại lệ ( `java.lang.Exception` )** có các đặc điểm chính sau:
+- **Nguồn gốc**: Logic mã ứng dụng, dữ liệu đầu vào hoặc tài nguyên bên ngoài.
+- **Khả năng phục hồi**: Có thể phục hồi. Ứng dụng có thể xử lý, dự phòng hoặc thử lại.
+- **Đã thực thi trình biên dịch**: Có thể được chọn (bắt buộc) hoặc không được chọn (các lớp con của RuntimeException).
+- **Ví dụ phổ biến**: `NullPointerException` , `IOException` , `FileNotFoundException` .
 
 #### Tìm hiểu sâu: Giải thích các lỗi thường gặp (Deep-Dive: Common Errors Explained)
 1.  ** `OutOfMemoryError` **:
@@ -202,7 +206,7 @@ Các trường hợp ngoại lệ được kiểm tra biểu thị các sự c�
 #### Các ngoại lệ được kiểm tra phổ biến đã được phân tích (Common Checked Exceptions Analyzed)
 *   ** `IOException` / `FileNotFoundException` **:
     *   *Kích hoạt*: Đường dẫn tệp không hợp lệ, đĩa đầy hoặc luồng mạng chấm dứt đột ngột trong quá trình đọc/ghi.
-    *   *Tại sao được chọn*: I/O bên ngoài nổi tiếng là không ổn định. Java buộc bạn phải xác định một kế hoạch dự phòng (ví dụ: yêu cầu người dùng một đường dẫn khác, ghi lại lỗi hoặc hoàn toàn không thành công) thay vì để ứng dụng gặp sự cố bất ngờ.
+    *   *Tại sao được chọn*: I/O bên ngoài nổi tiếng là không ổn định. Java buộc bạn phải xác định một kế hoạch dự phòng (ví dụ: yêu cầu người dùng một đường dẫn khác, ghi lại lỗi hoặc lỗi hoàn toàn) thay vì để ứng dụng gặp sự cố bất ngờ.
 *   ** `ClassNotFoundException` **:
     *   *Kích hoạt*: Mã cố gắng tải động một lớp bằng cách sử dụng tên chuỗi của nó (ví dụ: `Class.forName("com.mysql.jdbc.Driver")` ), nhưng trình nạp lớp (Class Loading) không thể tìm thấy lớp trong đường dẫn lớp hiện tại.
     *   *Tại sao được chọn*: Tải động dễ mắc lỗi chính tả trong thời gian chạy hoặc thiếu JAR thư viện. Java buộc nhà phát triển phải xử lý lỗi cấu hình này.
@@ -429,7 +433,7 @@ Java cho phép bạn chỉ định **nhiều khối bắt** cho một khối `tr
 Bởi vì JVM khớp các khối bắt theo thứ tự tuần tự từ trên xuống dưới, **các lớp ngoại lệ cụ thể hơn (các lớp con) phải được khai báo trước các lớp ngoại lệ tổng quát hơn (siêu lớp)**. Nếu bạn đặt trình xử lý lớp cha (ví dụ: `catch (Exception e)` ) trước trình xử lý lớp con (ví dụ: `catch (IOException e)` ), trình xử lý lớp con sẽ không thể truy cập được và trình biên dịch sẽ đưa ra lỗi biên dịch.
 
 #### Khối bắt liên minh (Đa bắt) (Union Catch Block (Multi-Catch))
-Kể từ Java 7, nếu nhiều ngoại lệ yêu cầu logic xử lý giống hệt nhau, bạn có thể kết hợp chúng thành một khối `catch` bằng cách sử dụng toán tử pipe ( `|` ):
+Kể từ Java 7, nếu nhiều ngoại lệ yêu cầu logic xử lý giống hệt nhau, bạn có thể kết hợp chúng thành một khối `catch` duy nhất bằng cách sử dụng toán tử pipe ( `|` ):
 ```java
 catch (NullPointerException | ArithmeticException e) { ... }
 ```

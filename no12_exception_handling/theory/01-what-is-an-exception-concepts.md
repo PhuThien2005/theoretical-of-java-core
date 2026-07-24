@@ -6,16 +6,14 @@ This file covers a focused slice of **Exception Handling**. Study each concept a
 
 ## Outline Coverage
 
-| Concept | What to know |
-| --- | --- |
-| `What is an exception?` | An abnormal event during program execution that disrupts the normal flow of instructions and can be caught or propagated. |
-| `Error vs Exception` | Errors represent critical JVM-level failures that applications should not catch, while Exceptions are program-level conditions that are recoverable. |
-| `Checked exception` | Exceptions checked at compile-time; the compiler forces the developer to handle or declare them using try-catch or throws. |
-| `Unchecked exception` | Exceptions not checked at compile-time (subclasses of RuntimeException); they represent programming bugs. |
-| `Runtime exception` | The parent class of all unchecked exceptions, representing bugs or logical failures in code. |
-| `try` | try marks the block whose exceptions you want to handle, clean up after, or propagate. |
-| `catch` | catch handles a matching exception type thrown from the try block. |
-| `multiple catch` | multiple catch lets different exception types be handled by different handlers, ordered from specific to broad. |
+- **`What is an exception?`** — An abnormal event during program execution that disrupts the normal flow of instructions and can be caught or propagated.
+- **`Error vs Exception`** — Errors represent critical JVM-level failures that applications should not catch, while Exceptions are program-level conditions that are recoverable.
+- **`Checked exception`** — Exceptions checked at compile-time; the compiler forces the developer to handle or declare them using try-catch or throws.
+- **`Unchecked exception`** — Exceptions not checked at compile-time (subclasses of RuntimeException); they represent programming bugs.
+- **`Runtime exception`** — The parent class of all unchecked exceptions, representing bugs or logical failures in code.
+- **`try`** — try marks the block whose exceptions you want to handle, clean up after, or propagate.
+- **`catch`** — catch handles a matching exception type thrown from the try block.
+- **`multiple catch`** — multiple catch lets different exception types be handled by different handlers, ordered from specific to broad.
 
 ## Detailed Notes
 
@@ -95,12 +93,18 @@ The root class of all exception-related classes in Java is `java.lang.Throwable`
 *   **Exception (`java.lang.Exception`)**: Represents exceptional conditions that a well-written application should anticipate and handle. These are logic errors, resource unavailability (like missing files or database offline), or bad input. Exceptions are meant to be caught, logged, and recovered from, allowing the application to continue running or shut down clean.
 
 #### Key Differences: Error vs Exception
-| Feature | Error (`java.lang.Error`) | Exception (`java.lang.Exception`) |
-| :--- | :--- | :--- |
-| **Origin** | JVM, system resources, or compiler-linker mismatches. | Application code logic, input data, or external resources. |
-| **Recoverability** | Unrecoverable. Program should be allowed to crash. | Recoverable. Application can handle, fallback, or retry. |
-| **Compiler Enforced** | Unchecked. Compiler never requires catching or declaring. | Can be Checked (required) or Unchecked (subclasses of RuntimeException). |
-| **Common Examples** | `OutOfMemoryError`, `StackOverflowError`, `NoClassDefFoundError`. | `NullPointerException`, `IOException`, `FileNotFoundException`. |
+
+**Error (`java.lang.Error`)** has the following key characteristics:
+- **Origin**: JVM, system resources, or compiler-linker mismatches.
+- **Recoverability**: Unrecoverable. The program should be allowed to crash.
+- **Compiler Enforced**: Unchecked. The compiler never requires catching or declaring.
+- **Common Examples**: `OutOfMemoryError`, `StackOverflowError`, `NoClassDefFoundError`.
+
+**Exception (`java.lang.Exception`)** has the following key characteristics:
+- **Origin**: Application code logic, input data, or external resources.
+- **Recoverability**: Recoverable. The application can handle, fallback, or retry.
+- **Compiler Enforced**: Can be Checked (required) or Unchecked (subclasses of RuntimeException).
+- **Common Examples**: `NullPointerException`, `IOException`, `FileNotFoundException`.
 
 #### Deep-Dive: Common Errors Explained
 1.  **`OutOfMemoryError`**:
