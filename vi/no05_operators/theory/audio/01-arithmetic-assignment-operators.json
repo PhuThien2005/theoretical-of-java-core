@@ -1,469 +1,511 @@
 {
   "lesson": "01-arithmetic-assignment-operators",
-  "total_duration_seconds": 376.63,
-  "total_paragraphs": 66,
+  "total_duration_seconds": 434.6,
+  "total_paragraphs": 72,
   "timestamps": [
     {
       "paragraph_id": 1,
       "start": 0.0,
-      "end": 3.96,
-      "duration": 3.96,
+      "end": 3.85,
+      "duration": 3.85,
       "text_snippet": "Các Toán Tử Số Học Và Gán (Arithmetic and Assignment Operators)"
     },
     {
       "paragraph_id": 2,
-      "start": 3.96,
-      "end": 16.9,
-      "duration": 12.94,
-      "text_snippet": "Các toán tử số học thực hiện các phép toán số học. Các toán tử gán lưu trữ các giá trị vào biến. Chúng thường xuất hiện "
+      "start": 3.85,
+      "end": 19.95,
+      "duration": 16.1,
+      "text_snippet": "Các toán tử số học thực hiện các phép toán số học. Các toán tử gán lưu trữ các g"
     },
     {
       "paragraph_id": 3,
-      "start": 16.9,
-      "end": 19.47,
-      "duration": 2.58,
+      "start": 19.95,
+      "end": 22.4,
+      "duration": 2.45,
       "text_snippet": "Các Toán Tử Số Học (Arithmetic Operators)"
     },
     {
       "paragraph_id": 4,
-      "start": 19.47,
-      "end": 21.73,
-      "duration": 2.26,
+      "start": 22.4,
+      "end": 25.55,
+      "duration": 3.15,
       "text_snippet": "Java có năm toán tử số học phổ biến:"
     },
     {
       "paragraph_id": 5,
-      "start": 21.73,
-      "end": 42.52,
-      "duration": 20.79,
-      "text_snippet": "+ — +: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\n- — -: Cung cấp các quy tắc và cơ chế hoạt động cụ th"
+      "start": 25.55,
+      "end": 31.5,
+      "duration": 5.95,
+      "text_snippet": "+ — +: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 6,
-      "start": 42.52,
-      "end": 57.85,
-      "duration": 15.33,
-      "text_snippet": "Một biểu thức số học được đánh giá theo thứ tự ưu tiên của toán tử (operator precedence), sau đó từ trái sang phải đối v"
+      "start": 31.6,
+      "end": 48.22,
+      "duration": 16.62,
+      "text_snippet": "- — -: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 7,
-      "start": 57.85,
-      "end": 58.92,
-      "duration": 1.07,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 48.22,
+      "end": 54.17,
+      "duration": 5.95,
+      "text_snippet": "* — *: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 8,
-      "start": 58.92,
-      "end": 61.56,
-      "duration": 2.64,
-      "text_snippet": "Java tính 3 * 4 trước, sau đó cộng thêm 2."
+      "start": 54.17,
+      "end": 60.12,
+      "duration": 5.95,
+      "text_snippet": "/ — /: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 9,
-      "start": 61.56,
-      "end": 63.94,
-      "duration": 2.39,
-      "text_snippet": "Phép Chia Số Nguyên (Integer Division)"
+      "start": 60.12,
+      "end": 66.07,
+      "duration": 5.95,
+      "text_snippet": "% — %: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 10,
-      "start": 63.94,
-      "end": 73.62,
-      "duration": 9.67,
-      "text_snippet": "Khi cả hai toán hạng (operand) của phép chia / đều là kiểu số nguyên, Java thực hiện phép chia số nguyên (integer divisi"
+      "start": 48.22,
+      "end": 63.57,
+      "duration": 15.35,
+      "text_snippet": "Một biểu thức số học được đánh giá theo thứ tự ưu tiên của toán tử (operator pre"
     },
     {
       "paragraph_id": 11,
-      "start": 73.62,
-      "end": 74.69,
-      "duration": 1.07,
+      "start": 63.58,
+      "end": 64.98,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 12,
-      "start": 74.69,
-      "end": 85.3,
-      "duration": 10.62,
-      "text_snippet": "Cạm bẫy phổ biến là gán kết quả cho một biến double và mong đợi nhận được một kết quả thập phân. Kiểu kết quả của biểu t"
+      "start": 64.98,
+      "end": 68.83,
+      "duration": 3.85,
+      "text_snippet": "Java tính 3 * 4 trước, sau đó cộng thêm 2."
     },
     {
       "paragraph_id": 13,
-      "start": 85.3,
-      "end": 87.88,
-      "duration": 2.58,
-      "text_snippet": "Phép Chia Lấy Dư Với % (Remainder With %)"
+      "start": 68.83,
+      "end": 70.93,
+      "duration": 2.1,
+      "text_snippet": "Phép Chia Số Nguyên (Integer Division)"
     },
     {
       "paragraph_id": 14,
-      "start": 87.88,
-      "end": 90.33,
-      "duration": 2.45,
-      "text_snippet": "Toán tử % trả về phần dư sau phép chia."
+      "start": 70.92,
+      "end": 81.77,
+      "duration": 10.85,
+      "text_snippet": "Khi cả hai toán hạng (operand) của phép chia / đều là kiểu số nguyên, Java thực "
     },
     {
       "paragraph_id": 15,
-      "start": 90.33,
-      "end": 91.39,
-      "duration": 1.07,
+      "start": 81.78,
+      "end": 83.18,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 16,
-      "start": 91.39,
-      "end": 93.03,
-      "duration": 1.63,
-      "text_snippet": "Nó thường được sử dụng để:"
+      "start": 83.27,
+      "end": 96.49,
+      "duration": 13.22,
+      "text_snippet": "Cạm bẫy phổ biến là gán kết quả cho một biến double và mong đợi nhận được một kế"
     },
     {
       "paragraph_id": 17,
-      "start": 93.03,
-      "end": 101.26,
-      "duration": 8.23,
-      "text_snippet": "Kiểm tra tính chia hết: n % 2 == 0\nGiới hạn và xoay vòng chỉ số (wrap index): index % size\nTách các chữ số trong các bài"
+      "start": 96.5,
+      "end": 99.65,
+      "duration": 3.15,
+      "text_snippet": "Phép Chia Lấy Dư Với % (Remainder With %)"
     },
     {
       "paragraph_id": 18,
-      "start": 101.26,
-      "end": 107.85,
-      "duration": 6.6,
-      "text_snippet": "Đối với các toán hạng âm, dấu của phần dư sẽ tuân theo số bị chia (dividend) - tức là toán hạng bên trái."
+      "start": 96.5,
+      "end": 99.91,
+      "duration": 3.41,
+      "text_snippet": "Toán tử % trả về phần dư sau phép chia."
     },
     {
       "paragraph_id": 19,
-      "start": 107.85,
-      "end": 108.92,
-      "duration": 1.07,
+      "start": 99.91,
+      "end": 102.29,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 20,
-      "start": 108.92,
-      "end": 112.12,
-      "duration": 3.2,
-      "text_snippet": "Phép Ghép Chuỗi Với + (String Concatenation With +)"
+      "start": 102.29,
+      "end": 104.72,
+      "duration": 2.43,
+      "text_snippet": "Nó thường được sử dụng để:"
     },
     {
       "paragraph_id": 21,
-      "start": 112.12,
-      "end": 123.37,
-      "duration": 11.24,
-      "text_snippet": "Toán tử + cũng dùng để ghép chuỗi (string concatenation). Nếu một trong hai toán hạng là một String, Java sẽ chuyển đổi "
+      "start": 104.81,
+      "end": 108.22,
+      "duration": 3.41,
+      "text_snippet": "Kiểm tra tính chia hết: n % 2 == 0"
     },
     {
       "paragraph_id": 22,
-      "start": 123.37,
-      "end": 124.43,
-      "duration": 1.07,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 108.18,
+      "end": 112.94,
+      "duration": 4.76,
+      "text_snippet": "Giới hạn và xoay vòng chỉ số (wrap index): index % size"
     },
     {
       "paragraph_id": 23,
-      "start": 124.43,
-      "end": 137.0,
-      "duration": 12.56,
-      "text_snippet": "Một khi phép ghép chuỗi bắt đầu từ trái sang phải, các phép toán + tiếp theo trong chuỗi đó sẽ tiếp tục được xử lý như p"
+      "start": 112.94,
+      "end": 116.02,
+      "duration": 3.08,
+      "text_snippet": "Tách các chữ số trong các bài tập cơ bản"
     },
     {
       "paragraph_id": 24,
-      "start": 137.0,
-      "end": 138.32,
-      "duration": 1.32,
-      "text_snippet": "Phép Gán (Assignment)"
+      "start": 116.01,
+      "end": 123.27,
+      "duration": 7.26,
+      "text_snippet": "Đối với các toán hạng âm, dấu của phần dư sẽ tuân theo số bị chia (dividend) - t"
     },
     {
       "paragraph_id": 25,
-      "start": 138.32,
-      "end": 139.95,
-      "duration": 1.63,
-      "text_snippet": "Toán tử gán đơn giản là =."
+      "start": 123.28,
+      "end": 125.48,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 26,
-      "start": 139.95,
-      "end": 141.02,
-      "duration": 1.07,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 125.48,
+      "end": 128.63,
+      "duration": 3.15,
+      "text_snippet": "Phép Ghép Chuỗi Với + (String Concatenation With +)"
     },
     {
       "paragraph_id": 27,
-      "start": 141.02,
-      "end": 149.18,
-      "duration": 8.17,
-      "text_snippet": "Phép gán lưu trữ giá trị bên vế phải vào biến ở vế trái. Đây không phải là so sánh bằng. Trong Java, phép so sánh bằng s"
+      "start": 128.62,
+      "end": 141.22,
+      "duration": 12.6,
+      "text_snippet": "Toán tử + cũng dùng để ghép chuỗi (string concatenation). Nếu một trong hai toán"
     },
     {
       "paragraph_id": 28,
-      "start": 149.18,
-      "end": 151.57,
-      "duration": 2.39,
-      "text_snippet": "Phép Gán Hỗn Hợp (Compound Assignment)"
+      "start": 141.23,
+      "end": 142.63,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 29,
-      "start": 151.57,
-      "end": 157.16,
-      "duration": 5.59,
-      "text_snippet": "Các toán tử gán hỗn hợp (compound assignment operator) kết hợp một phép toán và phép gán:"
+      "start": 142.62,
+      "end": 158.02,
+      "duration": 15.4,
+      "text_snippet": "Một khi phép ghép chuỗi bắt đầu từ trái sang phải, các phép toán + tiếp theo tro"
     },
     {
       "paragraph_id": 30,
-      "start": 157.16,
-      "end": 158.23,
-      "duration": 1.07,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 158.03,
+      "end": 159.08,
+      "duration": 1.05,
+      "text_snippet": "Phép Gán (Assignment)"
     },
     {
       "paragraph_id": 31,
-      "start": 158.23,
-      "end": 162.19,
-      "duration": 3.96,
-      "text_snippet": "Các toán tử gán hỗn hợp phổ biến bao gồm +=, -=, *=, /=, và %=."
+      "start": 159.17,
+      "end": 161.61,
+      "duration": 2.44,
+      "text_snippet": "Toán tử gán đơn giản là =."
     },
     {
       "paragraph_id": 32,
-      "start": 162.19,
-      "end": 169.72,
-      "duration": 7.54,
-      "text_snippet": "Có một sự khác biệt nhỏ: phép gán hỗn hợp bao gồm một phép ép kiểu ngầm định (implicit cast) về kiểu của biến ở vế trái."
-    },
-    {
-      "paragraph_id": 33,
-      "start": 169.72,
-      "end": 170.79,
-      "duration": 1.07,
+      "start": 161.56,
+      "end": 163.92,
+      "duration": 2.36,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
+      "paragraph_id": 33,
+      "start": 163.92,
+      "end": 177.3,
+      "duration": 13.38,
+      "text_snippet": "Phép gán lưu trữ giá trị bên vế phải vào biến ở vế trái. Đây không phải là so sá"
+    },
+    {
       "paragraph_id": 34,
-      "start": 170.79,
-      "end": 178.77,
-      "duration": 7.98,
-      "text_snippet": "Điều này quan trọng vì các phép toán trên các kiểu số nguyên nhỏ hơn như byte, short và char sẽ bị thăng cấp (promote) l"
+      "start": 177.3,
+      "end": 179.4,
+      "duration": 2.1,
+      "text_snippet": "Phép Gán Hỗn Hợp (Compound Assignment)"
     },
     {
       "paragraph_id": 35,
-      "start": 178.77,
-      "end": 182.29,
-      "duration": 3.52,
-      "text_snippet": "Tại Sao Phép Gán Hỗn Hợp Lại Thực Hiện Ép Kiểu Ngầm Định"
+      "start": 177.3,
+      "end": 183.46,
+      "duration": 6.16,
+      "text_snippet": "Các toán tử gán hỗn hợp (compound assignment operator) kết hợp một phép toán và "
     },
     {
       "paragraph_id": 36,
-      "start": 182.29,
-      "end": 228.33,
-      "duration": 46.04,
-      "text_snippet": "Trong Java, bất kỳ phép toán số học nào trên các kiểu số nguyên nhỏ (byte, short và char) đều tự động thăng cấp các toán"
+      "start": 183.46,
+      "end": 184.86,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 37,
-      "start": 228.33,
-      "end": 231.22,
-      "duration": 2.89,
-      "text_snippet": "Mô Hình Tư Duy Về Cắt Bớt Dữ Liệu (Truncation)"
+      "start": 184.86,
+      "end": 190.46,
+      "duration": 5.6,
+      "text_snippet": "Các toán tử gán hỗn hợp phổ biến bao gồm +=, -=, *=, /=, và %=."
     },
     {
       "paragraph_id": 38,
-      "start": 231.22,
-      "end": 246.54,
-      "duration": 15.33,
-      "text_snippet": "Khi một giá trị được ép kiểu ngầm định về một kiểu nhỏ hơn, Java sẽ thực hiện chuyển đổi thu hẹp kiểu nguyên thủy (narro"
+      "start": 190.46,
+      "end": 199.91,
+      "duration": 9.45,
+      "text_snippet": "Có một sự khác biệt nhỏ: phép gán hỗn hợp bao gồm một phép ép kiểu ngầm định (im"
     },
     {
       "paragraph_id": 39,
-      "start": 246.54,
-      "end": 247.61,
-      "duration": 1.07,
+      "start": 199.91,
+      "end": 201.31,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 40,
-      "start": 247.61,
-      "end": 249.31,
-      "duration": 1.7,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+      "start": 201.31,
+      "end": 210.76,
+      "duration": 9.45,
+      "text_snippet": "Điều này quan trọng vì các phép toán trên các kiểu số nguyên nhỏ hơn như byte, s"
     },
     {
       "paragraph_id": 41,
-      "start": 249.31,
-      "end": 269.91,
-      "duration": 20.6,
-      "text_snippet": "b += 10 được đánh giá → Java thăng cấp b và 10 lên int rồi cộng chúng lại → tổng trung gian thu được là 130 (kiểu int 32"
+      "start": 210.76,
+      "end": 215.31,
+      "duration": 4.55,
+      "text_snippet": "Tại Sao Phép Gán Hỗn Hợp Lại Thực Hiện Ép Kiểu Ngầm Định"
     },
     {
       "paragraph_id": 42,
-      "start": 269.91,
-      "end": 270.54,
-      "duration": 0.63,
-      "text_snippet": "Ví dụ Code"
+      "start": 215.31,
+      "end": 274.11,
+      "duration": 58.8,
+      "text_snippet": "Trong Java, bất kỳ phép toán số học nào trên các kiểu số nguyên nhỏ (byte, short"
     },
     {
       "paragraph_id": 43,
-      "start": 270.54,
-      "end": 271.61,
-      "duration": 1.07,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 274.11,
+      "end": 277.61,
+      "duration": 3.5,
+      "text_snippet": "Mô Hình Tư Duy Về Cắt Bớt Dữ Liệu (Truncation)"
     },
     {
       "paragraph_id": 44,
-      "start": 271.61,
-      "end": 273.74,
-      "duration": 2.14,
-      "text_snippet": "Phép Gán Bản Chất Là Một Biểu Thức"
+      "start": 277.61,
+      "end": 294.41,
+      "duration": 16.8,
+      "text_snippet": "Khi một giá trị được ép kiểu ngầm định về một kiểu nhỏ hơn, Java sẽ thực hiện ch"
     },
     {
       "paragraph_id": 45,
-      "start": 273.74,
-      "end": 277.7,
-      "duration": 3.96,
-      "text_snippet": "Trong Java, phép gán có một giá trị: chính là giá trị được gán."
+      "start": 294.41,
+      "end": 295.81,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 46,
-      "start": 277.7,
-      "end": 278.77,
-      "duration": 1.07,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 295.91,
+      "end": 298.41,
+      "duration": 2.5,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
     },
     {
       "paragraph_id": 47,
-      "start": 278.77,
-      "end": 290.07,
-      "duration": 11.31,
-      "text_snippet": "Cách hoạt động này khả thi vì y = 10 trả về giá trị 10, sau đó x = 10 xảy ra. Mặc dù điều này là hợp lệ, việc viết các c"
+      "start": 298.36,
+      "end": 320.42,
+      "duration": 22.06,
+      "text_snippet": "b += 10 được đánh giá → Java thăng cấp b và 10 lên int rồi cộng chúng lại → tổng"
     },
     {
       "paragraph_id": 48,
-      "start": 290.07,
-      "end": 291.02,
-      "duration": 0.94,
-      "text_snippet": "Quy Tắc Thực Tế"
+      "start": 320.43,
+      "end": 322.05,
+      "duration": 1.62,
+      "text_snippet": "Ví dụ Code"
     },
     {
       "paragraph_id": 49,
-      "start": 291.02,
-      "end": 294.79,
-      "duration": 3.77,
-      "text_snippet": "Khi gặp các cạm bẫy về toán học, hãy tự hỏi bốn câu hỏi sau:"
+      "start": 322.05,
+      "end": 324.43,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 50,
-      "start": 294.79,
-      "end": 306.78,
-      "duration": 12.0,
-      "text_snippet": "Kiểu của các toán hạng là gì?\nJava có thăng cấp các toán hạng hay không?\nBiểu thức tạo ra kết quả thuộc kiểu dữ liệu nào"
+      "start": 324.43,
+      "end": 327.12,
+      "duration": 2.69,
+      "text_snippet": "Phép Gán Bản Chất Là Một Biểu Thức"
     },
     {
       "paragraph_id": 51,
-      "start": 306.78,
-      "end": 306.91,
-      "duration": 0.13,
-      "text_snippet": "--"
+      "start": 327.21,
+      "end": 331.96,
+      "duration": 4.75,
+      "text_snippet": "Trong Java, phép gán có một giá trị: chính là giá trị được gán."
     },
     {
       "paragraph_id": 52,
-      "start": 306.91,
-      "end": 309.42,
-      "duration": 2.51,
-      "text_snippet": "Các Sai Lầm Thường Gặp (Common Mistakes)"
+      "start": 331.91,
+      "end": 334.29,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 53,
-      "start": 309.42,
-      "end": 312.75,
-      "duration": 3.33,
-      "text_snippet": "Sai Lầm 1 — Cắt Bớt Dữ Liệu Trong Phép Chia Số Nguyên"
+      "start": 334.29,
+      "end": 345.94,
+      "duration": 11.65,
+      "text_snippet": "Cách hoạt động này khả thi vì y = 10 trả về giá trị 10, sau đó x = 10 xảy ra. Mặ"
     },
     {
       "paragraph_id": 54,
-      "start": 312.75,
-      "end": 313.82,
-      "duration": 1.07,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 345.94,
+      "end": 347.78,
+      "duration": 1.84,
+      "text_snippet": "Quy Tắc Thực Tế"
     },
     {
       "paragraph_id": 55,
-      "start": 313.82,
-      "end": 322.36,
-      "duration": 8.54,
-      "text_snippet": "// Cách khắc phục: bắt buộc thực hiện phép chia số thực dấu phẩy động\ndouble y = 10 / 4.0;   // 2.5\ndouble z = (double) "
+      "start": 347.78,
+      "end": 352.19,
+      "duration": 4.41,
+      "text_snippet": "Khi gặp các cạm bẫy về toán học, hãy tự hỏi bốn câu hỏi sau:"
     },
     {
       "paragraph_id": 56,
-      "start": 322.36,
-      "end": 330.09,
-      "duration": 7.73,
-      "text_snippet": "Quy tắc quan trọng: kiểu kết quả của một biểu thức được quyết định bởi các toán hạng, chứ không phải bởi biến nhận giá t"
+      "start": 352.19,
+      "end": 354.64,
+      "duration": 2.45,
+      "text_snippet": "Kiểu của các toán hạng là gì?"
     },
     {
       "paragraph_id": 57,
-      "start": 330.09,
-      "end": 333.29,
-      "duration": 3.2,
-      "text_snippet": "Sai Lầm 2 — Phép Chia Lấy Dư % Với Các Toán Hạng Âm"
+      "start": 354.64,
+      "end": 357.79,
+      "duration": 3.15,
+      "text_snippet": "Java có thăng cấp các toán hạng hay không?"
     },
     {
       "paragraph_id": 58,
-      "start": 333.29,
-      "end": 334.36,
-      "duration": 1.07,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 357.79,
+      "end": 361.64,
+      "duration": 3.85,
+      "text_snippet": "Biểu thức tạo ra kết quả thuộc kiểu dữ liệu nào?"
     },
     {
       "paragraph_id": 59,
-      "start": 334.36,
-      "end": 343.91,
-      "duration": 9.55,
-      "text_snippet": "Quy tắc của Java: dấu của kết quả bằng với dấu của toán hạng bên trái. Điều này khác với phép đồng dư (modulo) trong toá"
+      "start": 361.64,
+      "end": 367.24,
+      "duration": 5.6,
+      "text_snippet": "Kết quả có được gán cho một biến làm thay đổi thêm giá trị hay không?"
     },
     {
       "paragraph_id": 60,
-      "start": 343.91,
-      "end": 346.29,
-      "duration": 2.39,
-      "text_snippet": "Sai Lầm 3 — Chuỗi Phép Cộng Ghép Chuỗi"
+      "start": 367.24,
+      "end": 369.69,
+      "duration": 2.45,
+      "text_snippet": "Các Sai Lầm Thường Gặp (Common Mistakes)"
     },
     {
       "paragraph_id": 61,
-      "start": 346.29,
-      "end": 347.36,
-      "duration": 1.07,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 369.79,
+      "end": 373.74,
+      "duration": 3.95,
+      "text_snippet": "Sai Lầm 1 — Cắt Bớt Dữ Liệu Trong Phép Chia Số Nguyên"
     },
     {
       "paragraph_id": 62,
-      "start": 347.36,
-      "end": 357.41,
-      "duration": 10.05,
-      "text_snippet": "Một khi một String xuất hiện với vai trò là toán hạng bên trái của +, mọi phép + tiếp theo trong cùng chuỗi đó cũng sẽ c"
-    },
-    {
-      "paragraph_id": 63,
-      "start": 357.41,
-      "end": 360.43,
-      "duration": 3.02,
-      "text_snippet": "Sai Lầm 4 — Phép Ép Kiểu Ẩn Của Phép Gán Hỗn Hợp"
-    },
-    {
-      "paragraph_id": 64,
-      "start": 360.43,
-      "end": 361.49,
-      "duration": 1.07,
+      "start": 373.69,
+      "end": 376.07,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
+      "paragraph_id": 63,
+      "start": 376.06,
+      "end": 382.84,
+      "duration": 6.78,
+      "text_snippet": "Quy tắc quan trọng: kiểu kết quả của một biểu thức được quyết định bởi các toán "
+    },
+    {
+      "paragraph_id": 64,
+      "start": 382.84,
+      "end": 386.98,
+      "duration": 4.14,
+      "text_snippet": "Sai Lầm 2 — Phép Chia Lấy Dư % Với Các Toán Hạng Âm"
+    },
+    {
       "paragraph_id": 65,
-      "start": 361.49,
-      "end": 367.78,
-      "duration": 6.28,
-      "text_snippet": "// So sánh:\n// b = (byte)(b * 2); // ép kiểu tường minh; kết quả tương tự nhưng thể hiện rõ ý định\n`"
+      "start": 386.98,
+      "end": 389.18,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 66,
-      "start": 367.78,
-      "end": 376.63,
-      "duration": 8.86,
-      "text_snippet": "Phép ép kiểu ngầm định cho phép tràn số diễn ra âm thầm. Đối với các phép toán byte/short, hãy đảm bảo kết quả luôn nằm "
+      "start": 389.18,
+      "end": 400.73,
+      "duration": 11.55,
+      "text_snippet": "Quy tắc của Java: dấu của kết quả bằng với dấu của toán hạng bên trái. Điều này "
+    },
+    {
+      "paragraph_id": 67,
+      "start": 400.73,
+      "end": 403.88,
+      "duration": 3.15,
+      "text_snippet": "Sai Lầm 3 — Chuỗi Phép Cộng Ghép Chuỗi"
+    },
+    {
+      "paragraph_id": 68,
+      "start": 403.88,
+      "end": 405.28,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 69,
+      "start": 405.28,
+      "end": 418.23,
+      "duration": 12.95,
+      "text_snippet": "Một khi một String xuất hiện với vai trò là toán hạng bên trái của +, mọi phép +"
+    },
+    {
+      "paragraph_id": 70,
+      "start": 418.23,
+      "end": 422.78,
+      "duration": 4.55,
+      "text_snippet": "Sai Lầm 4 — Phép Ép Kiểu Ẩn Của Phép Gán Hỗn Hợp"
+    },
+    {
+      "paragraph_id": 71,
+      "start": 422.88,
+      "end": 425.26,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 72,
+      "start": 425.2,
+      "end": 434.6,
+      "duration": 9.4,
+      "text_snippet": "Phép ép kiểu ngầm định cho phép tràn số diễn ra âm thầm. Đối với các phép toán b"
     }
   ]
 }

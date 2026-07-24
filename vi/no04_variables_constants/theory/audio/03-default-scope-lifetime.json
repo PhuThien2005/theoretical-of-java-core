@@ -1,427 +1,469 @@
 {
   "lesson": "03-default-scope-lifetime",
-  "total_duration_seconds": 349.08,
-  "total_paragraphs": 60,
+  "total_duration_seconds": 441.24,
+  "total_paragraphs": 66,
   "timestamps": [
     {
       "paragraph_id": 1,
       "start": 0.0,
-      "end": 3.44,
-      "duration": 3.44,
+      "end": 4.9,
+      "duration": 4.9,
       "text_snippet": "Giá Trị Mặc Định, Phạm Vi Và Vòng Đời (Default Values, Scope, And Lifetime)"
     },
     {
       "paragraph_id": 2,
-      "start": 3.44,
-      "end": 10.28,
-      "duration": 6.83,
-      "text_snippet": "Biến bị ảnh hưởng bởi nơi chúng được khai báo. Vị trí khai báo sẽ tác động đến giá trị mặc định, khả năng hiển thị (visi"
+      "start": 4.9,
+      "end": 16.1,
+      "duration": 11.2,
+      "text_snippet": "Biến bị ảnh hưởng bởi nơi chúng được khai báo. Vị trí khai báo sẽ tác động đến g"
     },
     {
       "paragraph_id": 3,
-      "start": 10.28,
-      "end": 11.79,
-      "duration": 1.51,
+      "start": 16.1,
+      "end": 18.2,
+      "duration": 2.1,
       "text_snippet": "Giá Trị Mặc Định (Default Values)"
     },
     {
       "paragraph_id": 4,
-      "start": 11.79,
-      "end": 14.91,
-      "duration": 3.12,
+      "start": 18.2,
+      "end": 23.1,
+      "duration": 4.9,
       "text_snippet": "Các trường (field) sẽ nhận giá trị mặc định nếu không được khởi tạo."
     },
     {
       "paragraph_id": 5,
-      "start": 14.91,
-      "end": 15.69,
-      "duration": 0.78,
+      "start": 23.1,
+      "end": 24.5,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 6,
-      "start": 15.69,
-      "end": 18.62,
-      "duration": 2.94,
+      "start": 24.6,
+      "end": 28.68,
+      "duration": 4.08,
       "text_snippet": "Các biến cục bộ không nhận giá trị mặc định có thể sử dụng được."
     },
     {
       "paragraph_id": 7,
-      "start": 18.62,
-      "end": 19.4,
-      "duration": 0.78,
+      "start": 28.62,
+      "end": 30.98,
+      "duration": 2.36,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 8,
-      "start": 19.4,
-      "end": 22.94,
-      "duration": 3.53,
+      "start": 30.99,
+      "end": 35.7,
+      "duration": 4.71,
       "text_snippet": "Quy tắc này ngăn chặn việc vô tình sử dụng dữ liệu cục bộ chưa được khởi tạo."
     },
     {
       "paragraph_id": 9,
-      "start": 22.94,
-      "end": 26.65,
-      "duration": 3.72,
-      "text_snippet": "Tại Sao Biến Cục Bộ Phải Được Khởi Tạo Nhưng Các Trường Lại Nhận Giá Trị Mặc Định"
+      "start": 35.7,
+      "end": 40.54,
+      "duration": 4.84,
+      "text_snippet": "Tại Sao Biến Cục Bộ Phải Được Khởi Tạo Nhưng Các Trường Lại Nhận Giá Trị Mặc Địn"
     },
     {
       "paragraph_id": 10,
-      "start": 26.65,
-      "end": 73.76,
-      "duration": 47.11,
-      "text_snippet": "Trong Java, các trường thực thể (instance field) và trường tĩnh (static field) lần lượt được cấp phát trên Heap và Metas"
+      "start": 40.54,
+      "end": 100.61,
+      "duration": 60.07,
+      "text_snippet": "Trong Java, các trường thực thể (instance field) và trường tĩnh (static field) l"
     },
     {
       "paragraph_id": 11,
-      "start": 73.76,
-      "end": 76.28,
-      "duration": 2.52,
+      "start": 100.71,
+      "end": 104.59,
+      "duration": 3.88,
       "text_snippet": "Khởi Tạo Giá Trị 0 Trên Heap So Với Kiểm Tra Trên Stack"
     },
     {
       "paragraph_id": 12,
-      "start": 76.28,
-      "end": 77.06,
-      "duration": 0.78,
+      "start": 104.54,
+      "end": 106.9,
+      "duration": 2.36,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 13,
-      "start": 77.06,
-      "end": 78.44,
-      "duration": 1.38,
+      "start": 106.9,
+      "end": 109.56,
+      "duration": 2.66,
       "text_snippet": "Minh Họa Code Tự Động Khởi Tạo"
     },
     {
       "paragraph_id": 14,
-      "start": 78.44,
-      "end": 79.22,
-      "duration": 0.78,
+      "start": 109.56,
+      "end": 111.92,
+      "duration": 2.36,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 15,
-      "start": 79.22,
-      "end": 93.26,
-      "duration": 14.04,
-      "text_snippet": "public void calculate() {\n        int localVal;  // Biến cục bộ: được cấp phát trên Stack, JVM không khởi tạo nó\n       "
-    },
-    {
-      "paragraph_id": 16,
-      "start": 93.26,
-      "end": 95.6,
-      "duration": 2.34,
+      "start": 111.92,
+      "end": 115.72,
+      "duration": 3.8,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả Về An Toàn Và Hiệu Năng"
     },
     {
+      "paragraph_id": 16,
+      "start": 115.72,
+      "end": 131.12,
+      "duration": 15.4,
+      "text_snippet": "JVM cấp phát đối tượng trên heap $\\rightarrow$ Vùng bộ nhớ được lấp đầy bằng các"
+    },
+    {
       "paragraph_id": 17,
-      "start": 95.6,
-      "end": 105.05,
-      "duration": 9.45,
-      "text_snippet": "JVM cấp phát đối tượng trên heap $\\rightarrow$ Vùng bộ nhớ được lấp đầy bằng các số 0 để ngăn chặn rò rỉ dữ liệu từ các "
+      "start": 131.12,
+      "end": 158.07,
+      "duration": 26.95,
+      "text_snippet": "Phương thức được gọi $\\rightarrow$ Stack frame được đẩy vào mà không cần đưa bộ "
     },
     {
       "paragraph_id": 18,
-      "start": 105.05,
-      "end": 122.11,
-      "duration": 17.06,
-      "text_snippet": "Phương thức được gọi $\\rightarrow$ Stack frame được đẩy vào mà không cần đưa bộ nhớ về 0 để bảo toàn hiệu năng $\\rightar"
-    },
-    {
-      "paragraph_id": 19,
-      "start": 122.11,
-      "end": 122.8,
-      "duration": 0.69,
+      "start": 158.07,
+      "end": 159.12,
+      "duration": 1.05,
       "text_snippet": "Phạm Vi (Scope)"
     },
     {
-      "paragraph_id": 20,
-      "start": 122.8,
-      "end": 126.15,
-      "duration": 3.35,
+      "paragraph_id": 19,
+      "start": 159.12,
+      "end": 165.07,
+      "duration": 5.95,
       "text_snippet": "Phạm vi (scope) là vùng mã nguồn mà tại đó một biến có thể được truy cập."
     },
     {
-      "paragraph_id": 21,
-      "start": 126.15,
-      "end": 126.93,
-      "duration": 0.78,
+      "paragraph_id": 20,
+      "start": 165.07,
+      "end": 166.47,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 22,
-      "start": 126.93,
-      "end": 130.64,
-      "duration": 3.72,
-      "text_snippet": "if (outer > 5) {\n        int inner = 20;\n        System.out.println(inner);\n    }"
-    },
-    {
-      "paragraph_id": 23,
-      "start": 130.64,
-      "end": 134.72,
-      "duration": 4.08,
-      "text_snippet": "System.out.println(outer);\n    // System.out.println(inner); // không nhìn thấy ở đây\n}\n`"
-    },
-    {
-      "paragraph_id": 24,
-      "start": 134.72,
-      "end": 136.42,
-      "duration": 1.7,
+      "paragraph_id": 21,
+      "start": 166.57,
+      "end": 169.51,
+      "duration": 2.94,
       "text_snippet": "inner chỉ hiển thị bên trong khối if."
     },
     {
-      "paragraph_id": 25,
-      "start": 136.42,
-      "end": 137.29,
-      "duration": 0.87,
+      "paragraph_id": 22,
+      "start": 169.46,
+      "end": 176.46,
+      "duration": 7.0,
       "text_snippet": "Vòng Đời (Lifetime)"
     },
     {
-      "paragraph_id": 26,
-      "start": 137.29,
-      "end": 139.91,
-      "duration": 2.61,
+      "paragraph_id": 23,
+      "start": 176.46,
+      "end": 185.52,
+      "duration": 9.06,
       "text_snippet": "Vòng đời (lifetime) là khoảng thời gian một biến tồn tại."
     },
     {
-      "paragraph_id": 27,
-      "start": 139.91,
-      "end": 149.26,
-      "duration": 9.36,
-      "text_snippet": "Một biến cục bộ tồn tại khi phương thức/khối lệnh chứa nó đang thực thi.\nMột biến thực thể tồn tại chừng nào đối tượng c"
+      "paragraph_id": 24,
+      "start": 185.53,
+      "end": 190.78,
+      "duration": 5.25,
+      "text_snippet": "Một biến cục bộ tồn tại khi phương thức/khối lệnh chứa nó đang thực thi."
     },
     {
-      "paragraph_id": 28,
-      "start": 149.26,
-      "end": 151.93,
-      "duration": 2.66,
+      "paragraph_id": 25,
+      "start": 190.78,
+      "end": 196.03,
+      "duration": 5.25,
+      "text_snippet": "Một biến thực thể tồn tại chừng nào đối tượng chứa nó còn tồn tại."
+    },
+    {
+      "paragraph_id": 26,
+      "start": 185.62,
+      "end": 190.16,
+      "duration": 4.54,
+      "text_snippet": "Một biến tĩnh tồn tại chừng nào lớp chứa nó còn được nạp (load)."
+    },
+    {
+      "paragraph_id": 27,
+      "start": 190.11,
+      "end": 194.82,
+      "duration": 4.71,
       "text_snippet": "Mô Hình Tư Duy Stack Và Heap (Stack And Heap Mental Model)"
     },
     {
-      "paragraph_id": 29,
-      "start": 151.93,
-      "end": 154.86,
-      "duration": 2.94,
+      "paragraph_id": 28,
+      "start": 194.83,
+      "end": 199.47,
+      "duration": 4.64,
       "text_snippet": "Đối với người mới bắt đầu, hãy sử dụng mô hình đơn giản hóa này:"
     },
     {
+      "paragraph_id": 29,
+      "start": 199.46,
+      "end": 205.06,
+      "duration": 5.6,
+      "text_snippet": "Các biến cục bộ gắn liền với việc thực thi phương thức và các khung ngăn xếp (st"
+    },
+    {
       "paragraph_id": 30,
-      "start": 154.86,
-      "end": 167.2,
-      "duration": 12.34,
-      "text_snippet": "Các biến cục bộ gắn liền với việc thực thi phương thức và các khung ngăn xếp (stack frame).\nCác đối tượng được lưu trữ t"
+      "start": 205.06,
+      "end": 207.79,
+      "duration": 2.73,
+      "text_snippet": "Các đối tượng được lưu trữ trên heap."
     },
     {
       "paragraph_id": 31,
-      "start": 167.2,
-      "end": 167.98,
-      "duration": 0.78,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 207.79,
+      "end": 212.34,
+      "duration": 4.55,
+      "text_snippet": "Các biến tham chiếu có thể trỏ đến các đối tượng trên heap."
     },
     {
       "paragraph_id": 32,
-      "start": 167.98,
-      "end": 171.93,
-      "duration": 3.94,
-      "text_snippet": "Đây là mô hình hỗ trợ học tập, không phải là đặc tả chi tiết hoàn chỉnh về bộ nhớ JVM."
+      "start": 212.34,
+      "end": 215.84,
+      "duration": 3.5,
+      "text_snippet": "Các biến thực thể sống bên trong các đối tượng."
     },
     {
       "paragraph_id": 33,
-      "start": 171.93,
-      "end": 173.26,
-      "duration": 1.33,
-      "text_snippet": "Bảng Tra Cứu Giá Trị Mặc Định"
+      "start": 215.84,
+      "end": 218.29,
+      "duration": 2.45,
+      "text_snippet": "Các biến tĩnh gắn liền với lớp."
     },
     {
       "paragraph_id": 34,
-      "start": 173.26,
-      "end": 190.46,
-      "duration": 17.2,
-      "text_snippet": "| Kiểu dữ liệu   | Giá trị mặc định |\n|----------------|---------------|\n| byte         | 0           |\n| short        |"
+      "start": 218.29,
+      "end": 219.69,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 35,
-      "start": 190.46,
-      "end": 195.59,
-      "duration": 5.14,
-      "text_snippet": "Các giá trị mặc định này chỉ áp dụng cho các trường (thực thể và tĩnh), tuyệt đối không áp dụng cho biến cục bộ."
+      "start": 219.69,
+      "end": 227.04,
+      "duration": 7.35,
+      "text_snippet": "Đây là mô hình hỗ trợ học tập, không phải là đặc tả chi tiết hoàn chỉnh về bộ nh"
     },
     {
       "paragraph_id": 36,
-      "start": 195.59,
-      "end": 196.37,
-      "duration": 0.78,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 227.04,
+      "end": 229.49,
+      "duration": 2.45,
+      "text_snippet": "Bảng Tra Cứu Giá Trị Mặc Định"
     },
     {
       "paragraph_id": 37,
-      "start": 196.37,
-      "end": 203.53,
-      "duration": 7.16,
-      "text_snippet": "void show() {\n        System.out.println(count);   // 0\n        System.out.println(label);   // null\n        System.out."
+      "start": 229.49,
+      "end": 238.24,
+      "duration": 8.75,
+      "text_snippet": "Các giá trị mặc định này chỉ áp dụng cho các trường (thực thể và tĩnh), tuyệt đố"
     },
     {
       "paragraph_id": 38,
-      "start": 203.53,
-      "end": 205.69,
-      "duration": 2.16,
-      "text_snippet": "Ví Dụ Thực Tế: Bất Ngờ Từ Phạm Vi Biến Vòng Lặp"
+      "start": 238.24,
+      "end": 239.64,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 39,
-      "start": 205.69,
-      "end": 208.9,
-      "duration": 3.21,
-      "text_snippet": "Một lập trình viên muốn đọc bộ đếm vòng lặp sau khi vòng lặp kết thúc."
+      "start": 239.64,
+      "end": 243.84,
+      "duration": 4.2,
+      "text_snippet": "Ví Dụ Thực Tế: Bất Ngờ Từ Phạm Vi Biến Vòng Lặp"
     },
     {
       "paragraph_id": 40,
-      "start": 208.9,
-      "end": 209.68,
-      "duration": 0.78,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 243.84,
+      "end": 249.44,
+      "duration": 5.6,
+      "text_snippet": "Một lập trình viên muốn đọc bộ đếm vòng lặp sau khi vòng lặp kết thúc."
     },
     {
       "paragraph_id": 41,
-      "start": 209.68,
-      "end": 213.99,
-      "duration": 4.31,
-      "text_snippet": "i có phạm vi giới hạn trong khối vòng lặp for. Nó sẽ ngừng tồn tại ngay khi vòng lặp kết thúc."
+      "start": 249.44,
+      "end": 250.84,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 42,
-      "start": 213.99,
-      "end": 217.2,
-      "duration": 3.21,
-      "text_snippet": "Cách khắc phục — khai báo bên ngoài nếu bạn cần truy cập sau vòng lặp:"
+      "start": 250.84,
+      "end": 258.54,
+      "duration": 7.7,
+      "text_snippet": "i có phạm vi giới hạn trong khối vòng lặp for. Nó sẽ ngừng tồn tại ngay khi vòng"
     },
     {
       "paragraph_id": 43,
-      "start": 217.2,
-      "end": 217.98,
-      "duration": 0.78,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 258.54,
+      "end": 264.14,
+      "duration": 5.6,
+      "text_snippet": "Cách khắc phục — khai báo bên ngoài nếu bạn cần truy cập sau vòng lặp:"
     },
     {
       "paragraph_id": 44,
-      "start": 217.98,
-      "end": 226.19,
-      "duration": 8.21,
-      "text_snippet": "Điều này cũng cho thấy phạm vi và khởi tạo là hai vấn đề độc lập: i vẫn nằm trong phạm vi sau vòng lặp, và vì vòng lặp l"
+      "start": 264.14,
+      "end": 265.54,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 45,
-      "start": 226.19,
-      "end": 227.61,
-      "duration": 1.42,
-      "text_snippet": "Hiểu Rõ Phạm Vi So Với Vòng Đời"
+      "start": 265.54,
+      "end": 280.59,
+      "duration": 15.05,
+      "text_snippet": "Điều này cũng cho thấy phạm vi và khởi tạo là hai vấn đề độc lập: i vẫn nằm tron"
     },
     {
       "paragraph_id": 46,
-      "start": 227.61,
-      "end": 259.36,
-      "duration": 31.74,
-      "text_snippet": "Phạm vi (Scope) là khái niệm tại thời điểm biên dịch (compile-time), đại diện cho vùng văn bản mã nguồn nơi định danh củ"
+      "start": 280.59,
+      "end": 283.39,
+      "duration": 2.8,
+      "text_snippet": "Hiểu Rõ Phạm Vi So Với Vòng Đời"
     },
     {
       "paragraph_id": 47,
-      "start": 259.36,
-      "end": 261.65,
-      "duration": 2.29,
-      "text_snippet": "Sơ Đồ Phạm Vi Tham Chiếu So Với Vòng Đời Đối Tượng"
+      "start": 283.39,
+      "end": 334.14,
+      "duration": 50.75,
+      "text_snippet": "Phạm vi (Scope) là khái niệm tại thời điểm biên dịch (compile-time), đại diện ch"
     },
     {
       "paragraph_id": 48,
-      "start": 261.65,
-      "end": 262.43,
-      "duration": 0.78,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 334.14,
+      "end": 338.34,
+      "duration": 4.2,
+      "text_snippet": "Sơ Đồ Phạm Vi Tham Chiếu So Với Vòng Đời Đối Tượng"
     },
     {
       "paragraph_id": 49,
-      "start": 262.43,
-      "end": 264.26,
-      "duration": 1.83,
-      "text_snippet": "Minh Họa Code Về Phạm Vi So Với Vòng Đời"
+      "start": 338.34,
+      "end": 339.74,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 50,
-      "start": 264.26,
-      "end": 265.04,
-      "duration": 0.78,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 339.74,
+      "end": 343.24,
+      "duration": 3.5,
+      "text_snippet": "Minh Họa Code Về Phạm Vi So Với Vòng Đời"
     },
     {
       "paragraph_id": 51,
-      "start": 265.04,
-      "end": 267.93,
-      "duration": 2.89,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả Về Vòng Đời Tham Chiếu Và Đối Tượng"
-    },
-    {
-      "paragraph_id": 52,
-      "start": 267.93,
-      "end": 295.78,
-      "duration": 27.84,
-      "text_snippet": "Thực thi đi vào một khối mã bên trong $\\rightarrow$ Biến tham chiếu cục bộ được đẩy lên stack frame $\\rightarrow$ Tham c"
-    },
-    {
-      "paragraph_id": 53,
-      "start": 295.78,
-      "end": 297.52,
-      "duration": 1.74,
-      "text_snippet": "Ví Dụ Thực Tế: Phạm Vi So Với Vòng Đời"
-    },
-    {
-      "paragraph_id": 54,
-      "start": 297.52,
-      "end": 298.3,
-      "duration": 0.78,
+      "start": 343.34,
+      "end": 345.72,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
+      "paragraph_id": 52,
+      "start": 345.66,
+      "end": 349.94,
+      "duration": 4.28,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả Về Vòng Đời Tham Chiếu Và Đối Tượng"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 349.94,
+      "end": 384.93,
+      "duration": 34.99,
+      "text_snippet": "Thực thi đi vào một khối mã bên trong $\\rightarrow$ Biến tham chiếu cục bộ được "
+    },
+    {
+      "paragraph_id": 54,
+      "start": 384.93,
+      "end": 388.43,
+      "duration": 3.5,
+      "text_snippet": "Ví Dụ Thực Tế: Phạm Vi So Với Vòng Đời"
+    },
+    {
       "paragraph_id": 55,
-      "start": 298.3,
-      "end": 314.72,
-      "duration": 16.42,
-      "text_snippet": "{\n        StringBuilder temp = new StringBuilder(\"work\");\n        temp.append(\" data\");\n        result = temp;          "
+      "start": 384.93,
+      "end": 387.13,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 56,
-      "start": 314.72,
-      "end": 320.55,
-      "duration": 5.83,
-      "text_snippet": "temp (tham chiếu) biến mất sau khi khối của nó kết thúc. Đối tượng StringBuilder trên heap vẫn tồn tại miễn là result cò"
+      "start": 387.12,
+      "end": 395.87,
+      "duration": 8.75,
+      "text_snippet": "temp (tham chiếu) biến mất sau khi khối của nó kết thúc. Đối tượng StringBuilder"
     },
     {
       "paragraph_id": 57,
-      "start": 320.55,
-      "end": 322.38,
-      "duration": 1.83,
+      "start": 395.88,
+      "end": 398.33,
+      "duration": 2.45,
       "text_snippet": "Các Sai Lầm Thường Gặp (Common Mistakes)"
     },
     {
       "paragraph_id": 58,
-      "start": 322.38,
-      "end": 340.23,
-      "duration": 17.84,
-      "text_snippet": "Giả định rằng các biến cục bộ có giá trị mặc định.\nCố gắng sử dụng một biến khối bên ngoài phạm vi của nó (lỗi biên dịch"
+      "start": 398.32,
+      "end": 402.52,
+      "duration": 4.2,
+      "text_snippet": "Giả định rằng các biến cục bộ có giá trị mặc định."
     },
     {
       "paragraph_id": 59,
-      "start": 340.23,
-      "end": 341.88,
-      "duration": 1.65,
-      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+      "start": 402.52,
+      "end": 410.22,
+      "duration": 7.7,
+      "text_snippet": "Cố gắng sử dụng một biến khối bên ngoài phạm vi của nó (lỗi biên dịch, không phả"
     },
     {
       "paragraph_id": 60,
-      "start": 341.88,
-      "end": 349.08,
-      "duration": 7.2,
-      "text_snippet": "Java Language Specification: Initial Values of Variables\nJava Language Specification: Definite Assignment\nOracle Java Tu"
+      "start": 410.23,
+      "end": 417.23,
+      "duration": 7.0,
+      "text_snippet": "Nhầm lẫn phạm vi với vòng đời — một đối tượng có thể sống lâu hơn một biến tham "
+    },
+    {
+      "paragraph_id": 61,
+      "start": 417.33,
+      "end": 422.19,
+      "duration": 4.86,
+      "text_snippet": "Nghĩ rằng stack/heap chỉ liên quan đến kiểu nguyên thủy so với kiểu tham chiếu."
+    },
+    {
+      "paragraph_id": 62,
+      "start": 422.14,
+      "end": 426.31,
+      "duration": 4.17,
+      "text_snippet": "Cố gắng đọc một biến đếm của vòng lặp for sau khi vòng lặp kết thúc."
+    },
+    {
+      "paragraph_id": 63,
+      "start": 426.31,
+      "end": 429.65,
+      "duration": 3.34,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 429.65,
+      "end": 438.79,
+      "duration": 9.14,
+      "text_snippet": "Java Language Specification: Initial Values of Variables"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 438.79,
+      "end": 440.54,
+      "duration": 1.75,
+      "text_snippet": "Java Language Specification: Definite Assignment"
+    },
+    {
+      "paragraph_id": 66,
+      "start": 438.79,
+      "end": 441.24,
+      "duration": 2.45,
+      "text_snippet": "Oracle Java Tutorials: Variables (Naming and Types)"
     }
   ]
 }

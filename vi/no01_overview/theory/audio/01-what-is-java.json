@@ -1,427 +1,532 @@
 {
   "lesson": "01-what-is-java",
-  "total_duration_seconds": 480.98,
-  "total_paragraphs": 60,
+  "total_duration_seconds": 490.09,
+  "total_paragraphs": 75,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 0.69,
-      "duration": 0.69,
+      "start": 0.1,
+      "end": 5.91,
+      "duration": 5.81,
       "text_snippet": "Java Là Gì"
     },
     {
       "paragraph_id": 2,
-      "start": 0.69,
-      "end": 16.85,
-      "duration": 16.16,
-      "text_snippet": "Java là ngôn ngữ lập trình đa mục đích, hướng đối tượng. Nó được dùng trong hệ thống backend, phát triển Android, ứng dụ"
+      "start": 5.91,
+      "end": 29.0,
+      "duration": 23.09,
+      "text_snippet": "Java là ngôn ngữ lập trình đa mục đích, hướng đối tượng. Nó được dùng trong hệ t"
     },
     {
       "paragraph_id": 3,
-      "start": 16.85,
-      "end": 24.14,
-      "duration": 7.28,
-      "text_snippet": "Java không chỉ là một ngôn ngữ. Trong thực tế, người ta thường dùng từ \"Java\" để chỉ cả một hệ sinh thái:"
+      "start": 29.0,
+      "end": 37.05,
+      "duration": 8.05,
+      "text_snippet": "Java không chỉ là một ngôn ngữ. Trong thực tế, người ta thường dùng từ \"Java\" để"
     },
     {
       "paragraph_id": 4,
-      "start": 24.14,
-      "end": 33.98,
-      "duration": 9.85,
-      "text_snippet": "Ngôn ngữ lập trình Java.\nTrình biên dịch Java.\nMáy Ảo Java (JVM).\nThư viện chuẩn.\nCông cụ build như Maven và Gradle.\nCác"
+      "start": 37.05,
+      "end": 38.8,
+      "duration": 1.75,
+      "text_snippet": "Ngôn ngữ lập trình Java."
     },
     {
       "paragraph_id": 5,
-      "start": 33.98,
-      "end": 36.0,
-      "duration": 2.01,
-      "text_snippet": "Tại Sao Java Trở Nên Phổ Biến"
+      "start": 38.8,
+      "end": 40.2,
+      "duration": 1.4,
+      "text_snippet": "Trình biên dịch Java."
     },
     {
       "paragraph_id": 6,
-      "start": 36.0,
-      "end": 41.41,
-      "duration": 5.41,
-      "text_snippet": "Java trở nên phổ biến vì nó giải quyết được nhiều vấn đề thực tế cùng một lúc:"
+      "start": 29.1,
+      "end": 32.51,
+      "duration": 3.41,
+      "text_snippet": "Máy Ảo Java (JVM)."
     },
     {
       "paragraph_id": 7,
-      "start": 41.41,
-      "end": 64.5,
-      "duration": 23.1,
-      "text_snippet": "Cú pháp tương đối rõ ràng so với các ngôn ngữ cấp thấp hơn.\nQuản lý bộ nhớ tự động thông qua thu gom rác (Garbage Collec"
+      "start": 32.46,
+      "end": 34.17,
+      "duration": 1.71,
+      "text_snippet": "Thư viện chuẩn."
     },
     {
       "paragraph_id": 8,
-      "start": 64.5,
-      "end": 66.79,
-      "duration": 2.29,
-      "text_snippet": "Hướng Đối Tượng (Object-Oriented)"
+      "start": 34.17,
+      "end": 37.56,
+      "duration": 3.39,
+      "text_snippet": "Công cụ build như Maven và Gradle."
     },
     {
       "paragraph_id": 9,
-      "start": 66.79,
-      "end": 79.14,
-      "duration": 12.35,
-      "text_snippet": "Java được xây dựng xoay quanh các lớp (class) và đối tượng (object). Hầu hết code được viết bên trong các lớp. Lớp mô tả"
+      "start": 37.56,
+      "end": 40.1,
+      "duration": 2.54,
+      "text_snippet": "Các framework như Spring."
     },
     {
       "paragraph_id": 10,
-      "start": 79.14,
-      "end": 79.55,
-      "duration": 0.42,
-      "text_snippet": "Ví dụ:"
+      "start": 40.1,
+      "end": 42.96,
+      "duration": 2.86,
+      "text_snippet": "Tại Sao Java Trở Nên Phổ Biến"
     },
     {
       "paragraph_id": 11,
-      "start": 79.55,
-      "end": 80.73,
-      "duration": 1.18,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 43.06,
+      "end": 48.03,
+      "duration": 4.97,
+      "text_snippet": "Java trở nên phổ biến vì nó giải quyết được nhiều vấn đề thực tế cùng một lúc:"
     },
     {
       "paragraph_id": 12,
-      "start": 80.73,
-      "end": 85.93,
-      "duration": 5.2,
-      "text_snippet": "void study() {\n        System.out.println(name + \" is studying\");\n    }\n}\n`"
+      "start": 47.99,
+      "end": 51.98,
+      "duration": 3.99,
+      "text_snippet": "Cú pháp tương đối rõ ràng so với các ngôn ngữ cấp thấp hơn."
     },
     {
       "paragraph_id": 13,
-      "start": 85.93,
-      "end": 94.12,
-      "duration": 8.18,
-      "text_snippet": "Lớp Student là một bản thiết kế (blueprint). Một đối tượng Student là một thực thể cụ thể được tạo từ bản thiết kế đó."
+      "start": 51.97,
+      "end": 56.77,
+      "duration": 4.8,
+      "text_snippet": "Quản lý bộ nhớ tự động thông qua thu gom rác (Garbage Collection)."
     },
     {
       "paragraph_id": 14,
-      "start": 94.12,
-      "end": 96.82,
-      "duration": 2.7,
-      "text_snippet": "Độc Lập Nền Tảng (Platform Independent)"
+      "start": 56.77,
+      "end": 61.88,
+      "duration": 5.11,
+      "text_snippet": "Hỗ trợ mạnh mẽ cho lập trình hướng đối tượng (Object-Oriented Programming)."
     },
     {
       "paragraph_id": 15,
-      "start": 96.82,
-      "end": 105.14,
-      "duration": 8.32,
-      "text_snippet": "Java được gọi là độc lập nền tảng vì bytecode Java đã biên dịch có thể chạy trên bất kỳ nền tảng nào có JVM tương thích."
+      "start": 61.89,
+      "end": 64.91,
+      "duration": 3.02,
+      "text_snippet": "Thư viện chuẩn và hệ sinh thái đồ sộ."
     },
     {
       "paragraph_id": 16,
-      "start": 105.14,
-      "end": 113.81,
-      "duration": 8.67,
-      "text_snippet": "Điều này không có nghĩa là bản thân JVM độc lập nền tảng. Một JVM được xây dựng cho một hệ điều hành và kiến trúc CPU cụ"
+      "start": 64.91,
+      "end": 68.41,
+      "duration": 3.5,
+      "text_snippet": "Có thể chạy trên nhiều nền tảng thông qua JVM."
     },
     {
       "paragraph_id": 17,
-      "start": 113.81,
-      "end": 115.34,
-      "duration": 1.53,
-      "text_snippet": "Ý tưởng quan trọng là:"
+      "start": 68.41,
+      "end": 71.91,
+      "duration": 3.5,
+      "text_snippet": "Đủ ổn định cho các hệ thống doanh nghiệp lớn."
     },
     {
       "paragraph_id": 18,
-      "start": 115.34,
-      "end": 116.52,
-      "duration": 1.18,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 71.91,
+      "end": 73.31,
+      "duration": 1.4,
+      "text_snippet": "Hướng Đối Tượng (Object-Oriented)"
     },
     {
       "paragraph_id": 19,
-      "start": 116.52,
-      "end": 120.26,
-      "duration": 3.75,
-      "text_snippet": "Tại Sao Java Chạy Trên Máy Ảo: Trừu Tượng Hóa Nền Tảng"
+      "start": 73.31,
+      "end": 86.96,
+      "duration": 13.65,
+      "text_snippet": "Java được xây dựng xoay quanh các lớp (class) và đối tượng (object). Hầu hết cod"
     },
     {
       "paragraph_id": 20,
-      "start": 120.26,
-      "end": 178.87,
-      "duration": 58.61,
-      "text_snippet": "Trước Java, các ngôn ngữ như C và C++ biên dịch mã nguồn trực tiếp thành mã máy gốc (ví dụ: lệnh x86 hoặc ARM) dành riên"
+      "start": 86.96,
+      "end": 87.66,
+      "duration": 0.7,
+      "text_snippet": "Ví dụ:"
     },
     {
       "paragraph_id": 21,
-      "start": 178.87,
-      "end": 181.71,
-      "duration": 2.84,
-      "text_snippet": "Mô Hình Tư Duy: Người Phiên Dịch Toàn Cầu"
+      "start": 87.76,
+      "end": 90.14,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 22,
-      "start": 181.71,
-      "end": 207.1,
-      "duration": 25.38,
-      "text_snippet": "Hãy tưởng tượng bạn viết một cuốn sách bằng một ngôn ngữ phụ trợ toàn cầu (như tiếng Esperanto, đại diện cho Bytecode). "
+      "start": 90.09,
+      "end": 99.03,
+      "duration": 8.94,
+      "text_snippet": "Lớp Student là một bản thiết kế (blueprint). Một đối tượng Student là một thực t"
     },
     {
       "paragraph_id": 23,
-      "start": 207.1,
-      "end": 208.28,
-      "duration": 1.18,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 99.02,
+      "end": 102.83,
+      "duration": 3.81,
+      "text_snippet": "Độc Lập Nền Tảng (Platform Independent)"
     },
     {
       "paragraph_id": 24,
-      "start": 208.28,
-      "end": 211.67,
-      "duration": 3.4,
-      "text_snippet": "Ví Dụ Code: Trừu Tượng Hóa Nền Tảng Trong Thực Tế"
+      "start": 102.84,
+      "end": 110.23,
+      "duration": 7.39,
+      "text_snippet": "Java được gọi là độc lập nền tảng vì bytecode Java đã biên dịch có thể chạy trên"
     },
     {
       "paragraph_id": 25,
-      "start": 211.67,
-      "end": 225.34,
-      "duration": 13.66,
-      "text_snippet": "Dù lập trình viên viết cùng một code, JVM dịch các lời gọi API chuẩn thành các hành vi đặc thù theo nền tảng. Ví dụ sau "
+      "start": 110.22,
+      "end": 119.84,
+      "duration": 9.62,
+      "text_snippet": "Điều này không có nghĩa là bản thân JVM độc lập nền tảng. Một JVM được xây dựng "
     },
     {
       "paragraph_id": 26,
-      "start": 225.34,
-      "end": 226.52,
-      "duration": 1.18,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 119.85,
+      "end": 121.6,
+      "duration": 1.75,
+      "text_snippet": "Ý tưởng quan trọng là:"
     },
     {
       "paragraph_id": 27,
-      "start": 226.52,
-      "end": 242.05,
-      "duration": 15.54,
-      "text_snippet": "// JVM trừu tượng hóa tên hệ điều hành bên dưới\n        String osName = System.getProperty(\"os.name\");\n        System.ou"
+      "start": 121.6,
+      "end": 123.0,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 28,
-      "start": 242.05,
-      "end": 243.93,
-      "duration": 1.87,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+      "start": 123.0,
+      "end": 127.2,
+      "duration": 4.2,
+      "text_snippet": "Tại Sao Java Chạy Trên Máy Ảo: Trừu Tượng Hóa Nền Tảng"
     },
     {
       "paragraph_id": 29,
-      "start": 243.93,
-      "end": 263.9,
-      "duration": 19.97,
-      "text_snippet": "Lập trình viên biên dịch code .java $\\rightarrow$ javac tạo bytecode độc lập nền tảng (.class) $\\rightarrow$ JVM nạp byt"
+      "start": 127.2,
+      "end": 189.85,
+      "duration": 62.65,
+      "text_snippet": "Trước Java, các ngôn ngữ như C và C++ biên dịch mã nguồn trực tiếp thành mã máy "
     },
     {
       "paragraph_id": 30,
-      "start": 263.9,
-      "end": 265.08,
-      "duration": 1.18,
-      "text_snippet": "Bền Vững (Robust)"
+      "start": 189.85,
+      "end": 193.0,
+      "duration": 3.15,
+      "text_snippet": "Mô Hình Tư Duy: Người Phiên Dịch Toàn Cầu"
     },
     {
       "paragraph_id": 31,
-      "start": 265.08,
-      "end": 271.53,
-      "duration": 6.45,
-      "text_snippet": "Java được coi là bền vững vì nó bao gồm các tính năng giúp giảm nhiều lỗi lập trình phổ biến:"
+      "start": 193.0,
+      "end": 218.2,
+      "duration": 25.2,
+      "text_snippet": "Hãy tưởng tượng bạn viết một cuốn sách bằng một ngôn ngữ phụ trợ toàn cầu (như t"
     },
     {
       "paragraph_id": 32,
-      "start": 271.53,
-      "end": 286.93,
-      "duration": 15.4,
-      "text_snippet": "Kiểu dữ liệu tĩnh mạnh (Strong static typing).\nXử lý ngoại lệ (Exception handling).\nQuản lý bộ nhớ tự động.\nKiểm tra giớ"
+      "start": 218.2,
+      "end": 219.6,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 33,
-      "start": 286.93,
-      "end": 294.83,
-      "duration": 7.91,
-      "text_snippet": "Những tính năng này không làm cho Java hoàn toàn không có lỗi, nhưng chúng giảm một số loại lỗi runtime nguy hiểm."
+      "start": 219.6,
+      "end": 223.45,
+      "duration": 3.85,
+      "text_snippet": "Ví Dụ Code: Trừu Tượng Hóa Nền Tảng Trong Thực Tế"
     },
     {
       "paragraph_id": 34,
-      "start": 294.83,
-      "end": 296.5,
-      "duration": 1.66,
-      "text_snippet": "Đa Luồng (Multithreaded)"
+      "start": 223.45,
+      "end": 238.85,
+      "duration": 15.4,
+      "text_snippet": "Dù lập trình viên viết cùng một code, JVM dịch các lời gọi API chuẩn thành các h"
     },
     {
       "paragraph_id": 35,
-      "start": 296.5,
-      "end": 305.44,
-      "duration": 8.95,
-      "text_snippet": "Java hỗ trợ đa luồng (multithreading) trực tiếp. Một chương trình Java có thể chạy nhiều luồng thực thi bên trong một ti"
+      "start": 238.85,
+      "end": 240.25,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 36,
-      "start": 305.44,
-      "end": 307.11,
-      "duration": 1.66,
-      "text_snippet": "Điều này quan trọng với:"
+      "start": 240.35,
+      "end": 242.85,
+      "duration": 2.5,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
     },
     {
       "paragraph_id": 37,
-      "start": 307.11,
-      "end": 313.97,
-      "duration": 6.87,
-      "text_snippet": "Web server xử lý nhiều yêu cầu đồng thời.\nCác tác vụ nền.\nXử lý song song.\nỨng dụng phản hồi nhanh."
+      "start": 242.8,
+      "end": 258.06,
+      "duration": 15.26,
+      "text_snippet": "Lập trình viên biên dịch code .java $\\rightarrow$ javac tạo bytecode độc lập nền"
     },
     {
       "paragraph_id": 38,
-      "start": 313.97,
-      "end": 323.34,
-      "duration": 9.36,
-      "text_snippet": "Đa luồng mạnh mẽ, nhưng cũng gây ra các vấn đề như race condition và deadlock. Những chủ đề đó xuất hiện ở phần sau tron"
+      "start": 258.06,
+      "end": 260.37,
+      "duration": 2.31,
+      "text_snippet": "Bền Vững (Robust)"
     },
     {
       "paragraph_id": 39,
-      "start": 323.34,
-      "end": 324.79,
-      "duration": 1.46,
-      "text_snippet": "Hiệu Năng Cao Nhờ JIT"
+      "start": 260.38,
+      "end": 265.99,
+      "duration": 5.61,
+      "text_snippet": "Java được coi là bền vững vì nó bao gồm các tính năng giúp giảm nhiều lỗi lập tr"
     },
     {
       "paragraph_id": 40,
-      "start": 324.79,
-      "end": 332.35,
-      "duration": 7.56,
-      "text_snippet": "Các chương trình Java chạy trên JVM, nên người mới đôi khi cho rằng Java luôn chậm. Điều đó quá đơn giản hóa."
+      "start": 265.99,
+      "end": 269.94,
+      "duration": 3.95,
+      "text_snippet": "Kiểu dữ liệu tĩnh mạnh (Strong static typing)."
     },
     {
       "paragraph_id": 41,
-      "start": 332.35,
-      "end": 348.31,
-      "duration": 15.95,
-      "text_snippet": "JVM có thể dùng trình biên dịch JIT (Just-In-Time) để tối ưu hóa bytecode thường xuyên được thực thi trong khi chương tr"
+      "start": 269.94,
+      "end": 272.04,
+      "duration": 2.1,
+      "text_snippet": "Xử lý ngoại lệ (Exception handling)."
     },
     {
       "paragraph_id": 42,
-      "start": 348.31,
-      "end": 349.48,
-      "duration": 1.18,
-      "text_snippet": "Đặc Điểm Của Java"
+      "start": 272.04,
+      "end": 274.14,
+      "duration": 2.1,
+      "text_snippet": "Quản lý bộ nhớ tự động."
     },
     {
       "paragraph_id": 43,
-      "start": 349.48,
-      "end": 355.66,
-      "duration": 6.17,
-      "text_snippet": "Java được thiết kế với một tập hợp các đặc điểm cụ thể phù hợp cho ứng dụng doanh nghiệp."
+      "start": 274.14,
+      "end": 276.94,
+      "duration": 2.8,
+      "text_snippet": "Kiểm tra giới hạn mảng (Array bounds checking)."
     },
     {
       "paragraph_id": 44,
-      "start": 355.66,
-      "end": 356.84,
-      "duration": 1.18,
-      "text_snippet": "Đơn Giản (Simple)"
+      "start": 276.94,
+      "end": 281.49,
+      "duration": 4.55,
+      "text_snippet": "Không có phép toán con trỏ trực tiếp trong code Java thông thường."
     },
     {
       "paragraph_id": 45,
-      "start": 356.84,
-      "end": 374.52,
-      "duration": 17.69,
-      "text_snippet": "Java được thiết kế để tương đối dễ học và viết. Nó loại bỏ các tính năng phức tạp và ít dùng của C++ như nạp chồng toán "
+      "start": 281.49,
+      "end": 289.54,
+      "duration": 8.05,
+      "text_snippet": "Những tính năng này không làm cho Java hoàn toàn không có lỗi, nhưng chúng giảm "
     },
     {
       "paragraph_id": 46,
-      "start": 374.52,
-      "end": 375.63,
-      "duration": 1.11,
-      "text_snippet": "Bảo Mật (Secure)"
+      "start": 289.64,
+      "end": 292.6,
+      "duration": 2.96,
+      "text_snippet": "Đa Luồng (Multithreaded)"
     },
     {
       "paragraph_id": 47,
-      "start": 375.63,
-      "end": 393.11,
-      "duration": 17.48,
-      "text_snippet": "Java bảo mật vì nó chạy trong một sandbox máy ảo. JVM xác minh bytecode trước khi thực thi, ngăn chặn truy cập trái phép"
+      "start": 292.55,
+      "end": 300.94,
+      "duration": 8.39,
+      "text_snippet": "Java hỗ trợ đa luồng (multithreading) trực tiếp. Một chương trình Java có thể ch"
     },
     {
       "paragraph_id": 48,
-      "start": 393.11,
-      "end": 394.64,
-      "duration": 1.53,
-      "text_snippet": "Phân Tán (Distributed)"
+      "start": 300.94,
+      "end": 303.33,
+      "duration": 2.39,
+      "text_snippet": "Điều này quan trọng với:"
     },
     {
       "paragraph_id": 49,
-      "start": 394.64,
-      "end": 409.55,
-      "duration": 14.91,
-      "text_snippet": "Java được thiết kế cho môi trường phân tán. Nó có hỗ trợ tích hợp sẵn cho mạng máy tính, gọi phương thức từ xa (remote m"
+      "start": 303.33,
+      "end": 306.67,
+      "duration": 3.34,
+      "text_snippet": "Web server xử lý nhiều yêu cầu đồng thời."
     },
     {
       "paragraph_id": 50,
-      "start": 409.55,
-      "end": 411.97,
-      "duration": 2.43,
-      "text_snippet": "Cơ Chế \"Viết Một Lần, Chạy Mọi Nơi\""
+      "start": 306.66,
+      "end": 308.57,
+      "duration": 1.91,
+      "text_snippet": "Các tác vụ nền."
     },
     {
       "paragraph_id": 51,
-      "start": 411.97,
-      "end": 430.15,
-      "duration": 18.17,
-      "text_snippet": "Đây là cam kết tính di động cốt lõi của Java. Bytecode đã biên dịch hoàn toàn độc lập nền tảng. Để thực thi trên bất kỳ "
+      "start": 308.58,
+      "end": 309.98,
+      "duration": 1.4,
+      "text_snippet": "Xử lý song song."
     },
     {
       "paragraph_id": 52,
-      "start": 430.15,
-      "end": 431.46,
-      "duration": 1.32,
-      "text_snippet": "Hiểu Lầm Thường Gặp"
+      "start": 309.98,
+      "end": 311.73,
+      "duration": 1.75,
+      "text_snippet": "Ứng dụng phản hồi nhanh."
     },
     {
       "paragraph_id": 53,
-      "start": 431.46,
-      "end": 435.35,
-      "duration": 3.88,
-      "text_snippet": "Hiểu Lầm: Code Java chạy trực tiếp trên mọi hệ điều hành"
+      "start": 311.73,
+      "end": 321.88,
+      "duration": 10.15,
+      "text_snippet": "Đa luồng mạnh mẽ, nhưng cũng gây ra các vấn đề như race condition và deadlock. N"
     },
     {
       "paragraph_id": 54,
-      "start": 435.35,
-      "end": 443.46,
-      "duration": 8.11,
-      "text_snippet": "Không hẳn. Mã nguồn Java được biên dịch thành bytecode. Bytecode chạy trên JVM. Mỗi nền tảng cần một JVM tương thích."
+      "start": 321.88,
+      "end": 323.63,
+      "duration": 1.75,
+      "text_snippet": "Hiệu Năng Cao Nhờ JIT"
     },
     {
       "paragraph_id": 55,
-      "start": 443.46,
-      "end": 447.0,
-      "duration": 3.54,
-      "text_snippet": "Hiểu Lầm: Java và JavaScript có liên quan mật thiết"
+      "start": 323.63,
+      "end": 331.68,
+      "duration": 8.05,
+      "text_snippet": "Các chương trình Java chạy trên JVM, nên người mới đôi khi cho rằng Java luôn ch"
     },
     {
       "paragraph_id": 56,
-      "start": 447.0,
-      "end": 456.78,
-      "duration": 9.78,
-      "text_snippet": "Chúng là hai ngôn ngữ khác nhau. Tên gọi tương tự vì lý do marketing lịch sử, nhưng ngôn ngữ, mô hình runtime, và hệ sin"
+      "start": 331.78,
+      "end": 345.63,
+      "duration": 13.85,
+      "text_snippet": "JVM có thể dùng trình biên dịch JIT (Just-In-Time) để tối ưu hóa bytecode thường"
     },
     {
       "paragraph_id": 57,
-      "start": 456.78,
-      "end": 461.7,
-      "duration": 4.92,
-      "text_snippet": "Hiểu Lầm: Garbage Collection có nghĩa là bộ nhớ không bao giờ là vấn đề"
+      "start": 345.63,
+      "end": 347.81,
+      "duration": 2.18,
+      "text_snippet": "Đặc Điểm Của Java"
     },
     {
       "paragraph_id": 58,
-      "start": 461.7,
-      "end": 472.94,
-      "duration": 11.24,
-      "text_snippet": "Garbage Collection giúp thu hồi các đối tượng không dùng nữa, nhưng chương trình Java vẫn có thể lãng phí bộ nhớ hoặc gi"
+      "start": 347.8,
+      "end": 352.96,
+      "duration": 5.16,
+      "text_snippet": "Java được thiết kế với một tập hợp các đặc điểm cụ thể phù hợp cho ứng dụng doan"
     },
     {
       "paragraph_id": 59,
-      "start": 472.94,
-      "end": 474.19,
-      "duration": 1.25,
-      "text_snippet": "Tài Liệu Tham Khảo"
+      "start": 352.96,
+      "end": 355.46,
+      "duration": 2.5,
+      "text_snippet": "Đơn Giản (Simple)"
     },
     {
       "paragraph_id": 60,
-      "start": 474.19,
-      "end": 480.98,
-      "duration": 6.8,
-      "text_snippet": "https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-1.htmljvms-1.2 (The Java Virtual Machine)"
+      "start": 355.46,
+      "end": 372.16,
+      "duration": 16.7,
+      "text_snippet": "Java được thiết kế để tương đối dễ học và viết. Nó loại bỏ các tính năng phức tạ"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 372.26,
+      "end": 374.62,
+      "duration": 2.36,
+      "text_snippet": "Bảo Mật (Secure)"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 374.58,
+      "end": 391.87,
+      "duration": 17.29,
+      "text_snippet": "Java bảo mật vì nó chạy trong một sandbox máy ảo. JVM xác minh bytecode trước kh"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 391.86,
+      "end": 394.21,
+      "duration": 2.35,
+      "text_snippet": "Phân Tán (Distributed)"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 394.21,
+      "end": 407.45,
+      "duration": 13.24,
+      "text_snippet": "Java được thiết kế cho môi trường phân tán. Nó có hỗ trợ tích hợp sẵn cho mạng m"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 407.45,
+      "end": 410.78,
+      "duration": 3.33,
+      "text_snippet": "Cơ Chế \"Viết Một Lần, Chạy Mọi Nơi\""
+    },
+    {
+      "paragraph_id": 66,
+      "start": 410.88,
+      "end": 428.86,
+      "duration": 17.98,
+      "text_snippet": "Đây là cam kết tính di động cốt lõi của Java. Bytecode đã biên dịch hoàn toàn độ"
+    },
+    {
+      "paragraph_id": 67,
+      "start": 428.85,
+      "end": 434.9,
+      "duration": 6.05,
+      "text_snippet": "Hiểu Lầm Thường Gặp"
+    },
+    {
+      "paragraph_id": 68,
+      "start": 434.9,
+      "end": 439.1,
+      "duration": 4.2,
+      "text_snippet": "Hiểu Lầm: Code Java chạy trực tiếp trên mọi hệ điều hành"
+    },
+    {
+      "paragraph_id": 69,
+      "start": 434.9,
+      "end": 445.59,
+      "duration": 10.69,
+      "text_snippet": "Không hẳn. Mã nguồn Java được biên dịch thành bytecode. Bytecode chạy trên JVM. "
+    },
+    {
+      "paragraph_id": 70,
+      "start": 445.59,
+      "end": 450.04,
+      "duration": 4.45,
+      "text_snippet": "Hiểu Lầm: Java và JavaScript có liên quan mật thiết"
+    },
+    {
+      "paragraph_id": 71,
+      "start": 450.14,
+      "end": 459.97,
+      "duration": 9.83,
+      "text_snippet": "Chúng là hai ngôn ngữ khác nhau. Tên gọi tương tự vì lý do marketing lịch sử, nh"
+    },
+    {
+      "paragraph_id": 72,
+      "start": 459.96,
+      "end": 473.68,
+      "duration": 13.72,
+      "text_snippet": "Hiểu Lầm: Garbage Collection có nghĩa là bộ nhớ không bao giờ là vấn đề"
+    },
+    {
+      "paragraph_id": 73,
+      "start": 473.69,
+      "end": 484.89,
+      "duration": 11.2,
+      "text_snippet": "Garbage Collection giúp thu hồi các đối tượng không dùng nữa, nhưng chương trình"
+    },
+    {
+      "paragraph_id": 74,
+      "start": 473.69,
+      "end": 475.71,
+      "duration": 2.02,
+      "text_snippet": "Tài Liệu Tham Khảo"
+    },
+    {
+      "paragraph_id": 75,
+      "start": 475.71,
+      "end": 490.08,
+      "duration": 14.37,
+      "text_snippet": "https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-1.html#jvms-1.2 (The Ja"
     }
   ]
 }

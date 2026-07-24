@@ -1,686 +1,742 @@
 {
   "lesson": "04-wrappers-null-equality",
-  "total_duration_seconds": 703.7,
-  "total_paragraphs": 97,
+  "total_duration_seconds": 816.66,
+  "total_paragraphs": 105,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 5.07,
-      "duration": 5.07,
-      "text_snippet": "Lớp Bao Bọc, Đóng Hộp, Null và So Sánh Bằng (Wrapper Classes, Boxing, Null, And Equality)"
+      "start": 0.1,
+      "end": 14.6,
+      "duration": 14.5,
+      "text_snippet": "Lớp Bao Bọc, Đóng Hộp, Null và So Sánh Bằng (Wrapper Classes, Boxing, Null, And "
     },
     {
       "paragraph_id": 2,
-      "start": 5.07,
-      "end": 10.82,
-      "duration": 5.75,
-      "text_snippet": "Lớp bao bọc (wrapper class) là phiên bản đối tượng của các kiểu dữ liệu nguyên thủy (primitive type)."
+      "start": 14.6,
+      "end": 21.25,
+      "duration": 6.65,
+      "text_snippet": "Lớp bao bọc (wrapper class) là phiên bản đối tượng của các kiểu dữ liệu nguyên t"
     },
     {
       "paragraph_id": 3,
-      "start": 10.82,
-      "end": 44.71,
-      "duration": 33.89,
-      "text_snippet": "byte — byte: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nshort — short: Cung cấp các quy tắc và cơ chế h"
+      "start": 14.6,
+      "end": 19.93,
+      "duration": 5.33,
+      "text_snippet": "byte — byte: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 4,
-      "start": 44.71,
-      "end": 47.45,
-      "duration": 2.73,
-      "text_snippet": "Tại Sao Lớp Bao Bọc Tồn Tại (Why Wrappers Exist)"
+      "start": 19.93,
+      "end": 25.09,
+      "duration": 5.16,
+      "text_snippet": "short — short: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 5,
-      "start": 47.45,
-      "end": 52.51,
-      "duration": 5.07,
-      "text_snippet": "Nhiều API trong Java làm việc với các đối tượng (object) chứ không phải kiểu nguyên thủy."
+      "start": 25.09,
+      "end": 30.28,
+      "duration": 5.19,
+      "text_snippet": "int — int: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 6,
-      "start": 52.51,
-      "end": 57.07,
-      "duration": 4.56,
-      "text_snippet": "Ví dụ, các bộ sưu tập (collection) không thể lưu trữ trực tiếp kiểu nguyên thủy:"
+      "start": 30.38,
+      "end": 35.64,
+      "duration": 5.26,
+      "text_snippet": "long — long: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 7,
-      "start": 57.07,
-      "end": 58.04,
-      "duration": 0.97,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 35.59,
+      "end": 40.95,
+      "duration": 5.36,
+      "text_snippet": "float — float: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 8,
-      "start": 58.04,
-      "end": 60.2,
-      "duration": 2.16,
-      "text_snippet": "Integer được sử dụng thay thế cho int."
+      "start": 40.95,
+      "end": 46.65,
+      "duration": 5.7,
+      "text_snippet": "double — double: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 9,
-      "start": 60.2,
-      "end": 63.91,
-      "duration": 3.7,
-      "text_snippet": "So Sánh Chi Tiết int và Integer (int vs Integer: Full Comparison)"
+      "start": 46.65,
+      "end": 51.96,
+      "duration": 5.31,
+      "text_snippet": "char — char: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 10,
-      "start": 63.91,
-      "end": 90.68,
-      "duration": 26.77,
-      "text_snippet": "int và Integer trông có vẻ giống nhau nhưng lại hoạt động rất khác nhau dưới hạ tầng. Khác biệt cốt lõi là int là một ki"
+      "start": 51.96,
+      "end": 57.6,
+      "duration": 5.64,
+      "text_snippet": "boolean — boolean: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 11,
-      "start": 90.68,
-      "end": 124.34,
-      "duration": 33.66,
-      "text_snippet": "Bộ sưu tập Java (Java Collections) (chẳng hạn như ArrayList, HashMap, HashSet) sử dụng kiểu generic (generics), và kiểu "
+      "start": 57.7,
+      "end": 61.78,
+      "duration": 4.08,
+      "text_snippet": "Tại Sao Lớp Bao Bọc Tồn Tại (Why Wrappers Exist)"
     },
     {
       "paragraph_id": 12,
-      "start": 124.34,
-      "end": 130.26,
-      "duration": 5.92,
-      "text_snippet": "> Xem thêm: Ứng dụng của Wrapper Classes trong Generics, được trình bày chi tiết trong Ch.18 - Generics."
+      "start": 61.72,
+      "end": 67.66,
+      "duration": 5.94,
+      "text_snippet": "Nhiều API trong Java làm việc với các đối tượng (object) chứ không phải kiểu ngu"
     },
     {
       "paragraph_id": 13,
-      "start": 130.26,
-      "end": 148.71,
-      "duration": 18.45,
-      "text_snippet": "int (Kiểu Nguyên Thủy) thông thường được lưu trữ trên bộ nhớ Stack. Tốc độ xử lý nhanh do các thao tác được thực hiện tr"
+      "start": 67.66,
+      "end": 73.45,
+      "duration": 5.79,
+      "text_snippet": "Ví dụ, các bộ sưu tập (collection) không thể lưu trữ trực tiếp kiểu nguyên thủy:"
     },
     {
       "paragraph_id": 14,
-      "start": 148.71,
-      "end": 168.82,
-      "duration": 20.11,
-      "text_snippet": "Integer (Lớp Bao Bọc) là một đối tượng được lưu trữ trên bộ nhớ Heap. Tốc độ xử lý chậm hơn vì tốn chi phí tạo đối tượng"
-    },
-    {
-      "paragraph_id": 15,
-      "start": 168.82,
-      "end": 190.75,
-      "duration": 21.93,
-      "text_snippet": "Ảnh hưởng hiệu suất: Phép toán số học trên int là một thao tác CPU trực tiếp — cộng, trừ, so sánh diễn ra chỉ trong một "
-    },
-    {
-      "paragraph_id": 16,
-      "start": 190.75,
-      "end": 191.72,
-      "duration": 0.97,
+      "start": 73.45,
+      "end": 75.83,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
+      "paragraph_id": 15,
+      "start": 75.82,
+      "end": 78.76,
+      "duration": 2.94,
+      "text_snippet": "Integer được sử dụng thay thế cho int."
+    },
+    {
+      "paragraph_id": 16,
+      "start": 78.76,
+      "end": 82.96,
+      "duration": 4.2,
+      "text_snippet": "So Sánh Chi Tiết int và Integer (int vs Integer: Full Comparison)"
+    },
+    {
       "paragraph_id": 17,
-      "start": 191.72,
-      "end": 202.77,
-      "duration": 11.05,
-      "text_snippet": "// Integer — chậm hơn, tạo đối tượng mới\nInteger wrapperSum = 0;\nfor (int i = 0; i < 1_000_000; i++) {\n    wrapperSum +="
+      "start": 82.96,
+      "end": 118.66,
+      "duration": 35.7,
+      "text_snippet": "int và Integer trông có vẻ giống nhau nhưng lại hoạt động rất khác nhau dưới hạ "
     },
     {
       "paragraph_id": 18,
-      "start": 202.77,
-      "end": 204.3,
-      "duration": 1.54,
-      "text_snippet": "Khi nào nên dùng từng loại:"
+      "start": 118.66,
+      "end": 161.36,
+      "duration": 42.7,
+      "text_snippet": "Bộ sưu tập Java (Java Collections) (chẳng hạn như ArrayList, HashMap, HashSet) s"
     },
     {
       "paragraph_id": 19,
-      "start": 204.3,
-      "end": 220.2,
-      "duration": 15.89,
-      "text_snippet": "Sử dụng int cho các tính toán cục bộ, biến đếm vòng lặp và code cần tối ưu hiệu suất.\nSử dụng Integer khi bạn cần hỗ trợ"
+      "start": 161.36,
+      "end": 167.66,
+      "duration": 6.3,
+      "text_snippet": "Xem thêm: Ứng dụng của Wrapper Classes trong Generics, được trình bày chi tiết t"
     },
     {
       "paragraph_id": 20,
-      "start": 220.2,
-      "end": 225.44,
-      "duration": 5.24,
-      "text_snippet": "> Xem thêm: Kiểu Nguyên Thủy so với Kiểu Tham Chiếu để hiểu về mô hình bộ nhớ Stack và Heap."
+      "start": 167.66,
+      "end": 192.16,
+      "duration": 24.5,
+      "text_snippet": "int (Kiểu Nguyên Thủy) thông thường được lưu trữ trên bộ nhớ Stack. Tốc độ xử lý"
     },
     {
       "paragraph_id": 21,
-      "start": 225.44,
-      "end": 227.09,
-      "duration": 1.65,
-      "text_snippet": "Tự Động Đóng Hộp (Autoboxing)"
+      "start": 192.26,
+      "end": 217.73,
+      "duration": 25.47,
+      "text_snippet": "Integer (Lớp Bao Bọc) là một đối tượng được lưu trữ trên bộ nhớ Heap. Tốc độ xử "
     },
     {
       "paragraph_id": 22,
-      "start": 227.09,
-      "end": 233.3,
-      "duration": 6.21,
-      "text_snippet": "Tự động đóng hộp (autoboxing) là quá trình tự động chuyển đổi từ kiểu nguyên thủy sang lớp bao bọc tương ứng."
+      "start": 217.74,
+      "end": 241.78,
+      "duration": 24.04,
+      "text_snippet": "Ảnh hưởng hiệu suất: Phép toán số học trên int là một thao tác CPU trực tiếp — c"
     },
     {
       "paragraph_id": 23,
-      "start": 233.3,
-      "end": 234.26,
-      "duration": 0.97,
+      "start": 241.77,
+      "end": 244.15,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 24,
-      "start": 234.26,
-      "end": 236.54,
-      "duration": 2.28,
-      "text_snippet": "Java xử lý câu lệnh này tương đương với:"
+      "start": 244.15,
+      "end": 246.75,
+      "duration": 2.6,
+      "text_snippet": "Khi nào nên dùng từng loại:"
     },
     {
       "paragraph_id": 25,
-      "start": 236.54,
-      "end": 237.51,
-      "duration": 0.97,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 246.75,
+      "end": 252.3,
+      "duration": 5.55,
+      "text_snippet": "Sử dụng int cho các tính toán cục bộ, biến đếm vòng lặp và code cần tối ưu hiệu "
     },
     {
       "paragraph_id": 26,
-      "start": 237.51,
-      "end": 238.93,
-      "duration": 1.42,
-      "text_snippet": "Tự Động Mở Hộp (Unboxing)"
+      "start": 252.4,
+      "end": 265.25,
+      "duration": 12.85,
+      "text_snippet": "Sử dụng Integer khi bạn cần hỗ trợ giá trị null (ví dụ: một cột trong cơ sở dữ l"
     },
     {
       "paragraph_id": 27,
-      "start": 238.93,
-      "end": 244.92,
-      "duration": 5.98,
-      "text_snippet": "Tự động mở hộp (unboxing) là quá trình tự động chuyển đổi từ lớp bao bọc sang kiểu nguyên thủy tương ứng."
+      "start": 265.2,
+      "end": 270.84,
+      "duration": 5.64,
+      "text_snippet": "Xem thêm: Kiểu Nguyên Thủy so với Kiểu Tham Chiếu để hiểu về mô hình bộ nhớ Stac"
     },
     {
       "paragraph_id": 28,
-      "start": 244.92,
-      "end": 245.88,
-      "duration": 0.97,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 270.84,
+      "end": 280.76,
+      "duration": 9.92,
+      "text_snippet": "Tự Động Đóng Hộp (Autoboxing)"
     },
     {
       "paragraph_id": 29,
-      "start": 245.88,
-      "end": 249.81,
-      "duration": 3.93,
-      "text_snippet": "Java tự động trích xuất giá trị int nguyên thủy từ đối tượng Integer."
+      "start": 280.76,
+      "end": 288.46,
+      "duration": 7.7,
+      "text_snippet": "Tự động đóng hộp (autoboxing) là quá trình tự động chuyển đổi từ kiểu nguyên thủ"
     },
     {
       "paragraph_id": 30,
-      "start": 249.81,
-      "end": 252.21,
-      "duration": 2.39,
-      "text_snippet": "Giá Trị Null và Mở Hộp (Null And Unboxing)"
+      "start": 280.76,
+      "end": 282.96,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 31,
-      "start": 252.21,
-      "end": 256.93,
-      "duration": 4.73,
-      "text_snippet": "Các lớp bao bọc có thể nhận giá trị null, trong khi các kiểu nguyên thủy thì không."
+      "start": 282.96,
+      "end": 286.11,
+      "duration": 3.15,
+      "text_snippet": "Java xử lý câu lệnh này tương đương với:"
     },
     {
       "paragraph_id": 32,
-      "start": 256.93,
-      "end": 257.9,
-      "duration": 0.97,
+      "start": 286.11,
+      "end": 287.51,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 33,
-      "start": 257.9,
-      "end": 261.38,
-      "duration": 3.47,
-      "text_snippet": "Đoạn code này bị lỗi vì Java cố gắng mở hộp một giá trị null."
+      "start": 287.51,
+      "end": 289.26,
+      "duration": 1.75,
+      "text_snippet": "Tự Động Mở Hộp (Unboxing)"
     },
     {
       "paragraph_id": 34,
-      "start": 261.38,
-      "end": 267.3,
-      "duration": 5.92,
-      "text_snippet": "Tại Sao Việc Mở Hộp null Lại Ném Ra NullPointerException (Why Unboxing null Throws NullPointerException)"
+      "start": 289.26,
+      "end": 296.96,
+      "duration": 7.7,
+      "text_snippet": "Tự động mở hộp (unboxing) là quá trình tự động chuyển đổi từ lớp bao bọc sang ki"
     },
     {
       "paragraph_id": 35,
-      "start": 267.3,
-      "end": 291.62,
-      "duration": 24.32,
-      "text_snippet": "Khi Java mở hộp một đối tượng Integer thành kiểu int, nó không đơn thuần là \"trích xuất\" giá trị. Đằng sau hậu trường, t"
+      "start": 296.96,
+      "end": 298.36,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 36,
-      "start": 291.62,
-      "end": 310.47,
-      "duration": 18.85,
-      "text_snippet": "Nếu biến boxed có giá trị là null, sẽ không có đối tượng Integer nào tồn tại trong bộ nhớ — tham chiếu trỏ tới vùng trốn"
+      "start": 298.36,
+      "end": 303.26,
+      "duration": 4.9,
+      "text_snippet": "Java tự động trích xuất giá trị int nguyên thủy từ đối tượng Integer."
     },
     {
       "paragraph_id": 37,
-      "start": 310.47,
-      "end": 312.07,
-      "duration": 1.59,
-      "text_snippet": "Chuỗi nguyên nhân - kết quả:"
+      "start": 303.26,
+      "end": 306.41,
+      "duration": 3.15,
+      "text_snippet": "Giá Trị Null và Mở Hộp (Null And Unboxing)"
     },
     {
       "paragraph_id": 38,
-      "start": 312.07,
-      "end": 320.67,
-      "duration": 8.6,
-      "text_snippet": "Integer boxed = null → trình biên dịch chèn boxed.intValue() → boxed là null → không có đối tượng nào tồn tại để gọi .in"
+      "start": 306.41,
+      "end": 312.71,
+      "duration": 6.3,
+      "text_snippet": "Các lớp bao bọc có thể nhận giá trị null, trong khi các kiểu nguyên thủy thì khô"
     },
     {
       "paragraph_id": 39,
-      "start": 320.67,
-      "end": 321.64,
-      "duration": 0.97,
+      "start": 312.71,
+      "end": 314.11,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 40,
-      "start": 321.64,
-      "end": 330.52,
-      "duration": 8.89,
-      "text_snippet": "// Những gì trình biên dịch thực tế tạo ra (tương đương):\nInteger boxed = null;\nint value = boxed.intValue(); // gọi phư"
+      "start": 314.11,
+      "end": 319.36,
+      "duration": 5.25,
+      "text_snippet": "Đoạn code này bị lỗi vì Java cố gắng mở hộp một giá trị null."
     },
     {
       "paragraph_id": 41,
-      "start": 330.52,
-      "end": 331.49,
-      "duration": 0.97,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 319.36,
+      "end": 324.61,
+      "duration": 5.25,
+      "text_snippet": "Tại Sao Việc Mở Hộp null Lại Ném Ra NullPointerException (Why Unboxing null Thro"
     },
     {
       "paragraph_id": 42,
-      "start": 331.49,
-      "end": 338.61,
-      "duration": 7.12,
-      "text_snippet": "> Xem thêm: Cơ chế xử lý NullPointerException và các ngoại lệ khác, được trình bày chi tiết trong Ch.12 - Exception Hand"
+      "start": 324.61,
+      "end": 354.36,
+      "duration": 29.75,
+      "text_snippet": "Khi Java mở hộp một đối tượng Integer thành kiểu int, nó không đơn thuần là \"trí"
     },
     {
       "paragraph_id": 43,
-      "start": 338.61,
-      "end": 340.72,
-      "duration": 2.11,
-      "text_snippet": "Bẫy thường gặp — tham số phương thức:"
+      "start": 354.36,
+      "end": 377.46,
+      "duration": 23.1,
+      "text_snippet": "Nếu biến boxed có giá trị là null, sẽ không có đối tượng Integer nào tồn tại tro"
     },
     {
       "paragraph_id": 44,
-      "start": 340.72,
-      "end": 341.69,
-      "duration": 0.97,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 377.46,
+      "end": 379.56,
+      "duration": 2.1,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả:"
     },
     {
       "paragraph_id": 45,
-      "start": 341.69,
-      "end": 353.53,
-      "duration": 11.85,
-      "text_snippet": "Integer input = null;\nprocess(input); // Ngoại lệ NPE xảy ra TẠI ĐÂY, ngay nơi gọi, trong quá trình mở hộp\n// kết quả: N"
+      "start": 379.56,
+      "end": 389.01,
+      "duration": 9.45,
+      "text_snippet": "Integer boxed = null → trình biên dịch chèn boxed.intValue() → boxed là null → k"
     },
     {
       "paragraph_id": 46,
-      "start": 353.53,
-      "end": 373.07,
-      "duration": 19.54,
-      "text_snippet": "Ngoại lệ NPE xảy ra tại nơi gọi phương thức, chứ không phải bên trong process(). Java cố gắng mở hộp input thành int x, "
-    },
-    {
-      "paragraph_id": 47,
-      "start": 373.07,
-      "end": 374.04,
-      "duration": 0.97,
-      "text_snippet": "Cách phòng tránh:"
-    },
-    {
-      "paragraph_id": 48,
-      "start": 374.04,
-      "end": 375.01,
-      "duration": 0.97,
+      "start": 389.01,
+      "end": 390.41,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
+      "paragraph_id": 47,
+      "start": 390.41,
+      "end": 391.81,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 391.81,
+      "end": 399.51,
+      "duration": 7.7,
+      "text_snippet": "Xem thêm: Cơ chế xử lý NullPointerException và các ngoại lệ khác, được trình bày"
+    },
+    {
       "paragraph_id": 49,
-      "start": 375.01,
-      "end": 379.73,
-      "duration": 4.73,
-      "text_snippet": "// Cách 2: Cung cấp một giá trị mặc định\nint value = (boxed != null) ? boxed : 0;\n`"
+      "start": 399.51,
+      "end": 402.31,
+      "duration": 2.8,
+      "text_snippet": "Bẫy thường gặp — tham số phương thức:"
     },
     {
       "paragraph_id": 50,
-      "start": 379.73,
-      "end": 386.23,
-      "duration": 6.49,
-      "text_snippet": "> Điều này liên quan đến cách hoạt động của null với các kiểu tham chiếu, được trình bày chi tiết trong phần null."
+      "start": 402.31,
+      "end": 403.71,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 51,
-      "start": 386.23,
-      "end": 389.19,
-      "duration": 2.96,
-      "text_snippet": "Toán Tử == Với Kiểu Nguyên Thủy (== With Primitives)"
+      "start": 403.71,
+      "end": 429.26,
+      "duration": 25.55,
+      "text_snippet": "Ngoại lệ NPE xảy ra tại nơi gọi phương thức, chứ không phải bên trong process()."
     },
     {
       "paragraph_id": 52,
-      "start": 389.19,
-      "end": 392.89,
-      "duration": 3.7,
-      "text_snippet": "Với các kiểu nguyên thủy, toán tử == dùng để so sánh các giá trị."
+      "start": 429.26,
+      "end": 430.31,
+      "duration": 1.05,
+      "text_snippet": "Cách phòng tránh:"
     },
     {
       "paragraph_id": 53,
-      "start": 392.89,
-      "end": 393.86,
-      "duration": 0.97,
+      "start": 430.31,
+      "end": 431.71,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 54,
-      "start": 393.86,
-      "end": 396.76,
-      "duration": 2.9,
-      "text_snippet": "Toán Tử == Với Kiểu Tham Chiếu (== With References)"
+      "start": 431.71,
+      "end": 439.76,
+      "duration": 8.05,
+      "text_snippet": "Điều này liên quan đến cách hoạt động của null với các kiểu tham chiếu, được trì"
     },
     {
       "paragraph_id": 55,
-      "start": 396.76,
-      "end": 402.91,
-      "duration": 6.15,
-      "text_snippet": "Với các kiểu tham chiếu, toán tử == so sánh xem hai biến tham chiếu có cùng trỏ tới một đối tượng hay không."
+      "start": 439.76,
+      "end": 443.26,
+      "duration": 3.5,
+      "text_snippet": "Toán Tử == Với Kiểu Nguyên Thủy (== With Primitives)"
     },
     {
       "paragraph_id": 56,
-      "start": 402.91,
-      "end": 403.88,
-      "duration": 0.97,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 443.26,
+      "end": 448.51,
+      "duration": 5.25,
+      "text_snippet": "Với các kiểu nguyên thủy, toán tử == dùng để so sánh các giá trị."
     },
     {
       "paragraph_id": 57,
-      "start": 403.88,
-      "end": 406.05,
-      "duration": 2.16,
-      "text_snippet": "System.out.println(a == b); // false\n`"
+      "start": 448.51,
+      "end": 449.91,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 58,
-      "start": 406.05,
-      "end": 410.83,
-      "duration": 4.78,
-      "text_snippet": "Nội dung bên trong hai đối tượng giống nhau, nhưng chúng là các đối tượng khác nhau."
+      "start": 449.91,
+      "end": 453.41,
+      "duration": 3.5,
+      "text_snippet": "Toán Tử == Với Kiểu Tham Chiếu (== With References)"
     },
     {
       "paragraph_id": 59,
-      "start": 410.83,
-      "end": 412.03,
-      "duration": 1.2,
-      "text_snippet": "Phương Thức .equals()"
+      "start": 453.41,
+      "end": 461.81,
+      "duration": 8.4,
+      "text_snippet": "Với các kiểu tham chiếu, toán tử == so sánh xem hai biến tham chiếu có cùng trỏ "
     },
     {
       "paragraph_id": 60,
-      "start": 412.03,
-      "end": 416.58,
-      "duration": 4.56,
-      "text_snippet": "Phương thức .equals() thường được sử dụng để so sánh nội dung của các đối tượng."
+      "start": 461.81,
+      "end": 463.21,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 61,
-      "start": 416.58,
-      "end": 417.55,
-      "duration": 0.97,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 463.21,
+      "end": 469.16,
+      "duration": 5.95,
+      "text_snippet": "Nội dung bên trong hai đối tượng giống nhau, nhưng chúng là các đối tượng khác n"
     },
     {
       "paragraph_id": 62,
-      "start": 417.55,
-      "end": 419.94,
-      "duration": 2.39,
-      "text_snippet": "System.out.println(a.equals(b)); // true\n`"
+      "start": 469.16,
+      "end": 470.21,
+      "duration": 1.05,
+      "text_snippet": "Phương Thức .equals()"
     },
     {
       "paragraph_id": 63,
-      "start": 419.94,
-      "end": 424.05,
-      "duration": 4.1,
-      "text_snippet": "Đối với String, phương thức .equals() sẽ so sánh từng ký tự trong chuỗi."
+      "start": 470.21,
+      "end": 475.81,
+      "duration": 5.6,
+      "text_snippet": "Phương thức .equals() thường được sử dụng để so sánh nội dung của các đối tượng."
     },
     {
       "paragraph_id": 64,
-      "start": 424.05,
-      "end": 429.23,
-      "duration": 5.18,
-      "text_snippet": "Tại Sao Nên Dùng .equals() Để So Sánh Nội Dung Chuỗi (Why Use .equals() For String Content)"
+      "start": 475.81,
+      "end": 477.21,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 65,
-      "start": 429.23,
-      "end": 452.07,
-      "duration": 22.84,
-      "text_snippet": "Toán tử == chỉ kiểm tra trên Stack — nó so sánh các địa chỉ bộ nhớ được lưu trữ trong hai biến tham chiếu. Nó đặt câu hỏ"
+      "start": 477.21,
+      "end": 482.11,
+      "duration": 4.9,
+      "text_snippet": "Đối với String, phương thức .equals() sẽ so sánh từng ký tự trong chuỗi."
     },
     {
       "paragraph_id": 66,
-      "start": 452.07,
-      "end": 469.72,
-      "duration": 17.66,
-      "text_snippet": "Sự khác biệt này vô cùng quan trọng bởi vì hai đối tượng String có thể chứa văn bản hoàn toàn giống nhau (\"Hello\") nhưng"
+      "start": 482.11,
+      "end": 488.06,
+      "duration": 5.95,
+      "text_snippet": "Tại Sao Nên Dùng .equals() Để So Sánh Nội Dung Chuỗi (Why Use .equals() For Stri"
     },
     {
       "paragraph_id": 67,
-      "start": 469.72,
-      "end": 470.69,
-      "duration": 0.97,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 488.06,
+      "end": 519.91,
+      "duration": 31.85,
+      "text_snippet": "Toán tử == chỉ kiểm tra trên Stack — nó so sánh các địa chỉ bộ nhớ được lưu trữ "
     },
     {
       "paragraph_id": 68,
-      "start": 470.69,
-      "end": 487.55,
-      "duration": 16.86,
-      "text_snippet": "Trong sơ đồ này, s1 và s2 lưu giữ các địa chỉ khác nhau (0x100 và 0x200). Mặc dù cả hai đối tượng đều chứa \"Hello\", biểu"
+      "start": 519.91,
+      "end": 543.71,
+      "duration": 23.8,
+      "text_snippet": "Sự khác biệt này vô cùng quan trọng bởi vì hai đối tượng String có thể chứa văn "
     },
     {
       "paragraph_id": 69,
-      "start": 487.55,
-      "end": 490.68,
-      "duration": 3.13,
-      "text_snippet": "Tại sao đôi khi == vẫn hoạt động (Vùng lưu trữ String):"
-    },
-    {
-      "paragraph_id": 70,
-      "start": 490.68,
-      "end": 513.41,
-      "duration": 22.73,
-      "text_snippet": "Java duy trì một vùng lưu trữ String (String Pool) — một vùng nhớ đệm chứa các chuỗi ký tự dạng tường minh (literal). Kh"
-    },
-    {
-      "paragraph_id": 71,
-      "start": 513.41,
-      "end": 514.38,
-      "duration": 0.97,
+      "start": 543.71,
+      "end": 545.11,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
+      "paragraph_id": 70,
+      "start": 545.11,
+      "end": 567.51,
+      "duration": 22.4,
+      "text_snippet": "Trong sơ đồ này, s1 và s2 lưu giữ các địa chỉ khác nhau (0x100 và 0x200). Mặc dù"
+    },
+    {
+      "paragraph_id": 71,
+      "start": 567.61,
+      "end": 571.49,
+      "duration": 3.88,
+      "text_snippet": "Tại sao đôi khi == vẫn hoạt động (Vùng lưu trữ String):"
+    },
+    {
       "paragraph_id": 72,
-      "start": 514.38,
-      "end": 521.21,
-      "duration": 6.83,
-      "text_snippet": "Tuy nhiên, việc sử dụng từ khóa new String(...) luôn luôn tạo ra một đối tượng mới trên Heap, bỏ qua cơ chế String Pool:"
+      "start": 571.44,
+      "end": 597.22,
+      "duration": 25.78,
+      "text_snippet": "Java duy trì một vùng lưu trữ String (String Pool) — một vùng nhớ đệm chứa các c"
     },
     {
       "paragraph_id": 73,
-      "start": 521.21,
-      "end": 522.18,
-      "duration": 0.97,
+      "start": 597.21,
+      "end": 599.59,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 74,
-      "start": 522.18,
-      "end": 533.23,
-      "duration": 11.05,
-      "text_snippet": "Nguyên nhân - kết quả: new String(\"Hello\") tạo đối tượng mới trên Heap → địa chỉ bộ nhớ mới → toán tử == so sánh địa chỉ"
+      "start": 599.59,
+      "end": 606.98,
+      "duration": 7.39,
+      "text_snippet": "Tuy nhiên, việc sử dụng từ khóa new String(...) luôn luôn tạo ra một đối tượng m"
     },
     {
       "paragraph_id": 75,
-      "start": 533.23,
-      "end": 545.76,
-      "duration": 12.53,
-      "text_snippet": "Quy tắc: LUÔN LUÔN sử dụng phương thức .equals() để so sánh nội dung của chuỗi ký tự (và các đối tượng khác). Toán tử =="
-    },
-    {
-      "paragraph_id": 76,
-      "start": 545.76,
-      "end": 549.18,
-      "duration": 3.42,
-      "text_snippet": "So Sánh Chuỗi An Toàn Với Null (Null-Safe String Comparison)"
-    },
-    {
-      "paragraph_id": 77,
-      "start": 549.18,
-      "end": 553.68,
-      "duration": 4.5,
-      "text_snippet": "Đoạn code sau có thể ném ra NullPointerException nếu biến text có giá trị null:"
-    },
-    {
-      "paragraph_id": 78,
-      "start": 553.68,
-      "end": 554.65,
-      "duration": 0.97,
+      "start": 606.97,
+      "end": 609.17,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
+      "paragraph_id": 76,
+      "start": 609.17,
+      "end": 624.92,
+      "duration": 15.75,
+      "text_snippet": "Nguyên nhân - kết quả: new String(\"Hello\") tạo đối tượng mới trên Heap → địa chỉ"
+    },
+    {
+      "paragraph_id": 77,
+      "start": 624.92,
+      "end": 641.72,
+      "duration": 16.8,
+      "text_snippet": "Quy tắc: LUÔN LUÔN sử dụng phương thức .equals() để so sánh nội dung của chuỗi k"
+    },
+    {
+      "paragraph_id": 78,
+      "start": 641.72,
+      "end": 645.22,
+      "duration": 3.5,
+      "text_snippet": "So Sánh Chuỗi An Toàn Với Null (Null-Safe String Comparison)"
+    },
+    {
       "paragraph_id": 79,
-      "start": 554.65,
-      "end": 556.3,
-      "duration": 1.65,
-      "text_snippet": "Cách viết này sẽ an toàn hơn:"
+      "start": 645.22,
+      "end": 650.47,
+      "duration": 5.25,
+      "text_snippet": "Đoạn code sau có thể ném ra NullPointerException nếu biến text có giá trị null:"
     },
     {
       "paragraph_id": 80,
-      "start": 556.3,
-      "end": 557.27,
-      "duration": 0.97,
+      "start": 650.47,
+      "end": 651.87,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 81,
-      "start": 557.27,
-      "end": 561.82,
-      "duration": 4.56,
-      "text_snippet": "Nếu biến text là null, kết quả trả về sẽ là false chứ không gây ra lỗi ngoại lệ."
+      "start": 651.88,
+      "end": 654.33,
+      "duration": 2.45,
+      "text_snippet": "Cách viết này sẽ an toàn hơn:"
     },
     {
       "paragraph_id": 82,
-      "start": 561.82,
-      "end": 565.7,
-      "duration": 3.87,
-      "text_snippet": "Cảnh Báo Về So Sánh Bằng Trên Lớp Bao Bọc (Wrapper Equality Warning)"
+      "start": 654.33,
+      "end": 655.73,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 83,
-      "start": 565.7,
-      "end": 572.08,
-      "duration": 6.38,
-      "text_snippet": "Tránh sử dụng toán tử == để so sánh các đối tượng bao bọc trừ khi bạn thực sự muốn so sánh tham chiếu của chúng."
+      "start": 655.73,
+      "end": 662.38,
+      "duration": 6.65,
+      "text_snippet": "Nếu biến text là null, kết quả trả về sẽ là false chứ không gây ra lỗi ngoại lệ."
     },
     {
       "paragraph_id": 84,
-      "start": 572.08,
-      "end": 573.04,
-      "duration": 0.97,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 662.38,
+      "end": 666.93,
+      "duration": 4.55,
+      "text_snippet": "Cảnh Báo Về So Sánh Bằng Trên Lớp Bao Bọc (Wrapper Equality Warning)"
     },
     {
       "paragraph_id": 85,
-      "start": 573.04,
-      "end": 576.46,
-      "duration": 3.42,
-      "text_snippet": "Hãy dùng phương thức .equals() để so sánh giá trị của chúng."
+      "start": 666.92,
+      "end": 676.02,
+      "duration": 9.1,
+      "text_snippet": "Tránh sử dụng toán tử == để so sánh các đối tượng bao bọc trừ khi bạn thực sự mu"
     },
     {
       "paragraph_id": 86,
-      "start": 576.46,
-      "end": 578.4,
-      "duration": 1.94,
-      "text_snippet": "Bộ Nhớ Đệm Integer (Integer Cache)"
-    },
-    {
-      "paragraph_id": 87,
-      "start": 578.4,
-      "end": 603.52,
-      "duration": 25.12,
-      "text_snippet": "Java thực hiện lưu trữ đệm (caching) các đối tượng Integer đối với các giá trị nằm trong khoảng từ -128 đến 127. Khi bạn"
-    },
-    {
-      "paragraph_id": 88,
-      "start": 603.52,
-      "end": 620.32,
-      "duration": 16.8,
-      "text_snippet": "Cơ chế lưu trữ đệm này tồn tại nhằm mục đích tối ưu hiệu suất — các giá trị số nguyên nhỏ được sử dụng cực kỳ thường xuy"
-    },
-    {
-      "paragraph_id": 89,
-      "start": 620.32,
-      "end": 624.88,
-      "duration": 4.56,
-      "text_snippet": "Hệ quả là toán tử == sẽ hoạt động thiếu nhất quán đối với các đối tượng Integer:"
-    },
-    {
-      "paragraph_id": 90,
-      "start": 624.88,
-      "end": 625.84,
-      "duration": 0.97,
+      "start": 676.12,
+      "end": 678.5,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
+      "paragraph_id": 87,
+      "start": 678.45,
+      "end": 682.6,
+      "duration": 4.15,
+      "text_snippet": "Hãy dùng phương thức .equals() để so sánh giá trị của chúng."
+    },
+    {
+      "paragraph_id": 88,
+      "start": 682.6,
+      "end": 685.93,
+      "duration": 3.33,
+      "text_snippet": "Bộ Nhớ Đệm Integer (Integer Cache)"
+    },
+    {
+      "paragraph_id": 89,
+      "start": 685.92,
+      "end": 730.35,
+      "duration": 44.43,
+      "text_snippet": "Java thực hiện lưu trữ đệm (caching) các đối tượng Integer đối với các giá trị n"
+    },
+    {
+      "paragraph_id": 90,
+      "start": 730.35,
+      "end": 753.8,
+      "duration": 23.45,
+      "text_snippet": "Cơ chế lưu trữ đệm này tồn tại nhằm mục đích tối ưu hiệu suất — các giá trị số n"
+    },
+    {
       "paragraph_id": 91,
-      "start": 625.84,
-      "end": 638.83,
-      "duration": 12.99,
-      "text_snippet": "// Giá trị nằm ngoài khoảng đệm: các đối tượng KHÁC NHAU\nInteger c = 128;\nInteger d = 128;\nSystem.out.println(c == d);  "
+      "start": 730.35,
+      "end": 736.65,
+      "duration": 6.3,
+      "text_snippet": "Hệ quả là toán tử == sẽ hoạt động thiếu nhất quán đối với các đối tượng Integer:"
     },
     {
       "paragraph_id": 92,
-      "start": 638.83,
-      "end": 639.8,
-      "duration": 0.97,
+      "start": 736.65,
+      "end": 738.05,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 93,
-      "start": 639.8,
-      "end": 641.39,
-      "duration": 1.59,
-      "text_snippet": "Chuỗi nguyên nhân - kết quả:"
+      "start": 738.05,
+      "end": 739.45,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 94,
-      "start": 641.39,
-      "end": 668.79,
-      "duration": 27.4,
-      "text_snippet": "Integer a = 127 → Integer.valueOf(127) → 127 nằm trong khoảng [-128, 127] → trả về đối tượng có sẵn → a trỏ tới đối tượn"
+      "start": 739.45,
+      "end": 741.55,
+      "duration": 2.1,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả:"
     },
     {
       "paragraph_id": 95,
-      "start": 668.79,
-      "end": 685.82,
-      "duration": 17.03,
-      "text_snippet": "Điều này khiến cho toán tử == khi dùng với Integer (và các lớp bao bọc khác) trở nên không đáng tin cậy — nó chạy đúng v"
+      "start": 741.55,
+      "end": 751.35,
+      "duration": 9.8,
+      "text_snippet": "Integer a = 127 → Integer.valueOf(127) → 127 nằm trong khoảng [-128, 127] → trả "
     },
     {
       "paragraph_id": 96,
-      "start": 685.82,
-      "end": 687.87,
-      "duration": 2.05,
-      "text_snippet": "Các Lỗi Thường Gặp (Common Mistakes)"
+      "start": 751.45,
+      "end": 777.27,
+      "duration": 25.82,
+      "text_snippet": "Integer b = 127 → Integer.valueOf(127) → trả về đối tượng đệm tương tự → b trỏ t"
     },
     {
       "paragraph_id": 97,
-      "start": 687.87,
-      "end": 703.7,
-      "duration": 15.83,
-      "text_snippet": "So sánh nội dung chuỗi bằng toán tử ==.\nQuên rằng các lớp bao bọc có thể nhận giá trị null.\nMở hộp một lớp bao bọc có gi"
+      "start": 777.27,
+      "end": 785.67,
+      "duration": 8.4,
+      "text_snippet": "Integer c = 128 → Integer.valueOf(128) → 128 nằm ngoài khoảng đệm → tạo đối tượn"
+    },
+    {
+      "paragraph_id": 98,
+      "start": 785.68,
+      "end": 795.13,
+      "duration": 9.45,
+      "text_snippet": "Integer d = 128 → Integer.valueOf(128) → tạo thêm một đối tượng mới khác → d trỏ"
+    },
+    {
+      "paragraph_id": 99,
+      "start": 777.27,
+      "end": 797.49,
+      "duration": 20.22,
+      "text_snippet": "Điều này khiến cho toán tử == khi dùng với Integer (và các lớp bao bọc khác) trở"
+    },
+    {
+      "paragraph_id": 100,
+      "start": 797.5,
+      "end": 799.6,
+      "duration": 2.1,
+      "text_snippet": "Các Lỗi Thường Gặp (Common Mistakes)"
+    },
+    {
+      "paragraph_id": 101,
+      "start": 797.6,
+      "end": 800.52,
+      "duration": 2.92,
+      "text_snippet": "So sánh nội dung chuỗi bằng toán tử ==."
+    },
+    {
+      "paragraph_id": 102,
+      "start": 800.48,
+      "end": 803.99,
+      "duration": 3.51,
+      "text_snippet": "Quên rằng các lớp bao bọc có thể nhận giá trị null."
+    },
+    {
+      "paragraph_id": 103,
+      "start": 803.99,
+      "end": 807.14,
+      "duration": 3.15,
+      "text_snippet": "Mở hộp một lớp bao bọc có giá trị null."
+    },
+    {
+      "paragraph_id": 104,
+      "start": 807.14,
+      "end": 810.7,
+      "duration": 3.56,
+      "text_snippet": "Sử dụng List<int> thay vì List<Integer>."
+    },
+    {
+      "paragraph_id": 105,
+      "start": 810.7,
+      "end": 816.66,
+      "duration": 5.96,
+      "text_snippet": "Cho rằng phương thức .equals() luôn an toàn với null khi gọi trên một biến có kh"
     }
   ]
 }

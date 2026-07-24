@@ -1,329 +1,343 @@
 {
   "lesson": "03-atomicreference-concepts",
-  "total_duration_seconds": 185.62,
-  "total_paragraphs": 46,
+  "total_duration_seconds": 313.29,
+  "total_paragraphs": 48,
   "timestamps": [
     {
       "paragraph_id": 1,
       "start": 0.0,
-      "end": 1.45,
-      "duration": 1.45,
+      "end": 4.55,
+      "duration": 4.55,
       "text_snippet": "Đồng Bộ Hóa và Độ Đồng Thời (Synchronization and Concurrency) - Phần 3"
     },
     {
       "paragraph_id": 2,
-      "start": 1.45,
-      "end": 1.78,
-      "duration": 0.33,
+      "start": 4.55,
+      "end": 5.95,
+      "duration": 1.4,
       "text_snippet": "Mục Tiêu Học Tập"
     },
     {
       "paragraph_id": 3,
-      "start": 1.78,
-      "end": 7.14,
-      "duration": 5.35,
-      "text_snippet": "File này đề cập đến Lock API tường minh của Java (Lock, ReentrantLock, ReadWriteLock, StampedLock) và các bộ đồng bộ hóa"
+      "start": 5.95,
+      "end": 22.4,
+      "duration": 16.45,
+      "text_snippet": "File này đề cập đến Lock API tường minh của Java (Lock, ReentrantLock, ReadWrite"
     },
     {
       "paragraph_id": 4,
-      "start": 7.14,
-      "end": 7.51,
-      "duration": 0.37,
+      "start": 22.4,
+      "end": 23.8,
+      "duration": 1.4,
       "text_snippet": "Đề Cương Khái Niệm"
     },
     {
       "paragraph_id": 5,
-      "start": 7.51,
-      "end": 21.93,
-      "duration": 14.42,
-      "text_snippet": "AtomicReference — AtomicReference: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nLock API: — Lock API:: Cu"
+      "start": 23.8,
+      "end": 29.75,
+      "duration": 5.95,
+      "text_snippet": "AtomicReference — AtomicReference: Cung cấp các quy tắc và cơ chế hoạt động cụ t"
     },
     {
       "paragraph_id": 6,
-      "start": 21.93,
-      "end": 22.26,
-      "duration": 0.33,
-      "text_snippet": "Ghi Chú Chi Tiết"
+      "start": 29.85,
+      "end": 41.19,
+      "duration": 11.34,
+      "text_snippet": "Lock API: — Lock API:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Jav"
     },
     {
       "paragraph_id": 7,
-      "start": 22.26,
-      "end": 28.94,
-      "duration": 6.68,
-      "text_snippet": "Lock API và ReentrantLock\nKhác với các khối synchronized vốn có cấu trúc và giới hạn theo phạm vi khối lệnh, các đối tượ"
+      "start": 41.19,
+      "end": 47.14,
+      "duration": 5.95,
+      "text_snippet": "Lock — Lock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 8,
-      "start": 28.94,
-      "end": 29.29,
-      "duration": 0.35,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 41.19,
+      "end": 47.3,
+      "duration": 6.11,
+      "text_snippet": "ReentrantLock — ReentrantLock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể t"
     },
     {
       "paragraph_id": 9,
-      "start": 29.29,
-      "end": 30.99,
-      "duration": 1.7,
-      "text_snippet": "public class ExplicitLockDemo {\n    private final Lock lock = new ReentrantLock();"
+      "start": 47.3,
+      "end": 53.56,
+      "duration": 6.26,
+      "text_snippet": "ReadWriteLock — ReadWriteLock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể t"
     },
     {
       "paragraph_id": 10,
-      "start": 30.99,
-      "end": 35.6,
-      "duration": 4.61,
-      "text_snippet": "public void performTask() {\n        lock.lock(); // Blocks until acquired\n        try {\n            // Critical section\n"
+      "start": 53.56,
+      "end": 59.56,
+      "duration": 6.0,
+      "text_snippet": "StampedLock — StampedLock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong"
     },
     {
       "paragraph_id": 11,
-      "start": 35.6,
-      "end": 41.16,
-      "duration": 5.56,
-      "text_snippet": "ReadWriteLock\nCho phép độ đồng thời cao cho các hoạt động thiên về đọc dữ liệu. Nhiều luồng đọc có thể giữ khóa đọc đồng"
+      "start": 59.56,
+      "end": 65.51,
+      "duration": 5.95,
+      "text_snippet": "Semaphore — Semaphore: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Jav"
     },
     {
       "paragraph_id": 12,
-      "start": 41.16,
-      "end": 43.75,
-      "duration": 2.59,
-      "text_snippet": "public class CacheDemo {\n    private final ReadWriteLock rwLock = new ReentrantReadWriteLock();\n    private String data "
+      "start": 65.51,
+      "end": 71.46,
+      "duration": 5.95,
+      "text_snippet": "CountDownLatch — CountDownLatch: Cung cấp các quy tắc và cơ chế hoạt động cụ thể"
     },
     {
       "paragraph_id": 13,
-      "start": 43.75,
-      "end": 46.64,
-      "duration": 2.88,
-      "text_snippet": "public String read() {\n        rwLock.readLock().lock();\n        try { return data; }\n        finally { rwLock.readLock("
+      "start": 71.46,
+      "end": 72.86,
+      "duration": 1.4,
+      "text_snippet": "Ghi Chú Chi Tiết"
     },
     {
       "paragraph_id": 14,
-      "start": 46.64,
-      "end": 49.81,
-      "duration": 3.17,
-      "text_snippet": "public void write(String val) {\n        rwLock.writeLock().lock();\n        try { data = val; }\n        finally { rwLock."
+      "start": 72.86,
+      "end": 74.26,
+      "duration": 1.4,
+      "text_snippet": "Lock API và ReentrantLock"
     },
     {
       "paragraph_id": 15,
-      "start": 49.81,
-      "end": 58.46,
-      "duration": 8.65,
-      "text_snippet": "StampedLock (Đọc Tối Ưu Hóa - Optimistic Reading)\nStampedLock cung cấp một nhãn khóa (stamp). Nó hỗ trợ \"đọc lạc quan (o"
+      "start": 74.26,
+      "end": 86.51,
+      "duration": 12.25,
+      "text_snippet": "Khác với các khối synchronized vốn có cấu trúc và giới hạn theo phạm vi khối lện"
     },
     {
       "paragraph_id": 16,
-      "start": 58.46,
-      "end": 60.77,
-      "duration": 2.3,
-      "text_snippet": "public class StampedLockDemo {\n    private final StampedLock lock = new StampedLock();\n    private double x, y;"
+      "start": 86.51,
+      "end": 95.26,
+      "duration": 8.75,
+      "text_snippet": "Quan trọng: Bạn phải luôn gọi unlock() bên trong khối finally để ngăn chặn rò rỉ"
     },
     {
       "paragraph_id": 17,
-      "start": 60.77,
-      "end": 70.81,
-      "duration": 10.04,
-      "text_snippet": "public double getDistance() {\n        long stamp = lock.tryOptimisticRead(); // Non-blocking read\n        double curX = "
-    },
-    {
-      "paragraph_id": 18,
-      "start": 70.81,
-      "end": 78.65,
-      "duration": 7.84,
-      "text_snippet": "Semaphore và CountDownLatch\nSemaphore: Kiểm soát việc sử dụng tài nguyên thông qua các giấy phép (permits). Luồng gọi ac"
-    },
-    {
-      "paragraph_id": 19,
-      "start": 78.65,
-      "end": 79.0,
-      "duration": 0.35,
+      "start": 95.26,
+      "end": 96.66,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
+      "paragraph_id": 18,
+      "start": 96.66,
+      "end": 97.06,
+      "duration": 0.4,
+      "text_snippet": "ReadWriteLock"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 97.01,
+      "end": 107.86,
+      "duration": 10.85,
+      "text_snippet": "Cho phép độ đồng thời cao cho các hoạt động thiên về đọc dữ liệu. Nhiều luồng đọ"
+    },
+    {
       "paragraph_id": 20,
-      "start": 79.0,
-      "end": 82.13,
-      "duration": 3.13,
-      "text_snippet": "public class LatchDemo {\n    public static void main(String[] args) throws InterruptedException {\n        CountDownLatch"
+      "start": 107.86,
+      "end": 109.26,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 21,
-      "start": 82.13,
-      "end": 84.56,
-      "duration": 2.43,
-      "text_snippet": "Runnable worker = () -> {\n            System.out.println(\"Step finished.\");\n            latch.countDown();\n        };"
+      "start": 109.26,
+      "end": 112.06,
+      "duration": 2.8,
+      "text_snippet": "StampedLock (Đọc Tối Ưu Hóa - Optimistic Reading)"
     },
     {
       "paragraph_id": 22,
-      "start": 84.56,
-      "end": 85.87,
-      "duration": 1.31,
-      "text_snippet": "new Thread(worker).start();\n        new Thread(worker).start();"
+      "start": 112.06,
+      "end": 134.11,
+      "duration": 22.05,
+      "text_snippet": "StampedLock cung cấp một nhãn khóa (stamp). Nó hỗ trợ \"đọc lạc quan (optimistic "
     },
     {
       "paragraph_id": 23,
-      "start": 85.87,
-      "end": 88.11,
-      "duration": 2.24,
-      "text_snippet": "latch.await(); // Blocks until count becomes 0\n        System.out.println(\"All steps completed.\");\n    }\n}\n`"
+      "start": 134.11,
+      "end": 135.51,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 24,
-      "start": 88.11,
-      "end": 88.15,
-      "duration": 0.04,
-      "text_snippet": "--"
+      "start": 135.51,
+      "end": 136.56,
+      "duration": 1.05,
+      "text_snippet": "Semaphore và CountDownLatch"
     },
     {
       "paragraph_id": 25,
-      "start": 88.15,
-      "end": 89.54,
-      "duration": 1.39,
-      "text_snippet": "Ví Dụ Thực Tế: Nhóm Kết Nối Cơ Sở Dữ Liệu Bị Giới Hạn Qua Semaphore"
+      "start": 136.56,
+      "end": 148.81,
+      "duration": 12.25,
+      "text_snippet": "Semaphore: Kiểm soát việc sử dụng tài nguyên thông qua các giấy phép (permits). "
     },
     {
       "paragraph_id": 26,
-      "start": 89.54,
-      "end": 94.1,
-      "duration": 4.56,
-      "text_snippet": "Vấn đề\nMột nhóm kết nối cơ sở dữ liệu (database connection pool) có giới hạn cứng là 5 kết nối vật lý. Nếu có nhiều hơn "
+      "start": 148.91,
+      "end": 160.01,
+      "duration": 11.1,
+      "text_snippet": "CountDownLatch: Một cánh cổng dùng một lần. Các luồng gọi await() để chặn cho đế"
     },
     {
       "paragraph_id": 27,
-      "start": 94.1,
-      "end": 96.18,
-      "duration": 2.07,
-      "text_snippet": "Giải pháp\nBọc việc truy cập kết nối bằng một Semaphore.\n`java\nimport java.util.concurrent.Semaphore;"
+      "start": 160.01,
+      "end": 162.39,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 28,
-      "start": 96.18,
-      "end": 100.89,
-      "duration": 4.71,
-      "text_snippet": "public class ConnectionPool {\n    private final Semaphore semaphore = new Semaphore(5); // Maximum 5 connections\n    pri"
+      "start": 162.39,
+      "end": 167.65,
+      "duration": 5.26,
+      "text_snippet": "Ví Dụ Thực Tế: Nhóm Kết Nối Cơ Sở Dữ Liệu Bị Giới Hạn Qua Semaphore"
     },
     {
       "paragraph_id": 29,
-      "start": 100.89,
-      "end": 104.73,
-      "duration": 3.84,
-      "text_snippet": "public Connection getConnection() throws InterruptedException {\n        semaphore.acquire(); // Blocks if all 5 connecti"
+      "start": 167.65,
+      "end": 169.09,
+      "duration": 1.44,
+      "text_snippet": "Vấn đề"
     },
     {
       "paragraph_id": 30,
-      "start": 104.73,
-      "end": 108.3,
-      "duration": 3.57,
-      "text_snippet": "public void releaseConnection(Connection c) {\n        if (markAsFree(c)) {\n            semaphore.release(); // Releases "
+      "start": 169.09,
+      "end": 182.75,
+      "duration": 13.66,
+      "text_snippet": "Một nhóm kết nối cơ sở dữ liệu (database connection pool) có giới hạn cứng là 5 "
     },
     {
       "paragraph_id": 31,
-      "start": 108.3,
-      "end": 113.48,
-      "duration": 5.19,
-      "text_snippet": "private synchronized Connection getNextAvailableConnection() {\n        for (int i = 0; i < 5; i++) {\n            if (!us"
+      "start": 182.85,
+      "end": 184.26,
+      "duration": 1.41,
+      "text_snippet": "Giải pháp"
     },
     {
       "paragraph_id": 32,
-      "start": 113.48,
-      "end": 121.05,
-      "duration": 7.57,
-      "text_snippet": "private synchronized boolean markAsFree(Connection c) {\n        for (int i = 0; i < 5; i++) {\n            if (connection"
+      "start": 184.21,
+      "end": 187.52,
+      "duration": 3.31,
+      "text_snippet": "Bọc việc truy cập kết nối bằng một Semaphore."
     },
     {
       "paragraph_id": 33,
-      "start": 121.05,
-      "end": 121.1,
-      "duration": 0.04,
-      "text_snippet": "--"
+      "start": 187.53,
+      "end": 189.91,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 34,
-      "start": 121.1,
-      "end": 121.47,
-      "duration": 0.37,
+      "start": 189.9,
+      "end": 191.74,
+      "duration": 1.84,
       "text_snippet": "Các Lỗi Thường Gặp"
     },
     {
       "paragraph_id": 35,
-      "start": 121.47,
-      "end": 122.67,
-      "duration": 1.2,
-      "text_snippet": "Rò Rỉ Khóa (Quên Không Giải Phóng Khóa Trong Khối Finally)"
+      "start": 191.74,
+      "end": 196.31,
+      "duration": 4.57,
+      "text_snippet": "1. Rò Rỉ Khóa (Quên Không Giải Phóng Khóa Trong Khối Finally)"
     },
     {
       "paragraph_id": 36,
-      "start": 122.67,
-      "end": 128.98,
-      "duration": 6.31,
-      "text_snippet": "Nếu xảy ra ngoại lệ bên trong miền tranh chấp (critical section) và unlock() không nằm trong khối finally, khóa sẽ bị gi"
+      "start": 196.41,
+      "end": 208.26,
+      "duration": 11.85,
+      "text_snippet": "Nếu xảy ra ngoại lệ bên trong miền tranh chấp (critical section) và unlock() khô"
     },
     {
       "paragraph_id": 37,
-      "start": 128.98,
-      "end": 129.87,
-      "duration": 0.89,
-      "text_snippet": "Tự Bế Tắc Với StampedLock (Không Reentrant)"
+      "start": 208.21,
+      "end": 210.59,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 38,
-      "start": 129.87,
-      "end": 136.8,
-      "duration": 6.93,
-      "text_snippet": "Khác với ReentrantLock, StampedLock không hỗ trợ reentrant. Một luồng đang giữ khóa ghi của StampedLock mà cố gắng lấy l"
+      "start": 210.59,
+      "end": 214.79,
+      "duration": 4.2,
+      "text_snippet": "2. Tự Bế Tắc Với StampedLock (Không Reentrant)"
     },
     {
       "paragraph_id": 39,
-      "start": 136.8,
-      "end": 138.25,
-      "duration": 1.45,
-      "text_snippet": "Tại Sao Các Biến Nguyên Tử Giúp Tránh Cơ Chế Đồng Bộ Hóa Dựa Trên Khóa"
+      "start": 214.79,
+      "end": 226.24,
+      "duration": 11.45,
+      "text_snippet": "Khác với ReentrantLock, StampedLock không hỗ trợ reentrant. Một luồng đang giữ k"
     },
     {
       "paragraph_id": 40,
-      "start": 138.25,
-      "end": 154.25,
-      "duration": 16.0,
-      "text_snippet": "Các biến nguyên tử tránh cơ chế đồng bộ hóa dựa trên khóa bằng cách sử dụng các thuật toán không dùng khóa (lock-free) h"
+      "start": 226.24,
+      "end": 228.44,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 41,
-      "start": 154.25,
-      "end": 163.94,
-      "duration": 9.69,
-      "text_snippet": "Mô Hình Tư Duy: Vòng Lặp Trống CAS (CAS Spin Loop)\n`text\n   [ Thread A ] ──► Đọc giá trị (V=5)\n                         "
+      "start": 228.54,
+      "end": 243.71,
+      "duration": 15.17,
+      "text_snippet": "Tại Sao Các Biến Nguyên Tử Giúp Tránh Cơ Chế Đồng Bộ Hóa Dựa Trên Khóa"
     },
     {
       "paragraph_id": 42,
-      "start": 163.94,
-      "end": 165.39,
-      "duration": 1.45,
-      "text_snippet": "Ví Dụ Mã Nguồn\n`java\nimport java.util.concurrent.atomic.AtomicInteger;"
+      "start": 243.71,
+      "end": 280.21,
+      "duration": 36.5,
+      "text_snippet": "Các biến nguyên tử tránh cơ chế đồng bộ hóa dựa trên khóa bằng cách sử dụng các "
     },
     {
       "paragraph_id": 43,
-      "start": 165.39,
-      "end": 167.13,
-      "duration": 1.74,
-      "text_snippet": "public class CASDemo {\n    private final AtomicInteger value = new AtomicInteger(0);"
+      "start": 280.21,
+      "end": 284.86,
+      "duration": 4.65,
+      "text_snippet": "Mô Hình Tư Duy: Vòng Lặp Trống CAS (CAS Spin Loop)"
     },
     {
       "paragraph_id": 44,
-      "start": 167.13,
-      "end": 171.88,
-      "duration": 4.75,
-      "text_snippet": "public void safeIncrement() {\n        int expected;\n        int next;\n        do {\n            expected = value.get();\n "
+      "start": 284.86,
+      "end": 287.24,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 45,
-      "start": 171.88,
-      "end": 176.03,
-      "duration": 4.15,
-      "text_snippet": "public static void main(String[] args) {\n        CASDemo demo = new CASDemo();\n        demo.safeIncrement();\n        Sys"
+      "start": 287.24,
+      "end": 289.18,
+      "duration": 1.94,
+      "text_snippet": "Ví Dụ Mã Nguồn"
     },
     {
       "paragraph_id": 46,
-      "start": 176.03,
-      "end": 185.62,
-      "duration": 9.58,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nLuồng đọc địa chỉ bộ nhớ &rarr; Biến cục bộ giữ giá trị mong đợi &rarr; Luồng tính toán giá "
+      "start": 289.28,
+      "end": 291.66,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 291.6,
+      "end": 294.08,
+      "duration": 2.48,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 294.07,
+      "end": 313.28,
+      "duration": 19.21,
+      "text_snippet": "Luồng đọc địa chỉ bộ nhớ → Biến cục bộ giữ giá trị mong đợi → Luồng tính toán gi"
     }
   ]
 }

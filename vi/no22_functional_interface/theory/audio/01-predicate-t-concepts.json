@@ -1,868 +1,1113 @@
 {
   "lesson": "01-predicate-t-concepts",
-  "total_duration_seconds": 642.02,
-  "total_paragraphs": 123,
+  "total_duration_seconds": 861.55,
+  "total_paragraphs": 158,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 1.54,
-      "duration": 1.54,
+      "start": 0.1,
+      "end": 4.34,
+      "duration": 4.24,
       "text_snippet": "Giao Diện Chức Năng (Functional Interface) - Phần 1"
     },
     {
       "paragraph_id": 2,
-      "start": 1.54,
-      "end": 2.03,
-      "duration": 0.48,
+      "start": 4.29,
+      "end": 6.08,
+      "duration": 1.79,
       "text_snippet": "Mục Tiêu Học Tập"
     },
     {
       "paragraph_id": 3,
-      "start": 2.03,
-      "end": 8.2,
-      "duration": 6.17,
-      "text_snippet": "Tài liệu này tập trung vào một phần chuyên sâu của Giao Diện Chức Năng (Functional Interface). Hãy nghiên cứu từng khái "
+      "start": 6.08,
+      "end": 18.08,
+      "duration": 12.0,
+      "text_snippet": "Tài liệu này tập trung vào một phần chuyên sâu của Giao Diện Chức Năng (Function"
     },
     {
       "paragraph_id": 4,
-      "start": 8.2,
-      "end": 9.26,
-      "duration": 1.06,
+      "start": 18.07,
+      "end": 21.57,
+      "duration": 3.5,
       "text_snippet": "Tóm Tắt Nội Dung (Outline Coverage)"
     },
     {
       "paragraph_id": 5,
-      "start": 9.26,
-      "end": 37.8,
-      "duration": 28.54,
-      "text_snippet": "Predicate<T> — Predicate<T>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nFunction<T, R> — Function<T, R>"
+      "start": 21.57,
+      "end": 27.69,
+      "duration": 6.12,
+      "text_snippet": "Predicate<T> — Predicate: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong "
     },
     {
       "paragraph_id": 6,
-      "start": 37.8,
-      "end": 38.28,
-      "duration": 0.48,
-      "text_snippet": "Ghi Chú Chi Tiết"
+      "start": 27.7,
+      "end": 34.35,
+      "duration": 6.65,
+      "text_snippet": "Function<T, R> — Function<T, R>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể"
     },
     {
       "paragraph_id": 7,
-      "start": 38.28,
-      "end": 39.19,
-      "duration": 0.91,
-      "text_snippet": "Chú thích @FunctionalInterface"
+      "start": 34.35,
+      "end": 40.3,
+      "duration": 5.95,
+      "text_snippet": "Consumer<T> — Consumer: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Ja"
     },
     {
       "paragraph_id": 8,
-      "start": 39.19,
-      "end": 45.94,
-      "duration": 6.75,
-      "text_snippet": "Một giao diện chức năng trong Java là một giao diện chứa chính xác một phương thức trừu tượng (SAM - Single Abstract Met"
+      "start": 40.3,
+      "end": 46.25,
+      "duration": 5.95,
+      "text_snippet": "Supplier<T> — Supplier: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Ja"
     },
     {
       "paragraph_id": 9,
-      "start": 45.94,
-      "end": 52.84,
-      "duration": 6.9,
-      "text_snippet": "Chú thích @FunctionalInterface là tùy chọn nhưng được khuyến khích mạnh mẽ. Nó thông báo cho trình biên dịch xác thực xe"
+      "start": 46.25,
+      "end": 52.2,
+      "duration": 5.95,
+      "text_snippet": "UnaryOperator<T> — UnaryOperator: Cung cấp các quy tắc và cơ chế hoạt động cụ th"
     },
     {
       "paragraph_id": 10,
-      "start": 52.84,
-      "end": 61.07,
-      "duration": 8.23,
-      "text_snippet": "Ghi đè các Phương thức của Lớp Object\nMột giao diện có thể khai báo các phương thức trừu tượng ghi đè các phương thức cô"
+      "start": 52.2,
+      "end": 58.15,
+      "duration": 5.95,
+      "text_snippet": "BinaryOperator<T> — BinaryOperator: Cung cấp các quy tắc và cơ chế hoạt động cụ "
     },
     {
       "paragraph_id": 11,
-      "start": 61.07,
-      "end": 61.58,
-      "duration": 0.51,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 58.15,
+      "end": 64.8,
+      "duration": 6.65,
+      "text_snippet": "BiPredicate<T, U> — BiPredicate<T, U>: Cung cấp các quy tắc và cơ chế hoạt động "
     },
     {
       "paragraph_id": 12,
-      "start": 61.58,
-      "end": 64.43,
-      "duration": 2.84,
-      "text_snippet": "// Default methods are allowed\n    default int add(int a, int b) {\n        return a + b;\n    }"
+      "start": 64.8,
+      "end": 72.15,
+      "duration": 7.35,
+      "text_snippet": "BiFunction<T, U, R> — BiFunction<T, U, R>: Cung cấp các quy tắc và cơ chế hoạt đ"
     },
     {
       "paragraph_id": 13,
-      "start": 64.43,
-      "end": 67.45,
-      "duration": 3.03,
-      "text_snippet": "// Static methods are allowed\n    static boolean isPositive(int val) {\n        return val > 0;\n    }"
+      "start": 72.15,
+      "end": 78.8,
+      "duration": 6.65,
+      "text_snippet": "BiConsumer<T, U> — BiConsumer<T, U>: Cung cấp các quy tắc và cơ chế hoạt động cụ"
     },
     {
       "paragraph_id": 14,
-      "start": 67.45,
-      "end": 71.08,
-      "duration": 3.63,
-      "text_snippet": "// Overriding Object methods is allowed and does NOT count as abstract\n    @Override\n    boolean equals(Object obj);\n}\n`"
+      "start": 78.8,
+      "end": 86.85,
+      "duration": 8.05,
+      "text_snippet": "Đầu vào là gì? — Đầu vào là gì?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể"
     },
     {
       "paragraph_id": 15,
-      "start": 71.08,
-      "end": 72.6,
-      "duration": 1.51,
-      "text_snippet": "Tại sao nên sử dụng chú thích @FunctionalInterface"
+      "start": 86.85,
+      "end": 88.25,
+      "duration": 1.4,
+      "text_snippet": "Ghi Chú Chi Tiết"
     },
     {
       "paragraph_id": 16,
-      "start": 72.6,
-      "end": 98.71,
-      "duration": 26.12,
-      "text_snippet": "Chú thích @FunctionalInterface là một chú thích định hướng trình biên dịch, nhằm tài liệu hóa rõ ràng ý định thiết kế củ"
+      "start": 88.25,
+      "end": 89.3,
+      "duration": 1.05,
+      "text_snippet": "Chú thích @FunctionalInterface"
     },
     {
       "paragraph_id": 17,
-      "start": 98.71,
-      "end": 99.23,
-      "duration": 0.51,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 89.3,
+      "end": 104.35,
+      "duration": 15.05,
+      "text_snippet": "Một giao diện chức năng trong Java là một giao diện chứa chính xác một phương th"
     },
     {
       "paragraph_id": 18,
-      "start": 99.23,
-      "end": 100.65,
-      "duration": 1.42,
-      "text_snippet": "Ví dụ Thực Tế: Thực thi Ràng buộc của Chú thích"
+      "start": 104.35,
+      "end": 119.75,
+      "duration": 15.4,
+      "text_snippet": "Chú thích @FunctionalInterface là tùy chọn nhưng được khuyến khích mạnh mẽ. Nó t"
     },
     {
       "paragraph_id": 19,
-      "start": 100.65,
-      "end": 101.16,
-      "duration": 0.51,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 119.75,
+      "end": 122.55,
+      "duration": 2.8,
+      "text_snippet": "Ghi đè các Phương thức của Lớp Object"
     },
     {
       "paragraph_id": 20,
-      "start": 101.16,
-      "end": 107.52,
-      "duration": 6.35,
-      "text_snippet": "public class AnnotationDemo {\n    public static void main(String[] args) {\n        StringTransformer upper = String::toU"
+      "start": 122.55,
+      "end": 137.6,
+      "duration": 15.05,
+      "text_snippet": "Một giao diện có thể khai báo các phương thức trừu tượng ghi đè các phương thức "
     },
     {
       "paragraph_id": 21,
-      "start": 107.52,
-      "end": 116.45,
-      "duration": 8.93,
-      "text_snippet": "Chuỗi Nguyên nhân - Kết quả\nĐược chú thích với @FunctionalInterface $\\rightarrow$ Trình biên dịch thực thi ràng buộc phư"
+      "start": 137.6,
+      "end": 139.0,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 22,
-      "start": 116.45,
-      "end": 116.51,
-      "duration": 0.06,
-      "text_snippet": "--"
+      "start": 139.0,
+      "end": 141.8,
+      "duration": 2.8,
+      "text_snippet": "Tại sao nên sử dụng chú thích @FunctionalInterface"
     },
     {
       "paragraph_id": 23,
-      "start": 116.51,
-      "end": 118.84,
-      "duration": 2.33,
-      "text_snippet": "Cách JLS Đếm các Phương thức Trừu tượng và Xử lý việc Ghi đè java.lang.Object"
+      "start": 141.8,
+      "end": 203.05,
+      "duration": 61.25,
+      "text_snippet": "Chú thích @FunctionalInterface là một chú thích định hướng trình biên dịch, nhằm"
     },
     {
       "paragraph_id": 24,
-      "start": 118.84,
-      "end": 148.19,
-      "duration": 29.35,
-      "text_snippet": "Đặc tả Ngôn ngữ Java (Java Language Specification - JLS §9.8) định nghĩa một giao diện chức năng là một giao diện có chí"
+      "start": 203.05,
+      "end": 204.45,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 25,
-      "start": 148.19,
-      "end": 148.7,
-      "duration": 0.51,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 204.45,
+      "end": 208.3,
+      "duration": 3.85,
+      "text_snippet": "Ví dụ Thực Tế: Thực thi Ràng buộc của Chú thích"
     },
     {
       "paragraph_id": 26,
-      "start": 148.7,
-      "end": 149.67,
-      "duration": 0.97,
-      "text_snippet": "Ví dụ Thực Tế: Ghi đè Lớp Object"
+      "start": 208.3,
+      "end": 209.7,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 27,
-      "start": 149.67,
-      "end": 150.19,
-      "duration": 0.51,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 209.7,
+      "end": 211.8,
+      "duration": 2.1,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
     },
     {
       "paragraph_id": 28,
-      "start": 150.19,
-      "end": 153.36,
-      "duration": 3.18,
-      "text_snippet": "// 2. Overrides public java.lang.Object method: NOT counted\n    @Override\n    boolean equals(Object obj);"
+      "start": 211.8,
+      "end": 228.95,
+      "duration": 17.15,
+      "text_snippet": "Được chú thích với @FunctionalInterface $\\rightarrow$ Trình biên dịch thực thi r"
     },
     {
       "paragraph_id": 29,
-      "start": 153.36,
-      "end": 162.35,
-      "duration": 8.99,
-      "text_snippet": "// 3. Overrides public java.lang.Object method: NOT counted\n    @Override\n    String toString();\n    \n    // 4. Overridi"
+      "start": 228.95,
+      "end": 234.2,
+      "duration": 5.25,
+      "text_snippet": "Cách JLS Đếm các Phương thức Trừu tượng và Xử lý việc Ghi đè java.lang.Object"
     },
     {
       "paragraph_id": 30,
-      "start": 162.35,
-      "end": 172.88,
-      "duration": 10.53,
-      "text_snippet": "public class JlsChecksDemo {\n    public static void main(String[] args) {\n        CustomComparator<String> lengthComp = "
+      "start": 234.2,
+      "end": 300.7,
+      "duration": 66.5,
+      "text_snippet": "Đặc tả Ngôn ngữ Java (Java Language Specification - JLS §9.8) định nghĩa một gia"
     },
     {
       "paragraph_id": 31,
-      "start": 172.88,
-      "end": 184.14,
-      "duration": 11.26,
-      "text_snippet": "Chuỗi Nguyên nhân - Kết quả\nKhai báo phương thức public của Object dưới dạng abstract $\\rightarrow$ Trình biên dịch nhận"
+      "start": 300.7,
+      "end": 302.1,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 32,
-      "start": 184.14,
-      "end": 184.2,
-      "duration": 0.06,
-      "text_snippet": "--"
+      "start": 302.1,
+      "end": 304.9,
+      "duration": 2.8,
+      "text_snippet": "Ví dụ Thực Tế: Ghi đè Lớp Object"
     },
     {
       "paragraph_id": 33,
-      "start": 184.2,
-      "end": 184.56,
-      "duration": 0.36,
-      "text_snippet": "Predicate<T>"
+      "start": 304.9,
+      "end": 306.3,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 34,
-      "start": 184.56,
-      "end": 190.68,
-      "duration": 6.11,
-      "text_snippet": "Predicate<T> đại diện cho một hàm nhận vào một đối số và trả về giá trị kiểu boolean.\nPhương thức Chức năng: boolean tes"
+      "start": 306.3,
+      "end": 308.4,
+      "duration": 2.1,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
     },
     {
       "paragraph_id": 35,
-      "start": 190.68,
-      "end": 194.76,
-      "duration": 4.09,
-      "text_snippet": "Giải thích Chi tiết và Ví dụ Code\n`java\nimport java.util.function.Predicate;\nimport java.util.List;\nimport java.util.str"
+      "start": 308.4,
+      "end": 328.7,
+      "duration": 20.3,
+      "text_snippet": "Khai báo phương thức public của Object dưới dạng abstract $\\rightarrow$ Trình bi"
     },
     {
       "paragraph_id": 36,
-      "start": 194.76,
-      "end": 217.0,
-      "duration": 22.24,
-      "text_snippet": "public class PredicateExample {\n    public static void main(String[] args) {\n        Predicate<String> isLong = s -> s.l"
+      "start": 328.7,
+      "end": 329.1,
+      "duration": 0.4,
+      "text_snippet": "Predicate"
     },
     {
       "paragraph_id": 37,
-      "start": 217.0,
-      "end": 226.23,
-      "duration": 9.23,
-      "text_snippet": "Các Biến thể Kiểu Nguyên thủy\nĐể tránh chi phí đóng hộp và mở hộp các kiểu nguyên thủy (ví dụ: từ int thành Integer), Ja"
+      "start": 329.05,
+      "end": 335.35,
+      "duration": 6.3,
+      "text_snippet": "Predicate<T> đại diện cho một hàm nhận vào một đối số và trả về giá trị kiểu boo"
     },
     {
       "paragraph_id": 38,
-      "start": 226.23,
-      "end": 226.75,
-      "duration": 0.51,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 335.35,
+      "end": 337.8,
+      "duration": 2.45,
+      "text_snippet": "Phương thức Chức năng: boolean test(T t)"
     },
     {
       "paragraph_id": 39,
-      "start": 226.75,
-      "end": 233.38,
-      "duration": 6.63,
-      "text_snippet": "public class PrimitivePredicateExample {\n    public static void main(String[] args) {\n        IntPredicate isEven = valu"
+      "start": 337.8,
+      "end": 343.05,
+      "duration": 5.25,
+      "text_snippet": "Trường hợp Sử dụng Phổ biến: Lọc các phần tử từ một Stream hoặc Collection."
     },
     {
       "paragraph_id": 40,
-      "start": 233.38,
-      "end": 233.44,
-      "duration": 0.06,
-      "text_snippet": "--"
+      "start": 343.05,
+      "end": 345.85,
+      "duration": 2.8,
+      "text_snippet": "Giải thích Chi tiết và Ví dụ Code"
     },
     {
       "paragraph_id": 41,
-      "start": 233.44,
-      "end": 233.86,
-      "duration": 0.42,
-      "text_snippet": "Function<T, R>"
+      "start": 345.95,
+      "end": 348.33,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 42,
-      "start": 233.86,
-      "end": 239.49,
-      "duration": 5.63,
-      "text_snippet": "Function<T, R> chuyển đổi một đầu vào kiểu T thành kết quả kiểu R.\nPhương thức Chức năng: R apply(T t)\nTrường hợp Sử dụn"
+      "start": 348.27,
+      "end": 350.72,
+      "duration": 2.45,
+      "text_snippet": "Các Biến thể Kiểu Nguyên thủy"
     },
     {
       "paragraph_id": 43,
-      "start": 239.49,
-      "end": 241.76,
-      "duration": 2.27,
-      "text_snippet": "Giải thích Chi tiết và Ví dụ Code\n`java\nimport java.util.function.Function;"
+      "start": 350.72,
+      "end": 359.81,
+      "duration": 9.09,
+      "text_snippet": "Để tránh chi phí đóng hộp và mở hộp các kiểu nguyên thủy (ví dụ: từ int thành In"
     },
     {
       "paragraph_id": 44,
-      "start": 241.76,
-      "end": 247.87,
-      "duration": 6.11,
-      "text_snippet": "public class FunctionExample {\n    public static void main(String[] args) {\n        Function<String, Integer> stringLeng"
+      "start": 359.81,
+      "end": 363.55,
+      "duration": 3.74,
+      "text_snippet": "IntPredicate: boolean test(int value)"
     },
     {
       "paragraph_id": 45,
-      "start": 247.87,
-      "end": 257.28,
-      "duration": 9.41,
-      "text_snippet": "// Chaining: andThen(), compose()\n        Function<Integer, Integer> multiplyBy2 = n -> n * 2;\n        \n        // andTh"
+      "start": 363.55,
+      "end": 367.36,
+      "duration": 3.81,
+      "text_snippet": "LongPredicate: boolean test(long value)"
     },
     {
       "paragraph_id": 46,
-      "start": 257.28,
-      "end": 267.48,
-      "duration": 10.2,
-      "text_snippet": "// compose: apply multiplyBy2 first, then stringLength (needs to match input type of stringLength)\n        Function<Inte"
+      "start": 367.36,
+      "end": 368.76,
+      "duration": 1.4,
+      "text_snippet": "DoublePredicate: boolean test(double value)"
     },
     {
       "paragraph_id": 47,
-      "start": 267.48,
-      "end": 284.03,
-      "duration": 16.55,
-      "text_snippet": "Các Biến thể Kiểu Nguyên thủy\nSử dụng Function<T, R> với các kiểu nguyên thủy đòi hỏi phải đóng hộp. Java cung cấp các F"
+      "start": 368.76,
+      "end": 370.16,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 48,
-      "start": 284.03,
-      "end": 284.55,
-      "duration": 0.51,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 370.16,
+      "end": 370.86,
+      "duration": 0.7,
+      "text_snippet": "Function<T, R>"
     },
     {
       "paragraph_id": 49,
-      "start": 284.55,
-      "end": 291.11,
-      "duration": 6.57,
-      "text_snippet": "public class PrimitiveFunctionExample {\n    public static void main(String[] args) {\n        IntToDoubleFunction half = "
+      "start": 370.86,
+      "end": 375.76,
+      "duration": 4.9,
+      "text_snippet": "Function<T, R> chuyển đổi một đầu vào kiểu T thành kết quả kiểu R."
     },
     {
       "paragraph_id": 50,
-      "start": 291.11,
-      "end": 291.17,
-      "duration": 0.06,
-      "text_snippet": "--"
+      "start": 375.76,
+      "end": 378.21,
+      "duration": 2.45,
+      "text_snippet": "Phương thức Chức năng: R apply(T t)"
     },
     {
       "paragraph_id": 51,
-      "start": 291.17,
-      "end": 291.51,
-      "duration": 0.33,
-      "text_snippet": "Consumer<T>"
+      "start": 378.21,
+      "end": 384.51,
+      "duration": 6.3,
+      "text_snippet": "Trường hợp Sử dụng Phổ biến: Ánh xạ (map) các đối tượng từ dạng này sang dạng kh"
     },
     {
       "paragraph_id": 52,
-      "start": 291.51,
-      "end": 299.1,
-      "duration": 7.6,
-      "text_snippet": "Consumer<T> thực hiện một thao tác trên một đầu vào kiểu T và không trả về kết quả (trả về void).\nPhương thức Chức năng:"
+      "start": 384.51,
+      "end": 387.31,
+      "duration": 2.8,
+      "text_snippet": "Giải thích Chi tiết và Ví dụ Code"
     },
     {
       "paragraph_id": 53,
-      "start": 299.1,
-      "end": 301.37,
-      "duration": 2.27,
-      "text_snippet": "Giải thích Chi tiết và Ví dụ Code\n`java\nimport java.util.function.Consumer;"
-    },
-    {
-      "paragraph_id": 54,
-      "start": 301.37,
-      "end": 307.42,
-      "duration": 6.05,
-      "text_snippet": "public class ConsumerExample {\n    public static void main(String[] args) {\n        Consumer<String> printUpper = s -> S"
-    },
-    {
-      "paragraph_id": 55,
-      "start": 307.42,
-      "end": 314.23,
-      "duration": 6.81,
-      "text_snippet": "// Chaining: andThen()\n        Consumer<String> printLength = s -> System.out.println(s.length());\n        Consumer<Stri"
-    },
-    {
-      "paragraph_id": 56,
-      "start": 314.23,
-      "end": 318.62,
-      "duration": 4.39,
-      "text_snippet": "Các Biến thể Kiểu Nguyên thủy\nIntConsumer: void accept(int value)\nLongConsumer: void accept(long value)\nDoubleConsumer: "
-    },
-    {
-      "paragraph_id": 57,
-      "start": 318.62,
-      "end": 319.14,
-      "duration": 0.51,
+      "start": 387.31,
+      "end": 388.71,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
+      "paragraph_id": 54,
+      "start": 388.71,
+      "end": 390.81,
+      "duration": 2.1,
+      "text_snippet": "Các Biến thể Kiểu Nguyên thủy"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 390.81,
+      "end": 400.96,
+      "duration": 10.15,
+      "text_snippet": "Sử dụng Function<T, R> với các kiểu nguyên thủy đòi hỏi phải đóng hộp. Java cung"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 400.96,
+      "end": 404.11,
+      "duration": 3.15,
+      "text_snippet": "Đầu vào Nguyên thủy: IntFunction<R> (R apply(int)), LongFunction<R>, DoubleFunct"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 404.11,
+      "end": 407.26,
+      "duration": 3.15,
+      "text_snippet": "Đầu ra Nguyên thủy: ToIntFunction<T> (int applyAsInt(T)), ToLongFunction<T>, ToD"
+    },
+    {
       "paragraph_id": 58,
-      "start": 319.14,
-      "end": 325.16,
-      "duration": 6.02,
-      "text_snippet": "public class PrimitiveConsumerExample {\n    public static void main(String[] args) {\n        IntConsumer printInt = val "
+      "start": 407.26,
+      "end": 411.81,
+      "duration": 4.55,
+      "text_snippet": "Nguyên thủy sang Nguyên thủy: IntToDoubleFunction (double applyAsDouble(int)), I"
     },
     {
       "paragraph_id": 59,
-      "start": 325.16,
-      "end": 325.22,
-      "duration": 0.06,
-      "text_snippet": "--"
+      "start": 411.81,
+      "end": 413.21,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 60,
-      "start": 325.22,
-      "end": 325.55,
-      "duration": 0.33,
-      "text_snippet": "Supplier<T>"
+      "start": 413.21,
+      "end": 413.61,
+      "duration": 0.4,
+      "text_snippet": "Consumer"
     },
     {
       "paragraph_id": 61,
-      "start": 325.55,
-      "end": 332.42,
-      "duration": 6.87,
-      "text_snippet": "Supplier<T> không nhận vào tham số nào và trả về một kết quả kiểu T.\nPhương thức Chức năng: T get()\nTrường hợp Sử dụng P"
+      "start": 413.56,
+      "end": 420.91,
+      "duration": 7.35,
+      "text_snippet": "Consumer<T> thực hiện một thao tác trên một đầu vào kiểu T và không trả về kết q"
     },
     {
       "paragraph_id": 62,
-      "start": 332.42,
-      "end": 335.66,
-      "duration": 3.24,
-      "text_snippet": "Giải thích Chi tiết và Ví dụ Code\n`java\nimport java.util.function.Supplier;\nimport java.time.LocalDateTime;"
+      "start": 420.91,
+      "end": 423.36,
+      "duration": 2.45,
+      "text_snippet": "Phương thức Chức năng: void accept(T t)"
     },
     {
       "paragraph_id": 63,
-      "start": 335.66,
-      "end": 341.86,
-      "duration": 6.2,
-      "text_snippet": "public class SupplierExample {\n    public static void main(String[] args) {\n        Supplier<LocalDateTime> currentTime "
+      "start": 423.36,
+      "end": 432.46,
+      "duration": 9.1,
+      "text_snippet": "Trường hợp Sử dụng Phổ biến: In dữ liệu, ghi vào cơ sở dữ liệu, hoặc sửa đổi trạ"
     },
     {
       "paragraph_id": 64,
-      "start": 341.86,
-      "end": 346.86,
-      "duration": 4.99,
-      "text_snippet": "Các Biến thể Kiểu Nguyên thủy\nIntSupplier: int getAsInt()\nLongSupplier: long getAsLong()\nDoubleSupplier: double getAsDou"
+      "start": 432.46,
+      "end": 435.26,
+      "duration": 2.8,
+      "text_snippet": "Giải thích Chi tiết và Ví dụ Code"
     },
     {
       "paragraph_id": 65,
-      "start": 346.86,
-      "end": 347.37,
-      "duration": 0.51,
+      "start": 435.26,
+      "end": 436.66,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 66,
-      "start": 347.37,
-      "end": 353.88,
-      "duration": 6.51,
-      "text_snippet": "public class PrimitiveSupplierExample {\n    public static void main(String[] args) {\n        IntSupplier diceRoller = ()"
+      "start": 436.66,
+      "end": 438.76,
+      "duration": 2.1,
+      "text_snippet": "Các Biến thể Kiểu Nguyên thủy"
     },
     {
       "paragraph_id": 67,
-      "start": 353.88,
-      "end": 353.94,
-      "duration": 0.06,
-      "text_snippet": "--"
+      "start": 438.76,
+      "end": 440.16,
+      "duration": 1.4,
+      "text_snippet": "IntConsumer: void accept(int value)"
     },
     {
       "paragraph_id": 68,
-      "start": 353.94,
-      "end": 354.42,
-      "duration": 0.48,
-      "text_snippet": "UnaryOperator<T>"
+      "start": 440.16,
+      "end": 441.56,
+      "duration": 1.4,
+      "text_snippet": "LongConsumer: void accept(long value)"
     },
     {
       "paragraph_id": 69,
-      "start": 354.42,
-      "end": 362.05,
-      "duration": 7.63,
-      "text_snippet": "UnaryOperator<T> là một Function<T, T> chuyên biệt, trong đó kiểu dữ liệu của đầu vào và đầu ra là giống nhau.\nPhương th"
+      "start": 441.56,
+      "end": 442.96,
+      "duration": 1.4,
+      "text_snippet": "DoubleConsumer: void accept(double value)"
     },
     {
       "paragraph_id": 70,
-      "start": 362.05,
-      "end": 366.01,
-      "duration": 3.96,
-      "text_snippet": "Giải thích Chi tiết và Ví dụ Code\n`java\nimport java.util.function.UnaryOperator;\nimport java.util.ArrayList;\nimport java"
+      "start": 442.96,
+      "end": 444.36,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 71,
-      "start": 366.01,
-      "end": 372.67,
-      "duration": 6.66,
-      "text_snippet": "public class UnaryOperatorExample {\n    public static void main(String[] args) {\n        UnaryOperator<String> sanitize "
+      "start": 444.46,
+      "end": 450.87,
+      "duration": 6.41,
+      "text_snippet": "Supplier"
     },
     {
       "paragraph_id": 72,
-      "start": 372.67,
-      "end": 377.21,
-      "duration": 4.54,
-      "text_snippet": "List<String> list = new ArrayList<>(List.of(\"  A \", \" B  \"));\n        list.replaceAll(sanitize);\n        System.out.prin"
+      "start": 450.87,
+      "end": 456.12,
+      "duration": 5.25,
+      "text_snippet": "Supplier<T> không nhận vào tham số nào và trả về một kết quả kiểu T."
     },
     {
       "paragraph_id": 73,
-      "start": 377.21,
-      "end": 382.02,
-      "duration": 4.81,
-      "text_snippet": "Các Biến thể Kiểu Nguyên thủy\nIntUnaryOperator: int applyAsInt(int)\nLongUnaryOperator: long applyAsLong(long)\nDoubleUnar"
+      "start": 450.87,
+      "end": 453.62,
+      "duration": 2.75,
+      "text_snippet": "Phương thức Chức năng: T get()"
     },
     {
       "paragraph_id": 74,
-      "start": 382.02,
-      "end": 382.53,
-      "duration": 0.51,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 453.62,
+      "end": 462.3,
+      "duration": 8.68,
+      "text_snippet": "Trường hợp Sử dụng Phổ biến: Tạo giá trị trì hoãn (lazy generation), các nhà máy"
     },
     {
       "paragraph_id": 75,
-      "start": 382.53,
-      "end": 388.8,
-      "duration": 6.26,
-      "text_snippet": "public class PrimitiveUnaryOperatorExample {\n    public static void main(String[] args) {\n        IntUnaryOperator squar"
+      "start": 462.3,
+      "end": 465.05,
+      "duration": 2.75,
+      "text_snippet": "Giải thích Chi tiết và Ví dụ Code"
     },
     {
       "paragraph_id": 76,
-      "start": 388.8,
-      "end": 388.86,
-      "duration": 0.06,
-      "text_snippet": "--"
+      "start": 465.05,
+      "end": 466.45,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 77,
-      "start": 388.86,
-      "end": 389.37,
-      "duration": 0.51,
-      "text_snippet": "BinaryOperator<T>"
+      "start": 466.45,
+      "end": 468.55,
+      "duration": 2.1,
+      "text_snippet": "Các Biến thể Kiểu Nguyên thủy"
     },
     {
       "paragraph_id": 78,
-      "start": 389.37,
-      "end": 397.63,
-      "duration": 8.26,
-      "text_snippet": "BinaryOperator<T> là một BiFunction<T, T, T> chuyên biệt, trong đó hai đầu vào và kết quả trả về đều chia sẻ chung một k"
+      "start": 468.55,
+      "end": 469.6,
+      "duration": 1.05,
+      "text_snippet": "IntSupplier: int getAsInt()"
     },
     {
       "paragraph_id": 79,
-      "start": 397.63,
-      "end": 400.08,
-      "duration": 2.45,
-      "text_snippet": "Giải thích Chi tiết và Ví dụ Code\n`java\nimport java.util.function.BinaryOperator;"
+      "start": 469.6,
+      "end": 470.65,
+      "duration": 1.05,
+      "text_snippet": "LongSupplier: long getAsLong()"
     },
     {
       "paragraph_id": 80,
-      "start": 400.08,
-      "end": 405.8,
-      "duration": 5.72,
-      "text_snippet": "public class BinaryOperatorExample {\n    public static void main(String[] args) {\n        BinaryOperator<Integer> sum = "
+      "start": 470.65,
+      "end": 471.7,
+      "duration": 1.05,
+      "text_snippet": "DoubleSupplier: double getAsDouble()"
     },
     {
       "paragraph_id": 81,
-      "start": 405.8,
-      "end": 411.46,
-      "duration": 5.66,
-      "text_snippet": "// Các phương thức trợ giúp tĩnh: minBy, maxBy\n        BinaryOperator<Integer> min = BinaryOperator.minBy(Integer::compa"
+      "start": 471.7,
+      "end": 472.75,
+      "duration": 1.05,
+      "text_snippet": "BooleanSupplier: boolean getAsBoolean()"
     },
     {
       "paragraph_id": 82,
-      "start": 411.46,
-      "end": 416.94,
-      "duration": 5.48,
-      "text_snippet": "Các Biến thể Kiểu Nguyên thủy\nIntBinaryOperator: int applyAsInt(int, int)\nLongBinaryOperator: long applyAsLong(long, lon"
+      "start": 472.75,
+      "end": 474.15,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 83,
-      "start": 416.94,
-      "end": 417.45,
-      "duration": 0.51,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 474.15,
+      "end": 474.55,
+      "duration": 0.4,
+      "text_snippet": "UnaryOperator"
     },
     {
       "paragraph_id": 84,
-      "start": 417.45,
-      "end": 423.9,
-      "duration": 6.45,
-      "text_snippet": "public class PrimitiveBinaryOperatorExample {\n    public static void main(String[] args) {\n        IntBinaryOperator pro"
+      "start": 474.5,
+      "end": 481.85,
+      "duration": 7.35,
+      "text_snippet": "UnaryOperator<T> là một Function<T, T> chuyên biệt, trong đó kiểu dữ liệu của đầ"
     },
     {
       "paragraph_id": 85,
-      "start": 423.9,
-      "end": 423.96,
-      "duration": 0.06,
-      "text_snippet": "--"
+      "start": 481.85,
+      "end": 484.3,
+      "duration": 2.45,
+      "text_snippet": "Phương thức Chức năng: T apply(T t)"
     },
     {
       "paragraph_id": 86,
-      "start": 423.96,
-      "end": 424.48,
-      "duration": 0.51,
-      "text_snippet": "BiPredicate<T, U>"
+      "start": 484.4,
+      "end": 490.24,
+      "duration": 5.84,
+      "text_snippet": "Trường hợp Sử dụng Phổ biến: Sửa đổi trực tiếp một giá trị hoặc thay thế các phầ"
     },
     {
       "paragraph_id": 87,
-      "start": 424.48,
-      "end": 431.31,
-      "duration": 6.84,
-      "text_snippet": "BiPredicate<T, U> nhận vào hai đối số thuộc các kiểu T và U, sau đó trả về một giá trị kiểu boolean.\nPhương thức Chức nă"
+      "start": 490.19,
+      "end": 492.94,
+      "duration": 2.75,
+      "text_snippet": "Giải thích Chi tiết và Ví dụ Code"
     },
     {
       "paragraph_id": 88,
-      "start": 431.31,
-      "end": 433.67,
-      "duration": 2.36,
-      "text_snippet": "Giải thích Chi tiết và Ví dụ Code\n`java\nimport java.util.function.BiPredicate;"
+      "start": 492.94,
+      "end": 495.32,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 89,
-      "start": 433.67,
-      "end": 441.51,
-      "duration": 7.84,
-      "text_snippet": "public class BiPredicateExample {\n    public static void main(String[] args) {\n        BiPredicate<String, String> conta"
+      "start": 495.31,
+      "end": 497.76,
+      "duration": 2.45,
+      "text_snippet": "Các Biến thể Kiểu Nguyên thủy"
     },
     {
       "paragraph_id": 90,
-      "start": 441.51,
-      "end": 441.57,
-      "duration": 0.06,
-      "text_snippet": "--"
+      "start": 497.76,
+      "end": 501.37,
+      "duration": 3.61,
+      "text_snippet": "IntUnaryOperator: int applyAsInt(int)"
     },
     {
       "paragraph_id": 91,
-      "start": 441.57,
-      "end": 442.15,
-      "duration": 0.57,
-      "text_snippet": "BiFunction<T, U, R>"
+      "start": 501.37,
+      "end": 502.42,
+      "duration": 1.05,
+      "text_snippet": "LongUnaryOperator: long applyAsLong(long)"
     },
     {
       "paragraph_id": 92,
-      "start": 442.15,
-      "end": 448.96,
-      "duration": 6.81,
-      "text_snippet": "BiFunction<T, U, R> nhận vào hai đối số thuộc các kiểu T và U, sau đó tạo ra một kết quả kiểu R.\nPhương thức Chức năng: "
+      "start": 502.42,
+      "end": 503.47,
+      "duration": 1.05,
+      "text_snippet": "DoubleUnaryOperator: double applyAsDouble(double)"
     },
     {
       "paragraph_id": 93,
-      "start": 448.96,
-      "end": 451.29,
-      "duration": 2.33,
-      "text_snippet": "Giải thích Chi tiết và Ví dụ Code\n`java\nimport java.util.function.BiFunction;"
+      "start": 503.47,
+      "end": 504.87,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 94,
-      "start": 451.29,
-      "end": 458.73,
-      "duration": 7.44,
-      "text_snippet": "public class BiFunctionExample {\n    public static void main(String[] args) {\n        BiFunction<String, Integer, String"
+      "start": 504.87,
+      "end": 505.27,
+      "duration": 0.4,
+      "text_snippet": "BinaryOperator"
     },
     {
       "paragraph_id": 95,
-      "start": 458.73,
-      "end": 458.79,
-      "duration": 0.06,
-      "text_snippet": "--"
+      "start": 505.22,
+      "end": 514.67,
+      "duration": 9.45,
+      "text_snippet": "BinaryOperator<T> là một BiFunction<T, T, T> chuyên biệt, trong đó hai đầu vào v"
     },
     {
       "paragraph_id": 96,
-      "start": 458.79,
-      "end": 459.28,
-      "duration": 0.48,
-      "text_snippet": "BiConsumer<T, U>"
+      "start": 514.77,
+      "end": 519.62,
+      "duration": 4.85,
+      "text_snippet": "Phương thức Chức năng: T apply(T t1, T t2)"
     },
     {
       "paragraph_id": 97,
-      "start": 459.28,
-      "end": 466.21,
-      "duration": 6.93,
-      "text_snippet": "BiConsumer<T, U> nhận vào hai đối số thuộc các kiểu T và U và không trả về kết quả (void).\nPhương thức Chức năng: void a"
+      "start": 519.57,
+      "end": 525.86,
+      "duration": 6.29,
+      "text_snippet": "Trường hợp Sử dụng Phổ biến: Gom nhóm (reducing) các tập hợp hoặc tính toán gộp "
     },
     {
       "paragraph_id": 98,
-      "start": 466.21,
-      "end": 469.99,
-      "duration": 3.78,
-      "text_snippet": "Giải thích Chi tiết và Ví dụ Code\n`java\nimport java.util.function.BiConsumer;\nimport java.util.HashMap;\nimport java.util"
+      "start": 525.86,
+      "end": 528.61,
+      "duration": 2.75,
+      "text_snippet": "Giải thích Chi tiết và Ví dụ Code"
     },
     {
       "paragraph_id": 99,
-      "start": 469.99,
-      "end": 475.74,
-      "duration": 5.75,
-      "text_snippet": "public class BiConsumerExample {\n    public static void main(String[] args) {\n        Map<String, Integer> map = new Has"
+      "start": 528.61,
+      "end": 530.99,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 100,
-      "start": 475.74,
-      "end": 480.13,
-      "duration": 4.39,
-      "text_snippet": "BiConsumer<String, Integer> printer = (key, value) -> System.out.println(key + \" has quantity \" + value);\n        map.fo"
+      "start": 530.99,
+      "end": 533.44,
+      "duration": 2.45,
+      "text_snippet": "Các Biến thể Kiểu Nguyên thủy"
     },
     {
       "paragraph_id": 101,
-      "start": 480.13,
-      "end": 480.19,
-      "duration": 0.06,
-      "text_snippet": "--"
+      "start": 533.54,
+      "end": 537.83,
+      "duration": 4.29,
+      "text_snippet": "IntBinaryOperator: int applyAsInt(int, int)"
     },
     {
       "paragraph_id": 102,
-      "start": 480.19,
-      "end": 481.25,
-      "duration": 1.06,
-      "text_snippet": "Đầu vào là gì? (What is the input?)"
+      "start": 537.77,
+      "end": 542.47,
+      "duration": 4.7,
+      "text_snippet": "LongBinaryOperator: long applyAsLong(long, long)"
     },
     {
       "paragraph_id": 103,
-      "start": 481.25,
-      "end": 483.39,
-      "duration": 2.15,
-      "text_snippet": "Đầu vào là gì? là một câu hỏi cốt lõi để thấu hiểu Giao Diện Chức Năng."
+      "start": 542.48,
+      "end": 547.89,
+      "duration": 5.41,
+      "text_snippet": "DoubleBinaryOperator: double applyAsDouble(double, double)"
     },
     {
       "paragraph_id": 104,
-      "start": 483.39,
-      "end": 491.14,
-      "duration": 7.75,
-      "text_snippet": "Giải thích Chi tiết và Ví dụ Code\nKhi thiết kế hoặc lựa chọn một giao diện chức năng, hãy luôn phân tích:\nCó bao nhiêu đ"
+      "start": 547.89,
+      "end": 550.27,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 105,
-      "start": 491.14,
-      "end": 495.83,
-      "duration": 4.69,
-      "text_snippet": "Ví dụ:\nSupplier<T> có không đầu vào.\nFunction<T, R> có một đầu vào.\nBiFunction<T, U, R> có hai đầu vào.\nIntConsumer có m"
+      "start": 550.26,
+      "end": 553.21,
+      "duration": 2.95,
+      "text_snippet": "BiPredicate<T, U>"
     },
     {
       "paragraph_id": 106,
-      "start": 495.83,
-      "end": 495.89,
-      "duration": 0.06,
-      "text_snippet": "--"
+      "start": 553.21,
+      "end": 560.91,
+      "duration": 7.7,
+      "text_snippet": "BiPredicate<T, U> nhận vào hai đối số thuộc các kiểu T và U, sau đó trả về một g"
     },
     {
       "paragraph_id": 107,
-      "start": 495.89,
-      "end": 498.37,
-      "duration": 2.48,
-      "text_snippet": "Tại sao các Triển khai Chuyên biệt cho Kiểu Nguyên thủy Ngăn ngừa Chi phí Đóng hộp"
+      "start": 560.91,
+      "end": 564.06,
+      "duration": 3.15,
+      "text_snippet": "Phương thức Chức năng: boolean test(T t, U u)"
     },
     {
       "paragraph_id": 108,
-      "start": 498.37,
-      "end": 533.66,
-      "duration": 35.28,
-      "text_snippet": "Các kiểu generic trong Java phải trải qua quá trình xóa kiểu, nghĩa là JVM chỉ hoạt động trên các tham chiếu có kiểu jav"
+      "start": 564.06,
+      "end": 570.01,
+      "duration": 5.95,
+      "text_snippet": "Trường hợp Sử dụng Phổ biến: Kiểm tra mối quan hệ giữa hai đối tượng khác nhau."
     },
     {
       "paragraph_id": 109,
-      "start": 533.66,
-      "end": 534.17,
-      "duration": 0.51,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 570.01,
+      "end": 572.81,
+      "duration": 2.8,
+      "text_snippet": "Giải thích Chi tiết và Ví dụ Code"
     },
     {
       "paragraph_id": 110,
-      "start": 534.17,
-      "end": 536.65,
-      "duration": 2.48,
-      "text_snippet": "Ví dụ Thực Tế: Chi phí Đóng hộp so với Các Triển khai Chuyên biệt kiểu Nguyên thủy"
-    },
-    {
-      "paragraph_id": 111,
-      "start": 536.65,
-      "end": 537.17,
-      "duration": 0.51,
+      "start": 572.81,
+      "end": 574.21,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
+      "paragraph_id": 111,
+      "start": 574.31,
+      "end": 586.55,
+      "duration": 12.24,
+      "text_snippet": "BiFunction<T, U, R>"
+    },
+    {
       "paragraph_id": 112,
-      "start": 537.17,
-      "end": 567.4,
-      "duration": 30.23,
-      "text_snippet": "public class BoxingOverheadDemo {\n    public static void main(String[] args) {\n        int iterations = 10_000_000;\n    "
+      "start": 586.55,
+      "end": 594.6,
+      "duration": 8.05,
+      "text_snippet": "BiFunction<T, U, R> nhận vào hai đối số thuộc các kiểu T và U, sau đó tạo ra một"
     },
     {
       "paragraph_id": 113,
-      "start": 567.4,
-      "end": 577.6,
-      "duration": 10.2,
-      "text_snippet": "Chuỗi Nguyên nhân - Kết quả\nSử dụng tham số kiểu chung $\\rightarrow$ Trình biên dịch bắt buộc sử dụng đối số kiểu tham c"
+      "start": 586.55,
+      "end": 591.38,
+      "duration": 4.83,
+      "text_snippet": "Phương thức Chức năng: R apply(T t, U u)"
     },
     {
       "paragraph_id": 114,
-      "start": 577.6,
-      "end": 577.66,
-      "duration": 0.06,
-      "text_snippet": "--"
+      "start": 591.38,
+      "end": 596.56,
+      "duration": 5.18,
+      "text_snippet": "Trường hợp Sử dụng Phổ biến: Kết hợp hai đầu vào riêng biệt thành một biểu diễn "
     },
     {
       "paragraph_id": 115,
-      "start": 577.66,
-      "end": 578.2,
-      "duration": 0.54,
-      "text_snippet": "Các lỗi thường gặp"
+      "start": 596.55,
+      "end": 599.3,
+      "duration": 2.75,
+      "text_snippet": "Giải thích Chi tiết và Ví dụ Code"
     },
     {
       "paragraph_id": 116,
-      "start": 578.2,
-      "end": 592.0,
-      "duration": 13.8,
-      "text_snippet": "Chi phí Tự động Đóng hộp / Mở hộp (Autoboxing/Unboxing)\nSử dụng các giao diện chức năng dựa trên lớp bao bọc như Functio"
+      "start": 599.3,
+      "end": 600.7,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 117,
-      "start": 592.0,
-      "end": 596.12,
-      "duration": 4.12,
-      "text_snippet": "// Good: no autoboxing\nIntUnaryOperator goodSquare = x -> x * x;\nfor (int i = 0; i < 1_000_000; i++) {\n    goodSquare.ap"
+      "start": 600.7,
+      "end": 601.4,
+      "duration": 0.7,
+      "text_snippet": "BiConsumer<T, U>"
     },
     {
       "paragraph_id": 118,
-      "start": 596.12,
-      "end": 615.0,
-      "duration": 18.88,
-      "text_snippet": "Ngoại lệ NullPointerException với các Biến thể Nguyên thủy\nIf a lambda returns null or a wrapper referencing null to a p"
+      "start": 601.4,
+      "end": 608.4,
+      "duration": 7.0,
+      "text_snippet": "BiConsumer<T, U> nhận vào hai đối số thuộc các kiểu T và U và không trả về kết q"
     },
     {
       "paragraph_id": 119,
-      "start": 615.0,
-      "end": 625.62,
-      "duration": 10.62,
-      "text_snippet": "Có Nhiều hơn Một Phương thức Trừu tượng\nKhai báo nhiều phương thức trừu tượng trong một giao diện được chú thích bằng @F"
+      "start": 608.4,
+      "end": 611.55,
+      "duration": 3.15,
+      "text_snippet": "Phương thức Chức năng: void accept(T t, U u)"
     },
     {
       "paragraph_id": 120,
-      "start": 625.62,
-      "end": 635.31,
-      "duration": 9.68,
-      "text_snippet": "Nhầm lẫn các phương thức mặc định/tĩnh với các phương thức trừu tượng\nCác phương thức mặc định (default) và phương thức "
+      "start": 611.55,
+      "end": 618.2,
+      "duration": 6.65,
+      "text_snippet": "Trường hợp Sử dụng Phổ biến: Duyệt qua các phần tử của một Map bằng cách sử dụng"
     },
     {
       "paragraph_id": 121,
-      "start": 635.31,
-      "end": 635.37,
-      "duration": 0.06,
-      "text_snippet": "--"
+      "start": 618.3,
+      "end": 621.05,
+      "duration": 2.75,
+      "text_snippet": "Giải thích Chi tiết và Ví dụ Code"
     },
     {
       "paragraph_id": 122,
-      "start": 635.37,
-      "end": 636.24,
-      "duration": 0.88,
-      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
+      "start": 621.0,
+      "end": 623.38,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 123,
-      "start": 636.24,
-      "end": 642.02,
-      "duration": 5.78,
-      "text_snippet": "Những khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch?\nNhững khái niệm nào ở đây ảnh hưởng đến hành vi tại th"
+      "start": 623.37,
+      "end": 629.72,
+      "duration": 6.35,
+      "text_snippet": "Đầu vào là gì? (What is the input?)"
+    },
+    {
+      "paragraph_id": 124,
+      "start": 629.72,
+      "end": 633.46,
+      "duration": 3.74,
+      "text_snippet": "Đầu vào là gì? là một câu hỏi cốt lõi để thấu hiểu Giao Diện Chức Năng."
+    },
+    {
+      "paragraph_id": 125,
+      "start": 633.46,
+      "end": 636.22,
+      "duration": 2.76,
+      "text_snippet": "Giải thích Chi tiết và Ví dụ Code"
+    },
+    {
+      "paragraph_id": 126,
+      "start": 636.22,
+      "end": 641.47,
+      "duration": 5.25,
+      "text_snippet": "Khi thiết kế hoặc lựa chọn một giao diện chức năng, hãy luôn phân tích:"
+    },
+    {
+      "paragraph_id": 127,
+      "start": 641.47,
+      "end": 644.62,
+      "duration": 3.15,
+      "text_snippet": "Có bao nhiêu đầu vào? (Không, Một, hoặc Hai)"
+    },
+    {
+      "paragraph_id": 128,
+      "start": 644.62,
+      "end": 652.32,
+      "duration": 7.7,
+      "text_snippet": "Các kiểu đầu vào là gì? (Các đối tượng kiểu chung T, U, hoặc các kiểu nguyên thủ"
+    },
+    {
+      "paragraph_id": 129,
+      "start": 652.32,
+      "end": 653.02,
+      "duration": 0.7,
+      "text_snippet": "Ví dụ:"
+    },
+    {
+      "paragraph_id": 130,
+      "start": 653.02,
+      "end": 654.77,
+      "duration": 1.75,
+      "text_snippet": "Supplier<T> có không đầu vào."
+    },
+    {
+      "paragraph_id": 131,
+      "start": 654.87,
+      "end": 658.39,
+      "duration": 3.52,
+      "text_snippet": "Function<T, R> có một đầu vào."
+    },
+    {
+      "paragraph_id": 132,
+      "start": 658.35,
+      "end": 662.85,
+      "duration": 4.5,
+      "text_snippet": "BiFunction<T, U, R> có hai đầu vào."
+    },
+    {
+      "paragraph_id": 133,
+      "start": 662.85,
+      "end": 666.5,
+      "duration": 3.65,
+      "text_snippet": "IntConsumer có một đầu vào là kiểu nguyên thủy int."
+    },
+    {
+      "paragraph_id": 134,
+      "start": 666.5,
+      "end": 671.01,
+      "duration": 4.51,
+      "text_snippet": "Tại sao các Triển khai Chuyên biệt cho Kiểu Nguyên thủy Ngăn ngừa Chi phí Đóng h"
+    },
+    {
+      "paragraph_id": 135,
+      "start": 671.01,
+      "end": 733.4,
+      "duration": 62.39,
+      "text_snippet": "Các kiểu generic trong Java phải trải qua quá trình xóa kiểu, nghĩa là JVM chỉ h"
+    },
+    {
+      "paragraph_id": 136,
+      "start": 733.4,
+      "end": 734.8,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 137,
+      "start": 734.8,
+      "end": 741.1,
+      "duration": 6.3,
+      "text_snippet": "Ví dụ Thực Tế: Chi phí Đóng hộp so với Các Triển khai Chuyên biệt kiểu Nguyên th"
+    },
+    {
+      "paragraph_id": 138,
+      "start": 741.1,
+      "end": 742.5,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 139,
+      "start": 742.5,
+      "end": 744.6,
+      "duration": 2.1,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
+    },
+    {
+      "paragraph_id": 140,
+      "start": 744.6,
+      "end": 767.0,
+      "duration": 22.4,
+      "text_snippet": "Sử dụng tham số kiểu chung $\\rightarrow$ Trình biên dịch bắt buộc sử dụng đối số"
+    },
+    {
+      "paragraph_id": 141,
+      "start": 767.1,
+      "end": 768.95,
+      "duration": 1.85,
+      "text_snippet": "Các lỗi thường gặp"
+    },
+    {
+      "paragraph_id": 142,
+      "start": 768.9,
+      "end": 774.46,
+      "duration": 5.56,
+      "text_snippet": "1. Chi phí Tự động Đóng hộp / Mở hộp (Autoboxing/Unboxing)"
+    },
+    {
+      "paragraph_id": 143,
+      "start": 774.46,
+      "end": 787.02,
+      "duration": 12.56,
+      "text_snippet": "Sử dụng các giao diện chức năng dựa trên lớp bao bọc như Function<Integer, Integ"
+    },
+    {
+      "paragraph_id": 144,
+      "start": 787.02,
+      "end": 789.4,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 145,
+      "start": 789.4,
+      "end": 793.49,
+      "duration": 4.09,
+      "text_snippet": "2. Ngoại lệ NullPointerException với các Biến thể Nguyên thủy"
+    },
+    {
+      "paragraph_id": 146,
+      "start": 793.59,
+      "end": 803.31,
+      "duration": 9.72,
+      "text_snippet": "If a lambda returns null or a wrapper referencing null to a primitive functional"
+    },
+    {
+      "paragraph_id": 147,
+      "start": 803.26,
+      "end": 805.64,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 148,
+      "start": 805.64,
+      "end": 811.28,
+      "duration": 5.64,
+      "text_snippet": "Wait, the comment was in English, let's translate the comment as well:"
+    },
+    {
+      "paragraph_id": 149,
+      "start": 811.27,
+      "end": 813.65,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 150,
+      "start": 813.65,
+      "end": 816.99,
+      "duration": 3.34,
+      "text_snippet": "3. Có Nhiều hơn Một Phương thức Trừu tượng"
+    },
+    {
+      "paragraph_id": 151,
+      "start": 817.09,
+      "end": 823.21,
+      "duration": 6.12,
+      "text_snippet": "Khai báo nhiều phương thức trừu tượng trong một giao diện được chú thích bằng @F"
+    },
+    {
+      "paragraph_id": 152,
+      "start": 823.16,
+      "end": 825.54,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 153,
+      "start": 825.54,
+      "end": 836.45,
+      "duration": 10.91,
+      "text_snippet": "4. Nhầm lẫn các phương thức mặc định/tĩnh với các phương thức trừu tượng"
+    },
+    {
+      "paragraph_id": 154,
+      "start": 836.45,
+      "end": 844.06,
+      "duration": 7.61,
+      "text_snippet": "Các phương thức mặc định (default) và phương thức tĩnh (static) không phải là ph"
+    },
+    {
+      "paragraph_id": 155,
+      "start": 844.06,
+      "end": 846.5,
+      "duration": 2.44,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
+    },
+    {
+      "paragraph_id": 156,
+      "start": 846.5,
+      "end": 851.75,
+      "duration": 5.25,
+      "text_snippet": "Những khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch?"
+    },
+    {
+      "paragraph_id": 157,
+      "start": 851.75,
+      "end": 857.0,
+      "duration": 5.25,
+      "text_snippet": "Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy?"
+    },
+    {
+      "paragraph_id": 158,
+      "start": 857.0,
+      "end": 861.55,
+      "duration": 4.55,
+      "text_snippet": "Những khái niệm nào ở đây dễ trở thành bẫy khi phỏng vấn?"
     }
   ]
 }

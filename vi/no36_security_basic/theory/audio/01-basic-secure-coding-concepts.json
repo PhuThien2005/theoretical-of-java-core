@@ -1,679 +1,749 @@
 {
   "lesson": "01-basic-secure-coding-concepts",
-  "total_duration_seconds": 914.47,
-  "total_paragraphs": 96,
+  "total_duration_seconds": 981.7,
+  "total_paragraphs": 106,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 2.26,
-      "duration": 2.26,
+      "start": 0.1,
+      "end": 4.94,
+      "duration": 4.84,
       "text_snippet": "Bảo Mật Cơ Bản - Phần 1 (Basic Security - Part 1)"
     },
     {
       "paragraph_id": 2,
-      "start": 2.26,
-      "end": 3.74,
-      "duration": 1.48,
+      "start": 4.89,
+      "end": 7.88,
+      "duration": 2.99,
       "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
     },
     {
       "paragraph_id": 3,
-      "start": 3.74,
-      "end": 12.77,
-      "duration": 9.04,
-      "text_snippet": "Tài liệu này trình bày một phần trọng tâm của Bảo mật Cơ bản (Basic Security). Hãy nghiên cứu từng khái niệm dưới dạng m"
+      "start": 7.88,
+      "end": 19.92,
+      "duration": 12.04,
+      "text_snippet": "Tài liệu này trình bày một phần trọng tâm của Bảo mật Cơ bản (Basic Security). H"
     },
     {
       "paragraph_id": 4,
-      "start": 12.77,
-      "end": 14.3,
-      "duration": 1.52,
+      "start": 19.91,
+      "end": 23.17,
+      "duration": 3.26,
       "text_snippet": "Khung Nội Dung (Outline Coverage)"
     },
     {
       "paragraph_id": 5,
-      "start": 14.3,
-      "end": 55.06,
-      "duration": 40.77,
-      "text_snippet": "Basic secure coding — Thực hành viết mã nguồn an toàn chống lại các lỗ hổng và nguy cơ khai thác bảo mật.\nHashing — Hash"
+      "start": 23.18,
+      "end": 29.47,
+      "duration": 6.29,
+      "text_snippet": "Basic secure coding — Thực hành viết mã nguồn an toàn chống lại các lỗ hổng và n"
     },
     {
       "paragraph_id": 6,
-      "start": 55.06,
-      "end": 56.59,
-      "duration": 1.52,
-      "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
+      "start": 29.56,
+      "end": 35.23,
+      "duration": 5.67,
+      "text_snippet": "Hashing — Hashing: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 7,
-      "start": 56.59,
-      "end": 58.71,
-      "duration": 2.12,
-      "text_snippet": "Lập trình an toàn cơ bản (Basic secure coding)"
+      "start": 35.19,
+      "end": 49.05,
+      "duration": 13.86,
+      "text_snippet": "MessageDigest — Lớp cung cấp chức năng của các thuật toán băm mật mã (SHA-256, M"
     },
     {
       "paragraph_id": 8,
-      "start": 58.71,
-      "end": 63.0,
-      "duration": 4.29,
-      "text_snippet": "Lập trình an toàn cơ bản — Thực hành viết mã chống lại các lỗ hổng bảo mật và khai thác mạng."
+      "start": 49.05,
+      "end": 53.95,
+      "duration": 4.9,
+      "text_snippet": "SHA-256 — Thuật toán băm mật mã tạo ra giá trị băm 256-bit (32-byte)."
     },
     {
       "paragraph_id": 9,
-      "start": 63.0,
-      "end": 63.6,
-      "duration": 0.6,
-      "text_snippet": "Băm (Hashing)"
+      "start": 49.05,
+      "end": 55.05,
+      "duration": 6.0,
+      "text_snippet": "Base64 — Phương thức mã hóa dữ liệu nhị phân thành chuỗi ký tự văn bản ASCII."
     },
     {
       "paragraph_id": 10,
-      "start": 63.6,
-      "end": 73.97,
-      "duration": 10.38,
-      "text_snippet": "Băm ánh xạ dữ liệu đầu vào có kích thước tùy ý thành một chuỗi bit có kích thước cố định (digest). Đây là hàm một chiều,"
+      "start": 55.05,
+      "end": 62.49,
+      "duration": 7.44,
+      "text_snippet": "Basic encryption/decryption — Mã hóa đối xứng/bất đối xứng bảo vệ dữ liệu khi lư"
     },
     {
       "paragraph_id": 11,
-      "start": 73.97,
-      "end": 82.14,
-      "duration": 8.16,
-      "text_snippet": "Khái niệm này quan trọng vì các hàm băm mật mã (như SHA-256) được sử dụng để xác minh tính toàn vẹn của dữ liệu, tạo chữ"
+      "start": 62.59,
+      "end": 69.25,
+      "duration": 6.66,
+      "text_snippet": "KeyStore — Kho lưu trữ an toàn chứa các khóa mật mã (private/public key) và chứn"
     },
     {
       "paragraph_id": 12,
-      "start": 82.14,
-      "end": 82.92,
-      "duration": 0.78,
-      "text_snippet": "Kiểm tra thực tế:"
+      "start": 69.2,
+      "end": 75.62,
+      "duration": 6.42,
+      "text_snippet": "Basic SSL/TLS — Giao thức mật mã đảm bảo an toàn và mã hóa đường truyền mạng."
     },
     {
       "paragraph_id": 13,
-      "start": 82.92,
-      "end": 91.13,
-      "duration": 8.21,
-      "text_snippet": "Định nghĩa Hashing trong một câu.\nNhận diện Hashing trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn.\nGiải thíc"
+      "start": 75.62,
+      "end": 82.16,
+      "duration": 6.54,
+      "text_snippet": "Input validation — Lọc và xác thực đầu vào từ người dùng để phòng chống các lỗ h"
     },
     {
       "paragraph_id": 14,
-      "start": 91.13,
-      "end": 92.51,
-      "duration": 1.38,
-      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+      "start": 82.16,
+      "end": 90.81,
+      "duration": 8.65,
+      "text_snippet": "Avoid SQL Injection — Avoid SQL Injection: Cung cấp các quy tắc và cơ chế hoạt đ"
     },
     {
       "paragraph_id": 15,
-      "start": 92.51,
-      "end": 96.34,
-      "duration": 3.83,
-      "text_snippet": "Khi đọc mã nguồn, hãy hỏi: Hashing thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+      "start": 90.81,
+      "end": 93.63,
+      "duration": 2.82,
+      "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
     },
     {
       "paragraph_id": 16,
-      "start": 96.34,
-      "end": 96.94,
-      "duration": 0.6,
-      "text_snippet": "MessageDigest"
+      "start": 93.74,
+      "end": 103.57,
+      "duration": 9.83,
+      "text_snippet": "Lập trình an toàn cơ bản (Basic secure coding)"
     },
     {
       "paragraph_id": 17,
-      "start": 96.94,
-      "end": 104.23,
-      "duration": 7.29,
-      "text_snippet": "MessageDigest là một lớp thuộc gói java.security cung cấp chức năng của các thuật toán băm mật mã như SHA-256 hoặc MD5 đ"
+      "start": 103.56,
+      "end": 111.26,
+      "duration": 7.7,
+      "text_snippet": "Lập trình an toàn cơ bản — Thực hành viết mã chống lại các lỗ hổng bảo mật và kh"
     },
     {
       "paragraph_id": 18,
-      "start": 104.23,
-      "end": 104.55,
-      "duration": 0.32,
-      "text_snippet": "SHA-256"
+      "start": 103.56,
+      "end": 105.77,
+      "duration": 2.21,
+      "text_snippet": "Băm (Hashing)"
     },
     {
       "paragraph_id": 19,
-      "start": 104.55,
-      "end": 112.3,
-      "duration": 7.75,
-      "text_snippet": "SHA-256 là thuật toán băm mật mã thuộc họ SHA-2, tạo ra chuỗi digest 256-bit (32-byte) cố định, không thể đảo ngược, thư"
+      "start": 105.77,
+      "end": 118.38,
+      "duration": 12.61,
+      "text_snippet": "Băm ánh xạ dữ liệu đầu vào có kích thước tùy ý thành một chuỗi bit có kích thước"
     },
     {
       "paragraph_id": 20,
-      "start": 112.3,
-      "end": 112.57,
-      "duration": 0.28,
-      "text_snippet": "Base64"
+      "start": 118.39,
+      "end": 129.43,
+      "duration": 11.04,
+      "text_snippet": "Khái niệm này quan trọng vì các hàm băm mật mã (như SHA-256) được sử dụng để xác"
     },
     {
       "paragraph_id": 21,
-      "start": 112.57,
-      "end": 120.09,
-      "duration": 7.52,
-      "text_snippet": "Base64 là cơ chế mã hóa nhị phân thành chuỗi ký tự ASCII (gồm 64 ký tự an toàn) để có thể truyền tải an toàn qua các gia"
+      "start": 129.52,
+      "end": 131.62,
+      "duration": 2.1,
+      "text_snippet": "Kiểm tra thực tế:"
     },
     {
       "paragraph_id": 22,
-      "start": 120.09,
-      "end": 122.44,
-      "duration": 2.35,
-      "text_snippet": "Mã hóa/giải mã cơ bản (Basic encryption/decryption)"
+      "start": 131.57,
+      "end": 134.14,
+      "duration": 2.57,
+      "text_snippet": "Định nghĩa Hashing trong một câu."
     },
     {
       "paragraph_id": 23,
-      "start": 122.44,
-      "end": 128.95,
-      "duration": 6.5,
-      "text_snippet": "Thực hành mã hóa đối xứng (AES) hoặc bất đối xứng (RSA) để bảo vệ dữ liệu bí mật khi lưu trữ (at rest) hoặc truyền tải q"
+      "start": 134.15,
+      "end": 139.3,
+      "duration": 5.15,
+      "text_snippet": "Nhận diện Hashing trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn."
     },
     {
       "paragraph_id": 24,
-      "start": 128.95,
-      "end": 129.31,
-      "duration": 0.37,
-      "text_snippet": "KeyStore"
+      "start": 139.3,
+      "end": 143.86,
+      "duration": 4.56,
+      "text_snippet": "Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến Hashing."
     },
     {
       "paragraph_id": 25,
-      "start": 129.31,
-      "end": 136.0,
-      "duration": 6.69,
-      "text_snippet": "KeyStore (java.security.KeyStore) là kho lưu trữ bảo mật dùng để quản lý các khóa mật mã (private/public key) và các chứ"
+      "start": 143.86,
+      "end": 146.67,
+      "duration": 2.81,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
     },
     {
       "paragraph_id": 26,
-      "start": 136.0,
-      "end": 137.39,
-      "duration": 1.38,
-      "text_snippet": "SSL/TLS cơ bản (Basic SSL/TLS)"
+      "start": 146.77,
+      "end": 153.17,
+      "duration": 6.4,
+      "text_snippet": "Khi đọc mã nguồn, hãy hỏi: Hashing thay đổi, cho phép, từ chối hoặc làm rõ điều "
     },
     {
       "paragraph_id": 27,
-      "start": 137.39,
-      "end": 143.93,
-      "duration": 6.55,
-      "text_snippet": "Giao thức mật mã hoạt động trên lớp vận chuyển (Transport Layer) để xác thực máy chủ và mã hóa toàn bộ dữ liệu trao đổi "
+      "start": 153.12,
+      "end": 164.82,
+      "duration": 11.7,
+      "text_snippet": "MessageDigest"
     },
     {
       "paragraph_id": 28,
-      "start": 143.93,
-      "end": 145.64,
-      "duration": 1.71,
-      "text_snippet": "Kiểm chứng đầu vào (Input validation)"
+      "start": 164.82,
+      "end": 179.2,
+      "duration": 14.38,
+      "text_snippet": "MessageDigest là một lớp thuộc gói java.security cung cấp chức năng của các thuậ"
     },
     {
       "paragraph_id": 29,
-      "start": 145.64,
-      "end": 152.47,
-      "duration": 6.83,
-      "text_snippet": "Quá trình kiểm tra, lọc và làm sạch (sanitize) mọi dữ liệu từ bên ngoài trước khi đưa vào hệ thống nhằm ngăn chặn các lỗ"
+      "start": 179.2,
+      "end": 179.6,
+      "duration": 0.4,
+      "text_snippet": "SHA-256"
     },
     {
       "paragraph_id": 30,
-      "start": 152.47,
-      "end": 154.36,
-      "duration": 1.89,
-      "text_snippet": "Tránh SQL Injection (Avoid SQL Injection)"
+      "start": 179.55,
+      "end": 191.1,
+      "duration": 11.55,
+      "text_snippet": "SHA-256 là thuật toán băm mật mã thuộc họ SHA-2, tạo ra chuỗi digest 256-bit (32"
     },
     {
       "paragraph_id": 31,
-      "start": 154.36,
-      "end": 159.01,
-      "duration": 4.66,
-      "text_snippet": "Tấn công tiêm mã SQL xảy ra khi đầu vào không đáng tin cậy làm thay đổi ý nghĩa của một câu lệnh SQL."
+      "start": 179.3,
+      "end": 192.69,
+      "duration": 13.39,
+      "text_snippet": "Base64"
     },
     {
       "paragraph_id": 32,
-      "start": 159.01,
-      "end": 161.46,
-      "duration": 2.44,
-      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)"
+      "start": 192.69,
+      "end": 197.99,
+      "duration": 5.3,
+      "text_snippet": "Base64 là cơ chế mã hóa nhị phân thành chuỗi ký tự ASCII (gồm 64 ký tự an toàn) "
     },
     {
       "paragraph_id": 33,
-      "start": 161.46,
-      "end": 170.87,
-      "duration": 9.41,
-      "text_snippet": "Khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch (compile-time)?\nKhái niệm nào ở đây ảnh hưởng đến hành vi tại"
+      "start": 197.99,
+      "end": 200.44,
+      "duration": 2.45,
+      "text_snippet": "Mã hóa/giải mã cơ bản (Basic encryption/decryption)"
     },
     {
       "paragraph_id": 34,
-      "start": 170.87,
-      "end": 172.25,
-      "duration": 1.38,
-      "text_snippet": "Ví Dụ Mã Nguồn (Code Examples)"
+      "start": 197.99,
+      "end": 208.25,
+      "duration": 10.26,
+      "text_snippet": "Thực hành mã hóa đối xứng (AES) hoặc bất đối xứng (RSA) để bảo vệ dữ liệu bí mật"
     },
     {
       "paragraph_id": 35,
-      "start": 172.25,
-      "end": 184.01,
-      "duration": 11.76,
-      "text_snippet": "Băm với MessageDigest (SHA-256) (Hashing with MessageDigest (SHA-256))\n`java\nString password = \"mySecurePassword123\";\nMe"
+      "start": 208.25,
+      "end": 209.7,
+      "duration": 1.45,
+      "text_snippet": "KeyStore"
     },
     {
       "paragraph_id": 36,
-      "start": 184.01,
-      "end": 197.94,
-      "duration": 13.93,
-      "text_snippet": "// Convert bytes to hex representation\nStringBuilder hexString = new StringBuilder();\nfor (byte b : hashBytes) {\n    Str"
+      "start": 209.8,
+      "end": 220.71,
+      "duration": 10.91,
+      "text_snippet": "KeyStore (java.security.KeyStore) là kho lưu trữ bảo mật dùng để quản lý các khó"
     },
     {
       "paragraph_id": 37,
-      "start": 197.94,
-      "end": 209.19,
-      "duration": 11.25,
-      "text_snippet": "Mã hóa & Giải mã Base64 (Base64 Encoding & Decoding)\n`java\nString original = \"Hello Security!\";\n// Encode\nString encoded"
+      "start": 220.66,
+      "end": 226.72,
+      "duration": 6.06,
+      "text_snippet": "SSL/TLS cơ bản (Basic SSL/TLS)"
     },
     {
       "paragraph_id": 38,
-      "start": 209.19,
-      "end": 217.49,
-      "duration": 8.3,
-      "text_snippet": "// Decode\nbyte[] decodedBytes = Base64.getDecoder().decode(encoded);\nString decoded = new String(decodedBytes, StandardC"
+      "start": 226.72,
+      "end": 235.45,
+      "duration": 8.73,
+      "text_snippet": "Giao thức mật mã hoạt động trên lớp vận chuyển (Transport Layer) để xác thực máy"
     },
     {
       "paragraph_id": 39,
-      "start": 217.49,
-      "end": 226.85,
-      "duration": 9.36,
-      "text_snippet": "Mã hóa & Giải mã AES (Encryption & Decryption (AES))\n`java\n// Generate a symmetric key\nKeyGenerator keyGen = KeyGenerato"
+      "start": 235.45,
+      "end": 239.36,
+      "duration": 3.91,
+      "text_snippet": "Kiểm chứng đầu vào (Input validation)"
     },
     {
       "paragraph_id": 40,
-      "start": 226.85,
-      "end": 236.72,
-      "duration": 9.87,
-      "text_snippet": "// Encrypt\nCipher cipher = Cipher.getInstance(\"AES/CBC/PKCS5Padding\");\nbyte[] iv = new byte[16];\nnew SecureRandom().next"
+      "start": 239.36,
+      "end": 248.77,
+      "duration": 9.41,
+      "text_snippet": "Quá trình kiểm tra, lọc và làm sạch (sanitize) mọi dữ liệu từ bên ngoài trước kh"
     },
     {
       "paragraph_id": 41,
-      "start": 236.72,
-      "end": 242.95,
-      "duration": 6.23,
-      "text_snippet": "cipher.init(Cipher.ENCRYPT_MODE, secretKey, ivSpec);\nbyte[] encrypted = cipher.doFinal(\"Secret Data\".getBytes(StandardCh"
+      "start": 248.87,
+      "end": 254.43,
+      "duration": 5.56,
+      "text_snippet": "Tránh SQL Injection (Avoid SQL Injection)"
     },
     {
       "paragraph_id": 42,
-      "start": 242.95,
-      "end": 252.36,
-      "duration": 9.41,
-      "text_snippet": "// Decrypt\ncipher.init(Cipher.DECRYPT_MODE, secretKey, ivSpec);\nbyte[] decryptedBytes = cipher.doFinal(encrypted);\nSyste"
+      "start": 254.39,
+      "end": 261.38,
+      "duration": 6.99,
+      "text_snippet": "Tấn công tiêm mã SQL xảy ra khi đầu vào không đáng tin cậy làm thay đổi ý nghĩa "
     },
     {
       "paragraph_id": 43,
-      "start": 252.36,
-      "end": 254.02,
-      "duration": 1.66,
-      "text_snippet": "Các Lỗi Thường Gặp (Common Mistakes)"
+      "start": 261.38,
+      "end": 265.42,
+      "duration": 4.04,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)"
     },
     {
       "paragraph_id": 44,
-      "start": 254.02,
-      "end": 303.55,
-      "duration": 49.53,
-      "text_snippet": "Sử dụng MD5 hoặc SHA-1 cho bảo mật: MD5 và SHA-1 có các lỗ hổng va chạm (collision) đã được biết đến. Luôn sử dụng các t"
+      "start": 265.41,
+      "end": 275.22,
+      "duration": 9.81,
+      "text_snippet": "Khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch (compile-time)?"
     },
     {
       "paragraph_id": 45,
-      "start": 303.55,
-      "end": 303.64,
-      "duration": 0.09,
-      "text_snippet": "--"
+      "start": 275.22,
+      "end": 280.47,
+      "duration": 5.25,
+      "text_snippet": "Khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy (runtime)?"
     },
     {
       "paragraph_id": 46,
-      "start": 303.64,
-      "end": 308.94,
-      "duration": 5.3,
-      "text_snippet": "Tại sao Băm Mật Mã là Hàm Một Chiều và Kháng Va Chạm (Why Cryptographic Hashing Is One-Way and Collision-Resistant)"
+      "start": 275.32,
+      "end": 279.47,
+      "duration": 4.15,
+      "text_snippet": "Khái niệm nào ở đây dễ là \"bẫy\" trong các buổi phỏng vấn?"
     },
     {
       "paragraph_id": 47,
-      "start": 308.94,
-      "end": 315.91,
-      "duration": 6.96,
-      "text_snippet": "Các hàm băm mật mã như SHA-256 là các hàm toán học được thiết kế với hai thuộc tính bảo mật cơ bản giúp chúng phù hợp vớ"
+      "start": 279.42,
+      "end": 282.78,
+      "duration": 3.36,
+      "text_snippet": "Ví Dụ Mã Nguồn (Code Examples)"
     },
     {
       "paragraph_id": 48,
-      "start": 315.91,
-      "end": 332.56,
-      "duration": 16.65,
-      "text_snippet": "Một chiều (Kháng tiền ảnh - Pre-image resistance): Cho một kết quả băm H, về mặt tính toán là bất khả thi để tìm bất kỳ "
+      "start": 282.79,
+      "end": 289.5,
+      "duration": 6.71,
+      "text_snippet": "Băm với MessageDigest (SHA-256) (Hashing with MessageDigest (SHA-256))"
     },
     {
       "paragraph_id": 49,
-      "start": 332.56,
-      "end": 346.71,
-      "duration": 14.16,
-      "text_snippet": "Kháng va chạm (Collision resistance): Về mặt tính toán là bất khả thi để tìm hai đầu vào khác nhau M1 and M2 sao cho has"
+      "start": 289.5,
+      "end": 291.87,
+      "duration": 2.37,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 50,
-      "start": 346.71,
-      "end": 363.64,
-      "duration": 16.93,
-      "text_snippet": "Đây là lý do tại sao SHA-256 được sử dụng để băm mật khẩu (lưu trữ giá trị băm, không bao giờ lưu mật khẩu gốc), chữ ký "
+      "start": 291.87,
+      "end": 297.57,
+      "duration": 5.7,
+      "text_snippet": "Mã hóa & Giải mã Base64 (Base64 Encoding & Decoding)"
     },
     {
       "paragraph_id": 51,
-      "start": 363.64,
-      "end": 381.53,
-      "duration": 17.89,
-      "text_snippet": "Mô hình Tư duy: Hàm Một Chiều (Trapdoor) (Mental Model: One-Way Function (Trapdoor))\n`\nMật khẩu đầu vào: \"mySecret\"\n    "
+      "start": 297.68,
+      "end": 300.06,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 52,
-      "start": 381.53,
-      "end": 392.23,
-      "duration": 10.7,
-      "text_snippet": "Ví Dụ Mã Nguồn: Băm SHA-256 kèm Muối (Salt) (Code Example: SHA-256 Hashing with Salting)\n`java\nimport java.security.Mess"
+      "start": 300.0,
+      "end": 305.53,
+      "duration": 5.53,
+      "text_snippet": "Mã hóa & Giải mã AES (Encryption & Decryption (AES))"
     },
     {
       "paragraph_id": 53,
-      "start": 392.23,
-      "end": 403.99,
-      "duration": 11.76,
-      "text_snippet": "public class HashingDemo {\n    public static String hashWithSalt(String password) throws Exception {\n        // Generate"
+      "start": 305.52,
+      "end": 307.89,
+      "duration": 2.37,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 54,
-      "start": 403.99,
-      "end": 413.63,
-      "duration": 9.64,
-      "text_snippet": "MessageDigest digest = MessageDigest.getInstance(\"SHA-256\");\n        digest.update(salt); // Incorporate salt before has"
+      "start": 307.9,
+      "end": 311.14,
+      "duration": 3.24,
+      "text_snippet": "Các Lỗi Thường Gặp (Common Mistakes)"
     },
     {
       "paragraph_id": 55,
-      "start": 413.63,
-      "end": 420.78,
-      "duration": 7.15,
-      "text_snippet": "// Encode result as Base64 for storage\n        return Base64.getEncoder().encodeToString(salt) + \":\" + Base64.getEncoder"
+      "start": 311.14,
+      "end": 328.32,
+      "duration": 17.18,
+      "text_snippet": "Sử dụng MD5 hoặc SHA-1 cho bảo mật: MD5 và SHA-1 có các lỗ hổng va chạm (collisi"
     },
     {
       "paragraph_id": 56,
-      "start": 420.78,
-      "end": 431.85,
-      "duration": 11.07,
-      "text_snippet": "public static void main(String[] args) throws Exception {\n        String hash = hashWithSalt(\"mySecretPassword\");\n      "
+      "start": 328.41,
+      "end": 343.59,
+      "duration": 15.18,
+      "text_snippet": "Nhầm lẫn Base64 với mã hóa (Encryption): Base64 là định dạng mã hóa cấu trúc tru"
     },
     {
       "paragraph_id": 57,
-      "start": 431.85,
-      "end": 448.17,
-      "duration": 16.33,
-      "text_snippet": "Chuỗi Nhân Quả (Cause-Effect Chain)\nÁp dụng nén SHA-256 cho đầu vào &rarr; Các phép toán bit phi tuyến tính phá hủy tính"
+      "start": 343.59,
+      "end": 364.11,
+      "duration": 20.52,
+      "text_snippet": "Sử dụng java.util.Random để tạo khóa mật mã: java.util.Random là bộ tạo số ngẫu "
     },
     {
       "paragraph_id": 58,
-      "start": 448.17,
-      "end": 448.27,
-      "duration": 0.09,
-      "text_snippet": "--"
+      "start": 364.11,
+      "end": 386.44,
+      "duration": 22.33,
+      "text_snippet": "Lưu trữ mật khẩu trong các chuỗi String thông thường: Đối tượng String là bất bi"
     },
     {
       "paragraph_id": 59,
-      "start": 448.27,
-      "end": 452.79,
-      "duration": 4.52,
-      "text_snippet": "Tại sao Base64 chỉ là Mã hóa chứ không phải Mã hóa Bảo mật (Why Base64 Is Encoding Not Encryption)"
+      "start": 386.44,
+      "end": 394.13,
+      "duration": 7.69,
+      "text_snippet": "Tại sao Băm Mật Mã là Hàm Một Chiều và Kháng Va Chạm (Why Cryptographic Hashing "
     },
     {
       "paragraph_id": 60,
-      "start": 452.79,
-      "end": 467.59,
-      "duration": 14.8,
-      "text_snippet": "Base64 là một sơ đồ mã hóa nhị phân thành văn bản đại diện cho dữ liệu nhị phân (như byte, hình ảnh hoặc khóa) dưới dạng"
+      "start": 394.12,
+      "end": 402.91,
+      "duration": 8.79,
+      "text_snippet": "Các hàm băm mật mã như SHA-256 là các hàm toán học được thiết kế với hai thuộc t"
     },
     {
       "paragraph_id": 61,
-      "start": 467.59,
-      "end": 487.47,
-      "duration": 19.88,
-      "text_snippet": "Rủi ro bảo mật phát sinh khi các nhà phát triển lầm tưởng rằng kết quả đầu ra \"được mã hóa\" (encoded) là kết quả \"được b"
+      "start": 403.01,
+      "end": 492.4,
+      "duration": 89.39,
+      "text_snippet": "Một chiều (Kháng tiền ảnh - Pre-image resistance): Cho một kết quả băm H, về mặt"
     },
     {
       "paragraph_id": 62,
-      "start": 487.47,
-      "end": 505.18,
-      "duration": 17.71,
-      "text_snippet": "Base64 phục vụ một mục đích hợp lý: nó làm cho dữ liệu nhị phân an toàn khi truyền qua các kênh chỉ hỗ trợ văn bản (HTTP"
+      "start": 492.4,
+      "end": 520.4,
+      "duration": 28.0,
+      "text_snippet": "Một chiều (Kháng tiền ảnh - Pre-image resistance): Cho một kết quả băm H, về mặt"
     },
     {
       "paragraph_id": 63,
-      "start": 505.18,
-      "end": 513.66,
-      "duration": 8.49,
-      "text_snippet": "Mã hóa bảo mật yêu cầu một khóa bí mật và một thuật toán (như AES) biến đổi dữ liệu thành bản mã không thể hiểu được nếu"
+      "start": 520.4,
+      "end": 543.5,
+      "duration": 23.1,
+      "text_snippet": "Kháng va chạm (Collision resistance): Về mặt tính toán là bất khả thi để tìm hai"
     },
     {
       "paragraph_id": 64,
-      "start": 513.66,
-      "end": 528.74,
-      "duration": 15.08,
-      "text_snippet": "Mô hình Tư duy: Mã hóa truyền tải vs Mã hóa bảo mật (Mental Model: Encoding vs Encryption)\n`\n[Mã hóa Base64 — Không cần "
+      "start": 543.5,
+      "end": 566.6,
+      "duration": 23.1,
+      "text_snippet": "Kháng va chạm (Collision resistance): Về mặt tính toán là bất khả thi để tìm hai"
     },
     {
       "paragraph_id": 65,
-      "start": 528.74,
-      "end": 541.01,
-      "duration": 12.27,
-      "text_snippet": "[Mã hóa bảo mật AES — Yêu cầu Khóa bí mật]\nVăn bản gốc: \"Hello\" + Khóa bí mật (256 bits) + IV\n     |\n     v\nAES-256-CBC("
+      "start": 492.4,
+      "end": 515.56,
+      "duration": 23.16,
+      "text_snippet": "Đây là lý do tại sao SHA-256 được sử dụng để băm mật khẩu (lưu trữ giá trị băm, "
     },
     {
       "paragraph_id": 66,
-      "start": 541.01,
-      "end": 550.0,
-      "duration": 8.99,
-      "text_snippet": "Ví Dụ Mã Nguồn: Mã hóa Base64 có tính Đảo ngược (Không An toàn) (Code Example: Base64 Encoding Is Reversible (Not Secure"
+      "start": 515.66,
+      "end": 522.38,
+      "duration": 6.72,
+      "text_snippet": "Mô hình Tư duy: Hàm Một Chiều (Trapdoor) (Mental Model: One-Way Function (Trapdo"
     },
     {
       "paragraph_id": 67,
-      "start": 550.0,
-      "end": 555.63,
-      "duration": 5.63,
-      "text_snippet": "public class Base64Demo {\n    public static void main(String[] args) {\n        String secret = \"db_password=super_secret"
+      "start": 522.34,
+      "end": 524.72,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 68,
-      "start": 555.63,
-      "end": 567.11,
-      "duration": 11.48,
-      "text_snippet": "// Base64 encoding (NOT encryption)\n        String encoded = Base64.getEncoder().encodeToString(secret.getBytes(Standard"
+      "start": 524.71,
+      "end": 533.39,
+      "duration": 8.68,
+      "text_snippet": "Ví Dụ Mã Nguồn: Băm SHA-256 kèm Muối (Salt) (Code Example: SHA-256 Hashing with "
     },
     {
       "paragraph_id": 69,
-      "start": 567.11,
-      "end": 579.84,
-      "duration": 12.73,
-      "text_snippet": "// Anyone can decode in one step\n        String decoded = new String(Base64.getDecoder().decode(encoded), StandardCharse"
+      "start": 533.39,
+      "end": 535.77,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 70,
-      "start": 579.84,
-      "end": 594.6,
-      "duration": 14.76,
-      "text_snippet": "Chuỗi Nhân Quả (Cause-Effect Chain)\nLập trình viên lưu trữ khóa API dưới dạng chuỗi mã hóa Base64 &rarr; Không có khóa m"
+      "start": 535.76,
+      "end": 538.83,
+      "duration": 3.07,
+      "text_snippet": "Chuỗi Nhân Quả (Cause-Effect Chain)"
     },
     {
       "paragraph_id": 71,
-      "start": 594.6,
-      "end": 594.69,
-      "duration": 0.09,
-      "text_snippet": "--"
+      "start": 538.94,
+      "end": 554.54,
+      "duration": 15.6,
+      "text_snippet": "Áp dụng nén SHA-256 cho đầu vào → Các phép toán bit phi tuyến tính phá hủy tính "
     },
     {
       "paragraph_id": 72,
-      "start": 594.69,
-      "end": 599.99,
-      "duration": 5.3,
-      "text_snippet": "Tại sao SecureRandom là Bắt buộc đối với các Giá trị Mật mã (Why SecureRandom Is Required for Cryptographic Values)"
+      "start": 554.49,
+      "end": 577.14,
+      "duration": 22.65,
+      "text_snippet": "Tại sao Base64 chỉ là Mã hóa chứ không phải Mã hóa Bảo mật (Why Base64 Is Encodi"
     },
     {
       "paragraph_id": 73,
-      "start": 599.99,
-      "end": 632.51,
-      "duration": 32.51,
-      "text_snippet": "Lớp java.util.Random của Java là bộ tạo số ngẫu nhiên giả tuyến tính (Linear Congruential Generator - LCG), một bộ tạo s"
+      "start": 577.14,
+      "end": 583.73,
+      "duration": 6.59,
+      "text_snippet": "Base64 là một sơ đồ mã hóa nhị phân thành văn bản đại diện cho dữ liệu nhị phân "
     },
     {
       "paragraph_id": 74,
-      "start": 632.51,
-      "end": 654.18,
-      "duration": 21.68,
-      "text_snippet": "java.security.SecureRandom được hỗ trợ bởi nguồn entropy (độ hỗn loạn) an toàn về mặt mật mã của hệ điều hành (ví dụ: /d"
+      "start": 583.73,
+      "end": 622.74,
+      "duration": 39.01,
+      "text_snippet": "Rủi ro bảo mật phát sinh khi các nhà phát triển lầm tưởng rằng kết quả đầu ra \"đ"
     },
     {
       "paragraph_id": 75,
-      "start": 654.18,
-      "end": 668.66,
-      "duration": 14.48,
-      "text_snippet": "Mô hình Tư duy: PRNG Dự đoán được vs RNG An toàn Mật mã (Mental Model: Predictable PRNG vs. Cryptographically Secure RNG"
+      "start": 622.74,
+      "end": 636.63,
+      "duration": 13.89,
+      "text_snippet": "Base64 phục vụ một mục đích hợp lý: nó làm cho dữ liệu nhị phân an toàn khi truy"
     },
     {
       "paragraph_id": 76,
-      "start": 668.66,
-      "end": 683.14,
-      "duration": 14.48,
-      "text_snippet": "[java.security.SecureRandom — Không thể dự đoán]\nNguồn Entropy: thời gian phím, ngắt phần cứng, /dev/urandom\nSecureRando"
+      "start": 636.73,
+      "end": 648.49,
+      "duration": 11.76,
+      "text_snippet": "Mã hóa bảo mật yêu cầu một khóa bí mật và một thuật toán (như AES) biến đổi dữ l"
     },
     {
       "paragraph_id": 77,
-      "start": 683.14,
-      "end": 692.97,
-      "duration": 9.82,
-      "text_snippet": "Ví Dụ Mã Nguồn: Tạo Khóa AES và IV An toàn Mật mã (Code Example: Generating a Cryptographically Secure AES Key and IV)\n`"
+      "start": 648.49,
+      "end": 656.4,
+      "duration": 7.91,
+      "text_snippet": "Mô hình Tư duy: Mã hóa truyền tải vs Mã hóa bảo mật (Mental Model: Encoding vs E"
     },
     {
       "paragraph_id": 78,
-      "start": 692.97,
-      "end": 704.54,
-      "duration": 11.58,
-      "text_snippet": "public class SecureKeyGenDemo {\n    public static void main(String[] args) throws Exception {\n        // SAI: Sử dụng Ma"
+      "start": 656.4,
+      "end": 658.78,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 79,
-      "start": 704.54,
-      "end": 714.55,
+      "start": 658.77,
+      "end": 668.78,
       "duration": 10.01,
-      "text_snippet": "// ĐÚNG: Sử dụng SecureRandom cho các giá trị mật mã\n        byte[] iv = new byte[16];\n        new SecureRandom().nextBy"
+      "text_snippet": "Ví Dụ Mã Nguồn: Mã hóa Base64 có tính Đảo ngược (Không An toàn) (Code Example: B"
     },
     {
       "paragraph_id": 80,
-      "start": 714.55,
-      "end": 725.57,
-      "duration": 11.02,
-      "text_snippet": "// Việc tạo khóa cũng sử dụng SecureRandom bên dưới\n        KeyGenerator keyGen = KeyGenerator.getInstance(\"AES\");\n     "
+      "start": 668.79,
+      "end": 670.99,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 81,
-      "start": 725.57,
-      "end": 733.23,
-      "duration": 7.66,
-      "text_snippet": "System.out.println(\"Key algorithm: \" + key.getAlgorithm()); // Output: AES\n        System.out.println(\"IV length: \" + iv"
+      "start": 671.09,
+      "end": 674.3,
+      "duration": 3.21,
+      "text_snippet": "Chuỗi Nhân Quả (Cause-Effect Chain)"
     },
     {
       "paragraph_id": 82,
-      "start": 733.23,
-      "end": 751.91,
-      "duration": 18.68,
-      "text_snippet": "Chuỗi Nhân Quả (Cause-Effect Chain)\nRandom được sử dụng để tạo khóa AES &rarr; Đầu ra khóa mang tính xác định và có thể "
+      "start": 674.25,
+      "end": 688.2,
+      "duration": 13.95,
+      "text_snippet": "Lập trình viên lưu trữ khóa API dưới dạng chuỗi mã hóa Base64 → Không có khóa mã"
     },
     {
       "paragraph_id": 83,
-      "start": 751.91,
-      "end": 752.0,
-      "duration": 0.09,
-      "text_snippet": "--"
+      "start": 688.2,
+      "end": 695.85,
+      "duration": 7.65,
+      "text_snippet": "Tại sao SecureRandom là Bắt buộc đối với các Giá trị Mật mã (Why SecureRandom Is"
     },
     {
       "paragraph_id": 84,
-      "start": 752.0,
-      "end": 756.98,
-      "duration": 4.98,
-      "text_snippet": "Tại sao Mật khẩu Không được Lưu trữ dưới dạng các Chuỗi String (Why Passwords Must Not Be Stored in Strings)"
+      "start": 695.85,
+      "end": 753.9,
+      "duration": 58.05,
+      "text_snippet": "Lớp java.util.Random của Java là bộ tạo số ngẫu nhiên giả tuyến tính (Linear Con"
     },
     {
       "paragraph_id": 85,
-      "start": 756.98,
-      "end": 777.09,
-      "duration": 20.11,
-      "text_snippet": "Các đối tượng Java String là bất biến (immutable) và được lưu trữ trong String Pool của JVM. Khi một chuỗi chứa mật khẩu"
+      "start": 753.9,
+      "end": 769.31,
+      "duration": 15.41,
+      "text_snippet": "java.security.SecureRandom được hỗ trợ bởi nguồn entropy (độ hỗn loạn) an toàn v"
     },
     {
       "paragraph_id": 86,
-      "start": 777.09,
-      "end": 793.83,
-      "duration": 16.74,
-      "text_snippet": "Trong thời gian này, mật khẩu tồn tại dưới dạng văn bản rõ (clear-text) trong bộ nhớ heap của JVM. Nếu kẻ tấn công có đư"
+      "start": 769.41,
+      "end": 782.7,
+      "duration": 13.29,
+      "text_snippet": "Mô hình Tư duy: PRNG Dự đoán được vs RNG An toàn Mật mã (Mental Model: Predictab"
     },
     {
       "paragraph_id": 87,
-      "start": 793.83,
-      "end": 804.9,
-      "duration": 11.07,
-      "text_snippet": "Ngược lại, một mảng char[] có thể được ghi đè giá trị bằng số 0 hoặc ký tự null ngay sau khi sử dụng bằng cách gọi Array"
+      "start": 782.7,
+      "end": 785.08,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 88,
-      "start": 804.9,
-      "end": 822.33,
-      "duration": 17.43,
-      "text_snippet": "Mô hình Tư duy: String Pool giữ lại bộ nhớ vs char[] ghi đè giải phóng bộ nhớ (Mental Model: String Pool Retention vs. c"
+      "start": 785.08,
+      "end": 794.32,
+      "duration": 9.24,
+      "text_snippet": "Ví Dụ Mã Nguồn: Tạo Khóa AES và IV An toàn Mật mã (Code Example: Generating a Cr"
     },
     {
       "paragraph_id": 89,
-      "start": 822.33,
-      "end": 837.09,
-      "duration": 14.76,
-      "text_snippet": "[char[] — Có thể ghi đè xóa ngay lập tức]\nchar[] password = \"mySecret\".toCharArray();\n// ... sử dụng password ...\nArrays"
+      "start": 794.31,
+      "end": 796.69,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 90,
-      "start": 837.09,
-      "end": 848.15,
-      "duration": 11.07,
-      "text_snippet": "Ví Dụ Mã Nguồn: Xử lý Mật khẩu An sau với char[] (Code Example: Safe Password Handling with char[])\n`java\nimport javax.c"
+      "start": 796.69,
+      "end": 799.76,
+      "duration": 3.07,
+      "text_snippet": "Chuỗi Nhân Quả (Cause-Effect Chain)"
     },
     {
       "paragraph_id": 91,
-      "start": 848.15,
-      "end": 856.87,
-      "duration": 8.72,
-      "text_snippet": "public class SafePasswordHandling {\n    public static byte[] hashPassword(char[] password) throws Exception {\n        by"
+      "start": 799.86,
+      "end": 816.41,
+      "duration": 16.55,
+      "text_snippet": "Random được sử dụng để tạo khóa AES → Đầu ra khóa mang tính xác định và có thể t"
     },
     {
       "paragraph_id": 92,
-      "start": 856.87,
-      "end": 866.6,
-      "duration": 9.73,
-      "text_snippet": "// PBEKeySpec nhận char[] (không phải String) theo thiết kế\n        PBEKeySpec spec = new PBEKeySpec(password, salt, 310"
+      "start": 816.36,
+      "end": 822.76,
+      "duration": 6.4,
+      "text_snippet": "Tại sao Mật khẩu Không được Lưu trữ dưới dạng các Chuỗi String (Why Passwords Mu"
     },
     {
       "paragraph_id": 93,
-      "start": 866.6,
-      "end": 873.43,
-      "duration": 6.83,
-      "text_snippet": "SecretKeyFactory factory = SecretKeyFactory.getInstance(\"PBKDF2WithHmacSHA256\");\n        return factory.generateSecret(s"
+      "start": 822.76,
+      "end": 855.24,
+      "duration": 32.48,
+      "text_snippet": "Các đối tượng Java String là bất biến (immutable) và được lưu trữ trong String P"
     },
     {
       "paragraph_id": 94,
-      "start": 873.43,
-      "end": 891.78,
-      "duration": 18.35,
-      "text_snippet": "Chuỗi Nhân Quả (Cause-Effect Chain)\nMật khẩu được lưu trữ trong trường String &rarr; Chuỗi là bất biến và được giữ lại t"
+      "start": 855.24,
+      "end": 869.64,
+      "duration": 14.4,
+      "text_snippet": "Trong thời gian này, mật khẩu tồn tại dưới dạng văn bản rõ (clear-text) trong bộ"
     },
     {
       "paragraph_id": 95,
-      "start": 891.78,
-      "end": 893.44,
-      "duration": 1.66,
-      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+      "start": 869.64,
+      "end": 883.8,
+      "duration": 14.16,
+      "text_snippet": "Ngược lại, một mảng char[] có thể được ghi đè giá trị bằng số 0 hoặc ký tự null "
     },
     {
       "paragraph_id": 96,
-      "start": 893.44,
-      "end": 914.47,
-      "duration": 21.03,
-      "text_snippet": "https://docs.oracle.com/javase/tutorial/security/ (Tài liệu Hướng dẫn Bảo mật Java)\nhttps://docs.oracle.com/en/java/java"
+      "start": 883.8,
+      "end": 892.9,
+      "duration": 9.1,
+      "text_snippet": "Mô hình Tư duy: String Pool giữ lại bộ nhớ vs char[] ghi đè giải phóng bộ nhớ (M"
+    },
+    {
+      "paragraph_id": 97,
+      "start": 892.9,
+      "end": 894.3,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 98,
+      "start": 894.3,
+      "end": 900.95,
+      "duration": 6.65,
+      "text_snippet": "Ví Dụ Mã Nguồn: Xử lý Mật khẩu An sau với char[] (Code Example: Safe Password Ha"
+    },
+    {
+      "paragraph_id": 99,
+      "start": 900.95,
+      "end": 902.35,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 100,
+      "start": 902.35,
+      "end": 904.1,
+      "duration": 1.75,
+      "text_snippet": "Chuỗi Nhân Quả (Cause-Effect Chain)"
+    },
+    {
+      "paragraph_id": 101,
+      "start": 904.2,
+      "end": 921.7,
+      "duration": 17.5,
+      "text_snippet": "Mật khẩu được lưu trữ trong trường String → Chuỗi là bất biến và được giữ lại tr"
+    },
+    {
+      "paragraph_id": 102,
+      "start": 921.65,
+      "end": 925.03,
+      "duration": 3.38,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 103,
+      "start": 925.02,
+      "end": 966.04,
+      "duration": 41.02,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/security/ (Tài liệu Hướng dẫn Bảo mật Ja"
+    },
+    {
+      "paragraph_id": 104,
+      "start": 966.05,
+      "end": 968.15,
+      "duration": 2.1,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/security/Messa"
+    },
+    {
+      "paragraph_id": 105,
+      "start": 968.15,
+      "end": 970.25,
+      "duration": 2.1,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/security/Secur"
+    },
+    {
+      "paragraph_id": 106,
+      "start": 966.15,
+      "end": 981.7,
+      "duration": 15.55,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Base64.ht"
     }
   ]
 }

@@ -1,357 +1,434 @@
 {
   "lesson": "02-jvm-jre-jdk",
-  "total_duration_seconds": 328.13,
-  "total_paragraphs": 50,
+  "total_duration_seconds": 317.7,
+  "total_paragraphs": 61,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 1.18,
-      "duration": 1.18,
+      "start": 0.1,
+      "end": 10.24,
+      "duration": 10.14,
       "text_snippet": "JVM, JRE Và JDK"
     },
     {
       "paragraph_id": 2,
-      "start": 1.18,
-      "end": 15.57,
-      "duration": 14.39,
-      "text_snippet": "JVM, JRE, và JDK là ba thuật ngữ quan trọng nhất trong Java. Nhiều người mới học thuộc lòng tên gọi nhưng không hiểu mối"
+      "start": 10.24,
+      "end": 17.99,
+      "duration": 7.75,
+      "text_snippet": "JVM, JRE, và JDK là ba thuật ngữ quan trọng nhất trong Java. Nhiều người mới học"
     },
     {
       "paragraph_id": 3,
-      "start": 15.57,
-      "end": 16.9,
-      "duration": 1.34,
+      "start": 17.99,
+      "end": 20.37,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 4,
-      "start": 16.9,
-      "end": 17.14,
-      "duration": 0.24,
+      "start": 20.36,
+      "end": 27.57,
+      "duration": 7.21,
       "text_snippet": "JVM"
     },
     {
       "paragraph_id": 5,
-      "start": 17.14,
-      "end": 21.46,
-      "duration": 4.32,
+      "start": 27.58,
+      "end": 31.43,
+      "duration": 3.85,
       "text_snippet": "JVM là viết tắt của Java Virtual Machine (Máy Ảo Java)."
     },
     {
       "paragraph_id": 6,
-      "start": 21.46,
-      "end": 28.93,
-      "duration": 7.47,
-      "text_snippet": "JVM chịu trách nhiệm thực thi bytecode Java. Nó đọc các file .class và chạy các lệnh bên trong."
+      "start": 27.68,
+      "end": 37.82,
+      "duration": 10.14,
+      "text_snippet": "JVM chịu trách nhiệm thực thi bytecode Java. Nó đọc các file .class và chạy các "
     },
     {
       "paragraph_id": 7,
-      "start": 28.93,
-      "end": 30.03,
-      "duration": 1.1,
+      "start": 37.81,
+      "end": 39.21,
+      "duration": 1.4,
       "text_snippet": "JVM còn xử lý:"
     },
     {
       "paragraph_id": 8,
-      "start": 30.03,
-      "end": 47.09,
-      "duration": 17.06,
-      "text_snippet": "Nạp lớp (Class loading).\nXác minh bytecode (Bytecode verification).\nCác vùng bộ nhớ runtime (Runtime memory areas).\nThu "
+      "start": 37.81,
+      "end": 40.53,
+      "duration": 2.72,
+      "text_snippet": "Nạp lớp (Class loading)."
     },
     {
       "paragraph_id": 9,
-      "start": 47.09,
-      "end": 47.32,
-      "duration": 0.24,
-      "text_snippet": "JRE"
+      "start": 40.54,
+      "end": 44.26,
+      "duration": 3.72,
+      "text_snippet": "Xác minh bytecode (Bytecode verification)."
     },
     {
       "paragraph_id": 10,
-      "start": 47.32,
-      "end": 52.98,
-      "duration": 5.66,
-      "text_snippet": "JRE là viết tắt của Java Runtime Environment (Môi Trường Thực Thi Java)."
+      "start": 44.26,
+      "end": 48.56,
+      "duration": 4.3,
+      "text_snippet": "Các vùng bộ nhớ runtime (Runtime memory areas)."
     },
     {
       "paragraph_id": 11,
-      "start": 52.98,
-      "end": 57.23,
-      "duration": 4.25,
-      "text_snippet": "JRE chứa những gì cần thiết để chạy chương trình Java:"
+      "start": 48.66,
+      "end": 51.92,
+      "duration": 3.26,
+      "text_snippet": "Thu gom rác (Garbage Collection)."
     },
     {
       "paragraph_id": 12,
-      "start": 57.23,
-      "end": 60.92,
-      "duration": 3.69,
-      "text_snippet": "Một JVM.\nCác thư viện runtime.\nCác file hỗ trợ."
+      "start": 51.88,
+      "end": 55.88,
+      "duration": 4.0,
+      "text_snippet": "Biên dịch JIT (JIT compilation)."
     },
     {
       "paragraph_id": 13,
-      "start": 60.92,
-      "end": 66.27,
-      "duration": 5.35,
-      "text_snippet": "Nếu bạn chỉ muốn chạy một ứng dụng Java, runtime tương tự JRE là đủ."
+      "start": 55.88,
+      "end": 59.16,
+      "duration": 3.28,
+      "text_snippet": "Quản lý luồng (Thread management)."
     },
     {
       "paragraph_id": 14,
-      "start": 66.27,
-      "end": 66.51,
-      "duration": 0.24,
-      "text_snippet": "JDK"
+      "start": 59.15,
+      "end": 66.68,
+      "duration": 7.53,
+      "text_snippet": "JRE"
     },
     {
       "paragraph_id": 15,
-      "start": 66.51,
-      "end": 72.01,
-      "duration": 5.5,
-      "text_snippet": "JDK là viết tắt của Java Development Kit (Bộ Công Cụ Phát Triển Java)."
+      "start": 66.67,
+      "end": 71.22,
+      "duration": 4.55,
+      "text_snippet": "JRE là viết tắt của Java Runtime Environment (Môi Trường Thực Thi Java)."
     },
     {
       "paragraph_id": 16,
-      "start": 72.01,
-      "end": 76.73,
-      "duration": 4.72,
-      "text_snippet": "JDK chứa những gì cần thiết để phát triển chương trình Java:"
+      "start": 66.77,
+      "end": 70.96,
+      "duration": 4.19,
+      "text_snippet": "JRE chứa những gì cần thiết để chạy chương trình Java:"
     },
     {
       "paragraph_id": 17,
-      "start": 76.73,
-      "end": 84.27,
-      "duration": 7.55,
-      "text_snippet": "Các thành phần JRE/runtime.\nTrình biên dịch Java javac.\nCác công cụ như jar, javadoc, và jshell."
+      "start": 70.91,
+      "end": 73.06,
+      "duration": 2.15,
+      "text_snippet": "Một JVM."
     },
     {
       "paragraph_id": 18,
-      "start": 84.27,
-      "end": 88.52,
-      "duration": 4.25,
-      "text_snippet": "Nếu bạn muốn viết và biên dịch code Java, bạn cần JDK."
+      "start": 73.06,
+      "end": 75.2,
+      "duration": 2.14,
+      "text_snippet": "Các thư viện runtime."
     },
     {
       "paragraph_id": 19,
-      "start": 88.52,
-      "end": 93.71,
-      "duration": 5.19,
-      "text_snippet": "Tại Sao Phát Triển Cần JDK Nhưng Môi Trường Production Chỉ Cần JRE"
+      "start": 75.2,
+      "end": 77.1,
+      "duration": 1.9,
+      "text_snippet": "Các file hỗ trợ."
     },
     {
       "paragraph_id": 20,
-      "start": 93.71,
-      "end": 161.71,
-      "duration": 68.0,
-      "text_snippet": "Phát triển phần mềm Java đòi hỏi chuyển đổi mã nguồn dễ đọc của con người thành bytecode nhị phân — một quá trình do trì"
+      "start": 77.1,
+      "end": 82.53,
+      "duration": 5.43,
+      "text_snippet": "Nếu bạn chỉ muốn chạy một ứng dụng Java, runtime tương tự JRE là đủ."
     },
     {
       "paragraph_id": 21,
-      "start": 161.71,
-      "end": 164.69,
-      "duration": 2.99,
-      "text_snippet": "Mô Hình Tư Duy: Bếp Nhà Hàng và Bàn Ăn"
+      "start": 82.62,
+      "end": 94.38,
+      "duration": 11.76,
+      "text_snippet": "JDK"
     },
     {
       "paragraph_id": 22,
-      "start": 164.69,
-      "end": 192.52,
-      "duration": 27.83,
-      "text_snippet": "Hãy nghĩ JDK như một bếp nhà hàng chuyên nghiệp, chứa đầu bếp, lò nướng, bếp gas, và sách công thức cần thiết để chuẩn b"
+      "start": 94.39,
+      "end": 99.29,
+      "duration": 4.9,
+      "text_snippet": "JDK là viết tắt của Java Development Kit (Bộ Công Cụ Phát Triển Java)."
     },
     {
       "paragraph_id": 23,
-      "start": 192.52,
-      "end": 193.86,
-      "duration": 1.34,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 99.29,
+      "end": 103.49,
+      "duration": 4.2,
+      "text_snippet": "JDK chứa những gì cần thiết để phát triển chương trình Java:"
     },
     {
       "paragraph_id": 24,
-      "start": 193.86,
-      "end": 196.61,
-      "duration": 2.75,
-      "text_snippet": "Ví Dụ Code: Hành Vi Lệnh JRE và JDK"
+      "start": 94.39,
+      "end": 97.6,
+      "duration": 3.21,
+      "text_snippet": "Các thành phần JRE/runtime."
     },
     {
       "paragraph_id": 25,
-      "start": 196.61,
-      "end": 207.62,
-      "duration": 11.01,
-      "text_snippet": "Nếu bạn cố biên dịch file nguồn trên máy chỉ cài JRE, hệ điều hành sẽ không tìm thấy javac, trong khi chạy bytecode với "
+      "start": 97.6,
+      "end": 100.12,
+      "duration": 2.52,
+      "text_snippet": "Trình biên dịch Java javac."
     },
     {
       "paragraph_id": 26,
-      "start": 207.62,
-      "end": 208.95,
-      "duration": 1.34,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 100.12,
+      "end": 102.92,
+      "duration": 2.8,
+      "text_snippet": "Các công cụ như jar, javadoc, và jshell."
     },
     {
       "paragraph_id": 27,
-      "start": 208.95,
-      "end": 216.58,
-      "duration": 7.63,
-      "text_snippet": "Trên máy cài JDK:\n$ javac HelloWorld.java\nOutput: (Biên dịch thành công, tạo ra HelloWorld.class)"
+      "start": 102.92,
+      "end": 107.12,
+      "duration": 4.2,
+      "text_snippet": "Nếu bạn muốn viết và biên dịch code Java, bạn cần JDK."
     },
     {
       "paragraph_id": 28,
-      "start": 216.58,
-      "end": 222.63,
-      "duration": 6.05,
-      "text_snippet": "$ java HelloWorld\nOutput: Hello Java (Thực thi thành công dùng JVM runtime)\n`"
+      "start": 107.12,
+      "end": 111.67,
+      "duration": 4.55,
+      "text_snippet": "Tại Sao Phát Triển Cần JDK Nhưng Môi Trường Production Chỉ Cần JRE"
     },
     {
       "paragraph_id": 29,
-      "start": 222.63,
-      "end": 224.75,
-      "duration": 2.12,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+      "start": 111.67,
+      "end": 174.32,
+      "duration": 62.65,
+      "text_snippet": "Phát triển phần mềm Java đòi hỏi chuyển đổi mã nguồn dễ đọc của con người thành "
     },
     {
       "paragraph_id": 30,
-      "start": 224.75,
-      "end": 249.2,
-      "duration": 24.45,
-      "text_snippet": "Lập trình viên viết mã nguồn .java $\\rightarrow$ javac của JDK biên dịch thành bytecode .class $\\rightarrow$ Server prod"
+      "start": 174.32,
+      "end": 177.82,
+      "duration": 3.5,
+      "text_snippet": "Mô Hình Tư Duy: Bếp Nhà Hàng và Bàn Ăn"
     },
     {
       "paragraph_id": 31,
-      "start": 249.2,
-      "end": 250.07,
-      "duration": 0.86,
-      "text_snippet": "Mối Quan Hệ"
+      "start": 177.92,
+      "end": 201.43,
+      "duration": 23.51,
+      "text_snippet": "Hãy nghĩ JDK như một bếp nhà hàng chuyên nghiệp, chứa đầu bếp, lò nướng, bếp gas"
     },
     {
       "paragraph_id": 32,
-      "start": 250.07,
-      "end": 251.4,
-      "duration": 1.34,
+      "start": 201.44,
+      "end": 203.82,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 33,
-      "start": 251.4,
-      "end": 253.37,
-      "duration": 1.97,
-      "text_snippet": "Quy tắc ghi nhớ ngắn gọn:"
+      "start": 203.81,
+      "end": 208.24,
+      "duration": 4.43,
+      "text_snippet": "Ví Dụ Code: Hành Vi Lệnh JRE và JDK"
     },
     {
       "paragraph_id": 34,
-      "start": 253.37,
-      "end": 254.7,
-      "duration": 1.34,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 208.24,
+      "end": 217.0,
+      "duration": 8.76,
+      "text_snippet": "Nếu bạn cố biên dịch file nguồn trên máy chỉ cài JRE, hệ điều hành sẽ không tìm "
     },
     {
       "paragraph_id": 35,
-      "start": 254.7,
-      "end": 255.49,
-      "duration": 0.79,
-      "text_snippet": "Ví Dụ Lệnh"
-    },
-    {
-      "paragraph_id": 36,
-      "start": 255.49,
-      "end": 257.77,
-      "duration": 2.28,
-      "text_snippet": "Kiểm tra Java runtime đã cài:"
-    },
-    {
-      "paragraph_id": 37,
-      "start": 257.77,
-      "end": 259.11,
-      "duration": 1.34,
+      "start": 217.0,
+      "end": 219.2,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
+      "paragraph_id": 36,
+      "start": 219.2,
+      "end": 221.3,
+      "duration": 2.1,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 221.3,
+      "end": 239.15,
+      "duration": 17.85,
+      "text_snippet": "Lập trình viên viết mã nguồn .java $\\rightarrow$ javac của JDK biên dịch thành b"
+    },
+    {
       "paragraph_id": 38,
-      "start": 259.11,
-      "end": 261.07,
-      "duration": 1.97,
-      "text_snippet": "Kiểm tra trình biên dịch:"
+      "start": 239.15,
+      "end": 240.2,
+      "duration": 1.05,
+      "text_snippet": "Mối Quan Hệ"
     },
     {
       "paragraph_id": 39,
-      "start": 261.07,
-      "end": 262.41,
-      "duration": 1.34,
+      "start": 240.2,
+      "end": 241.6,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 40,
-      "start": 262.41,
-      "end": 264.29,
-      "duration": 1.89,
-      "text_snippet": "Biên dịch mã nguồn Java:"
+      "start": 241.6,
+      "end": 243.7,
+      "duration": 2.1,
+      "text_snippet": "Quy tắc ghi nhớ ngắn gọn:"
     },
     {
       "paragraph_id": 41,
-      "start": 264.29,
-      "end": 265.63,
-      "duration": 1.34,
+      "start": 243.8,
+      "end": 246.18,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 42,
-      "start": 265.63,
-      "end": 267.36,
-      "duration": 1.73,
-      "text_snippet": "Chạy lớp đã biên dịch:"
+      "start": 246.12,
+      "end": 247.78,
+      "duration": 1.66,
+      "text_snippet": "Ví Dụ Lệnh"
     },
     {
       "paragraph_id": 43,
-      "start": 267.36,
-      "end": 268.7,
-      "duration": 1.34,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 247.79,
+      "end": 250.79,
+      "duration": 3.0,
+      "text_snippet": "Kiểm tra Java runtime đã cài:"
     },
     {
       "paragraph_id": 44,
-      "start": 268.7,
-      "end": 271.92,
-      "duration": 3.22,
-      "text_snippet": "Cách Giải Thích Theo Phong Cách Phỏng Vấn"
+      "start": 250.79,
+      "end": 253.17,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 45,
-      "start": 271.92,
-      "end": 275.14,
-      "duration": 3.22,
-      "text_snippet": "Nếu được hỏi giải thích JVM, JRE, và JDK:"
+      "start": 253.16,
+      "end": 255.2,
+      "duration": 2.04,
+      "text_snippet": "Kiểm tra trình biên dịch:"
     },
     {
       "paragraph_id": 46,
-      "start": 275.14,
-      "end": 292.52,
-      "duration": 17.37,
-      "text_snippet": "> JVM thực thi bytecode Java. JRE cung cấp JVM và các thư viện runtime cần thiết để chạy ứng dụng Java. JDK bao gồm JRE "
+      "start": 255.3,
+      "end": 257.68,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 47,
-      "start": 292.52,
-      "end": 293.62,
-      "duration": 1.1,
-      "text_snippet": "Lỗi Thường Gặp"
+      "start": 257.62,
+      "end": 260.22,
+      "duration": 2.6,
+      "text_snippet": "Biên dịch mã nguồn Java:"
     },
     {
       "paragraph_id": 48,
-      "start": 293.62,
-      "end": 311.23,
-      "duration": 17.61,
-      "text_snippet": "Nói JDK và JVM là cùng một thứ.\nNghĩ javac chạy chương trình Java. Thực ra nó biên dịch mã nguồn.\nNghĩ java biên dịch mã"
+      "start": 260.22,
+      "end": 262.6,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 49,
-      "start": 311.23,
-      "end": 312.64,
-      "duration": 1.42,
-      "text_snippet": "Tài Liệu Tham Khảo"
+      "start": 262.6,
+      "end": 264.88,
+      "duration": 2.28,
+      "text_snippet": "Chạy lớp đã biên dịch:"
     },
     {
       "paragraph_id": 50,
-      "start": 312.64,
-      "end": 328.13,
-      "duration": 15.49,
-      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html (Tài liệu tham khảo lệnh javac)\nhttps://docs.oracle."
+      "start": 264.88,
+      "end": 267.08,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 267.18,
+      "end": 269.84,
+      "duration": 2.66,
+      "text_snippet": "Cách Giải Thích Theo Phong Cách Phỏng Vấn"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 269.79,
+      "end": 275.18,
+      "duration": 5.39,
+      "text_snippet": "Nếu được hỏi giải thích JVM, JRE, và JDK:"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 275.18,
+      "end": 291.64,
+      "duration": 16.46,
+      "text_snippet": "JVM thực thi bytecode Java. JRE cung cấp JVM và các thư viện runtime cần thiết đ"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 291.64,
+      "end": 293.28,
+      "duration": 1.64,
+      "text_snippet": "Lỗi Thường Gặp"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 293.27,
+      "end": 297.39,
+      "duration": 4.12,
+      "text_snippet": "Nói JDK và JVM là cùng một thứ."
+    },
+    {
+      "paragraph_id": 56,
+      "start": 297.4,
+      "end": 301.95,
+      "duration": 4.55,
+      "text_snippet": "Nghĩ javac chạy chương trình Java. Thực ra nó biên dịch mã nguồn."
+    },
+    {
+      "paragraph_id": 57,
+      "start": 301.95,
+      "end": 307.2,
+      "duration": 5.25,
+      "text_snippet": "Nghĩ java biên dịch mã nguồn. Thực ra nó chạy các lớp đã biên dịch."
+    },
+    {
+      "paragraph_id": 58,
+      "start": 307.2,
+      "end": 311.4,
+      "duration": 4.2,
+      "text_snippet": "Chỉ cài runtime rồi thắc mắc tại sao javac không tìm thấy."
+    },
+    {
+      "paragraph_id": 59,
+      "start": 311.4,
+      "end": 312.8,
+      "duration": 1.4,
+      "text_snippet": "Tài Liệu Tham Khảo"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 312.8,
+      "end": 315.25,
+      "duration": 2.45,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html (Tài liệu th"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 315.25,
+      "end": 317.7,
+      "duration": 2.45,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html (Tài liệu tha"
     }
   ]
 }

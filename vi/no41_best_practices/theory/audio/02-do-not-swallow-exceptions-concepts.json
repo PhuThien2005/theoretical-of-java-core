@@ -1,567 +1,546 @@
 {
   "lesson": "02-do-not-swallow-exceptions-concepts",
-  "total_duration_seconds": 422.35,
-  "total_paragraphs": 80,
+  "total_duration_seconds": 724.1,
+  "total_paragraphs": 77,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 2.41,
-      "duration": 2.41,
+      "start": 0.1,
+      "end": 6.06,
+      "duration": 5.96,
       "text_snippet": "Thực hành tốt nhất trong Java - Phần 2 (Best Practices in Java - Part 2)"
     },
     {
       "paragraph_id": 2,
-      "start": 2.41,
-      "end": 2.95,
-      "duration": 0.54,
+      "start": 6.01,
+      "end": 7.8,
+      "duration": 1.79,
       "text_snippet": "Mục tiêu học tập"
     },
     {
       "paragraph_id": 3,
-      "start": 2.95,
-      "end": 12.46,
-      "duration": 9.51,
-      "text_snippet": "Tài liệu này tập trung vào các Thực hành tốt nhất (Best Practices) nâng cao trong Java bao gồm các quy tắc xử lý ngoại l"
+      "start": 7.8,
+      "end": 24.81,
+      "duration": 17.01,
+      "text_snippet": "Tài liệu này tập trung vào các Thực hành tốt nhất (Best Practices) nâng cao tron"
     },
     {
       "paragraph_id": 4,
-      "start": 12.46,
-      "end": 13.03,
-      "duration": 0.57,
+      "start": 24.81,
+      "end": 26.71,
+      "duration": 1.9,
       "text_snippet": "Đề cương chi tiết"
     },
     {
       "paragraph_id": 5,
-      "start": 13.03,
-      "end": 45.88,
-      "duration": 32.85,
-      "text_snippet": "Do not swallow exceptions — Do not swallow exceptions: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nUse i"
+      "start": 26.71,
+      "end": 34.6,
+      "duration": 7.89,
+      "text_snippet": "Do not swallow exceptions — Do not swallow exceptions: Cung cấp các quy tắc và c"
     },
     {
       "paragraph_id": 6,
-      "start": 45.88,
-      "end": 45.95,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 34.6,
+      "end": 44.05,
+      "duration": 9.45,
+      "text_snippet": "Use interface type when declaring Collection — Use interface type when declaring"
     },
     {
       "paragraph_id": 7,
-      "start": 45.95,
-      "end": 46.49,
-      "duration": 0.54,
-      "text_snippet": "Ghi chú chi tiết"
+      "start": 44.05,
+      "end": 52.8,
+      "duration": 8.75,
+      "text_snippet": "List<String> list = new ArrayList<>(); — List list = new ArrayList<>();: Cung cấ"
     },
     {
       "paragraph_id": 8,
-      "start": 46.49,
-      "end": 48.06,
-      "duration": 1.57,
-      "text_snippet": "Không nuốt ngoại lệ (Do not swallow exceptions)"
+      "start": 52.8,
+      "end": 60.15,
+      "duration": 7.35,
+      "text_snippet": "Avoid raw type — Avoid raw type: Cung cấp các quy tắc và cơ chế hoạt động cụ thể"
     },
     {
       "paragraph_id": 9,
-      "start": 48.06,
-      "end": 56.4,
-      "duration": 8.34,
-      "text_snippet": "Nuốt ngoại lệ (bắt một ngoại lệ và không làm gì cả, hoặc chỉ ghi một thông điệp ghi nhật ký tầm thường mà không giải quy"
+      "start": 60.15,
+      "end": 68.2,
+      "duration": 8.05,
+      "text_snippet": "Avoid null when possible — Avoid null when possible: Cung cấp các quy tắc và cơ "
     },
     {
       "paragraph_id": 10,
-      "start": 56.4,
-      "end": 63.73,
-      "duration": 7.33,
-      "text_snippet": "Ví dụ:\n  `java\n  // BAD: Silently ignores the exception, leaving application in an unstable state\n  try {\n      parseCon"
+      "start": 68.2,
+      "end": 75.55,
+      "duration": 7.35,
+      "text_snippet": "Write testable code — Write testable code: Cung cấp các quy tắc và cơ chế hoạt đ"
     },
     {
       "paragraph_id": 11,
-      "start": 63.73,
-      "end": 73.75,
-      "duration": 10.01,
-      "text_snippet": "// GOOD: Logs details and propagates the exception wrapped in a RuntimeException\n  try {\n      parseConfiguration();\n  }"
+      "start": 75.65,
+      "end": 85.46,
+      "duration": 9.81,
+      "text_snippet": "Separate class/method responsibilities — Separate class/method responsibilities:"
     },
     {
       "paragraph_id": 12,
-      "start": 73.75,
-      "end": 73.81,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 85.41,
+      "end": 93.51,
+      "duration": 8.1,
+      "text_snippet": "Immutability when appropriate — Immutability when appropriate: Cung cấp các quy "
     },
     {
       "paragraph_id": 13,
-      "start": 73.81,
-      "end": 76.93,
-      "duration": 3.11,
-      "text_snippet": "Sử dụng kiểu giao diện khi khai báo bộ sưu tập (Use interface type when declaring Collection)"
+      "start": 93.51,
+      "end": 95.35,
+      "duration": 1.84,
+      "text_snippet": "Ghi chú chi tiết"
     },
     {
       "paragraph_id": 14,
-      "start": 76.93,
-      "end": 86.17,
-      "duration": 9.24,
-      "text_snippet": "Hãy lập trình hướng tới các giao diện (List, Set, Map, Queue) thay vì các lớp cụ thể (ArrayList, HashSet, HashMap, Linke"
+      "start": 95.35,
+      "end": 109.9,
+      "duration": 14.55,
+      "text_snippet": "Không nuốt ngoại lệ (Do not swallow exceptions)"
     },
     {
       "paragraph_id": 15,
-      "start": 86.17,
-      "end": 90.46,
-      "duration": 4.29,
-      "text_snippet": "Ví dụ:\n  `java\n  // BAD: Hardcodes dependency on ArrayList implementation details\n  ArrayList<String> users = new ArrayL"
+      "start": 109.9,
+      "end": 114.89,
+      "duration": 4.99,
+      "text_snippet": "Nuốt ngoại lệ (bắt một ngoại lệ và không làm gì cả, hoặc chỉ ghi một thông điệp "
     },
     {
       "paragraph_id": 16,
-      "start": 90.46,
-      "end": 93.71,
-      "duration": 3.25,
-      "text_snippet": "// GOOD: Declares variable using the interface type\n  List<String> users = new ArrayList<>();\n  `"
+      "start": 114.99,
+      "end": 147.24,
+      "duration": 32.25,
+      "text_snippet": "Ví dụ:// BAD: Silently ignores the exception, leaving application in an unstable"
     },
     {
       "paragraph_id": 17,
-      "start": 93.71,
-      "end": 93.77,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 147.24,
+      "end": 149.62,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 18,
-      "start": 93.77,
-      "end": 95.05,
-      "duration": 1.27,
-      "text_snippet": "List<String> list = new ArrayList<>();"
+      "start": 149.61,
+      "end": 155.99,
+      "duration": 6.38,
+      "text_snippet": "Sử dụng kiểu giao diện khi khai báo bộ sưu tập (Use interface type when declarin"
     },
     {
       "paragraph_id": 19,
-      "start": 95.05,
-      "end": 101.41,
-      "duration": 6.36,
-      "text_snippet": "Luôn chỉ định các đối số kiểu để đảm bảo an toàn kiểu tại thời điểm biên dịch. Sử dụng toán tử kim cương (<>) ở phía gọi"
+      "start": 155.99,
+      "end": 173.67,
+      "duration": 17.68,
+      "text_snippet": "Hãy lập trình hướng tới các giao diện (List, Set, Map, Queue) thay vì các lớp cụ"
     },
     {
       "paragraph_id": 20,
-      "start": 101.41,
-      "end": 104.22,
-      "duration": 2.81,
-      "text_snippet": "Ví dụ:\n  `java\n  List<String> list = new ArrayList<>(); // Clean, type-safe, dry\n  `"
+      "start": 173.66,
+      "end": 185.91,
+      "duration": 12.25,
+      "text_snippet": "Ví dụ:// BAD: Hardcodes dependency on ArrayList implementation details ArrayList"
     },
     {
       "paragraph_id": 21,
-      "start": 104.22,
-      "end": 104.29,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 186.01,
+      "end": 188.39,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 22,
-      "start": 104.29,
-      "end": 105.33,
-      "duration": 1.04,
-      "text_snippet": "Tránh kiểu thô (Avoid raw type)"
+      "start": 188.34,
+      "end": 190.83,
+      "duration": 2.49,
+      "text_snippet": "List list = new ArrayList<>();"
     },
     {
       "paragraph_id": 23,
-      "start": 105.33,
-      "end": 114.74,
-      "duration": 9.41,
-      "text_snippet": "Kiểu thô (raw type) là các lớp generic được khai báo mà không có tham số kiểu (ví dụ: sử dụng List thay vì List<String>)"
+      "start": 190.82,
+      "end": 202.13,
+      "duration": 11.31,
+      "text_snippet": "Luôn chỉ định các đối số kiểu để đảm bảo an toàn kiểu tại thời điểm biên dịch. S"
     },
     {
       "paragraph_id": 24,
-      "start": 114.74,
-      "end": 120.43,
-      "duration": 5.69,
-      "text_snippet": "Ví dụ:\n  `java\n  // BAD: Raw type allows compiling mixed element additions\n  List rawList = new ArrayList();\n  rawList.a"
+      "start": 202.14,
+      "end": 207.54,
+      "duration": 5.4,
+      "text_snippet": "Ví dụ:List<String> list = new ArrayList<>(); // Clean, type-safe, dry"
     },
     {
       "paragraph_id": 25,
-      "start": 120.43,
-      "end": 123.92,
-      "duration": 3.48,
-      "text_snippet": "// Runtime crash when reading:\n  String str = (String) rawList.get(1); // ClassCastException at runtime!"
+      "start": 207.54,
+      "end": 209.74,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 26,
-      "start": 123.92,
-      "end": 128.97,
-      "duration": 5.06,
-      "text_snippet": "// GOOD: Generic list catches mistakes at compile time\n  List<String> genericList = new ArrayList<>();\n  // genericList."
+      "start": 209.74,
+      "end": 211.84,
+      "duration": 2.1,
+      "text_snippet": "Tránh kiểu thô (Avoid raw type)"
     },
     {
       "paragraph_id": 27,
-      "start": 128.97,
-      "end": 129.04,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 211.84,
+      "end": 232.49,
+      "duration": 20.65,
+      "text_snippet": "Kiểu thô (raw type) là các lớp generic được khai báo mà không có tham số kiểu (v"
     },
     {
       "paragraph_id": 28,
-      "start": 129.04,
-      "end": 130.65,
-      "duration": 1.61,
-      "text_snippet": "Tránh null khi có thể (Avoid null when possible)"
+      "start": 232.49,
+      "end": 251.04,
+      "duration": 18.55,
+      "text_snippet": "Ví dụ:// BAD: Raw type allows compiling mixed element additions List rawList = n"
     },
     {
       "paragraph_id": 29,
-      "start": 130.65,
-      "end": 133.23,
-      "duration": 2.58,
-      "text_snippet": "Giảm thiểu NullPointerException bằng cách áp dụng các mẫu lập trình phòng vệ:"
+      "start": 251.04,
+      "end": 252.44,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 30,
-      "start": 133.23,
-      "end": 152.22,
-      "duration": 18.99,
-      "text_snippet": "Các quy tắc:\n  - Trả về các bộ sưu tập trống: Không bao giờ trả về null cho các kiểu trả về dạng danh sách/bản đồ/mảng. "
+      "start": 252.44,
+      "end": 255.59,
+      "duration": 3.15,
+      "text_snippet": "Tránh null khi có thể (Avoid null when possible)"
     },
     {
       "paragraph_id": 31,
-      "start": 152.22,
-      "end": 156.7,
-      "duration": 4.49,
-      "text_snippet": "// GOOD: Safe to iterate directly without null checks\n  public List<String> getRoles() {\n      return Collections.emptyL"
+      "start": 255.69,
+      "end": 260.31,
+      "duration": 4.62,
+      "text_snippet": "Giảm thiểu NullPointerException bằng cách áp dụng các mẫu lập trình phòng vệ:"
     },
     {
       "paragraph_id": 32,
-      "start": 156.7,
-      "end": 156.77,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 260.26,
+      "end": 315.14,
+      "duration": 54.88,
+      "text_snippet": "Các quy tắc: Trả về các bộ sưu tập trống: Không bao giờ trả về null cho các kiểu"
     },
     {
       "paragraph_id": 33,
-      "start": 156.77,
-      "end": 158.48,
-      "duration": 1.71,
-      "text_snippet": "Viết mã nguồn có thể kiểm thử (Write testable code)"
+      "start": 315.14,
+      "end": 325.99,
+      "duration": 10.85,
+      "text_snippet": "Trả về các bộ sưu tập trống: Không bao giờ trả về null cho các kiểu trả về dạng "
     },
     {
       "paragraph_id": 34,
-      "start": 158.48,
-      "end": 162.5,
-      "duration": 4.02,
-      "text_snippet": "Mã nguồn có thể kiểm thử được thiết kế theo dạng mô-đun, tách biệt, và dễ chạy cô lập bên trong các bài kiểm thử đơn vị."
+      "start": 325.99,
+      "end": 335.44,
+      "duration": 9.45,
+      "text_snippet": "Sử dụng Optional: Đối với các giá trị đơn tùy chọn, trả về Optional<T> để buộc n"
     },
     {
       "paragraph_id": 35,
-      "start": 162.5,
-      "end": 185.51,
-      "duration": 23.01,
-      "text_snippet": "Các quy tắc:\n  - Tránh các cộng sự được mã hóa cứng (Hardcoded Collaborators): Không khởi tạo các phụ thuộc bằng từ khóa"
+      "start": 335.44,
+      "end": 341.04,
+      "duration": 5.6,
+      "text_snippet": "Xác thực đối số: Sử dụng Objects.requireNonNull() hoặc các thư viện như các chú "
     },
     {
       "paragraph_id": 36,
-      "start": 185.51,
-      "end": 189.59,
-      "duration": 4.09,
-      "text_snippet": "// GOOD: Inject a Clock instance. Allows mocking specific times in tests.\n  class Order {\n      private final Clock cloc"
+      "start": 315.24,
+      "end": 329.44,
+      "duration": 14.2,
+      "text_snippet": "Ví dụ:// BAD: Caller must remember to do null check or risk NPE public List<Stri"
     },
     {
       "paragraph_id": 37,
-      "start": 189.59,
-      "end": 191.77,
-      "duration": 2.18,
-      "text_snippet": "public Order(Clock clock) {\n          this.clock = clock;\n      }"
+      "start": 329.39,
+      "end": 331.77,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 38,
-      "start": 191.77,
-      "end": 194.92,
-      "duration": 3.15,
-      "text_snippet": "public boolean isExpired() {\n          return clock.millis() > expirationTime;\n      }\n  }\n  `"
+      "start": 331.76,
+      "end": 343.21,
+      "duration": 11.45,
+      "text_snippet": "Viết mã nguồn có thể kiểm thử (Write testable code)"
     },
     {
       "paragraph_id": 39,
-      "start": 194.92,
-      "end": 194.98,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 343.21,
+      "end": 352.66,
+      "duration": 9.45,
+      "text_snippet": "Mã nguồn có thể kiểm thử được thiết kế theo dạng mô-đun, tách biệt, và dễ chạy c"
     },
     {
       "paragraph_id": 40,
-      "start": 194.98,
-      "end": 198.0,
-      "duration": 3.01,
-      "text_snippet": "Phân chia rõ ràng trách nhiệm của lớp/phương thức (Separate class/method responsibilities)"
+      "start": 343.21,
+      "end": 371.57,
+      "duration": 28.36,
+      "text_snippet": "Các quy tắc: Tránh các cộng sự được mã hóa cứng (Hardcoded Collaborators): Không"
     },
     {
       "paragraph_id": 41,
-      "start": 198.0,
-      "end": 203.05,
-      "duration": 5.06,
-      "text_snippet": "Một lớp hoặc phương thức nên tuân thủ Nguyên lý đơn nhiệm (Single Responsibility Principle - SRP) — nó nên có chính xác "
+      "start": 371.57,
+      "end": 386.62,
+      "duration": 15.05,
+      "text_snippet": "Tránh các cộng sự được mã hóa cứng (Hardcoded Collaborators): Không khởi tạo các"
     },
     {
       "paragraph_id": 42,
-      "start": 203.05,
-      "end": 214.21,
-      "duration": 11.15,
-      "text_snippet": "Quy tắc: Tránh các \"lớp vạn năng (God class)\" trộn lẫn truy cập cơ sở dữ liệu, tính toán nghiệp vụ, phân tích cú pháp đầ"
+      "start": 386.62,
+      "end": 399.92,
+      "duration": 13.3,
+      "text_snippet": "Tránh các cuộc gọi tĩnh (Static Call): Tránh các cuộc gọi trực tiếp đến các phươ"
     },
     {
       "paragraph_id": 43,
-      "start": 214.21,
-      "end": 214.27,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 399.93,
+      "end": 421.98,
+      "duration": 22.05,
+      "text_snippet": "Ví dụ:// BAD: Coupled to clock. Cannot write a deterministic test for past/futur"
     },
     {
       "paragraph_id": 44,
-      "start": 214.27,
-      "end": 216.25,
-      "duration": 1.98,
-      "text_snippet": "Tính bất biến khi thích hợp (Immutability when appropriate)"
+      "start": 421.97,
+      "end": 423.37,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 45,
-      "start": 216.25,
-      "end": 221.61,
-      "duration": 5.36,
-      "text_snippet": "Các đối tượng bất biến là các đối tượng có trạng thái không thể thay đổi sau khi khởi tạo. Chúng vốn dĩ an toàn luồng, a"
+      "start": 423.38,
+      "end": 427.58,
+      "duration": 4.2,
+      "text_snippet": "Phân chia rõ ràng trách nhiệm của lớp/phương thức (Separate class/method respons"
     },
     {
       "paragraph_id": 46,
-      "start": 221.61,
-      "end": 239.16,
-      "duration": 17.55,
-      "text_snippet": "Các quy tắc:\n  - Khai báo các trường là private và final.\n  - Không cung cấp các phương thức setter.\n  - Khai báo lớp là"
+      "start": 427.57,
+      "end": 438.42,
+      "duration": 10.85,
+      "text_snippet": "Một lớp hoặc phương thức nên tuân thủ Nguyên lý đơn nhiệm (Single Responsibility"
     },
     {
       "paragraph_id": 47,
-      "start": 239.16,
-      "end": 246.22,
-      "duration": 7.07,
-      "text_snippet": "public ImmutableUser(String username, List<String> roles) {\n        this.username = username;\n        // Defensive copy "
+      "start": 438.43,
+      "end": 452.43,
+      "duration": 14.0,
+      "text_snippet": "Quy tắc: Tránh các \"lớp vạn năng (God class)\" trộn lẫn truy cập cơ sở dữ liệu, t"
     },
     {
       "paragraph_id": 48,
-      "start": 246.22,
-      "end": 250.85,
-      "duration": 4.62,
-      "text_snippet": "public String getUsername() { return username; }\n    public List<String> getRoles() { return roles; } // Returns unmodif"
+      "start": 452.43,
+      "end": 461.88,
+      "duration": 9.45,
+      "text_snippet": "Ví dụ: Tạo một UserRepository cho các hoạt động cơ sở dữ liệu DB, một UserServic"
     },
     {
       "paragraph_id": 49,
-      "start": 250.85,
-      "end": 250.91,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 461.88,
+      "end": 465.03,
+      "duration": 3.15,
+      "text_snippet": "Tính bất biến khi thích hợp (Immutability when appropriate)"
     },
     {
       "paragraph_id": 50,
-      "start": 250.91,
-      "end": 252.08,
-      "duration": 1.17,
-      "text_snippet": "Tại sao nuốt ngoại lệ lại nguy hiểm"
+      "start": 465.02,
+      "end": 477.97,
+      "duration": 12.95,
+      "text_snippet": "Các đối tượng bất biến là các đối tượng có trạng thái không thể thay đổi sau khi"
     },
     {
       "paragraph_id": 51,
-      "start": 252.08,
-      "end": 286.25,
-      "duration": 34.16,
-      "text_snippet": "Nuốt ngoại lệ xảy ra khi một chương trình bắt một ngoại lệ nhưng không thực hiện hành động khắc phục nào, không ghi log "
+      "start": 477.97,
+      "end": 503.17,
+      "duration": 25.2,
+      "text_snippet": "Các quy tắc: Khai báo các trường là private và final. Không cung cấp các phương "
     },
     {
       "paragraph_id": 52,
-      "start": 286.25,
-      "end": 288.42,
-      "duration": 2.18,
-      "text_snippet": "Mô hình tư duy: Dấu vết ngăn xếp và Sự mất mát ngữ cảnh chẩn đoán"
+      "start": 503.17,
+      "end": 505.97,
+      "duration": 2.8,
+      "text_snippet": "Khai báo các trường là private và final."
     },
     {
       "paragraph_id": 53,
-      "start": 288.42,
-      "end": 288.99,
-      "duration": 0.57,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 505.97,
+      "end": 508.42,
+      "duration": 2.45,
+      "text_snippet": "Không cung cấp các phương thức setter."
     },
     {
       "paragraph_id": 54,
-      "start": 288.99,
-      "end": 296.9,
-      "duration": 7.9,
-      "text_snippet": "Đường dẫn bị nuốt (Bị mất):\nPhương thức C (Ném) ---> Phương thức B (Bắt { }) ---> Phương thức A (Tiếp tục mù quáng, giả "
+      "start": 508.42,
+      "end": 513.32,
+      "duration": 4.9,
+      "text_snippet": "Khai báo lớp là final (để nó không thể bị kế thừa ghi đè)."
     },
     {
       "paragraph_id": 55,
-      "start": 296.9,
-      "end": 297.36,
-      "duration": 0.47,
-      "text_snippet": "Ví dụ mã nguồn"
+      "start": 513.32,
+      "end": 527.32,
+      "duration": 14.0,
+      "text_snippet": "Đối với các trường bộ sưu tập, trả về các dạng xem không thể sửa đổi (unmodifiab"
     },
     {
       "paragraph_id": 56,
-      "start": 297.36,
-      "end": 297.93,
-      "duration": 0.57,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 527.42,
+      "end": 555.21,
+      "duration": 27.79,
+      "text_snippet": "Ví dụ:public final class ImmutableUser { private final String username; private "
     },
     {
       "paragraph_id": 57,
-      "start": 297.93,
-      "end": 307.78,
-      "duration": 9.85,
-      "text_snippet": "public class ExceptionSwallowingDemo {\n    public static void loadConfigSwallowed() {\n        try {\n            throw ne"
+      "start": 555.21,
+      "end": 557.59,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 58,
-      "start": 307.78,
-      "end": 318.36,
-      "duration": 10.58,
-      "text_snippet": "public static void loadConfigSafe() {\n        try {\n            throw new IOException(\"Disk failure reading config file\""
+      "start": 557.59,
+      "end": 567.77,
+      "duration": 10.18,
+      "text_snippet": "Tại sao nuốt ngoại lệ lại nguy hiểm"
     },
     {
       "paragraph_id": 59,
-      "start": 318.36,
-      "end": 323.76,
-      "duration": 5.39,
-      "text_snippet": "public static void main(String[] args) {\n        loadConfigSwallowed();\n        System.out.println(\"Swallowed completed "
+      "start": 567.76,
+      "end": 615.92,
+      "duration": 48.16,
+      "text_snippet": "Nuốt ngoại lệ xảy ra khi một chương trình bắt một ngoại lệ nhưng không thực hiện"
     },
     {
       "paragraph_id": 60,
-      "start": 323.76,
-      "end": 330.62,
-      "duration": 6.87,
-      "text_snippet": "try {\n            loadConfigSafe();\n        } catch (RuntimeException e) {\n            System.out.println(\"Caught safely"
+      "start": 615.92,
+      "end": 620.73,
+      "duration": 4.81,
+      "text_snippet": "Mô hình tư duy: Dấu vết ngăn xếp và Sự mất mát ngữ cảnh chẩn đoán"
     },
     {
       "paragraph_id": 61,
-      "start": 330.62,
-      "end": 331.53,
-      "duration": 0.9,
-      "text_snippet": "Chuỗi nguyên nhân - kết quả"
+      "start": 620.74,
+      "end": 622.14,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 62,
-      "start": 331.53,
-      "end": 332.09,
-      "duration": 0.57,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 63,
-      "start": 332.09,
-      "end": 332.16,
-      "duration": 0.07,
-      "text_snippet": "--"
-    },
-    {
-      "paragraph_id": 64,
-      "start": 332.16,
-      "end": 333.87,
-      "duration": 1.71,
-      "text_snippet": "Tại sao ngoại lệ tùy chỉnh nhóm theo cơ sở phục hồi"
-    },
-    {
-      "paragraph_id": 65,
-      "start": 333.87,
-      "end": 372.45,
-      "duration": 38.58,
-      "text_snippet": "Các ngoại lệ tùy chỉnh nên được thiết kế dựa trên việc ứng dụng gọi có thể phục hồi bằng mã một cách lập trình từ thất b"
-    },
-    {
-      "paragraph_id": 66,
-      "start": 372.45,
-      "end": 374.39,
-      "duration": 1.94,
-      "text_snippet": "Mô hình tư duy: Phục hồi ngoại lệ Checked so với Unchecked"
-    },
-    {
-      "paragraph_id": 67,
-      "start": 374.39,
-      "end": 374.96,
-      "duration": 0.57,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 68,
-      "start": 374.96,
-      "end": 379.92,
-      "duration": 4.96,
-      "text_snippet": "Không thể phục hồi (Unchecked Exception):\n[Con trỏ Null/Cấu hình sai] ---> CustomUncheckedException ---> Hủy bỏ ---> [Gh"
-    },
-    {
-      "paragraph_id": 69,
-      "start": 379.92,
-      "end": 380.39,
-      "duration": 0.47,
+      "start": 622.14,
+      "end": 623.54,
+      "duration": 1.4,
       "text_snippet": "Ví dụ mã nguồn"
     },
     {
-      "paragraph_id": 70,
-      "start": 380.39,
-      "end": 380.96,
-      "duration": 0.57,
+      "paragraph_id": 63,
+      "start": 623.54,
+      "end": 624.94,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 71,
-      "start": 380.96,
-      "end": 386.95,
-      "duration": 5.99,
-      "text_snippet": "// Unrecoverable custom exception\nclass SystemDatabaseException extends RuntimeException {\n    public SystemDatabaseExce"
-    },
-    {
-      "paragraph_id": 72,
-      "start": 386.95,
-      "end": 395.66,
-      "duration": 8.71,
-      "text_snippet": "public class RecoveryExceptionDemo {\n    public static void processInput(String input) throws UserInputException {\n     "
-    },
-    {
-      "paragraph_id": 73,
-      "start": 395.66,
-      "end": 402.63,
-      "duration": 6.97,
-      "text_snippet": "public static void connectDatabase() {\n        // Unrecoverable configuration or driver load failure\n        throw new S"
-    },
-    {
-      "paragraph_id": 74,
-      "start": 402.63,
-      "end": 409.36,
-      "duration": 6.73,
-      "text_snippet": "public static void main(String[] args) {\n        try {\n            processInput(\"\");\n        } catch (UserInputException"
-    },
-    {
-      "paragraph_id": 75,
-      "start": 409.36,
-      "end": 416.96,
-      "duration": 7.6,
-      "text_snippet": "try {\n            connectDatabase();\n        } catch (SystemDatabaseException e) {\n            System.out.println(\"Unrec"
-    },
-    {
-      "paragraph_id": 76,
-      "start": 416.96,
-      "end": 417.86,
-      "duration": 0.9,
+      "paragraph_id": 64,
+      "start": 624.94,
+      "end": 627.04,
+      "duration": 2.1,
       "text_snippet": "Chuỗi nguyên nhân - kết quả"
     },
     {
-      "paragraph_id": 77,
-      "start": 417.86,
-      "end": 418.43,
-      "duration": 0.57,
+      "paragraph_id": 65,
+      "start": 627.04,
+      "end": 628.44,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 78,
-      "start": 418.43,
-      "end": 418.5,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "paragraph_id": 66,
+      "start": 628.54,
+      "end": 632.27,
+      "duration": 3.73,
+      "text_snippet": "Tại sao ngoại lệ tùy chỉnh nhóm theo cơ sở phục hồi"
     },
     {
-      "paragraph_id": 79,
-      "start": 418.5,
-      "end": 419.1,
-      "duration": 0.6,
+      "paragraph_id": 67,
+      "start": 632.21,
+      "end": 694.71,
+      "duration": 62.5,
+      "text_snippet": "Các ngoại lệ tùy chỉnh nên được thiết kế dựa trên việc ứng dụng gọi có thể phục "
+    },
+    {
+      "paragraph_id": 68,
+      "start": 694.71,
+      "end": 699.09,
+      "duration": 4.38,
+      "text_snippet": "Mô hình tư duy: Phục hồi ngoại lệ Checked so với Unchecked"
+    },
+    {
+      "paragraph_id": 69,
+      "start": 699.09,
+      "end": 701.47,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 70,
+      "start": 701.46,
+      "end": 703.4,
+      "duration": 1.94,
+      "text_snippet": "Ví dụ mã nguồn"
+    },
+    {
+      "paragraph_id": 71,
+      "start": 703.5,
+      "end": 705.88,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 72,
+      "start": 705.82,
+      "end": 708.3,
+      "duration": 2.48,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả"
+    },
+    {
+      "paragraph_id": 73,
+      "start": 708.3,
+      "end": 710.68,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 74,
+      "start": 710.67,
+      "end": 712.68,
+      "duration": 2.01,
       "text_snippet": "Liên kết tham khảo"
     },
     {
-      "paragraph_id": 80,
-      "start": 419.1,
-      "end": 422.35,
-      "duration": 3.25,
-      "text_snippet": "Oracle Java Exception Tutorial\nJava Language Specification - Exceptions\nDev.java Exceptions Guide"
+      "paragraph_id": 75,
+      "start": 712.69,
+      "end": 716.48,
+      "duration": 3.79,
+      "text_snippet": "Oracle Java Exception Tutorial"
+    },
+    {
+      "paragraph_id": 76,
+      "start": 716.58,
+      "end": 720.66,
+      "duration": 4.08,
+      "text_snippet": "Java Language Specification - Exceptions"
+    },
+    {
+      "paragraph_id": 77,
+      "start": 720.6,
+      "end": 724.1,
+      "duration": 3.5,
+      "text_snippet": "Dev.java Exceptions Guide"
     }
   ]
 }

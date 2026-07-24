@@ -1,245 +1,427 @@
 {
   "lesson": "01-process-vs-thread-concepts",
-  "total_duration_seconds": 333.29,
-  "total_paragraphs": 34,
+  "total_duration_seconds": 397.38,
+  "total_paragraphs": 60,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 1.19,
-      "duration": 1.19,
+      "start": 0.1,
+      "end": 3.31,
+      "duration": 3.21,
       "text_snippet": "Đa Luồng (Multithreading) - Phần 1"
     },
     {
       "paragraph_id": 2,
-      "start": 1.19,
-      "end": 1.75,
-      "duration": 0.56,
+      "start": 3.26,
+      "end": 5.06,
+      "duration": 1.8,
       "text_snippet": "Mục Tiêu Học Tập"
     },
     {
       "paragraph_id": 3,
-      "start": 1.75,
-      "end": 8.71,
-      "duration": 6.96,
-      "text_snippet": "Tài liệu này trình bày các nguyên lý cơ bản về tạo luồng, các trạng thái vòng đời và quản lý luồng. Hãy nghiên cứu từng "
+      "start": 5.06,
+      "end": 17.04,
+      "duration": 11.98,
+      "text_snippet": "Tài liệu này trình bày các nguyên lý cơ bản về tạo luồng, các trạng thái vòng đờ"
     },
     {
       "paragraph_id": 4,
-      "start": 8.71,
-      "end": 9.34,
-      "duration": 0.63,
+      "start": 17.04,
+      "end": 19.05,
+      "duration": 2.01,
       "text_snippet": "Nội Dung Tổng Quan"
     },
     {
       "paragraph_id": 5,
-      "start": 9.34,
-      "end": 36.3,
-      "duration": 26.96,
-      "text_snippet": "Process vs Thread — Process vs Thread: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nCreate thread using: "
+      "start": 19.05,
+      "end": 25.93,
+      "duration": 6.88,
+      "text_snippet": "Process vs Thread — Process vs Thread: Cung cấp các quy tắc và cơ chế hoạt động "
     },
     {
       "paragraph_id": 6,
-      "start": 36.3,
-      "end": 36.86,
-      "duration": 0.56,
-      "text_snippet": "Ghi Chú Chi Tiết"
+      "start": 25.93,
+      "end": 33.28,
+      "duration": 7.35,
+      "text_snippet": "Create thread using: — Create thread using:: Cung cấp các quy tắc và cơ chế hoạt"
     },
     {
       "paragraph_id": 7,
-      "start": 36.86,
-      "end": 61.82,
-      "duration": 24.97,
-      "text_snippet": "Tiến trình so với Luồng (Process vs Thread)\nTiến trình (Process): Một đơn vị phân bổ tài nguyên của hệ điều hành. Mỗi ti"
+      "start": 33.27,
+      "end": 39.92,
+      "duration": 6.65,
+      "text_snippet": "extends Thread — extends Thread: Cung cấp các quy tắc và cơ chế hoạt động cụ thể"
     },
     {
       "paragraph_id": 8,
-      "start": 61.82,
-      "end": 62.52,
-      "duration": 0.7,
-      "text_snippet": "Các Cơ Chế Tạo Luồng"
+      "start": 39.92,
+      "end": 46.57,
+      "duration": 6.65,
+      "text_snippet": "implements Runnable — implements Runnable: Cung cấp các quy tắc và cơ chế hoạt đ"
     },
     {
       "paragraph_id": 9,
-      "start": 62.52,
-      "end": 71.72,
-      "duration": 9.2,
-      "text_snippet": "Kế thừa Thread (Extends Thread)\nKế thừa từ lớp Thread và ghi đè phương thức run() của nó.\n`java\nclass CustomThread exten"
+      "start": 46.58,
+      "end": 53.23,
+      "duration": 6.65,
+      "text_snippet": "implements Callable — implements Callable: Cung cấp các quy tắc và cơ chế hoạt đ"
     },
     {
       "paragraph_id": 10,
-      "start": 71.72,
-      "end": 78.12,
-      "duration": 6.4,
-      "text_snippet": "public class ThreadDemo {\n    public static void main(String[] args) {\n        CustomThread t = new CustomThread();\n    "
+      "start": 53.22,
+      "end": 59.17,
+      "duration": 5.95,
+      "text_snippet": "ExecutorService — ExecutorService: Cung cấp các quy tắc và cơ chế hoạt động cụ t"
     },
     {
       "paragraph_id": 11,
-      "start": 78.12,
-      "end": 92.39,
-      "duration": 14.27,
-      "text_snippet": "Triển khai Runnable (Implements Runnable)\nTriển khai giao diện chức năng Runnable và truyền nó vào một thể hiện của Thre"
+      "start": 59.27,
+      "end": 66.06,
+      "duration": 6.79,
+      "text_snippet": "Lifecycle of Thread — Lifecycle of Thread: Cung cấp các quy tắc và cơ chế hoạt đ"
     },
     {
       "paragraph_id": 12,
-      "start": 92.39,
-      "end": 97.42,
-      "duration": 5.04,
-      "text_snippet": "public class RunnableDemo {\n    public static void main(String[] args) {\n        Thread t = new Thread(new Task());\n    "
+      "start": 66.01,
+      "end": 71.27,
+      "duration": 5.26,
+      "text_snippet": "New — New: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 13,
-      "start": 97.42,
-      "end": 108.54,
-      "duration": 11.12,
-      "text_snippet": "Triển khai Callable (Implements Callable)\nCallable<V> tương tự như Runnable nhưng trả về một giá trị và có thể ném ra cá"
+      "start": 71.27,
+      "end": 73.09,
+      "duration": 1.82,
+      "text_snippet": "Ghi Chú Chi Tiết"
     },
     {
       "paragraph_id": 14,
-      "start": 108.54,
-      "end": 114.31,
-      "duration": 5.77,
-      "text_snippet": "class CalculationTask implements Callable<Integer> {\n    @Override\n    public Integer call() throws Exception {\n        "
+      "start": 73.1,
+      "end": 81.54,
+      "duration": 8.44,
+      "text_snippet": "Tiến trình so với Luồng (Process vs Thread)"
     },
     {
       "paragraph_id": 15,
-      "start": 114.31,
-      "end": 127.92,
-      "duration": 13.6,
-      "text_snippet": "public class CallableDemo {\n    public static void main(String[] args) throws Exception {\n        FutureTask<Integer> fu"
+      "start": 81.54,
+      "end": 92.69,
+      "duration": 11.15,
+      "text_snippet": "Tiến trình (Process): Một đơn vị phân bổ tài nguyên của hệ điều hành. Mỗi tiến t"
     },
     {
       "paragraph_id": 16,
-      "start": 127.92,
-      "end": 135.85,
-      "duration": 7.94,
-      "text_snippet": "ExecutorService\nQuản lý luồng thủ công là không hiệu quả. ExecutorService gom nhóm các luồng (thread pool) và quản lý vò"
+      "start": 92.79,
+      "end": 109.1,
+      "duration": 16.31,
+      "text_snippet": "Luồng (Thread): Một đường dẫn thực thi bên trong một tiến trình, thường được gọi"
     },
     {
       "paragraph_id": 17,
-      "start": 135.85,
-      "end": 151.94,
-      "duration": 16.09,
-      "text_snippet": "public class ExecutorDemo {\n    public static void main(String[] args) {\n        ExecutorService executor = Executors.ne"
+      "start": 109.1,
+      "end": 119.11,
+      "duration": 10.01,
+      "text_snippet": "Khác biệt cốt lõi: Chia sẻ bộ nhớ giúp giao tiếp giữa các luồng cực kỳ nhanh chó"
     },
     {
       "paragraph_id": 18,
-      "start": 151.94,
-      "end": 160.61,
-      "duration": 8.67,
-      "text_snippet": "Vòng Đời Của Luồng Và Trạng Thái NEW\nMột luồng ở trạng thái NEW ngay sau khi tạo, trước khi start() được gọi. Ở giai đoạ"
+      "start": 119.11,
+      "end": 121.3,
+      "duration": 2.19,
+      "text_snippet": "Các Cơ Chế Tạo Luồng"
     },
     {
       "paragraph_id": 19,
-      "start": 160.61,
-      "end": 160.68,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 121.3,
+      "end": 128.55,
+      "duration": 7.25,
+      "text_snippet": "1. Kế thừa Thread (Extends Thread)"
     },
     {
       "paragraph_id": 20,
-      "start": 160.68,
-      "end": 162.64,
-      "duration": 1.96,
-      "text_snippet": "Ví Dụ Thực Tế: Kế Thừa Thread so với Triển Khai Runnable"
+      "start": 128.55,
+      "end": 133.1,
+      "duration": 4.55,
+      "text_snippet": "Kế thừa từ lớp Thread và ghi đè phương thức run() của nó."
     },
     {
       "paragraph_id": 21,
-      "start": 162.64,
-      "end": 177.92,
-      "duration": 15.28,
-      "text_snippet": "Vấn đề\nMột nhóm phát triển muốn chạy một tác vụ thăm dò mạng (network polling) một cách đồng thời. Họ đã tạo lớp con kế "
+      "start": 128.55,
+      "end": 129.95,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 22,
-      "start": 177.92,
-      "end": 186.87,
-      "duration": 8.95,
-      "text_snippet": "Giải pháp\nTái cấu trúc để triển khai Runnable thay thế. Việc này giúp tách biệt logic tác vụ khỏi cơ chế thực thi luồng:"
+      "start": 129.95,
+      "end": 132.05,
+      "duration": 2.1,
+      "text_snippet": "2. Triển khai Runnable (Implements Runnable)"
     },
     {
       "paragraph_id": 23,
-      "start": 186.87,
-      "end": 189.39,
-      "duration": 2.52,
-      "text_snippet": "// Execution\nThread thread = new Thread(new Poller());\nthread.start();\n`"
+      "start": 132.05,
+      "end": 147.1,
+      "duration": 15.05,
+      "text_snippet": "Triển khai giao diện chức năng Runnable và truyền nó vào một thể hiện của Thread"
     },
     {
       "paragraph_id": 24,
-      "start": 189.39,
-      "end": 189.46,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 147.1,
+      "end": 148.5,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 25,
-      "start": 189.46,
-      "end": 190.09,
-      "duration": 0.63,
-      "text_snippet": "Sai Lầm Thường Gặp"
+      "start": 148.5,
+      "end": 150.6,
+      "duration": 2.1,
+      "text_snippet": "3. Triển khai Callable (Implements Callable)"
     },
     {
       "paragraph_id": 26,
-      "start": 190.09,
-      "end": 202.82,
-      "duration": 12.73,
-      "text_snippet": "Gọi .run() thay vì .start()\nGọi trực tiếp phương thức run() không tạo ra luồng mới. Nó chỉ đơn giản là thực thi phương t"
+      "start": 150.6,
+      "end": 163.9,
+      "duration": 13.3,
+      "text_snippet": "Callable<V> tương tự như Runnable nhưng trả về một giá trị và có thể ném ra các "
     },
     {
       "paragraph_id": 27,
-      "start": 202.82,
-      "end": 212.05,
-      "duration": 9.23,
-      "text_snippet": "Khởi động lại một Luồng\nMột luồng chỉ có thể được khởi động một lần. Cố gắng bắt đầu một luồng đã hoạt động hoặc đã kết "
+      "start": 163.9,
+      "end": 165.3,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 28,
-      "start": 212.05,
-      "end": 219.18,
-      "duration": 7.13,
-      "text_snippet": "Quên tắt ExecutorService\nTheo mặc định, ExecutorService tạo ra các luồng không phải daemon (non-daemon thread). Nếu bạn "
+      "start": 165.3,
+      "end": 165.7,
+      "duration": 0.4,
+      "text_snippet": "ExecutorService"
     },
     {
       "paragraph_id": 29,
-      "start": 219.18,
-      "end": 220.51,
-      "duration": 1.33,
-      "text_snippet": "Tại Sao Tiến Trình Khác Biệt Với Luồng"
+      "start": 165.65,
+      "end": 173.7,
+      "duration": 8.05,
+      "text_snippet": "Quản lý luồng thủ công là không hiệu quả. ExecutorService gom nhóm các luồng (th"
     },
     {
       "paragraph_id": 30,
-      "start": 220.51,
-      "end": 257.97,
-      "duration": 37.45,
-      "text_snippet": "Ở cấp độ hệ điều hành, một tiến trình đại diện cho một ngữ cảnh thực thi biệt lập chứa không gian địa chỉ, trình xử lý t"
+      "start": 173.7,
+      "end": 175.1,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 31,
-      "start": 257.97,
-      "end": 285.91,
-      "duration": 27.94,
-      "text_snippet": "Mô Hình Tư Duy\n`text\n-----------------------------------------------------------+\n| TIẾN TRÌNH HỆ ĐIỀU HÀNH (OS PROCESS)"
+      "start": 175.2,
+      "end": 178.14,
+      "duration": 2.94,
+      "text_snippet": "Vòng Đời Của Luồng Và Trạng Thái NEW"
     },
     {
       "paragraph_id": 32,
-      "start": 285.91,
-      "end": 294.05,
-      "duration": 8.15,
-      "text_snippet": "Ví Dụ Mã Nguồn\n`java\n// Một lớp có thể chạy được để minh họa việc chia sẻ bộ nhớ của luồng so với sự biệt lập của tiến t"
+      "start": 178.09,
+      "end": 190.75,
+      "duration": 12.66,
+      "text_snippet": "Một luồng ở trạng thái NEW ngay sau khi tạo, trước khi start() được gọi. Ở giai "
     },
     {
       "paragraph_id": 33,
-      "start": 294.05,
-      "end": 314.51,
-      "duration": 20.46,
-      "text_snippet": "public static void main(String[] args) throws InterruptedException {\n        Thread t1 = new Thread(() -> {\n            "
+      "start": 190.75,
+      "end": 195.09,
+      "duration": 4.34,
+      "text_snippet": "Ví Dụ Thực Tế: Kế Thừa Thread so với Triển Khai Runnable"
     },
     {
       "paragraph_id": 34,
-      "start": 314.51,
-      "end": 333.29,
-      "duration": 18.78,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nHệ điều hành khởi chạy tiến trình JVM &rarr; OS phân bổ tài nguyên và không gian địa chỉ ảo "
+      "start": 195.09,
+      "end": 196.54,
+      "duration": 1.45,
+      "text_snippet": "Vấn đề"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 196.54,
+      "end": 206.16,
+      "duration": 9.62,
+      "text_snippet": "Một nhóm phát triển muốn chạy một tác vụ thăm dò mạng (network polling) một cách"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 206.16,
+      "end": 207.56,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 207.56,
+      "end": 221.56,
+      "duration": 14.0,
+      "text_snippet": "Sau đó, họ cần lớp Poller này kế thừa các chức năng cơ sở dữ liệu từ lớp BaseDat"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 221.56,
+      "end": 222.26,
+      "duration": 0.7,
+      "text_snippet": "Giải pháp"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 222.26,
+      "end": 230.31,
+      "duration": 8.05,
+      "text_snippet": "Tái cấu trúc để triển khai Runnable thay thế. Việc này giúp tách biệt logic tác "
+    },
+    {
+      "paragraph_id": 40,
+      "start": 230.31,
+      "end": 231.71,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 231.81,
+      "end": 233.72,
+      "duration": 1.91,
+      "text_snippet": "Sai Lầm Thường Gặp"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 233.68,
+      "end": 236.81,
+      "duration": 3.13,
+      "text_snippet": "1. Gọi .run() thay vì .start()"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 236.8,
+      "end": 246.45,
+      "duration": 9.65,
+      "text_snippet": "Gọi trực tiếp phương thức run() không tạo ra luồng mới. Nó chỉ đơn giản là thực "
+    },
+    {
+      "paragraph_id": 44,
+      "start": 246.45,
+      "end": 248.83,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 248.83,
+      "end": 251.26,
+      "duration": 2.43,
+      "text_snippet": "2. Khởi động lại một Luồng"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 251.35,
+      "end": 259.88,
+      "duration": 8.53,
+      "text_snippet": "Một luồng chỉ có thể được khởi động một lần. Cố gắng bắt đầu một luồng đã hoạt đ"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 259.88,
+      "end": 262.26,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 262.25,
+      "end": 265.25,
+      "duration": 3.0,
+      "text_snippet": "3. Quên tắt ExecutorService"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 265.25,
+      "end": 276.87,
+      "duration": 11.62,
+      "text_snippet": "Theo mặc định, ExecutorService tạo ra các luồng không phải daemon (non-daemon th"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 276.88,
+      "end": 279.73,
+      "duration": 2.85,
+      "text_snippet": "Tại Sao Tiến Trình Khác Biệt Với Luồng"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 279.73,
+      "end": 358.83,
+      "duration": 79.1,
+      "text_snippet": "Ở cấp độ hệ điều hành, một tiến trình đại diện cho một ngữ cảnh thực thi biệt lậ"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 358.83,
+      "end": 360.23,
+      "duration": 1.4,
+      "text_snippet": "Mô Hình Tư Duy"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 360.23,
+      "end": 361.63,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 361.62,
+      "end": 363.02,
+      "duration": 1.4,
+      "text_snippet": "Ví Dụ Mã Nguồn"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 363.03,
+      "end": 364.43,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 364.53,
+      "end": 367.03,
+      "duration": 2.5,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 366.98,
+      "end": 373.12,
+      "duration": 6.14,
+      "text_snippet": "Hệ điều hành khởi chạy tiến trình JVM → OS phân bổ tài nguyên và không gian địa "
+    },
+    {
+      "paragraph_id": 58,
+      "start": 373.11,
+      "end": 382.11,
+      "duration": 9.0,
+      "text_snippet": "JVM tạo ra các luồng Java → Các luồng chia sẻ Heap/Metaspace của JVM nhưng nhận "
+    },
+    {
+      "paragraph_id": 59,
+      "start": 382.11,
+      "end": 388.4,
+      "duration": 6.29,
+      "text_snippet": "Nhiều luồng truy cập các đối tượng trên Heap → Giao tiếp giữa các luồng cực kỳ n"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 388.4,
+      "end": 397.38,
+      "duration": 8.98,
+      "text_snippet": "Các thao tác ghi song song không đồng bộ diễn ra → Các chỉ lệnh CPU xen kẽ nhau "
     }
   ]
 }

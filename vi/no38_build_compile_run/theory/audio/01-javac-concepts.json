@@ -1,574 +1,1113 @@
 {
   "lesson": "01-javac-concepts",
-  "total_duration_seconds": 846.77,
-  "total_paragraphs": 81,
+  "total_duration_seconds": 1544.46,
+  "total_paragraphs": 158,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 2.95,
-      "duration": 2.95,
+      "start": 0.1,
+      "end": 6.39,
+      "duration": 6.29,
       "text_snippet": "Biên Dịch, Đóng Gói, Thực Thi - Phần 1 (Build, Compile, Run - Part 1)"
     },
     {
       "paragraph_id": 2,
-      "start": 2.95,
-      "end": 4.32,
-      "duration": 1.37,
+      "start": 6.34,
+      "end": 9.33,
+      "duration": 2.99,
       "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
     },
     {
       "paragraph_id": 3,
-      "start": 4.32,
-      "end": 13.57,
-      "duration": 9.25,
-      "text_snippet": "Tài liệu này trình bày một phần trọng tâm của Biên Dịch, Đóng Gói, Thực Thi (Build, Compile, Run). Hãy nghiên cứu từng k"
+      "start": 9.32,
+      "end": 22.76,
+      "duration": 13.44,
+      "text_snippet": "Tài liệu này trình bày một phần trọng tâm của Biên Dịch, Đóng Gói, Thực Thi (Bui"
     },
     {
       "paragraph_id": 4,
-      "start": 13.57,
-      "end": 14.98,
-      "duration": 1.41,
+      "start": 22.76,
+      "end": 26.02,
+      "duration": 3.26,
       "text_snippet": "Khung Nội Dung (Outline Coverage)"
     },
     {
       "paragraph_id": 5,
-      "start": 14.98,
-      "end": 51.93,
-      "duration": 36.95,
-      "text_snippet": "javac — javac: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\njava — java: Cung cấp các quy tắc và cơ chế h"
+      "start": 26.02,
+      "end": 31.48,
+      "duration": 5.46,
+      "text_snippet": "javac — javac: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 6,
-      "start": 51.93,
-      "end": 53.35,
-      "duration": 1.41,
-      "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
+      "start": 31.59,
+      "end": 37.26,
+      "duration": 5.67,
+      "text_snippet": "java — java: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 7,
-      "start": 53.35,
-      "end": 53.56,
-      "duration": 0.21,
-      "text_snippet": "javac"
+      "start": 37.21,
+      "end": 42.5,
+      "duration": 5.29,
+      "text_snippet": "jar — jar: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 8,
-      "start": 53.56,
-      "end": 59.21,
-      "duration": 5.65,
-      "text_snippet": "Trình biên dịch Java (javac) đọc các tệp mã nguồn .java và dịch chúng thành các tệp mã byte (.class) độc lập với nền tản"
+      "start": 42.5,
+      "end": 49.36,
+      "duration": 6.86,
+      "text_snippet": "Create JAR file — Create JAR file: Cung cấp các quy tắc và cơ chế hoạt động cụ t"
     },
     {
       "paragraph_id": 9,
-      "start": 59.21,
-      "end": 72.61,
-      "duration": 13.4,
-      "text_snippet": "Cú pháp & Cờ cấu hình (Syntax & Flags):\n  - javac [options] [sourcefiles]\n  - Cờ phổ biến: -d <directory> chỉ định thư m"
+      "start": 49.36,
+      "end": 56.92,
+      "duration": 7.56,
+      "text_snippet": "Executable JAR — Executable JAR: Cung cấp các quy tắc và cơ chế hoạt động cụ thể"
     },
     {
       "paragraph_id": 10,
-      "start": 72.61,
-      "end": 78.69,
-      "duration": 6.08,
-      "text_snippet": "Biên dịch chỉ định thư mục đích (tự động tạo các thư mục con tương ứng với package nếu cần)\n  javac -d bin src/com/examp"
+      "start": 56.92,
+      "end": 62.54,
+      "duration": 5.62,
+      "text_snippet": "Classpath — Classpath: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Jav"
     },
     {
       "paragraph_id": 11,
-      "start": 78.69,
-      "end": 102.11,
-      "duration": 23.42,
-      "text_snippet": "Sai Lầm Phổ Biến / Chế Độ Lỗi (Common Mistake / Failure Mode):\n  - Truyền tên lớp đã biên dịch hoặc tệp class thay vì tệ"
+      "start": 62.55,
+      "end": 69.2,
+      "duration": 6.65,
+      "text_snippet": "Manifest file — Manifest file: Cung cấp các quy tắc và cơ chế hoạt động cụ thể t"
     },
     {
       "paragraph_id": 12,
-      "start": 102.11,
-      "end": 102.2,
-      "duration": 0.09,
-      "text_snippet": "--"
+      "start": 69.2,
+      "end": 75.85,
+      "duration": 6.65,
+      "text_snippet": "Basic Maven — Basic Maven: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong"
     },
     {
       "paragraph_id": 13,
-      "start": 102.2,
-      "end": 102.37,
-      "duration": 0.17,
-      "text_snippet": "java"
+      "start": 75.85,
+      "end": 82.5,
+      "duration": 6.65,
+      "text_snippet": "Basic Gradle — Basic Gradle: Cung cấp các quy tắc và cơ chế hoạt động cụ thể tro"
     },
     {
       "paragraph_id": 14,
-      "start": 102.37,
-      "end": 109.52,
-      "duration": 7.15,
-      "text_snippet": "Công cụ khởi chạy ứng dụng Java (java) sẽ khởi động Máy ảo Java (JVM), tải lớp được chỉ định và thực thi phương thức pub"
+      "start": 82.5,
+      "end": 89.15,
+      "duration": 6.65,
+      "text_snippet": "Dependency management — Dependency management: Cung cấp các quy tắc và cơ chế ho"
     },
     {
       "paragraph_id": 15,
-      "start": 109.52,
-      "end": 119.49,
-      "duration": 9.98,
-      "text_snippet": "Cú pháp & Cờ cấu hình (Syntax & Flags):\n  - java [options] mainclass [args]\n  - java -cp <classpath> com.example.MainApp"
+      "start": 89.15,
+      "end": 91.25,
+      "duration": 2.1,
+      "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
     },
     {
       "paragraph_id": 16,
-      "start": 119.49,
-      "end": 124.72,
-      "duration": 5.22,
-      "text_snippet": "Chạy lớp có tên đầy đủ (fully qualified name) bằng cách sử dụng classpath được chỉ định\n  java -cp bin com.example.MainA"
+      "start": 91.25,
+      "end": 91.65,
+      "duration": 0.4,
+      "text_snippet": "javac"
     },
     {
       "paragraph_id": 17,
-      "start": 124.72,
-      "end": 130.67,
-      "duration": 5.95,
-      "text_snippet": "Thực thi tệp nguồn đơn lẻ (Java 11+): biên dịch trực tiếp và chạy trong bộ nhớ mà không tạo ra tệp .class vật lý\n  java "
+      "start": 91.6,
+      "end": 101.05,
+      "duration": 9.45,
+      "text_snippet": "Trình biên dịch Java (javac) đọc các tệp mã nguồn .java và dịch chúng thành các "
     },
     {
       "paragraph_id": 18,
-      "start": 130.67,
-      "end": 149.63,
-      "duration": 18.97,
-      "text_snippet": "Sai Lầm Phổ Biến / Chế Độ Lỗi (Common Mistake / Failure Mode):\n  - Chỉ định đuôi .class khi chạy câu lệnh:\n    `bash\n   "
+      "start": 101.05,
+      "end": 112.25,
+      "duration": 11.2,
+      "text_snippet": "Cú pháp & Cờ cấu hình (Syntax & Flags): javac [options] [sourcefiles] Cờ phổ biế"
     },
     {
       "paragraph_id": 19,
-      "start": 149.63,
-      "end": 149.72,
-      "duration": 0.09,
-      "text_snippet": "--"
+      "start": 112.25,
+      "end": 115.4,
+      "duration": 3.15,
+      "text_snippet": "Cú pháp & Cờ cấu hình (Syntax & Flags):"
     },
     {
       "paragraph_id": 20,
-      "start": 149.72,
-      "end": 149.85,
-      "duration": 0.13,
-      "text_snippet": "jar"
+      "start": 115.4,
+      "end": 116.45,
+      "duration": 1.05,
+      "text_snippet": "javac [options] [sourcefiles]"
     },
     {
       "paragraph_id": 21,
-      "start": 149.85,
-      "end": 158.24,
-      "duration": 8.39,
-      "text_snippet": "Công cụ lưu trữ Java (jar) được sử dụng để đóng gói nhiều tệp class, tài nguyên (như biểu tượng, thuộc tính cấu hình, hì"
+      "start": 116.55,
+      "end": 122.6,
+      "duration": 6.05,
+      "text_snippet": "Cờ phổ biến: -d <directory> chỉ định thư mục đích để lưu trữ các tệp .class sau "
     },
     {
       "paragraph_id": 22,
-      "start": 158.24,
-      "end": 171.9,
-      "duration": 13.66,
-      "text_snippet": "Mô hình Tư duy (Mental Model): Một tệp .jar thực chất là một tệp ZIP có chứa một thư mục/tệp đặc biệt META-INF/MANIFEST."
+      "start": 122.55,
+      "end": 144.16,
+      "duration": 21.61,
+      "text_snippet": "Ví dụ Thực tế (Runnable Example): # Biên dịch một tệp Java đơn lẻ, đặt tệp .clas"
     },
     {
       "paragraph_id": 23,
-      "start": 171.9,
-      "end": 175.19,
-      "duration": 3.3,
-      "text_snippet": "Giải nén nội dung của một tệp JAR (x: giải nén, f: tệp)\n  jar -xf app.jar\n  `"
+      "start": 144.16,
+      "end": 146.26,
+      "duration": 2.1,
+      "text_snippet": "Ví dụ Thực tế (Runnable Example):"
     },
     {
       "paragraph_id": 24,
-      "start": 175.19,
-      "end": 191.33,
-      "duration": 16.14,
-      "text_snippet": "Sai Lầm Phổ Biến / Chế Độ Lỗi (Common Mistake / Failure Mode):\n  - Lầm tưởng rằng các tệp .jar là các tệp nhị phân đã bi"
-    },
-    {
-      "paragraph_id": 25,
-      "start": 191.33,
-      "end": 191.42,
-      "duration": 0.09,
-      "text_snippet": "--"
-    },
-    {
-      "paragraph_id": 26,
-      "start": 191.42,
-      "end": 192.66,
-      "duration": 1.24,
-      "text_snippet": "Tạo tệp JAR (Create JAR file)"
-    },
-    {
-      "paragraph_id": 27,
-      "start": 192.66,
-      "end": 196.13,
-      "duration": 3.47,
-      "text_snippet": "Đóng gói các tệp đã biên dịch và tài nguyên thành một gói .jar bằng lệnh CLI jar."
-    },
-    {
-      "paragraph_id": 28,
-      "start": 196.13,
-      "end": 215.35,
-      "duration": 19.22,
-      "text_snippet": "Các Cờ Quan Trọng (Key Flags):\n  - -c (create): Tạo một tệp lưu trữ mới.\n  - -f (file): Chỉ định tên tệp lưu trữ kết quả"
-    },
-    {
-      "paragraph_id": 29,
-      "start": 215.35,
-      "end": 220.53,
-      "duration": 5.18,
-      "text_snippet": "Đóng gói các lớp từ thư mục 'bin' và loại bỏ tiền tố 'bin/' ra khỏi đường dẫn đóng gói\n  jar -cvf myapp.jar -C bin/ .\n  "
-    },
-    {
-      "paragraph_id": 30,
-      "start": 220.53,
-      "end": 241.55,
-      "duration": 21.02,
-      "text_snippet": "Sai Lầm Phổ Biến / Chế Độ Lỗi (Common Mistake / Failure Mode):\n  - Không khớp đường dẫn đóng gói với khai báo gói (packa"
-    },
-    {
-      "paragraph_id": 31,
-      "start": 241.55,
-      "end": 241.64,
-      "duration": 0.09,
-      "text_snippet": "--"
-    },
-    {
-      "paragraph_id": 32,
-      "start": 241.64,
-      "end": 243.35,
-      "duration": 1.71,
-      "text_snippet": "Tệp JAR có thể thực thi (Executable JAR)"
-    },
-    {
-      "paragraph_id": 33,
-      "start": 243.35,
-      "end": 252.43,
-      "duration": 9.08,
-      "text_snippet": "Một tệp JAR có thể thực thi được đóng gói kèm theo tệp siêu dữ liệu META-INF/MANIFEST.MF khai báo lớp điểm vào (entry-po"
-    },
-    {
-      "paragraph_id": 34,
-      "start": 252.43,
-      "end": 257.05,
-      "duration": 4.62,
-      "text_snippet": "Ví dụ Thực tế (Runnable Example):\n  `bash\n  Chạy trực tiếp một tệp JAR có thể thực thi\n  java -jar myapp.jar"
-    },
-    {
-      "paragraph_id": 35,
-      "start": 257.05,
-      "end": 262.75,
-      "duration": 5.69,
-      "text_snippet": "Tạo một tệp JAR có thể thực thi và chỉ định trực tiếp lớp điểm vào bằng cờ 'e'\n  jar -cfe myapp.jar com.example.MainApp "
-    },
-    {
-      "paragraph_id": 36,
-      "start": 262.75,
-      "end": 280.17,
-      "duration": 17.43,
-      "text_snippet": "Sai Lầm Phổ Biến / Chế Độ Lỗi (Common Mistake / Failure Mode):\n  - Cố gắng chạy một tệp JAR không thể thực thi (không đị"
-    },
-    {
-      "paragraph_id": 37,
-      "start": 280.17,
-      "end": 284.03,
-      "duration": 3.85,
-      "text_snippet": "Tại Sao Các Tệp JAR Có Thể Thực Thi Cần MANIFEST.MF (Why Executable JARs Need MANIFEST.MF)"
-    },
-    {
-      "paragraph_id": 38,
-      "start": 284.03,
-      "end": 315.11,
-      "duration": 31.08,
-      "text_snippet": "Khi bạn chạy một tệp JAR bằng lệnh java -jar app.jar, Máy ảo Java cần biết lớp nào chứa điểm vào của ứng dụng (phương th"
-    },
-    {
-      "paragraph_id": 39,
-      "start": 315.11,
-      "end": 339.3,
-      "duration": 24.19,
-      "text_snippet": "Mô hình Tư duy: Điểm Vào Tệp JAR Có Thể Thực Thi (Mental Model: Executable JAR Entry Point)\n`mermaid\nflowchart LR\n    su"
-    },
-    {
-      "paragraph_id": 40,
-      "start": 339.3,
-      "end": 348.12,
-      "duration": 8.82,
-      "text_snippet": "Ví Dụ Thực Tế (Runnable Example)\nGiả sử bạn có tệp manifest tên là custom-manifest.txt với một dòng trống ở cuối:\n`text\n"
-    },
-    {
-      "paragraph_id": 41,
-      "start": 348.12,
-      "end": 348.85,
-      "duration": 0.73,
+      "start": 144.16,
+      "end": 146.54,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
+      "paragraph_id": 25,
+      "start": 146.54,
+      "end": 179.9,
+      "duration": 33.36,
+      "text_snippet": "Sai Lầm Phổ Biến / Chế Độ Lỗi (Common Mistake / Failure Mode): Truyền tên lớp đã"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 179.9,
+      "end": 184.45,
+      "duration": 4.55,
+      "text_snippet": "Sai Lầm Phổ Biến / Chế Độ Lỗi (Common Mistake / Failure Mode):"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 184.45,
+      "end": 202.3,
+      "duration": 17.85,
+      "text_snippet": "Truyền tên lớp đã biên dịch hoặc tệp class thay vì tệp mã nguồn, hoặc bỏ quên đu"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 202.3,
+      "end": 203.7,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 203.7,
+      "end": 213.15,
+      "duration": 9.45,
+      "text_snippet": "Lỗi biên dịch xảy ra nếu các lớp phụ thuộc bị thiếu trong classpath. Sử dụng cờ "
+    },
+    {
+      "paragraph_id": 30,
+      "start": 213.15,
+      "end": 214.55,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 214.55,
+      "end": 214.95,
+      "duration": 0.4,
+      "text_snippet": "java"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 214.9,
+      "end": 226.45,
+      "duration": 11.55,
+      "text_snippet": "Công cụ khởi chạy ứng dụng Java (java) sẽ khởi động Máy ảo Java (JVM), tải lớp đ"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 226.45,
+      "end": 232.4,
+      "duration": 5.95,
+      "text_snippet": "Cú pháp & Cờ cấu hình (Syntax & Flags): java [options] mainclass [args] java -cp"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 232.4,
+      "end": 235.55,
+      "duration": 3.15,
+      "text_snippet": "Cú pháp & Cờ cấu hình (Syntax & Flags):"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 235.55,
+      "end": 236.95,
+      "duration": 1.4,
+      "text_snippet": "java [options] mainclass [args]"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 236.95,
+      "end": 238.35,
+      "duration": 1.4,
+      "text_snippet": "java -cp <classpath> com.example.MainApp"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 238.35,
+      "end": 262.5,
+      "duration": 24.15,
+      "text_snippet": "Ví dụ Thực tế (Runnable Example): # Chạy lớp HelloWorld (được tải từ thư mục hiệ"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 262.5,
+      "end": 264.6,
+      "duration": 2.1,
+      "text_snippet": "Ví dụ Thực tế (Runnable Example):"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 264.6,
+      "end": 266.0,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 266.0,
+      "end": 289.45,
+      "duration": 23.45,
+      "text_snippet": "Sai Lầm Phổ Biến / Chế Độ Lỗi (Common Mistake / Failure Mode): Chỉ định đuôi .cl"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 289.45,
+      "end": 294.0,
+      "duration": 4.55,
+      "text_snippet": "Sai Lầm Phổ Biến / Chế Độ Lỗi (Common Mistake / Failure Mode):"
+    },
+    {
       "paragraph_id": 42,
-      "start": 348.85,
-      "end": 365.07,
-      "duration": 16.23,
-      "text_snippet": "Chuỗi Nhân Quả (Cause-Effect Chain)\nLệnh java -jar app.jar được thực thi &rarr; JVM kiểm tra tệp META-INF/MANIFEST.MF bê"
+      "start": 294.0,
+      "end": 300.65,
+      "duration": 6.65,
+      "text_snippet": "Chỉ định đuôi .class khi chạy câu lệnh:java HelloWorld.class # LỖI: Could not fi"
     },
     {
       "paragraph_id": 43,
-      "start": 365.07,
-      "end": 365.16,
-      "duration": 0.09,
-      "text_snippet": "--"
+      "start": 300.65,
+      "end": 302.05,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 44,
-      "start": 365.16,
-      "end": 366.23,
-      "duration": 1.07,
-      "text_snippet": "Đường dẫn lớp (Classpath)"
+      "start": 302.05,
+      "end": 314.3,
+      "duration": 12.25,
+      "text_snippet": "Chỉ định đường dẫn thư mục thay vì tên lớp đầy đủ ngăn cách bằng dấu chấm:java c"
     },
     {
       "paragraph_id": 45,
-      "start": 366.23,
-      "end": 374.23,
-      "duration": 8.01,
-      "text_snippet": "Đường dẫn lớp định nghĩa danh sách các thư mục hoặc tệp JAR mà trình biên dịch (javac) và JVM (java) sử dụng để tìm kiếm"
+      "start": 314.3,
+      "end": 315.7,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 46,
-      "start": 374.23,
-      "end": 381.9,
-      "duration": 7.66,
-      "text_snippet": "Ví dụ Thực tế (Runnable Example):\n  `bash\n  Trên hệ điều hành Linux/macOS (dấu phân cách classpath là dấu hai chấm ':')\n"
+      "start": 315.7,
+      "end": 316.1,
+      "duration": 0.4,
+      "text_snippet": "jar"
     },
     {
       "paragraph_id": 47,
-      "start": 381.9,
-      "end": 387.72,
-      "duration": 5.82,
-      "text_snippet": "Trên hệ điều hành Windows (dấu phân cách classpath là dấu chấm phẩy ';')\n  java -cp bin;libs\\mysql-connector.jar com.exa"
+      "start": 316.05,
+      "end": 330.4,
+      "duration": 14.35,
+      "text_snippet": "Công cụ lưu trữ Java (jar) được sử dụng để đóng gói nhiều tệp class, tài nguyên "
     },
     {
       "paragraph_id": 48,
-      "start": 387.72,
-      "end": 408.23,
-      "duration": 20.51,
-      "text_snippet": "Sai Lầm Phổ Biến / Chế Độ Lỗi (Common Mistake / Failure Mode):\n  - Sử dụng sai dấu phân cách: Sử dụng ; trên Linux/macOS"
+      "start": 330.4,
+      "end": 343.7,
+      "duration": 13.3,
+      "text_snippet": "Mô hình Tư duy (Mental Model): Một tệp .jar thực chất là một tệp ZIP có chứa một"
     },
     {
       "paragraph_id": 49,
-      "start": 408.23,
-      "end": 413.37,
-      "duration": 5.14,
-      "text_snippet": "Tại Sao Tìm Kiếm Đường Dẫn Lớp Thất Bại: NoClassDefFoundError vs ClassNotFoundException (Why Classpath Resolution Fails)"
+      "start": 343.7,
+      "end": 357.0,
+      "duration": 13.3,
+      "text_snippet": "Mô hình Tư duy (Mental Model): Một tệp .jar thực chất là một tệp ZIP có chứa một"
     },
     {
       "paragraph_id": 50,
-      "start": 413.37,
-      "end": 457.25,
-      "duration": 43.88,
-      "text_snippet": "JVM thực hiện phân tích và nạp các lớp một cách động trong thời gian chạy khi chúng được tham chiếu bởi mã đang thực thi"
+      "start": 357.0,
+      "end": 371.7,
+      "duration": 14.7,
+      "text_snippet": "Ví dụ Thực tế (Runnable Example): # Liệt kê nội dung của một tệp JAR hiện có (t:"
     },
     {
       "paragraph_id": 51,
-      "start": 457.25,
-      "end": 490.9,
-      "duration": 33.65,
-      "text_snippet": "Mô hình Tư duy: Cuốn Sách Trên Kệ vs Tìm Kiếm Catalog (Mental Model: Book on Shelf vs. Catalog Search)\nClassNotFoundExce"
+      "start": 371.8,
+      "end": 375.47,
+      "duration": 3.67,
+      "text_snippet": "Ví dụ Thực tế (Runnable Example):"
     },
     {
       "paragraph_id": 52,
-      "start": 490.9,
-      "end": 491.63,
-      "duration": 0.73,
+      "start": 375.43,
+      "end": 377.8,
+      "duration": 2.37,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 53,
-      "start": 491.63,
-      "end": 503.7,
-      "duration": 12.07,
-      "text_snippet": "Ví Dụ Thực Tế (Runnable Example)\n`java\n// Ví dụ gây ra ClassNotFoundException\ntry {\n    Class<?> clazz = Class.forName(\""
+      "start": 377.8,
+      "end": 427.56,
+      "duration": 49.76,
+      "text_snippet": "Sai Lầm Phổ Biến / Chế Độ Lỗi (Common Mistake / Failure Mode): Lầm tưởng rằng cá"
     },
     {
       "paragraph_id": 54,
-      "start": 503.7,
-      "end": 519.67,
-      "duration": 15.97,
-      "text_snippet": "// Ví dụ gây ra NoClassDefFoundError\n// Biên dịch thành công khi LibClass có mặt:\npublic class Main {\n    public static "
+      "start": 427.56,
+      "end": 432.11,
+      "duration": 4.55,
+      "text_snippet": "Sai Lầm Phổ Biến / Chế Độ Lỗi (Common Mistake / Failure Mode):"
     },
     {
       "paragraph_id": 55,
-      "start": 519.67,
-      "end": 534.27,
-      "duration": 14.6,
-      "text_snippet": "Chuỗi Nhân Quả (Cause-Effect Chain)\nTrình biên dịch xây dựng thành công tham chiếu lớp &rarr; Định nghĩa lớp bị bỏ sót k"
+      "start": 432.11,
+      "end": 455.56,
+      "duration": 23.45,
+      "text_snippet": "Lầm tưởng rằng các tệp .jar là các tệp nhị phân đã biên dịch an toàn tuyệt đối. "
     },
     {
       "paragraph_id": 56,
-      "start": 534.27,
-      "end": 534.36,
-      "duration": 0.09,
-      "text_snippet": "--"
+      "start": 427.66,
+      "end": 431.7,
+      "duration": 4.04,
+      "text_snippet": "Tạo tệp JAR (Create JAR file)"
     },
     {
       "paragraph_id": 57,
-      "start": 534.36,
-      "end": 535.94,
-      "duration": 1.58,
-      "text_snippet": "Tệp cấu trúc Manifest (Manifest file)"
+      "start": 431.65,
+      "end": 437.06,
+      "duration": 5.41,
+      "text_snippet": "Đóng gói các tệp đã biên dịch và tài nguyên thành một gói .jar bằng lệnh CLI jar"
     },
     {
       "paragraph_id": 58,
-      "start": 535.94,
-      "end": 540.69,
-      "duration": 4.75,
-      "text_snippet": "Tệp Manifest (META-INF/MANIFEST.MF) là một tệp văn bản đặc biệt chứa các cặp khóa-giá trị cấu hình cho tệp JAR."
+      "start": 437.06,
+      "end": 463.81,
+      "duration": 26.75,
+      "text_snippet": "Các Cờ Quan Trọng (Key Flags): -c (create): Tạo một tệp lưu trữ mới. -f (file): "
     },
     {
       "paragraph_id": 59,
-      "start": 540.69,
-      "end": 568.52,
-      "duration": 27.83,
-      "text_snippet": "Ví dụ Nội Dung (Example Content):\n  `manifest\n  Manifest-Version: 1.0\n  Created-By: 21.0.1 (Oracle Corporation)\n  Main-C"
+      "start": 463.81,
+      "end": 465.91,
+      "duration": 2.1,
+      "text_snippet": "Các Cờ Quan Trọng (Key Flags):"
     },
     {
       "paragraph_id": 60,
-      "start": 568.52,
-      "end": 568.61,
-      "duration": 0.09,
-      "text_snippet": "--"
+      "start": 465.91,
+      "end": 468.71,
+      "duration": 2.8,
+      "text_snippet": "-c (create): Tạo một tệp lưu trữ mới."
     },
     {
       "paragraph_id": 61,
-      "start": 568.61,
-      "end": 569.72,
-      "duration": 1.11,
-      "text_snippet": "Maven Cơ bản (Basic Maven)"
+      "start": 463.81,
+      "end": 467.31,
+      "duration": 3.5,
+      "text_snippet": "-f (file): Chỉ định tên tệp lưu trữ kết quả."
     },
     {
       "paragraph_id": 62,
-      "start": 569.72,
-      "end": 576.44,
-      "duration": 6.72,
-      "text_snippet": "Apache Maven là một công cụ quản lý dependency và tự động hóa biên dịch theo kiểu khai báo, tập trung xoay quanh tệp cấu"
+      "start": 467.31,
+      "end": 471.86,
+      "duration": 4.55,
+      "text_snippet": "-v (verbose): Xuất thông tin chi tiết của các tệp đang được nén."
     },
     {
       "paragraph_id": 63,
-      "start": 576.44,
-      "end": 593.1,
-      "duration": 16.65,
-      "text_snippet": "Các Pha Trong Vòng Đời Biên Dịch (Build Lifecycle Phases):\n  - clean: Xóa thư mục đầu ra target/.\n  - compile: Biên dịch"
+      "start": 471.86,
+      "end": 480.96,
+      "duration": 9.1,
+      "text_snippet": "-C <dir> (change directory): Tạm thời chuyển thư mục làm việc để lấy các tệp, gi"
     },
     {
       "paragraph_id": 64,
-      "start": 593.1,
-      "end": 605.09,
-      "duration": 11.99,
-      "text_snippet": "Sai Lầm Phổ Biến (Common Mistake): Nhầm lẫn giữa các pha biên dịch. Nếu bạn chạy mvn package, nó sẽ tự động thực hiện tấ"
+      "start": 480.96,
+      "end": 498.11,
+      "duration": 17.15,
+      "text_snippet": "Ví dụ Thực tế (Runnable Example): # Đóng gói tất cả các lớp trong thư mục hiện t"
     },
     {
       "paragraph_id": 65,
-      "start": 605.09,
-      "end": 605.17,
-      "duration": 0.09,
-      "text_snippet": "--"
+      "start": 498.11,
+      "end": 500.21,
+      "duration": 2.1,
+      "text_snippet": "Ví dụ Thực tế (Runnable Example):"
     },
     {
       "paragraph_id": 66,
-      "start": 605.17,
-      "end": 606.37,
-      "duration": 1.2,
-      "text_snippet": "Gradle Cơ bản (Basic Gradle)"
+      "start": 500.31,
+      "end": 502.69,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 67,
-      "start": 606.37,
-      "end": 614.03,
-      "duration": 7.66,
-      "text_snippet": "Gradle là một công cụ tự động hóa biên dịch linh hoạt sử dụng các kịch bản dựa trên ngôn ngữ Groovy hoặc Kotlin DSL (bui"
+      "start": 502.64,
+      "end": 570.79,
+      "duration": 68.15,
+      "text_snippet": "Sai Lầm Phổ Biến / Chế Độ Lỗi (Common Mistake / Failure Mode): Không khớp đường "
     },
     {
       "paragraph_id": 68,
-      "start": 614.03,
-      "end": 629.06,
-      "duration": 15.03,
-      "text_snippet": "Ví dụ Thực tế (Runnable Example):\n  `groovy\n  // Ví dụ build.gradle\n  plugins {\n      id 'java'\n  }\n  group = 'com.examp"
+      "start": 570.79,
+      "end": 575.34,
+      "duration": 4.55,
+      "text_snippet": "Sai Lầm Phổ Biến / Chế Độ Lỗi (Common Mistake / Failure Mode):"
     },
     {
       "paragraph_id": 69,
-      "start": 629.06,
-      "end": 637.45,
-      "duration": 8.39,
-      "text_snippet": "Sai Lầm Phổ Biến (Common Mistake): Bỏ sót khai báo plugins { id 'java' }. Nếu không có plugin java, Gradle sẽ không đăng"
+      "start": 575.34,
+      "end": 601.24,
+      "duration": 25.9,
+      "text_snippet": "Không khớp đường dẫn đóng gói với khai báo gói (package): Nếu lớp của bạn được đ"
     },
     {
       "paragraph_id": 70,
-      "start": 637.45,
-      "end": 637.54,
-      "duration": 0.09,
-      "text_snippet": "--"
+      "start": 601.24,
+      "end": 604.04,
+      "duration": 2.8,
+      "text_snippet": "Tệp JAR có thể thực thi (Executable JAR)"
     },
     {
       "paragraph_id": 71,
-      "start": 637.54,
-      "end": 639.68,
-      "duration": 2.14,
-      "text_snippet": "Quản lý thư viện phụ thuộc (Dependency management)"
+      "start": 570.79,
+      "end": 584.79,
+      "duration": 14.0,
+      "text_snippet": "Một tệp JAR có thể thực thi được đóng gói kèm theo tệp siêu dữ liệu META-INF/MAN"
     },
     {
       "paragraph_id": 72,
-      "start": 639.68,
-      "end": 653.42,
-      "duration": 13.74,
-      "text_snippet": "Quản lý thư viện phụ thuộc là cơ chế giải quyết, tải về và quản lý các thư viện jar bên ngoài. Cả Maven và Gradle đều tự"
+      "start": 584.79,
+      "end": 601.24,
+      "duration": 16.45,
+      "text_snippet": "Ví dụ Thực tế (Runnable Example): # Chạy trực tiếp một tệp JAR có thể thực thi j"
     },
     {
       "paragraph_id": 73,
-      "start": 653.42,
-      "end": 693.75,
-      "duration": 40.33,
-      "text_snippet": "Ví Dụ Thực Tế: Địa ngục thư viện / Xung đột thư viện (Jar Hell / Dependency Conflicts):\n  - Nếu thư viện A phụ thuộc vào"
+      "start": 601.24,
+      "end": 603.34,
+      "duration": 2.1,
+      "text_snippet": "Ví dụ Thực tế (Runnable Example):"
     },
     {
       "paragraph_id": 74,
-      "start": 693.75,
-      "end": 697.56,
-      "duration": 3.81,
-      "text_snippet": "Tại Sao Các Công Cụ Biên Dịch (Maven/Gradle) Là Thiết Yếu (Why Build Tools Are Essential)"
+      "start": 603.34,
+      "end": 604.74,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 75,
-      "start": 697.56,
-      "end": 739.05,
-      "duration": 41.49,
-      "text_snippet": "Khi các dự án Java phát triển về quy mô và độ phức tạp, việc quản lý các thư viện phụ thuộc, biên dịch tệp tin, chạy các"
+      "start": 604.74,
+      "end": 626.44,
+      "duration": 21.7,
+      "text_snippet": "Sai Lầm Phổ Biến / Chế Độ Lỗi (Common Mistake / Failure Mode): Cố gắng chạy một "
     },
     {
       "paragraph_id": 76,
-      "start": 739.05,
-      "end": 776.0,
-      "duration": 36.95,
-      "text_snippet": "Mô hình Tư duy: Quản Lý Thư Viện Thủ Công vs Tự Động (Mental Model: Manual vs Automated Dependency Management)\n`mermaid\n"
+      "start": 626.54,
+      "end": 631.54,
+      "duration": 5.0,
+      "text_snippet": "Sai Lầm Phổ Biến / Chế Độ Lỗi (Common Mistake / Failure Mode):"
     },
     {
       "paragraph_id": 77,
-      "start": 776.0,
-      "end": 803.27,
-      "duration": 27.27,
-      "text_snippet": "Ví Dụ Thực Tế (Runnable Example)\nNhà phát triển chỉ định một dependency duy nhất trong tệp pom.xml của Maven:\n`xml\n<depe"
+      "start": 631.49,
+      "end": 651.48,
+      "duration": 19.99,
+      "text_snippet": "Cố gắng chạy một tệp JAR không thể thực thi (không định nghĩa Main-Class trong m"
     },
     {
       "paragraph_id": 78,
-      "start": 803.27,
-      "end": 821.68,
-      "duration": 18.41,
-      "text_snippet": "Chuỗi Nhân Quả (Cause-Effect Chain)\nKhai báo trực tiếp dependency trong pom.xml/build.gradle &rarr; Công cụ biên dịch đọ"
+      "start": 651.48,
+      "end": 656.23,
+      "duration": 4.75,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 79,
-      "start": 821.68,
-      "end": 821.76,
-      "duration": 0.09,
-      "text_snippet": "--"
+      "start": 656.23,
+      "end": 657.63,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 80,
-      "start": 821.76,
-      "end": 824.03,
-      "duration": 2.27,
-      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)"
+      "start": 656.23,
+      "end": 665.14,
+      "duration": 8.91,
+      "text_snippet": "Tại Sao Các Tệp JAR Có Thể Thực Thi Cần MANIFEST.MF (Why Executable JARs Need MA"
     },
     {
       "paragraph_id": 81,
-      "start": 824.03,
-      "end": 846.77,
-      "duration": 22.73,
-      "text_snippet": "Khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch (compile-time)? (lệnh javac, cú pháp biên dịch, classpath cho"
+      "start": 665.14,
+      "end": 716.94,
+      "duration": 51.8,
+      "text_snippet": "Khi bạn chạy một tệp JAR bằng lệnh java -jar app.jar, Máy ảo Java cần biết lớp n"
+    },
+    {
+      "paragraph_id": 82,
+      "start": 716.94,
+      "end": 723.24,
+      "duration": 6.3,
+      "text_snippet": "Mô hình Tư duy: Điểm Vào Tệp JAR Có Thể Thực Thi (Mental Model: Executable JAR E"
+    },
+    {
+      "paragraph_id": 83,
+      "start": 723.24,
+      "end": 724.64,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 84,
+      "start": 724.64,
+      "end": 726.74,
+      "duration": 2.1,
+      "text_snippet": "Ví Dụ Thực Tế (Runnable Example)"
+    },
+    {
+      "paragraph_id": 85,
+      "start": 726.74,
+      "end": 731.99,
+      "duration": 5.25,
+      "text_snippet": "Giả sử bạn có tệp manifest tên là custom-manifest.txt với một dòng trống ở cuối:"
+    },
+    {
+      "paragraph_id": 86,
+      "start": 731.99,
+      "end": 733.39,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 87,
+      "start": 733.39,
+      "end": 738.64,
+      "duration": 5.25,
+      "text_snippet": "Nếu bạn build JAR mà không có manifest này hoặc thiếu dòng trống ở cuối:"
+    },
+    {
+      "paragraph_id": 88,
+      "start": 738.64,
+      "end": 740.04,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 89,
+      "start": 740.04,
+      "end": 741.79,
+      "duration": 1.75,
+      "text_snippet": "Chuỗi Nhân Quả (Cause-Effect Chain)"
+    },
+    {
+      "paragraph_id": 90,
+      "start": 741.79,
+      "end": 763.84,
+      "duration": 22.05,
+      "text_snippet": "Lệnh java -jar app.jar được thực thi → JVM kiểm tra tệp META-INF/MANIFEST.MF bên"
+    },
+    {
+      "paragraph_id": 91,
+      "start": 763.84,
+      "end": 765.24,
+      "duration": 1.4,
+      "text_snippet": "Đường dẫn lớp (Classpath)"
+    },
+    {
+      "paragraph_id": 92,
+      "start": 765.24,
+      "end": 779.59,
+      "duration": 14.35,
+      "text_snippet": "Đường dẫn lớp định nghĩa danh sách các thư mục hoặc tệp JAR mà trình biên dịch ("
+    },
+    {
+      "paragraph_id": 93,
+      "start": 779.59,
+      "end": 794.99,
+      "duration": 15.4,
+      "text_snippet": "Ví dụ Thực tế (Runnable Example): # Trên hệ điều hành Linux/macOS (dấu phân cách"
+    },
+    {
+      "paragraph_id": 94,
+      "start": 794.99,
+      "end": 797.09,
+      "duration": 2.1,
+      "text_snippet": "Ví dụ Thực tế (Runnable Example):"
+    },
+    {
+      "paragraph_id": 95,
+      "start": 797.09,
+      "end": 798.49,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 96,
+      "start": 798.59,
+      "end": 865.8,
+      "duration": 67.21,
+      "text_snippet": "Sai Lầm Phổ Biến / Chế Độ Lỗi (Common Mistake / Failure Mode): Sử dụng sai dấu p"
+    },
+    {
+      "paragraph_id": 97,
+      "start": 865.8,
+      "end": 870.35,
+      "duration": 4.55,
+      "text_snippet": "Sai Lầm Phổ Biến / Chế Độ Lỗi (Common Mistake / Failure Mode):"
+    },
+    {
+      "paragraph_id": 98,
+      "start": 870.35,
+      "end": 878.75,
+      "duration": 8.4,
+      "text_snippet": "Sử dụng sai dấu phân cách: Sử dụng ; trên Linux/macOS hoặc : trên Windows sẽ làm"
+    },
+    {
+      "paragraph_id": 99,
+      "start": 878.75,
+      "end": 900.1,
+      "duration": 21.35,
+      "text_snippet": "Ghi đè thư mục hiện tại ngầm định: Khi bạn chỉ định -cp hoặc -classpath, đường d"
+    },
+    {
+      "paragraph_id": 100,
+      "start": 865.8,
+      "end": 873.05,
+      "duration": 7.25,
+      "text_snippet": "Tại Sao Tìm Kiếm Đường Dẫn Lớp Thất Bại: NoClassDefFoundError vs ClassNotFoundEx"
+    },
+    {
+      "paragraph_id": 101,
+      "start": 873.15,
+      "end": 929.14,
+      "duration": 55.99,
+      "text_snippet": "JVM thực hiện phân tích và nạp các lớp một cách động trong thời gian chạy khi ch"
+    },
+    {
+      "paragraph_id": 102,
+      "start": 929.14,
+      "end": 938.44,
+      "duration": 9.3,
+      "text_snippet": "Mô hình Tư duy: Cuốn Sách Trên Kệ vs Tìm Kiếm Catalog (Mental Model: Book on She"
+    },
+    {
+      "paragraph_id": 103,
+      "start": 938.44,
+      "end": 958.36,
+      "duration": 19.92,
+      "text_snippet": "ClassNotFoundException: Bạn đến gặp thủ thư (tìm kiếm động) và hỏi: \"Làm ơn tìm "
+    },
+    {
+      "paragraph_id": 104,
+      "start": 958.36,
+      "end": 982.86,
+      "duration": 24.5,
+      "text_snippet": "NoClassDefFoundError: Bạn đang đọc một cuốn sách công thức nấu ăn (mã đã biên dị"
+    },
+    {
+      "paragraph_id": 105,
+      "start": 982.86,
+      "end": 985.06,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 106,
+      "start": 985.16,
+      "end": 989.04,
+      "duration": 3.88,
+      "text_snippet": "Ví Dụ Thực Tế (Runnable Example)"
+    },
+    {
+      "paragraph_id": 107,
+      "start": 988.99,
+      "end": 991.37,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 108,
+      "start": 991.36,
+      "end": 994.57,
+      "duration": 3.21,
+      "text_snippet": "Chuỗi Nhân Quả (Cause-Effect Chain)"
+    },
+    {
+      "paragraph_id": 109,
+      "start": 994.58,
+      "end": 1010.49,
+      "duration": 15.91,
+      "text_snippet": "Trình biên dịch xây dựng thành công tham chiếu lớp → Định nghĩa lớp bị bỏ sót kh"
+    },
+    {
+      "paragraph_id": 110,
+      "start": 1010.49,
+      "end": 1013.98,
+      "duration": 3.49,
+      "text_snippet": "Tệp cấu trúc Manifest (Manifest file)"
+    },
+    {
+      "paragraph_id": 111,
+      "start": 1013.98,
+      "end": 1020.98,
+      "duration": 7.0,
+      "text_snippet": "Tệp Manifest (META-INF/MANIFEST.MF) là một tệp văn bản đặc biệt chứa các cặp khó"
+    },
+    {
+      "paragraph_id": 112,
+      "start": 1020.98,
+      "end": 1026.58,
+      "duration": 5.6,
+      "text_snippet": "Ví dụ Nội Dung (Example Content):Manifest-Version: 1.0 Created-By: 21.0.1 (Oracl"
+    },
+    {
+      "paragraph_id": 113,
+      "start": 1026.58,
+      "end": 1027.98,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 114,
+      "start": 1027.98,
+      "end": 1060.18,
+      "duration": 32.2,
+      "text_snippet": "Sai Lầm Phổ Biến / Chế Độ Lỗi (Common Mistake / Failure Mode): Thiếu Dòng Trống "
+    },
+    {
+      "paragraph_id": 115,
+      "start": 1060.18,
+      "end": 1076.63,
+      "duration": 16.45,
+      "text_snippet": "Thiếu Dòng Trống Ở Cuối: Tệp manifest bắt buộc phải kết thúc bằng một dòng trống"
+    },
+    {
+      "paragraph_id": 116,
+      "start": 1076.73,
+      "end": 1086.23,
+      "duration": 9.5,
+      "text_snippet": "Giới hạn Độ dài Dòng: Mỗi dòng không được vượt quá 72 byte. Các khai báo dài hơn"
+    },
+    {
+      "paragraph_id": 117,
+      "start": 1086.23,
+      "end": 1089.58,
+      "duration": 3.35,
+      "text_snippet": "Maven Cơ bản (Basic Maven)"
+    },
+    {
+      "paragraph_id": 118,
+      "start": 1089.58,
+      "end": 1100.44,
+      "duration": 10.86,
+      "text_snippet": "Apache Maven là một công cụ quản lý dependency và tự động hóa biên dịch theo kiể"
+    },
+    {
+      "paragraph_id": 119,
+      "start": 1100.44,
+      "end": 1124.33,
+      "duration": 23.89,
+      "text_snippet": "Các Pha Trong Vòng Đời Biên Dịch (Build Lifecycle Phases): clean: Xóa thư mục đầ"
+    },
+    {
+      "paragraph_id": 120,
+      "start": 1124.33,
+      "end": 1127.83,
+      "duration": 3.5,
+      "text_snippet": "Các Pha Trong Vòng Đời Biên Dịch (Build Lifecycle Phases):"
+    },
+    {
+      "paragraph_id": 121,
+      "start": 1124.33,
+      "end": 1126.78,
+      "duration": 2.45,
+      "text_snippet": "clean: Xóa thư mục đầu ra target/."
+    },
+    {
+      "paragraph_id": 122,
+      "start": 1126.78,
+      "end": 1129.93,
+      "duration": 3.15,
+      "text_snippet": "compile: Biên dịch mã nguồn và đặt vào target/classes."
+    },
+    {
+      "paragraph_id": 123,
+      "start": 1129.93,
+      "end": 1133.08,
+      "duration": 3.15,
+      "text_snippet": "test: Chạy các kiểm thử đơn vị (unit test)."
+    },
+    {
+      "paragraph_id": 124,
+      "start": 1133.08,
+      "end": 1137.98,
+      "duration": 4.9,
+      "text_snippet": "package: Đóng gói mã đã biên dịch thành tệp JAR/WAR trong thư mục target/."
+    },
+    {
+      "paragraph_id": 125,
+      "start": 1137.98,
+      "end": 1144.63,
+      "duration": 6.65,
+      "text_snippet": "Ví dụ Thực tế (Runnable Example): # Biên dịch và đóng gói một dự án Maven mvn cl"
+    },
+    {
+      "paragraph_id": 126,
+      "start": 1144.63,
+      "end": 1146.73,
+      "duration": 2.1,
+      "text_snippet": "Ví dụ Thực tế (Runnable Example):"
+    },
+    {
+      "paragraph_id": 127,
+      "start": 1146.73,
+      "end": 1148.13,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 128,
+      "start": 1148.13,
+      "end": 1168.08,
+      "duration": 19.95,
+      "text_snippet": "Sai Lầm Phổ Biến (Common Mistake): Nhầm lẫn giữa các pha biên dịch. Nếu bạn chạy"
+    },
+    {
+      "paragraph_id": 129,
+      "start": 1168.08,
+      "end": 1188.03,
+      "duration": 19.95,
+      "text_snippet": "Sai Lầm Phổ Biến (Common Mistake): Nhầm lẫn giữa các pha biên dịch. Nếu bạn chạy"
+    },
+    {
+      "paragraph_id": 130,
+      "start": 1188.03,
+      "end": 1189.78,
+      "duration": 1.75,
+      "text_snippet": "Gradle Cơ bản (Basic Gradle)"
+    },
+    {
+      "paragraph_id": 131,
+      "start": 1189.88,
+      "end": 1202.48,
+      "duration": 12.6,
+      "text_snippet": "Gradle là một công cụ tự động hóa biên dịch linh hoạt sử dụng các kịch bản dựa t"
+    },
+    {
+      "paragraph_id": 132,
+      "start": 1202.43,
+      "end": 1225.47,
+      "duration": 23.04,
+      "text_snippet": "Ví dụ Thực tế (Runnable Example): // Ví dụ build.gradle plugins { id 'java' } gr"
+    },
+    {
+      "paragraph_id": 133,
+      "start": 1225.46,
+      "end": 1227.56,
+      "duration": 2.1,
+      "text_snippet": "Ví dụ Thực tế (Runnable Example):"
+    },
+    {
+      "paragraph_id": 134,
+      "start": 1225.46,
+      "end": 1230.04,
+      "duration": 4.58,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 135,
+      "start": 1230.04,
+      "end": 1231.44,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 136,
+      "start": 1230.04,
+      "end": 1244.39,
+      "duration": 14.35,
+      "text_snippet": "Sai Lầm Phổ Biến (Common Mistake): Bỏ sót khai báo plugins { id 'java' }. Nếu kh"
+    },
+    {
+      "paragraph_id": 137,
+      "start": 1244.39,
+      "end": 1258.74,
+      "duration": 14.35,
+      "text_snippet": "Sai Lầm Phổ Biến (Common Mistake): Bỏ sót khai báo plugins { id 'java' }. Nếu kh"
+    },
+    {
+      "paragraph_id": 138,
+      "start": 1258.74,
+      "end": 1261.54,
+      "duration": 2.8,
+      "text_snippet": "Quản lý thư viện phụ thuộc (Dependency management)"
+    },
+    {
+      "paragraph_id": 139,
+      "start": 1261.54,
+      "end": 1286.04,
+      "duration": 24.5,
+      "text_snippet": "Quản lý thư viện phụ thuộc là cơ chế giải quyết, tải về và quản lý các thư viện "
+    },
+    {
+      "paragraph_id": 140,
+      "start": 1286.04,
+      "end": 1330.14,
+      "duration": 44.1,
+      "text_snippet": "Ví Dụ Thực Tế: Địa ngục thư viện / Xung đột thư viện (Jar Hell / Dependency Conf"
+    },
+    {
+      "paragraph_id": 141,
+      "start": 1330.24,
+      "end": 1351.76,
+      "duration": 21.52,
+      "text_snippet": "Nếu thư viện A phụ thuộc vào thư viện C (v1.0), và thư viện B phụ thuộc vào thư "
+    },
+    {
+      "paragraph_id": 142,
+      "start": 1351.76,
+      "end": 1381.46,
+      "duration": 29.7,
+      "text_snippet": "Cách Giải Quyết: Cả Maven và Gradle đều cung cấp các cơ chế loại trừ (exclusion)"
+    },
+    {
+      "paragraph_id": 143,
+      "start": 1381.46,
+      "end": 1383.84,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 144,
+      "start": 1383.84,
+      "end": 1391.33,
+      "duration": 7.49,
+      "text_snippet": "Tại Sao Các Công Cụ Biên Dịch (Maven/Gradle) Là Thiết Yếu (Why Build Tools Are E"
+    },
+    {
+      "paragraph_id": 145,
+      "start": 1391.33,
+      "end": 1445.57,
+      "duration": 54.24,
+      "text_snippet": "Khi các dự án Java phát triển về quy mô và độ phức tạp, việc quản lý các thư việ"
+    },
+    {
+      "paragraph_id": 146,
+      "start": 1445.66,
+      "end": 1454.97,
+      "duration": 9.31,
+      "text_snippet": "Mô hình Tư duy: Quản Lý Thư Viện Thủ Công vs Tự Động (Mental Model: Manual vs Au"
+    },
+    {
+      "paragraph_id": 147,
+      "start": 1454.93,
+      "end": 1457.31,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 148,
+      "start": 1457.3,
+      "end": 1461.18,
+      "duration": 3.88,
+      "text_snippet": "Ví Dụ Thực Tế (Runnable Example)"
+    },
+    {
+      "paragraph_id": 149,
+      "start": 1461.18,
+      "end": 1467.15,
+      "duration": 5.97,
+      "text_snippet": "Nhà phát triển chỉ định một dependency duy nhất trong tệp pom.xml của Maven:"
+    },
+    {
+      "paragraph_id": 150,
+      "start": 1467.15,
+      "end": 1469.35,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 151,
+      "start": 1469.35,
+      "end": 1475.3,
+      "duration": 5.95,
+      "text_snippet": "Chạy lệnh mvn dependency:tree hiển thị Maven tự động giải quyết tất cả các depen"
+    },
+    {
+      "paragraph_id": 152,
+      "start": 1475.3,
+      "end": 1476.7,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 153,
+      "start": 1476.7,
+      "end": 1478.45,
+      "duration": 1.75,
+      "text_snippet": "Chuỗi Nhân Quả (Cause-Effect Chain)"
+    },
+    {
+      "paragraph_id": 154,
+      "start": 1478.45,
+      "end": 1504.7,
+      "duration": 26.25,
+      "text_snippet": "Khai báo trực tiếp dependency trong pom.xml/build.gradle → Công cụ biên dịch đọc"
+    },
+    {
+      "paragraph_id": 155,
+      "start": 1504.7,
+      "end": 1508.2,
+      "duration": 3.5,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)"
+    },
+    {
+      "paragraph_id": 156,
+      "start": 1508.3,
+      "end": 1533.28,
+      "duration": 24.98,
+      "text_snippet": "Khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch (compile-time)? (lệnh"
+    },
+    {
+      "paragraph_id": 157,
+      "start": 1533.28,
+      "end": 1544.13,
+      "duration": 10.85,
+      "text_snippet": "Khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy (runtime)? (lệnh ja"
+    },
+    {
+      "paragraph_id": 158,
+      "start": 1533.28,
+      "end": 1544.47,
+      "duration": 11.19,
+      "text_snippet": "Khái niệm nào ở đây dễ là \"bẫy\" trong các buổi phỏng vấn? (Sử dụng sai dấu phân "
     }
   ]
 }

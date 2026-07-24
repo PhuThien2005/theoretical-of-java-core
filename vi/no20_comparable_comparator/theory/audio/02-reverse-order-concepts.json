@@ -1,357 +1,504 @@
 {
   "lesson": "02-reverse-order-concepts",
-  "total_duration_seconds": 544.1,
-  "total_paragraphs": 50,
+  "total_duration_seconds": 686.87,
+  "total_paragraphs": 71,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 1.45,
-      "duration": 1.45,
+      "start": 0.1,
+      "end": 3.79,
+      "duration": 3.69,
       "text_snippet": "Comparable và Comparator - Phần 2"
     },
     {
       "paragraph_id": 2,
-      "start": 1.45,
-      "end": 2.85,
-      "duration": 1.4,
+      "start": 3.74,
+      "end": 6.74,
+      "duration": 3.0,
       "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
     },
     {
       "paragraph_id": 3,
-      "start": 2.85,
-      "end": 10.35,
-      "duration": 7.5,
-      "text_snippet": "Tài liệu này trình bày một phần trọng tâm về Comparable và Comparator. Hãy nghiên cứu từng khái niệm như một quy tắc Jav"
+      "start": 6.74,
+      "end": 17.54,
+      "duration": 10.8,
+      "text_snippet": "Tài liệu này trình bày một phần trọng tâm về Comparable và Comparator. Hãy nghiê"
     },
     {
       "paragraph_id": 4,
-      "start": 10.35,
-      "end": 11.89,
-      "duration": 1.54,
+      "start": 17.54,
+      "end": 21.06,
+      "duration": 3.52,
       "text_snippet": "Phạm Vi Nội Dung (Outline Coverage)"
     },
     {
       "paragraph_id": 5,
-      "start": 11.89,
-      "end": 27.29,
-      "duration": 15.4,
-      "text_snippet": "Reverse order — Reverse order: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nNull handling: — Null handlin"
+      "start": 21.06,
+      "end": 27.56,
+      "duration": 6.5,
+      "text_snippet": "Reverse order — Reverse order: Cung cấp các quy tắc và cơ chế hoạt động cụ thể t"
     },
     {
       "paragraph_id": 6,
-      "start": 27.29,
-      "end": 28.74,
-      "duration": 1.45,
-      "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
+      "start": 27.66,
+      "end": 33.87,
+      "duration": 6.21,
+      "text_snippet": "Null handling: — Null handling:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể"
     },
     {
       "paragraph_id": 7,
-      "start": 28.74,
-      "end": 30.14,
-      "duration": 1.4,
-      "text_snippet": "Thứ tự đảo ngược (Reverse order)"
+      "start": 33.83,
+      "end": 44.87,
+      "duration": 11.04,
+      "text_snippet": "nullsFirst — nullsFirst: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong J"
     },
     {
       "paragraph_id": 8,
-      "start": 30.14,
-      "end": 34.79,
-      "duration": 4.65,
-      "text_snippet": "Thứ tự đảo ngược cho phép sắp xếp các phần tử theo trình tự ngược lại với trình tự thông thường của chúng."
+      "start": 44.86,
+      "end": 50.81,
+      "duration": 5.95,
+      "text_snippet": "nullsLast — nullsLast: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Jav"
     },
     {
       "paragraph_id": 9,
-      "start": 34.79,
-      "end": 55.72,
-      "duration": 20.93,
-      "text_snippet": "Giải Thích Chi Tiết (Enriched Explanation)\nCó hai cách chính để đảo ngược thứ tự sắp xếp trong Java 8+:\nComparator.rever"
+      "start": 44.86,
+      "end": 47.87,
+      "duration": 3.01,
+      "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
     },
     {
       "paragraph_id": 10,
-      "start": 55.72,
-      "end": 63.48,
-      "duration": 7.77,
-      "text_snippet": "Ví Dụ Mã Nguồn (Code Example)\n`java\nList<String> list = new ArrayList<>(List.of(\"A\", \"C\", \"B\"));\n// Reversing natural or"
+      "start": 47.88,
+      "end": 51.02,
+      "duration": 3.14,
+      "text_snippet": "Thứ tự đảo ngược (Reverse order)"
     },
     {
       "paragraph_id": 11,
-      "start": 63.48,
-      "end": 69.76,
-      "duration": 6.27,
-      "text_snippet": "// Reversing custom ordering (by length)\nComparator<String> lenComp = Comparator.comparingInt(String::length);\nlist.sort"
+      "start": 51.11,
+      "end": 56.85,
+      "duration": 5.74,
+      "text_snippet": "Thứ tự đảo ngược cho phép sắp xếp các phần tử theo trình tự ngược lại với trình "
     },
     {
       "paragraph_id": 12,
-      "start": 69.76,
-      "end": 109.51,
-      "duration": 39.75,
-      "text_snippet": "Điểm Cần Lưu Ý & Các Trường Hợp Lỗi (Gotchas & Failure Modes)\nBẫy đảo ngược chuỗi (Chaining Reversal Trap): Một lỗi cực "
+      "start": 56.8,
+      "end": 60.54,
+      "duration": 3.74,
+      "text_snippet": "Giải Thích Chi Tiết (Enriched Explanation)"
     },
     {
       "paragraph_id": 13,
-      "start": 109.51,
-      "end": 111.0,
-      "duration": 1.49,
-      "text_snippet": "Xử lý giá trị null (Null handling)"
+      "start": 60.54,
+      "end": 64.73,
+      "duration": 4.19,
+      "text_snippet": "Có hai cách chính để đảo ngược thứ tự sắp xếp trong Java 8+:"
     },
     {
       "paragraph_id": 14,
-      "start": 111.0,
-      "end": 117.4,
-      "duration": 6.41,
-      "text_snippet": "Xử lý giá trị null đóng vai trò rất quan trọng vì các phép toán so sánh mặc định sẽ ném ra ngoại lệ NullPointerException"
+      "start": 64.73,
+      "end": 88.17,
+      "duration": 23.44,
+      "text_snippet": "Comparator.reverseOrder(): Một phương thức tiện ích tĩnh (static utility method)"
     },
     {
       "paragraph_id": 15,
-      "start": 117.4,
-      "end": 136.75,
-      "duration": 19.35,
-      "text_snippet": "Giải Thích Chi Tiết (Enriched Explanation)\nTheo mặc định, việc so sánh các giá trị null bằng cách sử dụng compareTo hoặc"
+      "start": 88.16,
+      "end": 100.06,
+      "duration": 11.9,
+      "text_snippet": "comparator.reversed(): Một phương thức mặc định (default method) trên một thể hi"
     },
     {
       "paragraph_id": 16,
-      "start": 136.75,
-      "end": 144.6,
-      "duration": 7.85,
-      "text_snippet": "Ví Dụ Mã Nguồn (Code Example)\n`java\nList<String> list = Arrays.asList(\"Apple\", null, \"Banana\");\n// Without null handling"
+      "start": 88.26,
+      "end": 91.64,
+      "duration": 3.38,
+      "text_snippet": "Ví Dụ Mã Nguồn (Code Example)"
     },
     {
       "paragraph_id": 17,
-      "start": 144.6,
-      "end": 149.43,
-      "duration": 4.83,
-      "text_snippet": "// Safe null handling:\nlist.sort(Comparator.nullsFirst(Comparator.naturalOrder())); // [null, Apple, Banana]\n`"
-    },
-    {
-      "paragraph_id": 18,
-      "start": 149.43,
-      "end": 167.15,
-      "duration": 17.72,
-      "text_snippet": "Điểm Cần Lưu Ý & Các Trường Hợp Lỗi (Gotchas & Failure Modes)\nBộ so sánh hạ nguồn Null (Null Downstream Comparator): Nếu"
-    },
-    {
-      "paragraph_id": 19,
-      "start": 167.15,
-      "end": 167.59,
-      "duration": 0.44,
-      "text_snippet": "nullsFirst"
-    },
-    {
-      "paragraph_id": 20,
-      "start": 167.59,
-      "end": 171.28,
-      "duration": 3.69,
-      "text_snippet": "nullsFirst là một tiện ích để sắp xếp các giá trị null trước các giá trị không null."
-    },
-    {
-      "paragraph_id": 21,
-      "start": 171.28,
-      "end": 185.45,
-      "duration": 14.17,
-      "text_snippet": "Giải Thích Chi Tiết (Enriched Explanation)\nComparator.nullsFirst(Comparator<? super T> downstream) trả về một bộ so sánh"
-    },
-    {
-      "paragraph_id": 22,
-      "start": 185.45,
-      "end": 194.49,
-      "duration": 9.04,
-      "text_snippet": "Ví Dụ Mã Nguồn (Code Example)\n`java\nList<Integer> list = Arrays.asList(5, null, 2, null, 8);\nlist.sort(Comparator.nullsF"
-    },
-    {
-      "paragraph_id": 23,
-      "start": 194.49,
-      "end": 221.29,
-      "duration": 26.81,
-      "text_snippet": "Điểm Cần Lưu Ý & Các Trường Hợp Lỗi (Gotchas & Failure Modes)\nLỗi NPE khi trích xuất không được trang trí (NPE on Un-Dec"
-    },
-    {
-      "paragraph_id": 24,
-      "start": 221.29,
-      "end": 221.69,
-      "duration": 0.39,
-      "text_snippet": "nullsLast"
-    },
-    {
-      "paragraph_id": 25,
-      "start": 221.69,
-      "end": 225.24,
-      "duration": 3.55,
-      "text_snippet": "nullsLast là một tiện ích để sắp xếp các giá trị null sau các giá trị không null."
-    },
-    {
-      "paragraph_id": 26,
-      "start": 225.24,
-      "end": 236.91,
-      "duration": 11.67,
-      "text_snippet": "Giải Thích Chi Tiết (Enriched Explanation)\nComparator.nullsLast(Comparator<? super T> downstream) trả về một bộ so sánh "
-    },
-    {
-      "paragraph_id": 27,
-      "start": 236.91,
-      "end": 245.9,
-      "duration": 8.99,
-      "text_snippet": "Ví Dụ Mã Nguồn (Code Example)\n`java\nList<Integer> list = Arrays.asList(5, null, 2, null, 8);\nlist.sort(Comparator.nullsL"
-    },
-    {
-      "paragraph_id": 28,
-      "start": 245.9,
-      "end": 269.55,
-      "duration": 23.65,
-      "text_snippet": "Điểm Cần Lưu Ý & Các Trường Hợp Lỗi (Gotchas & Failure Modes)\nĐóng hộp giữa lớp bọc và kiểu nguyên thủy (Wrapper vs Prim"
-    },
-    {
-      "paragraph_id": 29,
-      "start": 269.55,
-      "end": 277.05,
-      "duration": 7.5,
-      "text_snippet": "Tại sao Java Sử dụng Dual-Pivot Quicksort cho Kiểu Nguyên Thủy nhưng dùng TimSort cho Đối Tượng (Why Java Uses Dual-Pivo"
-    },
-    {
-      "paragraph_id": 30,
-      "start": 277.05,
-      "end": 337.51,
-      "duration": 60.46,
-      "text_snippet": "Java phân chia các thuật toán sắp xếp mảng dựa trên việc dữ liệu đầu vào chứa các giá trị nguyên thủy hay các tham chiếu"
-    },
-    {
-      "paragraph_id": 31,
-      "start": 337.51,
-      "end": 349.75,
-      "duration": 12.24,
-      "text_snippet": "Mô hình Tư duy: Sắp xếp ổn định (TimSort) so với Sắp xếp không ổn định (Quicksort) (Mental Model: Stable Sort (TimSort) "
-    },
-    {
-      "paragraph_id": 32,
-      "start": 349.75,
-      "end": 350.5,
-      "duration": 0.75,
+      "start": 91.59,
+      "end": 93.97,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
+      "paragraph_id": 18,
+      "start": 93.96,
+      "end": 98.87,
+      "duration": 4.91,
+      "text_snippet": "Điểm Cần Lưu Ý & Các Trường Hợp Lỗi (Gotchas & Failure Modes)"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 98.88,
+      "end": 141.79,
+      "duration": 42.91,
+      "text_snippet": "Bẫy đảo ngược chuỗi (Chaining Reversal Trap): Một lỗi cực kỳ phổ biến là đảo ngư"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 141.79,
+      "end": 143.99,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 144.09,
+      "end": 146.47,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 146.41,
+      "end": 157.6,
+      "duration": 11.19,
+      "text_snippet": "Xử lý giá trị null (Null handling)"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 157.6,
+      "end": 168.45,
+      "duration": 10.85,
+      "text_snippet": "Xử lý giá trị null đóng vai trò rất quan trọng vì các phép toán so sánh mặc định"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 157.6,
+      "end": 161.33,
+      "duration": 3.73,
+      "text_snippet": "Giải Thích Chi Tiết (Enriched Explanation)"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 161.33,
+      "end": 184.43,
+      "duration": 23.1,
+      "text_snippet": "Theo mặc định, việc so sánh các giá trị null bằng cách sử dụng compareTo hoặc cá"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 184.53,
+      "end": 187.91,
+      "duration": 3.38,
+      "text_snippet": "Ví Dụ Mã Nguồn (Code Example)"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 187.85,
+      "end": 190.23,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 190.23,
+      "end": 195.14,
+      "duration": 4.91,
+      "text_snippet": "Điểm Cần Lưu Ý & Các Trường Hợp Lỗi (Gotchas & Failure Modes)"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 195.14,
+      "end": 215.09,
+      "duration": 19.95,
+      "text_snippet": "Bộ so sánh hạ nguồn Null (Null Downstream Comparator): Nếu bạn truyền null vào n"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 215.09,
+      "end": 215.49,
+      "duration": 0.4,
+      "text_snippet": "nullsFirst"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 215.19,
+      "end": 220.1,
+      "duration": 4.91,
+      "text_snippet": "nullsFirst là một tiện ích để sắp xếp các giá trị null trước các giá trị không n"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 220.05,
+      "end": 223.77,
+      "duration": 3.72,
+      "text_snippet": "Giải Thích Chi Tiết (Enriched Explanation)"
+    },
+    {
       "paragraph_id": 33,
-      "start": 350.5,
-      "end": 355.23,
-      "duration": 4.74,
-      "text_snippet": "Tính ổn định — Dual-Pivot Quicksort (Kiểu nguyên thủy) không ổn định, trong khi TimSort (Đối tượng) ổn định."
+      "start": 223.78,
+      "end": 243.19,
+      "duration": 19.41,
+      "text_snippet": "Comparator.nullsFirst(Comparator<? super T> downstream) trả về một bộ so sánh th"
     },
     {
       "paragraph_id": 34,
-      "start": 355.23,
-      "end": 362.69,
-      "duration": 7.46,
-      "text_snippet": "Thời gian trong trường hợp xấu nhất — Dual-Pivot Quicksort (Kiểu nguyên thủy) mất $O(N^2)$ (hiếm gặp) hoặc $O(N \\log N)$"
+      "start": 243.19,
+      "end": 246.57,
+      "duration": 3.38,
+      "text_snippet": "Ví Dụ Mã Nguồn (Code Example)"
     },
     {
       "paragraph_id": 35,
-      "start": 362.69,
-      "end": 372.7,
-      "duration": 10.0,
-      "text_snippet": "Thời gian trong trường hợp tốt nhất — Dual-Pivot Quicksort (Kiểu nguyên thủy) mất $O(N)$ (nếu đã được sắp xếp hoặc đồng "
+      "start": 246.56,
+      "end": 248.76,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 36,
-      "start": 372.7,
-      "end": 382.13,
-      "duration": 9.43,
-      "text_snippet": "Độ phức tạp không gian — Dual-Pivot Quicksort (Kiểu nguyên thủy) cần không gian $O(\\log N)$ (ngăn xếp đệ quy tại chỗ), t"
+      "start": 248.86,
+      "end": 253.76,
+      "duration": 4.9,
+      "text_snippet": "Điểm Cần Lưu Ý & Các Trường Hợp Lỗi (Gotchas & Failure Modes)"
     },
     {
       "paragraph_id": 37,
-      "start": 382.13,
-      "end": 392.35,
-      "duration": 10.22,
-      "text_snippet": "Ví Dụ Mã Nguồn: Minh họa Tầm quan trọng của Sắp xếp ổn định cho Đối tượng (Code Example: Illustrating the Importance of "
+      "start": 253.71,
+      "end": 285.92,
+      "duration": 32.21,
+      "text_snippet": "Lỗi NPE khi trích xuất không được trang trí (NPE on Un-Decorated Extraction): Nế"
     },
     {
       "paragraph_id": 38,
-      "start": 392.35,
-      "end": 398.05,
-      "duration": 5.7,
-      "text_snippet": "public class SortingStabilityDemo {\n    public static class LogEntry {\n        final String severity;\n        final int "
+      "start": 285.93,
+      "end": 288.31,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 39,
-      "start": 398.05,
-      "end": 404.06,
-      "duration": 6.01,
-      "text_snippet": "public LogEntry(String severity, int timestamp) {\n            this.severity = severity;\n            this.timestamp = tim"
+      "start": 288.3,
+      "end": 294.56,
+      "duration": 6.26,
+      "text_snippet": "nullsLast"
     },
     {
       "paragraph_id": 40,
-      "start": 404.06,
-      "end": 408.76,
-      "duration": 4.69,
-      "text_snippet": "@Override\n        public String toString() {\n            return severity + \"@\" + timestamp;\n        }\n    }"
+      "start": 294.56,
+      "end": 300.86,
+      "duration": 6.3,
+      "text_snippet": "nullsLast là một tiện ích để sắp xếp các giá trị null sau các giá trị không null"
     },
     {
       "paragraph_id": 41,
-      "start": 408.76,
-      "end": 420.43,
-      "duration": 11.67,
-      "text_snippet": "public static void main(String[] args) {\n        List<LogEntry> logs = new ArrayList<>(List.of(\n            new LogEntry"
+      "start": 294.66,
+      "end": 298.39,
+      "duration": 3.73,
+      "text_snippet": "Giải Thích Chi Tiết (Enriched Explanation)"
     },
     {
       "paragraph_id": 42,
-      "start": 420.43,
-      "end": 424.99,
-      "duration": 4.56,
-      "text_snippet": "// 1. Sort by timestamp (already in order)\n        logs.sort(Comparator.comparingInt(l -> l.timestamp));"
+      "start": 298.34,
+      "end": 314.19,
+      "duration": 15.85,
+      "text_snippet": "Comparator.nullsLast(Comparator<? super T> downstream) trả về một bộ so sánh thâ"
     },
     {
       "paragraph_id": 43,
-      "start": 424.99,
-      "end": 441.36,
-      "duration": 16.36,
-      "text_snippet": "// 2. Sort by severity. TimSort guarantees that for the same severity,\n        // the original timestamp order is preser"
+      "start": 314.19,
+      "end": 317.57,
+      "duration": 3.38,
+      "text_snippet": "Ví Dụ Mã Nguồn (Code Example)"
     },
     {
       "paragraph_id": 44,
-      "start": 441.36,
-      "end": 470.97,
-      "duration": 29.61,
-      "text_snippet": "Chuỗi Nguyên nhân - Kết quả (Cause-Effect Chain)\nSắp xếp mảng kiểu nguyên thủy $\\rightarrow$ Các phần tử riêng lẻ là các"
+      "start": 317.56,
+      "end": 319.94,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 45,
-      "start": 470.97,
-      "end": 475.31,
-      "duration": 4.34,
-      "text_snippet": "Các Sai lầm Thường gặp với Phép đảo ngược và Giá trị null (Common Mistakes with Reversal and Nulls)"
+      "start": 319.94,
+      "end": 324.68,
+      "duration": 4.74,
+      "text_snippet": "Điểm Cần Lưu Ý & Các Trường Hợp Lỗi (Gotchas & Failure Modes)"
     },
     {
       "paragraph_id": 46,
-      "start": 475.31,
-      "end": 512.69,
-      "duration": 37.38,
-      "text_snippet": "Đảo ngược các bộ so sánh nguyên thủy không đúng cách: Việc đảo ngược một bộ so sánh nguyên thủy bằng cách sử dụng phép t"
+      "start": 324.68,
+      "end": 358.28,
+      "duration": 33.6,
+      "text_snippet": "Đóng hộp giữa lớp bọc và kiểu nguyên thủy (Wrapper vs Primitive Boxing): Nếu bộ "
     },
     {
       "paragraph_id": 47,
-      "start": 512.69,
-      "end": 514.84,
-      "duration": 2.15,
-      "text_snippet": "Câu hỏi Ôn tập Thường gặp (Common Review Prompts)"
+      "start": 358.27,
+      "end": 368.07,
+      "duration": 9.8,
+      "text_snippet": "Tại sao Java Sử dụng Dual-Pivot Quicksort cho Kiểu Nguyên Thủy nhưng dùng TimSor"
     },
     {
       "paragraph_id": 48,
-      "start": 514.84,
-      "end": 525.5,
-      "duration": 10.66,
-      "text_snippet": "Những khái niệm nào ở đây là các quy tắc thời gian biên dịch (compile-time rules)?\nNhững khái niệm nào ở đây ảnh hưởng đ"
+      "start": 368.07,
+      "end": 468.17,
+      "duration": 100.1,
+      "text_snippet": "Java phân chia các thuật toán sắp xếp mảng dựa trên việc dữ liệu đầu vào chứa cá"
     },
     {
       "paragraph_id": 49,
-      "start": 525.5,
-      "end": 527.13,
-      "duration": 1.62,
-      "text_snippet": "Đường dẫn Tham khảo (Reference Links)"
+      "start": 468.18,
+      "end": 477.28,
+      "duration": 9.1,
+      "text_snippet": "Mô hình Tư duy: Sắp xếp ổn định (TimSort) so với Sắp xếp không ổn định (Quicksor"
     },
     {
       "paragraph_id": 50,
-      "start": 527.13,
-      "end": 544.1,
-      "duration": 16.98,
-      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Comparator.html (Đặc tả nullsFirst/nullsLast của "
+      "start": 477.27,
+      "end": 487.77,
+      "duration": 10.5,
+      "text_snippet": "Giả sử chúng ta có một danh sách các lá bài và muốn sắp xếp chúng theo giá trị. "
+    },
+    {
+      "paragraph_id": 51,
+      "start": 487.77,
+      "end": 489.17,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 489.17,
+      "end": 495.82,
+      "duration": 6.65,
+      "text_snippet": "Tính ổn định — Dual-Pivot Quicksort (Kiểu nguyên thủy) không ổn định, trong khi "
+    },
+    {
+      "paragraph_id": 53,
+      "start": 495.82,
+      "end": 506.32,
+      "duration": 10.5,
+      "text_snippet": "Thời gian trong trường hợp xấu nhất — Dual-Pivot Quicksort (Kiểu nguyên thủy) mấ"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 506.32,
+      "end": 521.72,
+      "duration": 15.4,
+      "text_snippet": "Thời gian trong trường hợp tốt nhất — Dual-Pivot Quicksort (Kiểu nguyên thủy) mấ"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 521.73,
+      "end": 536.08,
+      "duration": 14.35,
+      "text_snippet": "Độ phức tạp không gian — Dual-Pivot Quicksort (Kiểu nguyên thủy) cần không gian "
+    },
+    {
+      "paragraph_id": 56,
+      "start": 536.17,
+      "end": 545.88,
+      "duration": 9.71,
+      "text_snippet": "Ví Dụ Mã Nguồn: Minh họa Tầm quan trọng của Sắp xếp ổn định cho Đối tượng (Code "
+    },
+    {
+      "paragraph_id": 57,
+      "start": 545.84,
+      "end": 548.22,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 548.21,
+      "end": 552.11,
+      "duration": 3.9,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả (Cause-Effect Chain)"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 552.11,
+      "end": 584.67,
+      "duration": 32.56,
+      "text_snippet": "Sắp xếp mảng kiểu nguyên thủy $\\rightarrow$ Các phần tử riêng lẻ là các giá trị "
+    },
+    {
+      "paragraph_id": 60,
+      "start": 584.67,
+      "end": 591.03,
+      "duration": 6.36,
+      "text_snippet": "Các Sai lầm Thường gặp với Phép đảo ngược và Giá trị null (Common Mistakes with "
+    },
+    {
+      "paragraph_id": 61,
+      "start": 591.14,
+      "end": 623.37,
+      "duration": 32.23,
+      "text_snippet": "Đảo ngược các bộ so sánh nguyên thủy không đúng cách: Việc đảo ngược một bộ so s"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 623.36,
+      "end": 634.56,
+      "duration": 11.2,
+      "text_snippet": "Đảo ngược kép (Double Reversal): Việc sử dụng comparator.reversed().reversed() c"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 623.36,
+      "end": 643.57,
+      "duration": 20.21,
+      "text_snippet": "Lỗi NPE do tự động giải bọc ngầm định (Implicit unboxing NPE): Khi sắp xếp các l"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 643.57,
+      "end": 647.49,
+      "duration": 3.92,
+      "text_snippet": "Câu hỏi Ôn tập Thường gặp (Common Review Prompts)"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 647.5,
+      "end": 652.8,
+      "duration": 5.3,
+      "text_snippet": "Những khái niệm nào ở đây là các quy tắc thời gian biên dịch (compile-time rules"
+    },
+    {
+      "paragraph_id": 66,
+      "start": 652.8,
+      "end": 658.4,
+      "duration": 5.6,
+      "text_snippet": "Những khái niệm nào ở đây ảnh hưởng đến hành vi thời gian chạy (runtime behavior"
+    },
+    {
+      "paragraph_id": 67,
+      "start": 658.4,
+      "end": 664.0,
+      "duration": 5.6,
+      "text_snippet": "Những khái niệm nào ở đây có khả năng là các bẫy phỏng vấn (interview traps)?"
+    },
+    {
+      "paragraph_id": 68,
+      "start": 664.0,
+      "end": 666.1,
+      "duration": 2.1,
+      "text_snippet": "Đường dẫn Tham khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 69,
+      "start": 666.1,
+      "end": 668.2,
+      "duration": 2.1,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Comparato"
+    },
+    {
+      "paragraph_id": 70,
+      "start": 668.2,
+      "end": 669.95,
+      "duration": 1.75,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Arrays.ht"
+    },
+    {
+      "paragraph_id": 71,
+      "start": 670.05,
+      "end": 686.87,
+      "duration": 16.82,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Arrays.ht"
     }
   ]
 }

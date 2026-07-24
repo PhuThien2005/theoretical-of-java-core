@@ -1,595 +1,791 @@
 {
   "lesson": "03-inheritance",
-  "total_duration_seconds": 640.39,
-  "total_paragraphs": 84,
+  "total_duration_seconds": 896.11,
+  "total_paragraphs": 112,
   "timestamps": [
     {
       "paragraph_id": 1,
       "start": 0.0,
-      "end": 1.1,
-      "duration": 1.1,
+      "end": 1.4,
+      "duration": 1.4,
       "text_snippet": "Tính Kế Thừa (Inheritance)"
     },
     {
       "paragraph_id": 2,
-      "start": 1.1,
-      "end": 14.49,
-      "duration": 13.39,
-      "text_snippet": "Tính kế thừa (inheritance) là một cơ chế trong lập trình hướng đối tượng (OOP) cho phép một lớp con (subclass) thừa hưởn"
+      "start": 1.4,
+      "end": 23.8,
+      "duration": 22.4,
+      "text_snippet": "Tính kế thừa (inheritance) là một cơ chế trong lập trình hướng đối tượng (OOP) c"
     },
     {
       "paragraph_id": 3,
-      "start": 14.49,
-      "end": 14.57,
-      "duration": 0.08,
-      "text_snippet": "--"
-    },
-    {
-      "paragraph_id": 4,
-      "start": 14.57,
-      "end": 17.03,
-      "duration": 2.46,
+      "start": 23.8,
+      "end": 27.65,
+      "duration": 3.85,
       "text_snippet": "Các Loại Kế Thừa Trong Java (Types of Inheritance in Java)"
     },
     {
+      "paragraph_id": 4,
+      "start": 27.65,
+      "end": 30.8,
+      "duration": 3.15,
+      "text_snippet": "Java hỗ trợ ba hình thức kế thừa lớp:"
+    },
+    {
       "paragraph_id": 5,
-      "start": 17.03,
-      "end": 33.77,
-      "duration": 16.74,
-      "text_snippet": "Java hỗ trợ ba hình thức kế thừa lớp:\nĐơn Kế Thừa (Single Inheritance): Một lớp chỉ kế thừa từ duy nhất một lớp cha (B e"
+      "start": 30.8,
+      "end": 37.45,
+      "duration": 6.65,
+      "text_snippet": "Đơn Kế Thừa (Single Inheritance): Một lớp chỉ kế thừa từ duy nhất một lớp cha (B"
     },
     {
       "paragraph_id": 6,
-      "start": 33.77,
-      "end": 42.11,
-      "duration": 8.35,
-      "text_snippet": "Ví Dụ Minh Họa Code: Chuỗi Kế Thừa (Kế Thừa Nhiều Cấp) (Code Example: Inheritance Chain (Multilevel Inheritance))\nDưới đ"
+      "start": 37.45,
+      "end": 47.25,
+      "duration": 9.8,
+      "text_snippet": "Kế Thừa Nhiều Cấp (Multilevel Inheritance): Một lớp kế thừa từ một lớp con khác,"
     },
     {
       "paragraph_id": 7,
-      "start": 42.11,
-      "end": 42.83,
-      "duration": 0.72,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 47.25,
+      "end": 56.0,
+      "duration": 8.75,
+      "text_snippet": "Kế Thừa Phân Cấp (Hierarchical Inheritance): Nhiều lớp con cùng kế thừa từ một l"
     },
     {
       "paragraph_id": 8,
-      "start": 42.83,
-      "end": 47.71,
-      "duration": 4.87,
-      "text_snippet": "class Mammal extends Animal {\n    void breathe() {\n        System.out.println(\"This mammal breathes air.\");\n    }\n}"
+      "start": 56.0,
+      "end": 62.3,
+      "duration": 6.3,
+      "text_snippet": "Ví Dụ Minh Họa Code: Chuỗi Kế Thừa (Kế Thừa Nhiều Cấp) (Code Example: Inheritanc"
     },
     {
       "paragraph_id": 9,
-      "start": 47.71,
-      "end": 54.27,
-      "duration": 6.57,
-      "text_snippet": "class Dog extends Mammal { // Chuỗi kế thừa nhiều cấp: Dog IS-A Mammal, Mammal IS-A Animal\n    void bark() {\n        Sys"
+      "start": 62.3,
+      "end": 69.3,
+      "duration": 7.0,
+      "text_snippet": "Dưới đây là ví dụ mã nguồn thực tế về một chuỗi kế thừa thiết lập các quan hệ IS"
     },
     {
       "paragraph_id": 10,
-      "start": 54.27,
-      "end": 60.2,
-      "duration": 5.93,
-      "text_snippet": "> Xem thêm: Ứng dụng thực tế của Inheritance trong cây phân cấp ngoại lệ của Java, được trình bày chi tiết trong Ch.12 -"
+      "start": 69.3,
+      "end": 70.7,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 11,
-      "start": 60.2,
-      "end": 60.29,
-      "duration": 0.08,
-      "text_snippet": "--"
+      "start": 70.8,
+      "end": 79.92,
+      "duration": 9.12,
+      "text_snippet": "Xem thêm: Ứng dụng thực tế của Inheritance trong cây phân cấp ngoại lệ của Java,"
     },
     {
       "paragraph_id": 12,
-      "start": 60.29,
-      "end": 63.64,
-      "duration": 3.35,
+      "start": 79.87,
+      "end": 86.03,
+      "duration": 6.16,
       "text_snippet": "Đa Kế Thừa và Bài Toán Kim Cương (Multiple Inheritance and the Diamond Problem)"
     },
     {
       "paragraph_id": 13,
-      "start": 63.64,
-      "end": 69.57,
-      "duration": 5.93,
-      "text_snippet": "Java cấm việc đa kế thừa thông qua lớp (ví dụ: khai báo class C extends A, B là không hợp lệ) để tránh Bài Toán Kim Cươn"
+      "start": 86.04,
+      "end": 96.03,
+      "duration": 9.99,
+      "text_snippet": "Java cấm việc đa kế thừa thông qua lớp (ví dụ: khai báo class C extends A, B là "
     },
     {
       "paragraph_id": 14,
-      "start": 69.57,
-      "end": 85.37,
-      "duration": 15.8,
-      "text_snippet": "Giải Thích Về Bài Toán Kim Cương (The Diamond Problem Explained)\nNếu lớp A định nghĩa phương thức foo(), và hai lớp B và"
+      "start": 96.02,
+      "end": 100.82,
+      "duration": 4.8,
+      "text_snippet": "Giải Thích Về Bài Toán Kim Cương (The Diamond Problem Explained)"
     },
     {
       "paragraph_id": 15,
-      "start": 85.37,
-      "end": 96.01,
-      "duration": 10.63,
-      "text_snippet": "Java giải quyết vấn đề này bằng cách:\nChỉ cho phép đơn kế thừa lớp.\nCho phép đa kế thừa về hành vi thông qua các giao di"
+      "start": 100.82,
+      "end": 120.9,
+      "duration": 20.08,
+      "text_snippet": "Nếu lớp A định nghĩa phương thức foo(), và hai lớp B và C đều ghi đè (override) "
     },
     {
       "paragraph_id": 16,
-      "start": 96.01,
-      "end": 96.09,
-      "duration": 0.08,
-      "text_snippet": "--"
+      "start": 120.9,
+      "end": 123.7,
+      "duration": 2.8,
+      "text_snippet": "Java giải quyết vấn đề này bằng cách:"
     },
     {
       "paragraph_id": 17,
-      "start": 96.09,
-      "end": 97.49,
-      "duration": 1.4,
-      "text_snippet": "Từ Khóa super (The super Keyword)"
+      "start": 123.7,
+      "end": 126.15,
+      "duration": 2.45,
+      "text_snippet": "Chỉ cho phép đơn kế thừa lớp."
     },
     {
       "paragraph_id": 18,
-      "start": 97.49,
-      "end": 100.2,
-      "duration": 2.71,
-      "text_snippet": "Từ khóa super dùng để tham chiếu trực tiếp đến lớp cha gần nhất."
+      "start": 126.15,
+      "end": 139.45,
+      "duration": 13.3,
+      "text_snippet": "Cho phép đa kế thừa về hành vi thông qua các giao diện (interface) (bởi vì các x"
     },
     {
       "paragraph_id": 19,
-      "start": 100.2,
-      "end": 125.37,
-      "duration": 25.17,
-      "text_snippet": "3 Cách Dùng Chính Của super:\nGọi hàm khởi tạo (constructor) của lớp cha: Sử dụng cú pháp super() hoặc super(args).\n   - "
+      "start": 139.45,
+      "end": 141.55,
+      "duration": 2.1,
+      "text_snippet": "Từ Khóa super (The super Keyword)"
     },
     {
       "paragraph_id": 20,
-      "start": 125.37,
-      "end": 125.45,
-      "duration": 0.08,
-      "text_snippet": "--"
+      "start": 141.55,
+      "end": 146.45,
+      "duration": 4.9,
+      "text_snippet": "Từ khóa super dùng để tham chiếu trực tiếp đến lớp cha gần nhất."
     },
     {
       "paragraph_id": 21,
-      "start": 125.45,
-      "end": 127.82,
-      "duration": 2.37,
-      "text_snippet": "Luồng Thực Thi Hàm Khởi Tạo (Constructor Execution Flow)"
+      "start": 146.45,
+      "end": 148.55,
+      "duration": 2.1,
+      "text_snippet": "3 Cách Dùng Chính Của super:"
     },
     {
       "paragraph_id": 22,
-      "start": 127.82,
-      "end": 145.15,
-      "duration": 17.33,
-      "text_snippet": "Các hàm khởi tạo không được kế thừa bởi lớp con. Tuy nhiên, khi một đối tượng lớp con được khởi tạo:\nHàm khởi tạo của lớ"
+      "start": 148.55,
+      "end": 165.0,
+      "duration": 16.45,
+      "text_snippet": "Gọi hàm khởi tạo (constructor) của lớp cha: Sử dụng cú pháp super() hoặc super(a"
     },
     {
       "paragraph_id": 23,
-      "start": 145.15,
-      "end": 156.68,
-      "duration": 11.52,
-      "text_snippet": "> [!WARNING]\n> Nếu một lớp cha không định nghĩa hàm khởi tạo mặc định không tham số (vì nó chỉ có các hàm khởi tạo có th"
+      "start": 165.0,
+      "end": 169.55,
+      "duration": 4.55,
+      "text_snippet": "Phải là câu lệnh đầu tiên trong hàm khởi tạo của lớp con."
     },
     {
       "paragraph_id": 24,
-      "start": 156.68,
-      "end": 156.76,
-      "duration": 0.08,
-      "text_snippet": "--"
+      "start": 169.55,
+      "end": 176.2,
+      "duration": 6.65,
+      "text_snippet": "Nếu bị lược bỏ, trình biên dịch sẽ tự động chèn lời gọi super() mặc định không t"
     },
     {
       "paragraph_id": 25,
-      "start": 156.76,
-      "end": 158.96,
-      "duration": 2.2,
-      "text_snippet": "Quy Tắc Ghi Đè Phương Thức (Method Overriding Rules)"
+      "start": 176.2,
+      "end": 188.45,
+      "duration": 12.25,
+      "text_snippet": "Truy cập các trường dữ liệu bị che khuất: Phân biệt trường của lớp con với trườn"
     },
     {
       "paragraph_id": 26,
-      "start": 158.96,
-      "end": 165.45,
-      "duration": 6.48,
-      "text_snippet": "Ghi đè phương thức (method overriding) xảy ra khi một lớp con cung cấp một triển khai cụ thể cho một phương thức đã được"
+      "start": 188.45,
+      "end": 189.85,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 27,
-      "start": 165.45,
-      "end": 179.26,
-      "duration": 13.81,
-      "text_snippet": "Ví Dụ Minh Họa Code: Ghi Đè Với @Override (Code Example: Overriding with @Override)\nViệc sử dụng chú thích (annotation) "
+      "start": 189.85,
+      "end": 196.15,
+      "duration": 6.3,
+      "text_snippet": "Gọi các phương thức bị ghi đè: Gọi phiên bản phương thức của lớp cha từ lớp con."
     },
     {
       "paragraph_id": 28,
-      "start": 179.26,
-      "end": 179.98,
-      "duration": 0.72,
+      "start": 196.15,
+      "end": 197.55,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 29,
-      "start": 179.98,
-      "end": 189.0,
-      "duration": 9.02,
-      "text_snippet": "class ElectricCar extends Vehicle {\n    @Override // Trình biên dịch kiểm tra xem fuelUp() có tồn tại trong Vehicle hay "
+      "start": 197.55,
+      "end": 200.7,
+      "duration": 3.15,
+      "text_snippet": "Luồng Thực Thi Hàm Khởi Tạo (Constructor Execution Flow)"
     },
     {
       "paragraph_id": 30,
-      "start": 189.0,
-      "end": 247.85,
-      "duration": 58.85,
-      "text_snippet": "Các Quy Tắc Bắt Buộc Khi Ghi Đè:\nChữ Ký Phương Thức: Phải có tên phương thức và danh sách tham số hoàn toàn giống hệt nh"
+      "start": 200.7,
+      "end": 208.4,
+      "duration": 7.7,
+      "text_snippet": "Các hàm khởi tạo không được kế thừa bởi lớp con. Tuy nhiên, khi một đối tượng lớ"
     },
     {
       "paragraph_id": 31,
-      "start": 247.85,
-      "end": 247.94,
-      "duration": 0.08,
-      "text_snippet": "--"
+      "start": 208.4,
+      "end": 211.9,
+      "duration": 3.5,
+      "text_snippet": "Hàm khởi tạo của lớp con bắt đầu thực thi."
     },
     {
       "paragraph_id": 32,
-      "start": 247.94,
-      "end": 251.5,
-      "duration": 3.56,
-      "text_snippet": "Che Giấu Phương Thức so với Che Giấu Trường Dữ Liệu (Method Hiding vs. Field Hiding)"
+      "start": 211.9,
+      "end": 217.15,
+      "duration": 5.25,
+      "text_snippet": "Nó lập tức ủy quyền ngược lên chuỗi kế thừa bằng cách thực thi super()."
     },
     {
       "paragraph_id": 33,
-      "start": 251.5,
-      "end": 272.09,
-      "duration": 20.59,
-      "text_snippet": "Che Giấu Phương Thức (Method Hiding - Áp Dụng Với Phương Thức Tĩnh)\nNếu một lớp con định nghĩa một phương thức tĩnh có c"
+      "start": 217.15,
+      "end": 225.2,
+      "duration": 8.05,
+      "text_snippet": "Sự ủy quyền này tiếp tục cho đến khi chạm đến lớp cao nhất (java.lang.Object), n"
     },
     {
       "paragraph_id": 34,
-      "start": 272.09,
-      "end": 284.12,
-      "duration": 12.03,
-      "text_snippet": "Che Giấu Trường Dữ Liệu (Field Hiding)\nNếu một lớp con khai báo một trường dữ liệu trùng tên với một trường trong lớp ch"
+      "start": 225.2,
+      "end": 231.85,
+      "duration": 6.65,
+      "text_snippet": "Các hàm khởi tạo sẽ thực thi tuần tự từ lớp cha cao nhất xuống dần đến lớp con."
     },
     {
       "paragraph_id": 35,
-      "start": 284.12,
-      "end": 284.84,
-      "duration": 0.72,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 231.85,
+      "end": 252.15,
+      "duration": 20.3,
+      "text_snippet": "[!WARNING] Nếu một lớp cha không định nghĩa hàm khởi tạo mặc định không tham số "
     },
     {
       "paragraph_id": 36,
-      "start": 284.84,
-      "end": 289.54,
-      "duration": 4.7,
-      "text_snippet": "Parent p = new Child();\nSystem.out.println(p.value); // In ra 10 (được phân giải theo Kiểu Tham Chiếu Parent)\n`"
+      "start": 252.15,
+      "end": 255.3,
+      "duration": 3.15,
+      "text_snippet": "Quy Tắc Ghi Đè Phương Thức (Method Overriding Rules)"
     },
     {
       "paragraph_id": 37,
-      "start": 289.54,
-      "end": 292.85,
-      "duration": 3.3,
-      "text_snippet": "Đánh Giá Sâu: Quy Tắc Thiết Kế Kế Thừa (Deep Review: Inheritance Design Rules)"
+      "start": 255.3,
+      "end": 266.5,
+      "duration": 11.2,
+      "text_snippet": "Ghi đè phương thức (method overriding) xảy ra khi một lớp con cung cấp một triển"
     },
     {
       "paragraph_id": 38,
-      "start": 292.85,
-      "end": 301.02,
-      "duration": 8.18,
-      "text_snippet": "Kế thừa là một công cụ mạnh mẽ nhưng rất dễ bị lạm dụng. Nó chỉ nên đại diện cho một mối quan hệ is-a ổn định, bền vững,"
+      "start": 266.5,
+      "end": 271.4,
+      "duration": 4.9,
+      "text_snippet": "Ví Dụ Minh Họa Code: Ghi Đè Với @Override (Code Example: Overriding with @Overri"
     },
     {
       "paragraph_id": 39,
-      "start": 301.02,
-      "end": 301.87,
-      "duration": 0.85,
-      "text_snippet": "Sử dụng kế thừa khi:"
+      "start": 271.4,
+      "end": 288.55,
+      "duration": 17.15,
+      "text_snippet": "Việc sử dụng chú thích (annotation) @Override cho phương thức ở lớp con sẽ chỉ d"
     },
     {
       "paragraph_id": 40,
-      "start": 301.87,
-      "end": 311.87,
-      "duration": 10.0,
-      "text_snippet": "Lớp con thực sự là một phiên bản chuyên biệt hóa của lớp cha.\nLớp cha định nghĩa các hành vi mà các lớp con có thể kế th"
+      "start": 288.55,
+      "end": 289.95,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 41,
-      "start": 311.87,
-      "end": 313.99,
-      "duration": 2.12,
-      "text_snippet": "Ưu tiên sử dụng quan hệ bao hàm (composition) khi:"
+      "start": 290.05,
+      "end": 292.85,
+      "duration": 2.8,
+      "text_snippet": "Các Quy Tắc Bắt Buộc Khi Ghi Đè:"
     },
     {
       "paragraph_id": 42,
-      "start": 313.99,
-      "end": 322.46,
-      "duration": 8.47,
-      "text_snippet": "Bạn chỉ muốn tái sử dụng triển khai code có sẵn.\nMối quan hệ giữa hai thực thể là \"has-a\" (có một) chứ không phải là \"is"
+      "start": 292.8,
+      "end": 298.02,
+      "duration": 5.22,
+      "text_snippet": "Chữ Ký Phương Thức: Phải có tên phương thức và danh sách tham số hoàn toàn giống"
     },
     {
       "paragraph_id": 43,
-      "start": 322.46,
-      "end": 323.18,
-      "duration": 0.72,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 298.02,
+      "end": 318.66,
+      "duration": 20.64,
+      "text_snippet": "Kiểu Trả Về: Phải giống nhau, hoặc là một kiểu trả về đồng biến (covariant retur"
     },
     {
       "paragraph_id": 44,
-      "start": 323.18,
-      "end": 326.66,
-      "duration": 3.47,
-      "text_snippet": "class Car {\n    private final Engine engine; // composition: Car có một Engine\n}\n`"
-    },
-    {
-      "paragraph_id": 45,
-      "start": 326.66,
-      "end": 329.16,
-      "duration": 2.5,
-      "text_snippet": "Các Bẫy Ghi Đè so với Che Giấu (Overriding vs Hiding Traps)"
-    },
-    {
-      "paragraph_id": 46,
-      "start": 329.16,
-      "end": 342.55,
-      "duration": 13.39,
-      "text_snippet": "Các phương thức thực thể (instance method) có tính đa hình và có thể bị ghi đè.\nCác phương thức tĩnh bị che giấu, không "
-    },
-    {
-      "paragraph_id": 47,
-      "start": 342.55,
-      "end": 342.63,
-      "duration": 0.08,
-      "text_snippet": "--"
-    },
-    {
-      "paragraph_id": 48,
-      "start": 342.63,
-      "end": 349.66,
-      "duration": 7.03,
-      "text_snippet": "Ví Dụ Thực Tế: Tại sao việc gọi một phương thức bị ghi đè từ hàm khởi tạo lại nguy hiểm (Case Study: Why calling an over"
-    },
-    {
-      "paragraph_id": 49,
-      "start": 349.66,
-      "end": 362.25,
-      "duration": 12.58,
-      "text_snippet": "Khi một đối tượng lớp con được khởi tạo, hàm khởi tạo của lớp cha sẽ thực thi trước. Nếu hàm khởi tạo của lớp cha gọi mộ"
-    },
-    {
-      "paragraph_id": 50,
-      "start": 362.25,
-      "end": 365.97,
-      "duration": 3.73,
-      "text_snippet": "Kịch Bản Ví Dụ\nHãy xem điều gì xảy ra khi chúng ta khởi tạo một đối tượng của lớp Child:"
-    },
-    {
-      "paragraph_id": 51,
-      "start": 365.97,
-      "end": 366.69,
-      "duration": 0.72,
+      "start": 318.66,
+      "end": 321.04,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
+      "paragraph_id": 45,
+      "start": 321.04,
+      "end": 342.27,
+      "duration": 21.23,
+      "text_snippet": "Phạm Vi Truy Cập (Access Modifier): Phương thức ghi đè ở lớp con không được phép"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 342.26,
+      "end": 346.46,
+      "duration": 4.2,
+      "text_snippet": "Lớp cha là public $\\rightarrow$ Lớp con bắt buộc phải là public."
+    },
+    {
+      "paragraph_id": 47,
+      "start": 346.46,
+      "end": 350.66,
+      "duration": 4.2,
+      "text_snippet": "Lớp cha là protected $\\rightarrow$ Lớp con phải là protected hoặc public."
+    },
+    {
+      "paragraph_id": 48,
+      "start": 350.66,
+      "end": 355.21,
+      "duration": 4.55,
+      "text_snippet": "Lớp cha là default $\\rightarrow$ Lớp con phải là default, protected, hoặc public"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 355.21,
+      "end": 373.06,
+      "duration": 17.85,
+      "text_snippet": "Ngoại Lệ (Exceptions): Phương thức ghi đè không được phép ném ra các ngoại lệ ki"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 373.06,
+      "end": 390.91,
+      "duration": 17.85,
+      "text_snippet": "Các phương thức không thể ghi đè: Các phương thức được đánh dấu từ khóa final ho"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 390.91,
+      "end": 396.51,
+      "duration": 5.6,
+      "text_snippet": "Các phương thức được đánh dấu từ khóa final hoặc private không thể bị ghi đè."
+    },
+    {
       "paragraph_id": 52,
-      "start": 366.69,
-      "end": 370.04,
-      "duration": 3.35,
-      "text_snippet": "void printState() {\n        System.out.println(\"Parent state: active\");\n    }\n}"
+      "start": 396.51,
+      "end": 399.66,
+      "duration": 3.15,
+      "text_snippet": "Các hàm khởi tạo không thể bị ghi đè."
     },
     {
       "paragraph_id": 53,
-      "start": 370.04,
-      "end": 375.0,
-      "duration": 4.96,
-      "text_snippet": "class Child extends Parent {\n    private String customConfig = \"InitializedChildConfig\"; // Khởi tạo trường trực tiếp"
+      "start": 399.66,
+      "end": 406.31,
+      "duration": 6.65,
+      "text_snippet": "Các phương thức tĩnh (static method) không thể bị ghi đè (xem phần Che Giấu Phươ"
     },
     {
       "paragraph_id": 54,
-      "start": 375.0,
-      "end": 377.96,
-      "duration": 2.97,
-      "text_snippet": "Child() {\n        System.out.println(\"Child Constructor runs.\");\n    }"
+      "start": 406.31,
+      "end": 411.91,
+      "duration": 5.6,
+      "text_snippet": "Che Giấu Phương Thức so với Che Giấu Trường Dữ Liệu (Method Hiding vs. Field Hid"
     },
     {
       "paragraph_id": 55,
-      "start": 377.96,
-      "end": 389.23,
-      "duration": 11.27,
-      "text_snippet": "@Override\n    void printState() {\n        // Nguy hiểm: customConfig vẫn là null ở đây vì các bộ khởi tạo và hàm khởi tạ"
+      "start": 411.91,
+      "end": 416.46,
+      "duration": 4.55,
+      "text_snippet": "Che Giấu Phương Thức (Method Hiding - Áp Dụng Với Phương Thức Tĩnh)"
     },
     {
       "paragraph_id": 56,
-      "start": 389.23,
-      "end": 393.26,
-      "duration": 4.02,
-      "text_snippet": "public class Main {\n    public static void main(String[] args) {\n        new Child();\n    }\n}\n`"
+      "start": 416.46,
+      "end": 429.76,
+      "duration": 13.3,
+      "text_snippet": "Nếu một lớp con định nghĩa một phương thức tĩnh có cùng chữ ký với một phương th"
     },
     {
       "paragraph_id": 57,
-      "start": 393.26,
-      "end": 397.45,
-      "duration": 4.19,
-      "text_snippet": "Kết Quả In Ra:\n`text\nParent Constructor starts.\nChild config length: NULL\nChild Constructor runs.\n`"
+      "start": 429.76,
+      "end": 441.31,
+      "duration": 11.55,
+      "text_snippet": "Các phương thức tĩnh được phân giải tại thời điểm biên dịch dựa trên kiểu của bi"
     },
     {
       "paragraph_id": 58,
-      "start": 397.45,
-      "end": 410.25,
-      "duration": 12.8,
-      "text_snippet": "Bài Học Quan Trọng\nTuyệt đối không gọi các phương thức có thể ghi đè bên trong các hàm khởi tạo. Nếu bạn bắt buộc phải g"
+      "start": 441.31,
+      "end": 446.91,
+      "duration": 5.6,
+      "text_snippet": "Việc đặt chú thích @Override trên một phương thức tĩnh sẽ gây ra lỗi biên dịch."
     },
     {
       "paragraph_id": 59,
-      "start": 410.25,
-      "end": 410.33,
-      "duration": 0.08,
-      "text_snippet": "--"
+      "start": 446.91,
+      "end": 449.36,
+      "duration": 2.45,
+      "text_snippet": "Che Giấu Trường Dữ Liệu (Field Hiding)"
     },
     {
       "paragraph_id": 60,
-      "start": 410.33,
-      "end": 411.86,
-      "duration": 1.53,
-      "text_snippet": "Các Lỗi Thường Gặp (Common Mistakes)"
+      "start": 449.36,
+      "end": 458.46,
+      "duration": 9.1,
+      "text_snippet": "Nếu một lớp con khai báo một trường dữ liệu trùng tên với một trường trong lớp c"
     },
     {
       "paragraph_id": 61,
-      "start": 411.86,
-      "end": 428.38,
-      "duration": 16.52,
-      "text_snippet": "Nhầm Lẫn Giữa Nạp Chồng và Ghi Đè (Sai Lệch Chữ Ký Phương Thức) (Confusing Overload with Override)\nIf the subclass metho"
+      "start": 458.46,
+      "end": 467.56,
+      "duration": 9.1,
+      "text_snippet": "Các trường dữ liệu không có tính đa hình. Chúng được phân giải tĩnh tại thời điể"
     },
     {
       "paragraph_id": 62,
-      "start": 428.38,
-      "end": 435.29,
-      "duration": 6.91,
-      "text_snippet": "class ColorPrinter extends Printer {\n    // Lỗi: tham số kiểu Object thay vì String. Đây là nạp chồng chứ không phải ghi"
+      "start": 467.56,
+      "end": 468.96,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 63,
-      "start": 435.29,
-      "end": 454.06,
-      "duration": 18.77,
-      "text_snippet": "Cố Gắng Ghi Đè Phương Thức Tĩnh\nNếu một lớp con định nghĩa một phương thức tĩnh có cùng chữ ký với phương thức tĩnh của "
+      "start": 468.96,
+      "end": 473.86,
+      "duration": 4.9,
+      "text_snippet": "Đánh Giá Sâu: Quy Tắc Thiết Kế Kế Thừa (Deep Review: Inheritance Design Rules)"
     },
     {
       "paragraph_id": 64,
-      "start": 454.06,
-      "end": 471.0,
-      "duration": 16.95,
-      "text_snippet": "Truy Cập Các Trường Bị Che Giấu Theo Cách Đa Hình\nCác trường dữ liệu được phân giải tĩnh tại thời điểm biên dịch dựa trê"
+      "start": 473.86,
+      "end": 489.96,
+      "duration": 16.1,
+      "text_snippet": "Kế thừa là một công cụ mạnh mẽ nhưng rất dễ bị lạm dụng. Nó chỉ nên đại diện cho"
     },
     {
       "paragraph_id": 65,
-      "start": 471.0,
-      "end": 476.26,
-      "duration": 5.25,
-      "text_snippet": "Super obj = new Sub();\nSystem.out.println(obj.val); // In ra 100 (được phân giải từ kiểu tham chiếu Super, không phải Su"
+      "start": 489.96,
+      "end": 491.71,
+      "duration": 1.75,
+      "text_snippet": "Sử dụng kế thừa khi:"
     },
     {
       "paragraph_id": 66,
-      "start": 476.26,
-      "end": 477.78,
-      "duration": 1.53,
-      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+      "start": 491.71,
+      "end": 496.61,
+      "duration": 4.9,
+      "text_snippet": "Lớp con thực sự là một phiên bản chuyên biệt hóa của lớp cha."
     },
     {
       "paragraph_id": 67,
-      "start": 477.78,
-      "end": 494.48,
-      "duration": 16.69,
-      "text_snippet": "Hướng dẫn Java của Oracle - Kế thừa: https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html\nHướng dẫn Java c"
+      "start": 496.61,
+      "end": 504.31,
+      "duration": 7.7,
+      "text_snippet": "Lớp cha định nghĩa các hành vi mà các lớp con có thể kế thừa hoặc ghi đè một các"
     },
     {
       "paragraph_id": 68,
-      "start": 494.48,
-      "end": 494.56,
-      "duration": 0.08,
-      "text_snippet": "--"
+      "start": 504.31,
+      "end": 510.96,
+      "duration": 6.65,
+      "text_snippet": "Hệ thống phân cấp lớp ổn định và ít có khả năng cần nhiều biến thể không liên qu"
     },
     {
       "paragraph_id": 69,
-      "start": 494.56,
-      "end": 500.49,
-      "duration": 5.93,
-      "text_snippet": "Tại Sao super() Phải Là Câu Lệnh Đầu Tiên Trong Hàm Khởi Tạo Của Lớp Con (Why super() Must Be the First Statement in a S"
+      "start": 510.96,
+      "end": 514.46,
+      "duration": 3.5,
+      "text_snippet": "Ưu tiên sử dụng quan hệ bao hàm (composition) khi:"
     },
     {
       "paragraph_id": 70,
-      "start": 500.49,
-      "end": 528.92,
-      "duration": 28.43,
-      "text_snippet": "Java yêu cầu super() (hoặc super(args)) bắt buộc phải là câu lệnh đầu tiên trong hàm khởi tạo của lớp con vì một nguyên "
+      "start": 514.46,
+      "end": 518.31,
+      "duration": 3.85,
+      "text_snippet": "Bạn chỉ muốn tái sử dụng triển khai code có sẵn."
     },
     {
       "paragraph_id": 71,
-      "start": 528.92,
-      "end": 563.88,
-      "duration": 34.95,
-      "text_snippet": "Đặc tả Ngôn ngữ Java (JLS §8.8.7) mã hóa ràng buộc này trực tiếp vào trình biên dịch: nếu không có lời gọi super(...) ho"
+      "start": 518.31,
+      "end": 524.61,
+      "duration": 6.3,
+      "text_snippet": "Mối quan hệ giữa hai thực thể là \"has-a\" (có một) chứ không phải là \"is-a\" (là m"
     },
     {
       "paragraph_id": 72,
-      "start": 563.88,
-      "end": 565.1,
-      "duration": 1.23,
-      "text_snippet": "Mô Hình Tư Duy (Mental Model)"
+      "start": 524.61,
+      "end": 529.86,
+      "duration": 5.25,
+      "text_snippet": "Các hành vi khác nhau cần được hoán đổi cho nhau một cách độc lập."
     },
     {
       "paragraph_id": 73,
-      "start": 565.1,
-      "end": 565.82,
-      "duration": 0.72,
+      "start": 529.86,
+      "end": 531.26,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 74,
-      "start": 565.82,
-      "end": 567.26,
-      "duration": 1.44,
-      "text_snippet": "Ví Dụ Minh Họa Code (Code Example)"
+      "start": 531.26,
+      "end": 535.46,
+      "duration": 4.2,
+      "text_snippet": "Các Bẫy Ghi Đè so với Che Giấu (Overriding vs Hiding Traps)"
     },
     {
       "paragraph_id": 75,
-      "start": 567.26,
-      "end": 567.99,
-      "duration": 0.72,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 535.46,
+      "end": 541.41,
+      "duration": 5.95,
+      "text_snippet": "Các phương thức thực thể (instance method) có tính đa hình và có thể bị ghi đè."
     },
     {
       "paragraph_id": 76,
-      "start": 567.99,
-      "end": 573.32,
-      "duration": 5.34,
-      "text_snippet": "Vehicle(String brand) {\n        this.brand = brand;\n        System.out.println(\"Vehicle constructor: brand = \" + brand);"
+      "start": 541.41,
+      "end": 545.61,
+      "duration": 4.2,
+      "text_snippet": "Các phương thức tĩnh bị che giấu, không phải bị ghi đè."
     },
     {
       "paragraph_id": 77,
-      "start": 573.32,
-      "end": 575.19,
-      "duration": 1.86,
-      "text_snippet": "public String getBrand() { return brand; }\n}"
+      "start": 545.61,
+      "end": 549.81,
+      "duration": 4.2,
+      "text_snippet": "Các trường dữ liệu bị che giấu, không phải bị ghi đè."
     },
     {
       "paragraph_id": 78,
-      "start": 575.19,
-      "end": 577.43,
-      "duration": 2.25,
-      "text_snippet": "class Car extends Vehicle {\n    private int topSpeed;"
+      "start": 549.81,
+      "end": 553.31,
+      "duration": 3.5,
+      "text_snippet": "Các hàm khởi tạo không bao giờ được kế thừa."
     },
     {
       "paragraph_id": 79,
-      "start": 577.43,
-      "end": 587.3,
-      "duration": 9.87,
-      "text_snippet": "Car(String brand, int topSpeed) {\n        super(brand); // BẮT BUỘC phải đầu tiên — trình biên dịch thực thi quy tắc này"
+      "start": 553.31,
+      "end": 559.26,
+      "duration": 5.95,
+      "text_snippet": "Các phương thức private không thể bị ghi đè vì lớp con không thể nhìn thấy chúng"
     },
     {
       "paragraph_id": 80,
-      "start": 587.3,
-      "end": 589.64,
-      "duration": 2.33,
-      "text_snippet": "class SportsCar extends Car {\n    private String model;"
+      "start": 559.26,
+      "end": 570.81,
+      "duration": 11.55,
+      "text_snippet": "Ví Dụ Thực Tế: Tại sao việc gọi một phương thức bị ghi đè từ hàm khởi tạo lại ng"
     },
     {
       "paragraph_id": 81,
-      "start": 589.64,
-      "end": 600.95,
-      "duration": 11.31,
-      "text_snippet": "SportsCar(String brand, int topSpeed, String model) {\n        super(brand, topSpeed); // ủy quyền cho Car, Car ủy quyền "
+      "start": 570.81,
+      "end": 594.61,
+      "duration": 23.8,
+      "text_snippet": "Khi một đối tượng lớp con được khởi tạo, hàm khởi tạo của lớp cha sẽ thực thi tr"
     },
     {
       "paragraph_id": 82,
-      "start": 600.95,
-      "end": 611.33,
-      "duration": 10.38,
-      "text_snippet": "public class Main {\n    public static void main(String[] args) {\n        new SportsCar(\"Ferrari\", 300, \"F40\");\n    }\n}\n/"
+      "start": 594.61,
+      "end": 596.01,
+      "duration": 1.4,
+      "text_snippet": "Kịch Bản Ví Dụ"
     },
     {
       "paragraph_id": 83,
-      "start": 611.33,
-      "end": 613.36,
-      "duration": 2.03,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)"
+      "start": 596.01,
+      "end": 601.96,
+      "duration": 5.95,
+      "text_snippet": "Hãy xem điều gì xảy ra khi chúng ta khởi tạo một đối tượng của lớp Child:"
     },
     {
       "paragraph_id": 84,
-      "start": 613.36,
-      "end": 640.39,
-      "duration": 27.03,
-      "text_snippet": "Lời gọi new SportsCar(...) được kích hoạt\n→ Hàm khởi tạo SportsCar bắt đầu; super(brand, topSpeed) là câu lệnh đầu tiên\n"
+      "start": 601.96,
+      "end": 603.36,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 85,
+      "start": 603.36,
+      "end": 604.76,
+      "duration": 1.4,
+      "text_snippet": "Kết Quả In Ra:"
+    },
+    {
+      "paragraph_id": 86,
+      "start": 604.76,
+      "end": 606.16,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 87,
+      "start": 606.16,
+      "end": 607.56,
+      "duration": 1.4,
+      "text_snippet": "Bài Học Quan Trọng"
+    },
+    {
+      "paragraph_id": 88,
+      "start": 607.56,
+      "end": 628.91,
+      "duration": 21.35,
+      "text_snippet": "Tuyệt đối không gọi các phương thức có thể ghi đè bên trong các hàm khởi tạo. Nế"
+    },
+    {
+      "paragraph_id": 89,
+      "start": 628.91,
+      "end": 631.01,
+      "duration": 2.1,
+      "text_snippet": "Các Lỗi Thường Gặp (Common Mistakes)"
+    },
+    {
+      "paragraph_id": 90,
+      "start": 631.01,
+      "end": 637.66,
+      "duration": 6.65,
+      "text_snippet": "1. Nhầm Lẫn Giữa Nạp Chồng và Ghi Đè (Sai Lệch Chữ Ký Phương Thức) (Confusing Ov"
+    },
+    {
+      "paragraph_id": 91,
+      "start": 637.76,
+      "end": 653.33,
+      "duration": 15.57,
+      "text_snippet": "If the subclass method signature differs slightly from the parent's, Java treats"
+    },
+    {
+      "paragraph_id": 92,
+      "start": 653.34,
+      "end": 655.72,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 93,
+      "start": 655.71,
+      "end": 658.91,
+      "duration": 3.2,
+      "text_snippet": "2. Cố Gắng Ghi Đè Phương Thức Tĩnh"
+    },
+    {
+      "paragraph_id": 94,
+      "start": 658.91,
+      "end": 671.31,
+      "duration": 12.4,
+      "text_snippet": "Nếu một lớp con định nghĩa một phương thức tĩnh có cùng chữ ký với phương thức t"
+    },
+    {
+      "paragraph_id": 95,
+      "start": 671.31,
+      "end": 673.51,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 96,
+      "start": 673.51,
+      "end": 677.71,
+      "duration": 4.2,
+      "text_snippet": "3. Truy Cập Các Trường Bị Che Giấu Theo Cách Đa Hình"
+    },
+    {
+      "paragraph_id": 97,
+      "start": 677.71,
+      "end": 698.01,
+      "duration": 20.3,
+      "text_snippet": "Các trường dữ liệu được phân giải tĩnh tại thời điểm biên dịch dựa trên kiểu của"
+    },
+    {
+      "paragraph_id": 98,
+      "start": 698.01,
+      "end": 699.41,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 99,
+      "start": 699.41,
+      "end": 701.51,
+      "duration": 2.1,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 100,
+      "start": 701.51,
+      "end": 704.66,
+      "duration": 3.15,
+      "text_snippet": "Hướng dẫn Java của Oracle - Kế thừa: https://docs.oracle.com/javase/tutorial/jav"
+    },
+    {
+      "paragraph_id": 101,
+      "start": 704.66,
+      "end": 709.56,
+      "duration": 4.9,
+      "text_snippet": "Hướng dẫn Java của Oracle - Ghi đè và che giấu phương thức: https://docs.oracle."
+    },
+    {
+      "paragraph_id": 102,
+      "start": 709.56,
+      "end": 713.76,
+      "duration": 4.2,
+      "text_snippet": "Hướng dẫn Java của Oracle - Giao diện và Kế thừa: https://docs.oracle.com/javase"
+    },
+    {
+      "paragraph_id": 103,
+      "start": 713.76,
+      "end": 715.16,
+      "duration": 1.4,
+      "text_snippet": "Dev.java Kế thừa: https://dev.java/learn/inheritance/"
+    },
+    {
+      "paragraph_id": 104,
+      "start": 715.16,
+      "end": 724.61,
+      "duration": 9.45,
+      "text_snippet": "Tại Sao super() Phải Là Câu Lệnh Đầu Tiên Trong Hàm Khởi Tạo Của Lớp Con (Why su"
+    },
+    {
+      "paragraph_id": 105,
+      "start": 724.61,
+      "end": 776.41,
+      "duration": 51.8,
+      "text_snippet": "Java yêu cầu super() (hoặc super(args)) bắt buộc phải là câu lệnh đầu tiên trong"
+    },
+    {
+      "paragraph_id": 106,
+      "start": 776.41,
+      "end": 839.06,
+      "duration": 62.65,
+      "text_snippet": "Đặc tả Ngôn ngữ Java (JLS §8.8.7) mã hóa ràng buộc này trực tiếp vào trình biên "
+    },
+    {
+      "paragraph_id": 107,
+      "start": 839.06,
+      "end": 841.16,
+      "duration": 2.1,
+      "text_snippet": "Mô Hình Tư Duy (Mental Model)"
+    },
+    {
+      "paragraph_id": 108,
+      "start": 841.16,
+      "end": 842.56,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 109,
+      "start": 842.56,
+      "end": 845.01,
+      "duration": 2.45,
+      "text_snippet": "Ví Dụ Minh Họa Code (Code Example)"
+    },
+    {
+      "paragraph_id": 110,
+      "start": 845.01,
+      "end": 846.41,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 111,
+      "start": 846.41,
+      "end": 849.21,
+      "duration": 2.8,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)"
+    },
+    {
+      "paragraph_id": 112,
+      "start": 849.21,
+      "end": 896.11,
+      "duration": 46.9,
+      "text_snippet": "Lời gọi new SportsCar(...) được kích hoạt → Hàm khởi tạo SportsCar bắt đầu; supe"
     }
   ]
 }

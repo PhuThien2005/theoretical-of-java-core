@@ -1,399 +1,539 @@
 {
   "lesson": "03-treeset-concepts",
-  "total_duration_seconds": 518.47,
-  "total_paragraphs": 56,
+  "total_duration_seconds": 553.41,
+  "total_paragraphs": 76,
   "timestamps": [
     {
       "paragraph_id": 1,
       "start": 0.0,
-      "end": 2.0,
-      "duration": 2.0,
+      "end": 2.8,
+      "duration": 2.8,
       "text_snippet": "Khung tập hợp (Collections Framework) - Phần 3"
     },
     {
       "paragraph_id": 2,
-      "start": 2.0,
-      "end": 3.4,
-      "duration": 1.39,
+      "start": 2.8,
+      "end": 4.9,
+      "duration": 2.1,
       "text_snippet": "Mục tiêu học tập (Learning Goal)"
     },
     {
       "paragraph_id": 3,
-      "start": 3.4,
-      "end": 10.36,
-      "duration": 6.97,
-      "text_snippet": "Tài liệu này đề cập đến một phần trọng tâm của Khung tập hợp. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế"
+      "start": 4.9,
+      "end": 17.5,
+      "duration": 12.6,
+      "text_snippet": "Tài liệu này đề cập đến một phần trọng tâm của Khung tập hợp. Hãy nghiên cứu từn"
     },
     {
       "paragraph_id": 4,
-      "start": 10.36,
-      "end": 11.97,
-      "duration": 1.61,
+      "start": 17.5,
+      "end": 19.6,
+      "duration": 2.1,
       "text_snippet": "Khái quát nội dung (Outline Coverage)"
     },
     {
       "paragraph_id": 5,
-      "start": 11.97,
-      "end": 47.02,
-      "duration": 35.05,
-      "text_snippet": "TreeSet — TreeSet: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nSortedSet — SortedSet: Cung cấp các quy t"
+      "start": 19.6,
+      "end": 25.55,
+      "duration": 5.95,
+      "text_snippet": "TreeSet — TreeSet: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 6,
-      "start": 47.02,
-      "end": 48.46,
-      "duration": 1.44,
-      "text_snippet": "Ghi chú chi tiết (Detailed Notes)"
+      "start": 25.55,
+      "end": 31.5,
+      "duration": 5.95,
+      "text_snippet": "SortedSet — SortedSet: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Jav"
     },
     {
       "paragraph_id": 7,
-      "start": 48.46,
-      "end": 48.76,
-      "duration": 0.3,
-      "text_snippet": "TreeSet"
+      "start": 31.5,
+      "end": 37.45,
+      "duration": 5.95,
+      "text_snippet": "NavigableSet — NavigableSet: Cung cấp các quy tắc và cơ chế hoạt động cụ thể tro"
     },
     {
       "paragraph_id": 8,
-      "start": 48.76,
-      "end": 71.36,
-      "duration": 22.6,
-      "text_snippet": "TreeSet là một lớp hiện thực (implementation) của NavigableSet được hỗ trợ bởi một thể hiện (instance) của TreeMap.\nThứ "
+      "start": 37.45,
+      "end": 48.3,
+      "duration": 10.85,
+      "text_snippet": "Khi nào nên sử dụng tập hợp (Set)? — Khi nào nên sử dụng tập hợp (Set)?: Cung cấ"
     },
     {
       "paragraph_id": 9,
-      "start": 71.36,
-      "end": 73.63,
-      "duration": 2.26,
-      "text_snippet": "SortedSet và NavigableSet (SortedSet & NavigableSet)"
+      "start": 48.3,
+      "end": 57.75,
+      "duration": 9.45,
+      "text_snippet": "Cơ chế loại bỏ trùng lặp — Cơ chế loại bỏ trùng lặp: Cung cấp các quy tắc và cơ "
     },
     {
       "paragraph_id": 10,
-      "start": 73.63,
-      "end": 90.95,
-      "duration": 17.33,
-      "text_snippet": "SortedSet: Một giao diện (interface) đại diện cho một tập hợp được sắp xếp theo thứ tự tăng dần. Cung cấp các thao tác n"
+      "start": 57.75,
+      "end": 67.2,
+      "duration": 9.45,
+      "text_snippet": "Vai trò của equals() và hashCode() — Vai trò của equals() và hashCode(): Cung cấ"
     },
     {
       "paragraph_id": 11,
-      "start": 90.95,
-      "end": 92.96,
-      "duration": 2.0,
-      "text_snippet": "Khi nào nên sử dụng tập hợp (When to use Set?)"
+      "start": 67.2,
+      "end": 73.15,
+      "duration": 5.95,
+      "text_snippet": "PriorityQueue — PriorityQueue: Cung cấp các quy tắc và cơ chế hoạt động cụ thể t"
     },
     {
       "paragraph_id": 12,
-      "start": 92.96,
-      "end": 105.8,
-      "duration": 12.84,
-      "text_snippet": "Sử dụng một tập hợp khi các phần tử trùng lặp không được chấp nhận.\nHashSet: Lựa chọn mặc định. Các thao tác O(1) nhanh "
+      "start": 73.15,
+      "end": 79.1,
+      "duration": 5.95,
+      "text_snippet": "ArrayDeque — ArrayDeque: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong J"
     },
     {
       "paragraph_id": 13,
-      "start": 105.8,
-      "end": 109.81,
-      "duration": 4.01,
-      "text_snippet": "So sánh HashSet với TreeSet và LinkedHashSet (Comparing HashSet vs TreeSet vs LinkedHashSet)"
+      "start": 79.1,
+      "end": 81.2,
+      "duration": 2.1,
+      "text_snippet": "Ghi chú chi tiết (Detailed Notes)"
     },
     {
       "paragraph_id": 14,
-      "start": 109.81,
-      "end": 115.82,
-      "duration": 6.01,
-      "text_snippet": "HashSet sử dụng cấu trúc bên trong là HashMap, độ phức tạp thời gian O(1), thứ tự duyệt chưa xác định, và được phép chứa"
+      "start": 81.2,
+      "end": 81.6,
+      "duration": 0.4,
+      "text_snippet": "TreeSet"
     },
     {
       "paragraph_id": 15,
-      "start": 115.82,
-      "end": 123.96,
-      "duration": 8.14,
-      "text_snippet": "TreeSet sử dụng cấu trúc bên trong là TreeMap (Cây Đỏ-Đen (Red-Black tree)), độ phức tạp thời gian O(log N), thứ tự duyệ"
+      "start": 81.55,
+      "end": 88.2,
+      "duration": 6.65,
+      "text_snippet": "TreeSet là một lớp hiện thực (implementation) của NavigableSet được hỗ trợ bởi m"
     },
     {
       "paragraph_id": 16,
-      "start": 123.96,
-      "end": 132.36,
-      "duration": 8.4,
-      "text_snippet": "LinkedHashSet sử dụng cấu trúc bên trong là HashMap + Danh sách liên kết kép (Doubly-Linked List), độ phức tạp thời gian"
+      "start": 88.2,
+      "end": 99.75,
+      "duration": 11.55,
+      "text_snippet": "Thứ tự (Ordering): Được sắp xếp theo thứ tự tự nhiên (natural ordering) (hiện th"
     },
     {
       "paragraph_id": 17,
-      "start": 132.36,
-      "end": 133.41,
-      "duration": 1.04,
-      "text_snippet": "Cơ chế loại bỏ trùng lặp"
+      "start": 99.75,
+      "end": 105.0,
+      "duration": 5.25,
+      "text_snippet": "Độ phức tạp (Complexity): O(log N) cho các thao tác cốt lõi (add, remove, contai"
     },
     {
       "paragraph_id": 18,
-      "start": 133.41,
-      "end": 154.65,
-      "duration": 21.25,
-      "text_snippet": "Cách các tập hợp xác định phần tử trùng lặp:\nHashSet / LinkedHashSet: Kiểm tra xem obj1.hashCode() == obj2.hashCode(). N"
+      "start": 105.0,
+      "end": 113.4,
+      "duration": 8.4,
+      "text_snippet": "Hạn chế (Restrictions): Không cho phép các phần tử null (ném ra ngoại lệ NullPoi"
     },
     {
       "paragraph_id": 19,
-      "start": 154.65,
-      "end": 157.61,
-      "duration": 2.96,
-      "text_snippet": "Vai trò của equals() và hashCode() (Role of equals() and hashCode())"
+      "start": 113.4,
+      "end": 115.5,
+      "duration": 2.1,
+      "text_snippet": "SortedSet và NavigableSet (SortedSet & NavigableSet)"
     },
     {
       "paragraph_id": 20,
-      "start": 157.61,
-      "end": 184.78,
-      "duration": 27.17,
-      "text_snippet": "Để HashSet và HashMap hoạt động chính xác:\nTính phản xạ (Reflexive): x.equals(x) phải là true.\nTính đối xứng (Symmetric)"
+      "start": 115.5,
+      "end": 128.45,
+      "duration": 12.95,
+      "text_snippet": "SortedSet: Một giao diện (interface) đại diện cho một tập hợp được sắp xếp theo "
     },
     {
       "paragraph_id": 21,
-      "start": 184.78,
-      "end": 185.35,
-      "duration": 0.57,
-      "text_snippet": "PriorityQueue"
+      "start": 128.45,
+      "end": 140.35,
+      "duration": 11.9,
+      "text_snippet": "NavigableSet: Mở rộng từ SortedSet và bổ sung các phương thức điều hướng/ước lượ"
     },
     {
       "paragraph_id": 22,
-      "start": 185.35,
-      "end": 200.24,
-      "duration": 14.89,
-      "text_snippet": "Một hàng đợi ưu tiên không giới hạn (unbounded priority queue) dựa trên cấu trúc đống nhị phân (binary heap).\nThứ tự: Đầ"
+      "start": 140.35,
+      "end": 144.2,
+      "duration": 3.85,
+      "text_snippet": "Khi nào nên sử dụng tập hợp (When to use Set?)"
     },
     {
       "paragraph_id": 23,
-      "start": 200.24,
-      "end": 200.67,
-      "duration": 0.44,
-      "text_snippet": "ArrayDeque"
+      "start": 144.2,
+      "end": 149.45,
+      "duration": 5.25,
+      "text_snippet": "Sử dụng một tập hợp khi các phần tử trùng lặp không được chấp nhận."
     },
     {
       "paragraph_id": 24,
-      "start": 200.67,
-      "end": 215.17,
-      "duration": 14.5,
-      "text_snippet": "Một lớp hiện thực mảng có thể thay đổi kích thước của giao diện Deque.\nHiệu năng: Hiện thực dạng mảng vòng (circular arr"
+      "start": 149.45,
+      "end": 155.05,
+      "duration": 5.6,
+      "text_snippet": "HashSet: Lựa chọn mặc định. Các thao tác O(1) nhanh chóng, không đảm bảo thứ tự."
     },
     {
       "paragraph_id": 25,
-      "start": 215.17,
-      "end": 215.26,
-      "duration": 0.09,
-      "text_snippet": "--"
+      "start": 155.05,
+      "end": 158.9,
+      "duration": 3.85,
+      "text_snippet": "LinkedHashSet: Sử dụng khi bạn cần duy trì thứ tự chèn."
     },
     {
       "paragraph_id": 26,
-      "start": 215.26,
-      "end": 223.23,
-      "duration": 7.97,
-      "text_snippet": "Ví dụ mã nguồn có thể chạy được (TreeSet với bộ so sánh tùy chỉnh và PriorityQueue) (Runnable Code Example (TreeSet with"
+      "start": 159.0,
+      "end": 164.19,
+      "duration": 5.19,
+      "text_snippet": "TreeSet: Sử dụng khi bạn cần các phần tử được sắp xếp hoặc cần các phương thức đ"
     },
     {
       "paragraph_id": 27,
-      "start": 223.23,
-      "end": 245.48,
-      "duration": 22.25,
-      "text_snippet": "public class SetQueueExample {\n    static class Person implements Comparable<Person> {\n        String name;\n        int "
+      "start": 164.14,
+      "end": 203.09,
+      "duration": 38.95,
+      "text_snippet": "So sánh HashSet với TreeSet và LinkedHashSet (Comparing HashSet vs TreeSet vs Li"
     },
     {
       "paragraph_id": 28,
-      "start": 245.48,
-      "end": 292.89,
-      "duration": 47.41,
-      "text_snippet": "public static void main(String[] args) {\n        // 1. TreeSet using natural ordering (Comparable -> name)\n        Set<P"
+      "start": 203.09,
+      "end": 213.24,
+      "duration": 10.15,
+      "text_snippet": "HashSet sử dụng cấu trúc bên trong là HashMap, độ phức tạp thời gian O(1), thứ t"
     },
     {
       "paragraph_id": 29,
-      "start": 292.89,
-      "end": 292.98,
-      "duration": 0.09,
-      "text_snippet": "--"
+      "start": 213.24,
+      "end": 225.14,
+      "duration": 11.9,
+      "text_snippet": "TreeSet sử dụng cấu trúc bên trong là TreeMap (Cây Đỏ-Đen (Red-Black tree)), độ "
     },
     {
       "paragraph_id": 30,
-      "start": 292.98,
-      "end": 294.72,
-      "duration": 1.74,
-      "text_snippet": "Các sai lầm thường gặp (Common Mistakes)"
+      "start": 225.14,
+      "end": 238.44,
+      "duration": 13.3,
+      "text_snippet": "LinkedHashSet sử dụng cấu trúc bên trong là HashMap + Danh sách liên kết kép (Do"
     },
     {
       "paragraph_id": 31,
-      "start": 294.72,
-      "end": 304.74,
-      "duration": 10.01,
-      "text_snippet": "Sự bất nhất giữa compareTo và equals\nNếu compareTo trả về 0 cho hai đối tượng, nhưng equals trả về false, việc chèn chún"
+      "start": 203.09,
+      "end": 205.19,
+      "duration": 2.1,
+      "text_snippet": "Cơ chế loại bỏ trùng lặp"
     },
     {
       "paragraph_id": 32,
-      "start": 304.74,
-      "end": 319.41,
-      "duration": 14.67,
-      "text_snippet": "Chèn các phần tử không thể so sánh được vào TreeSet hoặc PriorityQueue\nNếu bạn khởi tạo new TreeSet<>() và cố gắng thêm "
+      "start": 205.19,
+      "end": 208.69,
+      "duration": 3.5,
+      "text_snippet": "Cách các tập hợp xác định phần tử trùng lặp:"
     },
     {
       "paragraph_id": 33,
-      "start": 319.41,
-      "end": 336.39,
-      "duration": 16.98,
-      "text_snippet": "Duyệt qua một PriorityQueue với kỳ vọng nhận được thứ tự đã sắp xếp\nViệc gọi for (Integer i : priorityQueue) hoặc sử dụn"
+      "start": 208.69,
+      "end": 220.94,
+      "duration": 12.25,
+      "text_snippet": "HashSet / LinkedHashSet: Kiểm tra xem obj1.hashCode() == obj2.hashCode(). Nếu cá"
     },
     {
       "paragraph_id": 34,
-      "start": 336.39,
-      "end": 338.7,
-      "duration": 2.31,
-      "text_snippet": "Các câu hỏi ôn tập thường gặp (Common Review Prompts)"
+      "start": 220.94,
+      "end": 236.34,
+      "duration": 15.4,
+      "text_snippet": "TreeSet: Kiểm tra thứ tự sắp xếp. Gọi comparator.compare(obj1, obj2) hoặc obj1.c"
     },
     {
       "paragraph_id": 35,
-      "start": 338.7,
-      "end": 348.49,
-      "duration": 9.8,
-      "text_snippet": "Những khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch (compile-time)?\nNhững khái niệm nào ở đây ảnh hưởng đến"
+      "start": 236.34,
+      "end": 240.19,
+      "duration": 3.85,
+      "text_snippet": "Vai trò của equals() và hashCode() (Role of equals() and hashCode())"
     },
     {
       "paragraph_id": 36,
-      "start": 348.49,
-      "end": 351.19,
-      "duration": 2.7,
-      "text_snippet": "Tại sao TreeSet và TreeMap phụ thuộc vào Comparable/Comparator"
+      "start": 240.29,
+      "end": 243.75,
+      "duration": 3.46,
+      "text_snippet": "Để HashSet và HashMap hoạt động chính xác:"
     },
     {
       "paragraph_id": 37,
-      "start": 351.19,
-      "end": 357.29,
-      "duration": 6.1,
-      "text_snippet": "> Xem thêm: Cơ chế hoạt động của Comparable và Comparator để sắp xếp đối tượng, được trình bày chi tiết trong Ch.20 - Co"
+      "start": 243.7,
+      "end": 273.29,
+      "duration": 29.59,
+      "text_snippet": "Tính phản xạ (Reflexive): x.equals(x) phải là true."
     },
     {
       "paragraph_id": 38,
-      "start": 357.29,
-      "end": 406.01,
-      "duration": 48.72,
-      "text_snippet": "Không giống như HashSet và HashMap sử dụng các ngăn chứa băm (hashing buckets), TreeSet và TreeMap được hỗ trợ bởi một C"
+      "start": 273.29,
+      "end": 277.84,
+      "duration": 4.55,
+      "text_snippet": "Tính đối xứng (Symmetric): Nếu x.equals(y) là true, thì y.equals(x) phải là true"
     },
     {
       "paragraph_id": 39,
-      "start": 406.01,
-      "end": 407.27,
-      "duration": 1.26,
-      "text_snippet": "Mô hình tư duy (Mental Model)"
+      "start": 277.84,
+      "end": 283.09,
+      "duration": 5.25,
+      "text_snippet": "Tính bắc cầu (Transitive): Nếu x.equals(y) và y.equals(z) là true, thì x.equals("
     },
     {
       "paragraph_id": 40,
-      "start": 407.27,
-      "end": 421.29,
-      "duration": 14.02,
-      "text_snippet": "Một cây tìm kiếm nhị phân phụ thuộc hoàn toàn vào việc điều hướng so sánh (<, >, ==) thay vì các ngăn chứa băm:\n`text\n  "
+      "start": 283.09,
+      "end": 289.74,
+      "duration": 6.65,
+      "text_snippet": "Tính nhất quán (Consistency): Nếu x.equals(y) là true, nó vẫn là true trừ khi cá"
     },
     {
       "paragraph_id": 41,
-      "start": 421.29,
-      "end": 427.08,
-      "duration": 5.79,
-      "text_snippet": "Inserting new item (Value: 15):\nCompare 15 to 20 (Root) -> 15 < 20 -> Go Left.\nCompare 15 to 10 -> 15 > 10 -> Go Right ("
+      "start": 273.29,
+      "end": 287.99,
+      "duration": 14.7,
+      "text_snippet": "Ràng buộc hashCode (hashCode contract): Nếu x.equals(y) là true, thì x.hashCode("
     },
     {
       "paragraph_id": 42,
-      "start": 427.08,
-      "end": 430.26,
-      "duration": 3.18,
-      "text_snippet": "If compareTo returns 0, it means \"Duplicate Found\" -> Reject insertion.\n`"
+      "start": 287.99,
+      "end": 288.39,
+      "duration": 0.4,
+      "text_snippet": "PriorityQueue"
     },
     {
       "paragraph_id": 43,
-      "start": 430.26,
-      "end": 431.52,
-      "duration": 1.26,
-      "text_snippet": "Ví dụ mã nguồn (Code Example)"
+      "start": 288.34,
+      "end": 295.34,
+      "duration": 7.0,
+      "text_snippet": "Một hàng đợi ưu tiên không giới hạn (unbounded priority queue) dựa trên cấu trúc"
     },
     {
       "paragraph_id": 44,
-      "start": 431.52,
-      "end": 432.26,
-      "duration": 0.74,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 295.34,
+      "end": 301.29,
+      "duration": 5.95,
+      "text_snippet": "Thứ tự: Đầu (head) của hàng đợi là phần tử nhỏ nhất theo thứ tự sắp xếp."
     },
     {
       "paragraph_id": 45,
-      "start": 432.26,
-      "end": 438.97,
-      "duration": 6.71,
-      "text_snippet": "public class TreeSetBehaviorDemo {\n    static class Item implements Comparable<Item> {\n        private final String name"
+      "start": 301.29,
+      "end": 309.69,
+      "duration": 8.4,
+      "text_snippet": "Hiệu năng (Performance): O(log N) cho các thao tác chèn (offer) và xóa (poll); O"
     },
     {
       "paragraph_id": 46,
-      "start": 438.97,
-      "end": 443.71,
-      "duration": 4.75,
-      "text_snippet": "public Item(String name, int value) {\n            this.name = name;\n            this.value = value;\n        }"
+      "start": 309.79,
+      "end": 313.04,
+      "duration": 3.25,
+      "text_snippet": "Các phần tử Null: Bị từ chối null."
     },
     {
       "paragraph_id": 47,
-      "start": 443.71,
-      "end": 455.95,
-      "duration": 12.23,
-      "text_snippet": "@Override\n        public boolean equals(Object o) {\n            if (this == o) return true;\n            if (o == null ||"
+      "start": 312.99,
+      "end": 314.3,
+      "duration": 1.31,
+      "text_snippet": "ArrayDeque"
     },
     {
       "paragraph_id": 48,
-      "start": 455.95,
-      "end": 465.35,
-      "duration": 9.4,
-      "text_snippet": "// compareTo is inconsistent with equals (only compares name length)\n        @Override\n        public int compareTo(Item"
+      "start": 314.3,
+      "end": 318.76,
+      "duration": 4.46,
+      "text_snippet": "Một lớp hiện thực mảng có thể thay đổi kích thước của giao diện Deque."
     },
     {
       "paragraph_id": 49,
-      "start": 465.35,
-      "end": 469.66,
-      "duration": 4.31,
-      "text_snippet": "@Override\n        public String toString() {\n            return name + \":\" + value;\n        }\n    }"
+      "start": 318.76,
+      "end": 329.44,
+      "duration": 10.68,
+      "text_snippet": "Hiệu năng: Hiện thực dạng mảng vòng (circular array). Nhanh hơn Stack khi được s"
     },
     {
       "paragraph_id": 50,
-      "start": 469.66,
-      "end": 482.51,
-      "duration": 12.84,
-      "text_snippet": "public static void main(String[] args) {\n        Set<Item> set = new TreeSet<>();\n        Item item1 = new Item(\"Apple\","
+      "start": 329.44,
+      "end": 337.04,
+      "duration": 7.6,
+      "text_snippet": "Sức chứa (Capacity): Không giới hạn sức chứa; tự động mở rộng khi cần thiết. Từ "
     },
     {
       "paragraph_id": 51,
-      "start": 482.51,
-      "end": 491.0,
-      "duration": 8.49,
-      "text_snippet": "set.add(item1);\n        set.add(item2); // Rejected because name lengths are both 5 (compareTo returns 0)\n        set.ad"
+      "start": 337.14,
+      "end": 346.98,
+      "duration": 9.84,
+      "text_snippet": "Ví dụ mã nguồn có thể chạy được (TreeSet với bộ so sánh tùy chỉnh và PriorityQue"
     },
     {
       "paragraph_id": 52,
-      "start": 491.0,
-      "end": 503.84,
-      "duration": 12.84,
-      "text_snippet": "System.out.println(\"Set elements: \" + set); \n        // Set elements: [Pear:10, Apple:10]\n        \n        System.out.pr"
-    },
-    {
-      "paragraph_id": 53,
-      "start": 503.84,
-      "end": 505.93,
-      "duration": 2.09,
-      "text_snippet": "Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)"
-    },
-    {
-      "paragraph_id": 54,
-      "start": 505.93,
-      "end": 506.67,
-      "duration": 0.74,
+      "start": 346.92,
+      "end": 349.3,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
+      "paragraph_id": 53,
+      "start": 349.3,
+      "end": 352.73,
+      "duration": 3.43,
+      "text_snippet": "Các sai lầm thường gặp (Common Mistakes)"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 352.72,
+      "end": 356.53,
+      "duration": 3.81,
+      "text_snippet": "1. Sự bất nhất giữa compareTo và equals"
+    },
+    {
       "paragraph_id": 55,
-      "start": 506.67,
-      "end": 508.5,
-      "duration": 1.83,
-      "text_snippet": "Đường liên kết tham khảo (Reference Links)"
+      "start": 356.54,
+      "end": 371.09,
+      "duration": 14.55,
+      "text_snippet": "Nếu compareTo trả về 0 cho hai đối tượng, nhưng equals trả về false, việc chèn c"
     },
     {
       "paragraph_id": 56,
-      "start": 508.5,
-      "end": 518.47,
-      "duration": 9.97,
-      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/TreeSet.html (Tài liệu API lớp TreeSet)\nhttps://d"
+      "start": 371.19,
+      "end": 375.79,
+      "duration": 4.6,
+      "text_snippet": "2. Chèn các phần tử không thể so sánh được vào TreeSet hoặc PriorityQueue"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 375.74,
+      "end": 389.65,
+      "duration": 13.91,
+      "text_snippet": "Nếu bạn khởi tạo new TreeSet<>() và cố gắng thêm các đối tượng tùy chỉnh không h"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 389.65,
+      "end": 394.19,
+      "duration": 4.54,
+      "text_snippet": "3. Duyệt qua một PriorityQueue với kỳ vọng nhận được thứ tự đã sắp xếp"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 394.19,
+      "end": 416.56,
+      "duration": 22.37,
+      "text_snippet": "Việc gọi for (Integer i : priorityQueue) hoặc sử dụng một bộ lặp (Iterator) KHÔN"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 416.56,
+      "end": 420.41,
+      "duration": 3.85,
+      "text_snippet": "Các câu hỏi ôn tập thường gặp (Common Review Prompts)"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 420.41,
+      "end": 426.01,
+      "duration": 5.6,
+      "text_snippet": "Những khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch (compile-time)?"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 426.01,
+      "end": 431.26,
+      "duration": 5.25,
+      "text_snippet": "Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy?"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 431.26,
+      "end": 436.86,
+      "duration": 5.6,
+      "text_snippet": "Những khái niệm nào ở đây dễ là các cạm bẫy khi phỏng vấn (interview traps)?"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 436.86,
+      "end": 440.01,
+      "duration": 3.15,
+      "text_snippet": "Tại sao TreeSet và TreeMap phụ thuộc vào Comparable/Comparator"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 440.01,
+      "end": 448.41,
+      "duration": 8.4,
+      "text_snippet": "Xem thêm: Cơ chế hoạt động của Comparable và Comparator để sắp xếp đối tượng, đư"
+    },
+    {
+      "paragraph_id": 66,
+      "start": 448.41,
+      "end": 526.81,
+      "duration": 78.4,
+      "text_snippet": "Không giống như HashSet và HashMap sử dụng các ngăn chứa băm (hashing buckets), "
+    },
+    {
+      "paragraph_id": 67,
+      "start": 526.81,
+      "end": 528.91,
+      "duration": 2.1,
+      "text_snippet": "Mô hình tư duy (Mental Model)"
+    },
+    {
+      "paragraph_id": 68,
+      "start": 528.91,
+      "end": 537.66,
+      "duration": 8.75,
+      "text_snippet": "Một cây tìm kiếm nhị phân phụ thuộc hoàn toàn vào việc điều hướng so sánh (<, >,"
+    },
+    {
+      "paragraph_id": 69,
+      "start": 537.66,
+      "end": 539.06,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 70,
+      "start": 539.06,
+      "end": 541.16,
+      "duration": 2.1,
+      "text_snippet": "Ví dụ mã nguồn (Code Example)"
+    },
+    {
+      "paragraph_id": 71,
+      "start": 541.16,
+      "end": 542.56,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 72,
+      "start": 542.56,
+      "end": 545.36,
+      "duration": 2.8,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả (Cause-Effect Chain)"
+    },
+    {
+      "paragraph_id": 73,
+      "start": 545.36,
+      "end": 546.76,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 74,
+      "start": 546.76,
+      "end": 549.21,
+      "duration": 2.45,
+      "text_snippet": "Đường liên kết tham khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 75,
+      "start": 549.21,
+      "end": 551.31,
+      "duration": 2.1,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/TreeSet.h"
+    },
+    {
+      "paragraph_id": 76,
+      "start": 551.31,
+      "end": 553.41,
+      "duration": 2.1,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Comparabl"
     }
   ]
 }

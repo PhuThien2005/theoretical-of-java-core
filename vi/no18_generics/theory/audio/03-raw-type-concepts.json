@@ -1,588 +1,567 @@
 {
   "lesson": "03-raw-type-concepts",
-  "total_duration_seconds": 532.99,
-  "total_paragraphs": 83,
+  "total_duration_seconds": 601.54,
+  "total_paragraphs": 80,
   "timestamps": [
     {
       "paragraph_id": 1,
       "start": 0.0,
-      "end": 3.89,
-      "duration": 3.89,
-      "text_snippet": "Generics (Kiểu Chung) - Phần 3: Kiểu Nguyên Bản (Raw Type) và Hạn Chế của Kiểu Chung"
+      "end": 5.95,
+      "duration": 5.95,
+      "text_snippet": "Generics (Kiểu Chung) - Phần 3: Kiểu Nguyên Bản (Raw Type) và Hạn Chế của Kiểu C"
     },
     {
       "paragraph_id": 2,
-      "start": 3.89,
-      "end": 5.09,
-      "duration": 1.2,
-      "text_snippet": "Kiểu Nguyên Bản (Raw Type)"
+      "start": 5.95,
+      "end": 8.05,
+      "duration": 2.1,
+      "text_snippet": "1. Kiểu Nguyên Bản (Raw Type)"
     },
     {
       "paragraph_id": 3,
-      "start": 5.09,
-      "end": 13.0,
-      "duration": 7.91,
-      "text_snippet": "Định nghĩa: Kiểu nguyên bản (Raw type) là một lớp hoặc giao diện kiểu chung (Generic class/interface) được sử dụng không"
+      "start": 8.05,
+      "end": 19.25,
+      "duration": 11.2,
+      "text_snippet": "Định nghĩa: Kiểu nguyên bản (Raw type) là một lớp hoặc giao diện kiểu chung (Gen"
     },
     {
       "paragraph_id": 4,
-      "start": 13.0,
-      "end": 13.79,
-      "duration": 0.79,
+      "start": 19.25,
+      "end": 20.65,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 5,
-      "start": 13.79,
-      "end": 16.24,
-      "duration": 2.45,
-      "text_snippet": "// Raw type (avoid)\nList rawList = new ArrayList();\n`"
+      "start": 20.65,
+      "end": 36.05,
+      "duration": 15.4,
+      "text_snippet": "Cách thức hoạt động: Trình biên dịch đối xử với kiểu nguyên bản như thể tất cả c"
     },
     {
       "paragraph_id": 6,
-      "start": 16.24,
-      "end": 26.23,
-      "duration": 9.99,
-      "text_snippet": "Cách thức hoạt động: Trình biên dịch đối xử với kiểu nguyên bản như thể tất cả các tham số kiểu (Type parameter) được th"
+      "start": 36.15,
+      "end": 38.8,
+      "duration": 2.65,
+      "text_snippet": "Ảnh hưởng đối với mã nguồn:"
     },
     {
       "paragraph_id": 7,
-      "start": 26.23,
-      "end": 36.59,
-      "duration": 10.36,
-      "text_snippet": "Ảnh hưởng đối với mã nguồn:\n`java\nList rawList = new ArrayList();\nrawList.add(\"hello\");\nrawList.add(42);            // n"
+      "start": 38.75,
+      "end": 41.13,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 8,
-      "start": 36.59,
-      "end": 44.73,
-      "duration": 8.14,
-      "text_snippet": "Cảnh báo của trình biên dịch: Sử dụng kiểu nguyên bản kích hoạt các cảnh báo chưa được kiểm tra (Unchecked warning):\n`\nN"
+      "start": 41.12,
+      "end": 47.66,
+      "duration": 6.54,
+      "text_snippet": "Cảnh báo của trình biên dịch: Sử dụng kiểu nguyên bản kích hoạt các cảnh báo chư"
     },
     {
       "paragraph_id": 9,
-      "start": 44.73,
-      "end": 61.85,
-      "duration": 17.12,
-      "text_snippet": "Khi kiểu nguyên bản xuất hiện hợp lệ:\nTương tác với các API cũ từ trước phiên bản Java 5 không hỗ trợ kiểu chung.\nBên tr"
+      "start": 47.66,
+      "end": 50.04,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 10,
-      "start": 61.85,
-      "end": 68.74,
-      "duration": 6.89,
-      "text_snippet": "Quy tắc mấu chốt: Ngay sau khi bạn gán một kiểu nguyên bản cho một biến, hãy sử dụng List<?> (thay vì kiểu nguyên bản) c"
+      "start": 50.04,
+      "end": 52.8,
+      "duration": 2.76,
+      "text_snippet": "Khi kiểu nguyên bản xuất hiện hợp lệ:"
     },
     {
       "paragraph_id": 11,
-      "start": 68.74,
-      "end": 68.83,
-      "duration": 0.09,
-      "text_snippet": "--"
+      "start": 52.9,
+      "end": 58.05,
+      "duration": 5.15,
+      "text_snippet": "Tương tác với các API cũ từ trước phiên bản Java 5 không hỗ trợ kiểu chung."
     },
     {
       "paragraph_id": 12,
-      "start": 68.83,
-      "end": 70.87,
-      "duration": 2.04,
-      "text_snippet": "Hạn Chế của Kiểu Chung (Generic Limitations)"
+      "start": 58.0,
+      "end": 71.09,
+      "duration": 13.09,
+      "text_snippet": "Bên trong các phép kiểm tra instanceof (dù thế nào bạn cũng không thể sử dụng in"
     },
     {
       "paragraph_id": 13,
-      "start": 70.87,
-      "end": 76.05,
-      "duration": 5.18,
-      "text_snippet": "Kiểu chung trong Java có một số hạn chế được thiết kế sẵn, hầu hết đều do cơ chế xóa kiểu (Type erasure) gây ra."
+      "start": 71.09,
+      "end": 73.47,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 14,
-      "start": 76.05,
-      "end": 77.58,
-      "duration": 1.53,
-      "text_snippet": "1 Không thể Khởi tạo Tham số Kiểu"
+      "start": 73.46,
+      "end": 81.87,
+      "duration": 8.41,
+      "text_snippet": "Quy tắc mấu chốt: Ngay sau khi bạn gán một kiểu nguyên bản cho một biến, hãy sử "
     },
     {
       "paragraph_id": 15,
-      "start": 77.58,
-      "end": 78.36,
-      "duration": 0.79,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 81.88,
+      "end": 85.97,
+      "duration": 4.09,
+      "text_snippet": "2. Hạn Chế của Kiểu Chung (Generic Limitations)"
     },
     {
       "paragraph_id": 16,
-      "start": 78.36,
-      "end": 88.68,
-      "duration": 10.32,
-      "text_snippet": "Giải pháp: Truyền vào một mã nhận diện Class<T> (Class token):\n`java\nclass Container<T> {\n    T value;\n    Container(Cla"
+      "start": 86.06,
+      "end": 93.71,
+      "duration": 7.65,
+      "text_snippet": "Kiểu chung trong Java có một số hạn chế được thiết kế sẵn, hầu hết đều do cơ chế"
     },
     {
       "paragraph_id": 17,
-      "start": 88.68,
-      "end": 88.77,
-      "duration": 0.09,
-      "text_snippet": "--"
+      "start": 93.66,
+      "end": 96.92,
+      "duration": 3.26,
+      "text_snippet": "2.1 Không thể Khởi tạo Tham số Kiểu"
     },
     {
       "paragraph_id": 18,
-      "start": 88.77,
-      "end": 90.39,
-      "duration": 1.62,
-      "text_snippet": "2 Không thể Tạo Mảng của Kiểu Chung"
+      "start": 96.93,
+      "end": 99.31,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 19,
-      "start": 90.39,
-      "end": 91.18,
-      "duration": 0.79,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 99.3,
+      "end": 104.1,
+      "duration": 4.8,
+      "text_snippet": "Giải pháp: Truyền vào một mã nhận diện Class<T> (Class token):"
     },
     {
       "paragraph_id": 20,
-      "start": 91.18,
-      "end": 100.75,
-      "duration": 9.58,
-      "text_snippet": "Tại sao: Mảng mang thông tin kiểu thành phần của chúng tại thời điểm chạy (mảng String[] biết nó là một mảng String[]). "
+      "start": 104.1,
+      "end": 106.3,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 21,
-      "start": 100.75,
-      "end": 104.22,
-      "duration": 3.47,
-      "text_snippet": "Giải pháp:\n`java\n// Option 1: use List<T>\nList<T> list = new ArrayList<>();"
+      "start": 106.3,
+      "end": 109.1,
+      "duration": 2.8,
+      "text_snippet": "2.2 Không thể Tạo Mảng của Kiểu Chung"
     },
     {
       "paragraph_id": 22,
-      "start": 104.22,
-      "end": 109.17,
-      "duration": 4.95,
-      "text_snippet": "// Option 2: unchecked cast with class token\n@SuppressWarnings(\"unchecked\")\nT[] arr = (T[]) new Object[10];"
+      "start": 109.1,
+      "end": 110.5,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 23,
-      "start": 109.17,
-      "end": 112.78,
-      "duration": 3.61,
-      "text_snippet": "// Option 3: Array.newInstance\nT[] arr = (T[]) Array.newInstance(clazz, 10);\n`"
+      "start": 110.5,
+      "end": 125.2,
+      "duration": 14.7,
+      "text_snippet": "Tại sao: Mảng mang thông tin kiểu thành phần của chúng tại thời điểm chạy (mảng "
     },
     {
       "paragraph_id": 24,
-      "start": 112.78,
-      "end": 112.87,
-      "duration": 0.09,
-      "text_snippet": "--"
+      "start": 125.2,
+      "end": 125.9,
+      "duration": 0.7,
+      "text_snippet": "Giải pháp:"
     },
     {
       "paragraph_id": 25,
-      "start": 112.87,
-      "end": 115.14,
-      "duration": 2.27,
-      "text_snippet": "3 Không thể Dùng Kiểu Nguyên Thủy làm Đối số Kiểu"
+      "start": 125.9,
+      "end": 127.3,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 26,
-      "start": 115.14,
-      "end": 115.92,
-      "duration": 0.79,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 127.4,
+      "end": 131.28,
+      "duration": 3.88,
+      "text_snippet": "2.3 Không thể Dùng Kiểu Nguyên Thủy làm Đối số Kiểu"
     },
     {
       "paragraph_id": 27,
-      "start": 115.92,
-      "end": 121.8,
-      "duration": 5.87,
-      "text_snippet": "Tại sao: Kiểu chung được triển khai thông qua các tham chiếu Object; kiểu nguyên thủy (Primitive type) không phải là đối"
-    },
-    {
-      "paragraph_id": 28,
-      "start": 121.8,
-      "end": 134.61,
-      "duration": 12.81,
-      "text_snippet": "Giải pháp: Sử dụng các lớp bao bọc đối tượng (Wrapper class). Cơ chế tự động đóng hộp (Autoboxing) giúp quá trình này di"
-    },
-    {
-      "paragraph_id": 29,
-      "start": 134.61,
-      "end": 143.08,
-      "duration": 8.47,
-      "text_snippet": "Lưu ý hiệu năng: Tự động đóng hộp có chi phí bổ sung. Đối với mã nguồn yêu cầu hiệu năng cực cao, hãy cân nhắc sử dụng i"
-    },
-    {
-      "paragraph_id": 30,
-      "start": 143.08,
-      "end": 143.17,
-      "duration": 0.09,
-      "text_snippet": "--"
-    },
-    {
-      "paragraph_id": 31,
-      "start": 143.17,
-      "end": 145.67,
-      "duration": 2.5,
-      "text_snippet": "4 Không thể Có Trường Tĩnh thuộc Kiểu của Tham số Kiểu"
-    },
-    {
-      "paragraph_id": 32,
-      "start": 145.67,
-      "end": 146.45,
-      "duration": 0.79,
+      "start": 131.23,
+      "end": 133.61,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
+      "paragraph_id": 28,
+      "start": 133.6,
+      "end": 141.12,
+      "duration": 7.52,
+      "text_snippet": "Tại sao: Kiểu chung được triển khai thông qua các tham chiếu Object; kiểu nguyên"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 141.12,
+      "end": 151.57,
+      "duration": 10.45,
+      "text_snippet": "Giải pháp: Sử dụng các lớp bao bọc đối tượng (Wrapper class). Cơ chế tự động đón"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 151.58,
+      "end": 153.78,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 153.88,
+      "end": 165.21,
+      "duration": 11.33,
+      "text_snippet": "Lưu ý hiệu năng: Tự động đóng hộp có chi phí bổ sung. Đối với mã nguồn yêu cầu h"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 165.2,
+      "end": 169.29,
+      "duration": 4.09,
+      "text_snippet": "2.4 Không thể Có Trường Tĩnh thuộc Kiểu của Tham số Kiểu"
+    },
+    {
       "paragraph_id": 33,
-      "start": 146.45,
-      "end": 156.03,
-      "duration": 9.58,
-      "text_snippet": "Tại sao: Các trường tĩnh (static) được chia sẻ giữa toàn bộ các thực thể của lớp Bag. Bag<String> và Bag<Integer> dùng c"
+      "start": 169.29,
+      "end": 171.67,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 34,
-      "start": 156.03,
-      "end": 160.84,
-      "duration": 4.81,
-      "text_snippet": "Giải pháp: Chuyển trường đó thành không tĩnh (non-static), hoặc sử dụng một tham số Class<T> riêng biệt."
+      "start": 171.66,
+      "end": 184.56,
+      "duration": 12.9,
+      "text_snippet": "Tại sao: Các trường tĩnh (static) được chia sẻ giữa toàn bộ các thực thể của lớp"
     },
     {
       "paragraph_id": 35,
-      "start": 160.84,
-      "end": 160.93,
-      "duration": 0.09,
-      "text_snippet": "--"
+      "start": 184.56,
+      "end": 191.15,
+      "duration": 6.59,
+      "text_snippet": "Giải pháp: Chuyển trường đó thành không tĩnh (non-static), hoặc sử dụng một tham"
     },
     {
       "paragraph_id": 36,
-      "start": 160.93,
-      "end": 163.43,
-      "duration": 2.5,
-      "text_snippet": "5 Không thể Catch hoặc Throw Ngoại lệ thuộc Kiểu Chung"
+      "start": 191.15,
+      "end": 195.0,
+      "duration": 3.85,
+      "text_snippet": "2.5 Không thể Catch hoặc Throw Ngoại lệ thuộc Kiểu Chung"
     },
     {
       "paragraph_id": 37,
-      "start": 163.43,
-      "end": 164.22,
-      "duration": 0.79,
+      "start": 195.0,
+      "end": 196.4,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 38,
-      "start": 164.22,
-      "end": 171.06,
-      "duration": 6.85,
-      "text_snippet": "<T extends Exception> void process() throws T { }   // OK to declare\ntry { } catch (T e) { }                            "
+      "start": 196.4,
+      "end": 205.5,
+      "duration": 9.1,
+      "text_snippet": "Tại sao: JVM khớp các kiểu ngoại lệ tại thời điểm chạy; các kiểu bị xóa thông ti"
     },
     {
       "paragraph_id": 39,
-      "start": 171.06,
-      "end": 176.62,
-      "duration": 5.55,
-      "text_snippet": "Tại sao: JVM khớp các kiểu ngoại lệ tại thời điểm chạy; các kiểu bị xóa thông tin không thể sử dụng trong mệnh đề catch."
+      "start": 205.5,
+      "end": 212.5,
+      "duration": 7.0,
+      "text_snippet": "2.6 Không thể Nạp chồng các Phương thức có Danh sách Tham số Bị xóa thành Cùng m"
     },
     {
       "paragraph_id": 40,
-      "start": 176.62,
-      "end": 176.71,
-      "duration": 0.09,
-      "text_snippet": "--"
+      "start": 212.5,
+      "end": 213.9,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 41,
-      "start": 176.71,
-      "end": 180.73,
-      "duration": 4.02,
-      "text_snippet": "6 Không thể Nạp chồng các Phương thức có Danh sách Tham số Bị xóa thành Cùng một Chữ ký"
+      "start": 213.9,
+      "end": 218.45,
+      "duration": 4.55,
+      "text_snippet": "2.7 Không thể Sử dụng instanceof với các Kiểu được Tham số hóa"
     },
     {
       "paragraph_id": 42,
-      "start": 180.73,
-      "end": 181.52,
-      "duration": 0.79,
+      "start": 218.45,
+      "end": 219.85,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 43,
-      "start": 181.52,
-      "end": 181.61,
-      "duration": 0.09,
-      "text_snippet": "--"
-    },
-    {
-      "paragraph_id": 44,
-      "start": 181.61,
-      "end": 184.39,
-      "duration": 2.78,
-      "text_snippet": "7 Không thể Sử dụng instanceof với các Kiểu được Tham số hóa"
-    },
-    {
-      "paragraph_id": 45,
-      "start": 184.39,
-      "end": 185.17,
-      "duration": 0.79,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 46,
-      "start": 185.17,
-      "end": 185.27,
-      "duration": 0.09,
-      "text_snippet": "--"
-    },
-    {
-      "paragraph_id": 47,
-      "start": 185.27,
-      "end": 185.82,
-      "duration": 0.56,
+      "start": 219.85,
+      "end": 220.9,
+      "duration": 1.05,
       "text_snippet": "Bảng Tóm Tắt"
     },
     {
+      "paragraph_id": 44,
+      "start": 220.9,
+      "end": 227.55,
+      "duration": 6.65,
+      "text_snippet": "new T() — new T(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
+    },
+    {
+      "paragraph_id": 45,
+      "start": 227.55,
+      "end": 234.2,
+      "duration": 6.65,
+      "text_snippet": "new T[n] — new T[n]: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
+    },
+    {
+      "paragraph_id": 46,
+      "start": 234.2,
+      "end": 240.15,
+      "duration": 5.95,
+      "text_snippet": "List<int> — List: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
+    },
+    {
+      "paragraph_id": 47,
+      "start": 240.15,
+      "end": 247.5,
+      "duration": 7.35,
+      "text_snippet": "static T field — static T field: Cung cấp các quy tắc và cơ chế hoạt động cụ thể"
+    },
+    {
       "paragraph_id": 48,
-      "start": 185.82,
-      "end": 217.0,
-      "duration": 31.18,
-      "text_snippet": "new T() — new T(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nnew T[n] — new T[n]: Cung cấp các quy tắc"
+      "start": 247.5,
+      "end": 254.85,
+      "duration": 7.35,
+      "text_snippet": "catch (T e) — catch (T e): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong"
     },
     {
       "paragraph_id": 49,
-      "start": 217.0,
-      "end": 219.68,
-      "duration": 2.68,
-      "text_snippet": "Tại sao Kiểu Nguyên Bản Tồn tại và Mối Nguy hiểm của Chúng"
+      "start": 254.85,
+      "end": 265.7,
+      "duration": 10.85,
+      "text_snippet": "Nạp chồng phương thức có cùng kiểu xóa — Nạp chồng phương thức có cùng kiểu xóa:"
     },
     {
       "paragraph_id": 50,
-      "start": 219.68,
-      "end": 260.07,
-      "duration": 40.38,
-      "text_snippet": "Kiểu nguyên bản chỉ tồn tại trong ngôn ngữ Java nhằm mục đích duy nhất là duy trì khả năng tương thích ngược với mã nguồ"
+      "start": 265.7,
+      "end": 272.35,
+      "duration": 6.65,
+      "text_snippet": "instanceof List<String> — instanceof List: Cung cấp các quy tắc và cơ chế hoạt đ"
     },
     {
       "paragraph_id": 51,
-      "start": 260.07,
-      "end": 260.71,
-      "duration": 0.65,
-      "text_snippet": "Mô hình Tư duy"
+      "start": 272.35,
+      "end": 276.9,
+      "duration": 4.55,
+      "text_snippet": "Tại sao Kiểu Nguyên Bản Tồn tại và Mối Nguy hiểm của Chúng"
     },
     {
       "paragraph_id": 52,
-      "start": 260.71,
-      "end": 261.5,
-      "duration": 0.79,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 276.9,
+      "end": 343.05,
+      "duration": 66.15,
+      "text_snippet": "Kiểu nguyên bản chỉ tồn tại trong ngôn ngữ Java nhằm mục đích duy nhất là duy tr"
     },
     {
       "paragraph_id": 53,
-      "start": 261.5,
-      "end": 268.62,
-      "duration": 7.12,
-      "text_snippet": "Đọc lúc Chạy:\nString s = (String) rawList.get(1) ---> Ép kiểu Integer (123) sang String\n                                "
-    },
-    {
-      "paragraph_id": 54,
-      "start": 268.62,
-      "end": 269.23,
-      "duration": 0.6,
-      "text_snippet": "Ví dụ Thực Tế"
-    },
-    {
-      "paragraph_id": 55,
-      "start": 269.23,
-      "end": 270.01,
-      "duration": 0.79,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 56,
-      "start": 270.01,
-      "end": 283.47,
-      "duration": 13.46,
-      "text_snippet": "public class RawTypeDanger {\n    public static void main(String[] args) {\n        // Raw type usage bypasses compile-tim"
-    },
-    {
-      "paragraph_id": 57,
-      "start": 283.47,
-      "end": 285.83,
-      "duration": 2.36,
-      "text_snippet": "System.out.println(\"Elements added successfully.\");"
-    },
-    {
-      "paragraph_id": 58,
-      "start": 285.83,
-      "end": 305.54,
-      "duration": 19.71,
-      "text_snippet": "try {\n            // This line compiles but throws an exception at runtime\n            String element = (String) rawList"
-    },
-    {
-      "paragraph_id": 59,
-      "start": 305.54,
-      "end": 306.79,
-      "duration": 1.25,
-      "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
-    },
-    {
-      "paragraph_id": 60,
-      "start": 306.79,
-      "end": 320.76,
-      "duration": 13.97,
-      "text_snippet": "Sử dụng kiểu nguyên bản &rarr; Trình biên dịch vô hiệu hóa kiểm tra kiểu chung &rarr; Các đối tượng không khớp kiểu được"
-    },
-    {
-      "paragraph_id": 61,
-      "start": 320.76,
-      "end": 322.98,
-      "duration": 2.22,
-      "text_snippet": "Tại sao Kiểu Chung không Hỗ trợ Kiểu Nguyên Thủy"
-    },
-    {
-      "paragraph_id": 62,
-      "start": 322.98,
-      "end": 367.29,
-      "duration": 44.32,
-      "text_snippet": "Do cơ chế xóa kiểu tại thời điểm biên dịch, tất cả các tham số kiểu chung trong Java đều bị xóa về cận trái nhất của chú"
-    },
-    {
-      "paragraph_id": 63,
-      "start": 367.29,
-      "end": 367.94,
-      "duration": 0.65,
+      "start": 343.05,
+      "end": 344.45,
+      "duration": 1.4,
       "text_snippet": "Mô hình Tư duy"
     },
     {
+      "paragraph_id": 54,
+      "start": 344.45,
+      "end": 345.85,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 345.85,
+      "end": 347.25,
+      "duration": 1.4,
+      "text_snippet": "Ví dụ Thực Tế"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 347.25,
+      "end": 348.65,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 348.65,
+      "end": 350.75,
+      "duration": 2.1,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 350.75,
+      "end": 371.75,
+      "duration": 21.0,
+      "text_snippet": "Sử dụng kiểu nguyên bản → Trình biên dịch vô hiệu hóa kiểm tra kiểu chung → Các "
+    },
+    {
+      "paragraph_id": 59,
+      "start": 371.75,
+      "end": 375.25,
+      "duration": 3.5,
+      "text_snippet": "Tại sao Kiểu Chung không Hỗ trợ Kiểu Nguyên Thủy"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 375.25,
+      "end": 444.55,
+      "duration": 69.3,
+      "text_snippet": "Do cơ chế xóa kiểu tại thời điểm biên dịch, tất cả các tham số kiểu chung trong "
+    },
+    {
+      "paragraph_id": 61,
+      "start": 444.55,
+      "end": 445.95,
+      "duration": 1.4,
+      "text_snippet": "Mô hình Tư duy"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 445.95,
+      "end": 447.35,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 447.35,
+      "end": 448.75,
+      "duration": 1.4,
+      "text_snippet": "Ví dụ Thực Tế"
+    },
+    {
       "paragraph_id": 64,
-      "start": 367.94,
-      "end": 368.73,
-      "duration": 0.79,
+      "start": 448.75,
+      "end": 450.15,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 65,
-      "start": 368.73,
-      "end": 374.69,
-      "duration": 5.97,
-      "text_snippet": "Không thể lưu trữ trực tiếp kiểu nguyên thủy:\n[ Ô tham chiếu (4/8 bytes) ] -x-> Không thể chứa kiểu int nhị phân 32-bit "
+      "start": 450.15,
+      "end": 452.25,
+      "duration": 2.1,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
     },
     {
       "paragraph_id": 66,
-      "start": 374.69,
-      "end": 375.3,
-      "duration": 0.6,
-      "text_snippet": "Ví dụ Thực Tế"
+      "start": 452.35,
+      "end": 465.84,
+      "duration": 13.49,
+      "text_snippet": "Kiểu chung trải qua quá trình Xóa kiểu → Các tham số kiểu bị xóa thành tham chiế"
     },
     {
       "paragraph_id": 67,
-      "start": 375.3,
-      "end": 376.08,
-      "duration": 0.79,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 68,
-      "start": 376.08,
-      "end": 401.39,
-      "duration": 25.3,
-      "text_snippet": "public class PrimitiveGenericsLimit {\n    public static void main(String[] args) {\n        // List<int> list = new Array"
-    },
-    {
-      "paragraph_id": 69,
-      "start": 401.39,
-      "end": 402.64,
-      "duration": 1.25,
-      "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
-    },
-    {
-      "paragraph_id": 70,
-      "start": 402.64,
-      "end": 417.95,
-      "duration": 15.31,
-      "text_snippet": "Kiểu chung trải qua quá trình Xóa kiểu &rarr; Các tham số kiểu bị xóa thành tham chiếu Object &rarr; JVM biểu diễn các t"
-    },
-    {
-      "paragraph_id": 71,
-      "start": 417.95,
-      "end": 420.95,
-      "duration": 3.01,
+      "start": 465.79,
+      "end": 470.1,
+      "duration": 4.31,
       "text_snippet": "Tại sao Việc Tạo Mảng Kiểu Chung và Kiểm tra Kiểu lúc Chạy bị Cấm"
     },
     {
-      "paragraph_id": 72,
-      "start": 420.95,
-      "end": 461.34,
-      "duration": 40.38,
-      "text_snippet": "Trong Java, các mảng được hiện thực hóa kiểu (Reified), nghĩa là chúng giữ đầy đủ thông tin về kiểu phần tử của chúng tạ"
+      "paragraph_id": 68,
+      "start": 470.1,
+      "end": 520.64,
+      "duration": 50.54,
+      "text_snippet": "Trong Java, các mảng được hiện thực hóa kiểu (Reified), nghĩa là chúng giữ đầy đ"
     },
     {
-      "paragraph_id": 73,
-      "start": 461.34,
-      "end": 461.98,
-      "duration": 0.65,
+      "paragraph_id": 69,
+      "start": 520.64,
+      "end": 522.55,
+      "duration": 1.91,
       "text_snippet": "Mô hình Tư duy"
     },
     {
-      "paragraph_id": 74,
-      "start": 461.98,
-      "end": 462.77,
-      "duration": 0.79,
+      "paragraph_id": 70,
+      "start": 522.55,
+      "end": 524.75,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 75,
-      "start": 462.77,
-      "end": 468.6,
-      "duration": 5.83,
-      "text_snippet": "Kiểu chung (Bị xóa kiểu - Mất kiểu tại thời điểm chạy):\nList<String> list = new ArrayList<>(); ---> JVM chỉ biết đây là "
-    },
-    {
-      "paragraph_id": 76,
-      "start": 468.6,
-      "end": 469.2,
-      "duration": 0.6,
+      "paragraph_id": 71,
+      "start": 524.85,
+      "end": 526.77,
+      "duration": 1.92,
       "text_snippet": "Ví dụ Thực Tế"
     },
     {
-      "paragraph_id": 77,
-      "start": 469.2,
-      "end": 469.99,
-      "duration": 0.79,
+      "paragraph_id": 72,
+      "start": 526.73,
+      "end": 529.09,
+      "duration": 2.36,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 78,
-      "start": 469.99,
-      "end": 479.93,
-      "duration": 9.95,
-      "text_snippet": "public class ArrayAndInstanceofLimit {\n    public static void main(String[] args) {\n        // 1. Generic array creation"
-    },
-    {
-      "paragraph_id": 79,
-      "start": 479.93,
-      "end": 499.87,
-      "duration": 19.94,
-      "text_snippet": "// 2. Runtime type checks with generics are forbidden:\n        List<String> stringList = new ArrayList<>();\n        // i"
-    },
-    {
-      "paragraph_id": 80,
-      "start": 499.87,
-      "end": 501.12,
-      "duration": 1.25,
+      "paragraph_id": 73,
+      "start": 529.09,
+      "end": 531.58,
+      "duration": 2.49,
       "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
     },
     {
-      "paragraph_id": 81,
-      "start": 501.12,
-      "end": 515.37,
-      "duration": 14.25,
-      "text_snippet": "Mảng được hiện thực hóa kiểu &rarr; Mảng thực thi chính xác kiểu phần tử tại thời điểm chạy qua JVM &rarr; Kiểu chung bị"
+      "paragraph_id": 74,
+      "start": 531.58,
+      "end": 545.29,
+      "duration": 13.71,
+      "text_snippet": "Mảng được hiện thực hóa kiểu → Mảng thực thi chính xác kiểu phần tử tại thời điể"
     },
     {
-      "paragraph_id": 82,
-      "start": 515.37,
-      "end": 516.2,
-      "duration": 0.83,
+      "paragraph_id": 75,
+      "start": 545.29,
+      "end": 547.3,
+      "duration": 2.01,
       "text_snippet": "Liên kết Tham khảo"
     },
     {
-      "paragraph_id": 83,
-      "start": 516.2,
-      "end": 532.99,
-      "duration": 16.79,
-      "text_snippet": "https://docs.oracle.com/javase/tutorial/java/generics/restrictions.html\nhttps://docs.oracle.com/javase/tutorial/java/gen"
+      "paragraph_id": 76,
+      "start": 547.4,
+      "end": 601.54,
+      "duration": 54.14,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/java/generics/restrictions.html"
+    },
+    {
+      "paragraph_id": 77,
+      "start": 601.54,
+      "end": 601.94,
+      "duration": 0.4,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/java/generics/erasure.html"
+    },
+    {
+      "paragraph_id": 78,
+      "start": 601.89,
+      "end": 602.29,
+      "duration": 0.4,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/java/generics/rawTypes.html"
+    },
+    {
+      "paragraph_id": 79,
+      "start": 602.24,
+      "end": 603.64,
+      "duration": 1.4,
+      "text_snippet": "https://docs.oracle.com/javase/specs/jls/se21/html/jls-4.html#jls-4.8 (Kiểu Nguy"
+    },
+    {
+      "paragraph_id": 80,
+      "start": 603.64,
+      "end": 604.34,
+      "duration": 0.7,
+      "text_snippet": "https://docs.oracle.com/javase/specs/jls/se21/html/jls-10.html (Mảng)"
     }
   ]
 }

@@ -1,273 +1,336 @@
 {
   "lesson": "02-enum-implements-interface-concepts",
-  "total_duration_seconds": 324.6,
-  "total_paragraphs": 38,
+  "total_duration_seconds": 397.76,
+  "total_paragraphs": 47,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 0.62,
-      "duration": 0.62,
+      "start": 0.1,
+      "end": 2.33,
+      "duration": 2.23,
       "text_snippet": "Enum - Phần 2"
     },
     {
       "paragraph_id": 2,
-      "start": 0.62,
-      "end": 1.39,
-      "duration": 0.77,
+      "start": 2.27,
+      "end": 4.06,
+      "duration": 1.79,
       "text_snippet": "Mục Tiêu Học Tập"
     },
     {
       "paragraph_id": 3,
-      "start": 1.39,
-      "end": 8.62,
-      "duration": 7.23,
-      "text_snippet": "Tài liệu này trình bày một phần trọng tâm của Enum. Hãy nghiên cứu từng khái niệm dưới dạng một quy tắc Java thực tế, th"
+      "start": 4.06,
+      "end": 13.7,
+      "duration": 9.64,
+      "text_snippet": "Tài liệu này trình bày một phần trọng tâm của Enum. Hãy nghiên cứu từng khái niệ"
     },
     {
       "paragraph_id": 4,
-      "start": 8.62,
-      "end": 9.48,
-      "duration": 0.86,
+      "start": 13.7,
+      "end": 15.71,
+      "duration": 2.01,
       "text_snippet": "Nội Dung Tổng Quan"
     },
     {
       "paragraph_id": 5,
-      "start": 9.48,
-      "end": 20.16,
-      "duration": 10.68,
-      "text_snippet": "Enum implements interface — Enum implements interface: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nEnum "
+      "start": 15.71,
+      "end": 23.1,
+      "duration": 7.39,
+      "text_snippet": "Enum implements interface — Enum implements interface: Cung cấp các quy tắc và c"
     },
     {
       "paragraph_id": 6,
-      "start": 20.16,
-      "end": 20.93,
-      "duration": 0.77,
-      "text_snippet": "Ghi Chú Chi Tiết"
+      "start": 23.2,
+      "end": 30.7,
+      "duration": 7.5,
+      "text_snippet": "Enum Singleton pattern — Enum Singleton pattern: Cung cấp các quy tắc và cơ chế "
     },
     {
       "paragraph_id": 7,
-      "start": 20.93,
-      "end": 23.47,
-      "duration": 2.54,
-      "text_snippet": "Enum triển khai giao diện (Enum implements interface)"
+      "start": 30.65,
+      "end": 32.48,
+      "duration": 1.83,
+      "text_snippet": "Ghi Chú Chi Tiết"
     },
     {
       "paragraph_id": 8,
-      "start": 23.47,
-      "end": 43.3,
-      "duration": 19.83,
-      "text_snippet": "Mặc dù enum không thể kế thừa từ một lớp khác (vì chúng kế thừa ngầm định từ java.lang.Enum), chúng hoàn toàn được phép "
+      "start": 32.48,
+      "end": 36.73,
+      "duration": 4.25,
+      "text_snippet": "Enum triển khai giao diện (Enum implements interface)"
     },
     {
       "paragraph_id": 9,
-      "start": 43.3,
-      "end": 44.11,
-      "duration": 0.81,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 36.73,
+      "end": 46.8,
+      "duration": 10.07,
+      "text_snippet": "Mặc dù enum không thể kế thừa từ một lớp khác (vì chúng kế thừa ngầm định từ jav"
     },
     {
       "paragraph_id": 10,
-      "start": 44.11,
-      "end": 59.15,
-      "duration": 15.04,
-      "text_snippet": "public enum SystemAction implements Command {\n    START {\n        @Override\n        public void execute() {\n            "
+      "start": 46.8,
+      "end": 57.26,
+      "duration": 10.46,
+      "text_snippet": "Các triển khai đặc thù của hằng số (Constant-Specific Implementations): Các hằng"
     },
     {
       "paragraph_id": 11,
-      "start": 59.15,
-      "end": 63.42,
-      "duration": 4.26,
-      "text_snippet": "Dưới Nền Tảng: Thân Lớp Đặc Thù Của Hằng Số Và Các Lớp Con Vô Danh (Anonymous Subclasses)"
+      "start": 57.26,
+      "end": 62.86,
+      "duration": 5.6,
+      "text_snippet": "Trường hợp sử dụng: Cho phép áp dụng tính đa hình trên các hằng số enum."
     },
     {
       "paragraph_id": 12,
-      "start": 63.42,
-      "end": 100.58,
-      "duration": 37.17,
-      "text_snippet": "Khi một hằng số enum định nghĩa một thân lớp đặc thù của riêng nó, trình biên dịch sẽ tạo ra một lớp con vô danh (anonym"
+      "start": 62.86,
+      "end": 64.26,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 13,
-      "start": 100.58,
-      "end": 107.96,
-      "duration": 7.38,
-      "text_snippet": "Mô Hình Tư Duy: Hệ Thống Phân Cấp Lớp Con Của Các Hằng Số Enum\nJVM xem mỗi hằng số có thân lớp như một kiểu lớp vô danh "
+      "start": 64.26,
+      "end": 70.56,
+      "duration": 6.3,
+      "text_snippet": "Dưới Nền Tảng: Thân Lớp Đặc Thù Của Hằng Số Và Các Lớp Con Vô Danh (Anonymous Su"
     },
     {
       "paragraph_id": 14,
-      "start": 107.96,
-      "end": 108.77,
-      "duration": 0.81,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 70.56,
+      "end": 128.66,
+      "duration": 58.1,
+      "text_snippet": "Khi một hằng số enum định nghĩa một thân lớp đặc thù của riêng nó, trình biên dị"
     },
     {
       "paragraph_id": 15,
-      "start": 108.77,
-      "end": 111.36,
-      "duration": 2.59,
-      "text_snippet": "Minh Họa Mã Nguồn: Kiểm Tra Các Lớp Tại Thời Điểm Chạy"
+      "start": 128.66,
+      "end": 133.91,
+      "duration": 5.25,
+      "text_snippet": "Mô Hình Tư Duy: Hệ Thống Phân Cấp Lớp Con Của Các Hằng Số Enum"
     },
     {
       "paragraph_id": 16,
-      "start": 111.36,
-      "end": 112.18,
-      "duration": 0.81,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 134.01,
+      "end": 140.54,
+      "duration": 6.53,
+      "text_snippet": "JVM xem mỗi hằng số có thân lớp như một kiểu lớp vô danh riêng biệt kế thừa lớp "
     },
     {
       "paragraph_id": 17,
-      "start": 112.18,
-      "end": 117.88,
-      "duration": 5.7,
-      "text_snippet": "SystemAction action2 = SystemAction.STOP;\nSystem.out.println(action2.getClass().getName()); // Output: SystemAction$2\n`"
+      "start": 140.49,
+      "end": 142.86,
+      "duration": 2.37,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 18,
-      "start": 117.88,
-      "end": 138.14,
-      "duration": 20.26,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả: Hành Vi Đặc Thù Của Hằng Số\n$$\\text{Hằng số khai báo thân lớp \\{ ... \\}} \\rightarrow \\text{"
+      "start": 142.86,
+      "end": 146.85,
+      "duration": 3.99,
+      "text_snippet": "Minh Họa Mã Nguồn: Kiểm Tra Các Lớp Tại Thời Điểm Chạy"
     },
     {
       "paragraph_id": 19,
-      "start": 138.14,
-      "end": 140.63,
-      "duration": 2.49,
-      "text_snippet": "Mẫu thiết kế Enum Singleton (Enum Singleton pattern)"
+      "start": 146.85,
+      "end": 149.21,
+      "duration": 2.36,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 20,
-      "start": 140.63,
-      "end": 173.15,
-      "duration": 32.52,
-      "text_snippet": "Joshua Bloch đã viết nổi tiếng trong cuốn sách Effective Java rằng một enum có duy nhất một phần tử là cách tốt nhất để "
+      "start": 149.21,
+      "end": 153.62,
+      "duration": 4.41,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả: Hành Vi Đặc Thù Của Hằng Số"
     },
     {
       "paragraph_id": 21,
-      "start": 173.15,
-      "end": 173.96,
-      "duration": 0.81,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 153.62,
+      "end": 176.72,
+      "duration": 23.1,
+      "text_snippet": "$$\\text{Hằng số khai báo thân lớp { ... }} \\rightarrow \\text{Trình biên dịch biê"
     },
     {
       "paragraph_id": 22,
-      "start": 173.96,
-      "end": 177.22,
-      "duration": 3.26,
-      "text_snippet": "private final Map<String, Object> cache = new ConcurrentHashMap<>();"
+      "start": 176.72,
+      "end": 179.52,
+      "duration": 2.8,
+      "text_snippet": "Mẫu thiết kế Enum Singleton (Enum Singleton pattern)"
     },
     {
       "paragraph_id": 23,
-      "start": 177.22,
-      "end": 181.05,
-      "duration": 3.83,
-      "text_snippet": "public void put(String key, Object value) {\n        cache.put(key, value);\n    }"
+      "start": 179.53,
+      "end": 189.68,
+      "duration": 10.15,
+      "text_snippet": "Joshua Bloch đã viết nổi tiếng trong cuốn sách Effective Java rằng một enum có d"
     },
     {
       "paragraph_id": 24,
-      "start": 181.05,
-      "end": 184.5,
-      "duration": 3.45,
-      "text_snippet": "public Object get(String key) {\n        return cache.get(key);\n    }\n}\n`"
+      "start": 189.68,
+      "end": 199.13,
+      "duration": 9.45,
+      "text_snippet": "An toàn luồng tích hợp (Built-in Thread-Safety): JVM đảm bảo rằng các thể hiện e"
     },
     {
       "paragraph_id": 25,
-      "start": 184.5,
-      "end": 188.33,
-      "duration": 3.83,
-      "text_snippet": "Cách Thức Hoạt Động Của Enum Singleton: An Toàn Luồng, Phản Chiếu Và Tuần Tự Hóa"
+      "start": 199.12,
+      "end": 211.72,
+      "duration": 12.6,
+      "text_snippet": "Bảo vệ chống phản chiếu (Reflection Protection): API phản chiếu của Java ngăn ch"
     },
     {
       "paragraph_id": 26,
-      "start": 188.33,
-      "end": 238.38,
-      "duration": 50.05,
-      "text_snippet": "Enum có duy nhất một phần tử được công nhận rộng rãi là cách triển khai Singleton mạnh mẽ nhất trong Java nhờ vào ba lớp"
+      "start": 211.72,
+      "end": 223.27,
+      "duration": 11.55,
+      "text_snippet": "An toàn tuần tự hóa (Serialization Safety): Cơ chế tuần tự hóa của Java đảm bảo "
     },
     {
       "paragraph_id": 27,
-      "start": 238.38,
-      "end": 240.83,
-      "duration": 2.44,
-      "text_snippet": "Mô Hình Tư Duy: Ranh Giới Bảo Vệ Của Enum Singleton"
+      "start": 223.28,
+      "end": 224.68,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 28,
-      "start": 240.83,
-      "end": 241.64,
-      "duration": 0.81,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 224.67,
+      "end": 230.27,
+      "duration": 5.6,
+      "text_snippet": "Cách Thức Hoạt Động Của Enum Singleton: An Toàn Luồng, Phản Chiếu Và Tuần Tự Hóa"
     },
     {
       "paragraph_id": 29,
-      "start": 241.64,
-      "end": 244.32,
-      "duration": 2.68,
-      "text_snippet": "Minh Họa Mã Nguồn: Phòng Thủ Chống Lại Các Cuộc Tấn Công"
+      "start": 230.27,
+      "end": 304.12,
+      "duration": 73.85,
+      "text_snippet": "Enum có duy nhất một phần tử được công nhận rộng rãi là cách triển khai Singleto"
     },
     {
       "paragraph_id": 30,
-      "start": 244.32,
-      "end": 245.14,
-      "duration": 0.81,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 304.12,
+      "end": 307.97,
+      "duration": 3.85,
+      "text_snippet": "Mô Hình Tư Duy: Ranh Giới Bảo Vệ Của Enum Singleton"
     },
     {
       "paragraph_id": 31,
-      "start": 245.14,
-      "end": 257.93,
-      "duration": 12.79,
-      "text_snippet": "// 2. Defending against Serialization Attacks:\n// Java Serialization writes only the name (\"INSTANCE\") to the stream.\n//"
+      "start": 308.07,
+      "end": 310.45,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 32,
-      "start": 257.93,
-      "end": 276.7,
-      "duration": 18.78,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả: Hợp Đồng Singleton Không Thể Bị Phá Vỡ\n$$\\text{Khai báo enum có một phần tử duy nhất} \\righ"
+      "start": 310.4,
+      "end": 314.4,
+      "duration": 4.0,
+      "text_snippet": "Minh Họa Mã Nguồn: Phòng Thủ Chống Lại Các Cuộc Tấn Công"
     },
     {
       "paragraph_id": 33,
-      "start": 276.7,
-      "end": 276.8,
-      "duration": 0.1,
-      "text_snippet": "--"
+      "start": 314.4,
+      "end": 316.78,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 34,
-      "start": 276.8,
-      "end": 277.66,
-      "duration": 0.86,
-      "text_snippet": "Sai Lầm Thường Gặp"
+      "start": 316.77,
+      "end": 321.76,
+      "duration": 4.99,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả: Hợp Đồng Singleton Không Thể Bị Phá Vỡ"
     },
     {
       "paragraph_id": 35,
-      "start": 277.66,
-      "end": 294.57,
-      "duration": 16.91,
-      "text_snippet": "Khai báo thủ công một lớp enum là abstract hoặc final\nSai lầm: Thêm bổ từ abstract hoặc final vào khai báo enum.\n`java\np"
+      "start": 321.76,
+      "end": 340.26,
+      "duration": 18.5,
+      "text_snippet": "$$\\text{Khai báo enum có một phần tử duy nhất} \\rightarrow \\text{Bộ tải lớp JVM "
     },
     {
       "paragraph_id": 36,
-      "start": 294.57,
-      "end": 318.66,
-      "duration": 24.09,
-      "text_snippet": "Cố gắng bỏ qua mẫu Singleton thông qua phản chiếu\nSai lầm: Cố gắng sử dụng phản chiếu để tạo ra một thể hiện mới của một"
+      "start": 340.26,
+      "end": 341.66,
+      "duration": 1.4,
+      "text_snippet": "Sai Lầm Thường Gặp"
     },
     {
       "paragraph_id": 37,
-      "start": 318.66,
-      "end": 319.52,
-      "duration": 0.86,
-      "text_snippet": "Liên Kết Tham Khảo"
+      "start": 341.66,
+      "end": 345.86,
+      "duration": 4.2,
+      "text_snippet": "1. Khai báo thủ công một lớp enum là abstract hoặc final"
     },
     {
       "paragraph_id": 38,
-      "start": 319.52,
-      "end": 324.6,
-      "duration": 5.08,
-      "text_snippet": "Official Oracle Java Tutorials - Enum Types\nJava Platform, Standard Edition API Specification - Enum Class"
+      "start": 345.86,
+      "end": 350.06,
+      "duration": 4.2,
+      "text_snippet": "Sai lầm: Thêm bổ từ abstract hoặc final vào khai báo enum."
+    },
+    {
+      "paragraph_id": 39,
+      "start": 350.06,
+      "end": 351.46,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 351.46,
+      "end": 365.46,
+      "duration": 14.0,
+      "text_snippet": "Hệ quả: Trình biên dịch sẽ tự động thêm các bổ từ chính xác tùy thuộc vào việc c"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 365.46,
+      "end": 369.31,
+      "duration": 3.85,
+      "text_snippet": "2. Cố gắng bỏ qua mẫu Singleton thông qua phản chiếu"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 369.31,
+      "end": 375.96,
+      "duration": 6.65,
+      "text_snippet": "Sai lầm: Cố gắng sử dụng phản chiếu để tạo ra một thể hiện mới của một Enum Sing"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 375.96,
+      "end": 377.36,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 377.36,
+      "end": 385.76,
+      "duration": 8.4,
+      "text_snippet": "Hệ quả: Môi trường chạy Java ngăn chặn rõ ràng việc khởi tạo enum thông qua phản"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 385.76,
+      "end": 387.16,
+      "duration": 1.4,
+      "text_snippet": "Liên Kết Tham Khảo"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 387.26,
+      "end": 397.76,
+      "duration": 10.5,
+      "text_snippet": "Official Oracle Java Tutorials - Enum Types"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 397.76,
+      "end": 400.91,
+      "duration": 3.15,
+      "text_snippet": "Java Platform, Standard Edition API Specification - Enum Class"
     }
   ]
 }

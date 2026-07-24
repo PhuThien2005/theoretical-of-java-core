@@ -1,756 +1,994 @@
 {
   "lesson": "02-documented-concepts",
-  "total_duration_seconds": 729.58,
-  "total_paragraphs": 107,
+  "total_duration_seconds": 903.66,
+  "total_paragraphs": 141,
   "timestamps": [
     {
       "paragraph_id": 1,
       "start": 0.0,
-      "end": 0.73,
-      "duration": 0.73,
+      "end": 1.75,
+      "duration": 1.75,
       "text_snippet": "Chú thích - Phần 2"
     },
     {
       "paragraph_id": 2,
-      "start": 0.73,
-      "end": 1.38,
-      "duration": 0.65,
+      "start": 1.75,
+      "end": 3.15,
+      "duration": 1.4,
       "text_snippet": "Mục Tiêu Học Tập"
     },
     {
       "paragraph_id": 3,
-      "start": 1.38,
-      "end": 8.85,
-      "duration": 7.47,
-      "text_snippet": "Tài liệu này tập trung vào một phần chuyên sâu của Chú thích (Annotation). Hãy nghiên cứu từng khái niệm dưới dạng quy t"
+      "start": 3.15,
+      "end": 16.1,
+      "duration": 12.95,
+      "text_snippet": "Tài liệu này tập trung vào một phần chuyên sâu của Chú thích (Annotation). Hãy n"
     },
     {
       "paragraph_id": 4,
-      "start": 8.85,
-      "end": 10.27,
-      "duration": 1.42,
+      "start": 16.1,
+      "end": 18.2,
+      "duration": 2.1,
       "text_snippet": "Tóm Tắt Nội Dung (Outline Coverage)"
     },
     {
       "paragraph_id": 5,
-      "start": 10.27,
-      "end": 33.69,
-      "duration": 23.42,
-      "text_snippet": "@Documented — @Documented: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\n@Inherited — @Inherited: Cung cấp"
+      "start": 18.2,
+      "end": 24.15,
+      "duration": 5.95,
+      "text_snippet": "@Documented — @Documented: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong"
     },
     {
       "paragraph_id": 6,
-      "start": 33.69,
-      "end": 34.34,
-      "duration": 0.65,
-      "text_snippet": "Ghi Chú Chi Tiết"
+      "start": 24.25,
+      "end": 30.26,
+      "duration": 6.01,
+      "text_snippet": "@Inherited — @Inherited: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong J"
     },
     {
       "paragraph_id": 7,
-      "start": 34.34,
-      "end": 34.79,
-      "duration": 0.45,
-      "text_snippet": "@Documented"
+      "start": 30.21,
+      "end": 36.21,
+      "duration": 6.0,
+      "text_snippet": "@Repeatable — @Repeatable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong"
     },
     {
       "paragraph_id": 8,
-      "start": 34.79,
-      "end": 38.11,
-      "duration": 3.33,
-      "text_snippet": "@Documented — Quy định chú thích sẽ xuất hiện trong tài liệu Javadoc được sinh ra."
+      "start": 36.21,
+      "end": 43.53,
+      "duration": 7.32,
+      "text_snippet": "Custom annotation — Custom annotation: Cung cấp các quy tắc và cơ chế hoạt động "
     },
     {
       "paragraph_id": 9,
-      "start": 38.11,
-      "end": 44.89,
-      "duration": 6.78,
-      "text_snippet": "Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví d"
+      "start": 43.54,
+      "end": 50.72,
+      "duration": 7.18,
+      "text_snippet": "Runtime annotation — Runtime annotation: Cung cấp các quy tắc và cơ chế hoạt độn"
     },
     {
       "paragraph_id": 10,
-      "start": 44.89,
-      "end": 53.17,
-      "duration": 8.28,
-      "text_snippet": "Kiểm tra thực tế:\nĐịnh nghĩa @Documented trong một câu.\nNhận biết @Documented trong mã nguồn, lệnh, tài liệu hoặc câu hỏ"
+      "start": 50.71,
+      "end": 58.82,
+      "duration": 8.11,
+      "text_snippet": "Basic annotation processing — Basic annotation processing: Cung cấp các quy tắc "
     },
     {
       "paragraph_id": 11,
-      "start": 53.17,
-      "end": 58.09,
-      "duration": 4.91,
-      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:\nKhi đọc mã nguồn, hãy tự hỏi: @Documented thay đổi, cho phép, từ chối hoặc làm rõ điều gì"
+      "start": 58.92,
+      "end": 60.74,
+      "duration": 1.82,
+      "text_snippet": "Ghi Chú Chi Tiết"
     },
     {
       "paragraph_id": 12,
-      "start": 58.09,
-      "end": 75.7,
-      "duration": 17.62,
-      "text_snippet": "Giải thích cụ thể & Quy tắc Java\nTheo mặc định, các chú thích được áp dụng cho một lớp, phương thức hoặc trường dữ liệu "
+      "start": 60.7,
+      "end": 67.51,
+      "duration": 6.81,
+      "text_snippet": "@Documented"
     },
     {
       "paragraph_id": 13,
-      "start": 75.7,
-      "end": 76.39,
-      "duration": 0.69,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 67.51,
+      "end": 73.11,
+      "duration": 5.6,
+      "text_snippet": "@Documented — Quy định chú thích sẽ xuất hiện trong tài liệu Javadoc được sinh r"
     },
     {
       "paragraph_id": 14,
-      "start": 76.39,
-      "end": 81.18,
-      "duration": 4.79,
-      "text_snippet": "@Documented\n@Retention(RetentionPolicy.RUNTIME)\npublic @interface PublishedAPI {\n    String version() default \"1.0\";\n}"
+      "start": 67.51,
+      "end": 78.36,
+      "duration": 10.85,
+      "text_snippet": "Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịc"
     },
     {
       "paragraph_id": 15,
-      "start": 81.18,
-      "end": 89.18,
-      "duration": 8.0,
-      "text_snippet": "// When generating Javadoc, @PublishedAPI(version = \"2.0\") will appear above publicApiMethod()\npublic class JavadocDemo "
+      "start": 78.36,
+      "end": 80.31,
+      "duration": 1.95,
+      "text_snippet": "Kiểm tra thực tế:"
     },
     {
       "paragraph_id": 16,
-      "start": 89.18,
-      "end": 89.26,
-      "duration": 0.08,
-      "text_snippet": "--"
+      "start": 80.41,
+      "end": 83.15,
+      "duration": 2.74,
+      "text_snippet": "Định nghĩa @Documented trong một câu."
     },
     {
       "paragraph_id": 17,
-      "start": 89.26,
-      "end": 89.66,
-      "duration": 0.41,
-      "text_snippet": "@Inherited"
+      "start": 83.1,
+      "end": 88.25,
+      "duration": 5.15,
+      "text_snippet": "Nhận biết @Documented trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn."
     },
     {
       "paragraph_id": 18,
-      "start": 89.66,
-      "end": 92.38,
-      "duration": 2.72,
-      "text_snippet": "@Inherited — Cho phép lớp con tự động kế thừa chú thích từ lớp cha."
+      "start": 88.25,
+      "end": 92.96,
+      "duration": 4.71,
+      "text_snippet": "Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến @Documented."
     },
     {
       "paragraph_id": 19,
-      "start": 92.38,
-      "end": 99.16,
-      "duration": 6.78,
-      "text_snippet": "Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví d"
+      "start": 92.96,
+      "end": 95.92,
+      "duration": 2.96,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
     },
     {
       "paragraph_id": 20,
-      "start": 99.16,
-      "end": 107.32,
-      "duration": 8.16,
-      "text_snippet": "Kiểm tra thực tế:\nĐịnh nghĩa @Inherited trong một câu.\nNhận biết @Inherited trong mã nguồn, lệnh, tài liệu hoặc câu hỏi "
+      "start": 95.92,
+      "end": 102.16,
+      "duration": 6.24,
+      "text_snippet": "Khi đọc mã nguồn, hãy tự hỏi: @Documented thay đổi, cho phép, từ chối hoặc làm r"
     },
     {
       "paragraph_id": 21,
-      "start": 107.32,
-      "end": 112.19,
-      "duration": 4.87,
-      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:\nKhi đọc mã nguồn, hãy tự hỏi: @Inherited thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+      "start": 102.16,
+      "end": 104.96,
+      "duration": 2.8,
+      "text_snippet": "Giải thích cụ thể & Quy tắc Java"
     },
     {
       "paragraph_id": 22,
-      "start": 112.19,
-      "end": 126.97,
-      "duration": 14.77,
-      "text_snippet": "Giải thích cụ thể & Quy tắc Java\n@Inherited chỉ ra rằng một chú thích trên một lớp sẽ tự động được kế thừa bởi các lớp c"
+      "start": 104.96,
+      "end": 132.26,
+      "duration": 27.3,
+      "text_snippet": "Theo mặc định, các chú thích được áp dụng cho một lớp, phương thức hoặc trường d"
     },
     {
       "paragraph_id": 23,
-      "start": 126.97,
-      "end": 141.74,
-      "duration": 14.77,
-      "text_snippet": "Các hạn chế quan trọng:\nNó chỉ áp dụng cho kế thừa lớp. Nó KHÔNG áp dụng nếu một lớp triển khai một giao diện (Interface"
+      "start": 132.26,
+      "end": 133.66,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 24,
-      "start": 141.74,
-      "end": 142.43,
-      "duration": 0.69,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 133.66,
+      "end": 134.06,
+      "duration": 0.4,
+      "text_snippet": "@Inherited"
     },
     {
       "paragraph_id": 25,
-      "start": 142.43,
-      "end": 145.68,
-      "duration": 3.25,
-      "text_snippet": "@Inherited\n@Retention(RetentionPolicy.RUNTIME)\n@interface InheritedAnnotation {}"
+      "start": 134.01,
+      "end": 139.26,
+      "duration": 5.25,
+      "text_snippet": "@Inherited — Cho phép lớp con tự động kế thừa chú thích từ lớp cha."
     },
     {
       "paragraph_id": 26,
-      "start": 145.68,
-      "end": 148.44,
-      "duration": 2.76,
-      "text_snippet": "@Retention(RetentionPolicy.RUNTIME)\n@interface StandardAnnotation {}"
+      "start": 139.26,
+      "end": 153.26,
+      "duration": 14.0,
+      "text_snippet": "Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịc"
     },
     {
       "paragraph_id": 27,
-      "start": 148.44,
-      "end": 150.88,
-      "duration": 2.44,
-      "text_snippet": "@InheritedAnnotation\n@StandardAnnotation\nclass SuperClass {}"
+      "start": 153.26,
+      "end": 154.66,
+      "duration": 1.4,
+      "text_snippet": "Kiểm tra thực tế:"
     },
     {
       "paragraph_id": 28,
-      "start": 150.88,
-      "end": 152.34,
-      "duration": 1.46,
-      "text_snippet": "class SubClass extends SuperClass {}"
+      "start": 154.66,
+      "end": 156.76,
+      "duration": 2.1,
+      "text_snippet": "Định nghĩa @Inherited trong một câu."
     },
     {
       "paragraph_id": 29,
-      "start": 152.34,
-      "end": 158.91,
-      "duration": 6.58,
-      "text_snippet": "// At runtime:\n// SubClass.class.isAnnotationPresent(InheritedAnnotation.class) -> true\n// SubClass.class.isAnnotationPr"
+      "start": 156.76,
+      "end": 161.66,
+      "duration": 4.9,
+      "text_snippet": "Nhận biết @Inherited trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn."
     },
     {
       "paragraph_id": 30,
-      "start": 158.91,
-      "end": 158.99,
-      "duration": 0.08,
-      "text_snippet": "--"
+      "start": 161.66,
+      "end": 166.56,
+      "duration": 4.9,
+      "text_snippet": "Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến @Inherited."
     },
     {
       "paragraph_id": 31,
-      "start": 158.99,
-      "end": 159.44,
-      "duration": 0.45,
-      "text_snippet": "@Repeatable"
+      "start": 166.66,
+      "end": 169.62,
+      "duration": 2.96,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
     },
     {
       "paragraph_id": 32,
-      "start": 159.44,
-      "end": 162.61,
-      "duration": 3.17,
-      "text_snippet": "@Repeatable — Cho phép áp dụng cùng một chú thích nhiều lần trên một khai báo."
+      "start": 169.57,
+      "end": 176.06,
+      "duration": 6.49,
+      "text_snippet": "Khi đọc mã nguồn, hãy tự hỏi: @Inherited thay đổi, cho phép, từ chối hoặc làm rõ"
     },
     {
       "paragraph_id": 33,
-      "start": 162.61,
-      "end": 169.38,
-      "duration": 6.78,
-      "text_snippet": "Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví d"
+      "start": 176.06,
+      "end": 179.13,
+      "duration": 3.07,
+      "text_snippet": "Giải thích cụ thể & Quy tắc Java"
     },
     {
       "paragraph_id": 34,
-      "start": 169.38,
-      "end": 177.67,
-      "duration": 8.28,
-      "text_snippet": "Kiểm tra thực tế:\nĐịnh nghĩa @Repeatable trong một câu.\nNhận biết @Repeatable trong mã nguồn, lệnh, tài liệu hoặc câu hỏ"
+      "start": 179.14,
+      "end": 198.03,
+      "duration": 18.89,
+      "text_snippet": "@Inherited chỉ ra rằng một chú thích trên một lớp sẽ tự động được kế thừa bởi cá"
     },
     {
       "paragraph_id": 35,
-      "start": 177.67,
-      "end": 182.58,
-      "duration": 4.91,
-      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:\nKhi đọc mã nguồn, hãy tự hỏi: @Repeatable thay đổi, cho phép, từ chối hoặc làm rõ điều gì"
+      "start": 198.03,
+      "end": 200.18,
+      "duration": 2.15,
+      "text_snippet": "Các hạn chế quan trọng:"
     },
     {
       "paragraph_id": 36,
-      "start": 182.58,
-      "end": 199.71,
-      "duration": 17.13,
-      "text_snippet": "Giải thích cụ thể & Quy tắc Java\nĐược giới thiệu từ Java 8, @Repeatable cho phép áp dụng cùng một chú thích nhiều lần tr"
+      "start": 200.18,
+      "end": 208.93,
+      "duration": 8.75,
+      "text_snippet": "Nó chỉ áp dụng cho kế thừa lớp. Nó KHÔNG áp dụng nếu một lớp triển khai một giao"
     },
     {
       "paragraph_id": 37,
-      "start": 199.71,
-      "end": 200.4,
-      "duration": 0.69,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 208.93,
+      "end": 225.73,
+      "duration": 16.8,
+      "text_snippet": "Nó KHÔNG áp dụng cho các phương thức, trường dữ liệu hoặc hàm khởi tạo. Nếu một "
     },
     {
       "paragraph_id": 38,
-      "start": 200.4,
-      "end": 205.06,
-      "duration": 4.67,
-      "text_snippet": "// 1. The Container Annotation\n@Retention(RetentionPolicy.RUNTIME)\n@interface Schedules {\n    Schedule[] value();\n}"
+      "start": 225.73,
+      "end": 227.13,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 39,
-      "start": 205.06,
-      "end": 212.78,
-      "duration": 7.71,
-      "text_snippet": "// 2. The Repeatable Annotation, referencing the container class\n@Repeatable(Schedules.class)\n@Retention(RetentionPolicy"
+      "start": 227.12,
+      "end": 227.52,
+      "duration": 0.4,
+      "text_snippet": "@Repeatable"
     },
     {
       "paragraph_id": 40,
-      "start": 212.78,
-      "end": 219.39,
-      "duration": 6.62,
-      "text_snippet": "// 3. Usage\npublic class ScheduleDemo {\n    @Schedule(day = \"Monday\", time = \"09:00\")\n    @Schedule(day = \"Friday\", time"
+      "start": 227.48,
+      "end": 233.08,
+      "duration": 5.6,
+      "text_snippet": "@Repeatable — Cho phép áp dụng cùng một chú thích nhiều lần trên một khai báo."
     },
     {
       "paragraph_id": 41,
-      "start": 219.39,
-      "end": 219.47,
-      "duration": 0.08,
-      "text_snippet": "--"
+      "start": 233.18,
+      "end": 244.02,
+      "duration": 10.84,
+      "text_snippet": "Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịc"
     },
     {
       "paragraph_id": 42,
-      "start": 219.47,
-      "end": 221.06,
-      "duration": 1.58,
-      "text_snippet": "Chú thích Tùy chỉnh (Custom annotation)"
+      "start": 244.01,
+      "end": 246.11,
+      "duration": 2.1,
+      "text_snippet": "Kiểm tra thực tế:"
     },
     {
       "paragraph_id": 43,
-      "start": 221.06,
-      "end": 226.01,
-      "duration": 4.95,
-      "text_snippet": "Một chú thích đính kèm siêu dữ liệu (Metadata) vào các phần tử của chương trình như lớp, phương thức, hoặc trường dữ liệ"
+      "start": 246.11,
+      "end": 248.91,
+      "duration": 2.8,
+      "text_snippet": "Định nghĩa @Repeatable trong một câu."
     },
     {
       "paragraph_id": 44,
-      "start": 226.01,
-      "end": 232.79,
-      "duration": 6.78,
-      "text_snippet": "Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví d"
+      "start": 248.91,
+      "end": 254.08,
+      "duration": 5.17,
+      "text_snippet": "Nhận biết @Repeatable trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn."
     },
     {
       "paragraph_id": 45,
-      "start": 232.79,
-      "end": 241.8,
-      "duration": 9.01,
-      "text_snippet": "Kiểm tra thực tế:\nĐịnh nghĩa Custom annotation trong một câu.\nNhận biết Custom annotation trong mã nguồn, lệnh, tài liệu"
+      "start": 254.09,
+      "end": 258.84,
+      "duration": 4.75,
+      "text_snippet": "Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến @Repeatable."
     },
     {
       "paragraph_id": 46,
-      "start": 241.8,
-      "end": 246.95,
-      "duration": 5.16,
-      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:\nKhi đọc mã nguồn, hãy tự hỏi: Custom annotation thay đổi, cho phép, từ chối hoặc làm rõ đ"
+      "start": 258.94,
+      "end": 261.9,
+      "duration": 2.96,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
     },
     {
       "paragraph_id": 47,
-      "start": 246.95,
-      "end": 259.05,
-      "duration": 12.1,
-      "text_snippet": "Giải thích cụ thể & Quy tắc Java\nCác chú thích tùy chỉnh được khai báo bằng cú pháp @interface. Chúng ngầm định kế thừa "
+      "start": 261.85,
+      "end": 268.36,
+      "duration": 6.51,
+      "text_snippet": "Khi đọc mã nguồn, hãy tự hỏi: @Repeatable thay đổi, cho phép, từ chối hoặc làm r"
     },
     {
       "paragraph_id": 48,
-      "start": 259.05,
-      "end": 270.46,
-      "duration": 11.41,
-      "text_snippet": "Các kiểu trả về hợp lệ của phần tử:\nTất cả các kiểu nguyên thủy (int, char, double, boolean, v.v.)\njava.lang.String\njava"
+      "start": 268.36,
+      "end": 271.45,
+      "duration": 3.09,
+      "text_snippet": "Giải thích cụ thể & Quy tắc Java"
     },
     {
       "paragraph_id": 49,
-      "start": 270.46,
-      "end": 279.99,
-      "duration": 9.54,
-      "text_snippet": "Các kiểu trả về không hợp lệ:\nMảng lồng nhau hoặc đa chiều (ví dụ: String[][], int[][])\nLớp bao bọc đối tượng (ví dụ: In"
+      "start": 271.45,
+      "end": 294.74,
+      "duration": 23.29,
+      "text_snippet": "Được giới thiệu từ Java 8, @Repeatable cho phép áp dụng cùng một chú thích nhiều"
     },
     {
       "paragraph_id": 50,
-      "start": 279.99,
-      "end": 280.68,
-      "duration": 0.69,
+      "start": 294.74,
+      "end": 296.94,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 51,
-      "start": 280.68,
-      "end": 280.77,
-      "duration": 0.08,
-      "text_snippet": "--"
+      "start": 296.94,
+      "end": 299.04,
+      "duration": 2.1,
+      "text_snippet": "Chú thích Tùy chỉnh (Custom annotation)"
     },
     {
       "paragraph_id": 52,
-      "start": 280.77,
-      "end": 282.59,
-      "duration": 1.83,
-      "text_snippet": "Chú thích thời điểm chạy (Runtime annotation)"
+      "start": 299.04,
+      "end": 307.44,
+      "duration": 8.4,
+      "text_snippet": "Một chú thích đính kèm siêu dữ liệu (Metadata) vào các phần tử của chương trình "
     },
     {
       "paragraph_id": 53,
-      "start": 282.59,
-      "end": 287.1,
-      "duration": 4.51,
-      "text_snippet": "Một chú thích đính kèm siêu dữ liệu vào các phần tử của chương trình như lớp, phương thức, hoặc trường dữ liệu."
+      "start": 307.44,
+      "end": 321.44,
+      "duration": 14.0,
+      "text_snippet": "Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịc"
     },
     {
       "paragraph_id": 54,
-      "start": 287.1,
-      "end": 293.88,
-      "duration": 6.78,
-      "text_snippet": "Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví d"
+      "start": 321.44,
+      "end": 322.84,
+      "duration": 1.4,
+      "text_snippet": "Kiểm tra thực tế:"
     },
     {
       "paragraph_id": 55,
-      "start": 293.88,
-      "end": 303.01,
-      "duration": 9.13,
-      "text_snippet": "Kiểm tra thực tế:\nĐịnh nghĩa Runtime annotation trong một câu.\nNhận biết Runtime annotation trong mã nguồn, lệnh, tài li"
+      "start": 322.84,
+      "end": 325.29,
+      "duration": 2.45,
+      "text_snippet": "Định nghĩa Custom annotation trong một câu."
     },
     {
       "paragraph_id": 56,
-      "start": 303.01,
-      "end": 308.2,
-      "duration": 5.2,
-      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:\nKhi đọc mã nguồn, hãy tự hỏi: Runtime annotation thay đổi, cho phép, từ chối hoặc làm rõ "
+      "start": 325.29,
+      "end": 330.54,
+      "duration": 5.25,
+      "text_snippet": "Nhận biết Custom annotation trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấ"
     },
     {
       "paragraph_id": 57,
-      "start": 308.2,
-      "end": 317.7,
-      "duration": 9.5,
-      "text_snippet": "Giải thích cụ thể & Quy tắc Java\nCác chú thích thời điểm chạy được khai báo với @Retention(RetentionPolicy.RUNTIME). JVM"
+      "start": 330.54,
+      "end": 335.79,
+      "duration": 5.25,
+      "text_snippet": "Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến Custom annotation."
     },
     {
       "paragraph_id": 58,
-      "start": 317.7,
-      "end": 318.39,
-      "duration": 0.69,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 335.79,
+      "end": 338.59,
+      "duration": 2.8,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
     },
     {
       "paragraph_id": 59,
-      "start": 318.39,
-      "end": 322.25,
-      "duration": 3.86,
-      "text_snippet": "@Retention(RetentionPolicy.RUNTIME)\npublic @interface Priority {\n    int value() default 1;\n}\n`"
+      "start": 338.59,
+      "end": 345.59,
+      "duration": 7.0,
+      "text_snippet": "Khi đọc mã nguồn, hãy tự hỏi: Custom annotation thay đổi, cho phép, từ chối hoặc"
     },
     {
       "paragraph_id": 60,
-      "start": 322.25,
-      "end": 322.33,
-      "duration": 0.08,
-      "text_snippet": "--"
+      "start": 345.59,
+      "end": 348.39,
+      "duration": 2.8,
+      "text_snippet": "Giải thích cụ thể & Quy tắc Java"
     },
     {
       "paragraph_id": 61,
-      "start": 322.33,
-      "end": 324.44,
-      "duration": 2.11,
-      "text_snippet": "Xử lý chú thích cơ bản (Basic annotation processing)"
+      "start": 348.39,
+      "end": 365.89,
+      "duration": 17.5,
+      "text_snippet": "Các chú thích tùy chỉnh được khai báo bằng cú pháp @interface. Chúng ngầm định k"
     },
     {
       "paragraph_id": 62,
-      "start": 324.44,
-      "end": 328.95,
-      "duration": 4.51,
-      "text_snippet": "Một chú thích đính kèm siêu dữ liệu vào các phần tử của chương trình như lớp, phương thức, hoặc trường dữ liệu."
+      "start": 365.89,
+      "end": 369.04,
+      "duration": 3.15,
+      "text_snippet": "Các kiểu trả về hợp lệ của phần tử:"
     },
     {
       "paragraph_id": 63,
-      "start": 328.95,
-      "end": 335.73,
-      "duration": 6.78,
-      "text_snippet": "Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví d"
+      "start": 369.04,
+      "end": 372.89,
+      "duration": 3.85,
+      "text_snippet": "Tất cả các kiểu nguyên thủy (int, char, double, boolean, v.v.)"
     },
     {
       "paragraph_id": 64,
-      "start": 335.73,
-      "end": 345.95,
-      "duration": 10.23,
-      "text_snippet": "Kiểm tra thực tế:\nĐịnh nghĩa Basic annotation processing trong một câu.\nNhận biết Basic annotation processing trong mã n"
+      "start": 372.89,
+      "end": 373.29,
+      "duration": 0.4,
+      "text_snippet": "java.lang.String"
     },
     {
       "paragraph_id": 65,
-      "start": 345.95,
-      "end": 351.51,
-      "duration": 5.56,
-      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:\nKhi đọc mã nguồn, hãy tự hỏi: Basic annotation processing thay đổi, cho phép, từ chối hoặ"
+      "start": 373.24,
+      "end": 375.69,
+      "duration": 2.45,
+      "text_snippet": "java.lang.Class (có thể được tham số hóa)"
     },
     {
       "paragraph_id": 66,
-      "start": 351.51,
-      "end": 386.5,
-      "duration": 34.99,
-      "text_snippet": "Giải thích cụ thể & Quy tắc Java\nXử lý chú thích có thể diễn ra tại thời điểm biên dịch (sử dụng API Processor tiêu chuẩ"
+      "start": 375.69,
+      "end": 377.44,
+      "duration": 1.75,
+      "text_snippet": "Bất kỳ kiểu enum nào"
     },
     {
       "paragraph_id": 67,
-      "start": 386.5,
-      "end": 387.19,
-      "duration": 0.69,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 377.44,
+      "end": 379.54,
+      "duration": 2.1,
+      "text_snippet": "Bất kỳ kiểu chú thích nào"
     },
     {
       "paragraph_id": 68,
-      "start": 387.19,
-      "end": 402.7,
-      "duration": 15.51,
-      "text_snippet": "public class BasicProcessor {\n    public static void runProcess() throws Exception {\n        Method method = MyClass.cla"
+      "start": 379.54,
+      "end": 384.79,
+      "duration": 5.25,
+      "text_snippet": "Mảng một chiều của bất kỳ kiểu nào ở trên (ví dụ: String[], int[], MyEnum[])"
     },
     {
       "paragraph_id": 69,
-      "start": 402.7,
-      "end": 405.5,
-      "duration": 2.8,
-      "text_snippet": "class MyClass {\n    @Priority(5)\n    public void executeTask() {}\n}\n`"
+      "start": 384.79,
+      "end": 387.24,
+      "duration": 2.45,
+      "text_snippet": "Các kiểu trả về không hợp lệ:"
     },
     {
       "paragraph_id": 70,
-      "start": 405.5,
-      "end": 409.15,
-      "duration": 3.65,
-      "text_snippet": "Tại sao Xử lý Chú thích Thời điểm chạy Sử dụng Ủy quyền Động (Dynamic Proxy) Dưới nền tảng"
+      "start": 387.24,
+      "end": 390.74,
+      "duration": 3.5,
+      "text_snippet": "Mảng lồng nhau hoặc đa chiều (ví dụ: String[][], int[][])"
     },
     {
       "paragraph_id": 71,
-      "start": 409.15,
-      "end": 422.71,
-      "duration": 13.56,
-      "text_snippet": "Tại thời điểm chạy, khi phản chiếu truy vấn một chú thích bằng các phương thức như element.getAnnotation(MyAnnotation.cl"
+      "start": 390.84,
+      "end": 396.26,
+      "duration": 5.42,
+      "text_snippet": "Lớp bao bọc đối tượng (ví dụ: Integer, Double, Boolean)"
     },
     {
       "paragraph_id": 72,
-      "start": 422.71,
-      "end": 441.71,
-      "duration": 19.0,
-      "text_snippet": "Dưới nền tảng, lớp ủy quyền này chuyển toàn bộ các phương thức truy cập thuộc tính (những phương thức trông giống như kh"
+      "start": 396.21,
+      "end": 404.49,
+      "duration": 8.28,
+      "text_snippet": "Các lớp thông thường bất kỳ (ví dụ: java.util.Date, java.util.List)"
     },
     {
       "paragraph_id": 73,
-      "start": 441.71,
-      "end": 450.76,
-      "duration": 9.05,
-      "text_snippet": "Thiết kế này cực kỳ hiệu quả: nó tránh được việc tạo, tải và xác thực một tệp lớp vật lý riêng biệt cho mọi khai báo chú"
+      "start": 404.49,
+      "end": 407.15,
+      "duration": 2.66,
+      "text_snippet": "Tham số kiểu (Generics)"
     },
     {
       "paragraph_id": 74,
-      "start": 450.76,
-      "end": 465.53,
-      "duration": 14.77,
-      "text_snippet": "Mô hình Tư duy:\nVí dụ thực tế: Hãy tưởng tượng một thực đơn nhà hàng (giao diện chú thích). Khi bạn gọi món, người phục "
+      "start": 407.15,
+      "end": 409.53,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 75,
-      "start": 465.53,
-      "end": 466.22,
-      "duration": 0.69,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 409.53,
+      "end": 413.27,
+      "duration": 3.74,
+      "text_snippet": "Chú thích thời điểm chạy (Runtime annotation)"
     },
     {
       "paragraph_id": 76,
-      "start": 466.22,
-      "end": 471.14,
-      "duration": 4.91,
-      "text_snippet": "Ví dụ Code với Đầu ra Mong đợi:\n`java\nimport java.lang.annotation.Retention;\nimport java.lang.annotation.RetentionPolicy"
+      "start": 413.26,
+      "end": 421.31,
+      "duration": 8.05,
+      "text_snippet": "Một chú thích đính kèm siêu dữ liệu vào các phần tử của chương trình như lớp, ph"
     },
     {
       "paragraph_id": 77,
-      "start": 471.14,
-      "end": 475.24,
-      "duration": 4.1,
-      "text_snippet": "@Retention(RetentionPolicy.RUNTIME)\n@interface RuntimeCheck {\n    String value() default \"Default\";\n}"
+      "start": 421.31,
+      "end": 435.31,
+      "duration": 14.0,
+      "text_snippet": "Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịc"
     },
     {
       "paragraph_id": 78,
-      "start": 475.24,
-      "end": 477.26,
-      "duration": 2.03,
-      "text_snippet": "@RuntimeCheck(\"ProxyTest\")\nclass AnnotatedClass {}"
+      "start": 435.31,
+      "end": 436.71,
+      "duration": 1.4,
+      "text_snippet": "Kiểm tra thực tế:"
     },
     {
       "paragraph_id": 79,
-      "start": 477.26,
-      "end": 506.25,
-      "duration": 28.98,
-      "text_snippet": "public class ProxyDemo {\n    public static void main(String[] args) {\n        RuntimeCheck anno = AnnotatedClass.class.g"
+      "start": 436.71,
+      "end": 439.16,
+      "duration": 2.45,
+      "text_snippet": "Định nghĩa Runtime annotation trong một câu."
     },
     {
       "paragraph_id": 80,
-      "start": 506.25,
-      "end": 528.04,
-      "duration": 21.8,
-      "text_snippet": "Chuỗi Nguyên nhân - Kết quả:\nỨng dụng gọi element.getAnnotation(MyAnno.class) &rarr; Phân hệ phản chiếu kiểm tra các thu"
+      "start": 439.16,
+      "end": 444.41,
+      "duration": 5.25,
+      "text_snippet": "Nhận biết Runtime annotation trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng v"
     },
     {
       "paragraph_id": 81,
-      "start": 528.04,
-      "end": 528.12,
-      "duration": 0.08,
-      "text_snippet": "--"
+      "start": 444.41,
+      "end": 449.66,
+      "duration": 5.25,
+      "text_snippet": "Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến Runtime annotation."
     },
     {
       "paragraph_id": 82,
-      "start": 528.12,
-      "end": 530.8,
-      "duration": 2.68,
-      "text_snippet": "Ví Dụ Thực Tế: Custom Validation Annotation & Reflection Processor"
+      "start": 449.66,
+      "end": 452.46,
+      "duration": 2.8,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
     },
     {
       "paragraph_id": 83,
-      "start": 530.8,
-      "end": 539.37,
-      "duration": 8.56,
-      "text_snippet": "Hãy cùng xây dựng một khung công tác xác thực dữ liệu thực tế bằng cách sử dụng một chú thích trường tùy chỉnh @NonNull "
+      "start": 452.46,
+      "end": 459.46,
+      "duration": 7.0,
+      "text_snippet": "Khi đọc mã nguồn, hãy tự hỏi: Runtime annotation thay đổi, cho phép, từ chối hoặ"
     },
     {
       "paragraph_id": 84,
-      "start": 539.37,
-      "end": 546.47,
-      "duration": 7.1,
-      "text_snippet": "Khai báo Chú thích Tùy chỉnh\nChúng ta yêu cầu chú thích phải nhắm mục tiêu vào các trường dữ liệu (ElementType.FIELD) và"
+      "start": 459.46,
+      "end": 462.26,
+      "duration": 2.8,
+      "text_snippet": "Giải thích cụ thể & Quy tắc Java"
     },
     {
       "paragraph_id": 85,
-      "start": 546.47,
-      "end": 547.16,
-      "duration": 0.69,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 462.26,
+      "end": 474.16,
+      "duration": 11.9,
+      "text_snippet": "Các chú thích thời điểm chạy được khai báo với @Retention(RetentionPolicy.RUNTIM"
     },
     {
       "paragraph_id": 86,
-      "start": 547.16,
-      "end": 553.37,
-      "duration": 6.21,
-      "text_snippet": "@Target(ElementType.FIELD)\n@Retention(RetentionPolicy.RUNTIME)\npublic @interface NonNull {\n    String message() default "
+      "start": 474.16,
+      "end": 475.56,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 87,
-      "start": 553.37,
-      "end": 558.12,
-      "duration": 4.75,
-      "text_snippet": "Áp dụng Chú thích vào một Lớp Mô hình\nChúng ta sẽ áp dụng chú thích @NonNull cho một số trường riêng tư của lớp User."
+      "start": 475.56,
+      "end": 478.71,
+      "duration": 3.15,
+      "text_snippet": "Xử lý chú thích cơ bản (Basic annotation processing)"
     },
     {
       "paragraph_id": 88,
-      "start": 558.12,
-      "end": 558.81,
-      "duration": 0.69,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 478.71,
+      "end": 486.76,
+      "duration": 8.05,
+      "text_snippet": "Một chú thích đính kèm siêu dữ liệu vào các phần tử của chương trình như lớp, ph"
     },
     {
       "paragraph_id": 89,
-      "start": 558.81,
-      "end": 561.98,
-      "duration": 3.17,
-      "text_snippet": "@NonNull(message = \"Email address must not be null\")\n    private String email;"
+      "start": 486.76,
+      "end": 500.76,
+      "duration": 14.0,
+      "text_snippet": "Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịc"
     },
     {
       "paragraph_id": 90,
-      "start": 561.98,
-      "end": 564.41,
-      "duration": 2.44,
-      "text_snippet": "private String phoneNumber; // Optional field, not annotated"
+      "start": 500.76,
+      "end": 502.16,
+      "duration": 1.4,
+      "text_snippet": "Kiểm tra thực tế:"
     },
     {
       "paragraph_id": 91,
-      "start": 564.41,
-      "end": 571.56,
-      "duration": 7.14,
-      "text_snippet": "public User(String username, String email, String phoneNumber) {\n        this.username = username;\n        this.email = "
+      "start": 502.16,
+      "end": 504.96,
+      "duration": 2.8,
+      "text_snippet": "Định nghĩa Basic annotation processing trong một câu."
     },
     {
       "paragraph_id": 92,
-      "start": 571.56,
-      "end": 581.87,
-      "duration": 10.31,
-      "text_snippet": "Viết Bộ Xác thực Dựa trên Phản chiếu\nBộ xác thực sử dụng phản chiếu để kiểm tra tất cả các trường (ngay cả các trường ri"
+      "start": 504.96,
+      "end": 510.56,
+      "duration": 5.6,
+      "text_snippet": "Nhận biết Basic annotation processing trong mã nguồn, lệnh, tài liệu hoặc câu hỏ"
     },
     {
       "paragraph_id": 93,
-      "start": 581.87,
-      "end": 582.56,
-      "duration": 0.69,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 510.56,
+      "end": 516.16,
+      "duration": 5.6,
+      "text_snippet": "Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến Basic annotation proc"
     },
     {
       "paragraph_id": 94,
-      "start": 582.56,
-      "end": 628.87,
-      "duration": 46.31,
-      "text_snippet": "public class ObjectValidator {\n    \n    public static void validate(Object obj) throws IllegalAccessException {\n        "
+      "start": 516.16,
+      "end": 518.96,
+      "duration": 2.8,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
     },
     {
       "paragraph_id": 95,
-      "start": 628.87,
-      "end": 638.21,
-      "duration": 9.34,
-      "text_snippet": "Chạy Ví Dụ Thực Tế\n`java\npublic class ValidationApp {\n    public static void main(String[] args) {\n        User validUse"
+      "start": 518.96,
+      "end": 526.31,
+      "duration": 7.35,
+      "text_snippet": "Khi đọc mã nguồn, hãy tự hỏi: Basic annotation processing thay đổi, cho phép, từ"
     },
     {
       "paragraph_id": 96,
-      "start": 638.21,
-      "end": 650.87,
-      "duration": 12.66,
-      "text_snippet": "// 1. Validate Valid User\n        try {\n            ObjectValidator.validate(validUser);\n            System.out.println("
+      "start": 526.31,
+      "end": 529.11,
+      "duration": 2.8,
+      "text_snippet": "Giải thích cụ thể & Quy tắc Java"
     },
     {
       "paragraph_id": 97,
-      "start": 650.87,
-      "end": 664.67,
-      "duration": 13.8,
-      "text_snippet": "// 2. Validate Invalid User\n        try {\n            ObjectValidator.validate(invalidUser);\n            System.out.prin"
+      "start": 529.11,
+      "end": 552.91,
+      "duration": 23.8,
+      "text_snippet": "Xử lý chú thích có thể diễn ra tại thời điểm biên dịch (sử dụng API Processor ti"
     },
     {
       "paragraph_id": 98,
-      "start": 664.67,
-      "end": 664.75,
-      "duration": 0.08,
-      "text_snippet": "--"
+      "start": 552.91,
+      "end": 558.51,
+      "duration": 5.6,
+      "text_snippet": "isAnnotationPresent(Class<? extends Annotation> annotationClass): Trả về true nế"
     },
     {
       "paragraph_id": 99,
-      "start": 664.75,
-      "end": 665.48,
-      "duration": 0.73,
-      "text_snippet": "Các lỗi thường gặp"
+      "start": 558.51,
+      "end": 563.76,
+      "duration": 5.25,
+      "text_snippet": "getAnnotation(Class<T> annotationClass): Trả về chú thích của kiểu được chỉ định"
     },
     {
       "paragraph_id": 100,
-      "start": 665.48,
-      "end": 689.35,
-      "duration": 23.87,
-      "text_snippet": "Chú thích Lặp lại: Sử dụng getAnnotation() thay vì getAnnotationsByType()\nNếu một chú thích có thể lặp lại (ví dụ: @Sche"
+      "start": 563.76,
+      "end": 571.46,
+      "duration": 7.7,
+      "text_snippet": "getAnnotations(): Trả về tất cả các chú thích có mặt trên phần tử (bao gồm cả cá"
     },
     {
       "paragraph_id": 101,
-      "start": 689.35,
-      "end": 701.28,
-      "duration": 11.93,
-      "text_snippet": "Giả định rằng @Inherited áp dụng cho các Giao diện\nMột bẫy phỏng vấn phổ biến là giả định @Inherited hoạt động với triển"
+      "start": 571.46,
+      "end": 579.16,
+      "duration": 7.7,
+      "text_snippet": "getDeclaredAnnotations(): Trả về các chú thích được khai báo trực tiếp trên phần"
     },
     {
       "paragraph_id": 102,
-      "start": 701.28,
-      "end": 714.72,
-      "duration": 13.44,
-      "text_snippet": "Kiểu Trả về Không Hợp lệ trong các Phần tử Chú thích\nCố gắng khai báo một phần tử trả về một lớp đối tượng bao bọc (chẳn"
+      "start": 579.16,
+      "end": 580.56,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 103,
-      "start": 714.72,
-      "end": 714.8,
-      "duration": 0.08,
-      "text_snippet": "--"
+      "start": 580.56,
+      "end": 587.21,
+      "duration": 6.65,
+      "text_snippet": "Tại sao Xử lý Chú thích Thời điểm chạy Sử dụng Ủy quyền Động (Dynamic Proxy) Dướ"
     },
     {
       "paragraph_id": 104,
-      "start": 714.8,
-      "end": 715.98,
-      "duration": 1.18,
-      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
+      "start": 587.21,
+      "end": 609.61,
+      "duration": 22.4,
+      "text_snippet": "Tại thời điểm chạy, khi phản chiếu truy vấn một chú thích bằng các phương thức n"
     },
     {
       "paragraph_id": 105,
-      "start": 715.98,
-      "end": 723.73,
-      "duration": 7.75,
-      "text_snippet": "Những khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch?\nNhững khái niệm nào ở đây ảnh hưởng đến hành vi tại th"
+      "start": 609.61,
+      "end": 638.31,
+      "duration": 28.7,
+      "text_snippet": "Dưới nền tảng, lớp ủy quyền này chuyển toàn bộ các phương thức truy cập thuộc tí"
     },
     {
       "paragraph_id": 106,
-      "start": 723.73,
-      "end": 724.46,
-      "duration": 0.73,
-      "text_snippet": "Liên kết Tham khảo"
+      "start": 638.31,
+      "end": 655.81,
+      "duration": 17.5,
+      "text_snippet": "Thiết kế này cực kỳ hiệu quả: nó tránh được việc tạo, tải và xác thực một tệp lớ"
     },
     {
       "paragraph_id": 107,
-      "start": 724.46,
-      "end": 729.58,
-      "duration": 5.11,
-      "text_snippet": "Java reflection API\nOpenJDK sun.reflect.annotation.AnnotationInvocationHandler Source\nJava Language Specification: Annot"
+      "start": 655.81,
+      "end": 684.86,
+      "duration": 29.05,
+      "text_snippet": "Mô hình Tư duy: Ví dụ thực tế: Hãy tưởng tượng một thực đơn nhà hàng (giao diện "
+    },
+    {
+      "paragraph_id": 108,
+      "start": 684.86,
+      "end": 686.26,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 109,
+      "start": 686.26,
+      "end": 689.06,
+      "duration": 2.8,
+      "text_snippet": "Ví dụ Code với Đầu ra Mong đợi:"
+    },
+    {
+      "paragraph_id": 110,
+      "start": 689.06,
+      "end": 690.46,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 111,
+      "start": 690.46,
+      "end": 727.21,
+      "duration": 36.75,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả: Ứng dụng gọi element.getAnnotation(MyAnno.class) → "
+    },
+    {
+      "paragraph_id": 112,
+      "start": 727.21,
+      "end": 730.71,
+      "duration": 3.5,
+      "text_snippet": "Ví Dụ Thực Tế: Custom Validation Annotation & Reflection Processor"
+    },
+    {
+      "paragraph_id": 113,
+      "start": 730.71,
+      "end": 746.46,
+      "duration": 15.75,
+      "text_snippet": "Hãy cùng xây dựng một khung công tác xác thực dữ liệu thực tế bằng cách sử dụng "
+    },
+    {
+      "paragraph_id": 114,
+      "start": 746.46,
+      "end": 748.91,
+      "duration": 2.45,
+      "text_snippet": "1. Khai báo Chú thích Tùy chỉnh"
+    },
+    {
+      "paragraph_id": 115,
+      "start": 748.91,
+      "end": 757.31,
+      "duration": 8.4,
+      "text_snippet": "Chúng ta yêu cầu chú thích phải nhắm mục tiêu vào các trường dữ liệu (ElementTyp"
+    },
+    {
+      "paragraph_id": 116,
+      "start": 757.31,
+      "end": 758.71,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 117,
+      "start": 758.71,
+      "end": 762.21,
+      "duration": 3.5,
+      "text_snippet": "2. Áp dụng Chú thích vào một Lớp Mô hình"
+    },
+    {
+      "paragraph_id": 118,
+      "start": 762.21,
+      "end": 768.16,
+      "duration": 5.95,
+      "text_snippet": "Chúng ta sẽ áp dụng chú thích @NonNull cho một số trường riêng tư của lớp User."
+    },
+    {
+      "paragraph_id": 119,
+      "start": 768.16,
+      "end": 769.56,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 120,
+      "start": 769.56,
+      "end": 772.71,
+      "duration": 3.15,
+      "text_snippet": "3. Viết Bộ Xác thực Dựa trên Phản chiếu"
+    },
+    {
+      "paragraph_id": 121,
+      "start": 772.71,
+      "end": 789.51,
+      "duration": 16.8,
+      "text_snippet": "Bộ xác thực sử dụng phản chiếu để kiểm tra tất cả các trường (ngay cả các trường"
+    },
+    {
+      "paragraph_id": 122,
+      "start": 789.51,
+      "end": 790.91,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 123,
+      "start": 790.91,
+      "end": 793.01,
+      "duration": 2.1,
+      "text_snippet": "4. Chạy Ví Dụ Thực Tế"
+    },
+    {
+      "paragraph_id": 124,
+      "start": 793.01,
+      "end": 794.41,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 125,
+      "start": 794.41,
+      "end": 795.81,
+      "duration": 1.4,
+      "text_snippet": "Các lỗi thường gặp"
+    },
+    {
+      "paragraph_id": 126,
+      "start": 795.81,
+      "end": 799.66,
+      "duration": 3.85,
+      "text_snippet": "1. Chú thích Lặp lại: Sử dụng getAnnotation() thay vì getAnnotationsByType()"
+    },
+    {
+      "paragraph_id": 127,
+      "start": 799.66,
+      "end": 823.81,
+      "duration": 24.15,
+      "text_snippet": "Nếu một chú thích có thể lặp lại (ví dụ: @Schedule) và nó được áp dụng nhiều lần"
+    },
+    {
+      "paragraph_id": 128,
+      "start": 823.81,
+      "end": 826.96,
+      "duration": 3.15,
+      "text_snippet": "Gọi element.getAnnotationsByType(Schedule.class) để tự động giải nén vùng chứa."
+    },
+    {
+      "paragraph_id": 129,
+      "start": 826.96,
+      "end": 829.76,
+      "duration": 2.8,
+      "text_snippet": "Hoặc truy vấn chính vùng chứa đó: element.getAnnotation(Schedules.class)."
+    },
+    {
+      "paragraph_id": 130,
+      "start": 829.76,
+      "end": 833.61,
+      "duration": 3.85,
+      "text_snippet": "2. Giả định rằng @Inherited áp dụng cho các Giao diện"
+    },
+    {
+      "paragraph_id": 131,
+      "start": 833.61,
+      "end": 849.71,
+      "duration": 16.1,
+      "text_snippet": "Một bẫy phỏng vấn phổ biến là giả định @Inherited hoạt động với triển khai giao "
+    },
+    {
+      "paragraph_id": 132,
+      "start": 849.71,
+      "end": 854.26,
+      "duration": 4.55,
+      "text_snippet": "3. Kiểu Trả về Không Hợp lệ trong các Phần tử Chú thích"
+    },
+    {
+      "paragraph_id": 133,
+      "start": 854.26,
+      "end": 873.86,
+      "duration": 19.6,
+      "text_snippet": "Cố gắng khai báo một phần tử trả về một lớp đối tượng bao bọc (chẳng hạn như Int"
+    },
+    {
+      "paragraph_id": 134,
+      "start": 873.86,
+      "end": 876.31,
+      "duration": 2.45,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
+    },
+    {
+      "paragraph_id": 135,
+      "start": 876.31,
+      "end": 881.56,
+      "duration": 5.25,
+      "text_snippet": "Những khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch?"
+    },
+    {
+      "paragraph_id": 136,
+      "start": 881.66,
+      "end": 889.99,
+      "duration": 8.33,
+      "text_snippet": "Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy?"
+    },
+    {
+      "paragraph_id": 137,
+      "start": 889.99,
+      "end": 894.54,
+      "duration": 4.55,
+      "text_snippet": "Những khái niệm nào ở đây dễ trở thành bẫy khi phỏng vấn?"
+    },
+    {
+      "paragraph_id": 138,
+      "start": 889.99,
+      "end": 892.0,
+      "duration": 2.01,
+      "text_snippet": "Liên kết Tham khảo"
+    },
+    {
+      "paragraph_id": 139,
+      "start": 892.0,
+      "end": 894.8,
+      "duration": 2.8,
+      "text_snippet": "Java reflection API"
+    },
+    {
+      "paragraph_id": 140,
+      "start": 894.8,
+      "end": 899.6,
+      "duration": 4.8,
+      "text_snippet": "OpenJDK sun.reflect.annotation.AnnotationInvocationHandler Source"
+    },
+    {
+      "paragraph_id": 141,
+      "start": 899.7,
+      "end": 903.66,
+      "duration": 3.96,
+      "text_snippet": "Java Language Specification: Annotations"
     }
   ]
 }

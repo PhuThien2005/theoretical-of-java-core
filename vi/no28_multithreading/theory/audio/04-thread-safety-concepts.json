@@ -1,350 +1,385 @@
 {
   "lesson": "04-thread-safety-concepts",
-  "total_duration_seconds": 295.51,
-  "total_paragraphs": 49,
+  "total_duration_seconds": 400.0,
+  "total_paragraphs": 54,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 1.19,
-      "duration": 1.19,
+      "start": 0.1,
+      "end": 3.41,
+      "duration": 3.31,
       "text_snippet": "Đa Luồng (Multithreading) - Phần 4"
     },
     {
       "paragraph_id": 2,
-      "start": 1.19,
-      "end": 1.75,
-      "duration": 0.56,
+      "start": 3.36,
+      "end": 5.15,
+      "duration": 1.79,
       "text_snippet": "Mục Tiêu Học Tập"
     },
     {
       "paragraph_id": 3,
-      "start": 1.75,
-      "end": 10.94,
-      "duration": 9.19,
-      "text_snippet": "File này đề cập đến các nguyên tắc an toàn luồng (thread safety), tính bất biến của đối tượng (object immutability) và c"
+      "start": 5.15,
+      "end": 21.45,
+      "duration": 16.3,
+      "text_snippet": "File này đề cập đến các nguyên tắc an toàn luồng (thread safety), tính bất biến "
     },
     {
       "paragraph_id": 4,
-      "start": 10.94,
-      "end": 11.56,
-      "duration": 0.63,
+      "start": 21.45,
+      "end": 23.5,
+      "duration": 2.05,
       "text_snippet": "Đề Cương Khái Niệm"
     },
     {
       "paragraph_id": 5,
-      "start": 11.56,
-      "end": 25.61,
-      "duration": 14.05,
-      "text_snippet": "An toàn luồng (Thread safety) — An toàn luồng (Thread safety): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Jav"
+      "start": 23.5,
+      "end": 31.23,
+      "duration": 7.73,
+      "text_snippet": "An toàn luồng (Thread safety) — An toàn luồng (Thread safety): Cung cấp các quy "
     },
     {
       "paragraph_id": 6,
-      "start": 25.61,
-      "end": 26.17,
-      "duration": 0.56,
-      "text_snippet": "Ghi Chú Chi Tiết"
+      "start": 31.33,
+      "end": 49.17,
+      "duration": 17.84,
+      "text_snippet": "Đối tượng bất biến (Immutable object) — Đối tượng bất biến (Immutable object): C"
     },
     {
       "paragraph_id": 7,
-      "start": 26.17,
-      "end": 27.18,
-      "duration": 1.01,
-      "text_snippet": "An Toàn Luồng (Thread Safety)"
+      "start": 49.16,
+      "end": 58.61,
+      "duration": 9.45,
+      "text_snippet": "Hoạt động nguyên tử (Atomic operation) — Hoạt động nguyên tử (Atomic operation):"
     },
     {
       "paragraph_id": 8,
-      "start": 27.18,
-      "end": 40.46,
-      "duration": 13.28,
-      "text_snippet": "Một đối tượng được coi là an toàn luồng nếu nó duy trì được các bất biến lớp (class invariant) dưới sự thực thi đồng thờ"
+      "start": 49.16,
+      "end": 50.98,
+      "duration": 1.82,
+      "text_snippet": "Ghi Chú Chi Tiết"
     },
     {
       "paragraph_id": 9,
-      "start": 40.46,
-      "end": 53.63,
-      "duration": 13.17,
-      "text_snippet": "> Xem thêm: Chi tiết về cơ chế khóa (Locking) và Synchronization, được trình bày chi tiết trong Ch.29 - Synchronization "
+      "start": 50.99,
+      "end": 54.08,
+      "duration": 3.09,
+      "text_snippet": "An Toàn Luồng (Thread Safety)"
     },
     {
       "paragraph_id": 10,
-      "start": 53.63,
-      "end": 54.99,
-      "duration": 1.36,
-      "text_snippet": "Các Quy Tắc Thiết Kế Đối Tượng Bất Biến"
+      "start": 54.08,
+      "end": 64.48,
+      "duration": 10.4,
+      "text_snippet": "Một đối tượng được coi là an toàn luồng nếu nó duy trì được các bất biến lớp (cl"
     },
     {
       "paragraph_id": 11,
-      "start": 54.99,
-      "end": 73.83,
-      "duration": 18.83,
-      "text_snippet": "Để tạo ra một lớp hoàn toàn bất biến trong Java, hãy tuân thủ các quy tắc sau:\nKhai báo lớp là final để nó không thể bị "
+      "start": 64.57,
+      "end": 70.76,
+      "duration": 6.19,
+      "text_snippet": "Tính bất biến (Immutability): Trạng thái chia sẻ không thể thay đổi thì vốn dĩ đ"
     },
     {
       "paragraph_id": 12,
-      "start": 73.83,
-      "end": 74.42,
-      "duration": 0.59,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 70.71,
+      "end": 78.55,
+      "duration": 7.84,
+      "text_snippet": "Khóa (Locking): Bảo vệ các miền tranh chấp (critical section) bằng cách sử dụng "
     },
     {
       "paragraph_id": 13,
-      "start": 74.42,
-      "end": 78.72,
-      "duration": 4.3,
-      "text_snippet": "public final class ImmutablePerson {\n    private final String name;\n    private final List<String> hobbies; // Mutable l"
+      "start": 78.55,
+      "end": 88.55,
+      "duration": 10.0,
+      "text_snippet": "Xem thêm: Chi tiết về cơ chế khóa (Locking) và Synchronization, được trình bày c"
     },
     {
       "paragraph_id": 14,
-      "start": 78.72,
-      "end": 85.08,
-      "duration": 6.36,
-      "text_snippet": "public ImmutablePerson(String name, List<String> hobbies) {\n        this.name = name;\n        // Defensive copy on const"
+      "start": 88.55,
+      "end": 95.87,
+      "duration": 7.32,
+      "text_snippet": "Thread Local: Tránh hoàn toàn việc chia sẻ trạng thái bằng cách giữ các biến riê"
     },
     {
       "paragraph_id": 15,
-      "start": 85.08,
-      "end": 86.89,
-      "duration": 1.82,
-      "text_snippet": "public String getName() {\n        return name;\n    }"
+      "start": 95.88,
+      "end": 102.44,
+      "duration": 6.56,
+      "text_snippet": "Cấu trúc dữ liệu đồng thời: Sử dụng các cấu trúc dữ liệu an toàn luồng như Concu"
     },
     {
       "paragraph_id": 16,
-      "start": 86.89,
-      "end": 92.24,
-      "duration": 5.35,
-      "text_snippet": "// Defensive copy / unmodifiable wrap on retrieval\n    public List<String> getHobbies() {\n        return Collections.unm"
+      "start": 102.54,
+      "end": 105.45,
+      "duration": 2.91,
+      "text_snippet": "Các Quy Tắc Thiết Kế Đối Tượng Bất Biến"
     },
     {
       "paragraph_id": 17,
-      "start": 92.24,
-      "end": 93.43,
-      "duration": 1.19,
-      "text_snippet": "Các Hoạt Động Nguyên Tử Trong Java"
+      "start": 105.4,
+      "end": 110.76,
+      "duration": 5.36,
+      "text_snippet": "Để tạo ra một lớp hoàn toàn bất biến trong Java, hãy tuân thủ các quy tắc sau:"
     },
     {
       "paragraph_id": 18,
-      "start": 93.43,
-      "end": 111.87,
-      "duration": 18.45,
-      "text_snippet": "Một hoạt động nguyên tử được biểu hiện như không thể bị chia cắt đối với các luồng khác. Trong Java:\nCác phép đọc và ghi"
+      "start": 110.76,
+      "end": 126.11,
+      "duration": 15.35,
+      "text_snippet": "Khai báo lớp là final để nó không thể bị kế thừa (ngăn chặn việc ghi đè phương t"
     },
     {
       "paragraph_id": 19,
-      "start": 111.87,
-      "end": 112.47,
-      "duration": 0.59,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 126.11,
+      "end": 129.61,
+      "duration": 3.5,
+      "text_snippet": "Khai báo tất cả các trường là private và final."
     },
     {
       "paragraph_id": 20,
-      "start": 112.47,
-      "end": 117.46,
-      "duration": 5.0,
-      "text_snippet": "// NOT thread-safe: multiple threads can read the same value, increment, and write back\n    public void increment() {\n  "
+      "start": 129.61,
+      "end": 135.21,
+      "duration": 5.6,
+      "text_snippet": "Không cung cấp bất kỳ phương thức setter hoặc phương thức thay đổi trạng thái nà"
     },
     {
       "paragraph_id": 21,
-      "start": 117.46,
-      "end": 119.18,
-      "duration": 1.71,
-      "text_snippet": "import java.util.concurrent.atomic.AtomicInteger;"
+      "start": 126.21,
+      "end": 138.43,
+      "duration": 12.22,
+      "text_snippet": "Nếu lớp chứa các tham chiếu đến các đối tượng thay đổi được, hãy thực hiện sao c"
     },
     {
       "paragraph_id": 22,
-      "start": 119.18,
-      "end": 122.01,
-      "duration": 2.83,
-      "text_snippet": "class SafeCounter {\n    private final AtomicInteger count = new AtomicInteger(0);"
+      "start": 138.39,
+      "end": 140.77,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 23,
-      "start": 122.01,
-      "end": 127.46,
-      "duration": 5.45,
-      "text_snippet": "// Thread-safe: uses lock-free CPU instructions (CAS) to perform atomic increments\n    public void increment() {\n       "
+      "start": 140.76,
+      "end": 143.46,
+      "duration": 2.7,
+      "text_snippet": "Các Hoạt Động Nguyên Tử Trong Java"
     },
     {
       "paragraph_id": 24,
-      "start": 127.46,
-      "end": 127.53,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 143.46,
+      "end": 150.31,
+      "duration": 6.85,
+      "text_snippet": "Một hoạt động nguyên tử được biểu hiện như không thể bị chia cắt đối với các luồ"
     },
     {
       "paragraph_id": 25,
-      "start": 127.53,
-      "end": 129.62,
-      "duration": 2.1,
-      "text_snippet": "Ví Dụ Thực Tế: Rò Rỉ Tính Thay Đổi Được (Mutability Leakage)"
+      "start": 150.31,
+      "end": 162.99,
+      "duration": 12.68,
+      "text_snippet": "Các phép đọc và ghi là nguyên tử đối với các biến tham chiếu và tất cả các biến "
     },
     {
       "paragraph_id": 26,
-      "start": 129.62,
-      "end": 136.37,
-      "duration": 6.74,
-      "text_snippet": "Vấn đề\nMột nhà phát triển cố gắng viết một lớp cấu hình bất biến, nhưng lại để lại một lỗi rò rỉ tính thay đổi được:\n`ja"
+      "start": 163.09,
+      "end": 169.68,
+      "duration": 6.59,
+      "text_snippet": "Các phép đọc và ghi đối với long và double được đảm bảo tính nguyên tử nếu được "
     },
     {
       "paragraph_id": 27,
-      "start": 136.37,
-      "end": 140.8,
-      "duration": 4.44,
-      "text_snippet": "public AppConfig(List<String> servers) {\n        this.servers = servers; // BUG: stores direct reference to caller's lis"
+      "start": 169.62,
+      "end": 175.88,
+      "duration": 6.26,
+      "text_snippet": "Các hoạt động phức hợp như count++ (vốn là một hoạt động đọc-sửa-ghi) không bao "
     },
     {
       "paragraph_id": 28,
-      "start": 140.8,
-      "end": 151.6,
-      "duration": 10.8,
-      "text_snippet": "public List<String> getServers() {\n        return servers; // BUG: exposes mutable list reference\n    }\n}\n`\nNếu người gọ"
+      "start": 175.89,
+      "end": 178.27,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 29,
-      "start": 151.6,
-      "end": 155.9,
-      "duration": 4.3,
-      "text_snippet": "Giải pháp\nSử dụng kỹ thuật sao chép phòng thủ:\n`java\npublic final class AppConfig {\n    private final List<String> serve"
+      "start": 178.26,
+      "end": 183.52,
+      "duration": 5.26,
+      "text_snippet": "Ví Dụ Thực Tế: Rò Rỉ Tính Thay Đổi Được (Mutability Leakage)"
     },
     {
       "paragraph_id": 30,
-      "start": 155.9,
-      "end": 159.84,
-      "duration": 3.95,
-      "text_snippet": "public AppConfig(List<String> servers) {\n        this.servers = new ArrayList<>(servers); // Defensive copy\n    }"
+      "start": 183.53,
+      "end": 184.97,
+      "duration": 1.44,
+      "text_snippet": "Vấn đề"
     },
     {
       "paragraph_id": 31,
-      "start": 159.84,
-      "end": 164.11,
-      "duration": 4.26,
-      "text_snippet": "public List<String> getServers() {\n        return Collections.unmodifiableList(servers); // Prevent modification\n    }\n}"
+      "start": 184.96,
+      "end": 193.71,
+      "duration": 8.75,
+      "text_snippet": "Một nhà phát triển cố gắng viết một lớp cấu hình bất biến, nhưng lại để lại một "
     },
     {
       "paragraph_id": 32,
-      "start": 164.11,
-      "end": 164.18,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 193.71,
+      "end": 195.11,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 33,
-      "start": 164.18,
-      "end": 164.81,
-      "duration": 0.63,
-      "text_snippet": "Các Lỗi Thường Gặp"
+      "start": 195.11,
+      "end": 208.76,
+      "duration": 13.65,
+      "text_snippet": "Nếu người gọi thay đổi danh sách mà họ đã truyền vào hàm khởi tạo, hoặc gọi conf"
     },
     {
       "paragraph_id": 34,
-      "start": 164.81,
-      "end": 166.87,
-      "duration": 2.06,
-      "text_snippet": "Giả Định Volatile Giúp Các Hoạt Động Phức Hợp An Toàn Luồng"
+      "start": 208.76,
+      "end": 209.46,
+      "duration": 0.7,
+      "text_snippet": "Giải pháp"
     },
     {
       "paragraph_id": 35,
-      "start": 166.87,
-      "end": 177.59,
-      "duration": 10.73,
-      "text_snippet": "Từ khóa volatile chỉ đảm bảo tính hiển thị (visibility) (các thay đổi được ghi ngay lập tức vào bộ nhớ chính và đọc ra t"
+      "start": 209.46,
+      "end": 212.26,
+      "duration": 2.8,
+      "text_snippet": "Sử dụng kỹ thuật sao chép phòng thủ:"
     },
     {
       "paragraph_id": 36,
-      "start": 177.59,
-      "end": 181.33,
-      "duration": 3.74,
-      "text_snippet": "// Still not thread-safe under concurrent access!\n    public void increment() {\n        count++; \n    }\n}\n`"
+      "start": 212.36,
+      "end": 214.74,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 37,
-      "start": 181.33,
-      "end": 185.98,
-      "duration": 4.65,
-      "text_snippet": "> Xem thêm: Ứng dụng Double-checked locking và từ khóa volatile trong thực tế, được trình bày chi tiết trong Ch.43 - Des"
+      "start": 214.69,
+      "end": 216.53,
+      "duration": 1.84,
+      "text_snippet": "Các Lỗi Thường Gặp"
     },
     {
       "paragraph_id": 38,
-      "start": 185.98,
-      "end": 188.18,
-      "duration": 2.2,
-      "text_snippet": "Không Khai Báo long Hoặc double Là volatile Trên Các JVM 32-bit"
+      "start": 216.52,
+      "end": 220.64,
+      "duration": 4.12,
+      "text_snippet": "1. Giả Định Volatile Giúp Các Hoạt Động Phức Hợp An Toàn Luồng"
     },
     {
       "paragraph_id": 39,
-      "start": 188.18,
-      "end": 196.67,
-      "duration": 8.49,
-      "text_snippet": "Nếu không có volatile, các phép đọc/ghi đối với các biến 64-bit (long, double) có thể gặp phải hiện tượng \"rách từ (word"
+      "start": 220.65,
+      "end": 235.75,
+      "duration": 15.1,
+      "text_snippet": "Từ khóa volatile chỉ đảm bảo tính hiển thị (visibility) (các thay đổi được ghi n"
     },
     {
       "paragraph_id": 40,
-      "start": 196.67,
-      "end": 199.36,
-      "duration": 2.69,
-      "text_snippet": "Tại Sao Hiện Tượng Tranh Chấp Điều Kiện Và Vấn Đề Hiển Thị Dữ Liệu Lại Xảy Ra"
+      "start": 235.75,
+      "end": 237.95,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 41,
-      "start": 199.36,
-      "end": 239.64,
-      "duration": 40.28,
-      "text_snippet": "Các lỗi đồng thời (concurrency bug) bắt nguồn sâu sắc từ cách phần cứng CPU tương tác với đặc tả bộ nhớ của JVM. Một tìn"
+      "start": 237.95,
+      "end": 246.0,
+      "duration": 8.05,
+      "text_snippet": "Xem thêm: Ứng dụng Double-checked locking và từ khóa volatile trong thực tế, đượ"
     },
     {
       "paragraph_id": 42,
-      "start": 239.64,
-      "end": 240.13,
-      "duration": 0.49,
-      "text_snippet": "Mô Hình Tư Duy"
+      "start": 246.0,
+      "end": 250.55,
+      "duration": 4.55,
+      "text_snippet": "2. Không Khai Báo long Hoặc double Là volatile Trên Các JVM 32-bit"
     },
     {
       "paragraph_id": 43,
-      "start": 240.13,
-      "end": 240.73,
-      "duration": 0.59,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 250.55,
+      "end": 268.05,
+      "duration": 17.5,
+      "text_snippet": "Nếu không có volatile, các phép đọc/ghi đối với các biến 64-bit (long, double) c"
     },
     {
       "paragraph_id": 44,
-      "start": 240.73,
-      "end": 258.37,
-      "duration": 17.64,
-      "text_snippet": "[Khoảng cách bộ nhớ đệm của tính hiển thị dữ liệu]\n-----------------------------------+\n|            Bộ nhớ chính       "
+      "start": 268.05,
+      "end": 274.35,
+      "duration": 6.3,
+      "text_snippet": "Tại Sao Hiện Tượng Tranh Chấp Điều Kiện Và Vấn Đề Hiển Thị Dữ Liệu Lại Xảy Ra"
     },
     {
       "paragraph_id": 45,
-      "start": 258.37,
-      "end": 258.86,
-      "duration": 0.49,
-      "text_snippet": "Ví Dụ Mã Nguồn"
+      "start": 274.35,
+      "end": 363.6,
+      "duration": 89.25,
+      "text_snippet": "Các lỗi đồng thời (concurrency bug) bắt nguồn sâu sắc từ cách phần cứng CPU tươn"
     },
     {
       "paragraph_id": 46,
-      "start": 258.86,
-      "end": 259.46,
-      "duration": 0.59,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 363.6,
+      "end": 365.0,
+      "duration": 1.4,
+      "text_snippet": "Mô Hình Tư Duy"
     },
     {
       "paragraph_id": 47,
-      "start": 259.46,
-      "end": 277.66,
-      "duration": 18.2,
-      "text_snippet": "public static void main(String[] args) throws InterruptedException {\n        Runnable r = () -> {\n            for (int i"
+      "start": 365.0,
+      "end": 366.4,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 48,
-      "start": 277.66,
-      "end": 278.6,
-      "duration": 0.94,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+      "start": 366.4,
+      "end": 367.8,
+      "duration": 1.4,
+      "text_snippet": "Ví Dụ Mã Nguồn"
     },
     {
       "paragraph_id": 49,
-      "start": 278.6,
-      "end": 295.51,
-      "duration": 16.91,
-      "text_snippet": "Nhiều luồng chạy xen kẽ các hoạt động đọc-sửa-ghi &rarr; Các giá trị đọc trung gian bị lỗi thời.\nLuồng ghi ngược lại giá"
+      "start": 367.8,
+      "end": 369.2,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 369.2,
+      "end": 371.3,
+      "duration": 2.1,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 371.4,
+      "end": 383.79,
+      "duration": 12.39,
+      "text_snippet": "Nhiều luồng chạy xen kẽ các hoạt động đọc-sửa-ghi → Các giá trị đọc trung gian b"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 383.79,
+      "end": 392.54,
+      "duration": 8.75,
+      "text_snippet": "Luồng ghi ngược lại giá trị lỗi thời → Các cập nhật đồng thời bị mất (Tình trạng"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 383.79,
+      "end": 390.75,
+      "duration": 6.96,
+      "text_snippet": "Bộ nhớ đệm CPU và trình biên dịch sắp xếp lại các chỉ thị lệnh → Các cập nhật cụ"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 390.75,
+      "end": 400.0,
+      "duration": 9.25,
+      "text_snippet": "Các luồng khác đọc từ bộ nhớ đệm L1/L2 cục bộ → Các luồng nhìn thấy dữ liệu lỗi "
     }
   ]
 }

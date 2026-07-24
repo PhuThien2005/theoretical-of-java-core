@@ -1,350 +1,364 @@
 {
   "lesson": "01-setup-basics",
-  "total_duration_seconds": 422.93,
-  "total_paragraphs": 49,
+  "total_duration_seconds": 423.39,
+  "total_paragraphs": 51,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 1.8,
-      "duration": 1.8,
+      "start": 0.1,
+      "end": 2.52,
+      "duration": 2.42,
       "text_snippet": "Kiến Thức Cơ Bản Về Cài Đặt"
     },
     {
       "paragraph_id": 2,
-      "start": 1.8,
-      "end": 21.24,
-      "duration": 19.44,
-      "text_snippet": "Thiết lập môi trường đúng cách và hiểu cơ chế biên dịch, thực thi của Java là nền tảng để trở thành một lập trình viên J"
+      "start": 2.48,
+      "end": 19.67,
+      "duration": 17.19,
+      "text_snippet": "Thiết lập môi trường đúng cách và hiểu cơ chế biên dịch, thực thi của Java là nề"
     },
     {
       "paragraph_id": 3,
-      "start": 21.24,
-      "end": 21.38,
-      "duration": 0.13,
-      "text_snippet": "--"
-    },
-    {
-      "paragraph_id": 4,
-      "start": 21.38,
-      "end": 22.04,
-      "duration": 0.67,
+      "start": 19.66,
+      "end": 22.46,
+      "duration": 2.8,
       "text_snippet": "JDK Và JRE"
     },
     {
-      "paragraph_id": 5,
-      "start": 22.04,
-      "end": 37.03,
-      "duration": 14.98,
-      "text_snippet": "Để chạy và xây dựng ứng dụng Java, bạn cần hiểu mối quan hệ giữa Máy Ảo Java (JVM — Java Virtual Machine), Môi Trường Th"
+      "paragraph_id": 4,
+      "start": 22.46,
+      "end": 39.28,
+      "duration": 16.82,
+      "text_snippet": "Để chạy và xây dựng ứng dụng Java, bạn cần hiểu mối quan hệ giữa Máy Ảo Java (JV"
     },
     {
-      "paragraph_id": 6,
-      "start": 37.03,
-      "end": 38.09,
-      "duration": 1.07,
+      "paragraph_id": 5,
+      "start": 39.29,
+      "end": 41.23,
+      "duration": 1.94,
       "text_snippet": "Cơ Chế Hoạt Động"
     },
     {
+      "paragraph_id": 6,
+      "start": 41.33,
+      "end": 62.79,
+      "duration": 21.46,
+      "text_snippet": "Đặc tả ngôn ngữ Java (JLS — Java Language Specification) định nghĩa cú pháp, ngữ"
+    },
+    {
       "paragraph_id": 7,
-      "start": 38.09,
-      "end": 58.8,
-      "duration": 20.71,
-      "text_snippet": "Đặc tả ngôn ngữ Java (JLS — Java Language Specification) định nghĩa cú pháp, ngữ pháp và các quy tắc biên dịch của ngôn "
+      "start": 62.79,
+      "end": 84.34,
+      "duration": 21.55,
+      "text_snippet": "JRE (Môi Trường Thực Thi Java): Là môi trường thực thi (runtime). JRE chứa JVM v"
     },
     {
       "paragraph_id": 8,
-      "start": 58.8,
-      "end": 101.22,
-      "duration": 42.42,
-      "text_snippet": "JRE (Môi Trường Thực Thi Java): Là môi trường thực thi (runtime). JRE chứa JVM và các thư viện lõi (như java.lang, java."
+      "start": 84.34,
+      "end": 113.33,
+      "duration": 28.99,
+      "text_snippet": "JDK (Bộ Công Cụ Phát Triển Java): Là môi trường phát triển. JDK là tập cha (supe"
     },
     {
       "paragraph_id": 9,
-      "start": 101.22,
-      "end": 102.35,
-      "duration": 1.13,
+      "start": 113.32,
+      "end": 115.7,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 10,
-      "start": 102.35,
-      "end": 104.08,
-      "duration": 1.73,
+      "start": 115.7,
+      "end": 117.91,
+      "duration": 2.21,
       "text_snippet": "Ẩn Dụ Quyển Sách Công Thức"
     },
     {
       "paragraph_id": 11,
-      "start": 104.08,
-      "end": 155.43,
-      "duration": 51.34,
-      "text_snippet": "JLS (Đặc tả): Đây là quyển sách công thức chính thức. Nó quy định chính xác các nguyên liệu và bước thực hiện để mô tả m"
+      "start": 118.01,
+      "end": 131.44,
+      "duration": 13.43,
+      "text_snippet": "JLS (Đặc tả): Đây là quyển sách công thức chính thức. Nó quy định chính xác các "
     },
     {
       "paragraph_id": 12,
-      "start": 155.43,
-      "end": 157.22,
-      "duration": 1.8,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+      "start": 131.44,
+      "end": 142.8,
+      "duration": 11.36,
+      "text_snippet": "JVM (Thực thi): Đây là bếp của đầu bếp và chính người đầu bếp. Đầu bếp đọc các h"
     },
     {
       "paragraph_id": 13,
-      "start": 157.22,
-      "end": 158.36,
-      "duration": 1.13,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 142.8,
+      "end": 155.9,
+      "duration": 13.1,
+      "text_snippet": "JRE (Gói Runtime): Đây là toàn bộ phòng ăn và nhà bếp của nhà hàng. Nó cung cấp "
     },
     {
       "paragraph_id": 14,
-      "start": 158.36,
-      "end": 158.49,
-      "duration": 0.13,
-      "text_snippet": "--"
+      "start": 155.9,
+      "end": 170.91,
+      "duration": 15.01,
+      "text_snippet": "JDK (Gói Phát Triển): Đây là phòng thí nghiệm khoa học thực phẩm và bếp thử nghi"
     },
     {
       "paragraph_id": 15,
-      "start": 158.49,
-      "end": 161.55,
-      "duration": 3.06,
-      "text_snippet": "Tại Sao Tên File Phải Trùng Với Tên Lớp Public"
+      "start": 170.91,
+      "end": 173.41,
+      "duration": 2.5,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
     },
     {
       "paragraph_id": 16,
-      "start": 161.55,
-      "end": 173.07,
-      "duration": 11.52,
-      "text_snippet": "Trong Java, nếu một file chứa lớp được khai báo là public, tên file phải trùng chính xác với tên lớp public đó (bao gồm "
+      "start": 173.51,
+      "end": 175.89,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 17,
-      "start": 173.07,
-      "end": 175.4,
-      "duration": 2.33,
-      "text_snippet": "Cơ Chế: Nạp Lớp Của Trình Biên Dịch"
+      "start": 175.84,
+      "end": 179.28,
+      "duration": 3.44,
+      "text_snippet": "Tại Sao Tên File Phải Trùng Với Tên Lớp Public"
     },
     {
       "paragraph_id": 18,
-      "start": 175.4,
-      "end": 184.86,
-      "duration": 9.46,
-      "text_snippet": "Ràng buộc này không phải tùy tiện — nó được thiết kế để tối ưu hóa tốc độ biên dịch thông qua cơ chế nạp và phân giải lớ"
+      "start": 179.28,
+      "end": 189.96,
+      "duration": 10.68,
+      "text_snippet": "Trong Java, nếu một file chứa lớp được khai báo là public, tên file phải trùng c"
     },
     {
       "paragraph_id": 19,
-      "start": 184.86,
-      "end": 247.39,
-      "duration": 62.53,
-      "text_snippet": "Phân giải phụ thuộc biên dịch: Khi biên dịch lớp A, nó có thể tham chiếu đến lớp B. Nếu B.class chưa tồn tại, trình biên"
+      "start": 189.95,
+      "end": 192.95,
+      "duration": 3.0,
+      "text_snippet": "Cơ Chế: Nạp Lớp Của Trình Biên Dịch"
     },
     {
       "paragraph_id": 20,
-      "start": 247.39,
-      "end": 248.99,
-      "duration": 1.6,
-      "text_snippet": "Ví Dụ Biên Dịch Thất Bại"
+      "start": 192.95,
+      "end": 200.57,
+      "duration": 7.62,
+      "text_snippet": "Ràng buộc này không phải tùy tiện — nó được thiết kế để tối ưu hóa tốc độ biên d"
     },
     {
       "paragraph_id": 21,
-      "start": 248.99,
-      "end": 254.45,
-      "duration": 5.46,
-      "text_snippet": "Nếu bạn khai báo lớp MyCoolProgram là public nhưng lưu trong file tên Runner.java:"
+      "start": 200.67,
+      "end": 210.67,
+      "duration": 10.0,
+      "text_snippet": "Phân giải phụ thuộc biên dịch: Khi biên dịch lớp A, nó có thể tham chiếu đến lớp"
     },
     {
       "paragraph_id": 22,
-      "start": 254.45,
-      "end": 255.58,
-      "duration": 1.13,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 210.62,
+      "end": 230.21,
+      "duration": 19.59,
+      "text_snippet": "Hiệu năng tìm kiếm: Nếu không có quy tắc đặt tên theo file, trình biên dịch sẽ p"
     },
     {
       "paragraph_id": 23,
-      "start": 255.58,
-      "end": 258.38,
-      "duration": 2.8,
-      "text_snippet": "Cố gắng biên dịch file này sẽ gặp lỗi sau:"
+      "start": 230.21,
+      "end": 246.26,
+      "duration": 16.05,
+      "text_snippet": "Tra cứu tức thì (O(1)): Bằng cách quy định public class B phải nằm trong B.java,"
     },
     {
       "paragraph_id": 24,
-      "start": 258.38,
-      "end": 259.51,
-      "duration": 1.13,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 246.26,
+      "end": 258.21,
+      "duration": 11.95,
+      "text_snippet": "Giới hạn một lớp public: Do yêu cầu ánh xạ 1-1 giữa tên file và tên lớp public, "
     },
     {
       "paragraph_id": 25,
-      "start": 259.51,
-      "end": 261.31,
-      "duration": 1.8,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+      "start": 258.21,
+      "end": 260.5,
+      "duration": 2.29,
+      "text_snippet": "Ví Dụ Biên Dịch Thất Bại"
     },
     {
       "paragraph_id": 26,
-      "start": 261.31,
-      "end": 262.44,
-      "duration": 1.13,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 260.6,
+      "end": 266.85,
+      "duration": 6.25,
+      "text_snippet": "Nếu bạn khai báo lớp MyCoolProgram là public nhưng lưu trong file tên Runner.jav"
     },
     {
       "paragraph_id": 27,
-      "start": 262.44,
-      "end": 262.57,
-      "duration": 0.13,
-      "text_snippet": "--"
+      "start": 266.8,
+      "end": 269.18,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 28,
-      "start": 262.57,
-      "end": 265.1,
-      "duration": 2.53,
-      "text_snippet": "Biên Dịch Và Thực Thi: Terminal Và IDE"
+      "start": 269.18,
+      "end": 272.47,
+      "duration": 3.29,
+      "text_snippet": "Cố gắng biên dịch file này sẽ gặp lỗi sau:"
     },
     {
       "paragraph_id": 29,
-      "start": 265.1,
-      "end": 276.76,
-      "duration": 11.65,
-      "text_snippet": "Có hai cách chính để biên dịch và chạy chương trình Java: dùng lệnh terminal trực tiếp hoặc dùng Môi Trường Phát Triển T"
+      "start": 272.46,
+      "end": 274.82,
+      "duration": 2.36,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 30,
-      "start": 276.76,
-      "end": 277.82,
-      "duration": 1.07,
-      "text_snippet": "Cơ Chế Hoạt Động"
-    },
-    {
-      "paragraph_id": 31,
-      "start": 277.82,
-      "end": 321.04,
-      "duration": 43.22,
-      "text_snippet": "Biên Dịch & Thực Thi Qua Terminal:\n  Bạn tương tác trực tiếp với các nhị phân JDK. Bạn chạy javac để gọi trình biên dịch"
-    },
-    {
-      "paragraph_id": 32,
-      "start": 321.04,
-      "end": 322.17,
-      "duration": 1.13,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 33,
-      "start": 322.17,
-      "end": 338.96,
-      "duration": 16.78,
-      "text_snippet": "subgraph IDE Workflow (Tự Động)\n        B1[Viết Code trong IDE] --> B2[Trình biên dịch gia tăng nền]\n        B2 --> B3[I"
-    },
-    {
-      "paragraph_id": 34,
-      "start": 338.96,
-      "end": 339.75,
-      "duration": 0.8,
-      "text_snippet": "Bảng So Sánh"
-    },
-    {
-      "paragraph_id": 35,
-      "start": 339.75,
-      "end": 360.8,
-      "duration": 21.04,
-      "text_snippet": "Terminal (javac/java) yêu cầu gọi biên dịch thủ công qua lệnh javac file.java. Bạn phải chỉ định thủ công quá trình quản"
-    },
-    {
-      "paragraph_id": 36,
-      "start": 360.8,
-      "end": 383.64,
-      "duration": 22.84,
-      "text_snippet": "IDE (IntelliJ, VS Code) hỗ trợ biên dịch gia tăng tự động trong nền. Quản lý Classpath được xử lý tự động thông qua các "
-    },
-    {
-      "paragraph_id": 37,
-      "start": 383.64,
-      "end": 386.44,
-      "duration": 2.8,
-      "text_snippet": "Ví Dụ Code: Biên Dịch Và Thực Thi Thủ Công"
-    },
-    {
-      "paragraph_id": 38,
-      "start": 386.44,
-      "end": 390.3,
-      "duration": 3.86,
-      "text_snippet": "Cùng xem cấu trúc Hello World chuẩn và các lệnh tương ứng:"
-    },
-    {
-      "paragraph_id": 39,
-      "start": 390.3,
-      "end": 391.43,
-      "duration": 1.13,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 40,
-      "start": 391.43,
-      "end": 393.36,
-      "duration": 1.93,
-      "text_snippet": "Các lệnh chạy trong terminal:"
-    },
-    {
-      "paragraph_id": 41,
-      "start": 393.36,
-      "end": 394.49,
-      "duration": 1.13,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 42,
-      "start": 394.49,
-      "end": 399.02,
-      "duration": 4.53,
-      "text_snippet": "Biên dịch file nguồn thành bytecode (.class)\n$ javac HelloWorld.java"
-    },
-    {
-      "paragraph_id": 43,
-      "start": 399.02,
-      "end": 403.75,
-      "duration": 4.73,
-      "text_snippet": "Xác nhận file .class đã được tạo\n$ ls\nHelloWorld.class  HelloWorld.java"
-    },
-    {
-      "paragraph_id": 44,
-      "start": 403.75,
-      "end": 409.81,
-      "duration": 6.06,
-      "text_snippet": "Thực thi bytecode trên JVM (KHÔNG có phần mở rộng .class)\n$ java HelloWorld\nHello, World!\n`"
-    },
-    {
-      "paragraph_id": 45,
-      "start": 409.81,
-      "end": 411.61,
-      "duration": 1.8,
+      "start": 274.82,
+      "end": 277.32,
+      "duration": 2.5,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
     },
     {
-      "paragraph_id": 46,
-      "start": 411.61,
-      "end": 412.74,
-      "duration": 1.13,
+      "paragraph_id": 31,
+      "start": 277.43,
+      "end": 279.81,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
+      "paragraph_id": 32,
+      "start": 279.75,
+      "end": 283.74,
+      "duration": 3.99,
+      "text_snippet": "Biên Dịch Và Thực Thi: Terminal Và IDE"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 283.74,
+      "end": 294.6,
+      "duration": 10.86,
+      "text_snippet": "Có hai cách chính để biên dịch và chạy chương trình Java: dùng lệnh terminal trự"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 294.6,
+      "end": 296.54,
+      "duration": 1.94,
+      "text_snippet": "Cơ Chế Hoạt Động"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 296.54,
+      "end": 315.78,
+      "duration": 19.24,
+      "text_snippet": "Biên Dịch & Thực Thi Qua Terminal: Bạn tương tác trực tiếp với các nhị phân JDK."
+    },
+    {
+      "paragraph_id": 36,
+      "start": 315.88,
+      "end": 339.12,
+      "duration": 23.24,
+      "text_snippet": "IDE Tự Động Hóa: IDE bọc các lệnh này trong giao diện đồ họa. Thay vì biên dịch "
+    },
+    {
+      "paragraph_id": 37,
+      "start": 339.11,
+      "end": 341.49,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 341.49,
+      "end": 343.22,
+      "duration": 1.73,
+      "text_snippet": "Bảng So Sánh"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 343.21,
+      "end": 365.55,
+      "duration": 22.34,
+      "text_snippet": "Terminal (javac/java) yêu cầu gọi biên dịch thủ công qua lệnh javac file.java. B"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 365.55,
+      "end": 387.75,
+      "duration": 22.2,
+      "text_snippet": "IDE (IntelliJ, VS Code) hỗ trợ biên dịch gia tăng tự động trong nền. Quản lý Cla"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 387.85,
+      "end": 391.33,
+      "duration": 3.48,
+      "text_snippet": "Ví Dụ Code: Biên Dịch Và Thực Thi Thủ Công"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 391.27,
+      "end": 395.22,
+      "duration": 3.95,
+      "text_snippet": "Cùng xem cấu trúc Hello World chuẩn và các lệnh tương ứng:"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 395.23,
+      "end": 397.61,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 397.6,
+      "end": 400.35,
+      "duration": 2.75,
+      "text_snippet": "Các lệnh chạy trong terminal:"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 400.35,
+      "end": 402.55,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 402.65,
+      "end": 405.15,
+      "duration": 2.5,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+    },
+    {
       "paragraph_id": 47,
-      "start": 412.74,
-      "end": 412.87,
-      "duration": 0.13,
-      "text_snippet": "--"
+      "start": 405.1,
+      "end": 407.46,
+      "duration": 2.36,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 48,
-      "start": 412.87,
-      "end": 414.07,
-      "duration": 1.2,
+      "start": 407.46,
+      "end": 409.49,
+      "duration": 2.03,
       "text_snippet": "Tài Liệu Tham Khảo"
     },
     {
       "paragraph_id": 49,
-      "start": 414.07,
-      "end": 422.93,
-      "duration": 8.86,
-      "text_snippet": "Oracle Java Tutorials: Getting Started\nJava Language Specification (JLS) - Class Declarations\nJVM Specification - Run-Ti"
+      "start": 409.49,
+      "end": 418.97,
+      "duration": 9.48,
+      "text_snippet": "Oracle Java Tutorials: Getting Started"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 418.96,
+      "end": 421.41,
+      "duration": 2.45,
+      "text_snippet": "Java Language Specification (JLS) - Class Declarations"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 419.06,
+      "end": 423.39,
+      "duration": 4.33,
+      "text_snippet": "JVM Specification - Run-Time Data Areas"
     }
   ]
 }

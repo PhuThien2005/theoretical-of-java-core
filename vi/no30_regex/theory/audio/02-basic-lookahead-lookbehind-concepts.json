@@ -1,511 +1,567 @@
 {
   "lesson": "02-basic-lookahead-lookbehind-concepts",
-  "total_duration_seconds": 550.85,
-  "total_paragraphs": 72,
+  "total_duration_seconds": 685.83,
+  "total_paragraphs": 80,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 1.78,
-      "duration": 1.78,
+      "start": 0.1,
+      "end": 4.52,
+      "duration": 4.42,
       "text_snippet": "Biểu Thức Chính Quy (Regular Expression) - Phần 2"
     },
     {
       "paragraph_id": 2,
-      "start": 1.78,
-      "end": 2.37,
-      "duration": 0.58,
+      "start": 4.47,
+      "end": 6.26,
+      "duration": 1.79,
       "text_snippet": "Mục Tiêu Học Tập"
     },
     {
       "paragraph_id": 3,
-      "start": 2.37,
-      "end": 9.72,
-      "duration": 7.35,
-      "text_snippet": "Tài liệu này tập trung vào một phần chuyên sâu của Biểu Thức Chính Quy (Regular Expression). Hãy nghiên cứu từng khái ni"
+      "start": 6.26,
+      "end": 18.3,
+      "duration": 12.04,
+      "text_snippet": "Tài liệu này tập trung vào một phần chuyên sâu của Biểu Thức Chính Quy (Regular "
     },
     {
       "paragraph_id": 4,
-      "start": 9.72,
-      "end": 11.0,
-      "duration": 1.27,
+      "start": 18.3,
+      "end": 21.8,
+      "duration": 3.5,
       "text_snippet": "Tóm Tắt Nội Dung (Outline Coverage)"
     },
     {
       "paragraph_id": 5,
-      "start": 11.0,
-      "end": 27.34,
-      "duration": 16.35,
-      "text_snippet": "Basic lookahead / lookbehind — Basic lookahead / lookbehind: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
+      "start": 21.8,
+      "end": 30.14,
+      "duration": 8.34,
+      "text_snippet": "Basic lookahead / lookbehind — Basic lookahead / lookbehind: Cung cấp các quy tắ"
     },
     {
       "paragraph_id": 6,
-      "start": 27.34,
-      "end": 27.41,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 30.14,
+      "end": 38.19,
+      "duration": 8.05,
+      "text_snippet": "Validate email, phone, password — Validate email, phone, password: Cung cấp các "
     },
     {
       "paragraph_id": 7,
-      "start": 27.41,
-      "end": 28.0,
-      "duration": 0.58,
-      "text_snippet": "Ghi Chú Chi Tiết"
+      "start": 38.19,
+      "end": 45.54,
+      "duration": 7.35,
+      "text_snippet": "Replace using regex — Replace using regex: Cung cấp các quy tắc và cơ chế hoạt đ"
     },
     {
       "paragraph_id": 8,
-      "start": 28.0,
-      "end": 29.42,
-      "duration": 1.42,
-      "text_snippet": "Khái niệm Lookahead / Lookbehind Cơ bản"
+      "start": 45.54,
+      "end": 52.89,
+      "duration": 7.35,
+      "text_snippet": "Split using regex — Split using regex: Cung cấp các quy tắc và cơ chế hoạt động "
     },
     {
       "paragraph_id": 9,
-      "start": 29.42,
-      "end": 39.47,
-      "duration": 10.05,
-      "text_snippet": "Lookaround (bao gồm lookahead và lookbehind) là các khẳng định có độ rộng bằng không (Zero-width assertion). Chúng so kh"
+      "start": 52.89,
+      "end": 54.29,
+      "duration": 1.4,
+      "text_snippet": "Ghi Chú Chi Tiết"
     },
     {
       "paragraph_id": 10,
-      "start": 39.47,
-      "end": 75.22,
-      "duration": 35.75,
-      "text_snippet": "Lookahead (Nhìn về phía trước):\n  - Positive Lookahead (?=pattern) (Khẳng định nhìn về phía trước): Khẳng định rằng nhữn"
+      "start": 54.29,
+      "end": 56.74,
+      "duration": 2.45,
+      "text_snippet": "Khái niệm Lookahead / Lookbehind Cơ bản"
     },
     {
       "paragraph_id": 11,
-      "start": 75.22,
-      "end": 79.84,
-      "duration": 4.62,
-      "text_snippet": "Ví dụ Code: Trích xuất các số có ký hiệu tiền tệ đi trước\n`java\nimport java.util.regex.Pattern;\nimport java.util.regex.M"
+      "start": 56.74,
+      "end": 76.34,
+      "duration": 19.6,
+      "text_snippet": "Lookaround (bao gồm lookahead và lookbehind) là các khẳng định có độ rộng bằng k"
     },
     {
       "paragraph_id": 12,
-      "start": 79.84,
-      "end": 98.56,
-      "duration": 18.71,
-      "text_snippet": "public class LookaroundExample {\n    public static void main(String[] args) {\n        String invoice = \"Prices: $100, €5"
+      "start": 76.34,
+      "end": 93.49,
+      "duration": 17.15,
+      "text_snippet": "Lookahead (Nhìn về phía trước): Positive Lookahead (?=pattern) (Khẳng định nhìn "
     },
     {
       "paragraph_id": 13,
-      "start": 98.56,
-      "end": 109.0,
-      "duration": 10.45,
-      "text_snippet": "Lỗi thường gặp: Sử dụng bộ định lượng không giới hạn bên trong Lookbehind\n`java\n// SAI: Kích hoạt ngoại lệ PatternSyntax"
+      "start": 93.49,
+      "end": 100.84,
+      "duration": 7.35,
+      "text_snippet": "Positive Lookahead (?=pattern) (Khẳng định nhìn về phía trước): Khẳng định rằng "
     },
     {
       "paragraph_id": 14,
-      "start": 109.0,
-      "end": 111.95,
-      "duration": 2.95,
-      "text_snippet": "Tại sao Lookaround là các Khẳng định có Độ rộng bằng Không (Zero-Width Assertion)"
+      "start": 100.84,
+      "end": 108.89,
+      "duration": 8.05,
+      "text_snippet": "Negative Lookahead (?!pattern) (Phủ định nhìn về phía trước): Khẳng định rằng nh"
     },
     {
       "paragraph_id": 15,
-      "start": 111.95,
-      "end": 132.67,
-      "duration": 20.72,
-      "text_snippet": "Các khẳng định lookahead và lookbehind được gọi là \"độ rộng bằng không\" vì chúng không tiêu thụ các ký tự trong chuỗi đầ"
+      "start": 108.89,
+      "end": 126.04,
+      "duration": 17.15,
+      "text_snippet": "Lookbehind (Nhìn về phía sau): Positive Lookbehind (?<=pattern) (Khẳng định nhìn"
     },
     {
       "paragraph_id": 16,
-      "start": 132.67,
-      "end": 134.31,
-      "duration": 1.64,
-      "text_snippet": "Mô hình tư duy: Điều hướng Độ rộng bằng Không"
+      "start": 126.04,
+      "end": 133.39,
+      "duration": 7.35,
+      "text_snippet": "Positive Lookbehind (?<=pattern) (Khẳng định nhìn về phía sau): Khẳng định rằng "
     },
     {
       "paragraph_id": 17,
-      "start": 134.31,
-      "end": 134.93,
-      "duration": 0.62,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 133.39,
+      "end": 141.44,
+      "duration": 8.05,
+      "text_snippet": "Negative Lookbehind (?<!pattern) (Phủ định nhìn về phía sau): Khẳng định rằng nh"
     },
     {
       "paragraph_id": 18,
-      "start": 134.93,
-      "end": 136.49,
-      "duration": 1.57,
-      "text_snippet": "Ví dụ Code: Khẳng định Không Tiêu thụ Ký tự"
+      "start": 141.44,
+      "end": 171.54,
+      "duration": 30.1,
+      "text_snippet": "Hạn chế của Lookbehind trong Java: Trong công cụ regex của Java, lookbehind có h"
     },
     {
       "paragraph_id": 19,
-      "start": 136.49,
-      "end": 137.11,
-      "duration": 0.62,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 171.54,
+      "end": 176.44,
+      "duration": 4.9,
+      "text_snippet": "Ví dụ Code: Trích xuất các số có ký hiệu tiền tệ đi trước"
     },
     {
       "paragraph_id": 20,
-      "start": 137.11,
-      "end": 157.43,
-      "duration": 20.32,
-      "text_snippet": "public class ZeroWidthDemo {\n    public static void main(String[] args) {\n        // (?=abc) checks for \"abc\" forward fr"
+      "start": 176.44,
+      "end": 177.84,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 21,
-      "start": 157.43,
-      "end": 158.41,
-      "duration": 0.98,
-      "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
+      "start": 177.94,
+      "end": 182.6,
+      "duration": 4.66,
+      "text_snippet": "Lỗi thường gặp: Sử dụng bộ định lượng không giới hạn bên trong Lookbehind"
     },
     {
       "paragraph_id": 22,
-      "start": 158.41,
-      "end": 167.48,
-      "duration": 9.07,
-      "text_snippet": "Công cụ regex đạt đến nhóm lookaround (?=pattern) &rarr; Tạm thời rẽ nhánh để đánh giá mẫu &rarr; Mẫu khớp thành công &r"
+      "start": 182.55,
+      "end": 184.93,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 23,
-      "start": 167.48,
-      "end": 169.33,
-      "duration": 1.86,
-      "text_snippet": "Tại sao Lookbehind trong Java có Hạn chế về Độ rộng"
+      "start": 184.92,
+      "end": 198.95,
+      "duration": 14.03,
+      "text_snippet": "Tại sao Lookaround là các Khẳng định có Độ rộng bằng Không (Zero-Width Assertion"
     },
     {
       "paragraph_id": 24,
-      "start": 169.33,
-      "end": 195.44,
-      "duration": 26.1,
-      "text_snippet": "Không giống như lookahead đọc về phía trước vào chuỗi chưa tiêu thụ còn lại, lookbehind yêu cầu công cụ regex phải lùi l"
+      "start": 198.95,
+      "end": 222.02,
+      "duration": 23.07,
+      "text_snippet": "Các khẳng định lookahead và lookbehind được gọi là \"độ rộng bằng không\" vì chúng"
     },
     {
       "paragraph_id": 25,
-      "start": 195.44,
-      "end": 197.48,
-      "duration": 2.04,
-      "text_snippet": "Mô hình tư duy: Hướng đi của Lookahead so với Lookbehind"
+      "start": 222.02,
+      "end": 225.62,
+      "duration": 3.6,
+      "text_snippet": "Mô hình tư duy: Điều hướng Độ rộng bằng Không"
     },
     {
       "paragraph_id": 26,
-      "start": 197.48,
-      "end": 198.09,
-      "duration": 0.62,
+      "start": 225.72,
+      "end": 228.1,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 27,
-      "start": 198.09,
-      "end": 204.5,
-      "duration": 6.41,
-      "text_snippet": "Lookbehind (?<=abc) <-- Lùi lại các bước trong bộ đệm (yêu cầu độ rộng cố định hoặc có giới hạn)\nĐầu vào: [a][b][c][x][y"
+      "start": 228.05,
+      "end": 231.54,
+      "duration": 3.49,
+      "text_snippet": "Ví dụ Code: Khẳng định Không Tiêu thụ Ký tự"
     },
     {
       "paragraph_id": 28,
-      "start": 204.5,
-      "end": 206.54,
-      "duration": 2.04,
-      "text_snippet": "Ví dụ Code: Lookbehind Có giới hạn so với Không giới hạn"
+      "start": 231.54,
+      "end": 233.92,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 29,
-      "start": 206.54,
-      "end": 207.16,
-      "duration": 0.62,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 233.91,
+      "end": 236.38,
+      "duration": 2.47,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
     },
     {
       "paragraph_id": 30,
-      "start": 207.16,
-      "end": 231.63,
-      "duration": 24.47,
-      "text_snippet": "public class LookbehindLimitDemo {\n    public static void main(String[] args) {\n        // Lookbehind có giới hạn hoạt đ"
+      "start": 236.39,
+      "end": 248.78,
+      "duration": 12.39,
+      "text_snippet": "Công cụ regex đạt đến nhóm lookaround (?=pattern) → Tạm thời rẽ nhánh để đánh gi"
     },
     {
       "paragraph_id": 31,
-      "start": 231.63,
-      "end": 232.61,
-      "duration": 0.98,
-      "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
+      "start": 248.77,
+      "end": 252.62,
+      "duration": 3.85,
+      "text_snippet": "Tại sao Lookbehind trong Java có Hạn chế về Độ rộng"
     },
     {
       "paragraph_id": 32,
-      "start": 232.61,
-      "end": 243.35,
-      "duration": 10.74,
-      "text_snippet": "Mẫu lookbehind được biên dịch &rarr; Công cụ kiểm tra xem độ rộng của mẫu có bị giới hạn hay không &rarr; Nếu không giới"
+      "start": 252.62,
+      "end": 304.77,
+      "duration": 52.15,
+      "text_snippet": "Không giống như lookahead đọc về phía trước vào chuỗi chưa tiêu thụ còn lại, loo"
     },
     {
       "paragraph_id": 33,
-      "start": 243.35,
-      "end": 243.42,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 304.77,
+      "end": 308.62,
+      "duration": 3.85,
+      "text_snippet": "Mô hình tư duy: Hướng đi của Lookahead so với Lookbehind"
     },
     {
       "paragraph_id": 34,
-      "start": 243.42,
-      "end": 244.84,
-      "duration": 1.42,
-      "text_snippet": "Xác thực email, số điện thoại, mật khẩu"
+      "start": 308.62,
+      "end": 310.02,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 35,
-      "start": 244.84,
-      "end": 250.92,
-      "duration": 6.08,
-      "text_snippet": "Xác thực là một trong những ứng dụng phổ biến nhất của biểu thức chính quy. Tuy nhiên, viết các mẫu quá lỏng lẻo hoặc qu"
+      "start": 310.02,
+      "end": 314.22,
+      "duration": 4.2,
+      "text_snippet": "Ví dụ Code: Lookbehind Có giới hạn so với Không giới hạn"
     },
     {
       "paragraph_id": 36,
-      "start": 250.92,
-      "end": 268.0,
-      "duration": 17.08,
-      "text_snippet": "Độ phức tạp của Mật khẩu: Lookahead là lựa chọn hoàn hảo để xác thực mật khẩu vì chúng cho phép bạn kiểm tra nhiều điều "
+      "start": 314.22,
+      "end": 315.62,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 37,
-      "start": 268.0,
-      "end": 271.35,
-      "duration": 3.35,
-      "text_snippet": "Ví Dụ Thực Tế: Xác thực Độ mạnh Mật khẩu qua Lookahead\n`java\nimport java.util.regex.Pattern;"
-    },
-    {
-      "paragraph_id": 38,
-      "start": 271.35,
-      "end": 287.91,
-      "duration": 16.57,
-      "text_snippet": "public class PasswordValidator {\n    // Quy tắc mật khẩu:\n    // - Phải dài ít nhất 8 ký tự\n    // - Phải chứa ít nhất m"
-    },
-    {
-      "paragraph_id": 39,
-      "start": 287.91,
-      "end": 293.99,
-      "duration": 6.08,
-      "text_snippet": "public static boolean isValidPassword(String password) {\n        if (password == null) return false;\n        return PASS"
-    },
-    {
-      "paragraph_id": 40,
-      "start": 293.99,
-      "end": 304.62,
-      "duration": 10.63,
-      "text_snippet": "public static void main(String[] args) {\n        System.out.println(isValidPassword(\"Weak12\"));       // false (quá ngắn"
-    },
-    {
-      "paragraph_id": 41,
-      "start": 304.62,
-      "end": 304.7,
-      "duration": 0.07,
-      "text_snippet": "--"
-    },
-    {
-      "paragraph_id": 42,
-      "start": 304.7,
-      "end": 306.7,
-      "duration": 2.0,
-      "text_snippet": "Thay thế bằng biểu thức chính quy (Replace using regex)"
-    },
-    {
-      "paragraph_id": 43,
-      "start": 306.7,
-      "end": 310.41,
-      "duration": 3.71,
-      "text_snippet": "Java hỗ trợ thay thế các chuỗi con khớp với một regex thông qua các phương thức của String và Matcher."
-    },
-    {
-      "paragraph_id": 44,
-      "start": 310.41,
-      "end": 332.91,
-      "duration": 22.5,
-      "text_snippet": "String.replaceAll(regex, replacement) — String.replaceAll(regex, replacement): Cung cấp các quy tắc và cơ chế hoạt động "
-    },
-    {
-      "paragraph_id": 45,
-      "start": 332.91,
-      "end": 347.15,
-      "duration": 14.24,
-      "text_snippet": "Ví dụ Code: Hoán đổi từ bằng cách sử dụng Tham chiếu ngược của Nhóm chụp\n`java\npublic class ReplaceGroup {\n    public st"
-    },
-    {
-      "paragraph_id": 46,
-      "start": 347.15,
-      "end": 351.41,
-      "duration": 4.26,
-      "text_snippet": "Ví dụ Code: Thay thế Động với appendReplacement\n`java\nimport java.util.regex.Pattern;\nimport java.util.regex.Matcher;"
-    },
-    {
-      "paragraph_id": 47,
-      "start": 351.41,
-      "end": 371.32,
-      "duration": 19.91,
-      "text_snippet": "public class DynamicReplacement {\n    public static void main(String[] args) {\n        String text = \"Double these numbe"
-    },
-    {
-      "paragraph_id": 48,
-      "start": 371.32,
-      "end": 371.39,
-      "duration": 0.07,
-      "text_snippet": "--"
-    },
-    {
-      "paragraph_id": 49,
-      "start": 371.39,
-      "end": 373.4,
-      "duration": 2.0,
-      "text_snippet": "Tách chuỗi bằng biểu thức chính quy (Split using regex)"
-    },
-    {
-      "paragraph_id": 50,
-      "start": 373.4,
-      "end": 376.71,
-      "duration": 3.31,
-      "text_snippet": "String.split(regex) tách chuỗi đầu vào xung quanh các kết quả khớp của biểu thức chính quy."
-    },
-    {
-      "paragraph_id": 51,
-      "start": 376.71,
-      "end": 388.69,
-      "duration": 11.98,
-      "text_snippet": "Lỗi Chuỗi rỗng ở Cuối: Theo mặc định, String.split(regex) hoặc String.split(regex, 0) sẽ loại bỏ toàn bộ các chuỗi rỗng "
-    },
-    {
-      "paragraph_id": 52,
-      "start": 388.69,
-      "end": 391.24,
-      "duration": 2.55,
-      "text_snippet": "Ví dụ Code: Các hành vi của Split Limit\n`java\nimport java.util.Arrays;"
-    },
-    {
-      "paragraph_id": 53,
-      "start": 391.24,
-      "end": 423.79,
-      "duration": 32.55,
-      "text_snippet": "public class SplitDemo {\n    public static void main(String[] args) {\n        String data = \"apple,banana,,orange,,\";\n  "
-    },
-    {
-      "paragraph_id": 54,
-      "start": 423.79,
-      "end": 436.13,
-      "duration": 12.34,
-      "text_snippet": "Lỗi thường gặp: Tách chuỗi theo các ký tự đặc biệt của regex mà không escape\nTách chuỗi theo dấu chấm ., dấu gạch đứng |"
-    },
-    {
-      "paragraph_id": 55,
-      "start": 436.13,
-      "end": 438.31,
-      "duration": 2.18,
-      "text_snippet": "// ĐÚNG: escape dấu chấm\nString[] good = ip.split(\"\\\\.\"); \n`"
-    },
-    {
-      "paragraph_id": 56,
-      "start": 438.31,
-      "end": 440.13,
-      "duration": 1.82,
-      "text_snippet": "Tại sao String.split Loại bỏ các Chuỗi rỗng ở Cuối"
-    },
-    {
-      "paragraph_id": 57,
-      "start": 440.13,
-      "end": 468.6,
-      "duration": 28.47,
-      "text_snippet": "Theo mặc định, phương thức String.split(regex) hoặc String.split(regex, 0) của Java được thiết kế để mang lại sự tiện lợ"
-    },
-    {
-      "paragraph_id": 58,
-      "start": 468.6,
-      "end": 470.28,
-      "duration": 1.67,
-      "text_snippet": "Mô hình tư duy: Limit Mặc định so với Limit Âm"
-    },
-    {
-      "paragraph_id": 59,
-      "start": 470.28,
-      "end": 470.9,
-      "duration": 0.62,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 60,
-      "start": 470.9,
-      "end": 476.39,
-      "duration": 5.5,
-      "text_snippet": "Tách mặc định split(\",\") hoặc split(\",\", 0):\nBước 1: Khớp các dấu phân cách -> [\"A\", \"B\", \"\", \"\"]\nBước 2: Dọn dẹp các ph"
-    },
-    {
-      "paragraph_id": 61,
-      "start": 476.39,
-      "end": 481.49,
-      "duration": 5.1,
-      "text_snippet": "Tách với limit âm split(\",\", -1):\nBước 1: Khớp các dấu phân cách -> [\"A\", \"B\", \"\", \"\"]\nBước 2: Trả về trực tiếp mảng -> "
-    },
-    {
-      "paragraph_id": 62,
-      "start": 481.49,
-      "end": 482.73,
-      "duration": 1.24,
-      "text_snippet": "Ví dụ Code: So sánh Mảng được Tách"
-    },
-    {
-      "paragraph_id": 63,
-      "start": 482.73,
-      "end": 483.35,
-      "duration": 0.62,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 64,
-      "start": 483.35,
-      "end": 500.68,
-      "duration": 17.33,
-      "text_snippet": "public class SplitExplanation {\n    public static void main(String[] args) {\n        String input = \"name,age,,\";\n      "
-    },
-    {
-      "paragraph_id": 65,
-      "start": 500.68,
-      "end": 501.66,
-      "duration": 0.98,
+      "start": 315.62,
+      "end": 317.72,
+      "duration": 2.1,
       "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
     },
     {
+      "paragraph_id": 38,
+      "start": 317.72,
+      "end": 338.37,
+      "duration": 20.65,
+      "text_snippet": "Mẫu lookbehind được biên dịch → Công cụ kiểm tra xem độ rộng của mẫu có bị giới "
+    },
+    {
+      "paragraph_id": 39,
+      "start": 338.37,
+      "end": 341.17,
+      "duration": 2.8,
+      "text_snippet": "Xác thực email, số điện thoại, mật khẩu"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 341.17,
+      "end": 353.77,
+      "duration": 12.6,
+      "text_snippet": "Xác thực là một trong những ứng dụng phổ biến nhất của biểu thức chính quy. Tuy "
+    },
+    {
+      "paragraph_id": 41,
+      "start": 353.77,
+      "end": 370.57,
+      "duration": 16.8,
+      "text_snippet": "Độ phức tạp của Mật khẩu: Lookahead là lựa chọn hoàn hảo để xác thực mật khẩu vì"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 370.57,
+      "end": 389.47,
+      "duration": 18.9,
+      "text_snippet": "Xác thực Email: Việc xác thực email thực tế (RFC 5322) quá phức tạp đối với rege"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 389.47,
+      "end": 393.67,
+      "duration": 4.2,
+      "text_snippet": "Ví Dụ Thực Tế: Xác thực Độ mạnh Mật khẩu qua Lookahead"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 393.67,
+      "end": 395.07,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 395.07,
+      "end": 398.57,
+      "duration": 3.5,
+      "text_snippet": "Thay thế bằng biểu thức chính quy (Replace using regex)"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 398.57,
+      "end": 405.92,
+      "duration": 7.35,
+      "text_snippet": "Java hỗ trợ thay thế các chuỗi con khớp với một regex thông qua các phương thức "
+    },
+    {
+      "paragraph_id": 47,
+      "start": 405.93,
+      "end": 412.58,
+      "duration": 6.65,
+      "text_snippet": "String.replaceAll(regex, replacement) — String.replaceAll(regex, replacement): C"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 412.57,
+      "end": 419.22,
+      "duration": 6.65,
+      "text_snippet": "String.replace(target, replacement) — String.replace(target, replacement): Cung "
+    },
+    {
+      "paragraph_id": 49,
+      "start": 419.22,
+      "end": 428.32,
+      "duration": 9.1,
+      "text_snippet": "Tham chiếu ngược trong Thay thế: Bạn có thể tham chiếu các nhóm đã chụp trong ch"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 428.32,
+      "end": 442.32,
+      "duration": 14.0,
+      "text_snippet": "Thay thế Nâng cao (appendReplacement/appendTail): Lớp Matcher cung cấp cơ chế th"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 442.32,
+      "end": 447.92,
+      "duration": 5.6,
+      "text_snippet": "Ví dụ Code: Hoán đổi từ bằng cách sử dụng Tham chiếu ngược của Nhóm chụp"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 447.93,
+      "end": 449.33,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 449.32,
+      "end": 452.12,
+      "duration": 2.8,
+      "text_snippet": "Ví dụ Code: Thay thế Động với appendReplacement"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 452.12,
+      "end": 453.52,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 453.52,
+      "end": 457.02,
+      "duration": 3.5,
+      "text_snippet": "Tách chuỗi bằng biểu thức chính quy (Split using regex)"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 457.02,
+      "end": 462.62,
+      "duration": 5.6,
+      "text_snippet": "String.split(regex) tách chuỗi đầu vào xung quanh các kết quả khớp của biểu thức"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 462.62,
+      "end": 470.32,
+      "duration": 7.7,
+      "text_snippet": "Lỗi Chuỗi rỗng ở Cuối: Theo mặc định, String.split(regex) hoặc String.split(rege"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 470.32,
+      "end": 485.72,
+      "duration": 15.4,
+      "text_snippet": "Tham số Limit: limit > 0: Tách chuỗi tối đa limit - 1 lần; phần tử cuối cùng chứ"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 485.72,
+      "end": 494.12,
+      "duration": 8.4,
+      "text_snippet": "limit > 0: Tách chuỗi tối đa limit - 1 lần; phần tử cuối cùng chứa toàn bộ văn b"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 494.12,
+      "end": 500.07,
+      "duration": 5.95,
+      "text_snippet": "limit < 0: Tách chuỗi nhiều lần nhất có thể, bảo toàn mọi chuỗi rỗng ở cuối."
+    },
+    {
+      "paragraph_id": 61,
+      "start": 500.07,
+      "end": 503.22,
+      "duration": 3.15,
+      "text_snippet": "Ví dụ Code: Các hành vi của Split Limit"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 503.22,
+      "end": 504.62,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 504.62,
+      "end": 510.22,
+      "duration": 5.6,
+      "text_snippet": "Lỗi thường gặp: Tách chuỗi theo các ký tự đặc biệt của regex mà không escape"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 510.22,
+      "end": 521.42,
+      "duration": 11.2,
+      "text_snippet": "Tách chuỗi theo dấu chấm ., dấu gạch đứng |, hoặc dấu hỏi ? trực tiếp mà không e"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 521.42,
+      "end": 522.82,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
       "paragraph_id": 66,
-      "start": 501.66,
-      "end": 511.45,
-      "duration": 9.79,
-      "text_snippet": "Dấu phân cách khớp ở cuối đầu vào &rarr; Công cụ tạo phần tử mảng chuỗi rỗng &rarr; Limit mặc định (0) kích hoạt quét sa"
+      "start": 522.93,
+      "end": 527.53,
+      "duration": 4.6,
+      "text_snippet": "Tại sao String.split Loại bỏ các Chuỗi rỗng ở Cuối"
     },
     {
       "paragraph_id": 67,
-      "start": 511.45,
-      "end": 511.53,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 527.48,
+      "end": 574.18,
+      "duration": 46.7,
+      "text_snippet": "Theo mặc định, phương thức String.split(regex) hoặc String.split(regex, 0) của J"
     },
     {
       "paragraph_id": 68,
-      "start": 511.53,
-      "end": 512.18,
-      "duration": 0.66,
-      "text_snippet": "Liên kết Tham khảo"
+      "start": 574.18,
+      "end": 578.38,
+      "duration": 4.2,
+      "text_snippet": "Mô hình tư duy: Limit Mặc định so với Limit Âm"
     },
     {
       "paragraph_id": 69,
-      "start": 512.18,
-      "end": 521.5,
-      "duration": 9.32,
-      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.htmlsplit(java.lang.String,int) (Tài liệu "
+      "start": 578.38,
+      "end": 580.76,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 70,
-      "start": 521.5,
-      "end": 521.58,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 580.75,
+      "end": 583.76,
+      "duration": 3.01,
+      "text_snippet": "Ví dụ Code: So sánh Mảng được Tách"
     },
     {
       "paragraph_id": 71,
-      "start": 521.58,
-      "end": 522.63,
-      "duration": 1.06,
-      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
+      "start": 583.86,
+      "end": 586.24,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 72,
-      "start": 522.63,
-      "end": 550.85,
-      "duration": 28.22,
-      "text_snippet": "Lookaround ảnh hưởng đến hiệu năng so khớp như thế nào?\n  Việc sử dụng quá nhiều lookaround lồng nhau có thể gây suy giả"
+      "start": 586.19,
+      "end": 588.67,
+      "duration": 2.48,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
+    },
+    {
+      "paragraph_id": 73,
+      "start": 588.66,
+      "end": 603.77,
+      "duration": 15.11,
+      "text_snippet": "Dấu phân cách khớp ở cuối đầu vào → Công cụ tạo phần tử mảng chuỗi rỗng → Limit "
+    },
+    {
+      "paragraph_id": 74,
+      "start": 603.78,
+      "end": 605.18,
+      "duration": 1.4,
+      "text_snippet": "Liên kết Tham khảo"
+    },
+    {
+      "paragraph_id": 75,
+      "start": 603.78,
+      "end": 621.04,
+      "duration": 17.26,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.ht"
+    },
+    {
+      "paragraph_id": 76,
+      "start": 621.14,
+      "end": 634.26,
+      "duration": 13.12,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/essential/regex/bounds.html (Tài liệu Bo"
+    },
+    {
+      "paragraph_id": 77,
+      "start": 634.21,
+      "end": 636.66,
+      "duration": 2.45,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
+    },
+    {
+      "paragraph_id": 78,
+      "start": 636.66,
+      "end": 650.76,
+      "duration": 14.1,
+      "text_snippet": "Lookaround ảnh hưởng đến hiệu năng so khớp như thế nào? Việc sử dụng quá nhiều l"
+    },
+    {
+      "paragraph_id": 79,
+      "start": 650.76,
+      "end": 670.85,
+      "duration": 20.09,
+      "text_snippet": "Tại sao lookbehind bị giới hạn ở độ rộng có giới hạn trong Java? Không giống như"
+    },
+    {
+      "paragraph_id": 80,
+      "start": 670.85,
+      "end": 685.82,
+      "duration": 14.97,
+      "text_snippet": "Làm thế nào chúng ta có thể bảo toàn tất cả các trường trống khi phân tích cú ph"
     }
   ]
 }

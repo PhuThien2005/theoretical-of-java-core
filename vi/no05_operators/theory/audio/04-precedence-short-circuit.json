@@ -1,441 +1,420 @@
 {
   "lesson": "04-precedence-short-circuit",
-  "total_duration_seconds": 354.26,
-  "total_paragraphs": 62,
+  "total_duration_seconds": 371.08,
+  "total_paragraphs": 59,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 3.93,
-      "duration": 3.93,
+      "start": 0.1,
+      "end": 12.93,
+      "duration": 12.83,
       "text_snippet": "Độ Ưu Tiên và Đánh Giá Ngắn Mạch (Precedence and Short-Circuit Evaluation)"
     },
     {
       "paragraph_id": 2,
-      "start": 3.93,
-      "end": 15.81,
-      "duration": 11.88,
-      "text_snippet": "Độ ưu tiên (precedence) của toán tử kiểm soát phần nào của biểu thức (expression) được đánh giá trước. Cơ chế đánh giá n"
+      "start": 12.93,
+      "end": 26.82,
+      "duration": 13.89,
+      "text_snippet": "Độ ưu tiên (precedence) của toán tử kiểm soát phần nào của biểu thức (expression"
     },
     {
       "paragraph_id": 3,
-      "start": 15.81,
-      "end": 17.03,
-      "duration": 1.22,
+      "start": 26.81,
+      "end": 28.21,
+      "duration": 1.4,
       "text_snippet": "Độ Ưu Tiên (Precedence)"
     },
     {
       "paragraph_id": 4,
-      "start": 17.03,
-      "end": 19.47,
-      "duration": 2.44,
+      "start": 28.21,
+      "end": 32.41,
+      "duration": 4.2,
       "text_snippet": "Độ ưu tiên là thứ tự ưu tiên giữa các toán tử."
     },
     {
       "paragraph_id": 5,
-      "start": 19.47,
-      "end": 20.37,
-      "duration": 0.9,
+      "start": 26.81,
+      "end": 29.01,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 6,
-      "start": 20.37,
-      "end": 23.5,
-      "duration": 3.13,
+      "start": 29.11,
+      "end": 33.78,
+      "duration": 4.67,
       "text_snippet": "Kết quả là 14 vì toán tử * có độ ưu tiên cao hơn toán tử +."
     },
     {
       "paragraph_id": 7,
-      "start": 23.5,
-      "end": 26.79,
-      "duration": 3.29,
+      "start": 33.74,
+      "end": 38.64,
+      "duration": 4.9,
       "text_snippet": "Dấu ngoặc đơn (parentheses) có thể ghi đè độ ưu tiên mặc định:"
     },
     {
       "paragraph_id": 8,
-      "start": 26.79,
-      "end": 27.7,
-      "duration": 0.9,
+      "start": 38.64,
+      "end": 41.02,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 9,
-      "start": 27.7,
-      "end": 29.18,
-      "duration": 1.49,
+      "start": 41.01,
+      "end": 50.55,
+      "duration": 9.54,
       "text_snippet": "Tính Kết Hợp (Associativity)"
     },
     {
       "paragraph_id": 10,
-      "start": 29.18,
-      "end": 34.01,
-      "duration": 4.83,
-      "text_snippet": "Tính kết hợp (associativity) quyết định thứ tự đánh giá khi các toán tử có cùng độ ưu tiên."
+      "start": 50.55,
+      "end": 57.2,
+      "duration": 6.65,
+      "text_snippet": "Tính kết hợp (associativity) quyết định thứ tự đánh giá khi các toán tử có cùng "
     },
     {
       "paragraph_id": 11,
-      "start": 34.01,
-      "end": 36.87,
-      "duration": 2.87,
+      "start": 50.55,
+      "end": 55.1,
+      "duration": 4.55,
       "text_snippet": "Hầu hết các toán tử số học được nhóm từ trái qua phải:"
     },
     {
       "paragraph_id": 12,
-      "start": 36.87,
-      "end": 37.78,
-      "duration": 0.9,
+      "start": 55.1,
+      "end": 56.5,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 13,
-      "start": 37.78,
-      "end": 41.28,
-      "duration": 3.5,
+      "start": 56.5,
+      "end": 60.7,
+      "duration": 4.2,
       "text_snippet": "Các toán tử gán (assignment operator) được nhóm từ -phải qua trái:"
     },
     {
       "paragraph_id": 14,
-      "start": 41.28,
-      "end": 42.18,
-      "duration": 0.9,
+      "start": 60.7,
+      "end": 62.1,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 15,
-      "start": 42.18,
-      "end": 46.53,
-      "duration": 4.35,
-      "text_snippet": "Điều này có nghĩa là phép gán b = 10 xảy ra trước, sau đó mới đến phép gán a = 10."
+      "start": 62.1,
+      "end": 69.8,
+      "duration": 7.7,
+      "text_snippet": "Điều này có nghĩa là phép gán b = 10 xảy ra trước, sau đó mới đến phép gán a = 1"
     },
     {
       "paragraph_id": 16,
-      "start": 46.53,
-      "end": 54.12,
-      "duration": 7.59,
-      "text_snippet": "Tại Sao Độ Ưu Tiên và Tính Kết Hợp Lại Quyết Định Tính Đúng Đắn Của Biểu Thức (Why Precedence and Associativity Dictate "
+      "start": 69.9,
+      "end": 87.57,
+      "duration": 17.67,
+      "text_snippet": "Tại Sao Độ Ưu Tiên và Tính Kết Hợp Lại Quyết Định Tính Đúng Đắn Của Biểu Thức (W"
     },
     {
       "paragraph_id": 17,
-      "start": 54.12,
-      "end": 104.36,
-      "duration": 50.25,
-      "text_snippet": "Độ ưu tiên và tính kết hợp quyết định cây phân tích cú pháp (parser tree) mà trình biên dịch (compiler) xây dựng để đánh"
+      "start": 87.57,
+      "end": 129.87,
+      "duration": 42.3,
+      "text_snippet": "Độ ưu tiên và tính kết hợp quyết định cây phân tích cú pháp (parser tree) mà trì"
     },
     {
       "paragraph_id": 18,
-      "start": 104.36,
-      "end": 108.4,
-      "duration": 4.03,
+      "start": 129.88,
+      "end": 135.66,
+      "duration": 5.78,
       "text_snippet": "Mô Hình Tư Duy Về Cây Phân Tích Toán Tử (Operator Parsing Tree Mental Model)"
     },
     {
       "paragraph_id": 19,
-      "start": 108.4,
-      "end": 117.68,
-      "duration": 9.29,
-      "text_snippet": "Sơ đồ này minh họa cách độ ưu tiên của toán tử xây dựng các cây phân tích cú pháp khác nhau, làm thay đổi thứ tự thực th"
+      "start": 135.65,
+      "end": 146.76,
+      "duration": 11.11,
+      "text_snippet": "Sơ đồ này minh họa cách độ ưu tiên của toán tử xây dựng các cây phân tích cú phá"
     },
     {
       "paragraph_id": 20,
-      "start": 117.68,
-      "end": 118.58,
-      "duration": 0.9,
+      "start": 146.76,
+      "end": 148.96,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 21,
-      "start": 118.58,
-      "end": 127.28,
-      "duration": 8.7,
-      "text_snippet": "subgraph \"Cây phân tích: (10 - 2) * 3\"\n        Times2[*] --> Minus2[-]\n        Times2 --> Three2[3]\n        Minus2 --> T"
+      "start": 149.06,
+      "end": 152.95,
+      "duration": 3.89,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)"
     },
     {
       "paragraph_id": 22,
-      "start": 127.28,
-      "end": 150.95,
-      "duration": 23.66,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)\nBiểu thức 10 - 2  3 được phân tích bởi trình biên dịch $\\rightarrow$ tr"
+      "start": 152.9,
+      "end": 174.22,
+      "duration": 21.32,
+      "text_snippet": "Biểu thức 10 - 2 * 3 được phân tích bởi trình biên dịch $\\rightarrow$ trình biên"
     },
     {
       "paragraph_id": 23,
-      "start": 150.95,
-      "end": 160.45,
-      "duration": 9.5,
-      "text_snippet": "Ví Dụ Minh Họa Code (Code Example)\n`java\n// Trường hợp A: Độ ưu tiên kiểm soát việc đánh giá\nint noParens = 10 - 2 * 3;\n"
+      "start": 174.22,
+      "end": 177.76,
+      "duration": 3.54,
+      "text_snippet": "Ví Dụ Minh Họa Code (Code Example)"
     },
     {
       "paragraph_id": 24,
-      "start": 160.45,
-      "end": 167.93,
-      "duration": 7.48,
-      "text_snippet": "// Trường hợp B: Dấu ngoặc đơn ghi đè độ ưu tiên\nint withParens = (10 - 2) * 3;\nSystem.out.println(withParens); // 24 (p"
+      "start": 177.76,
+      "end": 180.14,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 25,
-      "start": 167.93,
-      "end": 176.31,
-      "duration": 8.38,
-      "text_snippet": "// Trường hợp C: Tính kết hợp giải quyết tranh chấp (trái qua phải)\nint assoc = 12 / 3 / 2; // Được đánh giá là (12 / 3)"
-    },
-    {
-      "paragraph_id": 26,
-      "start": 176.31,
-      "end": 180.02,
-      "duration": 3.71,
+      "start": 180.14,
+      "end": 185.14,
+      "duration": 5.0,
       "text_snippet": "Dấu Ngoặc Đơn Cũng Dành Cho Con Người (Parentheses Are For Humans Too)"
     },
     {
+      "paragraph_id": 26,
+      "start": 185.14,
+      "end": 194.94,
+      "duration": 9.8,
+      "text_snippet": "Bạn không cần sử dụng dấu ngoặc đơn trong mọi biểu thức, nhưng nên dùng chúng kh"
+    },
+    {
       "paragraph_id": 27,
-      "start": 180.02,
-      "end": 186.87,
-      "duration": 6.84,
-      "text_snippet": "Bạn không cần sử dụng dấu ngoặc đơn trong mọi biểu thức, nhưng nên dùng chúng khi chúng giúp thể hiện rõ ràng ý đồ của d"
+      "start": 194.94,
+      "end": 196.34,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 28,
-      "start": 186.87,
-      "end": 187.77,
-      "duration": 0.9,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 196.34,
+      "end": 204.74,
+      "duration": 8.4,
+      "text_snippet": "Cách viết này dễ đọc hơn nhiều so với việc bắt người đọc phải nhớ độ ưu tiên giữ"
     },
     {
       "paragraph_id": 29,
-      "start": 187.77,
-      "end": 193.02,
-      "duration": 5.25,
-      "text_snippet": "Cách viết này dễ đọc hơn nhiều so với việc bắt người đọc phải nhớ độ ưu tiên giữa toán tử && và ||."
-    },
-    {
-      "paragraph_id": 30,
-      "start": 193.02,
-      "end": 196.05,
-      "duration": 3.02,
+      "start": 204.74,
+      "end": 208.59,
+      "duration": 3.85,
       "text_snippet": "Đánh Giá Ngắn Mạch Với Toán Tử && (Short-Circuit With &&)"
     },
     {
-      "paragraph_id": 31,
-      "start": 196.05,
-      "end": 199.81,
-      "duration": 3.77,
+      "paragraph_id": 30,
+      "start": 208.59,
+      "end": 214.89,
+      "duration": 6.3,
       "text_snippet": "Toán tử && chỉ đánh giá vế bên phải nếu vế bên trái có giá trị là true."
     },
     {
-      "paragraph_id": 32,
-      "start": 199.81,
-      "end": 200.72,
-      "duration": 0.9,
+      "paragraph_id": 31,
+      "start": 214.99,
+      "end": 217.37,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 217.31,
+      "end": 230.2,
+      "duration": 12.89,
+      "text_snippet": "Nếu biến account có giá trị là null, Java sẽ dừng đánh giá ngay lập tức. Đây là "
     },
     {
       "paragraph_id": 33,
-      "start": 200.72,
-      "end": 207.24,
-      "duration": 6.53,
-      "text_snippet": "Nếu biến account có giá trị là null, Java sẽ dừng đánh giá ngay lập tức. Đây là một mẫu lính canh (guard pattern) phổ bi"
-    },
-    {
-      "paragraph_id": 34,
-      "start": 207.24,
-      "end": 210.27,
-      "duration": 3.02,
+      "start": 230.2,
+      "end": 234.94,
+      "duration": 4.74,
       "text_snippet": "Đánh Giá Ngắn Mạch Với Toán Tử || (Short-Circuit With ||)"
     },
     {
-      "paragraph_id": 35,
-      "start": 210.27,
-      "end": 214.09,
-      "duration": 3.82,
+      "paragraph_id": 34,
+      "start": 234.94,
+      "end": 241.24,
+      "duration": 6.3,
       "text_snippet": "Toán tử || chỉ đánh giá vế bên phải nếu vế bên trái có giá trị là false."
     },
     {
-      "paragraph_id": 36,
-      "start": 214.09,
-      "end": 214.99,
-      "duration": 0.9,
+      "paragraph_id": 35,
+      "start": 234.94,
+      "end": 237.14,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 237.14,
+      "end": 242.39,
+      "duration": 5.25,
+      "text_snippet": "Nếu biến isAdmin có giá trị là true, Java sẽ không gọi phương thức hasPermission"
     },
     {
       "paragraph_id": 37,
-      "start": 214.99,
-      "end": 219.29,
-      "duration": 4.3,
-      "text_snippet": "Nếu biến isAdmin có giá trị là true, Java sẽ không gọi phương thức hasPermission."
-    },
-    {
-      "paragraph_id": 38,
-      "start": 219.29,
-      "end": 222.84,
-      "duration": 3.55,
+      "start": 242.39,
+      "end": 246.59,
+      "duration": 4.2,
       "text_snippet": "Đánh Giá Ngắn Mạch và Tác Dụng Phụ (Short-Circuit and Side Effects)"
     },
     {
+      "paragraph_id": 38,
+      "start": 246.59,
+      "end": 253.24,
+      "duration": 6.65,
+      "text_snippet": "Cơ chế ngắn mạch sẽ quyết định xem các tác dụng phụ (side effect) có xảy ra hay "
+    },
+    {
       "paragraph_id": 39,
-      "start": 222.84,
-      "end": 227.4,
-      "duration": 4.56,
-      "text_snippet": "Cơ chế ngắn mạch sẽ quyết định xem các tác dụng phụ (side effect) có xảy ra hay không."
+      "start": 253.24,
+      "end": 254.64,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 40,
-      "start": 227.4,
-      "end": 228.31,
-      "duration": 0.9,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 254.64,
+      "end": 267.94,
+      "duration": 13.3,
+      "text_snippet": "Phép toán tăng giá trị bị bỏ qua. Đây là lý do tại sao các tác dụng phụ nằm bên "
     },
     {
       "paragraph_id": 41,
-      "start": 228.31,
-      "end": 236.58,
-      "duration": 8.28,
-      "text_snippet": "Phép toán tăng giá trị bị bỏ qua. Đây là lý do tại sao các tác dụng phụ nằm bên trong các điều kiện so sánh có thể làm c"
-    },
-    {
-      "paragraph_id": 42,
-      "start": 236.58,
-      "end": 238.44,
-      "duration": 1.86,
+      "start": 268.04,
+      "end": 271.19,
+      "duration": 3.15,
       "text_snippet": "Thực Hành Tốt Nhất (Best Practices)"
     },
     {
+      "paragraph_id": 42,
+      "start": 271.14,
+      "end": 276.75,
+      "duration": 5.61,
+      "text_snippet": "Sử dụng dấu ngoặc đơn khi sự kết hợp của nhiều toán tử làm cho biểu thức trở nên"
+    },
+    {
       "paragraph_id": 43,
-      "start": 238.44,
-      "end": 261.41,
-      "duration": 22.97,
-      "text_snippet": "Sử dụng dấu ngoặc đơn khi sự kết hợp của nhiều toán tử làm cho biểu thức trở nên khó đọc nhanh.\nTránh đưa các tác dụng p"
+      "start": 276.75,
+      "end": 280.96,
+      "duration": 4.21,
+      "text_snippet": "Tránh đưa các tác dụng phụ vào bên trong các biểu thức logic phức tạp."
     },
     {
       "paragraph_id": 44,
-      "start": 261.41,
-      "end": 262.32,
-      "duration": 0.9,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 280.96,
+      "end": 284.96,
+      "duration": 4.0,
+      "text_snippet": "Sử dụng toán tử && và || cho các điều kiện thông thường."
     },
     {
       "paragraph_id": 45,
-      "start": 262.32,
-      "end": 265.07,
-      "duration": 2.76,
-      "text_snippet": "if (hasValidAge && hasEntryRight) {\n    enter();\n}\n`"
+      "start": 284.96,
+      "end": 291.97,
+      "duration": 7.01,
+      "text_snippet": "Chỉ sử dụng toán tử logic bit & và | với các giá trị boolean khi bạn thực sự có "
     },
     {
       "paragraph_id": 46,
-      "start": 265.07,
-      "end": 265.18,
-      "duration": 0.11,
-      "text_snippet": "--"
+      "start": 292.08,
+      "end": 298.0,
+      "duration": 5.92,
+      "text_snippet": "Nên ưu tiên sử dụng các biến logic đơn giản, có tên gọi rõ ràng khi một điều kiệ"
     },
     {
       "paragraph_id": 47,
-      "start": 265.18,
-      "end": 267.09,
-      "duration": 1.91,
-      "text_snippet": "Các Lỗi Thường Gặp (Common Mistakes)"
+      "start": 297.95,
+      "end": 300.33,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 48,
-      "start": 267.09,
-      "end": 270.33,
-      "duration": 3.24,
-      "text_snippet": "Lỗi 1 — Bất Ngờ Về Độ Ưu Tiên: || và && (Precedence Surprise)"
+      "start": 300.33,
+      "end": 303.55,
+      "duration": 3.22,
+      "text_snippet": "Các Lỗi Thường Gặp (Common Mistakes)"
     },
     {
       "paragraph_id": 49,
-      "start": 270.33,
-      "end": 271.23,
-      "duration": 0.9,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 303.55,
+      "end": 309.37,
+      "duration": 5.82,
+      "text_snippet": "Lỗi 1 — Bất Ngờ Về Độ Ưu Tiên: || và && (Precedence Surprise)"
     },
     {
       "paragraph_id": 50,
-      "start": 271.23,
-      "end": 278.18,
-      "duration": 6.95,
-      "text_snippet": "boolean r1 = a || b && c;    // a || (b && c) → true || false → true\nboolean r2 = (a || b) && c;  // (true || false) && "
+      "start": 309.38,
+      "end": 311.58,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 51,
-      "start": 278.18,
-      "end": 288.84,
-      "duration": 10.66,
-      "text_snippet": "// Bây giờ với b=true, c=false:\nb = true; c = false;\nboolean r3 = a || b && c;    // a || (b && c) → true || false → tru"
+      "start": 311.68,
+      "end": 320.72,
+      "duration": 9.04,
+      "text_snippet": "Toán tử && có độ ưu tiên cao hơn ||. Hãy luôn sử dụng dấu ngoặc đơn khi kết hợp "
     },
     {
       "paragraph_id": 52,
-      "start": 288.84,
-      "end": 295.64,
-      "duration": 6.79,
-      "text_snippet": "Toán tử && có độ ưu tiên cao hơn ||. Hãy luôn sử dụng dấu ngoặc đơn khi kết hợp điều kiện có cả && và || để ngăn ngừa lỗ"
-    },
-    {
-      "paragraph_id": 53,
-      "start": 295.64,
-      "end": 299.19,
-      "duration": 3.55,
+      "start": 320.71,
+      "end": 325.83,
+      "duration": 5.12,
       "text_snippet": "Lỗi 2 — Đánh Giá Ngắn Mạch Che Giấu Lỗi (Short-Circuit Hides a Bug)"
     },
     {
-      "paragraph_id": 54,
-      "start": 299.19,
-      "end": 300.09,
-      "duration": 0.9,
+      "paragraph_id": 53,
+      "start": 325.84,
+      "end": 328.22,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 328.21,
+      "end": 334.22,
+      "duration": 6.01,
+      "text_snippet": "Lỗi 3 — Lầm Tưởng Tác Dụng Phụ Luôn Luôn Chạy (Side Effect Assumed to Always Run"
     },
     {
       "paragraph_id": 55,
-      "start": 300.09,
-      "end": 315.16,
-      "duration": 15.07,
-      "text_snippet": "// Đoạn code này trông có vẻ an toàn, nhưng...\nif (arr == null | arr[index] > 0) { // toán tử | KHÔNG thực hiện đánh giá"
+      "start": 334.23,
+      "end": 336.43,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 56,
-      "start": 315.16,
-      "end": 319.46,
-      "duration": 4.3,
-      "text_snippet": "Lỗi 3 — Lầm Tưởng Tác Dụng Phụ Luôn Luôn Chạy (Side Effect Assumed to Always Run)"
+      "start": 336.43,
+      "end": 346.93,
+      "duration": 10.5,
+      "text_snippet": "Đoạn code giả định ++counter luôn được chạy sẽ hoạt động sai lệch khi isReady() "
     },
     {
       "paragraph_id": 57,
-      "start": 319.46,
-      "end": 320.36,
-      "duration": 0.9,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 346.93,
+      "end": 355.68,
+      "duration": 8.75,
+      "text_snippet": "Lỗi 4 — Nhầm Lẫn Giữa Toán Tử Gán = và So Sánh == Trong Câu Lệnh Điều Kiện (Conf"
     },
     {
       "paragraph_id": 58,
-      "start": 320.36,
-      "end": 330.44,
-      "duration": 10.08,
-      "text_snippet": "boolean ok = isReady() || (++counter > 0); // nếu isReady() trả về true, counter vẫn giữ nguyên là 0!\nSystem.out.println"
-    },
-    {
-      "paragraph_id": 59,
-      "start": 330.44,
-      "end": 338.29,
-      "duration": 7.85,
-      "text_snippet": "Đoạn code giả định ++counter luôn được chạy sẽ hoạt động sai lệch khi isReady() trả về true. Hãy tách phép tăng giá trị "
-    },
-    {
-      "paragraph_id": 60,
-      "start": 338.29,
-      "end": 344.08,
-      "duration": 5.78,
-      "text_snippet": "Lỗi 4 — Nhầm Lẫn Giữa Toán Tử Gán = và So Sánh == Trong Câu Lệnh Điều Kiện (Confusing = and == in Conditions)"
-    },
-    {
-      "paragraph_id": 61,
-      "start": 344.08,
-      "end": 344.98,
-      "duration": 0.9,
+      "start": 355.68,
+      "end": 357.08,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 62,
-      "start": 344.98,
-      "end": 354.26,
-      "duration": 9.29,
-      "text_snippet": "Java cho phép thực hiện phép gán bên trong câu lệnh điều kiện if (vì phép gán là một biểu thức có giá trị trả về), điều "
+      "paragraph_id": 59,
+      "start": 357.08,
+      "end": 371.08,
+      "duration": 14.0,
+      "text_snippet": "Java cho phép thực hiện phép gán bên trong câu lệnh điều kiện if (vì phép gán là"
     }
   ]
 }

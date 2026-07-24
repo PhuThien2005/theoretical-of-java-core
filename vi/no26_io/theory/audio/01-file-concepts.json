@@ -1,252 +1,455 @@
 {
   "lesson": "01-file-concepts",
-  "total_duration_seconds": 334.44,
-  "total_paragraphs": 35,
+  "total_duration_seconds": 398.15,
+  "total_paragraphs": 64,
   "timestamps": [
     {
       "paragraph_id": 1,
       "start": 0.0,
-      "end": 2.21,
-      "duration": 2.21,
+      "end": 4.55,
+      "duration": 4.55,
       "text_snippet": "Vào/Ra (I/O) trong Java - Phần 1 (IO in Java - Part 1)"
     },
     {
       "paragraph_id": 2,
-      "start": 2.21,
-      "end": 2.86,
-      "duration": 0.65,
+      "start": 4.55,
+      "end": 5.95,
+      "duration": 1.4,
       "text_snippet": "Mục tiêu học tập"
     },
     {
       "paragraph_id": 3,
-      "start": 2.86,
-      "end": 9.93,
-      "duration": 7.07,
-      "text_snippet": "Tài liệu này tập trung vào một phần trọng tâm của Vào/Ra (I/O) trong Java. Hãy nghiên cứu từng khái niệm dưới dạng quy t"
+      "start": 5.95,
+      "end": 18.9,
+      "duration": 12.95,
+      "text_snippet": "Tài liệu này tập trung vào một phần trọng tâm của Vào/Ra (I/O) trong Java. Hãy n"
     },
     {
       "paragraph_id": 4,
-      "start": 9.93,
-      "end": 10.62,
-      "duration": 0.69,
+      "start": 18.9,
+      "end": 20.3,
+      "duration": 1.4,
       "text_snippet": "Đề cương chi tiết"
     },
     {
       "paragraph_id": 5,
-      "start": 10.62,
-      "end": 47.68,
-      "duration": 37.06,
-      "text_snippet": "File — File: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nCreate file — Create file: Cung cấp các quy tắc"
+      "start": 20.3,
+      "end": 26.25,
+      "duration": 5.95,
+      "text_snippet": "File — File: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 6,
-      "start": 47.68,
-      "end": 48.33,
-      "duration": 0.65,
-      "text_snippet": "Ghi chú chi tiết"
+      "start": 26.35,
+      "end": 32.05,
+      "duration": 5.7,
+      "text_snippet": "Create file — Create file: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong"
     },
     {
       "paragraph_id": 7,
-      "start": 48.33,
-      "end": 58.79,
-      "duration": 10.46,
-      "text_snippet": "File\nLớp java.io.File đại diện cho một đường dẫn dẫn đến một tệp hoặc thư mục trên hệ thống tệp. Việc tạo một đối tượng "
+      "start": 32.0,
+      "end": 38.01,
+      "duration": 6.01,
+      "text_snippet": "Delete file — Delete file: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong"
     },
     {
       "paragraph_id": 8,
-      "start": 58.79,
-      "end": 59.49,
-      "duration": 0.69,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 38.01,
+      "end": 44.37,
+      "duration": 6.36,
+      "text_snippet": "Check existence — Check existence: Cung cấp các quy tắc và cơ chế hoạt động cụ t"
     },
     {
       "paragraph_id": 9,
-      "start": 59.49,
-      "end": 81.42,
-      "duration": 21.94,
-      "text_snippet": "Tạo, Xóa và Kiểm tra Tồn tại (Create, Delete, and Check Existence)\nĐể thực sự thao tác với các tệp trên đĩa, File cung c"
+      "start": 44.38,
+      "end": 51.48,
+      "duration": 7.1,
+      "text_snippet": "Read file metadata — Read file metadata: Cung cấp các quy tắc và cơ chế hoạt độn"
     },
     {
       "paragraph_id": 10,
-      "start": 81.42,
-      "end": 82.12,
-      "duration": 0.69,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 51.48,
+      "end": 57.78,
+      "duration": 6.3,
+      "text_snippet": "Create directory — Create directory: Cung cấp các quy tắc và cơ chế hoạt động cụ"
     },
     {
       "paragraph_id": 11,
-      "start": 82.12,
-      "end": 110.1,
-      "duration": 27.99,
-      "text_snippet": "public class FileBasics {\n    public static void main(String[] args) {\n        File file = new File(\"test.txt\");\n       "
+      "start": 57.88,
+      "end": 63.96,
+      "duration": 6.08,
+      "text_snippet": "InputStream — InputStream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong"
     },
     {
       "paragraph_id": 12,
-      "start": 110.1,
-      "end": 132.49,
-      "duration": 22.39,
-      "text_snippet": "Tạo thư mục và Đọc siêu dữ liệu (Create Directory and Read Metadata)\nmkdir(): Tạo thư mục được đặt tên bởi đường dẫn trừ"
+      "start": 63.9,
+      "end": 69.94,
+      "duration": 6.04,
+      "text_snippet": "OutputStream — OutputStream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể tro"
     },
     {
       "paragraph_id": 13,
-      "start": 132.49,
-      "end": 133.19,
-      "duration": 0.69,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 69.94,
+      "end": 76.23,
+      "duration": 6.29,
+      "text_snippet": "FileInputStream — FileInputStream: Cung cấp các quy tắc và cơ chế hoạt động cụ t"
     },
     {
       "paragraph_id": 14,
-      "start": 133.19,
-      "end": 152.06,
-      "duration": 18.88,
-      "text_snippet": "InputStream & OutputStream (Byte Streams)\nInputStream và OutputStream là các lớp trừu tượng đại diện cho các luồng byte "
+      "start": 76.23,
+      "end": 82.51,
+      "duration": 6.28,
+      "text_snippet": "FileOutputStream — FileOutputStream: Cung cấp các quy tắc và cơ chế hoạt động cụ"
     },
     {
       "paragraph_id": 15,
-      "start": 152.06,
-      "end": 157.13,
-      "duration": 5.07,
-      "text_snippet": "FileInputStream & FileOutputStream\nĐây là các triển khai cụ thể được sử dụng để đọc và ghi các byte từ/vào một tệp trên "
+      "start": 82.5,
+      "end": 84.34,
+      "duration": 1.84,
+      "text_snippet": "Ghi chú chi tiết"
     },
     {
       "paragraph_id": 16,
-      "start": 157.13,
-      "end": 157.82,
-      "duration": 0.69,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 84.44,
+      "end": 97.64,
+      "duration": 13.2,
+      "text_snippet": "File"
     },
     {
       "paragraph_id": 17,
-      "start": 157.82,
-      "end": 184.17,
-      "duration": 26.35,
-      "text_snippet": "public class ByteFileCopy {\n    public static void main(String[] args) {\n        // Using try-with-resources to guarante"
+      "start": 97.64,
+      "end": 101.64,
+      "duration": 4.0,
+      "text_snippet": "Lớp java.io.File đại diện cho một đường dẫn dẫn đến một tệp hoặc thư mục trên hệ"
     },
     {
       "paragraph_id": 18,
-      "start": 184.17,
-      "end": 186.87,
-      "duration": 2.7,
-      "text_snippet": "Tại sao các luồng ký tự dịch các byte và làm hỏng dữ liệu nhị phân"
+      "start": 101.64,
+      "end": 104.02,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 19,
-      "start": 186.87,
-      "end": 223.68,
-      "duration": 36.81,
-      "text_snippet": "Các luồng ký tự (character stream) (Reader và Writer) được thiết kế để xử lý dữ liệu văn bản bằng cách dịch các byte 8-b"
+      "start": 104.01,
+      "end": 109.72,
+      "duration": 5.71,
+      "text_snippet": "Tạo, Xóa và Kiểm tra Tồn tại (Create, Delete, and Check Existence)"
     },
     {
       "paragraph_id": 20,
-      "start": 223.68,
-      "end": 225.28,
-      "duration": 1.59,
-      "text_snippet": "Xử lý luồng Nhị phân so với Luồng ký tự"
+      "start": 109.73,
+      "end": 115.87,
+      "duration": 6.14,
+      "text_snippet": "Để thực sự thao tác với các tệp trên đĩa, File cung cấp các phương thức tương tá"
     },
     {
       "paragraph_id": 21,
-      "start": 225.28,
-      "end": 225.97,
-      "duration": 0.69,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 115.86,
+      "end": 124.96,
+      "duration": 9.1,
+      "text_snippet": "createNewFile(): Tạo một tệp mới, trống nếu nó chưa tồn tại. Nó trả về true nếu "
     },
     {
       "paragraph_id": 22,
-      "start": 225.97,
-      "end": 228.09,
-      "duration": 2.12,
-      "text_snippet": "Ví dụ mã nguồn: Làm hỏng dữ liệu nhị phân với Reader"
+      "start": 124.96,
+      "end": 132.66,
+      "duration": 7.7,
+      "text_snippet": "delete(): Xóa tệp hoặc thư mục. Lưu ý rằng các thư mục chỉ có thể bị xóa nếu chú"
     },
     {
       "paragraph_id": 23,
-      "start": 228.09,
-      "end": 236.18,
-      "duration": 8.09,
-      "text_snippet": "Ví dụ sau đây minh họa cách đọc dữ liệu nhị phân tùy ý (cụ thể là byte 0xFF) bằng luồng ký tự sử dụng mã hóa UTF-8 biến "
+      "start": 132.66,
+      "end": 138.96,
+      "duration": 6.3,
+      "text_snippet": "exists(): Trả về một giá trị boolean cho biết tệp hoặc thư mục có tồn tại hay kh"
     },
     {
       "paragraph_id": 24,
-      "start": 236.18,
-      "end": 236.88,
-      "duration": 0.69,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 138.96,
+      "end": 142.11,
+      "duration": 3.15,
+      "text_snippet": "isFile() / isDirectory(): Xác thực kiểu nút trên đĩa."
     },
     {
       "paragraph_id": 25,
-      "start": 236.88,
-      "end": 284.07,
-      "duration": 47.19,
-      "text_snippet": "public class BinaryCorruptionDemo {\n    public static void main(String[] args) {\n        byte[] binaryData = { (byte) 0x"
-    },
-    {
-      "paragraph_id": 26,
-      "start": 284.07,
-      "end": 285.17,
-      "duration": 1.1,
-      "text_snippet": "Chuỗi nguyên nhân - kết quả"
-    },
-    {
-      "paragraph_id": 27,
-      "start": 285.17,
-      "end": 285.86,
-      "duration": 0.69,
+      "start": 142.11,
+      "end": 143.51,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
+      "paragraph_id": 26,
+      "start": 143.61,
+      "end": 148.95,
+      "duration": 5.34,
+      "text_snippet": "Tạo thư mục và Đọc siêu dữ liệu (Create Directory and Read Metadata)"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 148.9,
+      "end": 163.59,
+      "duration": 14.69,
+      "text_snippet": "mkdir(): Tạo thư mục được đặt tên bởi đường dẫn trừu tượng này. Thất bại nếu bất"
+    },
+    {
       "paragraph_id": 28,
-      "start": 285.86,
-      "end": 285.94,
-      "duration": 0.08,
-      "text_snippet": "--"
+      "start": 163.59,
+      "end": 170.24,
+      "duration": 6.65,
+      "text_snippet": "mkdirs(): Tạo thư mục, bao gồm cả bất kỳ thư mục cha cần thiết nào nhưng chưa tồ"
     },
     {
       "paragraph_id": 29,
-      "start": 285.94,
-      "end": 286.68,
-      "duration": 0.74,
-      "text_snippet": "Các lỗi thường gặp"
+      "start": 163.59,
+      "end": 187.93,
+      "duration": 24.34,
+      "text_snippet": "Các phương thức siêu dữ liệu (metadata): length(): Trả về kích thước tệp tính bằ"
     },
     {
       "paragraph_id": 30,
-      "start": 286.68,
-      "end": 303.68,
-      "duration": 17.0,
-      "text_snippet": "Quên đóng luồng (Rò rỉ tài nguyên)\nViệc không đóng các luồng sẽ giữ cho các khóa tệp (file lock) hoặc tay cầm (handle) m"
+      "start": 187.93,
+      "end": 193.88,
+      "duration": 5.95,
+      "text_snippet": "length(): Trả về kích thước tệp tính bằng byte. Trả về 0L nếu tệp không tồn tại."
     },
     {
       "paragraph_id": 31,
-      "start": 303.68,
-      "end": 311.11,
-      "duration": 7.44,
-      "text_snippet": "Giả định new File(\"path\") sẽ tạo một tệp trên đĩa\nTạo đối tượng File không tác động lên đĩa. Bạn phải gọi createNewFile("
+      "start": 188.03,
+      "end": 193.12,
+      "duration": 5.09,
+      "text_snippet": "getName(): Trả về tên của tệp hoặc thư mục (phần cuối cùng của đường dẫn)."
     },
     {
       "paragraph_id": 32,
-      "start": 311.11,
-      "end": 318.67,
-      "duration": 7.56,
-      "text_snippet": "Xóa một thư mục không trống\nGọi directory.delete() trả về false nếu thư mục chứa các tệp hoặc các thư mục con khác. Bạn "
+      "start": 193.06,
+      "end": 196.9,
+      "duration": 3.84,
+      "text_snippet": "getAbsolutePath(): Trả về chuỗi đường dẫn tuyệt đối."
     },
     {
       "paragraph_id": 33,
-      "start": 318.67,
-      "end": 319.36,
-      "duration": 0.69,
+      "start": 196.9,
+      "end": 199.28,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 34,
-      "start": 319.36,
-      "end": 320.1,
-      "duration": 0.74,
-      "text_snippet": "Liên kết tham khảo"
+      "start": 199.28,
+      "end": 208.42,
+      "duration": 9.14,
+      "text_snippet": "InputStream & OutputStream (Byte Streams)"
     },
     {
       "paragraph_id": 35,
-      "start": 320.1,
-      "end": 334.44,
-      "duration": 14.34,
-      "text_snippet": "https://docs.oracle.com/javase/tutorial/essential/io/charstreams.html (Character Streams - Oracle Java Tutorials)\nhttps:"
+      "start": 208.41,
+      "end": 214.19,
+      "duration": 5.78,
+      "text_snippet": "InputStream và OutputStream là các lớp trừu tượng đại diện cho các luồng byte tu"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 214.19,
+      "end": 219.79,
+      "duration": 5.6,
+      "text_snippet": "read(): Đọc byte tiếp theo của dữ liệu. Trả về -1 khi đạt đến cuối luồng."
+    },
+    {
+      "paragraph_id": 37,
+      "start": 219.79,
+      "end": 222.94,
+      "duration": 3.15,
+      "text_snippet": "write(int b): Ghi byte được chỉ định vào luồng."
+    },
+    {
+      "paragraph_id": 38,
+      "start": 222.94,
+      "end": 232.04,
+      "duration": 9.1,
+      "text_snippet": "Quan trọng: Các luồng byte phải được đóng sau khi sử dụng để giải phóng các tài "
+    },
+    {
+      "paragraph_id": 39,
+      "start": 232.04,
+      "end": 233.09,
+      "duration": 1.05,
+      "text_snippet": "FileInputStream & FileOutputStream"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 233.09,
+      "end": 240.44,
+      "duration": 7.35,
+      "text_snippet": "Đây là các triển khai cụ thể được sử dụng để đọc và ghi các byte từ/vào một tệp "
+    },
+    {
+      "paragraph_id": 41,
+      "start": 240.54,
+      "end": 242.92,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 242.86,
+      "end": 257.68,
+      "duration": 14.82,
+      "text_snippet": "Tại sao các luồng ký tự dịch các byte và làm hỏng dữ liệu nhị phân"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 257.69,
+      "end": 304.95,
+      "duration": 47.26,
+      "text_snippet": "Các luồng ký tự (character stream) (Reader và Writer) được thiết kế để xử lý dữ "
+    },
+    {
+      "paragraph_id": 44,
+      "start": 304.95,
+      "end": 308.45,
+      "duration": 3.5,
+      "text_snippet": "Xử lý luồng Nhị phân so với Luồng ký tự"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 304.95,
+      "end": 307.15,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 307.15,
+      "end": 311.35,
+      "duration": 4.2,
+      "text_snippet": "Ví dụ mã nguồn: Làm hỏng dữ liệu nhị phân với Reader"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 311.35,
+      "end": 327.45,
+      "duration": 16.1,
+      "text_snippet": "Ví dụ sau đây minh họa cách đọc dữ liệu nhị phân tùy ý (cụ thể là byte 0xFF) bằn"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 327.45,
+      "end": 328.85,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 328.85,
+      "end": 330.95,
+      "duration": 2.1,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 330.95,
+      "end": 332.35,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 332.35,
+      "end": 333.75,
+      "duration": 1.4,
+      "text_snippet": "Các lỗi thường gặp"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 333.75,
+      "end": 336.55,
+      "duration": 2.8,
+      "text_snippet": "1. Quên đóng luồng (Rò rỉ tài nguyên)"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 336.55,
+      "end": 348.1,
+      "duration": 11.55,
+      "text_snippet": "Việc không đóng các luồng sẽ giữ cho các khóa tệp (file lock) hoặc tay cầm (hand"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 348.1,
+      "end": 354.75,
+      "duration": 6.65,
+      "text_snippet": "Tệ: Đóng luồng thủ công trong khối try (nếu xảy ra ngoại lệ, việc đóng sẽ bị bỏ "
+    },
+    {
+      "paragraph_id": 55,
+      "start": 354.75,
+      "end": 363.85,
+      "duration": 9.1,
+      "text_snippet": "Tốt: Sử dụng try-with-resources (được giới thiệu từ Java 7). Bất kỳ lớp nào triể"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 363.85,
+      "end": 367.7,
+      "duration": 3.85,
+      "text_snippet": "2. Giả định new File(\"path\") sẽ tạo một tệp trên đĩa"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 367.7,
+      "end": 375.75,
+      "duration": 8.05,
+      "text_snippet": "Tạo đối tượng File không tác động lên đĩa. Bạn phải gọi createNewFile(), mkdir()"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 375.75,
+      "end": 378.2,
+      "duration": 2.45,
+      "text_snippet": "3. Xóa một thư mục không trống"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 378.2,
+      "end": 390.1,
+      "duration": 11.9,
+      "text_snippet": "Gọi directory.delete() trả về false nếu thư mục chứa các tệp hoặc các thư mục co"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 390.1,
+      "end": 391.5,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 391.5,
+      "end": 392.9,
+      "duration": 1.4,
+      "text_snippet": "Liên kết tham khảo"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 392.9,
+      "end": 395.35,
+      "duration": 2.45,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/essential/io/charstreams.html (Character"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 395.35,
+      "end": 396.75,
+      "duration": 1.4,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/Reader.html"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 396.75,
+      "end": 398.15,
+      "duration": 1.4,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/InputStream"
     }
   ]
 }

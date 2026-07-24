@@ -1,560 +1,728 @@
 {
   "lesson": "01-socket-programming-concepts",
-  "total_duration_seconds": 668.38,
-  "total_paragraphs": 79,
+  "total_duration_seconds": 836.45,
+  "total_paragraphs": 103,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 1.27,
-      "duration": 1.27,
+      "start": 0.1,
+      "end": 3.49,
+      "duration": 3.39,
       "text_snippet": "Lập Trình Mạng (Networking) - Phần 1"
     },
     {
       "paragraph_id": 2,
-      "start": 1.27,
-      "end": 1.84,
-      "duration": 0.57,
+      "start": 3.44,
+      "end": 5.23,
+      "duration": 1.79,
       "text_snippet": "Mục Tiêu Học Tập"
     },
     {
       "paragraph_id": 3,
-      "start": 1.84,
-      "end": 8.51,
-      "duration": 6.67,
-      "text_snippet": "Tài liệu này tập trung vào một phần chuyên sâu của Lập Trình Mạng (Networking). Hãy nghiên cứu từng khái niệm dưới dạng "
+      "start": 5.22,
+      "end": 16.42,
+      "duration": 11.2,
+      "text_snippet": "Tài liệu này tập trung vào một phần chuyên sâu của Lập Trình Mạng (Networking). "
     },
     {
       "paragraph_id": 4,
-      "start": 8.51,
-      "end": 9.75,
-      "duration": 1.24,
+      "start": 16.43,
+      "end": 19.93,
+      "duration": 3.5,
       "text_snippet": "Tóm Tắt Nội Dung (Outline Coverage)"
     },
     {
       "paragraph_id": 5,
-      "start": 9.75,
-      "end": 41.07,
-      "duration": 31.32,
-      "text_snippet": "Socket programming — Socket programming: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nTCP socket — TCP so"
+      "start": 19.93,
+      "end": 26.31,
+      "duration": 6.38,
+      "text_snippet": "Socket programming — Socket programming: Cung cấp các quy tắc và cơ chế hoạt độn"
     },
     {
       "paragraph_id": 6,
-      "start": 41.07,
-      "end": 41.64,
-      "duration": 0.57,
-      "text_snippet": "Ghi Chú Chi Tiết"
+      "start": 26.4,
+      "end": 32.99,
+      "duration": 6.59,
+      "text_snippet": "TCP socket — TCP socket: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong J"
     },
     {
       "paragraph_id": 7,
-      "start": 41.64,
-      "end": 42.94,
-      "duration": 1.31,
-      "text_snippet": "Lập trình Socket (Socket programming)"
+      "start": 32.94,
+      "end": 44.93,
+      "duration": 11.99,
+      "text_snippet": "UDP socket — UDP socket: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong J"
     },
     {
       "paragraph_id": 8,
-      "start": 42.94,
-      "end": 45.13,
-      "duration": 2.19,
-      "text_snippet": "Một socket là một đầu cuối (endpoint) dành cho giao tiếp mạng."
+      "start": 44.92,
+      "end": 50.87,
+      "duration": 5.95,
+      "text_snippet": "Socket — Socket: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 9,
-      "start": 45.13,
-      "end": 52.9,
-      "duration": 7.77,
-      "text_snippet": "Kiểm tra thực tế:\nĐịnh nghĩa Lập trình Socket trong một câu.\nNhận biết Lập trình Socket trong mã nguồn, lệnh, tài liệu h"
+      "start": 44.92,
+      "end": 50.91,
+      "duration": 5.99,
+      "text_snippet": "ServerSocket — ServerSocket: Cung cấp các quy tắc và cơ chế hoạt động cụ thể tro"
     },
     {
       "paragraph_id": 10,
-      "start": 52.9,
-      "end": 57.28,
-      "duration": 4.38,
-      "text_snippet": "Mô hình tư duy hoặc ví dụ nhỏ:\nKhi đọc mã nguồn, hãy hỏi: Lập trình Socket thay đổi, cho phép, từ chối, hoặc làm rõ điều"
+      "start": 50.91,
+      "end": 56.92,
+      "duration": 6.01,
+      "text_snippet": "DatagramSocket — DatagramSocket: Cung cấp các quy tắc và cơ chế hoạt động cụ thể"
     },
     {
       "paragraph_id": 11,
-      "start": 57.28,
-      "end": 57.63,
-      "duration": 0.35,
-      "text_snippet": "Socket TCP"
+      "start": 57.02,
+      "end": 64.42,
+      "duration": 7.4,
+      "text_snippet": "InetAddress — Lớp đại diện cho địa chỉ IP (IPv4 hoặc IPv6) trong lập trình mạng "
     },
     {
       "paragraph_id": 12,
-      "start": 57.63,
-      "end": 60.39,
-      "duration": 2.75,
-      "text_snippet": "Một socket TCP đại diện cho một đầu cuối giao tiếp mạng sử dụng giao thức TCP."
+      "start": 64.38,
+      "end": 70.73,
+      "duration": 6.35,
+      "text_snippet": "URL — Định dạng địa chỉ tài nguyên thống nhất trên mạng (Uniform Resource Locato"
     },
     {
       "paragraph_id": 13,
-      "start": 60.39,
-      "end": 67.52,
-      "duration": 7.13,
-      "text_snippet": "Kiểm tra thực tế:\nĐịnh nghĩa Socket TCP trong một câu.\nNhận biết Socket TCP trong mã nguồn, lệnh, tài liệu hoặc câu hỏi "
+      "start": 70.72,
+      "end": 77.93,
+      "duration": 7.21,
+      "text_snippet": "URI — Định danh tài nguyên thống nhất (Uniform Resource Identifier) tổng quát hơ"
     },
     {
       "paragraph_id": 14,
-      "start": 67.52,
-      "end": 71.69,
-      "duration": 4.17,
-      "text_snippet": "Mô hình tư duy hoặc ví dụ nhỏ:\nKhi đọc mã nguồn, hãy hỏi: Socket TCP thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?"
+      "start": 77.94,
+      "end": 85.24,
+      "duration": 7.3,
+      "text_snippet": "Basic HTTP request — Basic HTTP request: Cung cấp các quy tắc và cơ chế hoạt độn"
     },
     {
       "paragraph_id": 15,
-      "start": 71.69,
-      "end": 72.04,
-      "duration": 0.35,
-      "text_snippet": "Socket UDP"
+      "start": 85.24,
+      "end": 87.06,
+      "duration": 1.82,
+      "text_snippet": "Ghi Chú Chi Tiết"
     },
     {
       "paragraph_id": 16,
-      "start": 72.04,
-      "end": 74.8,
-      "duration": 2.75,
-      "text_snippet": "Một socket UDP đại diện cho một đầu cuối giao tiếp mạng sử dụng giao thức UDP."
+      "start": 87.16,
+      "end": 90.52,
+      "duration": 3.36,
+      "text_snippet": "Lập trình Socket (Socket programming)"
     },
     {
       "paragraph_id": 17,
-      "start": 74.8,
-      "end": 81.93,
-      "duration": 7.13,
-      "text_snippet": "Kiểm tra thực tế:\nĐịnh nghĩa Socket UDP trong một câu.\nNhận biết Socket UDP trong mã nguồn, lệnh, tài liệu hoặc câu hỏi "
+      "start": 90.47,
+      "end": 95.12,
+      "duration": 4.65,
+      "text_snippet": "Một socket là một đầu cuối (endpoint) dành cho giao tiếp mạng."
     },
     {
       "paragraph_id": 18,
-      "start": 81.93,
-      "end": 86.1,
-      "duration": 4.17,
-      "text_snippet": "Mô hình tư duy hoặc ví dụ nhỏ:\nKhi đọc mã nguồn, hãy hỏi: Socket UDP thay đổi, cho phép, từ chối, hoặc làm rõ điều gì?"
+      "start": 95.12,
+      "end": 97.22,
+      "duration": 2.1,
+      "text_snippet": "Kiểm tra thực tế:"
     },
     {
       "paragraph_id": 19,
-      "start": 86.1,
-      "end": 87.93,
-      "duration": 1.84,
-      "text_snippet": "Tại sao Bắt tay TCP Khác với UDP Không hướng Kết nối"
+      "start": 97.22,
+      "end": 100.14,
+      "duration": 2.92,
+      "text_snippet": "Định nghĩa Lập trình Socket trong một câu."
     },
     {
       "paragraph_id": 20,
-      "start": 87.93,
-      "end": 129.22,
-      "duration": 41.28,
-      "text_snippet": "Giao thức Điều khiển Truyền vận (Transmission Control Protocol - TCP) là một giao thức truyền vận hướng kết nối, đáng ti"
+      "start": 100.15,
+      "end": 105.5,
+      "duration": 5.35,
+      "text_snippet": "Nhận biết Lập trình Socket trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn"
     },
     {
       "paragraph_id": 21,
-      "start": 129.22,
-      "end": 152.07,
-      "duration": 22.85,
-      "text_snippet": "Mô hình tư duy: Kết nối TCP so với Gửi thư UDP\n`mermaid\nflowchart TD\n    subgraph TCP Connection [TCP: Hướng Kết nối (Cu"
+      "start": 105.6,
+      "end": 110.82,
+      "duration": 5.22,
+      "text_snippet": "Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến Lập trình Socket."
     },
     {
       "paragraph_id": 22,
-      "start": 152.07,
-      "end": 164.64,
-      "duration": 12.57,
-      "text_snippet": "Ví dụ Code: Kết nối TCP so với Nhận trực tiếp UDP\n`java\n// TCP ServerSocket blocks waiting for handshake connection\ntry "
+      "start": 110.78,
+      "end": 113.75,
+      "duration": 2.97,
+      "text_snippet": "Mô hình tư duy hoặc ví dụ nhỏ:"
     },
     {
       "paragraph_id": 23,
-      "start": 164.64,
-      "end": 179.44,
-      "duration": 14.8,
-      "text_snippet": "// UDP DatagramSocket receives packets without handshake\ntry (java.net.DatagramSocket udpSocket = new java.net.DatagramS"
+      "start": 113.75,
+      "end": 123.09,
+      "duration": 9.34,
+      "text_snippet": "Khi đọc mã nguồn, hãy hỏi: Lập trình Socket thay đổi, cho phép, từ chối, hoặc là"
     },
     {
       "paragraph_id": 24,
-      "start": 179.44,
-      "end": 193.39,
-      "duration": 13.95,
-      "text_snippet": "Chuỗi Nguyên nhân - Kết quả\nYêu cầu kết nối socket TCP được gửi &rarr; Máy khách và máy chủ thực hiện bắt tay 3 bước &ra"
+      "start": 123.09,
+      "end": 128.59,
+      "duration": 5.5,
+      "text_snippet": "Socket TCP"
     },
     {
       "paragraph_id": 25,
-      "start": 193.39,
-      "end": 193.46,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 128.59,
+      "end": 134.54,
+      "duration": 5.95,
+      "text_snippet": "Một socket TCP đại diện cho một đầu cuối giao tiếp mạng sử dụng giao thức TCP."
     },
     {
       "paragraph_id": 26,
-      "start": 193.46,
-      "end": 193.67,
-      "duration": 0.21,
-      "text_snippet": "Socket"
+      "start": 128.69,
+      "end": 130.79,
+      "duration": 2.1,
+      "text_snippet": "Kiểm tra thực tế:"
     },
     {
       "paragraph_id": 27,
-      "start": 193.67,
-      "end": 195.68,
-      "duration": 2.01,
-      "text_snippet": "Một socket là một đầu cuối (endpoint) cho giao tiếp mạng."
+      "start": 130.74,
+      "end": 133.93,
+      "duration": 3.19,
+      "text_snippet": "Định nghĩa Socket TCP trong một câu."
     },
     {
       "paragraph_id": 28,
-      "start": 195.68,
-      "end": 196.11,
-      "duration": 0.42,
-      "text_snippet": "ServerSocket"
+      "start": 133.93,
+      "end": 139.48,
+      "duration": 5.55,
+      "text_snippet": "Nhận biết Socket TCP trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn."
     },
     {
       "paragraph_id": 29,
-      "start": 196.11,
-      "end": 198.47,
-      "duration": 2.37,
-      "text_snippet": "Một ServerSocket lắng nghe các kết nối đến từ các socket máy khách."
+      "start": 139.47,
+      "end": 144.91,
+      "duration": 5.44,
+      "text_snippet": "Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến Socket TCP."
     },
     {
       "paragraph_id": 30,
-      "start": 198.47,
-      "end": 201.44,
-      "duration": 2.97,
-      "text_snippet": "Tại sao các Hoạt động Socket gây Chặn không được Chạy trên Luồng chính (Main Thread)"
+      "start": 144.91,
+      "end": 147.72,
+      "duration": 2.81,
+      "text_snippet": "Mô hình tư duy hoặc ví dụ nhỏ:"
     },
     {
       "paragraph_id": 31,
-      "start": 201.44,
-      "end": 241.31,
-      "duration": 39.87,
-      "text_snippet": "Các hoạt động mạng trong I/O cổ điển của Java (sockets) về bản chất là hoạt động gây chặn (blocking). Các phương thức nh"
+      "start": 147.82,
+      "end": 157.31,
+      "duration": 9.49,
+      "text_snippet": "Khi đọc mã nguồn, hãy hỏi: Socket TCP thay đổi, cho phép, từ chối, hoặc làm rõ đ"
     },
     {
       "paragraph_id": 32,
-      "start": 241.31,
-      "end": 259.07,
-      "duration": 17.76,
-      "text_snippet": "Mô hình tư duy: Chấp nhận Kết nối Đa luồng\n`\nVòng lặp Luồng chính (Main Thread Loop)\n      |\n      v\nserverSocket.accept"
+      "start": 157.31,
+      "end": 162.89,
+      "duration": 5.58,
+      "text_snippet": "Socket UDP"
     },
     {
       "paragraph_id": 33,
-      "start": 259.07,
-      "end": 262.85,
-      "duration": 3.78,
-      "text_snippet": "Ví dụ Code: Máy chủ Echo Đa luồng\n`java\nimport java.io.*;\nimport java.net.*;\nimport java.util.concurrent.*;"
+      "start": 162.89,
+      "end": 168.84,
+      "duration": 5.95,
+      "text_snippet": "Một socket UDP đại diện cho một đầu cuối giao tiếp mạng sử dụng giao thức UDP."
     },
     {
       "paragraph_id": 34,
-      "start": 262.85,
-      "end": 273.2,
-      "duration": 10.35,
-      "text_snippet": "public class MultiThreadedServer {\n    public static void main(String[] args) throws IOException {\n        ServerSocket "
+      "start": 162.89,
+      "end": 164.99,
+      "duration": 2.1,
+      "text_snippet": "Kiểm tra thực tế:"
     },
     {
       "paragraph_id": 35,
-      "start": 273.2,
-      "end": 290.29,
-      "duration": 17.09,
-      "text_snippet": "while (!Thread.currentThread().isInterrupted()) {\n            try {\n                // Luồng chính bị chặn tại đây, nhưn"
+      "start": 164.99,
+      "end": 168.19,
+      "duration": 3.2,
+      "text_snippet": "Định nghĩa Socket UDP trong một câu."
     },
     {
       "paragraph_id": 36,
-      "start": 290.29,
-      "end": 306.61,
-      "duration": 16.32,
-      "text_snippet": "private static void handleClient(Socket socket) {\n        try (BufferedReader in = new BufferedReader(new InputStreamRea"
+      "start": 168.19,
+      "end": 173.44,
+      "duration": 5.25,
+      "text_snippet": "Nhận biết Socket UDP trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn."
     },
     {
       "paragraph_id": 37,
-      "start": 306.61,
-      "end": 321.97,
-      "duration": 15.36,
-      "text_snippet": "Chuỗi Nguyên nhân - Kết quả\nHoạt động accept/read của Socket chạy trên luồng chính &rarr; Luồng thực thi bị đình chỉ để "
+      "start": 173.44,
+      "end": 178.69,
+      "duration": 5.25,
+      "text_snippet": "Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến Socket UDP."
     },
     {
       "paragraph_id": 38,
-      "start": 321.97,
-      "end": 322.04,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 178.69,
+      "end": 181.49,
+      "duration": 2.8,
+      "text_snippet": "Mô hình tư duy hoặc ví dụ nhỏ:"
     },
     {
       "paragraph_id": 39,
-      "start": 322.04,
-      "end": 324.16,
-      "duration": 2.12,
-      "text_snippet": "Tại sao các Socket và Luồng dữ liệu phải được Đóng đúng cách"
+      "start": 181.49,
+      "end": 188.14,
+      "duration": 6.65,
+      "text_snippet": "Khi đọc mã nguồn, hãy hỏi: Socket UDP thay đổi, cho phép, từ chối, hoặc làm rõ đ"
     },
     {
       "paragraph_id": 40,
-      "start": 324.16,
-      "end": 360.6,
-      "duration": 36.45,
-      "text_snippet": "Mỗi socket mạng Socket and ServerSocket khi mở ra đều được cấp phát một bộ mô tả tệp (File descriptor) tương ứng trong n"
+      "start": 188.14,
+      "end": 192.34,
+      "duration": 4.2,
+      "text_snippet": "Tại sao Bắt tay TCP Khác với UDP Không hướng Kết nối"
     },
     {
       "paragraph_id": 41,
-      "start": 360.6,
-      "end": 377.91,
-      "duration": 17.3,
-      "text_snippet": "Mô hình tư duy: Tích lũy Bộ mô tả Tệp trong Nhân hệ điều hành\n`\nSocket ứng dụng JVM\n      | (Mở kết nối)\n      v\nNhân OS"
+      "start": 192.44,
+      "end": 261.29,
+      "duration": 68.85,
+      "text_snippet": "Giao thức Điều khiển Truyền vận (Transmission Control Protocol - TCP) là một gia"
     },
     {
       "paragraph_id": 42,
-      "start": 377.91,
-      "end": 380.52,
-      "duration": 2.61,
-      "text_snippet": "Ví dụ Code: Đóng Kết nối An sau\n`java\nimport java.io.*;\nimport java.net.*;"
+      "start": 261.29,
+      "end": 266.09,
+      "duration": 4.8,
+      "text_snippet": "Mô hình tư duy: Kết nối TCP so với Gửi thư UDP"
     },
     {
       "paragraph_id": 43,
-      "start": 380.52,
-      "end": 406.55,
-      "duration": 26.03,
-      "text_snippet": "public class SocketClosureDemo {\n    public static void main(String[] args) {\n        // Try-with-resources đảm bảo bộ m"
+      "start": 266.09,
+      "end": 268.47,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 44,
-      "start": 406.55,
-      "end": 421.24,
-      "duration": 14.69,
-      "text_snippet": "Chuỗi Nguyên nhân - Kết quả\nKết nối mạng kết thúc mà không đóng socket &rarr; Nhân OS duy trì cấp phát bộ mô tả tệp và l"
+      "start": 268.46,
+      "end": 273.3,
+      "duration": 4.84,
+      "text_snippet": "Ví dụ Code: Kết nối TCP so với Nhận trực tiếp UDP"
     },
     {
       "paragraph_id": 45,
-      "start": 421.24,
-      "end": 421.31,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 273.3,
+      "end": 275.5,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 46,
-      "start": 421.31,
-      "end": 421.81,
-      "duration": 0.49,
-      "text_snippet": "DatagramSocket"
+      "start": 275.6,
+      "end": 278.08,
+      "duration": 2.48,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
     },
     {
       "paragraph_id": 47,
-      "start": 421.81,
-      "end": 424.17,
-      "duration": 2.37,
-      "text_snippet": "DatagramSocket là một socket để gửi hoặc nhận các gói tin datagram."
+      "start": 278.02,
+      "end": 296.37,
+      "duration": 18.35,
+      "text_snippet": "Yêu cầu kết nối socket TCP được gửi → Máy khách và máy chủ thực hiện bắt tay 3 b"
     },
     {
       "paragraph_id": 48,
-      "start": 424.17,
-      "end": 424.56,
-      "duration": 0.39,
-      "text_snippet": "InetAddress"
+      "start": 296.38,
+      "end": 302.48,
+      "duration": 6.1,
+      "text_snippet": "Socket"
     },
     {
       "paragraph_id": 49,
-      "start": 424.56,
-      "end": 426.82,
-      "duration": 2.26,
-      "text_snippet": "Lớp InetAddress đại diện cho một địa chỉ IP (Internet Protocol)."
+      "start": 302.48,
+      "end": 306.33,
+      "duration": 3.85,
+      "text_snippet": "Một socket là một đầu cuối (endpoint) cho giao tiếp mạng."
     },
     {
       "paragraph_id": 50,
-      "start": 426.82,
-      "end": 426.93,
-      "duration": 0.11,
-      "text_snippet": "URL"
+      "start": 306.32,
+      "end": 306.72,
+      "duration": 0.4,
+      "text_snippet": "ServerSocket"
     },
     {
       "paragraph_id": 51,
-      "start": 426.93,
-      "end": 429.93,
-      "duration": 3.0,
-      "text_snippet": "Lớp URL đại diện cho một Bộ định vị Tài nguyên Thống nhất (Uniform Resource Locator)."
+      "start": 302.48,
+      "end": 307.03,
+      "duration": 4.55,
+      "text_snippet": "Một ServerSocket lắng nghe các kết nối đến từ các socket máy khách."
     },
     {
       "paragraph_id": 52,
-      "start": 429.93,
-      "end": 430.03,
-      "duration": 0.11,
-      "text_snippet": "URI"
+      "start": 307.03,
+      "end": 312.63,
+      "duration": 5.6,
+      "text_snippet": "Tại sao các Hoạt động Socket gây Chặn không được Chạy trên Luồng chính (Main Thr"
     },
     {
       "paragraph_id": 53,
-      "start": 430.03,
-      "end": 433.21,
-      "duration": 3.18,
-      "text_snippet": "Lớp URI đại diện cho một Mã định danh Tài nguyên Thống nhất (Uniform Resource Identifier)."
+      "start": 312.62,
+      "end": 392.07,
+      "duration": 79.45,
+      "text_snippet": "Các hoạt động mạng trong I/O cổ điển của Java (sockets) về bản chất là hoạt động"
     },
     {
       "paragraph_id": 54,
-      "start": 433.21,
-      "end": 435.47,
-      "duration": 2.26,
-      "text_snippet": "Tại sao Java 20 Khai tử các Hàm khởi tạo URL để Ưu tiên dùng URI"
+      "start": 392.08,
+      "end": 395.58,
+      "duration": 3.5,
+      "text_snippet": "Mô hình tư duy: Chấp nhận Kết nối Đa luồng"
     },
     {
       "paragraph_id": 55,
-      "start": 435.47,
-      "end": 485.34,
-      "duration": 49.87,
-      "text_snippet": "Một Mã định danh Tài nguyên Thống nhất (Uniform Resource Identifier - URI) là một biểu diễn chuỗi dựa thuần túy trên cú "
+      "start": 395.58,
+      "end": 396.98,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 56,
-      "start": 485.34,
-      "end": 492.82,
-      "duration": 7.49,
-      "text_snippet": "Mô hình tư duy: URI chỉ kiểm tra Cú pháp so với URL phụ thuộc vào Mạng\n`\nSử dụng Hàm khởi tạo URL (Không an sau):\nnew UR"
+      "start": 397.08,
+      "end": 400.41,
+      "duration": 3.33,
+      "text_snippet": "Ví dụ Code: Máy chủ Echo Đa luồng"
     },
     {
       "paragraph_id": 57,
-      "start": 492.82,
-      "end": 500.63,
-      "duration": 7.8,
-      "text_snippet": "Sử dụng URI và chuyển đổi sang URL (An toàn):\nURI.create(\"https://example.com\") ---> Chỉ phân tích cú pháp cục bộ (Nhanh"
+      "start": 400.35,
+      "end": 402.73,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 58,
-      "start": 500.63,
-      "end": 502.78,
-      "duration": 2.15,
-      "text_snippet": "Ví dụ Code: Kiểm tra Cú pháp với URI\n`java\nimport java.net.*;"
+      "start": 402.73,
+      "end": 405.22,
+      "duration": 2.49,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
     },
     {
       "paragraph_id": 59,
-      "start": 502.78,
-      "end": 511.33,
-      "duration": 8.55,
-      "text_snippet": "public class UrlUriDemo {\n    public static void main(String[] args) throws Exception {\n        // ĐÃ KHAI TỬ từ Java 20"
+      "start": 405.21,
+      "end": 423.71,
+      "duration": 18.5,
+      "text_snippet": "Hoạt động accept/read của Socket chạy trên luồng chính → Luồng thực thi bị đình "
     },
     {
       "paragraph_id": 60,
-      "start": 511.33,
-      "end": 522.84,
-      "duration": 11.51,
-      "text_snippet": "// KHUYÊN DÙNG: Chỉ kiểm tra cú pháp chuỗi cục bộ (Thực thi tức thì)\n        URI uri = URI.create(\"https://example.com\")"
+      "start": 423.71,
+      "end": 427.62,
+      "duration": 3.91,
+      "text_snippet": "Tại sao các Socket và Luồng dữ liệu phải được Đóng đúng cách"
     },
     {
       "paragraph_id": 61,
-      "start": 522.84,
-      "end": 539.97,
-      "duration": 17.13,
-      "text_snippet": "Chuỗi Nguyên nhân - Kết quả\nHàm khởi tạo new URL(string) được gọi &rarr; Hàm khởi tạo kích hoạt tra cứu DNS mạng bên dướ"
+      "start": 427.73,
+      "end": 487.94,
+      "duration": 60.21,
+      "text_snippet": "Mỗi socket mạng Socket and ServerSocket khi mở ra đều được cấp phát một bộ mô tả"
     },
     {
       "paragraph_id": 62,
-      "start": 539.97,
-      "end": 540.04,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 487.94,
+      "end": 492.33,
+      "duration": 4.39,
+      "text_snippet": "Mô hình tư duy: Tích lũy Bộ mô tả Tệp trong Nhân hệ điều hành"
     },
     {
       "paragraph_id": 63,
-      "start": 540.04,
-      "end": 541.45,
-      "duration": 1.41,
-      "text_snippet": "Yêu cầu HTTP cơ bản (Basic HTTP request)"
+      "start": 492.32,
+      "end": 494.7,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 64,
-      "start": 541.45,
-      "end": 544.24,
-      "duration": 2.79,
-      "text_snippet": "Một yêu cầu HTTP cơ bản được gửi qua mạng để truy xuất hoặc sửa đổi tài nguyên."
+      "start": 494.7,
+      "end": 497.86,
+      "duration": 3.16,
+      "text_snippet": "Ví dụ Code: Đóng Kết nối An sau"
     },
     {
       "paragraph_id": 65,
-      "start": 544.24,
-      "end": 544.31,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 497.86,
+      "end": 500.06,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 66,
-      "start": 544.31,
-      "end": 545.34,
-      "duration": 1.02,
-      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
+      "start": 500.06,
+      "end": 502.16,
+      "duration": 2.1,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
     },
     {
       "paragraph_id": 67,
-      "start": 545.34,
-      "end": 567.94,
-      "duration": 22.6,
-      "text_snippet": "Khái niệm nào ở đây là quy tắc thời gian biên dịch?\n  Hầu hết các lớp API mạng đều có các kiểu ngoại lệ đã được kiểm tra"
+      "start": 502.16,
+      "end": 530.51,
+      "duration": 28.35,
+      "text_snippet": "Kết nối mạng kết thúc mà không đóng socket → Nhân OS duy trì cấp phát bộ mô tả t"
     },
     {
       "paragraph_id": 68,
-      "start": 567.94,
-      "end": 568.01,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 530.51,
+      "end": 530.91,
+      "duration": 0.4,
+      "text_snippet": "DatagramSocket"
     },
     {
       "paragraph_id": 69,
-      "start": 568.01,
-      "end": 568.5,
-      "duration": 0.49,
-      "text_snippet": "Các Ví dụ Code"
+      "start": 530.86,
+      "end": 535.06,
+      "duration": 4.2,
+      "text_snippet": "DatagramSocket là một socket để gửi hoặc nhận các gói tin datagram."
     },
     {
       "paragraph_id": 70,
-      "start": 568.5,
-      "end": 589.31,
-      "duration": 20.8,
-      "text_snippet": "Máy chủ & Máy khách Socket TCP\n`java\n// ServerSocket lắng nghe trên cổng 8080\ntry (ServerSocket serverSocket = new Serve"
+      "start": 535.06,
+      "end": 535.46,
+      "duration": 0.4,
+      "text_snippet": "InetAddress"
     },
     {
       "paragraph_id": 71,
-      "start": 589.31,
-      "end": 603.25,
-      "duration": 13.95,
-      "text_snippet": "// Máy khách kết nối tới localhost:8080\ntry (Socket socket = new Socket(\"localhost\", 8080);\n     PrintWriter out = new P"
+      "start": 535.51,
+      "end": 541.13,
+      "duration": 5.62,
+      "text_snippet": "Lớp InetAddress đại diện cho một địa chỉ IP (Internet Protocol)."
     },
     {
       "paragraph_id": 72,
-      "start": 603.25,
-      "end": 618.83,
-      "duration": 15.57,
-      "text_snippet": "Máy chủ & Máy khách Datagram UDP\n`java\n// Nhận một gói tin DatagramPacket (UDP)\ntry (DatagramSocket socket = new Datagra"
+      "start": 541.09,
+      "end": 549.44,
+      "duration": 8.35,
+      "text_snippet": "URL"
     },
     {
       "paragraph_id": 73,
-      "start": 618.83,
-      "end": 630.48,
-      "duration": 11.65,
-      "text_snippet": "// Gửi một gói tin DatagramPacket\ntry (DatagramSocket socket = new DatagramSocket()) {\n    String msg = \"Hello UDP!\";\n  "
+      "start": 549.44,
+      "end": 555.04,
+      "duration": 5.6,
+      "text_snippet": "Lớp URL đại diện cho một Bộ định vị Tài nguyên Thống nhất (Uniform Resource Loca"
     },
     {
       "paragraph_id": 74,
-      "start": 630.48,
-      "end": 630.55,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 549.44,
+      "end": 557.56,
+      "duration": 8.12,
+      "text_snippet": "URI"
     },
     {
       "paragraph_id": 75,
-      "start": 630.55,
-      "end": 631.19,
-      "duration": 0.64,
-      "text_snippet": "Các lỗi thường gặp"
+      "start": 557.56,
+      "end": 563.16,
+      "duration": 5.6,
+      "text_snippet": "Lớp URI đại diện cho một Mã định danh Tài nguyên Thống nhất (Uniform Resource Id"
     },
     {
       "paragraph_id": 76,
-      "start": 631.19,
-      "end": 654.29,
-      "duration": 23.1,
-      "text_snippet": "Quên đóng Socket: Các socket sử dụng tài nguyên hệ điều hành bên dưới (bộ mô tả tệp). Việc không đóng them trong khối fi"
+      "start": 557.56,
+      "end": 563.16,
+      "duration": 5.6,
+      "text_snippet": "Tại sao Java 20 Khai tử các Hàm khởi tạo URL để Ưu tiên dùng URI"
     },
     {
       "paragraph_id": 77,
-      "start": 654.29,
-      "end": 654.36,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 563.16,
+      "end": 665.01,
+      "duration": 101.85,
+      "text_snippet": "Một Mã định danh Tài nguyên Thống nhất (Uniform Resource Identifier - URI) là mộ"
     },
     {
       "paragraph_id": 78,
-      "start": 654.36,
-      "end": 654.99,
-      "duration": 0.64,
-      "text_snippet": "Liên Kết Tham Khảo"
+      "start": 665.01,
+      "end": 670.96,
+      "duration": 5.95,
+      "text_snippet": "Mô hình tư duy: URI chỉ kiểm tra Cú pháp so với URL phụ thuộc vào Mạng"
     },
     {
       "paragraph_id": 79,
-      "start": 654.99,
-      "end": 668.38,
-      "duration": 13.38,
-      "text_snippet": "https://docs.oracle.com/javase/tutorial/networking/sockets/index.html (Hướng dẫn lập trình Socket của Oracle)\nhttps://do"
+      "start": 670.96,
+      "end": 672.36,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 80,
+      "start": 672.36,
+      "end": 675.51,
+      "duration": 3.15,
+      "text_snippet": "Ví dụ Code: Kiểm tra Cú pháp với URI"
+    },
+    {
+      "paragraph_id": 81,
+      "start": 675.61,
+      "end": 677.99,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 82,
+      "start": 677.94,
+      "end": 680.42,
+      "duration": 2.48,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
+    },
+    {
+      "paragraph_id": 83,
+      "start": 680.41,
+      "end": 704.1,
+      "duration": 23.69,
+      "text_snippet": "Hàm khởi tạo new URL(string) được gọi → Hàm khởi tạo kích hoạt tra cứu DNS mạng "
+    },
+    {
+      "paragraph_id": 84,
+      "start": 704.1,
+      "end": 708.77,
+      "duration": 4.67,
+      "text_snippet": "Yêu cầu HTTP cơ bản (Basic HTTP request)"
+    },
+    {
+      "paragraph_id": 85,
+      "start": 708.78,
+      "end": 714.09,
+      "duration": 5.31,
+      "text_snippet": "Một yêu cầu HTTP cơ bản được gửi qua mạng để truy xuất hoặc sửa đổi tài nguyên."
+    },
+    {
+      "paragraph_id": 86,
+      "start": 714.09,
+      "end": 716.54,
+      "duration": 2.45,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
+    },
+    {
+      "paragraph_id": 87,
+      "start": 716.54,
+      "end": 732.29,
+      "duration": 15.75,
+      "text_snippet": "Khái niệm nào ở đây là quy tắc thời gian biên dịch? Hầu hết các lớp API mạng đều"
+    },
+    {
+      "paragraph_id": 88,
+      "start": 732.29,
+      "end": 744.54,
+      "duration": 12.25,
+      "text_snippet": "Khái niệm nào ở đây ảnh hưởng đến hành vi thời gian chạy? Các thao tác mạng gây "
+    },
+    {
+      "paragraph_id": 89,
+      "start": 744.54,
+      "end": 759.94,
+      "duration": 15.4,
+      "text_snippet": "Khái niệm nào ở đây dễ là bẫy phỏng vấn? Việc sử dụng các constructor của URL (đ"
+    },
+    {
+      "paragraph_id": 90,
+      "start": 759.94,
+      "end": 761.34,
+      "duration": 1.4,
+      "text_snippet": "Các Ví dụ Code"
+    },
+    {
+      "paragraph_id": 91,
+      "start": 761.34,
+      "end": 763.79,
+      "duration": 2.45,
+      "text_snippet": "Máy chủ & Máy khách Socket TCP"
+    },
+    {
+      "paragraph_id": 92,
+      "start": 763.79,
+      "end": 765.19,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 93,
+      "start": 765.19,
+      "end": 767.64,
+      "duration": 2.45,
+      "text_snippet": "Máy chủ & Máy khách Datagram UDP"
+    },
+    {
+      "paragraph_id": 94,
+      "start": 767.64,
+      "end": 769.04,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 95,
+      "start": 769.04,
+      "end": 770.44,
+      "duration": 1.4,
+      "text_snippet": "Các lỗi thường gặp"
+    },
+    {
+      "paragraph_id": 96,
+      "start": 770.54,
+      "end": 783.42,
+      "duration": 12.88,
+      "text_snippet": "Quên đóng Socket: Các socket sử dụng tài nguyên hệ điều hành bên dưới (bộ mô tả "
+    },
+    {
+      "paragraph_id": 97,
+      "start": 783.41,
+      "end": 797.79,
+      "duration": 14.38,
+      "text_snippet": "Chặn accept() trên Luồng chính: Phương thức serverSocket.accept() chặn luồng gọi"
+    },
+    {
+      "paragraph_id": 98,
+      "start": 797.79,
+      "end": 816.1,
+      "duration": 18.31,
+      "text_snippet": "Sử dụng các hàm khởi tạo URL đã bị khai tử: Việc gọi new URL(\"https://google.com"
+    },
+    {
+      "paragraph_id": 99,
+      "start": 816.1,
+      "end": 818.11,
+      "duration": 2.01,
+      "text_snippet": "Liên Kết Tham Khảo"
+    },
+    {
+      "paragraph_id": 100,
+      "start": 818.11,
+      "end": 830.15,
+      "duration": 12.04,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/networking/sockets/index.html (Hướng dẫn"
+    },
+    {
+      "paragraph_id": 101,
+      "start": 830.15,
+      "end": 831.9,
+      "duration": 1.75,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/Socket.htm"
+    },
+    {
+      "paragraph_id": 102,
+      "start": 831.9,
+      "end": 833.65,
+      "duration": 1.75,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/URI.html ("
+    },
+    {
+      "paragraph_id": 103,
+      "start": 833.65,
+      "end": 836.45,
+      "duration": 2.8,
+      "text_snippet": "https://openjdk.org/jeps/321 (Đề xuất JEP 321 về HTTP Client)"
     }
   ]
 }

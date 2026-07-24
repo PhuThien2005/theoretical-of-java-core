@@ -1,273 +1,392 @@
 {
   "lesson": "01-synchronized-method-concepts",
-  "total_duration_seconds": 280.85,
-  "total_paragraphs": 38,
+  "total_duration_seconds": 352.41,
+  "total_paragraphs": 55,
   "timestamps": [
     {
       "paragraph_id": 1,
       "start": 0.0,
-      "end": 2.7,
-      "duration": 2.7,
+      "end": 5.25,
+      "duration": 5.25,
       "text_snippet": "Đồng Bộ Hóa và Đồng Thời - Phần 1 (Synchronization and Concurrency - Part 1)"
     },
     {
       "paragraph_id": 2,
-      "start": 2.7,
-      "end": 3.84,
-      "duration": 1.14,
+      "start": 5.25,
+      "end": 7.35,
+      "duration": 2.1,
       "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
     },
     {
       "paragraph_id": 3,
-      "start": 3.84,
-      "end": 13.05,
-      "duration": 9.21,
-      "text_snippet": "Tài liệu này tập trung vào các nguyên ngữ khóa nội tại (intrinsic locking primitives) của Java, các bộ giám sát (monitor"
+      "start": 7.35,
+      "end": 25.2,
+      "duration": 17.85,
+      "text_snippet": "Tài liệu này tập trung vào các nguyên ngữ khóa nội tại (intrinsic locking primit"
     },
     {
       "paragraph_id": 4,
-      "start": 13.05,
-      "end": 14.23,
-      "duration": 1.17,
+      "start": 25.2,
+      "end": 26.95,
+      "duration": 1.75,
       "text_snippet": "Khung Nội Dung (Outline Coverage)"
     },
     {
       "paragraph_id": 5,
-      "start": 14.23,
-      "end": 38.66,
-      "duration": 24.43,
-      "text_snippet": "synchronized method — synchronized method: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nsynchronized bloc"
+      "start": 26.95,
+      "end": 33.6,
+      "duration": 6.65,
+      "text_snippet": "synchronized method — synchronized method: Cung cấp các quy tắc và cơ chế hoạt đ"
     },
     {
       "paragraph_id": 6,
-      "start": 38.66,
-      "end": 38.73,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 33.7,
+      "end": 40.09,
+      "duration": 6.39,
+      "text_snippet": "synchronized block — synchronized block: Cung cấp các quy tắc và cơ chế hoạt độn"
     },
     {
       "paragraph_id": 7,
-      "start": 38.73,
-      "end": 39.9,
-      "duration": 1.17,
-      "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
+      "start": 40.04,
+      "end": 45.7,
+      "duration": 5.66,
+      "text_snippet": "Object lock — Object lock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong"
     },
     {
       "paragraph_id": 8,
-      "start": 39.9,
-      "end": 41.5,
-      "duration": 1.6,
-      "text_snippet": "Phương thức Synchronized vs Khối Synchronized"
+      "start": 45.7,
+      "end": 51.26,
+      "duration": 5.56,
+      "text_snippet": "Class lock — Class lock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong J"
     },
     {
       "paragraph_id": 9,
-      "start": 41.5,
-      "end": 49.83,
-      "duration": 8.32,
-      "text_snippet": "Phương thức Synchronized (Synchronized Method)\nChiếm giữ khóa liên kết với đối tượng nhận phương thức (this đối với phươ"
+      "start": 51.26,
+      "end": 57.17,
+      "duration": 5.91,
+      "text_snippet": "Monitor — Monitor: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 10,
-      "start": 49.83,
-      "end": 53.74,
-      "duration": 3.91,
-      "text_snippet": "// Khóa thực thể Counter 'this' hiện tại\n    public synchronized void increment() {\n        count++;\n    }\n}\n`"
+      "start": 57.17,
+      "end": 62.45,
+      "duration": 5.28,
+      "text_snippet": "wait — wait: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 11,
-      "start": 53.74,
-      "end": 67.78,
-      "duration": 14.05,
-      "text_snippet": "Khối Synchronized (Synchronized Block)\nCho phép thực hiện khóa trên một đối tượng monitor riêng tư cụ thể. Điều này giúp"
+      "start": 62.45,
+      "end": 68.4,
+      "duration": 5.95,
+      "text_snippet": "notify — notify: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 12,
-      "start": 67.78,
-      "end": 73.12,
-      "duration": 5.33,
-      "text_snippet": "public void increment() {\n        synchronized (lock) { // Chỉ thực hiện khóa trên đối tượng monitor riêng tư\n          "
+      "start": 68.4,
+      "end": 74.35,
+      "duration": 5.95,
+      "text_snippet": "notifyAll — notifyAll: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Jav"
     },
     {
       "paragraph_id": 13,
-      "start": 73.12,
-      "end": 88.27,
-      "duration": 15.15,
-      "text_snippet": "Khóa Đối Tượng vs Khóa Lớp (Object Lock vs Class Lock)\n Khóa Đối Tượng: Bảo vệ các trường thực thể. Hai luồng khác nhau "
+      "start": 74.35,
+      "end": 76.45,
+      "duration": 2.1,
+      "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
     },
     {
       "paragraph_id": 14,
-      "start": 88.27,
-      "end": 88.87,
-      "duration": 0.6,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 76.45,
+      "end": 78.55,
+      "duration": 2.1,
+      "text_snippet": "Phương thức Synchronized vs Khối Synchronized"
     },
     {
       "paragraph_id": 15,
-      "start": 88.87,
-      "end": 93.57,
-      "duration": 4.69,
-      "text_snippet": "> Xem thêm: Các đặc tính của từ khóa synchronized khi dùng như một modifier, được trình bày chi tiết trong Ch.10 - Acces"
+      "start": 78.55,
+      "end": 80.3,
+      "duration": 1.75,
+      "text_snippet": "Phương thức Synchronized (Synchronized Method)"
     },
     {
       "paragraph_id": 16,
-      "start": 93.57,
-      "end": 115.65,
-      "duration": 22.09,
-      "text_snippet": "Hợp Đồng Truyền Tín Hiệu Wait và Notify\nCác phương thức wait(), notify(), và notifyAll() được dùng để điều phối các thay"
+      "start": 80.3,
+      "end": 89.4,
+      "duration": 9.1,
+      "text_snippet": "Chiếm giữ khóa liên kết với đối tượng nhận phương thức (this đối với phương thức"
     },
     {
       "paragraph_id": 17,
-      "start": 115.65,
-      "end": 116.26,
-      "duration": 0.6,
+      "start": 89.4,
+      "end": 90.8,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 18,
-      "start": 116.26,
-      "end": 116.33,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 90.8,
+      "end": 92.2,
+      "duration": 1.4,
+      "text_snippet": "Khối Synchronized (Synchronized Block)"
     },
     {
       "paragraph_id": 19,
-      "start": 116.33,
-      "end": 118.64,
-      "duration": 2.31,
-      "text_snippet": "Ví Dụ Thực Tế: Hàng Đợi Chặn Có Giới Hạn (Bounded Blocking Queue)"
+      "start": 92.2,
+      "end": 108.3,
+      "duration": 16.1,
+      "text_snippet": "Cho phép thực hiện khóa trên một đối tượng monitor riêng tư cụ thể. Điều này giú"
     },
     {
       "paragraph_id": 20,
-      "start": 118.64,
-      "end": 125.26,
-      "duration": 6.61,
-      "text_snippet": "Bài toán\nTriển khai một hàng đợi chặn có giới hạn an toàn luồng, nơi luồng sản xuất (producer) sẽ bị chặn nếu hàng đợi đ"
+      "start": 108.3,
+      "end": 109.7,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 21,
-      "start": 125.26,
-      "end": 130.31,
-      "duration": 5.05,
-      "text_snippet": "Giải pháp\nSử dụng một khóa riêng tư và cơ chế truyền tín hiệu wait() / notifyAll().\n`java\nimport java.util.LinkedList;\ni"
+      "start": 109.7,
+      "end": 113.55,
+      "duration": 3.85,
+      "text_snippet": "Khóa Đối Tượng vs Khóa Lớp (Object Lock vs Class Lock)"
     },
     {
       "paragraph_id": 22,
-      "start": 130.31,
-      "end": 136.1,
-      "duration": 5.8,
-      "text_snippet": "public class BoundedQueue<T> {\n    private final Queue<T> queue = new LinkedList<>();\n    private final int capacity;\n  "
+      "start": 113.55,
+      "end": 126.5,
+      "duration": 12.95,
+      "text_snippet": "Khóa Đối Tượng: Bảo vệ các trường thực thể. Hai luồng khác nhau có thể thực thi "
     },
     {
       "paragraph_id": 23,
-      "start": 136.1,
-      "end": 138.77,
-      "duration": 2.67,
-      "text_snippet": "public BoundedQueue(int capacity) {\n        this.capacity = capacity;\n    }"
+      "start": 126.5,
+      "end": 140.15,
+      "duration": 13.65,
+      "text_snippet": "Khóa Lớp: Bảo vệ các trường tĩnh. Chỉ duy nhất một luồng có thể thực thi phương "
     },
     {
       "paragraph_id": 24,
-      "start": 138.77,
-      "end": 150.47,
-      "duration": 11.7,
-      "text_snippet": "public void put(T item) throws InterruptedException {\n        synchronized (lock) {\n            while (queue.size() == c"
+      "start": 140.15,
+      "end": 141.55,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 25,
-      "start": 150.47,
-      "end": 162.81,
-      "duration": 12.34,
-      "text_snippet": "public T take() throws InterruptedException {\n        synchronized (lock) {\n            while (queue.isEmpty()) {\n      "
+      "start": 141.55,
+      "end": 149.95,
+      "duration": 8.4,
+      "text_snippet": "Xem thêm: Các đặc tính của từ khóa synchronized khi dùng như một modifier, được "
     },
     {
       "paragraph_id": 26,
-      "start": 162.81,
-      "end": 162.88,
-      "duration": 0.07,
-      "text_snippet": "--"
+      "start": 150.05,
+      "end": 153.44,
+      "duration": 3.39,
+      "text_snippet": "Hợp Đồng Truyền Tín Hiệu Wait và Notify"
     },
     {
       "paragraph_id": 27,
-      "start": 162.88,
-      "end": 164.31,
-      "duration": 1.42,
-      "text_snippet": "Các Sai Lầm Thường Gặp (Common Mistakes)"
+      "start": 153.39,
+      "end": 160.48,
+      "duration": 7.09,
+      "text_snippet": "Các phương thức wait(), notify(), và notifyAll() được dùng để điều phối các thay"
     },
     {
       "paragraph_id": 28,
-      "start": 164.31,
-      "end": 174.33,
-      "duration": 10.03,
-      "text_snippet": "Bỏ qua hiện tượng đánh thức giả tạo (Spurious Wakeups)\nSử dụng câu lệnh if thay vì vòng lặp while khi gọi wait().\n`java\n"
+      "start": 160.47,
+      "end": 183.06,
+      "duration": 22.59,
+      "text_snippet": "Yêu Cầu Sở Hữu Khóa: Một luồng bắt buộc phải sở hữu khóa monitor của đối tượng đ"
     },
     {
       "paragraph_id": 29,
-      "start": 174.33,
-      "end": 179.21,
-      "duration": 4.87,
-      "text_snippet": "// ĐÚNG: Luôn sử dụng vòng lặp\nsynchronized(lock) {\n    while (queue.isEmpty()) {\n        lock.wait();\n    }\n    return "
+      "start": 183.06,
+      "end": 189.31,
+      "duration": 6.25,
+      "text_snippet": "Yêu Cầu Vòng Lặp Khi Chờ: Hiện tượng đánh thức giả tạo (spurious wakeups - luồng"
     },
     {
       "paragraph_id": 30,
-      "start": 179.21,
-      "end": 205.06,
-      "duration": 25.85,
-      "text_snippet": "Thực hiện khóa trên các đối tượng dùng chung hoặc đối tượng có thể thay đổi\nViệc thực hiện khóa trên các hằng chuỗi (Str"
+      "start": 189.31,
+      "end": 191.51,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 31,
-      "start": 205.06,
-      "end": 210.18,
-      "duration": 5.12,
-      "text_snippet": "Gọi wait() hoặc notify() khi chưa nắm giữ khóa monitor\n`java\nObject lock = new Object();\nlock.notify(); // Ném ra Illega"
+      "start": 191.51,
+      "end": 196.06,
+      "duration": 4.55,
+      "text_snippet": "Ví Dụ Thực Tế: Hàng Đợi Chặn Có Giới Hạn (Bounded Blocking Queue)"
     },
     {
       "paragraph_id": 32,
-      "start": 210.18,
-      "end": 212.99,
-      "duration": 2.81,
-      "text_snippet": "Tại Sao Khối synchronized Ngăn Chặn Được Tranh Chấp Điều Kiện (Race Conditions)"
+      "start": 196.06,
+      "end": 196.76,
+      "duration": 0.7,
+      "text_snippet": "Bài toán"
     },
     {
       "paragraph_id": 33,
-      "start": 212.99,
-      "end": 232.34,
-      "duration": 19.35,
-      "text_snippet": "Trong Java, mọi đối tượng đều được liên kết với một khóa nội tại (intrinsic lock), hay còn gọi là monitor. Trình biên dị"
+      "start": 196.76,
+      "end": 209.71,
+      "duration": 12.95,
+      "text_snippet": "Triển khai một hàng đợi chặn có giới hạn an toàn luồng, nơi luồng sản xuất (prod"
     },
     {
       "paragraph_id": 34,
-      "start": 232.34,
-      "end": 245.07,
-      "duration": 12.73,
-      "text_snippet": "Mô Hình Tư Duy: Hàng đợi khóa Monitor (Monitor Lock Queue)\n`text\n[Luồng A (Sở hữu)] ──► [Bộ giám sát đối tượng Monitor ("
+      "start": 209.71,
+      "end": 210.41,
+      "duration": 0.7,
+      "text_snippet": "Giải pháp"
     },
     {
       "paragraph_id": 35,
-      "start": 245.07,
-      "end": 249.48,
-      "duration": 4.41,
-      "text_snippet": "Ví Dụ Mã Nguồn\n`java\npublic class MonitorLockDemo {\n    private int count = 0;\n    private final Object lock = new Objec"
+      "start": 210.41,
+      "end": 215.66,
+      "duration": 5.25,
+      "text_snippet": "Sử dụng một khóa riêng tư và cơ chế truyền tín hiệu wait() / notifyAll()."
     },
     {
       "paragraph_id": 36,
-      "start": 249.48,
-      "end": 253.86,
-      "duration": 4.37,
-      "text_snippet": "public void increment() {\n        synchronized (lock) { // monitorenter\n            count++;\n        } // monitorexit\n  "
+      "start": 215.66,
+      "end": 217.06,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 37,
-      "start": 253.86,
-      "end": 266.2,
-      "duration": 12.34,
-      "text_snippet": "public static void main(String[] args) throws Exception {\n        MonitorLockDemo demo = new MonitorLockDemo();\n        "
+      "start": 217.06,
+      "end": 219.51,
+      "duration": 2.45,
+      "text_snippet": "Các Sai Lầm Thường Gặp (Common Mistakes)"
     },
     {
       "paragraph_id": 38,
-      "start": 266.2,
-      "end": 280.85,
-      "duration": 14.65,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)\nLuồng đi vào khối synchronized &rarr; chạy chỉ thị bytecode monitorente"
+      "start": 219.51,
+      "end": 223.36,
+      "duration": 3.85,
+      "text_snippet": "1. Bỏ qua hiện tượng đánh thức giả tạo (Spurious Wakeups)"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 223.36,
+      "end": 227.91,
+      "duration": 4.55,
+      "text_snippet": "Sử dụng câu lệnh if thay vì vòng lặp while khi gọi wait()."
+    },
+    {
+      "paragraph_id": 40,
+      "start": 227.91,
+      "end": 229.31,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 229.41,
+      "end": 234.11,
+      "duration": 4.7,
+      "text_snippet": "2. Thực hiện khóa trên các đối tượng dùng chung hoặc đối tượng có thể thay đổi"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 234.06,
+      "end": 245.82,
+      "duration": 11.76,
+      "text_snippet": "Việc thực hiện khóa trên các hằng chuỗi (String literals), các lớp bao bọc Boole"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 245.82,
+      "end": 265.75,
+      "duration": 19.93,
+      "text_snippet": "Các hằng chuỗi được quản lý tập trung trong String Pool. Nếu một thư viện không "
+    },
+    {
+      "paragraph_id": 44,
+      "start": 265.75,
+      "end": 281.15,
+      "duration": 15.4,
+      "text_snippet": "Khóa trên các đối tượng có thể thay đổi (mutable locks - các đối tượng có thể th"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 265.75,
+      "end": 271.25,
+      "duration": 5.5,
+      "text_snippet": "Quy tắc: Luôn sử dụng private final Object lock = new Object(); làm đối tượng kh"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 271.35,
+      "end": 276.24,
+      "duration": 4.89,
+      "text_snippet": "3. Gọi wait() hoặc notify() khi chưa nắm giữ khóa monitor"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 276.19,
+      "end": 278.57,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 278.56,
+      "end": 283.9,
+      "duration": 5.34,
+      "text_snippet": "Tại Sao Khối synchronized Ngăn Chặn Được Tranh Chấp Điều Kiện (Race Conditions)"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 283.9,
+      "end": 318.13,
+      "duration": 34.23,
+      "text_snippet": "Trong Java, mọi đối tượng đều được liên kết với một khóa nội tại (intrinsic lock"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 318.12,
+      "end": 323.01,
+      "duration": 4.89,
+      "text_snippet": "Mô Hình Tư Duy: Hàng đợi khóa Monitor (Monitor Lock Queue)"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 323.01,
+      "end": 324.41,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 324.41,
+      "end": 325.81,
+      "duration": 1.4,
+      "text_snippet": "Ví Dụ Mã Nguồn"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 325.81,
+      "end": 327.21,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 327.21,
+      "end": 330.01,
+      "duration": 2.8,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 330.01,
+      "end": 352.41,
+      "duration": 22.4,
+      "text_snippet": "Luồng đi vào khối synchronized → chạy chỉ thị bytecode monitorenter → kiểm tra t"
     }
   ]
 }

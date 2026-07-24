@@ -1,532 +1,763 @@
 {
   "lesson": "02-period-concepts",
-  "total_duration_seconds": 763.99,
-  "total_paragraphs": 75,
+  "total_duration_seconds": 786.26,
+  "total_paragraphs": 108,
   "timestamps": [
     {
       "paragraph_id": 1,
       "start": 0.0,
-      "end": 2.07,
-      "duration": 2.07,
+      "end": 3.85,
+      "duration": 3.85,
       "text_snippet": "API Ngày và Giờ (Date and Time API) - Phần 2"
     },
     {
       "paragraph_id": 2,
-      "start": 2.07,
-      "end": 2.82,
-      "duration": 0.75,
+      "start": 3.85,
+      "end": 5.25,
+      "duration": 1.4,
       "text_snippet": "Mục Tiêu Học Tập"
     },
     {
       "paragraph_id": 3,
-      "start": 2.82,
-      "end": 12.08,
-      "duration": 9.26,
-      "text_snippet": "Tài liệu này tập trung vào một phần chuyên sâu của API Ngày và Giờ (Date and Time API). Hãy nghiên cứu từng khái niệm dư"
+      "start": 5.25,
+      "end": 19.95,
+      "duration": 14.7,
+      "text_snippet": "Tài liệu này tập trung vào một phần chuyên sâu của API Ngày và Giờ (Date and Tim"
     },
     {
       "paragraph_id": 4,
-      "start": 12.08,
-      "end": 13.73,
-      "duration": 1.65,
+      "start": 19.95,
+      "end": 22.05,
+      "duration": 2.1,
       "text_snippet": "Tóm Tắt Nội Dung (Outline Coverage)"
     },
     {
       "paragraph_id": 5,
-      "start": 13.73,
-      "end": 48.18,
-      "duration": 34.46,
-      "text_snippet": "Period — Period: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nDateTimeFormatter — DateTimeFormatter: Cung"
+      "start": 22.05,
+      "end": 28.0,
+      "duration": 5.95,
+      "text_snippet": "Period — Period: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 6,
-      "start": 48.18,
-      "end": 48.94,
-      "duration": 0.75,
-      "text_snippet": "Ghi Chú Chi Tiết"
+      "start": 28.1,
+      "end": 34.5,
+      "duration": 6.4,
+      "text_snippet": "DateTimeFormatter — DateTimeFormatter: Cung cấp các quy tắc và cơ chế hoạt động "
     },
     {
       "paragraph_id": 7,
-      "start": 48.94,
-      "end": 59.23,
-      "duration": 10.29,
-      "text_snippet": "Period\njava.time.Period đại diện cho một lượng thời gian dựa trên lịch ngày (tính theo năm, tháng và ngày), ví dụ như \"2"
+      "start": 34.45,
+      "end": 39.85,
+      "duration": 5.4,
+      "text_snippet": "ZoneId — ZoneId: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 8,
-      "start": 59.23,
-      "end": 69.57,
-      "duration": 10.34,
-      "text_snippet": "Định dạng & Biểu diễn Chuỗi:\nĐịnh dạng tuân theo định dạng thời lượng ISO-8601 cho các khoảng thời gian: PnYnMnD (trong "
+      "start": 39.85,
+      "end": 46.66,
+      "duration": 6.81,
+      "text_snippet": "Parse date/time — Parse date/time: Cung cấp các quy tắc và cơ chế hoạt động cụ t"
     },
     {
       "paragraph_id": 9,
-      "start": 69.57,
-      "end": 85.18,
-      "duration": 15.61,
-      "text_snippet": "Cảnh báo về việc nối chuỗi các phương thức nhà máy (factory method):\n Các phương thức tạo của Period không tích lũy khi "
+      "start": 46.66,
+      "end": 53.47,
+      "duration": 6.81,
+      "text_snippet": "Format date/time — Format date/time: Cung cấp các quy tắc và cơ chế hoạt động cụ"
     },
     {
       "paragraph_id": 10,
-      "start": 85.18,
-      "end": 85.98,
-      "duration": 0.8,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 53.47,
+      "end": 60.33,
+      "duration": 6.86,
+      "text_snippet": "Compare date/time — Compare date/time: Cung cấp các quy tắc và cơ chế hoạt động "
     },
     {
       "paragraph_id": 11,
-      "start": 85.98,
-      "end": 93.41,
-      "duration": 7.43,
-      "text_snippet": "// Bẫy nối chuỗi phương thức nhà máy tĩnh:\nPeriod badPeriod = Period.ofYears(1).ofDays(5); // Chỉ đại diện cho 5 ngày!\nS"
+      "start": 60.44,
+      "end": 68.04,
+      "duration": 7.6,
+      "text_snippet": "Add/subtract date/time — Add/subtract date/time: Cung cấp các quy tắc và cơ chế "
     },
     {
       "paragraph_id": 12,
-      "start": 93.41,
-      "end": 97.59,
-      "duration": 4.18,
-      "text_snippet": "Tại sao Period và Duration cư xử khác nhau (Chuyển đổi giờ mùa hè - Daylight Saving Time)"
+      "start": 67.99,
+      "end": 73.98,
+      "duration": 5.99,
+      "text_snippet": "Timezone — Timezone: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
     },
     {
       "paragraph_id": 13,
-      "start": 97.59,
-      "end": 134.68,
-      "duration": 37.09,
-      "text_snippet": "Một Period đại diện cho một lượng thời gian dựa trên ngày lịch (ví dụ: 1 ngày), trong khi một Duration đại diện cho một "
+      "start": 73.97,
+      "end": 75.79,
+      "duration": 1.82,
+      "text_snippet": "Ghi Chú Chi Tiết"
     },
     {
       "paragraph_id": 14,
-      "start": 134.68,
-      "end": 141.83,
-      "duration": 7.15,
-      "text_snippet": "Mô hình tư duy: Period so với Duration dưới tác động của DST\n`text\nTrục thời gian của việc chuyển đổi tiến lên vào mùa x"
+      "start": 75.8,
+      "end": 86.74,
+      "duration": 10.94,
+      "text_snippet": "Period"
     },
     {
       "paragraph_id": 15,
-      "start": 141.83,
-      "end": 144.41,
-      "duration": 2.59,
-      "text_snippet": "Thời gian gốc: 2026-03-08T01:30-05:00[America/New_York]"
+      "start": 86.74,
+      "end": 91.34,
+      "duration": 4.6,
+      "text_snippet": "java.time.Period đại diện cho một lượng thời gian dựa trên lịch ngày (tính theo "
     },
     {
       "paragraph_id": 16,
-      "start": 144.41,
-      "end": 150.95,
-      "duration": 6.53,
-      "text_snippet": "Cộng thêm Period.ofDays(1):\n[01:30] ---------------- (Ngày lịch tăng thêm 1) --------------> [01:30 ngày hôm sau] (23 gi"
+      "start": 91.34,
+      "end": 93.44,
+      "duration": 2.1,
+      "text_snippet": "Định dạng & Biểu diễn Chuỗi:"
     },
     {
       "paragraph_id": 17,
-      "start": 150.95,
-      "end": 158.8,
-      "duration": 7.85,
-      "text_snippet": "Cộng thêm Duration.ofDays(1) / Duration.ofHours(24):\n[01:30] ---------------- (Chính xác 24 giờ trôi qua) -----------> ["
+      "start": 93.44,
+      "end": 107.09,
+      "duration": 13.65,
+      "text_snippet": "Định dạng tuân theo định dạng thời lượng ISO-8601 cho các khoảng thời gian: PnYn"
     },
     {
       "paragraph_id": 18,
-      "start": 158.8,
-      "end": 165.33,
-      "duration": 6.53,
-      "text_snippet": "Ví dụ Code: Phép toán thời gian với DST\n`java\nZonedDateTime zdt = ZonedDateTime.of(2026, 3, 8, 1, 30, 0, 0, ZoneId.of(\"A"
+      "start": 107.09,
+      "end": 111.64,
+      "duration": 4.55,
+      "text_snippet": "Cảnh báo về việc nối chuỗi các phương thức nhà máy (factory method):"
     },
     {
       "paragraph_id": 19,
-      "start": 165.33,
-      "end": 170.64,
-      "duration": 5.31,
-      "text_snippet": "ZonedDateTime plusPeriod = zdt.plus(Period.ofDays(1));\nZonedDateTime plusDuration = zdt.plus(Duration.ofDays(1));"
+      "start": 111.64,
+      "end": 129.49,
+      "duration": 17.85,
+      "text_snippet": "Các phương thức tạo của Period không tích lũy khi gọi nối chuỗi. Việc gọi Period"
     },
     {
       "paragraph_id": 20,
-      "start": 170.64,
-      "end": 183.81,
-      "duration": 13.16,
-      "text_snippet": "System.out.println(\"Base:     \" + zdt);          // 2026-03-08T01:30-05:00[America/New_York]\nSystem.out.println(\"Period:"
+      "start": 129.49,
+      "end": 130.89,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 21,
-      "start": 183.81,
-      "end": 198.85,
-      "duration": 15.04,
-      "text_snippet": "Chuỗi Nguyên nhân - Kết quả\nThời điểm chuyển đổi giờ mùa hè DST diễn ra &rarr; Đồng hồ địa phương nhảy từ 02:00 lên 03:0"
+      "start": 130.89,
+      "end": 137.19,
+      "duration": 6.3,
+      "text_snippet": "Tại sao Period và Duration cư xử khác nhau (Chuyển đổi giờ mùa hè - Daylight Sav"
     },
     {
       "paragraph_id": 22,
-      "start": 198.85,
-      "end": 208.58,
-      "duration": 9.73,
-      "text_snippet": "DateTimeFormatter\njava.time.format.DateTimeFormatter là lớp hiện đại, bất biến và an toàn luồng dùng để định dạng và phâ"
+      "start": 137.19,
+      "end": 197.04,
+      "duration": 59.85,
+      "text_snippet": "Một Period đại diện cho một lượng thời gian dựa trên ngày lịch (ví dụ: 1 ngày), "
     },
     {
       "paragraph_id": 23,
-      "start": 208.58,
-      "end": 216.01,
-      "duration": 7.43,
-      "text_snippet": "Cách dùng:\nNó định nghĩa sẵn các hằng số như ISO_LOCAL_DATE (2026-06-12) và cho phép tạo các mẫu tùy chỉnh sử dụng các k"
+      "start": 197.04,
+      "end": 201.59,
+      "duration": 4.55,
+      "text_snippet": "Mô hình tư duy: Period so với Duration dưới tác động của DST"
     },
     {
       "paragraph_id": 24,
-      "start": 216.01,
-      "end": 216.81,
-      "duration": 0.8,
+      "start": 201.59,
+      "end": 202.99,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 25,
-      "start": 216.81,
-      "end": 219.11,
-      "duration": 2.3,
-      "text_snippet": "Tại sao DateTimeFormatter An Toàn Luồng Tuyệt Đối"
+      "start": 202.99,
+      "end": 206.14,
+      "duration": 3.15,
+      "text_snippet": "Ví dụ Code: Phép toán thời gian với DST"
     },
     {
       "paragraph_id": 26,
-      "start": 219.11,
-      "end": 255.31,
-      "duration": 36.2,
-      "text_snippet": "Không giống như lớp cũ java.text.SimpleDateFormat, java.time.format.DateTimeFormatter được thiết kế bất biến (Immutable)"
+      "start": 206.14,
+      "end": 207.54,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 27,
-      "start": 255.31,
-      "end": 272.09,
-      "duration": 16.78,
-      "text_snippet": "Mô hình tư duy: Thực thi trên ngăn xếp không trạng thái\n`mermaid\ngraph TD\n    subgraph DateTimeFormatter An toàn Luồng\n "
+      "start": 207.54,
+      "end": 209.64,
+      "duration": 2.1,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
     },
     {
       "paragraph_id": 28,
-      "start": 272.09,
-      "end": 281.54,
-      "duration": 9.45,
-      "text_snippet": "Ví dụ Code: Sử dụng đồng thời an toàn\n`java\n// Hoàn toàn an toàn khi chia sẻ formatter tĩnh giữa nhiều luồng\npublic stat"
+      "start": 209.64,
+      "end": 231.34,
+      "duration": 21.7,
+      "text_snippet": "Thời điểm chuyển đổi giờ mùa hè DST diễn ra → Đồng hồ địa phương nhảy từ 02:00 l"
     },
     {
       "paragraph_id": 29,
-      "start": 281.54,
-      "end": 289.39,
-      "duration": 7.85,
-      "text_snippet": "Runnable task = () -> {\n    String result = FORMATTER.format(LocalDate.now());\n    System.out.println(result);\n};\nnew Th"
+      "start": 231.34,
+      "end": 231.74,
+      "duration": 0.4,
+      "text_snippet": "DateTimeFormatter"
     },
     {
       "paragraph_id": 30,
-      "start": 289.39,
-      "end": 304.52,
-      "duration": 15.14,
-      "text_snippet": "Chuỗi Nguyên nhân - Kết quả\nDateTimeFormatter không trạng thái và bất biến &rarr; Trạng thái tạm thời được lưu trên ngăn"
+      "start": 231.69,
+      "end": 243.24,
+      "duration": 11.55,
+      "text_snippet": "java.time.format.DateTimeFormatter là lớp hiện đại, bất biến và an toàn luồng dù"
     },
     {
       "paragraph_id": 31,
-      "start": 304.52,
-      "end": 316.14,
-      "duration": 11.61,
-      "text_snippet": "ZoneId\njava.time.ZoneId đại diện cho một bộ định danh múi giờ (ví dụ: Europe/Paris, Asia/Tokyo, America/New_York). Nó cu"
+      "start": 243.34,
+      "end": 244.91,
+      "duration": 1.57,
+      "text_snippet": "Cách dùng:"
     },
     {
       "paragraph_id": 32,
-      "start": 316.14,
-      "end": 316.94,
-      "duration": 0.8,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 244.86,
+      "end": 259.15,
+      "duration": 14.29,
+      "text_snippet": "Nó định nghĩa sẵn các hằng số như ISO_LOCAL_DATE (2026-06-12) và cho phép tạo cá"
     },
     {
       "paragraph_id": 33,
-      "start": 316.94,
-      "end": 327.84,
-      "duration": 10.91,
-      "text_snippet": "Phân tích cú pháp ngày/giờ (Parse date/time)\nPhân tích cú pháp chuyển đổi một chuỗi văn bản thành một đối tượng thời gia"
+      "start": 259.15,
+      "end": 261.53,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 34,
-      "start": 327.84,
-      "end": 349.14,
-      "duration": 21.3,
-      "text_snippet": "Lỗi Formatter lúc Biên dịch so với lúc Chạy:\nViệc sử dụng các ký tự mẫu không hợp lệ (như sử dụng Y thay vì y cho năm, h"
+      "start": 261.52,
+      "end": 265.01,
+      "duration": 3.49,
+      "text_snippet": "Tại sao DateTimeFormatter An Toàn Luồng Tuyệt Đối"
     },
     {
       "paragraph_id": 35,
-      "start": 349.14,
-      "end": 349.94,
-      "duration": 0.8,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 265.01,
+      "end": 308.76,
+      "duration": 43.75,
+      "text_snippet": "Không giống như lớp cũ java.text.SimpleDateFormat, java.time.format.DateTimeForm"
     },
     {
       "paragraph_id": 36,
-      "start": 349.94,
-      "end": 360.94,
-      "duration": 11.0,
-      "text_snippet": "// Phân tích cú pháp với định dạng tùy chỉnh\nDateTimeFormatter formatter = DateTimeFormatter.ofPattern(\"dd-MM-yyyy\");\nLo"
+      "start": 308.76,
+      "end": 312.96,
+      "duration": 4.2,
+      "text_snippet": "Mô hình tư duy: Thực thi trên ngăn xếp không trạng thái"
     },
     {
       "paragraph_id": 37,
-      "start": 360.94,
-      "end": 367.33,
-      "duration": 6.39,
-      "text_snippet": "Định dạng ngày/giờ (Format date/time)\nĐịnh dạng chuyển đổi một đối tượng thời gian thành một chuỗi biểu diễn văn bản the"
+      "start": 312.96,
+      "end": 314.36,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 38,
-      "start": 367.33,
-      "end": 368.13,
-      "duration": 0.8,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 314.36,
+      "end": 317.51,
+      "duration": 3.15,
+      "text_snippet": "Ví dụ Code: Sử dụng đồng thời an toàn"
     },
     {
       "paragraph_id": 39,
-      "start": 368.13,
-      "end": 388.39,
-      "duration": 20.26,
-      "text_snippet": "So sánh ngày/giờ (Compare date/time)\nJava cung cấp các phương thức chuyên dụng để so sánh các đối tượng thời gian theo t"
+      "start": 317.51,
+      "end": 318.91,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 40,
-      "start": 388.39,
-      "end": 389.19,
-      "duration": 0.8,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 318.91,
+      "end": 321.01,
+      "duration": 2.1,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
     },
     {
       "paragraph_id": 41,
-      "start": 389.19,
-      "end": 394.08,
-      "duration": 4.89,
-      "text_snippet": "System.out.println(date1.isBefore(date2)); // true\nSystem.out.println(date1.isAfter(date2));  // false\n`"
+      "start": 321.01,
+      "end": 340.61,
+      "duration": 19.6,
+      "text_snippet": "DateTimeFormatter không trạng thái và bất biến → Trạng thái tạm thời được lưu tr"
     },
     {
       "paragraph_id": 42,
-      "start": 394.08,
-      "end": 413.4,
-      "duration": 19.32,
-      "text_snippet": "Cộng/trừ ngày/giờ (Add/subtract date/time)\nCác phép toán số học thời gian được thực hiện thông qua các phương thức bất b"
+      "start": 340.61,
+      "end": 341.01,
+      "duration": 0.4,
+      "text_snippet": "ZoneId"
     },
     {
       "paragraph_id": 43,
-      "start": 413.4,
-      "end": 414.2,
-      "duration": 0.8,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 340.96,
+      "end": 356.36,
+      "duration": 15.4,
+      "text_snippet": "java.time.ZoneId đại diện cho một bộ định danh múi giờ (ví dụ: Europe/Paris, Asi"
     },
     {
       "paragraph_id": 44,
-      "start": 414.2,
-      "end": 423.83,
-      "duration": 9.64,
-      "text_snippet": "LocalDate date = LocalDate.of(2026, 6, 12); // A Friday\nLocalDate nextMonday = date.with(TemporalAdjusters.next(DayOfWee"
+      "start": 356.36,
+      "end": 357.76,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 45,
-      "start": 423.83,
-      "end": 430.7,
-      "duration": 6.86,
-      "text_snippet": "System.out.println(\"Next Monday: \" + nextMonday);        // 2026-06-15\nSystem.out.println(\"Last Day of Month: \" + lastDa"
+      "start": 357.76,
+      "end": 360.21,
+      "duration": 2.45,
+      "text_snippet": "Phân tích cú pháp ngày/giờ (Parse date/time)"
     },
     {
       "paragraph_id": 46,
-      "start": 430.7,
-      "end": 443.11,
-      "duration": 12.41,
-      "text_snippet": "Múi giờ (Timezone)\nĐộ lệch múi giờ là sự chênh lệch giữa giờ địa phương và Giờ phối hợp quốc tế (UTC). Java hiện đại biể"
+      "start": 360.21,
+      "end": 372.81,
+      "duration": 12.6,
+      "text_snippet": "Phân tích cú pháp chuyển đổi một chuỗi văn bản thành một đối tượng thời gian. Nế"
     },
     {
       "paragraph_id": 47,
-      "start": 443.11,
-      "end": 447.48,
-      "duration": 4.37,
-      "text_snippet": "Cách ZonedDateTime Giải quyết các Khoảng thời gian Không Hợp lệ và Trùng lặp (Chuyển đổi DST)"
+      "start": 372.81,
+      "end": 375.96,
+      "duration": 3.15,
+      "text_snippet": "Lỗi Formatter lúc Biên dịch so với lúc Chạy:"
     },
     {
       "paragraph_id": 48,
-      "start": 447.48,
-      "end": 484.38,
-      "duration": 36.9,
-      "text_snippet": "Trong quá trình chuyển đổi giờ mùa hè, có hai hiện tượng bất thường có thể xảy ra: khoảng trống (Gap - khi đồng hồ nhảy "
+      "start": 375.96,
+      "end": 394.51,
+      "duration": 18.55,
+      "text_snippet": "Việc sử dụng các ký tự mẫu không hợp lệ (như sử dụng Y thay vì y cho năm, hoặc m"
     },
     {
       "paragraph_id": 49,
-      "start": 484.38,
-      "end": 503.33,
-      "duration": 18.94,
-      "text_snippet": "Mô hình tư duy: Logic giải quyết DST của ZonedDateTime\n`mermaid\nflowchart TD\n    Q{Giờ địa phương rơi vào điểm chuyển đổ"
+      "start": 394.51,
+      "end": 401.16,
+      "duration": 6.65,
+      "text_snippet": "Ví dụ: LocalDate.parse(\"2026-06-12\", DateTimeFormatter.ofPattern(\"yyyy-MM-dd HH:"
     },
     {
       "paragraph_id": 50,
-      "start": 503.33,
-      "end": 507.37,
-      "duration": 4.04,
-      "text_snippet": "Ví dụ Code: Gap và Overlap Resolution\n`java\nZoneId ny = ZoneId.of(\"America/New_York\");"
+      "start": 401.16,
+      "end": 402.56,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 51,
-      "start": 507.37,
-      "end": 520.2,
-      "duration": 12.83,
-      "text_snippet": "// 1. Gap: Spring forward 2026-03-08 (02:00 to 03:00 is skipped)\n// Attempting to construct 02:30 AM\nZonedDateTime gapTi"
+      "start": 402.56,
+      "end": 404.31,
+      "duration": 1.75,
+      "text_snippet": "Định dạng ngày/giờ (Format date/time)"
     },
     {
       "paragraph_id": 52,
-      "start": 520.2,
-      "end": 531.44,
-      "duration": 11.24,
-      "text_snippet": "// 2. Overlap: Fall back 2026-11-01 (02:00 becomes 01:00, 01:30 is repeated)\nZonedDateTime overlapTime = ZonedDateTime.o"
+      "start": 404.31,
+      "end": 411.31,
+      "duration": 7.0,
+      "text_snippet": "Định dạng chuyển đổi một đối tượng thời gian thành một chuỗi biểu diễn văn bản t"
     },
     {
       "paragraph_id": 53,
-      "start": 531.44,
-      "end": 538.82,
-      "duration": 7.38,
-      "text_snippet": "ZonedDateTime laterOffset = overlapTime.withLaterOffsetAtOverlap();\nSystem.out.println(\"Overlap Later:   \" + laterOffset"
+      "start": 411.31,
+      "end": 412.71,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 54,
-      "start": 538.82,
-      "end": 552.22,
-      "duration": 13.4,
-      "text_snippet": "Chuỗi Nguyên nhân - Kết quả\nTạo ZonedDateTime trong khoảng trống DST &rarr; Tra cứu quy tắc múi giờ &rarr; Nhận diện giờ"
+      "start": 412.71,
+      "end": 414.46,
+      "duration": 1.75,
+      "text_snippet": "So sánh ngày/giờ (Compare date/time)"
     },
     {
       "paragraph_id": 55,
-      "start": 552.22,
-      "end": 552.31,
-      "duration": 0.09,
-      "text_snippet": "--"
+      "start": 414.46,
+      "end": 422.51,
+      "duration": 8.05,
+      "text_snippet": "Java cung cấp các phương thức chuyên dụng để so sánh các đối tượng thời gian the"
     },
     {
       "paragraph_id": 56,
-      "start": 552.31,
-      "end": 555.41,
-      "duration": 3.1,
-      "text_snippet": "Ví Dụ Thực Tế: Lên lịch Cuộc họp xuyên múi giờ (New York và Tokyo)"
+      "start": 422.51,
+      "end": 423.56,
+      "duration": 1.05,
+      "text_snippet": "isBefore(ChronoLocalDate) / isAfter(ChronoLocalDate)"
     },
     {
       "paragraph_id": 57,
-      "start": 555.41,
-      "end": 583.9,
-      "duration": 28.49,
-      "text_snippet": "Mô tả Bài toán\nMột công ty muốn lên lịch cho một cuộc họp trực tuyến đồng bộ giữa các văn phòng của mình tại New York (A"
+      "start": 423.56,
+      "end": 433.01,
+      "duration": 9.45,
+      "text_snippet": "isEqual(ChronoLocalDate) kiểm tra xem chúng có đại diện cho cùng một ngày/giờ ha"
     },
     {
       "paragraph_id": 58,
-      "start": 583.9,
-      "end": 584.79,
-      "duration": 0.89,
-      "text_snippet": "Triển khai Mã nguồn"
+      "start": 433.01,
+      "end": 437.21,
+      "duration": 4.2,
+      "text_snippet": "compareTo(ChronoLocalDate) trả về số nguyên âm, số không, hoặc số nguyên dương."
     },
     {
       "paragraph_id": 59,
-      "start": 584.79,
-      "end": 585.59,
-      "duration": 0.8,
+      "start": 437.21,
+      "end": 438.61,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 60,
-      "start": 585.59,
-      "end": 594.24,
-      "duration": 8.65,
-      "text_snippet": "public class TimeZoneCaseStudy {\n    public static void main(String[] args) {\n        ZoneId nyZone = ZoneId.of(\"America"
+      "start": 438.61,
+      "end": 440.01,
+      "duration": 1.4,
+      "text_snippet": "Cộng/trừ ngày/giờ (Add/subtract date/time)"
     },
     {
       "paragraph_id": 61,
-      "start": 594.24,
-      "end": 608.72,
-      "duration": 14.48,
-      "text_snippet": "// Kịch bản 1: Cuộc họp vào tháng 10 (Giờ mùa hè tại New York)\n        LocalDateTime octoberTime = LocalDateTime.of(2026"
+      "start": 440.01,
+      "end": 448.06,
+      "duration": 8.05,
+      "text_snippet": "Các phép toán số học thời gian được thực hiện thông qua các phương thức bất biến"
     },
     {
       "paragraph_id": 62,
-      "start": 608.72,
-      "end": 623.95,
-      "duration": 15.23,
-      "text_snippet": "System.out.println(\"--- Scenario 1 (October Meeting) ---\");\n        System.out.println(\"New York Time: \" + nyMeetingOct)"
+      "start": 448.06,
+      "end": 449.81,
+      "duration": 1.75,
+      "text_snippet": "plus(long, TemporalUnit) / minus(long, TemporalUnit)"
     },
     {
       "paragraph_id": 63,
-      "start": 623.95,
-      "end": 638.48,
-      "duration": 14.53,
-      "text_snippet": "// Kịch bản 2: Cuộc họp vào tháng 12 (Giờ chuẩn tại New York)\n        LocalDateTime decemberTime = LocalDateTime.of(2026"
+      "start": 449.81,
+      "end": 453.31,
+      "duration": 3.5,
+      "text_snippet": "Các phương thức tiện ích cụ thể như plusDays(), minusMonths()."
     },
     {
       "paragraph_id": 64,
-      "start": 638.48,
-      "end": 656.95,
-      "duration": 18.47,
-      "text_snippet": "System.out.println(\"\\n--- Scenario 2 (December Meeting) ---\");\n        System.out.println(\"New York Time: \" + nyMeetingD"
+      "start": 453.31,
+      "end": 461.36,
+      "duration": 8.05,
+      "text_snippet": "with(TemporalField, long) / with(TemporalAdjuster) để điều chỉnh các trường cụ t"
     },
     {
       "paragraph_id": 65,
-      "start": 656.95,
-      "end": 683.47,
-      "duration": 26.51,
-      "text_snippet": "Điểm mấu chốt rút ra\nGiải quyết Độ lệch múi giờ Động: Java tự động tính toán các độ lệch múi giờ dựa trên ngày được nhắm"
+      "start": 461.36,
+      "end": 462.76,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 66,
-      "start": 683.47,
-      "end": 683.56,
-      "duration": 0.09,
-      "text_snippet": "--"
+      "start": 462.86,
+      "end": 465.53,
+      "duration": 2.67,
+      "text_snippet": "Múi giờ (Timezone)"
     },
     {
       "paragraph_id": 67,
-      "start": 683.56,
-      "end": 684.41,
-      "duration": 0.85,
-      "text_snippet": "Các lỗi thường gặp"
+      "start": 465.49,
+      "end": 482.71,
+      "duration": 17.22,
+      "text_snippet": "Độ lệch múi giờ là sự chênh lệch giữa giờ địa phương và Giờ phối hợp quốc tế (UT"
     },
     {
       "paragraph_id": 68,
-      "start": 684.41,
-      "end": 699.4,
-      "duration": 15.0,
-      "text_snippet": "Bẫy nối chuỗi phương thức nhà máy tĩnh của Period\nCác phương thức nhà máy tĩnh của Period không tích lũy dồn. Phương thứ"
+      "start": 482.71,
+      "end": 488.85,
+      "duration": 6.14,
+      "text_snippet": "Cách ZonedDateTime Giải quyết các Khoảng thời gian Không Hợp lệ và Trùng lặp (Ch"
     },
     {
       "paragraph_id": 69,
-      "start": 699.4,
-      "end": 704.76,
-      "duration": 5.36,
-      "text_snippet": "// ĐÚNG: Sử dụng phương thức nhà máy nhận nhiều đối số\nPeriod pCorrect = Period.of(1, 2, 3); // Kết quả: P1Y2M3D\n`"
+      "start": 488.85,
+      "end": 531.34,
+      "duration": 42.49,
+      "text_snippet": "Trong quá trình chuyển đổi giờ mùa hè, có hai hiện tượng bất thường có thể xảy r"
     },
     {
       "paragraph_id": 70,
-      "start": 704.76,
-      "end": 724.22,
-      "duration": 19.46,
-      "text_snippet": "Sự phân biệt hoa thường của mẫu ký tự trong DateTimeFormatter\nKý tự viết hoa và viết thường đại diện cho các giá trị khá"
+      "start": 531.34,
+      "end": 536.19,
+      "duration": 4.85,
+      "text_snippet": "Mô hình tư duy: Logic giải quyết DST của ZonedDateTime"
     },
     {
       "paragraph_id": 71,
-      "start": 724.22,
-      "end": 725.02,
-      "duration": 0.8,
+      "start": 536.19,
+      "end": 537.59,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 72,
-      "start": 725.02,
-      "end": 726.38,
-      "duration": 1.36,
-      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
+      "start": 537.59,
+      "end": 540.04,
+      "duration": 2.45,
+      "text_snippet": "Ví dụ Code: Gap và Overlap Resolution"
     },
     {
       "paragraph_id": 73,
-      "start": 726.38,
-      "end": 735.36,
-      "duration": 8.98,
-      "text_snippet": "Những khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch?\nNhững khái niệm nào ở đây ảnh hưởng đến hành vi tại th"
+      "start": 540.04,
+      "end": 541.44,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 74,
-      "start": 735.36,
-      "end": 736.21,
-      "duration": 0.85,
-      "text_snippet": "Liên kết Tham khảo"
+      "start": 541.44,
+      "end": 543.54,
+      "duration": 2.1,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
     },
     {
       "paragraph_id": 75,
-      "start": 736.21,
-      "end": 763.99,
-      "duration": 27.78,
-      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Period.html (Tài liệu Period JavaDoc)\nhttps://doc"
+      "start": 543.54,
+      "end": 560.69,
+      "duration": 17.15,
+      "text_snippet": "Tạo ZonedDateTime trong khoảng trống DST → Tra cứu quy tắc múi giờ → Nhận diện g"
+    },
+    {
+      "paragraph_id": 76,
+      "start": 560.79,
+      "end": 566.24,
+      "duration": 5.45,
+      "text_snippet": "Ví Dụ Thực Tế: Lên lịch Cuộc họp xuyên múi giờ (New York và Tokyo)"
+    },
+    {
+      "paragraph_id": 77,
+      "start": 566.19,
+      "end": 568.15,
+      "duration": 1.96,
+      "text_snippet": "Mô tả Bài toán"
+    },
+    {
+      "paragraph_id": 78,
+      "start": 568.15,
+      "end": 592.01,
+      "duration": 23.86,
+      "text_snippet": "Một công ty muốn lên lịch cho một cuộc họp trực tuyến đồng bộ giữa các văn phòng"
+    },
+    {
+      "paragraph_id": 79,
+      "start": 592.01,
+      "end": 597.26,
+      "duration": 5.25,
+      "text_snippet": "Giờ địa phương và ngày tháng mà đội ngũ tại Tokyo phải tham gia họp."
+    },
+    {
+      "paragraph_id": 80,
+      "start": 592.01,
+      "end": 607.27,
+      "duration": 15.26,
+      "text_snippet": "Độ lệch múi giờ và thời gian họp thay đổi như thế nào nếu cuộc họp được đổi lịch"
+    },
+    {
+      "paragraph_id": 81,
+      "start": 607.27,
+      "end": 608.67,
+      "duration": 1.4,
+      "text_snippet": "Triển khai Mã nguồn"
+    },
+    {
+      "paragraph_id": 82,
+      "start": 608.67,
+      "end": 610.07,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 83,
+      "start": 610.07,
+      "end": 611.82,
+      "duration": 1.75,
+      "text_snippet": "Điểm mấu chốt rút ra"
+    },
+    {
+      "paragraph_id": 84,
+      "start": 611.82,
+      "end": 626.52,
+      "duration": 14.7,
+      "text_snippet": "Giải quyết Độ lệch múi giờ Động: Java tự động tính toán các độ lệch múi giờ dựa "
+    },
+    {
+      "paragraph_id": 85,
+      "start": 626.52,
+      "end": 647.87,
+      "duration": 21.35,
+      "text_snippet": "withZoneSameInstant so với withZoneSameLocal: withZoneSameInstant() bảo toàn thờ"
+    },
+    {
+      "paragraph_id": 86,
+      "start": 647.88,
+      "end": 658.38,
+      "duration": 10.5,
+      "text_snippet": "withZoneSameInstant() bảo toàn thời điểm vật lý tuyệt đối trên trục thời gian, t"
+    },
+    {
+      "paragraph_id": 87,
+      "start": 658.38,
+      "end": 667.83,
+      "duration": 9.45,
+      "text_snippet": "withZoneSameLocal() thay đổi múi giờ nhưng giữ nguyên các chữ số ngày giờ địa ph"
+    },
+    {
+      "paragraph_id": 88,
+      "start": 667.83,
+      "end": 669.23,
+      "duration": 1.4,
+      "text_snippet": "Các lỗi thường gặp"
+    },
+    {
+      "paragraph_id": 89,
+      "start": 669.23,
+      "end": 673.08,
+      "duration": 3.85,
+      "text_snippet": "1. Bẫy nối chuỗi phương thức nhà máy tĩnh của Period"
+    },
+    {
+      "paragraph_id": 90,
+      "start": 673.08,
+      "end": 682.53,
+      "duration": 9.45,
+      "text_snippet": "Các phương thức nhà máy tĩnh của Period không tích lũy dồn. Phương thức được gọi"
+    },
+    {
+      "paragraph_id": 91,
+      "start": 682.52,
+      "end": 683.92,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 92,
+      "start": 683.92,
+      "end": 688.12,
+      "duration": 4.2,
+      "text_snippet": "2. Sự phân biệt hoa thường của mẫu ký tự trong DateTimeFormatter"
+    },
+    {
+      "paragraph_id": 93,
+      "start": 688.12,
+      "end": 699.67,
+      "duration": 11.55,
+      "text_snippet": "Ký tự viết hoa và viết thường đại diện cho các giá trị khác nhau. Việc sử dụng c"
+    },
+    {
+      "paragraph_id": 94,
+      "start": 699.67,
+      "end": 702.47,
+      "duration": 2.8,
+      "text_snippet": "M = Tháng trong năm (ví dụ: 06)"
+    },
+    {
+      "paragraph_id": 95,
+      "start": 702.48,
+      "end": 705.28,
+      "duration": 2.8,
+      "text_snippet": "m = Phút trong giờ (ví dụ: 30)"
+    },
+    {
+      "paragraph_id": 96,
+      "start": 705.27,
+      "end": 708.42,
+      "duration": 3.15,
+      "text_snippet": "y = Năm trong kỷ nguyên (ví dụ: 2026)"
+    },
+    {
+      "paragraph_id": 97,
+      "start": 708.42,
+      "end": 716.82,
+      "duration": 8.4,
+      "text_snippet": "Y = Năm dựa trên số tuần (thường cư xử khác với năm lịch thông thường tại các th"
+    },
+    {
+      "paragraph_id": 98,
+      "start": 716.82,
+      "end": 718.22,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 99,
+      "start": 718.23,
+      "end": 720.68,
+      "duration": 2.45,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
+    },
+    {
+      "paragraph_id": 100,
+      "start": 720.67,
+      "end": 725.92,
+      "duration": 5.25,
+      "text_snippet": "Những khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch?"
+    },
+    {
+      "paragraph_id": 101,
+      "start": 725.92,
+      "end": 731.17,
+      "duration": 5.25,
+      "text_snippet": "Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy?"
+    },
+    {
+      "paragraph_id": 102,
+      "start": 731.17,
+      "end": 735.72,
+      "duration": 4.55,
+      "text_snippet": "Những khái niệm nào ở đây dễ trở thành bẫy khi phỏng vấn?"
+    },
+    {
+      "paragraph_id": 103,
+      "start": 735.72,
+      "end": 737.12,
+      "duration": 1.4,
+      "text_snippet": "Liên kết Tham khảo"
+    },
+    {
+      "paragraph_id": 104,
+      "start": 737.12,
+      "end": 738.87,
+      "duration": 1.75,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Period.ht"
+    },
+    {
+      "paragraph_id": 105,
+      "start": 738.88,
+      "end": 740.63,
+      "duration": 1.75,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Duration."
+    },
+    {
+      "paragraph_id": 106,
+      "start": 740.73,
+      "end": 786.27,
+      "duration": 45.54,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZoneId.ht"
+    },
+    {
+      "paragraph_id": 107,
+      "start": 786.26,
+      "end": 788.01,
+      "duration": 1.75,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/format/Da"
+    },
+    {
+      "paragraph_id": 108,
+      "start": 788.01,
+      "end": 789.76,
+      "duration": 1.75,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZonedDate"
     }
   ]
 }
