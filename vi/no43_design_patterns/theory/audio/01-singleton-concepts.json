@@ -1,0 +1,784 @@
+{
+  "lesson": "01-singleton-concepts",
+  "total_duration_seconds": 707.5,
+  "total_paragraphs": 111,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 2.04,
+      "duration": 2.04,
+      "text_snippet": "Các Mẫu Thiết Kế Cơ Bản Thường Gặp Trong Java - Phần 1"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 2.04,
+      "end": 2.65,
+      "duration": 0.61,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 2.65,
+      "end": 11.43,
+      "duration": 8.78,
+      "text_snippet": "File này đề cập đến một phần trọng tâm của các Mẫu thiết kế (Design Pattern) khởi tạo (creational) và cấu trúc (structur"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 11.43,
+      "end": 12.11,
+      "duration": 0.68,
+      "text_snippet": "Đề Cương Khái Niệm"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 12.11,
+      "end": 43.49,
+      "duration": 31.37,
+      "text_snippet": "Singleton — Singleton: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nFactory Method — Factory Method: Cung"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 43.49,
+      "end": 43.56,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 43.56,
+      "end": 44.17,
+      "duration": 0.61,
+      "text_snippet": "Ghi Chú Chi Tiết"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 44.17,
+      "end": 44.51,
+      "duration": 0.34,
+      "text_snippet": "Singleton"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 44.51,
+      "end": 47.72,
+      "duration": 3.22,
+      "text_snippet": "Giới hạn một lớp chỉ có duy nhất một thực thể và cung cấp một điểm truy cập toàn cục."
+    },
+    {
+      "paragraph_id": 10,
+      "start": 47.72,
+      "end": 57.26,
+      "duration": 9.54,
+      "text_snippet": "Ví dụ chạy được (Khóa Kiểm Tra Hai Lần - Double-Checked Locking):\n  `java\n  public final class DatabaseConnection {\n    "
+    },
+    {
+      "paragraph_id": 11,
+      "start": 57.26,
+      "end": 65.81,
+      "duration": 8.55,
+      "text_snippet": "private DatabaseConnection() {\n          // Prevent reflection breaking constructor encapsulation\n          if (instance"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 65.81,
+      "end": 80.61,
+      "duration": 14.8,
+      "text_snippet": "public static DatabaseConnection getInstance() {\n          if (instance == null) { // First check (no synchronization ov"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 80.61,
+      "end": 102.83,
+      "duration": 22.22,
+      "text_snippet": "Sai lầm phổ biến / Chế độ thất bại:\n  - Thiếu từ khóa Volatile: Nếu không có volatile, trình biên dịch/JVM có thể sắp xế"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 102.83,
+      "end": 102.9,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 102.9,
+      "end": 103.43,
+      "duration": 0.53,
+      "text_snippet": "Factory Method"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 103.43,
+      "end": 107.56,
+      "duration": 4.13,
+      "text_snippet": "Định nghĩa một interface để tạo một đối tượng nhưng cho phép các lớp con quyết định lớp nào sẽ được khởi tạo."
+    },
+    {
+      "paragraph_id": 17,
+      "start": 107.56,
+      "end": 118.99,
+      "duration": 11.43,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  public abstract class Dialog {\n      public void renderWindow() {\n          Button okButton ="
+    },
+    {
+      "paragraph_id": 18,
+      "start": 118.99,
+      "end": 123.57,
+      "duration": 4.58,
+      "text_snippet": "public class WindowsDialog extends Dialog {\n      protected Button createButton() { return new WindowsButton(); }\n  }\n  "
+    },
+    {
+      "paragraph_id": 19,
+      "start": 123.57,
+      "end": 123.64,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 123.64,
+      "end": 124.25,
+      "duration": 0.61,
+      "text_snippet": "Abstract Factory"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 124.25,
+      "end": 129.32,
+      "duration": 5.07,
+      "text_snippet": "Cung cấp một interface để tạo ra các họ đối tượng có liên quan hoặc phụ thuộc lẫn nhau mà không cần chỉ định các lớp cụ "
+    },
+    {
+      "paragraph_id": 22,
+      "start": 129.32,
+      "end": 133.94,
+      "duration": 4.62,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  public interface GUIFactory {\n      Button createButton();\n      Checkbox createCheckbox();\n "
+    },
+    {
+      "paragraph_id": 23,
+      "start": 133.94,
+      "end": 141.01,
+      "duration": 7.08,
+      "text_snippet": "public class MacFactory implements GUIFactory {\n      public Button createButton() { return new MacButton(); }\n      pub"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 141.01,
+      "end": 141.09,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 141.09,
+      "end": 141.36,
+      "duration": 0.26,
+      "text_snippet": "Builder"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 141.36,
+      "end": 147.83,
+      "duration": 6.47,
+      "text_snippet": "Tách biệt việc xây dựng một đối tượng phức tạp khỏi biểu diễn của nó, cho phép lắp ráp từng bước các trường dữ liệu (đặc"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 147.83,
+      "end": 152.97,
+      "duration": 5.15,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  public class User {\n      private final String name; // Required\n      private final int age;"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 152.97,
+      "end": 157.1,
+      "duration": 4.13,
+      "text_snippet": "private User(Builder builder) {\n          this.name = builder.name;\n          this.age = builder.age;\n      }"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 157.1,
+      "end": 160.62,
+      "duration": 3.52,
+      "text_snippet": "public static class Builder {\n          private final String name;\n          private int age;"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 160.62,
+      "end": 167.77,
+      "duration": 7.15,
+      "text_snippet": "public Builder(String name) { this.name = name; }\n          public Builder age(int age) { this.age = age; return this; }"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 167.77,
+      "end": 170.23,
+      "duration": 2.46,
+      "text_snippet": "// Usage:\n  User u = new User.Builder(\"Bob\").age(30).build();\n  `"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 170.23,
+      "end": 170.31,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 170.31,
+      "end": 170.65,
+      "duration": 0.34,
+      "text_snippet": "Prototype"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 170.65,
+      "end": 175.83,
+      "duration": 5.18,
+      "text_snippet": "Tạo các đối tượng mới bằng cách sao chép (nhân bản/clone) một thực thể hiện có (prototype) thay vì tạo mới chúng bằng từ"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 175.83,
+      "end": 179.01,
+      "duration": 3.18,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  public interface Prototype {\n      Prototype clone();\n  }"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 179.01,
+      "end": 181.59,
+      "duration": 2.57,
+      "text_snippet": "public class Cell implements Prototype {\n      private String color;"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 181.59,
+      "end": 186.73,
+      "duration": 5.15,
+      "text_snippet": "public Cell(Cell target) { if (target != null) this.color = target.color; }\n      public Cell clone() { return new Cell("
+    },
+    {
+      "paragraph_id": 38,
+      "start": 186.73,
+      "end": 186.81,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 186.81,
+      "end": 187.07,
+      "duration": 0.26,
+      "text_snippet": "Adapter"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 187.07,
+      "end": 192.6,
+      "duration": 5.53,
+      "text_snippet": "Chuyển đổi interface của một lớp thành một interface khác mà client mong đợi, cho phép các lớp có interface không tương "
+    },
+    {
+      "paragraph_id": 41,
+      "start": 192.6,
+      "end": 197.67,
+      "duration": 5.07,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  public interface TypeCInput { void connectTypeC(); }\n  \n  public class LegacyUsbCable { void "
+    },
+    {
+      "paragraph_id": 42,
+      "start": 197.67,
+      "end": 203.88,
+      "duration": 6.21,
+      "text_snippet": "// Adapter wraps LegacyUsbCable to expose TypeCInput interface\n  public class UsbToTypeCAdapter implements TypeCInput {\n"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 203.88,
+      "end": 209.1,
+      "duration": 5.22,
+      "text_snippet": "public UsbToTypeCAdapter(LegacyUsbCable cable) { this.usbCable = cable; }\n      public void connectTypeC() { usbCable.pl"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 209.1,
+      "end": 209.18,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 209.18,
+      "end": 209.52,
+      "duration": 0.34,
+      "text_snippet": "Decorator"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 209.52,
+      "end": 215.76,
+      "duration": 6.24,
+      "text_snippet": "Đính kèm thêm các trách nhiệm vào một đối tượng một cách động. Các decorator cung cấp một sự thay thế linh hoạt cho việc"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 215.76,
+      "end": 218.49,
+      "duration": 2.72,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  public interface Coffee { double getCost(); }"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 218.49,
+      "end": 221.78,
+      "duration": 3.29,
+      "text_snippet": "public class SimpleCoffee implements Coffee { public double getCost() { return 2.0; } }"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 221.78,
+      "end": 224.84,
+      "duration": 3.07,
+      "text_snippet": "public class MilkDecorator implements Coffee {\n      private final Coffee coffee;"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 224.84,
+      "end": 229.92,
+      "duration": 5.07,
+      "text_snippet": "public MilkDecorator(Coffee coffee) { this.coffee = coffee; }\n      public double getCost() { return coffee.getCost() + "
+    },
+    {
+      "paragraph_id": 51,
+      "start": 229.92,
+      "end": 229.99,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 229.99,
+      "end": 230.22,
+      "duration": 0.23,
+      "text_snippet": "Facade"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 230.22,
+      "end": 234.65,
+      "duration": 4.43,
+      "text_snippet": "Cung cấp một giao diện thống nhất, đơn giản hóa cho một tập hợp các interface trong một phân hệ (subsystem) phức tạp."
+    },
+    {
+      "paragraph_id": 54,
+      "start": 234.65,
+      "end": 242.18,
+      "duration": 7.53,
+      "text_snippet": "Ví dụ: Tạo một HomeTheaterFacade giúp trừu tượng hóa các cuộc gọi tới Amplifier.on(), DvdPlayer.play(movie), Projector.w"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 242.18,
+      "end": 242.25,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 242.25,
+      "end": 242.44,
+      "duration": 0.19,
+      "text_snippet": "Proxy"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 242.44,
+      "end": 249.03,
+      "duration": 6.59,
+      "text_snippet": "Cung cấp một đối tượng đại diện (surrogate hoặc placeholder) cho một đối tượng khác để kiểm soát quyền truy cập vào nó ("
+    },
+    {
+      "paragraph_id": 58,
+      "start": 249.03,
+      "end": 251.64,
+      "duration": 2.61,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  public interface Image { void display(); }"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 251.64,
+      "end": 259.06,
+      "duration": 7.42,
+      "text_snippet": "public class RealImage implements Image {\n      public RealImage(String filename) { loadFromDisk(filename); }\n      publ"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 259.06,
+      "end": 266.06,
+      "duration": 7.0,
+      "text_snippet": "// Proxy lazy loads RealImage only when display() is actually called\n  public class ProxyImage implements Image {\n      "
+    },
+    {
+      "paragraph_id": 61,
+      "start": 266.06,
+      "end": 274.04,
+      "duration": 7.99,
+      "text_snippet": "public ProxyImage(String filename) { this.filename = filename; }\n      public void display() {\n          if (realImage ="
+    },
+    {
+      "paragraph_id": 62,
+      "start": 274.04,
+      "end": 274.12,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 274.12,
+      "end": 274.42,
+      "duration": 0.3,
+      "text_snippet": "Strategy"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 274.42,
+      "end": 278.85,
+      "duration": 4.43,
+      "text_snippet": "Định nghĩa một họ các thuật toán, đóng gói từng thuật toán và giúp chúng có thể hoán đổi cho nhau tại thời điểm chạy."
+    },
+    {
+      "paragraph_id": 65,
+      "start": 278.85,
+      "end": 282.07,
+      "duration": 3.22,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  public interface PaymentStrategy { void pay(int amount); }"
+    },
+    {
+      "paragraph_id": 66,
+      "start": 282.07,
+      "end": 288.99,
+      "duration": 6.93,
+      "text_snippet": "public class CreditCardPayment implements PaymentStrategy { public void pay(int amount) {} }\n  public class PayPalPaymen"
+    },
+    {
+      "paragraph_id": 67,
+      "start": 288.99,
+      "end": 296.37,
+      "duration": 7.38,
+      "text_snippet": "public class ShoppingCart {\n      public static void main(String[] args) {\n          ShoppingCart cart = new ShoppingCar"
+    },
+    {
+      "paragraph_id": 68,
+      "start": 296.37,
+      "end": 296.45,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 69,
+      "start": 296.45,
+      "end": 298.76,
+      "duration": 2.31,
+      "text_snippet": "Tại Sao Khóa Kiểm Tra Hai Lần Đảm Bảo Singleton An Toàn Luồng"
+    },
+    {
+      "paragraph_id": 70,
+      "start": 298.76,
+      "end": 322.9,
+      "duration": 24.15,
+      "text_snippet": "Mẫu thiết kế khóa kiểm tra hai lần (double-checked locking) được thiết kế để giảm thiểu chi phí đồng bộ hóa trong việc k"
+    },
+    {
+      "paragraph_id": 71,
+      "start": 322.9,
+      "end": 348.64,
+      "duration": 25.74,
+      "text_snippet": "Điều quan trọng là tham chiếu thực thể phải được khai báo volatile để ngăn chặn việc sắp xếp lại chỉ thị (instruction re"
+    },
+    {
+      "paragraph_id": 72,
+      "start": 348.64,
+      "end": 364.08,
+      "duration": 15.44,
+      "text_snippet": "Phơi bày thực thể khởi tạo một phần (Mental Model)\n`text\n            Luồng A                            Luồng B\n     1. "
+    },
+    {
+      "paragraph_id": 73,
+      "start": 364.08,
+      "end": 368.05,
+      "duration": 3.97,
+      "text_snippet": "Ví Dụ Mã Nguồn\n`java\npublic final class DclSingleton {\n    private static volatile DclSingleton instance;"
+    },
+    {
+      "paragraph_id": 74,
+      "start": 368.05,
+      "end": 369.0,
+      "duration": 0.95,
+      "text_snippet": "private DclSingleton() {}"
+    },
+    {
+      "paragraph_id": 75,
+      "start": 369.0,
+      "end": 379.82,
+      "duration": 10.82,
+      "text_snippet": "public static DclSingleton getInstance() {\n        if (instance == null) {\n            synchronized (DclSingleton.class)"
+    },
+    {
+      "paragraph_id": 76,
+      "start": 379.82,
+      "end": 388.57,
+      "duration": 8.74,
+      "text_snippet": "public static void main(String[] args) {\n        DclSingleton s1 = DclSingleton.getInstance();\n        DclSingleton s2 ="
+    },
+    {
+      "paragraph_id": 77,
+      "start": 388.57,
+      "end": 404.61,
+      "duration": 16.05,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nBỏ qua từ khóa volatile &rarr; Trình biên dịch/CPU sắp xếp lại việc ghi địa chỉ thực thể lên"
+    },
+    {
+      "paragraph_id": 78,
+      "start": 404.61,
+      "end": 410.48,
+      "duration": 5.87,
+      "text_snippet": "> Xem thêm:\n> - Cơ chế Monitor Lock của synchronized: Ch.29 - Synchronized\n> - Thread Safety và Memory Visibility của vo"
+    },
+    {
+      "paragraph_id": 79,
+      "start": 410.48,
+      "end": 410.56,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 80,
+      "start": 410.56,
+      "end": 412.98,
+      "duration": 2.42,
+      "text_snippet": "Tại Sao Bill Pugh Singleton Đạt Được Khởi Tạo Lười An Toàn Luồng"
+    },
+    {
+      "paragraph_id": 81,
+      "start": 412.98,
+      "end": 434.21,
+      "duration": 21.23,
+      "text_snippet": "Mẫu thiết kế Bill Pugh Singleton dựa trên cơ chế tải lớp (class loading) của Máy ảo Java để đạt được khả năng khởi tạo l"
+    },
+    {
+      "paragraph_id": 82,
+      "start": 434.21,
+      "end": 454.65,
+      "duration": 20.44,
+      "text_snippet": "Điều quan trọng là phân hệ tải lớp của JVM vốn dĩ đã tuần tự hóa việc khởi tạo lớp. JVM sử dụng các khóa nội bộ trong qu"
+    },
+    {
+      "paragraph_id": 83,
+      "start": 454.65,
+      "end": 466.57,
+      "duration": 11.92,
+      "text_snippet": "Khởi tạo lười qua ClassLoader (Mental Model)\n`text\nLớp bên ngoài được tải -> Lớp lồng nhau chưa được tải (Lazy)\n       |"
+    },
+    {
+      "paragraph_id": 84,
+      "start": 466.57,
+      "end": 470.12,
+      "duration": 3.56,
+      "text_snippet": "Ví Dụ Mã Nguồn\n`java\npublic final class BillPughSingleton {\n    private BillPughSingleton() {}"
+    },
+    {
+      "paragraph_id": 85,
+      "start": 470.12,
+      "end": 474.93,
+      "duration": 4.81,
+      "text_snippet": "private static class SingletonHolder {\n        private static final BillPughSingleton INSTANCE = new BillPughSingleton()"
+    },
+    {
+      "paragraph_id": 86,
+      "start": 474.93,
+      "end": 478.49,
+      "duration": 3.56,
+      "text_snippet": "public static BillPughSingleton getInstance() {\n        return SingletonHolder.INSTANCE;\n    }"
+    },
+    {
+      "paragraph_id": 87,
+      "start": 478.49,
+      "end": 487.99,
+      "duration": 9.5,
+      "text_snippet": "public static void main(String[] args) {\n        BillPughSingleton s1 = BillPughSingleton.getInstance();\n        BillPug"
+    },
+    {
+      "paragraph_id": 88,
+      "start": 487.99,
+      "end": 502.71,
+      "duration": 14.72,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nGọi phương thức getInstance() &rarr; Phân hệ tải lớp của JVM kích hoạt tải SingletonHolder t"
+    },
+    {
+      "paragraph_id": 89,
+      "start": 502.71,
+      "end": 502.79,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 90,
+      "start": 502.79,
+      "end": 504.87,
+      "duration": 2.08,
+      "text_snippet": "Tại Sao Factory Method Trì Hoãn Việc Khởi Tạo Đối Tượng"
+    },
+    {
+      "paragraph_id": 91,
+      "start": 504.87,
+      "end": 526.02,
+      "duration": 21.16,
+      "text_snippet": "Mẫu thiết kế Factory Method giải quyết vấn đề liên kết chặt chẽ liên quan đến việc sử dụng trực tiếp toán tử new trong m"
+    },
+    {
+      "paragraph_id": 92,
+      "start": 526.02,
+      "end": 543.85,
+      "duration": 17.83,
+      "text_snippet": "Thiết kế này cho phép tính đa hình ở cấp độ khởi tạo, đảm bảo client chỉ tương tác duy nhất với các interface sản phẩm ("
+    },
+    {
+      "paragraph_id": 93,
+      "start": 543.85,
+      "end": 559.1,
+      "duration": 15.25,
+      "text_snippet": "Trì hoãn qua Đa hình kiểu con (Mental Model)\n`text\nMã nguồn Client -----> Creator (Abstract) ---gọi---> createProduct() "
+    },
+    {
+      "paragraph_id": 94,
+      "start": 559.1,
+      "end": 564.4,
+      "duration": 5.3,
+      "text_snippet": "Ví Dụ Mã Nguồn\n`java\ninterface Shape { void draw(); }\nclass Circle implements Shape { public void draw() { System.out.pr"
+    },
+    {
+      "paragraph_id": 95,
+      "start": 564.4,
+      "end": 571.4,
+      "duration": 7.0,
+      "text_snippet": "abstract class ShapeCreator {\n    public void render() {\n        Shape shape = createShape();\n        shape.draw();\n    "
+    },
+    {
+      "paragraph_id": 96,
+      "start": 571.4,
+      "end": 575.3,
+      "duration": 3.9,
+      "text_snippet": "class CircleCreator extends ShapeCreator {\n    protected Shape createShape() { return new Circle(); }\n}"
+    },
+    {
+      "paragraph_id": 97,
+      "start": 575.3,
+      "end": 581.73,
+      "duration": 6.43,
+      "text_snippet": "public class Main {\n    public static void main(String[] args) {\n        ShapeCreator creator = new CircleCreator();\n   "
+    },
+    {
+      "paragraph_id": 98,
+      "start": 581.73,
+      "end": 594.94,
+      "duration": 13.21,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nKhởi tạo trực tiếp bằng toán tử new &rarr; Phụ thuộc viết cứng vào lớp cụ thể tại thời điểm "
+    },
+    {
+      "paragraph_id": 99,
+      "start": 594.94,
+      "end": 595.02,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 100,
+      "start": 595.02,
+      "end": 597.67,
+      "duration": 2.65,
+      "text_snippet": "Tại Sao Mẫu Thiết Kế Builder Thay Thế Hàm Khởi Tạo Hình Kính Viễn Vọng"
+    },
+    {
+      "paragraph_id": 101,
+      "start": 597.67,
+      "end": 623.02,
+      "duration": 25.36,
+      "text_snippet": "Phản khuôn mẫu hàm khởi tạo hình kính viễn vọng (telescoping constructor) phát sinh khi một lớp chứa nhiều trường tùy ch"
+    },
+    {
+      "paragraph_id": 102,
+      "start": 623.02,
+      "end": 647.66,
+      "duration": 24.64,
+      "text_snippet": "Bằng việc sử dụng mẫu thiết kế Builder, các thuộc tính tùy chọn được thiết lập từng bước thông qua các lời gọi phương th"
+    },
+    {
+      "paragraph_id": 103,
+      "start": 647.66,
+      "end": 655.68,
+      "duration": 8.02,
+      "text_snippet": "Tránh tráo đổi đối số kiểu (Mental Model)\n`text\nHình kính viễn vọng: Client -> Client -> Client (Khó đọc, dễ nhầm thứ tự"
+    },
+    {
+      "paragraph_id": 104,
+      "start": 655.68,
+      "end": 659.66,
+      "duration": 3.97,
+      "text_snippet": "Ví Dụ Mã Nguồn\n`java\npublic final class Laptop {\n    private final String cpu;\n    private final int ram;"
+    },
+    {
+      "paragraph_id": 105,
+      "start": 659.66,
+      "end": 663.56,
+      "duration": 3.9,
+      "text_snippet": "private Laptop(Builder builder) {\n        this.cpu = builder.cpu;\n        this.ram = builder.ram;\n    }"
+    },
+    {
+      "paragraph_id": 106,
+      "start": 663.56,
+      "end": 666.66,
+      "duration": 3.1,
+      "text_snippet": "public static class Builder {\n        private String cpu;\n        private int ram;"
+    },
+    {
+      "paragraph_id": 107,
+      "start": 666.66,
+      "end": 677.94,
+      "duration": 11.28,
+      "text_snippet": "public Builder cpu(String cpu) { this.cpu = cpu; return this; }\n        public Builder ram(int ram) { this.ram = ram; re"
+    },
+    {
+      "paragraph_id": 108,
+      "start": 677.94,
+      "end": 687.21,
+      "duration": 9.27,
+      "text_snippet": "public static void main(String[] args) {\n        Laptop laptop = new Laptop.Builder().cpu(\"M3\").ram(16).build();\n       "
+    },
+    {
+      "paragraph_id": 109,
+      "start": 687.21,
+      "end": 699.93,
+      "duration": 12.72,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nNhiều tham số hàm khởi tạo tùy chọn &rarr; Các hàm khởi tạo quá tải với các vị trí tham số d"
+    },
+    {
+      "paragraph_id": 110,
+      "start": 699.93,
+      "end": 701.29,
+      "duration": 1.36,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 111,
+      "start": 701.29,
+      "end": 707.5,
+      "duration": 6.21,
+      "text_snippet": "https://refactoring.guru/design-patterns (Mẫu thiết kế Refactoring Guru)\nhttps://docs.oracle.com/javase/tutorial/java/co"
+    }
+  ]
+}

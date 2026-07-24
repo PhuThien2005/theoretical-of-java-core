@@ -1,0 +1,406 @@
+{
+  "lesson": "03-stringbuilder-stringbuffer",
+  "total_duration_seconds": 576.91,
+  "total_paragraphs": 57,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 1.5,
+      "duration": 1.5,
+      "text_snippet": "StringBuilder và StringBuffer"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 1.5,
+      "end": 21.53,
+      "duration": 20.03,
+      "text_snippet": "Khi thực hiện các thao tác thường xuyên trên chuỗi (chẳng hạn như bên trong các vòng lặp), tính chất bất biến (immutable"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 21.53,
+      "end": 21.64,
+      "duration": 0.1,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 21.64,
+      "end": 25.58,
+      "duration": 3.94,
+      "text_snippet": "Ví Dụ Thực Tế: Tại Sao Việc Nối Chuỗi Trong Vòng Lặp Có Độ Phức Tạp $O(n^2)$"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 25.58,
+      "end": 28.23,
+      "duration": 2.65,
+      "text_snippet": "Vấn Đề: Phép Nối Chuỗi Cơ Bản (Naive Concatenation)"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 28.23,
+      "end": 31.08,
+      "duration": 2.85,
+      "text_snippet": "Hãy xem xét một vòng lặp xây dựng một chuỗi gồm $n$ số:"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 31.08,
+      "end": 31.96,
+      "duration": 0.88,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 31.96,
+      "end": 38.03,
+      "duration": 6.07,
+      "text_snippet": "Bên dưới, trình biên dịch dịch câu lệnh s += i thành:\n`java\ns = new StringBuilder().append(s).append(i).toString();\n`"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 38.03,
+      "end": 54.89,
+      "duration": 16.86,
+      "text_snippet": "Trong mỗi lần lặp:\nMột đối tượng StringBuilder mới được khởi tạo.\nToàn bộ nội dung của chuỗi hiện tại s được sao chép từ"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 54.89,
+      "end": 69.73,
+      "duration": 14.84,
+      "text_snippet": "Nếu vòng lặp chạy $n$ lần và mỗi lần lặp lại thêm vào một chuỗi nhỏ, độ dài của chuỗi s sẽ tăng tuyến tính. Ở lần lặp th"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 69.73,
+      "end": 87.63,
+      "duration": 17.9,
+      "text_snippet": "Điều này dẫn đến:\nĐộ phức tạp thời gian bậc hai ($O(n^2)$): Thời gian thực thi tăng theo cấp số nhân (bậc hai) so với $n"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 87.63,
+      "end": 88.88,
+      "duration": 1.25,
+      "text_snippet": "Giải Pháp: StringBuilder"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 88.88,
+      "end": 97.23,
+      "duration": 8.35,
+      "text_snippet": "Bằng cách khởi tạo một đối tượng StringBuilder duy nhất bên ngoài vòng lặp, chúng ta tránh được việc tạo ra các đối tượn"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 97.23,
+      "end": 98.11,
+      "duration": 0.88,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 98.11,
+      "end": 128.42,
+      "duration": 30.3,
+      "text_snippet": "Tại đây:\nChỉ có một đối tượng StringBuilder duy nhất được cấp phát.\nPhương thức append() sửa đổi trực tiếp bộ đệm byte[]"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 128.42,
+      "end": 128.52,
+      "duration": 0.1,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 128.52,
+      "end": 131.53,
+      "duration": 3.01,
+      "text_snippet": "Bộ Đệm Nội Bộ và Dung Lượng (Internal Buffer and Capacity)"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 131.53,
+      "end": 155.45,
+      "duration": 23.92,
+      "text_snippet": "Cả StringBuilder và StringBuffer đều kế thừa từ một lớp cha trừu tượng package-private gọi là AbstractStringBuilder.\nChú"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 155.45,
+      "end": 175.11,
+      "duration": 19.66,
+      "text_snippet": "Thuật Toán Thay Đổi Kích Thước (Resizing Algorithm)\nKhi bạn thêm nội dung vượt quá dung lượng hiện tại, JVM sẽ cấp phát "
+    },
+    {
+      "paragraph_id": 20,
+      "start": 175.11,
+      "end": 175.22,
+      "duration": 0.1,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 175.22,
+      "end": 176.72,
+      "duration": 1.5,
+      "text_snippet": "So Sánh Chi Tiết Các Đặc Tính"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 176.72,
+      "end": 200.33,
+      "duration": 23.61,
+      "text_snippet": "| Đặc tính | String | StringBuilder (Java 5+) | StringBuffer (Java 1.0) |\n| :--- | :--- | :--- | :--- |\n| Tính Thay Đổi "
+    },
+    {
+      "paragraph_id": 23,
+      "start": 200.33,
+      "end": 200.43,
+      "duration": 0.1,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 200.43,
+      "end": 204.12,
+      "duration": 3.68,
+      "text_snippet": "An Toàn Đa Luồng và Tranh Chấp Khóa (Thread Safety and Lock Contention)"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 204.12,
+      "end": 231.46,
+      "duration": 27.34,
+      "text_snippet": "StringBuffer — StringBuffer: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\n  - Ngay cả trong chương trình "
+    },
+    {
+      "paragraph_id": 26,
+      "start": 231.46,
+      "end": 234.21,
+      "duration": 2.75,
+      "text_snippet": "Đi Sâu: Chi Phí Đồng Bộ Hóa và Cơ Chế Tranh Chấp Khóa"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 234.21,
+      "end": 287.86,
+      "duration": 53.65,
+      "text_snippet": "Sự chênh lệch hiệu năng giữa StringBuilder và StringBuffer hoàn toàn xuất phát từ chi phí runtime của việc đồng bộ hóa l"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 287.86,
+      "end": 295.02,
+      "duration": 7.16,
+      "text_snippet": "> Xem thêm: Các khái niệm cơ bản về An toàn luồng (Thread Safety) và Race Condition, được trình bày chi tiết trong Ch.28"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 295.02,
+      "end": 296.68,
+      "duration": 1.66,
+      "text_snippet": "Mô Hình So Sánh Tranh Chấp Luồng"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 296.68,
+      "end": 297.56,
+      "duration": 0.88,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 297.56,
+      "end": 300.16,
+      "duration": 2.59,
+      "text_snippet": "Ví Dụ Mã Nguồn Minh Họa Sự Đồng Thời Không An Toàn"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 300.16,
+      "end": 301.04,
+      "duration": 0.88,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 301.04,
+      "end": 311.99,
+      "duration": 10.95,
+      "text_snippet": "Thread thread1 = new Thread(task);\nThread thread2 = new Thread(task);\nthread1.start();\nthread2.start();\ntry {\n    thread"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 311.99,
+      "end": 319.92,
+      "duration": 7.94,
+      "text_snippet": "// Có thể ném ra lỗi ArrayIndexOutOfBoundsException or in ra độ dài nhỏ hơn 2000!\nSystem.out.println(\"Expected: 2000, Ac"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 319.92,
+      "end": 345.4,
+      "duration": 25.48,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả Của Việc Sử Dụng StringBuilder Đồng Thời Không An Toàn\nGhi đồng thời vào StringBuilder $\\rig"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 345.4,
+      "end": 345.5,
+      "duration": 0.1,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 345.5,
+      "end": 347.06,
+      "duration": 1.56,
+      "text_snippet": "Các Phương Thức API Quan Trọng"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 347.06,
+      "end": 360.03,
+      "duration": 12.97,
+      "text_snippet": "append()\nThêm biểu diễn chuỗi của bất kỳ kiểu dữ liệu nào vào cuối chuỗi hiện tại. Hỗ trợ cơ chế chuỗi phương thức (meth"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 360.03,
+      "end": 374.04,
+      "duration": 14.01,
+      "text_snippet": "insert(int offset, Object obj)\nChèn các ký tự tại vị trí chỉ mục (index) được chỉ định.\n`java\nStringBuilder sb = new Str"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 374.04,
+      "end": 390.8,
+      "duration": 16.76,
+      "text_snippet": "delete(int start, int end) và deleteCharAt(int index)\ndelete(): Loại bỏ các ký tự từ vị trí start (bao gồm) đến end (khô"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 390.8,
+      "end": 402.01,
+      "duration": 11.21,
+      "text_snippet": "replace(int start, int end, String str)\nThay thế các ký tự từ vị trí start đến end bằng chuỗi str.\n`java\nStringBuilder s"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 402.01,
+      "end": 408.44,
+      "duration": 6.43,
+      "text_snippet": "reverse()\nĐảo ngược chuỗi ký tự.\n`java\nStringBuilder sb = new StringBuilder(\"live\");\nsb.reverse(); // sb bây giờ là \"evi"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 408.44,
+      "end": 423.9,
+      "duration": 15.46,
+      "text_snippet": "setLength(int newLength)\nThiết lập độ dài của chuỗi ký tự:\nNếu newLength nhỏ hơn độ dài hiện tại, chuỗi ký tự sẽ bị cắt "
+    },
+    {
+      "paragraph_id": 44,
+      "start": 423.9,
+      "end": 434.85,
+      "duration": 10.95,
+      "text_snippet": "ensureCapacity(int minimumCapacity)\nBắt buộc bộ đệm phải cấp phát không gian cho ít nhất minimumCapacity ký tự, giúp ngă"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 434.85,
+      "end": 434.95,
+      "duration": 0.1,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 434.95,
+      "end": 435.68,
+      "duration": 0.73,
+      "text_snippet": "Lỗi Thường Gặp"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 435.68,
+      "end": 459.13,
+      "duration": 23.45,
+      "text_snippet": "Khởi Tạo Lại StringBuilder Bên Trong Vòng Lặp\nTạo một đối tượng StringBuilder mới bên trong vòng lặp làm mất đi mục đích"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 459.13,
+      "end": 468.68,
+      "duration": 9.55,
+      "text_snippet": "// ĐÚNG: Khởi tạo một StringBuilder duy nhất bên ngoài vòng lặp\nStringBuilder sb = new StringBuilder();\nfor (int i = 0; "
+    },
+    {
+      "paragraph_id": 49,
+      "start": 468.68,
+      "end": 485.91,
+      "duration": 17.23,
+      "text_snippet": "Sử Dụng append() Với Phép Nối Chuỗi\nViết sb.append(a + b) thay vì sb.append(a).append(b). Cách viết trước thực hiện một "
+    },
+    {
+      "paragraph_id": 50,
+      "start": 485.91,
+      "end": 489.8,
+      "duration": 3.89,
+      "text_snippet": "// SAI: Tạo ra một chuỗi tạm thời \"John Doe\"\nsb.append(first + \" \" + last);"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 489.8,
+      "end": 495.92,
+      "duration": 6.12,
+      "text_snippet": "// ĐÚNG: Sử dụng chuỗi phương thức giúp tránh cấp phát đối tượng tạm thời\nsb.append(first).append(\" \").append(last);\n`"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 495.92,
+      "end": 529.39,
+      "duration": 33.47,
+      "text_snippet": "Chia Sẻ StringBuilder Đồng Thời Giữa Các Luồng\nStringBuilder KHÔNG an toàn đa luồng. Nếu nhiều luồng cùng gọi append() v"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 529.39,
+      "end": 551.13,
+      "duration": 21.74,
+      "text_snippet": "Bỏ Qua Dung Lượng Khởi Tạo Ban Đầu\nNếu bạn biết chắc chắn rằng chuỗi kết quả cuối cùng sẽ rất lớn (ví dụ: 100.000 ký tự)"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 551.13,
+      "end": 555.28,
+      "duration": 4.15,
+      "text_snippet": "// Thay đổi kích thước 0 lần:\nStringBuilder sb2 = new StringBuilder(100_000); \n`"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 555.28,
+      "end": 555.38,
+      "duration": 0.1,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 555.38,
+      "end": 556.37,
+      "duration": 0.99,
+      "text_snippet": "Liên Kết Tham Chiếu"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 556.37,
+      "end": 576.91,
+      "duration": 20.55,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/StringBuilder.html (Tham khảo lớp StringBuilder t"
+    }
+  ]
+}

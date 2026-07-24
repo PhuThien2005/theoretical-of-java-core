@@ -1,0 +1,245 @@
+{
+  "lesson": "02-avoid-insecure-deserialization-concepts",
+  "total_duration_seconds": 318.74,
+  "total_paragraphs": 34,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 1.69,
+      "duration": 1.69,
+      "text_snippet": "Bảo mật cơ bản (Basic Security) - Phần 2"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 1.69,
+      "end": 2.36,
+      "duration": 0.68,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 2.36,
+      "end": 9.87,
+      "duration": 7.51,
+      "text_snippet": "Tài liệu này trình bày một phần trọng tâm của Bảo mật cơ bản (Basic Security). Hãy nghiên cứu từng khái niệm dưới dạng m"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 9.87,
+      "end": 10.63,
+      "duration": 0.76,
+      "text_snippet": "Nội Dung Tổng Quan"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 10.63,
+      "end": 15.87,
+      "duration": 5.23,
+      "text_snippet": "Avoid insecure deserialization — Avoid insecure deserialization: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong J"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 15.87,
+      "end": 16.54,
+      "duration": 0.68,
+      "text_snippet": "Ghi Chú Chi Tiết"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 16.54,
+      "end": 19.45,
+      "duration": 2.91,
+      "text_snippet": "Tránh giải tuần tự hóa không an toàn (Avoid insecure deserialization)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 19.45,
+      "end": 31.65,
+      "duration": 12.19,
+      "text_snippet": "Giải tuần tự hóa không an toàn (Insecure deserialization) xảy ra khi dữ liệu đã tuần tự hóa không đáng tin cậy được phân"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 31.65,
+      "end": 35.49,
+      "duration": 3.84,
+      "text_snippet": "> Xem thêm: Cơ chế Tuần tự hóa cơ bản trong Java, được trình bày chi tiết trong Ch.26 - IO."
+    },
+    {
+      "paragraph_id": 10,
+      "start": 35.49,
+      "end": 52.45,
+      "duration": 16.96,
+      "text_snippet": "Khái niệm này rất quan trọng vì quá trình giải tuần tự hóa của Java khởi tạo các lớp một cách động và cấu hình trạng thá"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 52.45,
+      "end": 53.17,
+      "duration": 0.72,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 53.17,
+      "end": 63.63,
+      "duration": 10.46,
+      "text_snippet": "Định nghĩa Avoid insecure deserialization trong một câu.\nNhận biết Avoid insecure deserialization trong mã nguồn, câu lệ"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 63.63,
+      "end": 64.9,
+      "duration": 1.27,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 64.9,
+      "end": 69.37,
+      "duration": 4.47,
+      "text_snippet": "Khi đọc mã nguồn, hãy hỏi: Avoid insecure deserialization thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 69.37,
+      "end": 70.59,
+      "duration": 1.22,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 70.59,
+      "end": 79.5,
+      "duration": 8.9,
+      "text_snippet": "Những khái niệm nào ở đây là quy tắc trong thời gian biên dịch (compile-time)?\nNhững khái niệm nào ở đây ảnh hưởng đến h"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 79.5,
+      "end": 80.26,
+      "duration": 0.76,
+      "text_snippet": "Các Ví Dụ Mã Nguồn"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 80.26,
+      "end": 104.39,
+      "duration": 24.14,
+      "text_snippet": "Sử dụng ObjectInputFilter (Java 9+) để ngăn chặn giải tuần tự hóa không an toàn\n`java\ntry (FileInputStream fileIn = new "
+    },
+    {
+      "paragraph_id": 19,
+      "start": 104.39,
+      "end": 105.15,
+      "duration": 0.76,
+      "text_snippet": "Sai Lầm Thường Gặp"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 105.15,
+      "end": 137.14,
+      "duration": 31.98,
+      "text_snippet": "Giải tuần tự hóa các luồng byte không đáng tin cậy: Giải tuần tự hóa dữ liệu do người dùng cung cấp từ các yêu cầu mạng "
+    },
+    {
+      "paragraph_id": 21,
+      "start": 137.14,
+      "end": 137.22,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 137.22,
+      "end": 140.38,
+      "duration": 3.16,
+      "text_snippet": "Tại Sao Giải Tuần Tự Hóa Không An Toàn Lại Cho Phép Thực Thi Mã Từ Xa (RCE)"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 140.38,
+      "end": 160.3,
+      "duration": 19.92,
+      "text_snippet": "Cơ chế tuần tự hóa mặc định của Java, khi giải tuần tự hóa một luồng byte thông qua ObjectInputStream.readObject(), sẽ t"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 160.3,
+      "end": 182.83,
+      "duration": 22.53,
+      "text_snippet": "Kẻ tấn công có thể chèn một luồng byte tuần tự hóa được thiết kế tinh vi để khai thác điều này bằng cách xây dựng một pa"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 182.83,
+      "end": 195.36,
+      "duration": 12.53,
+      "text_snippet": "Trong một cuộc tấn công thực tế, kẻ tấn công liên kết nhiều lệnh gọi readObject() và hashCode() trên nhiều đối tượng khá"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 195.36,
+      "end": 211.31,
+      "duration": 15.95,
+      "text_snippet": "ObjectInputFilter (được giới thiệu từ Java 9) cung cấp cơ chế danh sách trắng (whitelist) cho lớp: bạn định nghĩa những "
+    },
+    {
+      "paragraph_id": 27,
+      "start": 211.31,
+      "end": 237.18,
+      "duration": 25.87,
+      "text_snippet": "Mô Hình Tư Duy: Chuỗi Tiện Ích Giải Tuần Tự Hóa\n`\nKẻ tấn công tạo luồng byte độc hại:\n[SerializedPayload] = [GadgetClass"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 237.18,
+      "end": 246.25,
+      "duration": 9.07,
+      "text_snippet": "Khi có ObjectInputFilter:\n[SerializedPayload] → Filter kiểm tra: GadgetClass1 có trong whitelist không? KHÔNG → TỪ CHỐI\n"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 246.25,
+      "end": 249.8,
+      "duration": 3.54,
+      "text_snippet": "Ví Dụ Mã Nguồn: ObjectInputFilter Whitelist để Ngăn Chặn RCE\n`java\nimport java.io.*;"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 249.8,
+      "end": 275.79,
+      "duration": 25.99,
+      "text_snippet": "public class SafeDeserializationDemo {\n    public static Object safeDeserialize(byte[] data) throws Exception {\n        "
+    },
+    {
+      "paragraph_id": 31,
+      "start": 275.79,
+      "end": 283.76,
+      "duration": 7.97,
+      "text_snippet": "return in.readObject();\n            // Nếu payload chứa GadgetClass từ Apache Commons → bộ lọc sẽ từ chối nó\n           "
+    },
+    {
+      "paragraph_id": 32,
+      "start": 283.76,
+      "end": 304.74,
+      "duration": 20.97,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nLuồng byte không đáng tin cậy được truyền vào ObjectInputStream.readObject() &rarr; JVM khởi"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 304.74,
+      "end": 305.49,
+      "duration": 0.76,
+      "text_snippet": "Liên Kết Tham Khảo"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 305.49,
+      "end": 318.74,
+      "duration": 13.25,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/ObjectInputFilter.html (ObjectInputFilter JavaDoc)\n"
+    }
+  ]
+}

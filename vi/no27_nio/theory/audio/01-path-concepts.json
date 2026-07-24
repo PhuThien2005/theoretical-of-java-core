@@ -1,0 +1,336 @@
+{
+  "lesson": "01-path-concepts",
+  "total_duration_seconds": 325.7,
+  "total_paragraphs": 47,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 1.2,
+      "duration": 1.2,
+      "text_snippet": "NIO / NIO.2 - Phần 1 (NIO / NIO.2 - Part 1)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 1.2,
+      "end": 1.65,
+      "duration": 0.45,
+      "text_snippet": "Mục tiêu học tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 1.65,
+      "end": 6.14,
+      "duration": 4.49,
+      "text_snippet": "Tài liệu này tập trung vào một phần trọng tâm của NIO / NIO.2. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc Java thực"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 6.14,
+      "end": 6.61,
+      "duration": 0.47,
+      "text_snippet": "Đề cương chi tiết"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 6.61,
+      "end": 31.58,
+      "duration": 24.97,
+      "text_snippet": "Path — Đối tượng NIO đại diện cho đường dẫn phân cấp đến tệp hoặc thư mục.\nPaths — Paths: Cung cấp các quy tắc và cơ chế"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 31.58,
+      "end": 32.03,
+      "duration": 0.45,
+      "text_snippet": "Ghi chú chi tiết"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 32.03,
+      "end": 43.13,
+      "duration": 11.1,
+      "text_snippet": "Path và Paths (NIO.2)\njava.nio.file.Path là sự thay thế của NIO.2 cho java.io.File. Nó đại diện cho một đường dẫn phân c"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 43.13,
+      "end": 44.47,
+      "duration": 1.34,
+      "text_snippet": "Tại sao Path và Files vượt trội hơn java.io.File"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 44.47,
+      "end": 68.04,
+      "duration": 23.57,
+      "text_snippet": "Lớp cũ java.io.File nhập nhằng giữa việc biểu diễn đường dẫn trừu tượng với các thao tác vật lý trên hệ thống tệp, dẫn đ"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 68.04,
+      "end": 70.75,
+      "duration": 2.71,
+      "text_snippet": "> Xem thêm: Chi tiết về java.io.File trong I/O cổ điển, được trình bày chi tiết trong Ch.26 - IO."
+    },
+    {
+      "paragraph_id": 11,
+      "start": 70.75,
+      "end": 71.22,
+      "duration": 0.47,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 71.22,
+      "end": 72.14,
+      "duration": 0.92,
+      "text_snippet": "Ví dụ mã nguồn: So sánh xử lý lỗi"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 72.14,
+      "end": 72.62,
+      "duration": 0.47,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 72.62,
+      "end": 82.88,
+      "duration": 10.27,
+      "text_snippet": "public class LegacyVsNioErrorHandling {\n    public static void main(String[] args) {\n        // Legacy java.io.File: Sil"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 82.88,
+      "end": 93.46,
+      "duration": 10.57,
+      "text_snippet": "// Modern java.nio.file.Path & Files: Fail-fast and descriptive\n        Path nioPath = Path.of(\"/nonexistent/dir/file.tx"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 93.46,
+      "end": 94.8,
+      "duration": 1.34,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả của các thao tác xóa"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 94.8,
+      "end": 95.27,
+      "duration": 0.47,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 95.27,
+      "end": 104.42,
+      "duration": 9.15,
+      "text_snippet": "Gọi Files.delete() của NIO.2 trên tệp không tồn tại\n  └── Ném ra NoSuchFileException\n        └── JVM ngắt luồng thực thi"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 104.42,
+      "end": 113.26,
+      "duration": 8.84,
+      "text_snippet": "Các thao tác đường dẫn chính:\nresolve(Path): Ghép hai đường dẫn. Nếu đối số là một đường dẫn tuyệt đối, nó chỉ đơn giản "
+    },
+    {
+      "paragraph_id": 20,
+      "start": 113.26,
+      "end": 113.74,
+      "duration": 0.47,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 113.74,
+      "end": 134.88,
+      "duration": 21.15,
+      "text_snippet": "public class PathDemo {\n    public static void main(String[] args) {\n        Path p1 = Path.of(\"/home/user/docs\");\n     "
+    },
+    {
+      "paragraph_id": 22,
+      "start": 134.88,
+      "end": 143.62,
+      "duration": 8.73,
+      "text_snippet": "Lớp tiện ích Files\nLớp java.nio.file.Files hoạt động trên các thực thể Path và thực sự giao tiếp với hệ thống tệp.\nCác l"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 143.62,
+      "end": 144.09,
+      "duration": 0.47,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 144.09,
+      "end": 168.0,
+      "duration": 23.91,
+      "text_snippet": "public class FilesDemo {\n    public static void main(String[] args) {\n        Path source = Path.of(\"source.txt\");\n     "
+    },
+    {
+      "paragraph_id": 25,
+      "start": 168.0,
+      "end": 177.93,
+      "duration": 9.93,
+      "text_snippet": "Duyệt cây tệp (Walk File Tree)\nFiles.walk(Path) trả về một luồng các đường dẫn dạng lazy, duyệt qua các cấu trúc thư mục"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 177.93,
+      "end": 178.4,
+      "duration": 0.47,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 178.4,
+      "end": 189.06,
+      "duration": 10.66,
+      "text_snippet": "Các biến trạng thái bộ đệm (position, limit, capacity)\nCác hoạt động truyền dữ liệu NIO diễn ra thông qua các kênh (chan"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 189.06,
+      "end": 198.88,
+      "duration": 9.82,
+      "text_snippet": "Chuyển đổi Trạng thái:\nflip(): Chuẩn bị bộ đệm cho việc đọc sau khi ghi. Đặt limit = position, sau đó đặt position = 0.\n"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 198.88,
+      "end": 201.36,
+      "duration": 2.48,
+      "text_snippet": "Tại sao phương thức flip() của bộ đệm là bắt buộc và sự chuyển đổi các con trỏ trạng thái"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 201.36,
+      "end": 221.53,
+      "duration": 20.17,
+      "text_snippet": "Một Buffer trong Java NIO là một khối bộ nhớ đơn lẻ được quản lý bởi một tập hợp duy nhất các con trỏ đọc/ghi: position,"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 221.53,
+      "end": 222.01,
+      "duration": 0.47,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 222.01,
+      "end": 223.29,
+      "duration": 1.28,
+      "text_snippet": "Ví dụ mã nguồn: Nguy hiểm của việc quên flip()"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 223.29,
+      "end": 223.77,
+      "duration": 0.47,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 223.77,
+      "end": 257.16,
+      "duration": 33.39,
+      "text_snippet": "public class FlipRequirementDemo {\n    public static void main(String[] args) {\n        ByteBuffer buf = ByteBuffer.allo"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 257.16,
+      "end": 259.0,
+      "duration": 1.84,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả của việc ghi và đọc mà không có flip()"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 259.0,
+      "end": 259.48,
+      "duration": 0.47,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 259.48,
+      "end": 269.91,
+      "duration": 10.43,
+      "text_snippet": "Ghi 'H' và 'i' vào bộ đệm\n  └── position tiến từ 0 đến 2 (limit giữ nguyên là 10)\n        └── Gọi flip()\n              └"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 269.91,
+      "end": 270.38,
+      "duration": 0.47,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 270.38,
+      "end": 289.72,
+      "duration": 19.33,
+      "text_snippet": "public class BufferStateDemo {\n    public static void main(String[] args) {\n        ByteBuffer buf = ByteBuffer.allocate"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 289.72,
+      "end": 289.77,
+      "duration": 0.06,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 289.77,
+      "end": 290.27,
+      "duration": 0.5,
+      "text_snippet": "Các lỗi thường gặp"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 290.27,
+      "end": 299.76,
+      "duration": 9.49,
+      "text_snippet": "Rò rỉ tài nguyên với Files.lines(), walk(), hoặc list()\nCác phương thức này trả về các stream duy trì tay cầm hệ thống t"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 299.76,
+      "end": 310.61,
+      "duration": 10.85,
+      "text_snippet": "Bẫy resolve với đường dẫn tuyệt đối\nGọi path1.resolve(path2) chỉ đơn giản trả về path2 nếu path2 là đường dẫn tuyệt đối,"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 310.61,
+      "end": 322.33,
+      "duration": 11.72,
+      "text_snippet": "Quên gọi flip() trước khi đọc bộ đệm\nSau khi ghi dữ liệu vào một bộ đệm, vị trí position của bộ đệm sẽ trỏ đến chỉ số tr"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 322.33,
+      "end": 322.38,
+      "duration": 0.06,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 322.38,
+      "end": 322.89,
+      "duration": 0.5,
+      "text_snippet": "Liên kết tham khảo"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 322.89,
+      "end": 325.7,
+      "duration": 2.82,
+      "text_snippet": "Official Java Path Documentation\nOfficial Java Files Documentation\nOfficial Java Buffer Documentation"
+    }
+  ]
+}

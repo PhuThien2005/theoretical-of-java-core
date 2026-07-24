@@ -1,0 +1,413 @@
+{
+  "lesson": "04-how-are-map-and-flatmap-different-concepts",
+  "total_duration_seconds": 318.26,
+  "total_paragraphs": 58,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 3.39,
+      "duration": 3.39,
+      "text_snippet": "Các Câu Hỏi Phỏng Vấn Java Core Thường Gặp - Phần 4 (Common Java Core Interview Questions - Part 4)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 3.39,
+      "end": 4.48,
+      "duration": 1.09,
+      "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 4.48,
+      "end": 13.78,
+      "duration": 9.3,
+      "text_snippet": "Tài liệu này trình bày các câu hỏi phỏng vấn Java Core nâng cao liên quan đến các phép biến đổi Stream, hành vi của lớp "
+    },
+    {
+      "paragraph_id": 4,
+      "start": 13.78,
+      "end": 14.91,
+      "duration": 1.13,
+      "text_snippet": "Khung Nội Dung (Outline Coverage)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 14.91,
+      "end": 45.52,
+      "duration": 30.61,
+      "text_snippet": "How are map and flatMap different? — How are map and flatMap different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 45.52,
+      "end": 45.59,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 45.59,
+      "end": 46.72,
+      "duration": 1.13,
+      "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 46.72,
+      "end": 47.37,
+      "duration": 0.65,
+      "text_snippet": "map() vs. flatMap()"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 47.37,
+      "end": 56.03,
+      "duration": 8.65,
+      "text_snippet": "Cả hai đều là các hoạt động trung gian của Stream/Optional, nhưng chúng khác nhau về phong cách ánh xạ:\nmap — map: Cung "
+    },
+    {
+      "paragraph_id": 10,
+      "start": 56.03,
+      "end": 56.61,
+      "duration": 0.58,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 56.61,
+      "end": 61.33,
+      "duration": 4.72,
+      "text_snippet": "// flatMap: [ [\"a\", \"b\"], [\"c\"] ] -> [ \"a\", \"b\", \"c\" ] (được làm phẳng)\nStream<String> flat = list.stream().flatMap(Coll"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 61.33,
+      "end": 61.4,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 61.4,
+      "end": 62.42,
+      "duration": 1.03,
+      "text_snippet": "Optional: orElse vs. orElseGet"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 62.42,
+      "end": 70.46,
+      "duration": 8.04,
+      "text_snippet": "orElse(T other) — orElse(T other): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\norElseGet(Supplier<? exte"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 70.46,
+      "end": 71.04,
+      "duration": 0.58,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 71.04,
+      "end": 78.87,
+      "duration": 7.83,
+      "text_snippet": "Optional<String> optional = Optional.of(\"Alice\");\noptional.orElse(getDatabaseValue());    // IN RA: \"Costly DB query run"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 78.87,
+      "end": 78.94,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 78.94,
+      "end": 80.41,
+      "duration": 1.47,
+      "text_snippet": "HashMap vs. Hashtable vs. ConcurrentHashMap"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 80.41,
+      "end": 89.31,
+      "duration": 8.89,
+      "text_snippet": "HashMap — HashMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nHashtable — Hashtable: Cung cấp các quy t"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 89.31,
+      "end": 89.37,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 89.37,
+      "end": 93.31,
+      "duration": 3.93,
+      "text_snippet": "Tại sao equals() và hashCode() phải được ghi đè cùng nhau (Why equals() and hashCode() must be overridden together)"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 93.31,
+      "end": 109.38,
+      "duration": 16.08,
+      "text_snippet": "Nếu bạn ghi đè phương thức equals(), bạn bắt buộc phải ghi đè phương thức hashCode().\nRàng buộc (The Contract): Nếu o1.e"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 109.38,
+      "end": 109.45,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 109.45,
+      "end": 112.09,
+      "duration": 2.63,
+      "text_snippet": "Bộ thu gom rác (GC) hoạt động như thế nào (How Garbage Collection (GC) works)"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 112.09,
+      "end": 119.3,
+      "duration": 7.22,
+      "text_snippet": "Bộ thu gom rác tự động thu hồi vùng nhớ heap được cấp phát cho các đối tượng không còn khả năng tiếp cận từ bất kỳ Gốc G"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 119.3,
+      "end": 136.37,
+      "duration": 17.07,
+      "text_snippet": "Lý thuyết Phân thế hệ GC (Generational GC Theory): Phần lớn các đối tượng đều chết trẻ. Do đó, vùng nhớ heap của JVM đượ"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 136.37,
+      "end": 136.44,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 136.44,
+      "end": 137.98,
+      "duration": 1.54,
+      "text_snippet": "Bộ nhớ Stack vs. Heap (Stack vs. Heap Memory)"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 137.98,
+      "end": 155.42,
+      "duration": 17.44,
+      "text_snippet": "Ngăn xếp (Stack):\n  - Vùng nhớ được cấp phát riêng cho từng luồng (thread).\n  - Lưu trữ các biến cục bộ, các con trỏ tha"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 155.42,
+      "end": 155.49,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 155.49,
+      "end": 157.4,
+      "duration": 1.92,
+      "text_snippet": "Các Sai Lầm Phổ Biến & Cạm Bẫy (Common Mistakes & Traps)"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 157.4,
+      "end": 173.24,
+      "duration": 15.84,
+      "text_snippet": "Thực hiện truy vấn Cơ sở dữ liệu/API bên trong orElse()\nViệc gọi một phương thức truy xuất DB bên trong orElse(...) sẽ c"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 173.24,
+      "end": 181.79,
+      "duration": 8.55,
+      "text_snippet": "Hiểu sai về cơ chế tiếp cận của GC\nLầm tưởng rằng việc gán một tham chiếu bằng null sẽ ép buộc GC chạy ngay lập tức. Lện"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 181.79,
+      "end": 181.86,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 181.86,
+      "end": 185.14,
+      "duration": 3.28,
+      "text_snippet": "Tại sao Hoạt Động Stream map và flatMap Khác Biệt (Why map and flatMap Stream Operations Differ)"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 185.14,
+      "end": 214.7,
+      "duration": 29.55,
+      "text_snippet": "Java Streams cung cấp hai hoạt động map và flatMap để hỗ trợ các kiểu chuyển đổi cấu trúc phần tử khác nhau trong một đư"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 214.7,
+      "end": 215.69,
+      "duration": 0.99,
+      "text_snippet": "Mô hình Tư duy (Mental Model)"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 215.69,
+      "end": 216.27,
+      "duration": 0.58,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 216.27,
+      "end": 217.26,
+      "duration": 0.99,
+      "text_snippet": "Ví Dụ Mã Nguồn (Code Example)"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 217.26,
+      "end": 220.82,
+      "duration": 3.56,
+      "text_snippet": "Ví dụ dưới đây minh họa cách map và flatMap xử lý một danh sách chuỗi lồng nhau theo các cách khác nhau."
+    },
+    {
+      "paragraph_id": 41,
+      "start": 220.82,
+      "end": 221.4,
+      "duration": 0.58,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 221.4,
+      "end": 226.7,
+      "duration": 5.3,
+      "text_snippet": "public class StreamMappingDemo {\n    public static void main(String[] args) {\n        List<List<String>> nested = List.o"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 226.7,
+      "end": 234.4,
+      "duration": 7.7,
+      "text_snippet": "// map() giữ nguyên cấu trúc lồng nhau: List<List<String>> -> List<Integer>\n        List<Integer> lengths = nested.strea"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 234.4,
+      "end": 242.5,
+      "duration": 8.11,
+      "text_snippet": "// flatMap() làm phẳng cấu trúc lồng: List<List<String>> -> List<String>\n        List<String> flat = nested.stream().fla"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 242.5,
+      "end": 243.7,
+      "duration": 1.2,
+      "text_snippet": "Chuỗi Nhân Quả (Cause-Effect Chain)"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 243.7,
+      "end": 244.28,
+      "duration": 0.58,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 244.28,
+      "end": 244.35,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 244.35,
+      "end": 248.69,
+      "duration": 4.34,
+      "text_snippet": "Tại sao Việc Xác Minh Kiểu Generic Lúc Biên Dịch Khác Với Lúc Chạy (Why Generic Compile-Time Verification Differs from R"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 248.69,
+      "end": 288.37,
+      "duration": 39.68,
+      "text_snippet": "Tính năng generic của Java được thiết kế nhằm mục đích đảm bảo tính tương thích ngược, dẫn đến sự khác biệt lớn giữa việ"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 288.37,
+      "end": 289.36,
+      "duration": 0.99,
+      "text_snippet": "Mô hình Tư duy (Mental Model)"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 289.36,
+      "end": 289.94,
+      "duration": 0.58,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 289.94,
+      "end": 290.94,
+      "duration": 0.99,
+      "text_snippet": "Ví Dụ Mã Nguồn (Code Example)"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 290.94,
+      "end": 295.79,
+      "duration": 4.86,
+      "text_snippet": "Đoạn mã dưới đây minh họa việc bỏ qua kiểm tra generic lúc biên dịch dẫn đến ô nhiễm heap và gây ra lỗi ClassCastExcepti"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 295.79,
+      "end": 296.37,
+      "duration": 0.58,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 296.37,
+      "end": 306.26,
+      "duration": 9.88,
+      "text_snippet": "public class GenericsErasureDemo {\n    public static void main(String[] args) {\n        List<String> strings = new Array"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 306.26,
+      "end": 316.49,
+      "duration": 10.23,
+      "text_snippet": "try {\n            String s = strings.get(1); // Lệnh ép kiểu ngầm định sẽ bị lỗi\n        } catch (ClassCastException e) "
+    },
+    {
+      "paragraph_id": 57,
+      "start": 316.49,
+      "end": 317.68,
+      "duration": 1.2,
+      "text_snippet": "Chuỗi Nhân Quả (Cause-Effect Chain)"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 317.68,
+      "end": 318.26,
+      "duration": 0.58,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    }
+  ]
+}

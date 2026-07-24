@@ -1,0 +1,308 @@
+{
+  "lesson": "02-bufferedinputstream-concepts",
+  "total_duration_seconds": 370.13,
+  "total_paragraphs": 43,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 0.95,
+      "duration": 0.95,
+      "text_snippet": "I/O trong Java - Phần 2"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 0.95,
+      "end": 1.62,
+      "duration": 0.66,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 1.62,
+      "end": 8.22,
+      "duration": 6.6,
+      "text_snippet": "File này đề cập đến một phần trọng tâm của I/O trong Java. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, c"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 8.22,
+      "end": 8.96,
+      "duration": 0.75,
+      "text_snippet": "Đề Cương Khái Niệm"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 8.96,
+      "end": 47.01,
+      "duration": 38.05,
+      "text_snippet": "BufferedInputStream — BufferedInputStream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nBufferedOutputStr"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 47.01,
+      "end": 47.68,
+      "duration": 0.66,
+      "text_snippet": "Ghi Chú Chi Tiết"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 47.68,
+      "end": 49.71,
+      "duration": 2.03,
+      "text_snippet": "Các Luồng Đệm - Byte Buffering (Buffered Streams)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 49.71,
+      "end": 72.49,
+      "duration": 22.78,
+      "text_snippet": "Việc đọc hoặc ghi trực tiếp một tệp theo từng byte thông qua FileInputStream hoặc FileOutputStream gây ra chi phí rất lớ"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 72.49,
+      "end": 75.23,
+      "duration": 2.74,
+      "text_snippet": "Tại Sao Các Luồng Đệm Lại Có Hiệu Năng Vượt Trội Hơn Hẳn Luồng Thô"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 75.23,
+      "end": 125.02,
+      "duration": 49.79,
+      "text_snippet": "Các hoạt động I/O trực tiếp (như FileInputStream.read() hoặc FileOutputStream.write()) cực kỳ chậm vì mỗi cuộc gọi đọc/g"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 125.02,
+      "end": 127.51,
+      "duration": 2.49,
+      "text_snippet": "Cơ Chế Đệm Giữa Không Gian Người Dùng và Không Gian Hạt Nhân"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 127.51,
+      "end": 128.22,
+      "duration": 0.71,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 128.22,
+      "end": 144.07,
+      "duration": 15.85,
+      "text_snippet": "JVM->>BIS: read() byte thứ 1\n    Note over BIS: Bộ đệm trống!\n    BIS->>OS: system call: read(8192 bytes)\n    OS->>Disk:"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 144.07,
+      "end": 146.35,
+      "duration": 2.28,
+      "text_snippet": "Demo Mã Nguồn: Đo Hiệu Năng Giữa Luồng Thô và Luồng Đệm"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 146.35,
+      "end": 147.06,
+      "duration": 0.71,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 147.06,
+      "end": 164.15,
+      "duration": 17.1,
+      "text_snippet": "public class BufferingPerformanceDemo {\n    public static void main(String[] args) throws IOException {\n        File tem"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 164.15,
+      "end": 177.72,
+      "duration": 13.57,
+      "text_snippet": "// Test 1: Raw FileInputStream (Byte-by-Byte)\n        long start = System.nanoTime();\n        try (FileInputStream fis ="
+    },
+    {
+      "paragraph_id": 18,
+      "start": 177.72,
+      "end": 193.07,
+      "duration": 15.35,
+      "text_snippet": "// Test 2: BufferedInputStream (Byte-by-Byte out of buffer)\n        start = System.nanoTime();\n        try (BufferedInpu"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 193.07,
+      "end": 201.62,
+      "duration": 8.55,
+      "text_snippet": "System.out.println(\"Raw FileInputStream Duration: \" + (rawDuration / 1_000_000.0) + \" ms\");\n        System.out.println(\""
+    },
+    {
+      "paragraph_id": 20,
+      "start": 201.62,
+      "end": 204.15,
+      "duration": 2.53,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả Về Chuyển Đổi Ngữ Cảnh Và I/O Đĩa"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 204.15,
+      "end": 204.86,
+      "duration": 0.71,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 204.86,
+      "end": 212.12,
+      "duration": 7.26,
+      "text_snippet": "Lời gọi đến bis.read()\n  ↳ Kiểm tra mảng bộ nhớ nội bộ (buf)\n    ↳ Nếu có sẵn, trả về byte ngay lập tức (bỏ qua các lời "
+    },
+    {
+      "paragraph_id": 23,
+      "start": 212.12,
+      "end": 212.82,
+      "duration": 0.71,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 212.82,
+      "end": 214.86,
+      "duration": 2.03,
+      "text_snippet": "Reader & Writer (Luồng Ký Tự - Character Streams)"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 214.86,
+      "end": 229.3,
+      "duration": 14.44,
+      "text_snippet": "Trong khi các luồng byte làm việc with các byte thô (8-bit), các luồng ký tự được thiết kế riêng cho dữ liệu ký tự (16-b"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 229.3,
+      "end": 242.62,
+      "duration": 13.32,
+      "text_snippet": "BufferedReader & BufferedWriter\nBufferedReader đệm một luồng ký tự và cung cấp phương thức readLine(), giúp đọc một dòng"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 242.62,
+      "end": 243.32,
+      "duration": 0.71,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 243.32,
+      "end": 268.43,
+      "duration": 25.1,
+      "text_snippet": "public class CharacterFileCopy {\n    public static void main(String[] args) {\n        try (BufferedReader reader = new B"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 268.43,
+      "end": 268.51,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 268.51,
+      "end": 270.79,
+      "duration": 2.28,
+      "text_snippet": "Ví Dụ Thực Tế: So Sánh Hiệu Năng Có Đệm Và Không Có Đệm"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 270.79,
+      "end": 279.17,
+      "duration": 8.38,
+      "text_snippet": "Vấn đề\nĐọc một tệp lớn (ví dụ: 5MB) theo từng byte bằng cách sử dụng FileInputStream thô so với BufferedInputStream. Chú"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 279.17,
+      "end": 299.01,
+      "duration": 19.83,
+      "text_snippet": "Mô Phỏng Đo Hiệu Năng & Cơ Chế\nKhông có đệm: Mỗi lời gọi FileInputStream.read() sẽ kích hoạt một lời gọi hệ thống (read("
+    },
+    {
+      "paragraph_id": 33,
+      "start": 299.01,
+      "end": 299.71,
+      "duration": 0.71,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 299.71,
+      "end": 309.92,
+      "duration": 10.21,
+      "text_snippet": "startTime = System.currentTimeMillis();\ntry (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(\"larg"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 309.92,
+      "end": 316.85,
+      "duration": 6.93,
+      "text_snippet": "System.out.println(\"Raw stream time: \" + rawTime + \" ms\");       // e.g., 4200 ms\nSystem.out.println(\"Buffered stream ti"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 316.85,
+      "end": 316.93,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 316.93,
+      "end": 317.68,
+      "duration": 0.75,
+      "text_snippet": "Các Lỗi Thường Gặp"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 317.68,
+      "end": 319.96,
+      "duration": 2.28,
+      "text_snippet": "Sử Dụng Luồng Ký Tự Cho Các Tệp Nhị Phân (Gây Hỏng Ảnh)"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 319.96,
+      "end": 340.17,
+      "duration": 20.21,
+      "text_snippet": "FileReader / FileWriter được thiết kế cho văn bản mà con người có thể đọc được. Chúng dịch dữ liệu nhị phân thành các ký"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 340.17,
+      "end": 341.5,
+      "duration": 1.33,
+      "text_snippet": "Quên Không flush() Các Luồng Đệm"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 341.5,
+      "end": 357.89,
+      "duration": 16.39,
+      "text_snippet": "Dữ liệu được ghi vào BufferedOutputStream hoặc BufferedWriter được lưu trữ trong bộ nhớ. Nếu chương trình bị crash hoặc "
+    },
+    {
+      "paragraph_id": 42,
+      "start": 357.89,
+      "end": 359.38,
+      "duration": 1.49,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 359.38,
+      "end": 370.13,
+      "duration": 10.75,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/BufferedInputStream.html (Tài liệu API BufferedInpu"
+    }
+  ]
+}

@@ -1,0 +1,350 @@
+{
+  "lesson": "01-what-is-the-collection-framework-concepts",
+  "total_duration_seconds": 302.45,
+  "total_paragraphs": 49,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 1.73,
+      "duration": 1.73,
+      "text_snippet": "Cấu Trúc Tập Hợp (Collections Framework) - Phần 1"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 1.73,
+      "end": 2.29,
+      "duration": 0.56,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 2.29,
+      "end": 8.8,
+      "duration": 6.51,
+      "text_snippet": "File này đề cập đến một phần trọng tâm của Cấu Trúc Tập Hợp (Collections Framework). Hãy nghiên cứu từng khái niệm như m"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 8.8,
+      "end": 9.44,
+      "duration": 0.63,
+      "text_snippet": "Đề Cương Khái Niệm"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 9.44,
+      "end": 33.63,
+      "duration": 24.19,
+      "text_snippet": "Cấu trúc tập hợp (Collection Framework) là gì? — Cấu trúc tập hợp (Collection Framework) là gì?: Cung cấp các quy tắc và"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 33.63,
+      "end": 34.19,
+      "duration": 0.56,
+      "text_snippet": "Ghi Chú Chi Tiết"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 34.19,
+      "end": 35.85,
+      "duration": 1.66,
+      "text_snippet": "Phân Cấp Các Tập Hợp (The Collection Hierarchy)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 35.85,
+      "end": 40.0,
+      "duration": 4.16,
+      "text_snippet": "Dưới đây là mối quan hệ trực quan giữa các giao diện cốt lõi trong Cấu Trúc Tập Hợp Java (Java Collections Framework):"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 40.0,
+      "end": 40.6,
+      "duration": 0.6,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 40.6,
+      "end": 42.26,
+      "duration": 1.66,
+      "text_snippet": "Cấu Trúc Tập Hợp (Collections Framework) là gì?"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 42.26,
+      "end": 58.0,
+      "duration": 15.74,
+      "text_snippet": "Một tập hợp là một đối tượng nhóm nhiều phần tử lại với nhau dưới một API chung. Cấu Trúc Tập Hợp cung cấp:\nCác giao diệ"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 58.0,
+      "end": 58.28,
+      "duration": 0.28,
+      "text_snippet": "Iterable"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 58.28,
+      "end": 61.94,
+      "duration": 3.66,
+      "text_snippet": "Iterable là hợp đồng duyệt gốc cho phép một đối tượng được sử dụng trong các vòng lặp for-each cải tiến."
+    },
+    {
+      "paragraph_id": 14,
+      "start": 61.94,
+      "end": 64.79,
+      "duration": 2.85,
+      "text_snippet": "Ví dụ Mã Nguồn Chạy Được:\n`java\nimport java.util.Iterator;\nimport java.util.List;"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 64.79,
+      "end": 83.88,
+      "duration": 19.09,
+      "text_snippet": "public class IterableExample {\n    public static void main(String[] args) {\n        Iterable<String> iterable = List.of("
+    },
+    {
+      "paragraph_id": 16,
+      "start": 83.88,
+      "end": 84.23,
+      "duration": 0.35,
+      "text_snippet": "Collection"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 84.23,
+      "end": 88.7,
+      "duration": 4.47,
+      "text_snippet": "Giao diện Collection đại diện cho các hành vi chung được chia sẻ bởi tất cả các tập hợp (như thêm, xóa và kiểm tra kích "
+    },
+    {
+      "paragraph_id": 18,
+      "start": 88.7,
+      "end": 91.8,
+      "duration": 3.1,
+      "text_snippet": "Ví dụ Mã Nguồn Chạy Được:\n`java\nimport java.util.ArrayList;\nimport java.util.Collection;"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 91.8,
+      "end": 110.36,
+      "duration": 18.56,
+      "text_snippet": "public class CollectionExample {\n    public static void main(String[] args) {\n        Collection<Integer> numbers = new "
+    },
+    {
+      "paragraph_id": 20,
+      "start": 110.36,
+      "end": 110.5,
+      "duration": 0.14,
+      "text_snippet": "List"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 110.5,
+      "end": 119.62,
+      "duration": 9.12,
+      "text_snippet": "Một List là một tập hợp có thứ tự (còn được gọi là một chuỗi - sequence) có thể chứa các phần tử trùng lặp. Người dùng c"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 119.62,
+      "end": 122.51,
+      "duration": 2.89,
+      "text_snippet": "Ví dụ Mã Nguồn Chạy Được:\n`java\nimport java.util.ArrayList;\nimport java.util.List;"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 122.51,
+      "end": 143.78,
+      "duration": 21.27,
+      "text_snippet": "public class ListExample {\n    public static void main(String[] args) {\n        List<String> list = new ArrayList<>();\n "
+    },
+    {
+      "paragraph_id": 24,
+      "start": 143.78,
+      "end": 143.88,
+      "duration": 0.11,
+      "text_snippet": "Set"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 143.88,
+      "end": 147.97,
+      "duration": 4.08,
+      "text_snippet": "Một Set là một tập hợp không thể chứa các phần tử trùng lặp. Nó mô phỏng lại sự trừu tượng hóa của tập hợp toán học."
+    },
+    {
+      "paragraph_id": 26,
+      "start": 147.97,
+      "end": 150.75,
+      "duration": 2.78,
+      "text_snippet": "Ví dụ Mã Nguồn Chạy Được:\n`java\nimport java.util.HashSet;\nimport java.util.Set;"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 150.75,
+      "end": 166.49,
+      "duration": 15.74,
+      "text_snippet": "public class SetExample {\n    public static void main(String[] args) {\n        Set<String> set = new HashSet<>();\n      "
+    },
+    {
+      "paragraph_id": 28,
+      "start": 166.49,
+      "end": 166.67,
+      "duration": 0.18,
+      "text_snippet": "Queue"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 166.67,
+      "end": 173.39,
+      "duration": 6.73,
+      "text_snippet": "Queue đại diện cho một tập hợp được thiết kế để giữ các phần tử trước khi xử lý. Thông thường (nhưng không nhất thiết), "
+    },
+    {
+      "paragraph_id": 30,
+      "start": 173.39,
+      "end": 176.35,
+      "duration": 2.96,
+      "text_snippet": "Ví dụ Mã Nguồn Chạy Được:\n`java\nimport java.util.LinkedList;\nimport java.util.Queue;"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 176.35,
+      "end": 198.96,
+      "duration": 22.61,
+      "text_snippet": "public class QueueExample {\n    public static void main(String[] args) {\n        Queue<String> queue = new LinkedList<>("
+    },
+    {
+      "paragraph_id": 32,
+      "start": 198.96,
+      "end": 199.13,
+      "duration": 0.18,
+      "text_snippet": "Deque"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 199.13,
+      "end": 205.89,
+      "duration": 6.76,
+      "text_snippet": "Deque (Hàng đợi hai đầu - Double Ended Queue) là một tập hợp tuyến tính hỗ trợ chèn và xóa phần tử ở cả hai đầu. Nó có t"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 205.89,
+      "end": 208.85,
+      "duration": 2.96,
+      "text_snippet": "Ví dụ Mã Nguồn Chạy Được:\n`java\nimport java.util.ArrayDeque;\nimport java.util.Deque;"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 208.85,
+      "end": 224.34,
+      "duration": 15.49,
+      "text_snippet": "public class DequeExample {\n    public static void main(String[] args) {\n        Deque<String> deque = new ArrayDeque<>("
+    },
+    {
+      "paragraph_id": 36,
+      "start": 224.34,
+      "end": 224.45,
+      "duration": 0.11,
+      "text_snippet": "Map"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 224.45,
+      "end": 229.66,
+      "duration": 5.21,
+      "text_snippet": "Một Map là một đối tượng ánh xạ các khóa sang các giá trị. Một map không thể chứa các khóa trùng lặp; mỗi khóa có thể án"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 229.66,
+      "end": 232.44,
+      "duration": 2.78,
+      "text_snippet": "Ví dụ Mã Nguồn Chạy Được:\n`java\nimport java.util.HashMap;\nimport java.util.Map;"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 232.44,
+      "end": 252.34,
+      "duration": 19.9,
+      "text_snippet": "public class MapExample {\n    public static void main(String[] args) {\n        Map<String, Integer> ageMap = new HashMap"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 252.34,
+      "end": 252.41,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 252.41,
+      "end": 253.04,
+      "duration": 0.63,
+      "text_snippet": "Các Lỗi Thường Gặp"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 253.04,
+      "end": 253.96,
+      "duration": 0.92,
+      "text_snippet": "Coi Map Như Một Collection"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 253.96,
+      "end": 263.33,
+      "duration": 9.37,
+      "text_snippet": "Một bẫy phỏng vấn phổ biến là giả định rằng Map kế thừa giao diện Collection. Thực tế không phải vậy. Các phương thức nh"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 263.33,
+      "end": 264.91,
+      "duration": 1.58,
+      "text_snippet": "Nhầm Lẫn Giữa Các Phương Thức Của Queue/Deque"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 264.91,
+      "end": 276.71,
+      "duration": 11.8,
+      "text_snippet": "Việc chèn vào một Queue bằng cách sử dụng add() hoặc remove() sẽ ném ra ngoại lệ (như IllegalStateException hoặc NoSuchE"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 276.71,
+      "end": 278.61,
+      "duration": 1.9,
+      "text_snippet": "Sửa Đổi Một List Trong Vòng Lặp Dựa Trên Chỉ Số Cơ Bản"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 278.61,
+      "end": 294.91,
+      "duration": 16.3,
+      "text_snippet": "Việc sử dụng một vòng lặp for tiêu chuẩn với duyệt chỉ số trong khi sửa đổi kích thước của list có thể dẫn đến việc bỏ s"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 294.91,
+      "end": 295.93,
+      "duration": 1.02,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 295.93,
+      "end": 302.45,
+      "duration": 6.51,
+      "text_snippet": "Những khái niệm nào ở đây là quy tắc tại thời điểm biên dịch?\nNhững khái niệm nào ở đây ảnh hưởng đến hành vi tại thời đ"
+    }
+  ]
+}

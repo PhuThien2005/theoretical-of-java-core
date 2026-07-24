@@ -1,0 +1,392 @@
+{
+  "lesson": "02-what-is-the-output-concepts",
+  "total_duration_seconds": 134.04,
+  "total_paragraphs": 55,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 0.77,
+      "duration": 0.77,
+      "text_snippet": "Giao Diện Chức Năng - Phần 2 (Functional Interface - Part 2)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 0.77,
+      "end": 1.19,
+      "duration": 0.41,
+      "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 1.19,
+      "end": 3.72,
+      "duration": 2.54,
+      "text_snippet": "Tài liệu này tập trung vào một phần trọng tâm về Giao Diện Chức Năng (Functional Interface). Hãy nghiên cứu từng khái ni"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 3.72,
+      "end": 4.15,
+      "duration": 0.43,
+      "text_snippet": "Khung Nội Dung (Outline Coverage)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 4.15,
+      "end": 7.02,
+      "duration": 2.87,
+      "text_snippet": "What is the output? — What is the output?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nWhen to use which"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 7.02,
+      "end": 7.05,
+      "duration": 0.03,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 7.05,
+      "end": 7.48,
+      "duration": 0.43,
+      "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 7.48,
+      "end": 8.03,
+      "duration": 0.55,
+      "text_snippet": "Kết quả đầu ra là gì? (What is the output?)"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 8.03,
+      "end": 13.25,
+      "duration": 5.22,
+      "text_snippet": "Việc xác định kết quả trả về (output) của phương thức trừu tượng trong giao diện chức năng sẽ quyết định cách nó được sử"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 13.25,
+      "end": 13.47,
+      "duration": 0.22,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 13.47,
+      "end": 20.07,
+      "duration": 6.6,
+      "text_snippet": "public class OutputExample {\n    public static void main(String[] args) {\n        // Đầu ra là void: chỉ thực hiện tác d"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 20.07,
+      "end": 20.09,
+      "duration": 0.03,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 20.09,
+      "end": 20.93,
+      "duration": 0.84,
+      "text_snippet": "Khi nào nên sử dụng giao diện nào? (When to use which interface?)"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 20.93,
+      "end": 22.92,
+      "duration": 1.98,
+      "text_snippet": "Ma Trận Quyết Định (Decision Matrix)\nSử dụng bảng hướng dẫn dưới đây để chọn giao diện chức năng phù hợp dựa trên số lượ"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 22.92,
+      "end": 24.85,
+      "duration": 1.93,
+      "text_snippet": "0 tham số đầu vào\nKiểu đầu ra: Kiểu T\nGiao diện chuẩn: Supplier<T>\nVí dụ kiểu nguyên thủy: IntSupplier\nBiến thể hai tham"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 24.85,
+      "end": 26.9,
+      "duration": 2.05,
+      "text_snippet": "1 tham số đầu vào (T)\nKiểu đầu ra: void\nGiao diện chuẩn: Consumer<T>\nVí dụ kiểu nguyên thủy: DoubleConsumer\nBiến thể hai"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 26.9,
+      "end": 29.0,
+      "duration": 2.1,
+      "text_snippet": "1 tham số đầu vào (T)\nKiểu đầu ra: boolean\nGiao diện chuẩn: Predicate<T>\nVí dụ kiểu nguyên thủy: LongPredicate\nBiến thể "
+    },
+    {
+      "paragraph_id": 18,
+      "start": 29.0,
+      "end": 31.18,
+      "duration": 2.18,
+      "text_snippet": "1 tham số đầu vào (T)\nKiểu đầu ra: Kiểu R\nGiao diện chuẩn: Function<T, R>\nVí dụ kiểu nguyên thủy: ToIntFunction<T>\nBiến "
+    },
+    {
+      "paragraph_id": 19,
+      "start": 31.18,
+      "end": 33.29,
+      "duration": 2.11,
+      "text_snippet": "1 tham số đầu vào (T)\nKiểu đầu ra: Kiểu T\nGiao diện chuẩn: UnaryOperator<T>\nVí dụ kiểu nguyên thủy: IntUnaryOperator\nBiế"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 33.29,
+      "end": 35.47,
+      "duration": 2.18,
+      "text_snippet": "2 tham số đầu vào (T, T)\nKiểu đầu ra: Kiểu T\nGiao diện chuẩn: BinaryOperator<T>\nVí dụ kiểu nguyên thủy: IntBinaryOperato"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 35.47,
+      "end": 35.49,
+      "duration": 0.03,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 35.49,
+      "end": 36.72,
+      "duration": 1.22,
+      "text_snippet": "Tại Sao Các Phong Cách Hợp Đồng Chức Năng Lại Khác Nhau (Why Functional Contract Styles Differ)"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 36.72,
+      "end": 49.11,
+      "duration": 12.39,
+      "text_snippet": "Các giao diện chức năng tiêu chuẩn của JDK trong gói java.util.function được cấu trúc thành các phong cách hợp đồng (con"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 49.11,
+      "end": 51.75,
+      "duration": 2.64,
+      "text_snippet": "> Xem thêm:\n> - Cú pháp và cách sử dụng Lambda Expression để triển khai Functional Interface: Ch.21 - Lambda Expression\n"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 51.75,
+      "end": 51.97,
+      "duration": 0.22,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 51.97,
+      "end": 52.64,
+      "duration": 0.67,
+      "text_snippet": "Ví Dụ Mã Nguồn: Hợp đồng của các giao diện chức năng"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 52.64,
+      "end": 52.86,
+      "duration": 0.22,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 52.86,
+      "end": 63.68,
+      "duration": 10.83,
+      "text_snippet": "public class ContractDemo {\n    public static void main(String[] args) {\n        // Predicate: Đầu vào T, Đầu ra boolean"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 63.68,
+      "end": 69.13,
+      "duration": 5.45,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)\nĐịnh nghĩa các hợp đồng chức năng riêng biệt $\\rightarrow$ Các API chỉ "
+    },
+    {
+      "paragraph_id": 30,
+      "start": 69.13,
+      "end": 69.16,
+      "duration": 0.03,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 69.16,
+      "end": 70.71,
+      "duration": 1.55,
+      "text_snippet": "Ví Dụ Thực Tế: Thiết kế một giao diện chức năng tùy chỉnh cho đường dẫn xử lý dữ liệu với các phương thức chuỗi mặc định"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 70.71,
+      "end": 74.47,
+      "duration": 3.76,
+      "text_snippet": "Trong các ứng dụng thực tế, bạn có thể cần một đường dẫn xử lý dữ liệu tùy chỉnh vượt ra ngoài các giao diện chức năng t"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 74.47,
+      "end": 74.69,
+      "duration": 0.22,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 74.69,
+      "end": 76.7,
+      "duration": 2.01,
+      "text_snippet": "@FunctionalInterface\npublic interface DataProcessor<T> {\n    \n    /\n     * Xử lý dữ liệu đầu vào và trả về kết quả sau x"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 76.7,
+      "end": 80.59,
+      "duration": 3.89,
+      "text_snippet": "/\n     * Trả về một DataProcessor kết hợp: thực hiện bộ xử lý này trước,\n     * sau đó áp dụng bộ xử lý 'after' lên kết "
+    },
+    {
+      "paragraph_id": 36,
+      "start": 80.59,
+      "end": 84.59,
+      "duration": 4.0,
+      "text_snippet": "/\n     * Trả về một DataProcessor kết hợp: thực hiện bộ xử lý 'before' trước,\n     * sau đó áp dụng bộ xử lý này lên kết"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 84.59,
+      "end": 86.61,
+      "duration": 2.02,
+      "text_snippet": "Minh Họa Đường Dẫn Xử Lý (Pipeline Demonstration)\nDưới đây là cách sử dụng DataProcessor tùy chỉnh để làm sạch, chuẩn hó"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 86.61,
+      "end": 86.83,
+      "duration": 0.22,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 86.83,
+      "end": 89.86,
+      "duration": 3.03,
+      "text_snippet": "// Kết hợp các bộ xử lý lại với nhau bằng phương thức andThen\n        DataProcessor<String> textPipeline = stripWhitespa"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 89.86,
+      "end": 93.85,
+      "duration": 4.0,
+      "text_snippet": "String rawInput = \"   Hello, World! Java 21 is great.   \";\n        String processed = textPipeline.process(rawInput);\n  "
+    },
+    {
+      "paragraph_id": 41,
+      "start": 93.85,
+      "end": 93.88,
+      "duration": 0.03,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 93.88,
+      "end": 94.9,
+      "duration": 1.02,
+      "text_snippet": "Tại Sao Giao Diện Chức Năng Tận Dụng Các Phương thức Mặc Định Để Liên Kết Chuỗi"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 94.9,
+      "end": 106.28,
+      "duration": 11.38,
+      "text_snippet": "Các giao diện chức năng được phép chứa các phương thức default và static bên cạnh phương thức trừu tượng duy nhất (Singl"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 106.28,
+      "end": 106.5,
+      "duration": 0.22,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 106.5,
+      "end": 106.97,
+      "duration": 0.48,
+      "text_snippet": "Ví Dụ Mã Nguồn: Kết hợp các Predicate"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 106.97,
+      "end": 107.19,
+      "duration": 0.22,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 107.19,
+      "end": 116.14,
+      "duration": 8.94,
+      "text_snippet": "public class ChainingDemo {\n    public static void main(String[] args) {\n        Predicate<String> hasLetterA = s -> s.c"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 116.14,
+      "end": 120.69,
+      "duration": 4.55,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)\nKhai báo phương thức mặc định cụ thể trong giao diện $\\rightarrow$ Trìn"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 120.69,
+      "end": 120.71,
+      "duration": 0.03,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 120.71,
+      "end": 121.23,
+      "duration": 0.52,
+      "text_snippet": "Các Sai Lầm Thường Gặp (Common Mistakes)"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 121.23,
+      "end": 125.31,
+      "duration": 4.09,
+      "text_snippet": "Nhầm lẫn thứ tự liên kết chuỗi\nNhầm lẫn giữa andThen và compose có thể dẫn đến việc đường dẫn xử lý thực thi sai thứ tự "
+    },
+    {
+      "paragraph_id": 52,
+      "start": 125.31,
+      "end": 129.5,
+      "duration": 4.19,
+      "text_snippet": "Truyền giá trị null vào phương thức liên kết mặc định\nViệc gọi các phương thức liên kết chuỗi trong các giao diện chức n"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 129.5,
+      "end": 129.53,
+      "duration": 0.03,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 129.53,
+      "end": 130.21,
+      "duration": 0.68,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 130.21,
+      "end": 134.04,
+      "duration": 3.83,
+      "text_snippet": "Khái niệm nào ở đây là quy tắc tại thời điểm biên dịch? (Kiểm tra kiểu dữ liệu đầu vào và đầu ra của lambda khớp với chữ"
+    }
+  ]
+}

@@ -1,0 +1,434 @@
+{
+  "lesson": "04-shenandoah-concepts",
+  "total_duration_seconds": 420.84,
+  "total_paragraphs": 61,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 1.88,
+      "duration": 1.88,
+      "text_snippet": "JVM nâng cao (Advanced JVM) - Phần 4"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 1.88,
+      "end": 2.71,
+      "duration": 0.83,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 2.71,
+      "end": 11.78,
+      "duration": 9.07,
+      "text_snippet": "Tài liệu này trình bày một phần trọng tâm của JVM nâng cao (Advanced JVM). Hãy nghiên cứu từng khái niệm dưới dạng một q"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 11.78,
+      "end": 12.72,
+      "duration": 0.94,
+      "text_snippet": "Nội Dung Tổng Quan"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 12.72,
+      "end": 48.49,
+      "duration": 35.77,
+      "text_snippet": "Shenandoah — Bộ thu gom rác độ trễ cực thấp thực hiện nén bộ nhớ song song với luồng ứng dụng.\nStop-the-world — Thời điể"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 48.49,
+      "end": 49.32,
+      "duration": 0.83,
+      "text_snippet": "Ghi Chú Chi Tiết"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 49.32,
+      "end": 49.84,
+      "duration": 0.52,
+      "text_snippet": "Shenandoah"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 49.84,
+      "end": 53.75,
+      "duration": 3.91,
+      "text_snippet": "Shenandoah — Bộ thu gom rác độ trễ cực thấp thực hiện nén bộ nhớ song song."
+    },
+    {
+      "paragraph_id": 9,
+      "start": 53.75,
+      "end": 54.48,
+      "duration": 0.73,
+      "text_snippet": "Stop-the-world"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 54.48,
+      "end": 59.38,
+      "duration": 4.9,
+      "text_snippet": "Stop-the-world` — world: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java."
+    },
+    {
+      "paragraph_id": 11,
+      "start": 59.38,
+      "end": 59.8,
+      "duration": 0.42,
+      "text_snippet": "Minor GC"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 59.8,
+      "end": 64.49,
+      "duration": 4.69,
+      "text_snippet": "Minor GC — Minor GC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java."
+    },
+    {
+      "paragraph_id": 13,
+      "start": 64.49,
+      "end": 78.26,
+      "duration": 13.76,
+      "text_snippet": "Khái niệm này rất quan trọng vì hành vi thời gian chạy sẽ giải thích các vấn đề về hiệu năng, lỗi bộ nhớ, hành vi khi kh"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 78.26,
+      "end": 79.14,
+      "duration": 0.89,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 79.14,
+      "end": 88.63,
+      "duration": 9.49,
+      "text_snippet": "Định nghĩa Minor GC trong một câu.\nNhận biết Minor GC trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.\nGiả"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 88.63,
+      "end": 90.19,
+      "duration": 1.56,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 90.19,
+      "end": 94.57,
+      "duration": 4.38,
+      "text_snippet": "Khi đọc mã nguồn, hãy hỏi: Minor GC thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 94.57,
+      "end": 94.99,
+      "duration": 0.42,
+      "text_snippet": "Major GC"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 94.99,
+      "end": 99.68,
+      "duration": 4.69,
+      "text_snippet": "Major GC — Major GC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java."
+    },
+    {
+      "paragraph_id": 20,
+      "start": 99.68,
+      "end": 113.45,
+      "duration": 13.76,
+      "text_snippet": "Khái niệm này rất quan trọng vì hành vi thời gian chạy sẽ giải thích các vấn đề về hiệu năng, lỗi bộ nhớ, hành vi khi kh"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 113.45,
+      "end": 114.33,
+      "duration": 0.89,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 114.33,
+      "end": 123.82,
+      "duration": 9.49,
+      "text_snippet": "Định nghĩa Major GC trong một câu.\nNhận biết Major GC trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.\nGiả"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 123.82,
+      "end": 125.39,
+      "duration": 1.56,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 125.39,
+      "end": 129.77,
+      "duration": 4.38,
+      "text_snippet": "Khi đọc mã nguồn, hãy hỏi: Major GC thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 129.77,
+      "end": 130.13,
+      "duration": 0.36,
+      "text_snippet": "Full GC"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 130.13,
+      "end": 134.72,
+      "duration": 4.59,
+      "text_snippet": "Full GC — Full GC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java."
+    },
+    {
+      "paragraph_id": 27,
+      "start": 134.72,
+      "end": 148.48,
+      "duration": 13.76,
+      "text_snippet": "Khái niệm này rất quan trọng vì hành vi thời gian chạy sẽ giải thích các vấn đề về hiệu năng, lỗi bộ nhớ, hành vi khi kh"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 148.48,
+      "end": 149.37,
+      "duration": 0.89,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 149.37,
+      "end": 158.7,
+      "duration": 9.33,
+      "text_snippet": "Định nghĩa Full GC trong một câu.\nNhận biết Full GC trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.\nGiải "
+    },
+    {
+      "paragraph_id": 30,
+      "start": 158.7,
+      "end": 160.27,
+      "duration": 1.56,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 160.27,
+      "end": 164.59,
+      "duration": 4.33,
+      "text_snippet": "Khi đọc mã nguồn, hãy hỏi: Full GC thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 164.59,
+      "end": 166.73,
+      "duration": 2.14,
+      "text_snippet": "Tinh chỉnh JVM cơ bản (Basic JVM tuning):"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 166.73,
+      "end": 175.59,
+      "duration": 8.86,
+      "text_snippet": "Tinh chỉnh JVM cơ bản (Basic JVM tuning) là một nhóm các quy tắc dùng để tối ưu hóa cách JVM thực thi mã byte và quản lý"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 175.59,
+      "end": 189.36,
+      "duration": 13.76,
+      "text_snippet": "Khái niệm này rất quan trọng vì hành vi thời gian chạy sẽ giải thích các vấn đề về hiệu năng, lỗi bộ nhớ, hành vi khi kh"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 189.36,
+      "end": 190.24,
+      "duration": 0.89,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 190.24,
+      "end": 201.14,
+      "duration": 10.9,
+      "text_snippet": "Định nghĩa Basic JVM tuning: trong một câu.\nNhận biết Basic JVM tuning: trong mã nguồn, câu lệnh, tài liệu hoặc các câu "
+    },
+    {
+      "paragraph_id": 37,
+      "start": 201.14,
+      "end": 202.7,
+      "duration": 1.56,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 202.7,
+      "end": 207.55,
+      "duration": 4.85,
+      "text_snippet": "Khi đọc mã nguồn, hãy hỏi: Basic JVM tuning: thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 207.55,
+      "end": 207.71,
+      "duration": 0.16,
+      "text_snippet": "Xms"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 207.71,
+      "end": 211.93,
+      "duration": 4.22,
+      "text_snippet": "Xms` — Xms: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java."
+    },
+    {
+      "paragraph_id": 41,
+      "start": 211.93,
+      "end": 212.09,
+      "duration": 0.16,
+      "text_snippet": "Xmx"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 212.09,
+      "end": 216.31,
+      "duration": 4.22,
+      "text_snippet": "Xmx` — Xmx: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java."
+    },
+    {
+      "paragraph_id": 43,
+      "start": 216.31,
+      "end": 217.25,
+      "duration": 0.94,
+      "text_snippet": "Các Ví Dụ Mã Nguồn"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 217.25,
+      "end": 226.95,
+      "duration": 9.7,
+      "text_snippet": "Ví dụ về các cờ tinh chỉnh JVM\n`bash\nThiết lập heap ban đầu là 1GB, heap tối đa là 2GB và mục tiêu thời gian tạm dừng GC"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 226.95,
+      "end": 227.89,
+      "duration": 0.94,
+      "text_snippet": "Sai Lầm Thường Gặp"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 227.89,
+      "end": 253.64,
+      "duration": 25.76,
+      "text_snippet": "Sử dụng -Xms và -Xmx không khớp nhau: Nếu -Xms nhỏ hơn -Xmx, JVM sẽ tự động thay đổi kích thước của vùng Heap (dynamic r"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 253.64,
+      "end": 255.15,
+      "duration": 1.51,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 255.15,
+      "end": 266.15,
+      "duration": 11.0,
+      "text_snippet": "Những khái niệm nào ở đây là quy tắc trong thời gian biên dịch (compile-time)?\nNhững khái niệm nào ở đây ảnh hưởng đến h"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 266.15,
+      "end": 269.18,
+      "duration": 3.02,
+      "text_snippet": "Tại Sao Shenandoah GC Đạt Được Thời Gian Tạm Dừng Cực Thấp"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 269.18,
+      "end": 328.35,
+      "duration": 59.17,
+      "text_snippet": "Shenandoah GC đạt được thời gian tạm dừng cực thấp độc lập với kích thước vùng Heap bằng cách thực hiện giai đoạn nén (c"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 328.35,
+      "end": 330.8,
+      "duration": 2.45,
+      "text_snippet": "Mô Hình Tư Duy: Nén Đồng Thời và Brooks Pointer"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 330.8,
+      "end": 331.69,
+      "duration": 0.89,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 331.69,
+      "end": 332.42,
+      "duration": 0.73,
+      "text_snippet": "Ví Dụ Mã Nguồn"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 332.42,
+      "end": 342.22,
+      "duration": 9.8,
+      "text_snippet": "Dưới đây là một minh họa về việc phân bổ bộ nhớ và chạy trong một vòng lặp để kích hoạt hoạt động của GC. Chạy đoạn mã n"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 342.22,
+      "end": 343.11,
+      "duration": 0.89,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 343.11,
+      "end": 344.25,
+      "duration": 1.15,
+      "text_snippet": "import java.util.UUID;"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 344.25,
+      "end": 391.59,
+      "duration": 47.34,
+      "text_snippet": "public class ConcurrentGcDemo {\n    public static void main(String[] args) {\n        System.out.println(\"Starting alloca"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 391.59,
+      "end": 393.0,
+      "duration": 1.41,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 393.0,
+      "end": 415.42,
+      "duration": 22.42,
+      "text_snippet": "GC lựa chọn vùng nhớ để nén &rarr; GC phân bổ bản sao trong vùng đích (to-space) &rarr; GC thực hiện CAS để cập nhật Bro"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 415.42,
+      "end": 416.36,
+      "duration": 0.94,
+      "text_snippet": "Liên Kết Tham Khảo"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 416.36,
+      "end": 420.84,
+      "duration": 4.48,
+      "text_snippet": "https://openjdk.org/jeps/189 (JEP 189: Shenandoah: A Low-Pause-Time Garbage Collector)"
+    }
+  ]
+}

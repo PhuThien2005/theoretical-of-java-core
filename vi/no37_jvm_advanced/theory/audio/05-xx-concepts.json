@@ -1,0 +1,385 @@
+{
+  "lesson": "05-xx-concepts",
+  "total_duration_seconds": 352.9,
+  "total_paragraphs": 54,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 2.4,
+      "duration": 2.4,
+      "text_snippet": "JVM nâng cao - Phần 5 (Advanced JVM - Part 5)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 2.4,
+      "end": 3.25,
+      "duration": 0.85,
+      "text_snippet": "Mục tiêu học tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 3.25,
+      "end": 12.68,
+      "duration": 9.43,
+      "text_snippet": "Tài liệu này tập trung vào một phần trọng tâm của JVM nâng cao (Advanced JVM). Hãy nghiên cứu từng khái niệm dưới dạng q"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 12.68,
+      "end": 13.58,
+      "duration": 0.91,
+      "text_snippet": "Đề cương chi tiết"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 13.58,
+      "end": 33.77,
+      "duration": 20.19,
+      "text_snippet": "-XX — Cờ tùy chỉnh dòng lệnh của JVM dùng để thiết lập nâng cao các tham số hệ thống và GC.\nBasic profiling — Phân tích "
+    },
+    {
+      "paragraph_id": 6,
+      "start": 33.77,
+      "end": 34.62,
+      "duration": 0.85,
+      "text_snippet": "Ghi chú chi tiết"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 34.62,
+      "end": 34.73,
+      "duration": 0.11,
+      "text_snippet": "XX"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 34.73,
+      "end": 38.35,
+      "duration": 3.62,
+      "text_snippet": "XX — XX: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
+    },
+    {
+      "paragraph_id": 9,
+      "start": 38.35,
+      "end": 45.96,
+      "duration": 7.62,
+      "text_snippet": "Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay v"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 45.96,
+      "end": 46.87,
+      "duration": 0.91,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 46.87,
+      "end": 55.6,
+      "duration": 8.73,
+      "text_snippet": "Định nghĩa -XX trong một câu.\nNhận diện -XX trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.\nGiải thích một lỗi, "
+    },
+    {
+      "paragraph_id": 12,
+      "start": 55.6,
+      "end": 57.2,
+      "duration": 1.6,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 57.2,
+      "end": 61.35,
+      "duration": 4.15,
+      "text_snippet": "Khi đọc mã nguồn, hãy hỏi: XX thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 61.35,
+      "end": 63.7,
+      "duration": 2.34,
+      "text_snippet": "Phân tích hiệu năng cơ bản (Basic profiling)"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 63.7,
+      "end": 70.41,
+      "duration": 6.71,
+      "text_snippet": "Phân tích hiệu năng cơ bản — Phân tích hiệu năng cơ bản: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 70.41,
+      "end": 78.02,
+      "duration": 7.62,
+      "text_snippet": "Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay v"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 78.02,
+      "end": 78.93,
+      "duration": 0.91,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 78.93,
+      "end": 89.58,
+      "duration": 10.65,
+      "text_snippet": "Định nghĩa Basic profiling trong một câu.\nNhận diện Basic profiling trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng v"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 89.58,
+      "end": 91.18,
+      "duration": 1.6,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 91.18,
+      "end": 96.03,
+      "duration": 4.85,
+      "text_snippet": "Khi đọc mã nguồn, hãy hỏi: Basic profiling thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 96.03,
+      "end": 97.57,
+      "duration": 1.54,
+      "text_snippet": "Kết xuất bộ nhớ (Memory dump)"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 97.57,
+      "end": 103.11,
+      "duration": 5.54,
+      "text_snippet": "Kết xuất bộ nhớ — Kết xuất bộ nhớ: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java."
+    },
+    {
+      "paragraph_id": 23,
+      "start": 103.11,
+      "end": 110.73,
+      "duration": 7.62,
+      "text_snippet": "Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay v"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 110.73,
+      "end": 111.63,
+      "duration": 0.91,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 111.63,
+      "end": 121.64,
+      "duration": 10.01,
+      "text_snippet": "Định nghĩa Memory dump trong một câu.\nNhận diện Memory dump trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.\nGiải"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 121.64,
+      "end": 123.24,
+      "duration": 1.6,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 123.24,
+      "end": 127.88,
+      "duration": 4.63,
+      "text_snippet": "Khi đọc mã nguồn, hãy hỏi: Memory dump thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 127.88,
+      "end": 129.37,
+      "duration": 1.49,
+      "text_snippet": "Kết xuất luồng (Thread dump)"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 129.37,
+      "end": 140.02,
+      "duration": 10.65,
+      "text_snippet": "Một bản kết xuất luồng (thread dump) là một ảnh chụp nhanh của tất cả các luồng đang hoạt động bên trong JVM, hiển thị t"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 140.02,
+      "end": 147.69,
+      "duration": 7.67,
+      "text_snippet": "It matters because it allows developers to diagnose deadlocks, thread contention, infinite loops, and resource locks in "
+    },
+    {
+      "paragraph_id": 31,
+      "start": 147.69,
+      "end": 148.59,
+      "duration": 0.91,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 148.59,
+      "end": 158.61,
+      "duration": 10.01,
+      "text_snippet": "Định nghĩa Thread dump trong một câu.\nNhận diện Thread dump trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.\nGiải"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 158.61,
+      "end": 160.2,
+      "duration": 1.6,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 160.2,
+      "end": 163.56,
+      "duration": 3.36,
+      "text_snippet": "new Thread(task).start() bắt đầu công việc trên một luồng khác."
+    },
+    {
+      "paragraph_id": 35,
+      "start": 163.56,
+      "end": 164.52,
+      "duration": 0.96,
+      "text_snippet": "Các ví dụ mã nguồn"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 164.52,
+      "end": 170.16,
+      "duration": 5.65,
+      "text_snippet": "Lệnh CLI để chụp kết xuất luồng/bộ nhớ\n`bash\nCapture thread dump (PID: 1234)\njstack 1234 > thread_dump.txt"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 170.16,
+      "end": 174.26,
+      "duration": 4.1,
+      "text_snippet": "Capture heap dump (PID: 1234)\njmap -dump:format=b,file=heap_dump.hprof 1234\n`"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 174.26,
+      "end": 175.22,
+      "duration": 0.96,
+      "text_snippet": "Các lỗi thường gặp"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 175.22,
+      "end": 198.28,
+      "duration": 23.06,
+      "text_snippet": "Phân tích kết xuất bộ nhớ bằng tay: Kết xuất bộ nhớ (heap dump) là các tệp nhị phân và có thể rất lớn. Không mở chúng tr"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 198.28,
+      "end": 199.62,
+      "duration": 1.33,
+      "text_snippet": "Câu hỏi ôn tập thường gặp"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 199.62,
+      "end": 208.08,
+      "duration": 8.47,
+      "text_snippet": "Khái niệm nào ở đây là quy tắc thời điểm biên dịch?\nKhái niệm nào ở đây ảnh hưởng đến hành vi thời điểm chạy?\nKhái niệm "
+    },
+    {
+      "paragraph_id": 42,
+      "start": 208.08,
+      "end": 210.0,
+      "duration": 1.92,
+      "text_snippet": "Tại sao các phân loại cờ JVM tồn tại"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 210.0,
+      "end": 274.66,
+      "duration": 64.66,
+      "text_snippet": "JVM tổ chức các tùy chọn cấu hình dòng lệnh của mình thành ba loại riêng biệt—Tiêu chuẩn (Standard), Không tiêu chuẩn (N"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 274.66,
+      "end": 278.12,
+      "duration": 3.46,
+      "text_snippet": "Mô hình tư duy: Phổ các tùy chọn JVM và Tinh chỉnh Ranh giới Heap"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 278.12,
+      "end": 279.03,
+      "duration": 0.91,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 279.03,
+      "end": 279.77,
+      "duration": 0.75,
+      "text_snippet": "Ví dụ mã nguồn"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 279.77,
+      "end": 286.96,
+      "duration": 7.19,
+      "text_snippet": "Dưới đây là một chương trình Java chạy được truy vấn các tham số Heap để chỉ ra cách các tùy chọn dòng lệnh thiết lập ra"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 286.96,
+      "end": 287.87,
+      "duration": 0.91,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 287.87,
+      "end": 294.74,
+      "duration": 6.87,
+      "text_snippet": "import java.lang.management.ManagementFactory;\nimport java.lang.management.MemoryMXBean;\nimport java.lang.management.Mem"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 294.74,
+      "end": 322.91,
+      "duration": 28.17,
+      "text_snippet": "public class HeapTuningInspection {\n    public static void main(String[] args) {\n        MemoryMXBean memoryMXBean = Man"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 322.91,
+      "end": 324.35,
+      "duration": 1.44,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 324.35,
+      "end": 346.13,
+      "duration": 21.78,
+      "text_snippet": "Cấu hình các cờ tiêu chuẩn &rarr; Đảm bảo khả năng di động giữa các nhà cung cấp &rarr; Thêm -Xms và -Xmx thiết lập giới"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 346.13,
+      "end": 347.09,
+      "duration": 0.96,
+      "text_snippet": "Liên kết tham khảo"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 347.09,
+      "end": 352.9,
+      "duration": 5.81,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html (Java Command-Line Tool Options Reference)"
+    }
+  ]
+}

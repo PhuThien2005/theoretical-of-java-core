@@ -1,0 +1,658 @@
+{
+  "lesson": "01-what-is-reflection-concepts",
+  "total_duration_seconds": 652.63,
+  "total_paragraphs": 93,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 1.69,
+      "duration": 1.69,
+      "text_snippet": "Cơ Chế Phản Chiếu - Phần 1 (Reflection - Part 1)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 1.69,
+      "end": 2.81,
+      "duration": 1.13,
+      "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 2.81,
+      "end": 9.57,
+      "duration": 6.75,
+      "text_snippet": "Tài liệu này trình bày một phần trọng tâm về Cơ Chế Phản Chiếu (Reflection) trong Java. Hãy nghiên cứu từng khái niệm nh"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 9.57,
+      "end": 10.73,
+      "duration": 1.16,
+      "text_snippet": "Khung Nội Dung (Outline Coverage)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 10.73,
+      "end": 47.07,
+      "duration": 36.34,
+      "text_snippet": "What is Reflection? — What is Reflection?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nClass<?> — Class<"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 47.07,
+      "end": 47.14,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 47.14,
+      "end": 48.3,
+      "duration": 1.16,
+      "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 48.3,
+      "end": 49.6,
+      "duration": 1.3,
+      "text_snippet": "Cơ Chế Phản Chiếu (Reflection) là gì?"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 49.6,
+      "end": 63.14,
+      "duration": 13.54,
+      "text_snippet": "Cơ chế phản chiếu (Reflection) là một tính năng trong Java cho phép một chương trình đang thực thi có thể tự kiểm tra ho"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 63.14,
+      "end": 78.9,
+      "duration": 15.76,
+      "text_snippet": "Nạp và Liên Kết Động (Dynamic Loading and Binding): Reflection cho phép các ứng dụng nạp các lớp theo tên tại thời điểm "
+    },
+    {
+      "paragraph_id": 11,
+      "start": 78.9,
+      "end": 90.69,
+      "duration": 11.78,
+      "text_snippet": "Ví Dụ Mã Nguồn: Kiểm tra cấu trúc lớp\n`java\npublic class SimpleInspector {\n    public static void printType(Object obj) "
+    },
+    {
+      "paragraph_id": 12,
+      "start": 90.69,
+      "end": 90.76,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 90.76,
+      "end": 91.04,
+      "duration": 0.28,
+      "text_snippet": "Class<?>"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 91.04,
+      "end": 96.24,
+      "duration": 5.21,
+      "text_snippet": "Lớp java.lang.Class là điểm bắt đầu cho mọi hoạt động phản chiếu. JVM tự động khởi tạo một đối tượng Class cho mọi kiểu "
+    },
+    {
+      "paragraph_id": 15,
+      "start": 96.24,
+      "end": 106.97,
+      "duration": 10.73,
+      "text_snippet": "Các cách lấy đối tượng Class:\n  1. Từ một thực thể đối tượng: String s = \"\"; Class<?> c = s.getClass();\n  2. Từ lớp văn "
+    },
+    {
+      "paragraph_id": 16,
+      "start": 106.97,
+      "end": 116.26,
+      "duration": 9.29,
+      "text_snippet": "Ví Dụ Mã Nguồn: Ba cách lấy đối tượng Class\n`java\npublic class ClassFetchers {\n    public static void main(String[] args"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 116.26,
+      "end": 120.27,
+      "duration": 4.01,
+      "text_snippet": "// 2. Từ class literal (an toàn nhất, được xử lý tại thời điểm biên dịch)\n        Class<String> c2 = String.class;"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 120.27,
+      "end": 123.96,
+      "duration": 3.69,
+      "text_snippet": "// 3. Tra cứu động (linh hoạt nhưng ném ra CNFE)\n        Class<?> c3 = Class.forName(\"java.lang.String\");"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 123.96,
+      "end": 127.37,
+      "duration": 3.41,
+      "text_snippet": "System.out.println(c1 == c2 && c2 == c3); // In ra: true (độc bản trên mỗi ClassLoader)\n    }\n}\n`"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 127.37,
+      "end": 129.38,
+      "duration": 2.01,
+      "text_snippet": "Tại Sao Reflection Bỏ Qua Tính An Toàn Kiểu Lúc Biên Dịch"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 129.38,
+      "end": 161.92,
+      "duration": 32.54,
+      "text_snippet": "Trong quá trình thực thi Java tiêu chuẩn, trình biên dịch thực thi kiểm tra kiểu tĩnh (static type checking) bằng cách x"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 161.92,
+      "end": 164.56,
+      "duration": 2.64,
+      "text_snippet": "Mô hình Tư duy: Phân giải biên dịch tĩnh vs. Phân giải động bằng Phản Chiếu"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 164.56,
+      "end": 165.15,
+      "duration": 0.6,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 165.15,
+      "end": 168.28,
+      "duration": 3.13,
+      "text_snippet": "Ví Dụ Mã Nguồn: Bỏ qua kiểm tra kiểu lúc biên dịch\n`java\nimport java.lang.reflect.Method;"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 168.28,
+      "end": 198.43,
+      "duration": 30.15,
+      "text_snippet": "public class TypeSafetyBypass {\n    public static void main(String[] args) {\n        Object target = \"Hello Reflection\";"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 198.43,
+      "end": 212.4,
+      "duration": 13.97,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)\nTra cứu phản chiếu với tên phương thức viết sai $\\rightarrow$ Trình biê"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 212.4,
+      "end": 212.47,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 212.47,
+      "end": 213.91,
+      "duration": 1.44,
+      "text_snippet": "Lấy thông tin lớp (Get class information)"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 213.91,
+      "end": 217.22,
+      "duration": 3.31,
+      "text_snippet": "Khi sở hữu một tham chiếu Class<?>, bạn có thể kiểm tra mọi khía cạnh của kiểu dữ liệu đã nạp."
+    },
+    {
+      "paragraph_id": 30,
+      "start": 217.22,
+      "end": 229.46,
+      "duration": 12.24,
+      "text_snippet": "Lớp cha: Gọi clazz.getSuperclass() để lấy đối tượng Class đại diện cho lớp cha.\nCác giao diện: Gọi clazz.getInterfaces()"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 229.46,
+      "end": 232.34,
+      "duration": 2.88,
+      "text_snippet": "Ví Dụ Mã Nguồn: Giải mã các bổ từ của lớp\n`java\nimport java.lang.reflect.Modifier;"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 232.34,
+      "end": 244.34,
+      "duration": 12.0,
+      "text_snippet": "public class ModifierInspector {\n    public static void inspect(Class<?> clazz) {\n        int mods = clazz.getModifiers("
+    },
+    {
+      "paragraph_id": 33,
+      "start": 244.34,
+      "end": 244.41,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 244.41,
+      "end": 245.32,
+      "duration": 0.91,
+      "text_snippet": "Lấy thuộc tính (Get field)"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 245.32,
+      "end": 247.92,
+      "duration": 2.6,
+      "text_snippet": "Các trường thuộc tính được kiểm tra thông qua lớp java.lang.reflect.Field."
+    },
+    {
+      "paragraph_id": 36,
+      "start": 247.92,
+      "end": 266.01,
+      "duration": 18.08,
+      "text_snippet": "getField(name) — getField(name): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\n  - getField(name) trả về t"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 266.01,
+      "end": 269.95,
+      "duration": 3.94,
+      "text_snippet": "Ví Dụ Mã Nguồn: Đọc các trường public so với các trường khai báo trực tiếp\n`java\nimport java.lang.reflect.Field;"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 269.95,
+      "end": 275.19,
+      "duration": 5.24,
+      "text_snippet": "class Parent {\n    public int publicParentField;\n}\nclass Child extends Parent {\n    private int privateChildField;\n    p"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 275.19,
+      "end": 279.72,
+      "duration": 4.54,
+      "text_snippet": "public class FieldInspector {\n    public static void main(String[] args) throws Exception {\n        Class<?> clazz = Chi"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 279.72,
+      "end": 285.21,
+      "duration": 5.49,
+      "text_snippet": "// getFields() -> trả về publicParentField và publicChildField\n        System.out.println(\"Public fields count: \" + claz"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 285.21,
+      "end": 291.83,
+      "duration": 6.61,
+      "text_snippet": "// getDeclaredFields() -> chỉ trả về privateChildField và publicChildField\n        System.out.println(\"Declared fields c"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 291.83,
+      "end": 291.9,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 291.9,
+      "end": 292.88,
+      "duration": 0.98,
+      "text_snippet": "Lấy phương thức (Get method)"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 292.88,
+      "end": 295.1,
+      "duration": 2.22,
+      "text_snippet": "Các phương thức được đại diện bởi lớp java.lang.reflect.Method."
+    },
+    {
+      "paragraph_id": 45,
+      "start": 295.1,
+      "end": 309.73,
+      "duration": 14.63,
+      "text_snippet": "Phạm vi: getMethod(name, parameterTypes...) khớp với các phương thức public (bao gồm cả phương thức kế thừa). getDeclare"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 309.73,
+      "end": 312.61,
+      "duration": 2.88,
+      "text_snippet": "Ví Dụ Mã Nguồn: Lấy phương thức theo chữ ký\n`java\nimport java.lang.reflect.Method;"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 312.61,
+      "end": 315.01,
+      "duration": 2.39,
+      "text_snippet": "class UserService {\n    public void update(int id, String name) {}\n}"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 315.01,
+      "end": 328.13,
+      "duration": 13.12,
+      "text_snippet": "public class MethodFetch {\n    public static void main(String[] args) throws Exception {\n        Class<UserService> claz"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 328.13,
+      "end": 328.2,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 328.2,
+      "end": 329.39,
+      "duration": 1.2,
+      "text_snippet": "Lấy hàm khởi tạo (Get constructor)"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 329.39,
+      "end": 331.82,
+      "duration": 2.43,
+      "text_snippet": "Các hàm khởi tạo được đại diện bởi lớp java.lang.reflect.Constructor."
+    },
+    {
+      "paragraph_id": 52,
+      "start": 331.82,
+      "end": 339.0,
+      "duration": 7.18,
+      "text_snippet": "Khởi tạo đối tượng: Bạn lấy hàm khởi tạo để khởi tạo các đối tượng một cách động.\nKhớp chữ ký: Tương tự như phương thức,"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 339.0,
+      "end": 341.99,
+      "duration": 2.99,
+      "text_snippet": "Ví Dụ Mã Nguồn: Truy vấn các hàm khởi tạo\n`java\nimport java.lang.reflect.Constructor;"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 341.99,
+      "end": 345.15,
+      "duration": 3.17,
+      "text_snippet": "class Product {\n    public Product() {}\n    public Product(String name, double price) {}\n}"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 345.15,
+      "end": 363.09,
+      "duration": 17.94,
+      "text_snippet": "public class ConstructorInspector {\n    public static void main(String[] args) throws Exception {\n        Class<Product>"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 363.09,
+      "end": 363.16,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 363.16,
+      "end": 364.92,
+      "duration": 1.76,
+      "text_snippet": "Gọi phương thức sử dụng reflection (Invoke method)"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 364.92,
+      "end": 368.83,
+      "duration": 3.9,
+      "text_snippet": "Bạn thực thi các phương thức một cách động bằng cách gọi phương thức Method.invoke(targetObject, arguments...)."
+    },
+    {
+      "paragraph_id": 59,
+      "start": 368.83,
+      "end": 382.58,
+      "duration": 13.75,
+      "text_snippet": "Phương thức tĩnh (Static Methods): Đối với các phương thức tĩnh, hãy truyền giá trị null cho tham số targetObject.\nNgoại"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 382.58,
+      "end": 385.22,
+      "duration": 2.64,
+      "text_snippet": "Ví Dụ Mã Nguồn: Gọi phương thức động\n`java\nimport java.lang.reflect.Method;"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 385.22,
+      "end": 399.01,
+      "duration": 13.79,
+      "text_snippet": "public class Invoker {\n    public static void main(String[] args) throws Exception {\n        String text = \"hello world\""
+    },
+    {
+      "paragraph_id": 62,
+      "start": 399.01,
+      "end": 399.08,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 399.08,
+      "end": 400.2,
+      "duration": 1.13,
+      "text_snippet": "Tạo đối tượng sử dụng reflection"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 400.2,
+      "end": 406.5,
+      "duration": 6.3,
+      "text_snippet": "Trong lịch sử, bạn có thể tạo thực thể của một đối tượng bằng cách gọi trực tiếp Class.newInstance(). Tuy nhiên, phương "
+    },
+    {
+      "paragraph_id": 65,
+      "start": 406.5,
+      "end": 419.55,
+      "duration": 13.05,
+      "text_snippet": "Lý do loại bỏ Class.newInstance(): Nó bỏ qua các kiểm tra ngoại lệ checked lúc biên dịch và trực tiếp ném chúng ra ngoài"
+    },
+    {
+      "paragraph_id": 66,
+      "start": 419.55,
+      "end": 422.82,
+      "duration": 3.27,
+      "text_snippet": "Ví Dụ Mã Nguồn: Khởi tạo thực thể (chuẩn Java 9+)\n`java\nimport java.lang.reflect.Constructor;"
+    },
+    {
+      "paragraph_id": 67,
+      "start": 422.82,
+      "end": 437.42,
+      "duration": 14.6,
+      "text_snippet": "public class Instantiator {\n    public static void main(String[] args) throws Exception {\n        Class<?> clazz = java."
+    },
+    {
+      "paragraph_id": 68,
+      "start": 437.42,
+      "end": 437.49,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 69,
+      "start": 437.49,
+      "end": 438.86,
+      "duration": 1.37,
+      "text_snippet": "Truy cập các trường/phương thức private"
+    },
+    {
+      "paragraph_id": 70,
+      "start": 438.86,
+      "end": 445.02,
+      "duration": 6.16,
+      "text_snippet": "Reflection có thể vượt qua các kiểm soát quyền truy cập ngôn ngữ (như private, protected, hoặc package-private) bằng các"
+    },
+    {
+      "paragraph_id": 71,
+      "start": 445.02,
+      "end": 461.59,
+      "duration": 16.57,
+      "text_snippet": "AccessibleObject: Là lớp cha của Field, Method, và Constructor.\nsetAccessible(true) — setAccessible(true): Cung cấp các "
+    },
+    {
+      "paragraph_id": 72,
+      "start": 461.59,
+      "end": 464.79,
+      "duration": 3.2,
+      "text_snippet": "Ví Dụ Mã Nguồn: Ghi đè giá trị vào thuộc tính private\n`java\nimport java.lang.reflect.Field;"
+    },
+    {
+      "paragraph_id": 73,
+      "start": 464.79,
+      "end": 466.62,
+      "duration": 1.83,
+      "text_snippet": "class Account {\n    private double balance = 10.0;\n}"
+    },
+    {
+      "paragraph_id": 74,
+      "start": 466.62,
+      "end": 490.75,
+      "duration": 24.13,
+      "text_snippet": "public class PrivateAccess {\n    public static void main(String[] args) throws Exception {\n        Account account = new"
+    },
+    {
+      "paragraph_id": 75,
+      "start": 490.75,
+      "end": 494.51,
+      "duration": 3.76,
+      "text_snippet": "Tại Sao setAccessible(true) Có Thể Bỏ Qua Các Kiểm Soát Quyền Truy Cập và Các Ràng Buộc Của Hệ Thống Module"
+    },
+    {
+      "paragraph_id": 76,
+      "start": 494.51,
+      "end": 529.13,
+      "duration": 34.61,
+      "text_snippet": "Các bổ từ truy cập trong Java (private, protected, package-private) là các ràng buộc cấp độ ngôn ngữ được thiết kế để áp"
+    },
+    {
+      "paragraph_id": 77,
+      "start": 529.13,
+      "end": 531.13,
+      "duration": 2.01,
+      "text_snippet": "Mô Hình Tư Duy: Sơ đồ quyết định ghi đè khả năng truy cập"
+    },
+    {
+      "paragraph_id": 78,
+      "start": 531.13,
+      "end": 531.73,
+      "duration": 0.6,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 79,
+      "start": 531.73,
+      "end": 535.11,
+      "duration": 3.38,
+      "text_snippet": "Ví Dụ Mã Nguồn: Ranh giới Module và giới hạn setAccessible\n`java\nimport java.lang.reflect.Field;"
+    },
+    {
+      "paragraph_id": 80,
+      "start": 535.11,
+      "end": 561.21,
+      "duration": 26.1,
+      "text_snippet": "public class ModuleReflectionBypass {\n    public static void main(String[] args) {\n        try {\n            // Thử truy"
+    },
+    {
+      "paragraph_id": 81,
+      "start": 561.21,
+      "end": 572.71,
+      "duration": 11.5,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)\nGọi setAccessible(true) trên trường nội bộ của module $\\rightarrow$ JVM"
+    },
+    {
+      "paragraph_id": 82,
+      "start": 572.71,
+      "end": 572.78,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 83,
+      "start": 572.78,
+      "end": 574.47,
+      "duration": 1.69,
+      "text_snippet": "Annotation + reflection (Chú thích + Phản chiếu)"
+    },
+    {
+      "paragraph_id": 84,
+      "start": 574.47,
+      "end": 579.99,
+      "duration": 5.52,
+      "text_snippet": "Các chú thích (annotations) chỉ hiển thị với reflection tại thời điểm chạy nếu chúng được cấu hình chính sách lưu trữ là"
+    },
+    {
+      "paragraph_id": 85,
+      "start": 579.99,
+      "end": 588.72,
+      "duration": 8.72,
+      "text_snippet": "Truy vấn Siêu Dữ Liệu: Các phương thức như isAnnotationPresent(Annotation.class) và getAnnotation(Annotation.class) được"
+    },
+    {
+      "paragraph_id": 86,
+      "start": 588.72,
+      "end": 593.43,
+      "duration": 4.71,
+      "text_snippet": "> Xem thêm: Chi tiết về cấu tạo của Annotation và nguyên lý RetentionPolicy.RUNTIME, được trình bày chi tiết trong Ch.17"
+    },
+    {
+      "paragraph_id": 87,
+      "start": 593.43,
+      "end": 597.55,
+      "duration": 4.12,
+      "text_snippet": "Ví Dụ Mã Nguồn: Trình xử lý annotation đơn giản\n`java\nimport java.lang.annotation.*;\nimport java.lang.reflect.Method;"
+    },
+    {
+      "paragraph_id": 88,
+      "start": 597.55,
+      "end": 600.47,
+      "duration": 2.92,
+      "text_snippet": "@Retention(RetentionPolicy.RUNTIME)\n@Target(ElementType.METHOD)\n@interface RunMe {}"
+    },
+    {
+      "paragraph_id": 89,
+      "start": 600.47,
+      "end": 605.99,
+      "duration": 5.52,
+      "text_snippet": "class Task {\n    @RunMe\n    public void step1() { System.out.println(\"Running step 1\"); }\n    public void step2() { Syst"
+    },
+    {
+      "paragraph_id": 90,
+      "start": 605.99,
+      "end": 617.67,
+      "duration": 11.68,
+      "text_snippet": "public class AnnotationRunner {\n    public static void main(String[] args) throws Exception {\n        Task task = new Ta"
+    },
+    {
+      "paragraph_id": 91,
+      "start": 617.67,
+      "end": 617.74,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 92,
+      "start": 617.74,
+      "end": 619.6,
+      "duration": 1.86,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)"
+    },
+    {
+      "paragraph_id": 93,
+      "start": 619.6,
+      "end": 652.63,
+      "duration": 33.03,
+      "text_snippet": "Những khái niệm nào ở đây là quy tắc tại thời điểm biên dịch?\n  Không có khái niệm nào; Reflection hoàn toàn là một API "
+    }
+  ]
+}

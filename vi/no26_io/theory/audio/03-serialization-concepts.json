@@ -1,0 +1,448 @@
+{
+  "lesson": "03-serialization-concepts",
+  "total_duration_seconds": 519.48,
+  "total_paragraphs": 63,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 1.07,
+      "duration": 1.07,
+      "text_snippet": "Vào/Ra (IO) trong Java - Phần 3"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 1.07,
+      "end": 1.63,
+      "duration": 0.55,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 1.63,
+      "end": 8.0,
+      "duration": 6.37,
+      "text_snippet": "Tài liệu này tập trung vào một phần chuyên sâu của Vào/Ra (IO) trong Java. Hãy nghiên cứu từng khái niệm dưới dạng quy t"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 8.0,
+      "end": 9.21,
+      "duration": 1.21,
+      "text_snippet": "Tóm Tắt Nội Dung (Outline Coverage)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 9.21,
+      "end": 36.44,
+      "duration": 27.23,
+      "text_snippet": "Serialization — Serialization: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nDeserialization — Deserializa"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 36.44,
+      "end": 37.0,
+      "duration": 0.55,
+      "text_snippet": "Ghi Chú Chi Tiết"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 37.0,
+      "end": 60.8,
+      "duration": 23.8,
+      "text_snippet": "Tuần tự hóa & Giải tuần tự hóa (Serialization & Deserialization)\nCơ chế tuần tự hóa đối tượng trong Java cho phép lập tr"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 60.8,
+      "end": 61.38,
+      "duration": 0.59,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 61.38,
+      "end": 78.81,
+      "duration": 17.42,
+      "text_snippet": "public class User implements Serializable {\n    private static final long serialVersionUID = 1L; // Recommended explicit"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 78.81,
+      "end": 81.65,
+      "duration": 2.84,
+      "text_snippet": "Tại sao serialVersionUID là Cực kỳ Quan trọng đối với Sự Tương thích Phiên bản Lớp"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 81.65,
+      "end": 127.69,
+      "duration": 46.04,
+      "text_snippet": "Nếu một lớp Serializable không khai báo serialVersionUID một cách tường minh, trình biên dịch Java sẽ tự động tạo ra một"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 127.69,
+      "end": 128.73,
+      "duration": 1.04,
+      "text_snippet": "Logic So khớp khi Tiến hóa Lớp"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 128.73,
+      "end": 129.32,
+      "duration": 0.59,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 129.32,
+      "end": 130.84,
+      "duration": 1.52,
+      "text_snippet": "Ví dụ Code: Hành vi khi Không khớp Phiên bản"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 130.84,
+      "end": 135.14,
+      "duration": 4.3,
+      "text_snippet": "Ví dụ sau đây mô phỏng sự tiến hóa của lớp khi việc thiếu serialVersionUID tường minh sẽ kích hoạt lỗi không khớp phiên "
+    },
+    {
+      "paragraph_id": 16,
+      "start": 135.14,
+      "end": 135.72,
+      "duration": 0.59,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 135.72,
+      "end": 138.43,
+      "duration": 2.7,
+      "text_snippet": "// Phiên bản 2 của Lớp (cố gắng đọc dữ liệu của Phiên bản 1)\nimport java.io.*;"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 138.43,
+      "end": 165.41,
+      "duration": 26.99,
+      "text_snippet": "public class Profile implements Serializable {\n    // Thiếu serialVersionUID tường minh!\n    String name;\n    String ema"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 165.41,
+      "end": 167.39,
+      "duration": 1.97,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả của việc Không khớp Phiên bản"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 167.39,
+      "end": 167.98,
+      "duration": 0.59,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 167.98,
+      "end": 171.37,
+      "duration": 3.39,
+      "text_snippet": "Tại sao các Trường transient bị Loại trừ khỏi Tuần tự hóa và Cách Giải tuần tự hóa Khôi phục Chúng"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 171.37,
+      "end": 219.83,
+      "duration": 48.46,
+      "text_snippet": "Từ khóa transient là một từ khóa bổ trợ trường dữ liệu dùng để báo cho cơ chế tuần tự hóa biết cần bỏ qua trường này khi"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 219.83,
+      "end": 221.7,
+      "duration": 1.87,
+      "text_snippet": "Luồng Khởi tạo Bộ nhớ trong quá trình Giải tuần tự hóa"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 221.7,
+      "end": 222.29,
+      "duration": 0.59,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 222.29,
+      "end": 223.89,
+      "duration": 1.59,
+      "text_snippet": "Ví dụ Code: Bỏ qua Hàm khởi tạo và Bộ khởi tạo"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 223.89,
+      "end": 224.48,
+      "duration": 0.59,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 224.48,
+      "end": 238.09,
+      "duration": 13.61,
+      "text_snippet": "public class TransientDemo implements Serializable {\n    private static final long serialVersionUID = 1L;\n    \n    priva"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 238.09,
+      "end": 270.03,
+      "duration": 31.94,
+      "text_snippet": "public static void main(String[] args) throws Exception {\n        ByteArrayOutputStream baos = new ByteArrayOutputStream"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 270.03,
+      "end": 272.21,
+      "duration": 2.18,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả của việc Khôi phục Trường transient"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 272.21,
+      "end": 272.8,
+      "duration": 0.59,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 272.8,
+      "end": 277.55,
+      "duration": 4.75,
+      "text_snippet": "> Xem thêm: Các đặc điểm của từ khóa transient và các non-access modifier khác, được trình bày chi tiết trong Ch.10 - Ac"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 277.55,
+      "end": 281.25,
+      "duration": 3.71,
+      "text_snippet": "Tại sao Tuần tự hóa trong Java là một Lỗ hổng Bảo mật và Cách các Giải pháp Thay thế Hiện đại Giảm thiểu Nó"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 281.25,
+      "end": 326.91,
+      "duration": 45.66,
+      "text_snippet": "Cơ chế tuần tự hóa gốc của Java là một lỗ hổng bảo mật lớn vì phương thức ObjectInputStream.readObject() là một bộ giải "
+    },
+    {
+      "paragraph_id": 34,
+      "start": 326.91,
+      "end": 328.68,
+      "duration": 1.77,
+      "text_snippet": "Khai thác RCE qua Chuỗi Gadget khi Giải tuần tự hóa"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 328.68,
+      "end": 329.26,
+      "duration": 0.59,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 329.26,
+      "end": 331.66,
+      "duration": 2.39,
+      "text_snippet": "Ví dụ Code: Giải pháp Thay thế An toàn (Tuần tự hóa Chỉ Dữ liệu JSON)"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 331.66,
+      "end": 339.45,
+      "duration": 7.79,
+      "text_snippet": "Sử dụng Jackson hoặc các bộ phân tích cú pháp chỉ chứa dữ liệu tương tự giúp loại bỏ việc thực thi gadget vì chúng chỉ đ"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 339.45,
+      "end": 340.04,
+      "duration": 0.59,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 340.04,
+      "end": 341.98,
+      "duration": 1.94,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả của Lỗ hổng Giải tuần tự hóa"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 341.98,
+      "end": 342.57,
+      "duration": 0.59,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 342.57,
+      "end": 346.86,
+      "duration": 4.3,
+      "text_snippet": "Ví dụ Code Tuần tự hóa và Giải tuần tự hóa\nChúng ta ghi đối tượng bằng ObjectOutputStream và đọc lại bằng ObjectInputStr"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 346.86,
+      "end": 347.45,
+      "duration": 0.59,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 347.45,
+      "end": 379.74,
+      "duration": 32.29,
+      "text_snippet": "public class SerializationDemo {\n    public static void main(String[] args) {\n        User user = new User(\"alice\", \"sec"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 379.74,
+      "end": 393.7,
+      "duration": 13.96,
+      "text_snippet": "Scanner & Hệ thống Vào/Ra (System I/O)\nSystem.in, System.out, và System.err được mở bởi JVM khi ứng dụng khởi động.\nScan"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 393.7,
+      "end": 394.29,
+      "duration": 0.59,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 394.29,
+      "end": 408.11,
+      "duration": 13.82,
+      "text_snippet": "public class ConsoleInput {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 408.11,
+      "end": 408.18,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 408.18,
+      "end": 409.42,
+      "duration": 1.25,
+      "text_snippet": "Ví Dụ Thực Tế: Tùy chỉnh Tuần tự hóa"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 409.42,
+      "end": 416.35,
+      "duration": 6.93,
+      "text_snippet": "Bài toán\nChúng ta muốn mã hóa một trường nhạy cảm (như password) khi tuần tự hóa, và giải mã nó khi giải tuần tự hóa, để"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 416.35,
+      "end": 424.46,
+      "duration": 8.11,
+      "text_snippet": "Triển khai\nChúng ta có thể định nghĩa các phương thức riêng tư writeObject và readObject bên trong lớp Serializable. Cơ "
+    },
+    {
+      "paragraph_id": 51,
+      "start": 424.46,
+      "end": 425.05,
+      "duration": 0.59,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 425.05,
+      "end": 432.25,
+      "duration": 7.21,
+      "text_snippet": "public class SecureUser implements Serializable {\n    private static final long serialVersionUID = 2L;\n    \n    private "
+    },
+    {
+      "paragraph_id": 53,
+      "start": 432.25,
+      "end": 436.65,
+      "duration": 4.4,
+      "text_snippet": "public SecureUser(String username, String password) {\n        this.username = username;\n        this.password = password"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 436.65,
+      "end": 450.41,
+      "duration": 13.75,
+      "text_snippet": "private void writeObject(ObjectOutputStream oos) throws IOException {\n        // Run default serialization for non-custo"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 450.41,
+      "end": 463.29,
+      "duration": 12.89,
+      "text_snippet": "private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {\n        // Run default deser"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 463.29,
+      "end": 463.36,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 463.36,
+      "end": 463.98,
+      "duration": 0.62,
+      "text_snippet": "Các lỗi thường gặp"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 463.98,
+      "end": 481.2,
+      "duration": 17.22,
+      "text_snippet": "Thiếu serialVersionUID Tường Minh\nNếu bạn không chỉ định serialVersionUID một cách tường minh, trình biên dịch Java sẽ t"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 481.2,
+      "end": 497.45,
+      "duration": 16.25,
+      "text_snippet": "Cạm bẫy Hàm khởi tạo Lớp cha không có tính năng Tuần tự hóa\nNếu một lớp con triển khai Serializable nhưng lớp cha của nó"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 497.45,
+      "end": 502.82,
+      "duration": 5.37,
+      "text_snippet": "Đóng Scanner đang bao bọc System.in\nViệc đóng scanner này sẽ đóng luôn System.in.\n`java\nScanner s1 = new Scanner(System."
+    },
+    {
+      "paragraph_id": 61,
+      "start": 502.82,
+      "end": 506.77,
+      "duration": 3.95,
+      "text_snippet": "Scanner s2 = new Scanner(System.in);\n// s2.nextLine(); // Ném ra NoSuchElementException vì System.in đã bị đóng!\n`"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 506.77,
+      "end": 507.39,
+      "duration": 0.62,
+      "text_snippet": "Liên kết Tham khảo"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 507.39,
+      "end": 519.48,
+      "duration": 12.09,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/Serializable.html (Tài liệu Serializable API)\nhttps"
+    }
+  ]
+}

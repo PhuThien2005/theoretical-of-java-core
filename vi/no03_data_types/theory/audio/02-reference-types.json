@@ -1,0 +1,721 @@
+{
+  "lesson": "02-reference-types",
+  "total_duration_seconds": 658.68,
+  "total_paragraphs": 102,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 3.52,
+      "duration": 3.52,
+      "text_snippet": "Kiểu Tham Chiếu (Reference Types) Và Mô Hình Bộ Nhớ (Memory Model)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 3.52,
+      "end": 13.26,
+      "duration": 9.75,
+      "text_snippet": "Kiểu tham chiếu (Reference Types) không lưu trữ giá trị của đối tượng (Object) trực tiếp trong biến (Variable). Thay vào"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 13.26,
+      "end": 14.81,
+      "duration": 1.54,
+      "text_snippet": "Ví dụ về các kiểu tham chiếu:"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 14.81,
+      "end": 23.86,
+      "duration": 9.06,
+      "text_snippet": "Kiểu lớp (Class Types).\nKiểu đối tượng (Object Types).\nMảng (Arrays).\nString.\nGiao diện (Interfaces).\nKiểu liệt kê (Enum"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 23.86,
+      "end": 25.36,
+      "duration": 1.49,
+      "text_snippet": "Ví Dụ Cơ Bản (Basic Example)"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 25.36,
+      "end": 26.26,
+      "duration": 0.91,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 26.26,
+      "end": 31.48,
+      "duration": 5.22,
+      "text_snippet": "name, scores và student là các biến tham chiếu (Reference Variables). Chúng trỏ đến các đối tượng."
+    },
+    {
+      "paragraph_id": 8,
+      "start": 31.48,
+      "end": 34.68,
+      "duration": 3.2,
+      "text_snippet": "Kiểu Nguyên Thủy (Primitive) Với Kiểu Tham Chiếu (Reference)"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 34.68,
+      "end": 35.58,
+      "duration": 0.91,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 35.58,
+      "end": 36.49,
+      "duration": 0.91,
+      "text_snippet": "Về mặt khái niệm:"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 36.49,
+      "end": 37.4,
+      "duration": 0.91,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 37.4,
+      "end": 43.68,
+      "duration": 6.29,
+      "text_snippet": "age lưu trữ trực tiếp một giá trị nguyên thủy (Primitive Value). name lưu trữ một tham chiếu đến một đối tượng String."
+    },
+    {
+      "paragraph_id": 13,
+      "start": 43.68,
+      "end": 46.77,
+      "duration": 3.09,
+      "text_snippet": "Mô Hình Bộ Nhớ Stack Và Heap (Stack And Heap Memory Model)"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 46.77,
+      "end": 58.7,
+      "duration": 11.93,
+      "text_snippet": "Để hiểu tại sao kiểu nguyên thủy và kiểu tham chiếu lại hoạt động khác nhau, bạn cần biết nơi Java lưu trữ dữ liệu trong"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 58.7,
+      "end": 71.27,
+      "duration": 12.57,
+      "text_snippet": "> Lưu ý: Đây là một mô hình đơn giản hóa. Đặc tả ngôn ngữ Java (JLS) không bắt buộc phải cấp phát Stack cho kiểu nguyên "
+    },
+    {
+      "paragraph_id": 16,
+      "start": 71.27,
+      "end": 72.71,
+      "duration": 1.44,
+      "text_snippet": "Bộ Nhớ Stack (Stack Memory)"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 72.71,
+      "end": 84.7,
+      "duration": 11.99,
+      "text_snippet": "Stack lưu trữ các khung gọi phương thức (Method Call Frames). Mỗi khi một phương thức (Method) được gọi, một khung (Fram"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 84.7,
+      "end": 86.24,
+      "duration": 1.54,
+      "text_snippet": "Các đặc tính chính của Stack:"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 86.24,
+      "end": 109.74,
+      "duration": 23.49,
+      "text_snippet": "Khung có kích thước cố định — Khung có kích thước cố định: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nC"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 109.74,
+      "end": 111.07,
+      "duration": 1.33,
+      "text_snippet": "Bộ Nhớ Heap (Heap Memory)"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 111.07,
+      "end": 117.51,
+      "duration": 6.45,
+      "text_snippet": "Heap lưu trữ các đối tượng và mảng. Khi bạn viết new Student() hoặc new String(\"Alice\"), đối tượng sẽ được tạo trên Heap"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 117.51,
+      "end": 119.0,
+      "duration": 1.49,
+      "text_snippet": "Các đặc tính chính của Heap:"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 119.0,
+      "end": 137.97,
+      "duration": 18.96,
+      "text_snippet": "Cấp phát động — Cấp phát động: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nCấp phát chậm hơn — Cấp phát "
+    },
+    {
+      "paragraph_id": 24,
+      "start": 137.97,
+      "end": 144.68,
+      "duration": 6.71,
+      "text_snippet": "Tại Sao Kiểu Nguyên Thủy Nằm Trên Stack Và Đối Tượng Nằm Trên Heap (Why Primitives Go On The Stack And Objects Go On The"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 144.68,
+      "end": 146.33,
+      "duration": 1.65,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả là:"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 146.33,
+      "end": 170.25,
+      "duration": 23.92,
+      "text_snippet": "Stack yêu cầu kích thước cố định và đã biết trước → int luôn là 32 bit, double luôn là 64 bit → chúng vừa vặn hoàn hảo t"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 170.25,
+      "end": 172.65,
+      "duration": 2.4,
+      "text_snippet": "Sơ Đồ Cấu Trúc Bộ Nhớ (Memory Layout Diagram)"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 172.65,
+      "end": 173.55,
+      "duration": 0.91,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 173.55,
+      "end": 180.58,
+      "duration": 7.03,
+      "text_snippet": "subgraph Heap[\"Heap (cấp phát động)\"]\n        direction TB\n        STR[\"Đối tượng String tại 0x1A2B\\n\\\"Alice\\\"\\n(~80 byt"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 180.58,
+      "end": 181.92,
+      "duration": 1.33,
+      "text_snippet": "NAME -->|\"trỏ đến\"| STR\n`"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 181.92,
+      "end": 190.55,
+      "duration": 8.63,
+      "text_snippet": "Hãy chú ý rằng age chứa giá trị thực tế 18 trực tiếp trên Stack. Nhưng name chứa một địa chỉ bộ nhớ 0x1A2B trên Stack, t"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 190.55,
+      "end": 194.22,
+      "duration": 3.68,
+      "text_snippet": "Phép So Sánh: Hộp Thư Và Nhà Kho (Analogy: Mailboxes And A Warehouse)"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 194.22,
+      "end": 205.25,
+      "duration": 11.03,
+      "text_snippet": "Hãy hình dung Stack giống như một dãy hộp thư được đánh số tại bưu điện. Mỗi hộp thư đều có cùng một kích thước cố định."
+    },
+    {
+      "paragraph_id": 34,
+      "start": 205.25,
+      "end": 223.89,
+      "duration": 18.64,
+      "text_snippet": "Nhưng chuyện gì sẽ xảy ra nếu bạn nhận được một gói hàng lớn và nặng (một đối tượng như String)? Nó không vừa với hộp th"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 223.89,
+      "end": 235.24,
+      "duration": 11.35,
+      "text_snippet": "Hộp thư (ngăn Stack) = kích thước cố định, truy cập nhanh.\nNhà kho (Heap) = kích thước thay đổi, lưu trữ các vật phẩm lớ"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 235.24,
+      "end": 236.14,
+      "duration": 0.91,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 236.14,
+      "end": 241.42,
+      "duration": 5.27,
+      "text_snippet": "> Xem thêm: Cơ chế quản lý bộ nhớ của JVM, được trình bày chi tiết trong Ch.13 - Memory Management."
+    },
+    {
+      "paragraph_id": 38,
+      "start": 241.42,
+      "end": 245.52,
+      "duration": 4.1,
+      "text_snippet": "Tại Sao String Không Phải Là Kiểu Nguyên Thủy (Why String Is Not A Primitive)"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 245.52,
+      "end": 250.26,
+      "duration": 4.74,
+      "text_snippet": "Phần trước đã nêu rằng String không phải là kiểu nguyên thủy — nhưng tại sao lại như vậy?"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 250.26,
+      "end": 261.93,
+      "duration": 11.67,
+      "text_snippet": "Câu trả lời xuất phát trực tiếp từ cách hoạt động của Stack: các kiểu nguyên thủy phải có kích thước cố định, có thể dự "
+    },
+    {
+      "paragraph_id": 41,
+      "start": 261.93,
+      "end": 281.96,
+      "duration": 20.03,
+      "text_snippet": "byte — byte: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nint — int: Cung cấp các quy tắc và cơ chế hoạt "
+    },
+    {
+      "paragraph_id": 42,
+      "start": 281.96,
+      "end": 288.93,
+      "duration": 6.98,
+      "text_snippet": "Một String có thể dài 1 ký tự hoặc 1 triệu ký tự. Kích thước của nó là thay đổi và không thể dự đoán trước tại thời điểm"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 288.93,
+      "end": 289.84,
+      "duration": 0.91,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 289.84,
+      "end": 295.54,
+      "duration": 5.7,
+      "text_snippet": "System.out.println(small.length());          // 2\nSystem.out.println(large.length());          // 1000000\n`"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 295.54,
+      "end": 297.03,
+      "duration": 1.49,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả:"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 297.03,
+      "end": 318.61,
+      "duration": 21.57,
+      "text_snippet": "Kiểu nguyên thủy cần kích thước cố định → int luôn chính xác là 32 bit → có thể nằm trên Stack.\nKích thước của String là"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 318.61,
+      "end": 330.75,
+      "duration": 12.15,
+      "text_snippet": "Ngoài ra, String có các phương thức như .length(), .charAt(), .substring() — các kiểu nguyên thủy không thể có phương th"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 330.75,
+      "end": 349.61,
+      "duration": 18.86,
+      "text_snippet": "> Phép so sánh: Hãy nghĩ về các kiểu nguyên thủy như những đồng xu — mọi đồng xu cùng loại đều có kích thước và trọng lư"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 349.61,
+      "end": 357.07,
+      "duration": 7.46,
+      "text_snippet": "Tại Sao Kiểu Nguyên Thủy Được Lưu Trực Tiếp Còn Đối Tượng Sử Dụng Tham Chiếu (Why Primitives Are Stored Directly But Obj"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 357.07,
+      "end": 366.23,
+      "duration": 9.16,
+      "text_snippet": "Sau khi đã hiểu về Stack so với Heap, câu hỏi đặt ra là: tại sao int có thể được lưu trữ trực tiếp trong biến, nhưng Str"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 366.23,
+      "end": 367.03,
+      "duration": 0.8,
+      "text_snippet": "Cơ chế cốt lõi:"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 367.03,
+      "end": 394.99,
+      "duration": 27.97,
+      "text_snippet": "Stack yêu cầu kích thước đã biết tại thời điểm biên dịch → int luôn là 32 bit → JVM cấp phát chính xác 32 bit trên Stack"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 394.99,
+      "end": 409.43,
+      "duration": 14.44,
+      "text_snippet": "Một tham chiếu giống như một chiếc điều khiển từ xa — nó nhỏ gọn, vừa vặn trong tay bạn (kích thước cố định trên Stack) "
+    },
+    {
+      "paragraph_id": 54,
+      "start": 409.43,
+      "end": 414.12,
+      "duration": 4.69,
+      "text_snippet": "Ví Dụ Mã Nguồn: Hai Tham Chiếu, Một Đối Tượng (Code Example: Two References, One Object)"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 414.12,
+      "end": 415.02,
+      "duration": 0.91,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 415.02,
+      "end": 422.54,
+      "duration": 7.51,
+      "text_snippet": "int[] arrA = {1, 2, 3};\nint[] arrB = arrA;\narrB[0] = 99;\nSystem.out.println(arrA[0]); // 99 — changing arrB DOES affect "
+    },
+    {
+      "paragraph_id": 57,
+      "start": 422.54,
+      "end": 424.51,
+      "duration": 1.97,
+      "text_snippet": "Tại sao lại có hành vi khác nhau này?"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 424.51,
+      "end": 435.53,
+      "duration": 11.03,
+      "text_snippet": "int x = 10; int y = x; → giá trị 10 được sao chép. x và y là độc lập.\nint[] arrA = ...; int[] arrB = arrA; → tham chiếu "
+    },
+    {
+      "paragraph_id": 59,
+      "start": 435.53,
+      "end": 436.44,
+      "duration": 0.91,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 436.44,
+      "end": 441.5,
+      "duration": 5.06,
+      "text_snippet": "subgraph Heap\n        direction TB\n        ARR[\"Đối tượng mảng tại 0x3F00\\n{99, 2, 3}\"]\n    end"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 441.5,
+      "end": 444.32,
+      "duration": 2.82,
+      "text_snippet": "ARRA -->|\"trỏ đến\"| ARR\n    ARRB -->|\"trỏ đến\"| ARR\n`"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 444.32,
+      "end": 454.92,
+      "duration": 10.6,
+      "text_snippet": "Lưu ý: x và y giữ các giá trị độc lập (10 và 20). Nhưng arrA and arrB giữ cùng một địa chỉ 0x3F00 — vì vậy việc sửa đổi "
+    },
+    {
+      "paragraph_id": 63,
+      "start": 454.92,
+      "end": 467.23,
+      "duration": 12.31,
+      "text_snippet": "> Nguyên nhân - kết quả: Sao chép kiểu nguyên thủy → sao chép giá trị → độc lập. Sao chép tham chiếu → sao chép địa chỉ "
+    },
+    {
+      "paragraph_id": 64,
+      "start": 467.23,
+      "end": 469.2,
+      "duration": 1.97,
+      "text_snippet": "Định Danh Đối Tượng (Object Identity)"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 469.2,
+      "end": 472.08,
+      "duration": 2.88,
+      "text_snippet": "Hai biến tham chiếu có thể trỏ đến cùng một đối tượng."
+    },
+    {
+      "paragraph_id": 66,
+      "start": 472.08,
+      "end": 472.98,
+      "duration": 0.91,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 67,
+      "start": 472.98,
+      "end": 473.89,
+      "duration": 0.91,
+      "text_snippet": "Về mặt khái niệm:"
+    },
+    {
+      "paragraph_id": 68,
+      "start": 473.89,
+      "end": 474.79,
+      "duration": 0.91,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 69,
+      "start": 474.79,
+      "end": 484.12,
+      "duration": 9.32,
+      "text_snippet": "Nếu đối tượng có thể thay đổi (Mutable) và bạn thay đổi nó thông qua a, thay đổi này có thể được quan sát thấy thông qua"
+    },
+    {
+      "paragraph_id": 70,
+      "start": 484.12,
+      "end": 486.89,
+      "duration": 2.77,
+      "text_snippet": "Mảng Là Kiểu Tham Chiếu (Arrays Are Reference Types)"
+    },
+    {
+      "paragraph_id": 71,
+      "start": 486.89,
+      "end": 488.64,
+      "duration": 1.76,
+      "text_snippet": "Mảng là các đối tượng trong Java."
+    },
+    {
+      "paragraph_id": 72,
+      "start": 488.64,
+      "end": 489.55,
+      "duration": 0.91,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 73,
+      "start": 489.55,
+      "end": 492.16,
+      "duration": 2.61,
+      "text_snippet": "numbers là một tham chiếu đến một đối tượng mảng."
+    },
+    {
+      "paragraph_id": 74,
+      "start": 492.16,
+      "end": 494.93,
+      "duration": 2.77,
+      "text_snippet": "Đây là lý do tại sao các mảng có các thuộc tính như:"
+    },
+    {
+      "paragraph_id": 75,
+      "start": 494.93,
+      "end": 495.83,
+      "duration": 0.91,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 76,
+      "start": 495.83,
+      "end": 498.71,
+      "duration": 2.88,
+      "text_snippet": "String Là Kiểu Tham Chiếu (String Is A Reference Type)"
+    },
+    {
+      "paragraph_id": 77,
+      "start": 498.71,
+      "end": 500.74,
+      "duration": 2.02,
+      "text_snippet": "String không phải là kiểu nguyên thủy."
+    },
+    {
+      "paragraph_id": 78,
+      "start": 500.74,
+      "end": 501.64,
+      "duration": 0.91,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 79,
+      "start": 501.64,
+      "end": 505.26,
+      "duration": 3.62,
+      "text_snippet": "text là một biến tham chiếu. Nó tham chiếu đến một đối tượng String."
+    },
+    {
+      "paragraph_id": 80,
+      "start": 505.26,
+      "end": 514.16,
+      "duration": 8.9,
+      "text_snippet": "Tuy nhiên, String rất đặc biệt vì Java có các chuỗi ký tự (String Literals) và vùng lưu trữ chuỗi (String Pool). Chủ đề "
+    },
+    {
+      "paragraph_id": 81,
+      "start": 514.16,
+      "end": 515.17,
+      "duration": 1.01,
+      "text_snippet": "Giá Trị Rỗng (null)"
+    },
+    {
+      "paragraph_id": 82,
+      "start": 515.17,
+      "end": 517.57,
+      "duration": 2.4,
+      "text_snippet": "Một biến tham chiếu có thể chứa giá trị null."
+    },
+    {
+      "paragraph_id": 83,
+      "start": 517.57,
+      "end": 518.47,
+      "duration": 0.91,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 84,
+      "start": 518.47,
+      "end": 522.58,
+      "duration": 4.1,
+      "text_snippet": "Điều này có nghĩa là biến hiện tại không tham chiếu đến bất kỳ đối tượng nào."
+    },
+    {
+      "paragraph_id": 85,
+      "start": 522.58,
+      "end": 527.1,
+      "duration": 4.53,
+      "text_snippet": "Gọi một phương thức trên một biến có giá trị null sẽ gây ra lỗi NullPointerException."
+    },
+    {
+      "paragraph_id": 86,
+      "start": 527.1,
+      "end": 528.01,
+      "duration": 0.91,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 87,
+      "start": 528.01,
+      "end": 532.43,
+      "duration": 4.42,
+      "text_snippet": "Tại Sao null Gây Ra Lỗi NullPointerException (Why null Causes NullPointerException)"
+    },
+    {
+      "paragraph_id": 88,
+      "start": 532.43,
+      "end": 549.74,
+      "duration": 17.31,
+      "text_snippet": "Bạn còn nhớ phép so sánh với chiếc điều khiển từ xa chứ? Một tham chiếu giống như chiếc điều khiển từ xa trỏ đến một đối"
+    },
+    {
+      "paragraph_id": 89,
+      "start": 549.74,
+      "end": 553.69,
+      "duration": 3.94,
+      "text_snippet": "Điều gì xảy ra khi bạn nhấn các nút trên một chiếc điều khiển không có TV?"
+    },
+    {
+      "paragraph_id": 90,
+      "start": 553.69,
+      "end": 565.35,
+      "duration": 11.67,
+      "text_snippet": "Không có gì hoạt động. Bạn không thể chuyển kênh, điều chỉnh âm lượng hay làm bất kỳ việc gì hữu ích.\nTrong Java, JVM né"
+    },
+    {
+      "paragraph_id": 91,
+      "start": 565.35,
+      "end": 566.84,
+      "duration": 1.49,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả:"
+    },
+    {
+      "paragraph_id": 92,
+      "start": 566.84,
+      "end": 582.61,
+      "duration": 15.77,
+      "text_snippet": "String name = null; → tham chiếu name được thiết lập thành null → không có đối tượng String nào tồn tại trên Heap.\nname."
+    },
+    {
+      "paragraph_id": 93,
+      "start": 582.61,
+      "end": 583.52,
+      "duration": 0.91,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 94,
+      "start": 583.52,
+      "end": 591.08,
+      "duration": 7.56,
+      "text_snippet": "// This compiles fine — the compiler does not check for null\nSystem.out.println(greeting.toUpperCase()); // NullPointerE"
+    },
+    {
+      "paragraph_id": 95,
+      "start": 591.08,
+      "end": 597.79,
+      "duration": 6.71,
+      "text_snippet": "Tại Sao NullPointerException Là Ngoại Lệ Phổ Biến Nhất Trong Java (Why NullPointerException Is The Most Common Java Exce"
+    },
+    {
+      "paragraph_id": 96,
+      "start": 597.79,
+      "end": 603.23,
+      "duration": 5.43,
+      "text_snippet": "NullPointerException (NPE) là ngoại lệ thời điểm chạy (Runtime Exception) phổ biến nhất trong Java vì:"
+    },
+    {
+      "paragraph_id": 97,
+      "start": 603.23,
+      "end": 614.84,
+      "duration": 11.61,
+      "text_snippet": "null — null: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nnull — null: Cung cấp các quy tắc và cơ chế hoạ"
+    },
+    {
+      "paragraph_id": 98,
+      "start": 614.84,
+      "end": 615.74,
+      "duration": 0.91,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 99,
+      "start": 615.74,
+      "end": 623.58,
+      "duration": 7.83,
+      "text_snippet": "String user = findUser(999);\nSystem.out.println(user.toUpperCase()); // NullPointerException!\n// user is null because fi"
+    },
+    {
+      "paragraph_id": 100,
+      "start": 623.58,
+      "end": 644.83,
+      "duration": 21.25,
+      "text_snippet": "> Liên kết với các kiểu bao bọc (Wrapper Types): Điều này liên quan trực tiếp đến việc tự động đóng gói/mở hộp (Autoboxi"
+    },
+    {
+      "paragraph_id": 101,
+      "start": 644.83,
+      "end": 646.53,
+      "duration": 1.7,
+      "text_snippet": "Lỗi Thường Gặp (Common Mistakes)"
+    },
+    {
+      "paragraph_id": 102,
+      "start": 646.53,
+      "end": 658.68,
+      "duration": 12.15,
+      "text_snippet": "Nghĩ rằng String là kiểu nguyên thủy vì nó phổ biến và dễ viết.\nQuên rằng mảng là các đối tượng.\nGiả định rằng hai tham "
+    }
+  ]
+}

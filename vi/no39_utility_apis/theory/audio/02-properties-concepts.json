@@ -1,0 +1,448 @@
+{
+  "lesson": "02-properties-concepts",
+  "total_duration_seconds": 431.54,
+  "total_paragraphs": 63,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 1.34,
+      "duration": 1.34,
+      "text_snippet": "Một Số Utility API Thông Dụng — Phần 2"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 1.34,
+      "end": 1.9,
+      "duration": 0.56,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 1.9,
+      "end": 8.3,
+      "duration": 6.4,
+      "text_snippet": "File này trình bày các API tiện ích về tài nguyên đa ngôn ngữ, cấu hình properties, định dạng chuỗi tùy chỉnh và phân tí"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 8.3,
+      "end": 8.9,
+      "duration": 0.6,
+      "text_snippet": "Nội Dung Đề Cương"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 8.9,
+      "end": 26.38,
+      "duration": 17.48,
+      "text_snippet": "Properties — Properties: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nResourceBundle — ResourceBundle: Cu"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 26.38,
+      "end": 26.45,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 26.45,
+      "end": 27.02,
+      "duration": 0.56,
+      "text_snippet": "Ghi Chú Chi Tiết"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 27.02,
+      "end": 27.37,
+      "duration": 0.35,
+      "text_snippet": "Properties"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 27.37,
+      "end": 34.16,
+      "duration": 6.79,
+      "text_snippet": "java.util.Properties là lớp con của Hashtable dùng để lưu trữ cấu hình key-value mà cả khóa và giá trị đều là String. Pr"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 34.16,
+      "end": 44.08,
+      "duration": 9.92,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  Properties props = new Properties();\n  \n  // Tải properties từ file\n  try (InputStream input "
+    },
+    {
+      "paragraph_id": 11,
+      "start": 44.08,
+      "end": 50.87,
+      "duration": 6.79,
+      "text_snippet": "// Lấy properties với giá trị mặc định dự phòng\n  String dbUser = props.getProperty(\"db.username\");\n  String dbPort = pr"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 50.87,
+      "end": 65.22,
+      "duration": 14.35,
+      "text_snippet": "Lỗi Thường Gặp / Chế Độ Thất Bại:\n  - Dùng Map put/get Trực Tiếp: Properties triển khai Map<Object, Object> do kế thừa t"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 65.22,
+      "end": 67.26,
+      "duration": 2.04,
+      "text_snippet": "Tại Sao Thao Tác Trực Tiếp Map Lên Properties Là Nguy Hiểm"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 67.26,
+      "end": 79.29,
+      "duration": 12.03,
+      "text_snippet": "java.util.Properties được giới thiệu trong JDK 1.0 là lớp con của java.util.Hashtable. Trong thiết kế Java hiện đại, mô "
+    },
+    {
+      "paragraph_id": 15,
+      "start": 79.29,
+      "end": 93.3,
+      "duration": 14.0,
+      "text_snippet": "Vi Phạm An Toàn Kiểu (Type Safety)\nHợp đồng của Properties chỉ định rằng cả khóa và giá trị phải là java.lang.String. Tu"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 93.3,
+      "end": 106.38,
+      "duration": 13.09,
+      "text_snippet": "Cơ Chế Thất Bại Bên Dưới\nKhi bạn cố ghi những properties này ra đĩa bằng store(OutputStream, String) hay in bằng list(Pr"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 106.38,
+      "end": 121.23,
+      "duration": 14.85,
+      "text_snippet": "So Sánh Vi Phạm LSP Bằng Phép Ẩn Dụ\nNghĩ hộp thư tiêu chuẩn (Map<Object, Object>) có thể nhận thư, tạp chí, gói hàng và "
+    },
+    {
+      "paragraph_id": 18,
+      "start": 121.23,
+      "end": 121.83,
+      "duration": 0.6,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 121.83,
+      "end": 132.27,
+      "duration": 10.45,
+      "text_snippet": "Chuỗi Nhân Quả Của Lạm Dụng Map\n`text\nProperties kế thừa Hashtable → put(Object, Object) bị lộ → Đối tượng không phải St"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 132.27,
+      "end": 136.35,
+      "duration": 4.08,
+      "text_snippet": "Ví Dụ Chạy Được\n`java\nimport java.io.ByteArrayOutputStream;\nimport java.io.IOException;\nimport java.util.Properties;"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 136.35,
+      "end": 140.65,
+      "duration": 4.29,
+      "text_snippet": "public class PropertiesLspDemo {\n    public static void main(String[] args) {\n        Properties props = new Properties("
+    },
+    {
+      "paragraph_id": 22,
+      "start": 140.65,
+      "end": 143.74,
+      "duration": 3.1,
+      "text_snippet": "// ĐÚNG: setProperty đảm bảo an toàn kiểu\n        props.setProperty(\"db.user\", \"admin\");"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 143.74,
+      "end": 149.2,
+      "duration": 5.45,
+      "text_snippet": "// NGUY HIỂM: put() bỏ qua hợp đồng String của Properties\n        props.put(\"db.port\", 3306); // Bỏ qua cảnh báo trình b"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 149.2,
+      "end": 156.41,
+      "duration": 7.21,
+      "text_snippet": "// Đọc qua getProperty trả về null nếu cần cast\n        String portValue = props.getProperty(\"db.port\");\n        System."
+    },
+    {
+      "paragraph_id": 25,
+      "start": 156.41,
+      "end": 173.12,
+      "duration": 16.71,
+      "text_snippet": "// Cố tuần tự hóa properties\n        try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {\n            // Ném "
+    },
+    {
+      "paragraph_id": 26,
+      "start": 173.12,
+      "end": 173.19,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 173.19,
+      "end": 173.68,
+      "duration": 0.49,
+      "text_snippet": "ResourceBundle"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 173.68,
+      "end": 178.99,
+      "duration": 5.31,
+      "text_snippet": "java.util.ResourceBundle chứa các file tài nguyên theo vùng (thường là dịch thuật) cho phép quốc tế hóa (I18N — Internat"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 178.99,
+      "end": 188.17,
+      "duration": 9.18,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  // Tải MessagesBundle_fr_FR.properties\n  Locale frenchLocale = new Locale(\"fr\", \"FR\");\n  Reso"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 188.17,
+      "end": 204.29,
+      "duration": 16.11,
+      "text_snippet": "Lỗi Thường Gặp / Chế Độ Thất Bại:\n  - Thiếu Bundle Cơ Sở: Khi tra key dịch, nếu không tìm thấy file properties cho vùng "
+    },
+    {
+      "paragraph_id": 31,
+      "start": 204.29,
+      "end": 204.36,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 204.36,
+      "end": 204.57,
+      "duration": 0.21,
+      "text_snippet": "Locale"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 204.57,
+      "end": 209.99,
+      "duration": 5.42,
+      "text_snippet": "Đối tượng java.util.Locale đại diện cho một vùng địa lý, chính trị hay văn hóa cụ thể. Nó được dùng để định dạng số, ngà"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 209.99,
+      "end": 212.48,
+      "duration": 2.5,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  // Hằng số định sẵn\n  Locale us = Locale.US;"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 212.48,
+      "end": 217.72,
+      "duration": 5.24,
+      "text_snippet": "// Builder pattern (cách an toàn nhất để xây dựng locale tùy chỉnh)\n  Locale custom = new Locale.Builder().setLanguage(\""
+    },
+    {
+      "paragraph_id": 36,
+      "start": 217.72,
+      "end": 221.0,
+      "duration": 3.27,
+      "text_snippet": "// Phân tích language tag (IETF BCP 47)\n  Locale parsed = Locale.forLanguageTag(\"vi-VN\");\n  `"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 221.0,
+      "end": 234.54,
+      "duration": 13.54,
+      "text_snippet": "Lỗi Thường Gặp / Chế Độ Thất Bại:\n  - Dùng Sai Constructor: Khởi tạo locale như new Locale(\"en_US\") bằng cách truyền lan"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 234.54,
+      "end": 234.61,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 234.61,
+      "end": 234.89,
+      "duration": 0.28,
+      "text_snippet": "Currency"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 234.89,
+      "end": 237.07,
+      "duration": 2.18,
+      "text_snippet": "Lớp java.util.Currency đại diện cho một loại tiền tệ ISO 4217."
+    },
+    {
+      "paragraph_id": 41,
+      "start": 237.07,
+      "end": 244.71,
+      "duration": 7.63,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  Currency usd = Currency.getInstance(\"USD\");\n  Locale locale = Locale.FRANCE;\n  \n  // In \"USD\""
+    },
+    {
+      "paragraph_id": 42,
+      "start": 244.71,
+      "end": 251.5,
+      "duration": 6.79,
+      "text_snippet": "Lỗi Thường Gặp / Chế Độ Thất Bại:\n  - Gọi Currency.getInstance(locale) cho locale đại diện quốc gia không có tiền tệ chí"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 251.5,
+      "end": 251.57,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 251.57,
+      "end": 251.88,
+      "duration": 0.32,
+      "text_snippet": "Formatter"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 251.88,
+      "end": 255.12,
+      "duration": 3.24,
+      "text_snippet": "java.util.Formatter tạo ra các chuỗi văn bản được định dạng theo vùng theo bố cục in kiểu C."
+    },
+    {
+      "paragraph_id": 46,
+      "start": 255.12,
+      "end": 264.2,
+      "duration": 9.08,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  StringBuilder sb = new StringBuilder();\n  try (Formatter formatter = new Formatter(sb, Locale"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 264.2,
+      "end": 276.37,
+      "duration": 12.17,
+      "text_snippet": "Lỗi Thường Gặp / Chế Độ Thất Bại:\n  - Sai Specifier Chuyển Đổi: Ghép sai specifier với tham số (ví dụ %d cho double hay "
+    },
+    {
+      "paragraph_id": 48,
+      "start": 276.37,
+      "end": 276.44,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 276.44,
+      "end": 276.68,
+      "duration": 0.25,
+      "text_snippet": "Scanner"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 276.68,
+      "end": 282.98,
+      "duration": 6.3,
+      "text_snippet": "java.util.Scanner là trình phân tích văn bản đơn giản chia nhỏ luồng đầu vào thành các token dùng dấu phân cách (mặc địn"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 282.98,
+      "end": 289.81,
+      "duration": 6.82,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  String input = \"10 20 30\";\n  try (Scanner scanner = new Scanner(input)) {\n      while (scanne"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 289.81,
+      "end": 319.46,
+      "duration": 29.66,
+      "text_snippet": "Lỗi Thường Gặp / Chế Độ Thất Bại:\n  - Cạm Bẫy nextLine(): Đọc giá trị nguyên thủy (như nextInt()) rồi gọi nextLine() để "
+    },
+    {
+      "paragraph_id": 53,
+      "start": 319.46,
+      "end": 320.62,
+      "duration": 1.16,
+      "text_snippet": "Tại Sao Cạm Bẫy nextLine() Xảy Ra"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 320.62,
+      "end": 326.43,
+      "duration": 5.8,
+      "text_snippet": "Lớp java.util.Scanner là trình phân tích dựa trên token. Hiểu cơ chế con trỏ và buffer nội tại của scanner là thiết yếu "
+    },
+    {
+      "paragraph_id": 55,
+      "start": 326.43,
+      "end": 347.99,
+      "duration": 21.56,
+      "text_snippet": "Cơ Chế Xử Lý Token vs. Dòng\nPhương thức dựa trên token (nextInt(), nextDouble(), next()):\n  Các phương thức này bỏ qua b"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 347.99,
+      "end": 352.21,
+      "duration": 4.22,
+      "text_snippet": "Trạng Thái Con Trỏ và Buffer Từng Bước\nKhi người dùng nhập 42 và nhấn Enter, buffer luồng đầu vào chứa:\n['4', '2', '\\n']"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 352.21,
+      "end": 365.9,
+      "duration": 13.68,
+      "text_snippet": "nextInt() được gọi:\n   - Scanner đọc '4' và '2'.\n   - Phân tích thành số nguyên 42 và trả về.\n   - Con trỏ dừng trước '\\"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 365.9,
+      "end": 383.45,
+      "duration": 17.55,
+      "text_snippet": "So Sánh Trạng Thái Buffer Bằng Phép Ẩn Dụ\nHãy tưởng tượng băng chuyền mang các gói hàng (token) cách nhau bởi các miếng "
+    },
+    {
+      "paragraph_id": 59,
+      "start": 383.45,
+      "end": 384.05,
+      "duration": 0.6,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 384.05,
+      "end": 393.37,
+      "duration": 9.32,
+      "text_snippet": "Chuỗi Nhân Quả Của Cạm Bẫy nextLine()\n`text\nNgười dùng nhập '42\\n' → nextInt() chỉ đọc '42' → '\\n' còn lại ở đầu buffer "
+    },
+    {
+      "paragraph_id": 61,
+      "start": 393.37,
+      "end": 395.03,
+      "duration": 1.65,
+      "text_snippet": "Ví Dụ Chạy Được\n`java\nimport java.util.Scanner;"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 395.03,
+      "end": 414.59,
+      "duration": 19.56,
+      "text_snippet": "public class ScannerPitfallDemo {\n    public static void main(String[] args) {\n        String inputBuffer = \"42\\nJohn Do"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 414.59,
+      "end": 431.54,
+      "duration": 16.96,
+      "text_snippet": "// Mô phỏng cách tiếp cận đúng\n        try (Scanner correctScanner = new Scanner(inputBuffer)) {\n            int age = c"
+    }
+  ]
+}

@@ -1,0 +1,560 @@
+{
+  "lesson": "05-lazy-evaluation-concepts",
+  "total_duration_seconds": 616.18,
+  "total_paragraphs": 79,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 1.66,
+      "duration": 1.66,
+      "text_snippet": "Stream API - Phần 5 (Stream API - Part 5)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 1.66,
+      "end": 2.31,
+      "duration": 0.65,
+      "text_snippet": "Mục tiêu học tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 2.31,
+      "end": 8.8,
+      "duration": 6.49,
+      "text_snippet": "Tài liệu này tập trung vào một phần trọng tâm của Stream API. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc Java thực "
+    },
+    {
+      "paragraph_id": 4,
+      "start": 8.8,
+      "end": 9.49,
+      "duration": 0.69,
+      "text_snippet": "Đề cương chi tiết"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 9.49,
+      "end": 37.35,
+      "duration": 27.86,
+      "text_snippet": "Lazy evaluation — Lazy evaluation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nShort-circuiting — Short-"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 37.35,
+      "end": 37.99,
+      "duration": 0.65,
+      "text_snippet": "Ghi chú chi tiết"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 37.99,
+      "end": 39.49,
+      "duration": 1.5,
+      "text_snippet": "Đánh giá lười biếng (Lazy evaluation)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 39.49,
+      "end": 45.5,
+      "duration": 6.0,
+      "text_snippet": "Đánh giá lười biếng (lazy evaluation) — Đánh giá lười biếng (lazy evaluation): Cung cấp các quy tắc và cơ chế hoạt động "
+    },
+    {
+      "paragraph_id": 9,
+      "start": 45.5,
+      "end": 51.29,
+      "duration": 5.8,
+      "text_snippet": "Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay v"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 51.29,
+      "end": 64.23,
+      "duration": 12.93,
+      "text_snippet": "Ví dụ mã nguồn\n`java\n// Intermediate operations do not execute until a terminal operation is called\nStream<String> strea"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 64.23,
+      "end": 73.47,
+      "duration": 9.25,
+      "text_snippet": "Kiểm tra thực tế:\nĐịnh nghĩa Đánh giá lười biếng trong một câu.\nNhận diện Đánh giá lười biếng trong mã nguồn, lệnh, tài "
+    },
+    {
+      "paragraph_id": 12,
+      "start": 73.47,
+      "end": 78.58,
+      "duration": 5.11,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:\nKhi đọc mã nguồn, hãy hỏi: Đánh giá lười biếng thay đổi, cho phép, từ chối hoặc làm rõ đi"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 78.58,
+      "end": 79.72,
+      "duration": 1.14,
+      "text_snippet": "Ngắt mạch (Short-circuiting)"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 79.72,
+      "end": 84.3,
+      "duration": 4.58,
+      "text_snippet": "Ngắt mạch (short-circuiting) — circuiting): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java."
+    },
+    {
+      "paragraph_id": 15,
+      "start": 84.3,
+      "end": 90.1,
+      "duration": 5.8,
+      "text_snippet": "Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay v"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 90.1,
+      "end": 100.6,
+      "duration": 10.5,
+      "text_snippet": "Ví dụ mã nguồn\n`java\n// Short-circuiting halts pipeline processing early\nStream.iterate(1, i -> i + 1)\n      .peek(i -> "
+    },
+    {
+      "paragraph_id": 17,
+      "start": 100.6,
+      "end": 108.63,
+      "duration": 8.03,
+      "text_snippet": "Kiểm tra thực tế:\nĐịnh nghĩa Ngắt mạch trong một câu.\nNhận diện Ngắt mạch trong mã nguồn, lệnh, tài liệu hoặc câu hỏi ph"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 108.63,
+      "end": 113.33,
+      "duration": 4.7,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:\nKhi đọc mã nguồn, hãy hỏi: Ngắt mạch thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 113.33,
+      "end": 114.67,
+      "duration": 1.34,
+      "text_snippet": "Luồng song song (Parallel stream)"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 114.67,
+      "end": 118.04,
+      "duration": 3.37,
+      "text_snippet": "Một Stream là một đường ống để xử lý các phần tử thông qua các thao tác lười biếng."
+    },
+    {
+      "paragraph_id": 21,
+      "start": 118.04,
+      "end": 125.58,
+      "duration": 7.54,
+      "text_snippet": "Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều đường ống kiểu hàm. Một sự hiểu lầm thường gặp là quên mất thao"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 125.58,
+      "end": 133.28,
+      "duration": 7.7,
+      "text_snippet": "Ví dụ mã nguồn\n`java\n// Processing in parallel using ForkJoinPool.commonPool()\nlong sum = LongStream.rangeClosed(1, 1_00"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 133.28,
+      "end": 138.23,
+      "duration": 4.95,
+      "text_snippet": "Ví Dụ Thực Tế: Tại sao luồng song song có thể chậm hơn đối với tập dữ liệu nhỏ hoặc các thao tác lưu trạng thái (statefu"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 138.23,
+      "end": 146.38,
+      "duration": 8.15,
+      "text_snippet": "Các luồng song song chia tách dữ liệu bằng cách sử dụng Spliterator, gửi các tác vụ đến ForkJoinPool.commonPool(), điều "
+    },
+    {
+      "paragraph_id": 25,
+      "start": 146.38,
+      "end": 158.91,
+      "duration": 12.53,
+      "text_snippet": "Tại sao tập dữ liệu nhỏ lại chậm hơn\nChi phí của việc quản lý luồng, chuyển đổi ngữ cảnh, chia tách tác vụ và trộn kết q"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 158.91,
+      "end": 178.7,
+      "duration": 19.79,
+      "text_snippet": "Tại sao các thao tác lưu trạng thái làm giảm hiệu năng song song\nCác thao tác trung gian lưu trạng thái như sorted(), di"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 178.7,
+      "end": 189.77,
+      "duration": 11.07,
+      "text_snippet": "Quy tắc N * Q\nMột phương pháp phán đoán tốt để quyết định có nên sử dụng luồng song song hay không là $N \\times Q > 10.0"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 189.77,
+      "end": 198.53,
+      "duration": 8.76,
+      "text_snippet": "Kiểm tra thực tế:\nĐịnh nghĩa Luồng song song trong một câu.\nNhận diện Luồng song song trong mã nguồn, lệnh, tài liệu hoặ"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 198.53,
+      "end": 203.47,
+      "duration": 4.95,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:\nKhi đọc mã nguồn, hãy hỏi: Luồng song song thay đổi, cho phép, từ chối hoặc làm rõ điều g"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 203.47,
+      "end": 204.61,
+      "duration": 1.14,
+      "text_snippet": "Các bộ thu thập (Collectors)"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 204.61,
+      "end": 208.38,
+      "duration": 3.77,
+      "text_snippet": "Collectors là một nhóm các quy tắc liên quan trong Stream API nhóm một số chi tiết liên quan."
+    },
+    {
+      "paragraph_id": 32,
+      "start": 208.38,
+      "end": 214.18,
+      "duration": 5.8,
+      "text_snippet": "Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay v"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 214.18,
+      "end": 219.73,
+      "duration": 5.56,
+      "text_snippet": "Ví dụ mã nguồn\n`java\n// General use of Collectors factory methods\nList<String> list = Stream.of(\"a\", \"b\").collect(Collec"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 219.73,
+      "end": 228.0,
+      "duration": 8.27,
+      "text_snippet": "Kiểm tra thực tế:\nĐịnh nghĩa Bộ thu thập trong một câu.\nNhận diện Bộ thu thập trong mã nguồn, lệnh, tài liệu hoặc câu hỏ"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 228.0,
+      "end": 232.79,
+      "duration": 4.78,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:\nKhi đọc mã nguồn, hãy hỏi: Bộ thu thập thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 232.79,
+      "end": 232.99,
+      "duration": 0.2,
+      "text_snippet": "toSet"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 232.99,
+      "end": 236.2,
+      "duration": 3.2,
+      "text_snippet": "Một Set là một bộ sưu tập từ chối các phần tử trùng lặp theo quy tắc bằng nhau."
+    },
+    {
+      "paragraph_id": 38,
+      "start": 236.2,
+      "end": 245.64,
+      "duration": 9.45,
+      "text_snippet": "Nó quan trọng vì việc chọn sai cấu trúc dữ liệu sẽ làm thay đổi tính chính xác, hiệu năng và hành vi xử lý trùng lặp. Mộ"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 245.64,
+      "end": 252.01,
+      "duration": 6.37,
+      "text_snippet": "Ví dụ mã nguồn\n`java\n// Accumulate into a Set to eliminate duplicates\nSet<String> set = Stream.of(\"a\", \"b\", \"a\").collect"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 252.01,
+      "end": 259.55,
+      "duration": 7.54,
+      "text_snippet": "Kiểm tra thực tế:\nĐịnh nghĩa toSet trong một câu.\nNhận diện toSet trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn."
+    },
+    {
+      "paragraph_id": 41,
+      "start": 259.55,
+      "end": 264.09,
+      "duration": 4.54,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:\nKhi đọc mã nguồn, hãy hỏi: toSet thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 264.09,
+      "end": 264.3,
+      "duration": 0.2,
+      "text_snippet": "toMap"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 264.3,
+      "end": 267.22,
+      "duration": 2.92,
+      "text_snippet": "Một Map lưu trữ các cặp khóa-giá trị và truy xuất các giá trị theo khóa."
+    },
+    {
+      "paragraph_id": 44,
+      "start": 267.22,
+      "end": 276.66,
+      "duration": 9.45,
+      "text_snippet": "Nó quan trọng vì việc chọn sai cấu trúc dữ liệu sẽ làm thay đổi tính chính xác, hiệu năng và hành vi xử lý trùng lặp. Mộ"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 276.66,
+      "end": 294.42,
+      "duration": 17.76,
+      "text_snippet": "Ví dụ mã nguồn\n`java\n// Accumulate into a Map (requires key mapper, value mapper, and optional merge function)\nMap<Integ"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 294.42,
+      "end": 301.97,
+      "duration": 7.54,
+      "text_snippet": "Kiểm tra thực tế:\nĐịnh nghĩa toMap trong một câu.\nNhận diện toMap trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn."
+    },
+    {
+      "paragraph_id": 47,
+      "start": 301.97,
+      "end": 306.47,
+      "duration": 4.5,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:\nMap<String, Integer> scores = new HashMap<>(); ánh xạ các khóa sang các giá trị."
+    },
+    {
+      "paragraph_id": 48,
+      "start": 306.47,
+      "end": 306.75,
+      "duration": 0.28,
+      "text_snippet": "joining"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 306.75,
+      "end": 310.32,
+      "duration": 3.57,
+      "text_snippet": "joining — joining: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java."
+    },
+    {
+      "paragraph_id": 50,
+      "start": 310.32,
+      "end": 316.12,
+      "duration": 5.8,
+      "text_snippet": "Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay v"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 316.12,
+      "end": 323.13,
+      "duration": 7.01,
+      "text_snippet": "Ví dụ mã nguồn\n`java\n// Join string elements with delimiter\nString joined = Stream.of(\"a\", \"b\", \"c\")\n                   "
+    },
+    {
+      "paragraph_id": 52,
+      "start": 323.13,
+      "end": 330.92,
+      "duration": 7.79,
+      "text_snippet": "Kiểm tra thực tế:\nĐịnh nghĩa joining trong một câu.\nNhận diện joining trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng "
+    },
+    {
+      "paragraph_id": 53,
+      "start": 330.92,
+      "end": 335.54,
+      "duration": 4.62,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:\nKhi đọc mã nguồn, hãy hỏi: joining thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 335.54,
+      "end": 335.94,
+      "duration": 0.41,
+      "text_snippet": "groupingBy"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 335.94,
+      "end": 339.76,
+      "duration": 3.81,
+      "text_snippet": "groupingBy — groupingBy: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java."
+    },
+    {
+      "paragraph_id": 56,
+      "start": 339.76,
+      "end": 345.55,
+      "duration": 5.8,
+      "text_snippet": "Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay v"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 345.55,
+      "end": 356.5,
+      "duration": 10.95,
+      "text_snippet": "Ví dụ mã nguồn\n`java\n// Group elements by classifier function\nMap<Integer, List<String>> groups = Stream.of(\"a\", \"bb\", \""
+    },
+    {
+      "paragraph_id": 58,
+      "start": 356.5,
+      "end": 357.23,
+      "duration": 0.73,
+      "text_snippet": "Các lỗi thường gặp"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 357.23,
+      "end": 371.99,
+      "duration": 14.76,
+      "text_snippet": "Ngoại lệ trùng lặp khóa trong Collectors.toMap()\nNếu các khóa được trả về bởi hàm ánh xạ khóa không phải là duy nhất, Co"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 371.99,
+      "end": 382.21,
+      "duration": 10.22,
+      "text_snippet": "// Correct way with merge function:\nMap<Integer, String> map = Stream.of(\"apple\", \"peach\")\n      .collect(Collectors.toM"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 382.21,
+      "end": 398.02,
+      "duration": 15.81,
+      "text_snippet": "Sửa đổi trạng thái chia sẻ từ các thao tác luồng\nCác luồng song song thực thi các thao tác trên nhiều luồng. Việc thay đ"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 398.02,
+      "end": 406.17,
+      "duration": 8.15,
+      "text_snippet": "Kiểm tra thực tế:\nĐịnh nghĩa groupingBy trong một câu.\nNhận diện groupingBy trong mã nguồn, lệnh, tài liệu hoặc câu hỏi "
+    },
+    {
+      "paragraph_id": 63,
+      "start": 406.17,
+      "end": 410.92,
+      "duration": 4.74,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:\nKhi đọc mã nguồn, hãy hỏi: groupingBy thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 410.92,
+      "end": 412.1,
+      "duration": 1.18,
+      "text_snippet": "Các câu hỏi ôn tập thường gặp"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 412.1,
+      "end": 418.54,
+      "duration": 6.45,
+      "text_snippet": "Khái niệm nào ở đây là quy tắc thời điểm biên dịch?\nKhái niệm nào ở đây ảnh hưởng đến hành vi thời điểm chạy?\nKhái niệm "
+    },
+    {
+      "paragraph_id": 66,
+      "start": 418.54,
+      "end": 420.29,
+      "duration": 1.74,
+      "text_snippet": "Tại sao các Stream được đánh giá lười biếng"
+    },
+    {
+      "paragraph_id": 67,
+      "start": 420.29,
+      "end": 456.37,
+      "duration": 36.09,
+      "text_snippet": "Java Stream đạt được tính lười biếng bằng cách tách biệt việc xây dựng đường ống với việc xử lý phần tử. Khi bạn gọi các"
+    },
+    {
+      "paragraph_id": 68,
+      "start": 456.37,
+      "end": 469.27,
+      "duration": 12.89,
+      "text_snippet": "Mô hình tư duy\n`text\n[Source] -> AbstractPipeline (filter) -> AbstractPipeline (map) -> Terminal (collect)\n             "
+    },
+    {
+      "paragraph_id": 69,
+      "start": 469.27,
+      "end": 472.31,
+      "duration": 3.04,
+      "text_snippet": "Ví dụ mã nguồn\n`java\nimport java.util.List;\nimport java.util.stream.Stream;"
+    },
+    {
+      "paragraph_id": 70,
+      "start": 472.31,
+      "end": 498.02,
+      "duration": 25.71,
+      "text_snippet": "public class LazyEvaluationDemo {\n    public static void main(String[] args) {\n        List<String> result = Stream.of(\""
+    },
+    {
+      "paragraph_id": 71,
+      "start": 498.02,
+      "end": 512.33,
+      "duration": 14.31,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả\nCác thao tác trung gian được đăng ký &rarr; Đường ống được xây dựng dưới dạng các nút Abstra"
+    },
+    {
+      "paragraph_id": 72,
+      "start": 512.33,
+      "end": 514.76,
+      "duration": 2.43,
+      "text_snippet": "Tại sao luồng song song không phải là một giải pháp mặc định"
+    },
+    {
+      "paragraph_id": 73,
+      "start": 514.76,
+      "end": 554.95,
+      "duration": 40.18,
+      "text_snippet": "Các luồng song song phân tách dữ liệu nguồn của luồng bằng cách sử dụng một Spliterator và gửi các tác vụ đến ForkJoinPo"
+    },
+    {
+      "paragraph_id": 74,
+      "start": 554.95,
+      "end": 560.46,
+      "duration": 5.51,
+      "text_snippet": "Mô hình tư duy\n`text\nPhân tách ArrayList (Phân tách dựa trên chỉ số O(1)):\n[ Phần tử 0 - 3 ] ---> Luồng 1\n[ Phần tử 4 - "
+    },
+    {
+      "paragraph_id": 75,
+      "start": 560.46,
+      "end": 567.64,
+      "duration": 7.18,
+      "text_snippet": "Phân tách LinkedList (Duyệt tuần tự O(N)):\n[Đầu] -> [Nút] -> [Nút] -> [Nút] -> [Nút] -> [Nút] -> [Nút] -> [Cuối]\n (Phải "
+    },
+    {
+      "paragraph_id": 76,
+      "start": 567.64,
+      "end": 570.84,
+      "duration": 3.2,
+      "text_snippet": "Ví dụ mã nguồn\n`java\nimport java.util.List;\nimport java.util.stream.LongStream;"
+    },
+    {
+      "paragraph_id": 77,
+      "start": 570.84,
+      "end": 589.17,
+      "duration": 18.33,
+      "text_snippet": "public class ParallelStreamDemo {\n    public static void main(String[] args) {\n        // Parallel stream processing usi"
+    },
+    {
+      "paragraph_id": 78,
+      "start": 589.17,
+      "end": 604.17,
+      "duration": 15.0,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả\nNguồn dữ liệu (ví dụ: LinkedList) khó phân tách &rarr; Spliterator thực hiện duyệt tuần tự O"
+    },
+    {
+      "paragraph_id": 79,
+      "start": 604.17,
+      "end": 616.18,
+      "duration": 12.0,
+      "text_snippet": "Liên kết tham khảo\nhttps://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.h"
+    }
+  ]
+}

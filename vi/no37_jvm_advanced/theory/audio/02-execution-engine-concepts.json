@@ -1,0 +1,315 @@
+{
+  "lesson": "02-execution-engine-concepts",
+  "total_duration_seconds": 380.11,
+  "total_paragraphs": 44,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 2.97,
+      "duration": 2.97,
+      "text_snippet": "Máy Ảo JVM Nâng Cao - Phần 2 (Advanced JVM - Part 2)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 2.97,
+      "end": 4.8,
+      "duration": 1.83,
+      "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 4.8,
+      "end": 15.78,
+      "duration": 10.98,
+      "text_snippet": "Tài liệu này trình bày một phần trọng tâm của JVM Nâng Cao (Advanced JVM). Hãy nghiên cứu từng khái niệm dưới dạng một q"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 15.78,
+      "end": 17.67,
+      "duration": 1.89,
+      "text_snippet": "Khung Nội Dung (Outline Coverage)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 17.67,
+      "end": 59.74,
+      "duration": 42.08,
+      "text_snippet": "Execution Engine — Bộ thực thi bytecode của JVM bao gồm Interpreter, JIT Compiler và Garbage Collector.\nInterpreter — Bộ"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 59.74,
+      "end": 61.63,
+      "duration": 1.89,
+      "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 61.63,
+      "end": 63.34,
+      "duration": 1.72,
+      "text_snippet": "Bộ thực thi (Execution Engine)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 63.34,
+      "end": 64.89,
+      "duration": 1.54,
+      "text_snippet": "Bộ thông dịch (Interpreter)"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 64.89,
+      "end": 66.83,
+      "duration": 1.94,
+      "text_snippet": "Trình biên dịch JIT (JIT Compiler)"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 66.83,
+      "end": 72.95,
+      "duration": 6.12,
+      "text_snippet": "Trình biên dịch JIT chuyển đổi mã byte thực thi thường xuyên thành mã máy đã tối ưu hóa tại thời điểm chạy."
+    },
+    {
+      "paragraph_id": 11,
+      "start": 72.95,
+      "end": 89.81,
+      "duration": 16.86,
+      "text_snippet": "Khái niệm này quan trọng vì hành vi tại thời điểm chạy giải thích cho hiệu năng, các lỗi bộ nhớ, hành vi khởi động của ứ"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 89.81,
+      "end": 90.78,
+      "duration": 0.97,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 90.78,
+      "end": 101.82,
+      "duration": 11.03,
+      "text_snippet": "Định nghĩa JIT Compiler trong một câu.\nNhận diện JIT Compiler trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn."
+    },
+    {
+      "paragraph_id": 14,
+      "start": 101.82,
+      "end": 103.53,
+      "duration": 1.72,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 103.53,
+      "end": 108.56,
+      "duration": 5.03,
+      "text_snippet": "Khi đọc mã nguồn, hãy hỏi: JIT Compiler thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 108.56,
+      "end": 110.51,
+      "duration": 1.94,
+      "text_snippet": "Bộ thu gom rác (Garbage Collector)"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 110.51,
+      "end": 112.56,
+      "duration": 2.06,
+      "text_snippet": "Giao diện bản địa (Native Interface)"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 112.56,
+      "end": 115.02,
+      "duration": 2.46,
+      "text_snippet": "Phân thế hệ vùng nhớ Heap (Heap generation)"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 115.02,
+      "end": 126.86,
+      "duration": 11.83,
+      "text_snippet": "Phân thế hệ vùng nhớ Heap chia các đối tượng theo độ tuổi (Thế hệ Trẻ và Thế hệ Già - Old Generation) dựa trên giả thuyế"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 126.86,
+      "end": 140.63,
+      "duration": 13.78,
+      "text_snippet": "Điều này quan trọng vì việc thu gom rác trên toàn bộ vùng nhớ heap là rất chậm. Bằng cách tách các đối tượng có vòng đời"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 140.63,
+      "end": 141.61,
+      "duration": 0.97,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 141.61,
+      "end": 153.33,
+      "duration": 11.72,
+      "text_snippet": "Định nghĩa Heap generation: trong một câu.\nNhận diện Heap generation: trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi ph"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 153.33,
+      "end": 155.04,
+      "duration": 1.72,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 155.04,
+      "end": 160.3,
+      "duration": 5.26,
+      "text_snippet": "Khi đọc mã nguồn, hãy hỏi: Heap generation: thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 160.3,
+      "end": 161.96,
+      "duration": 1.66,
+      "text_snippet": "Thế hệ Trẻ (Young Generation)"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 161.96,
+      "end": 162.87,
+      "duration": 0.91,
+      "text_snippet": "Vùng Eden (Eden)"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 162.87,
+      "end": 164.59,
+      "duration": 1.72,
+      "text_snippet": "Ví Dụ Mã Nguồn (Code Examples)"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 164.59,
+      "end": 176.31,
+      "duration": 11.72,
+      "text_snippet": "Lời Gọi GC Tường Minh (Tránh dùng trong môi trường sản xuất) (Explicit GC Call (Avoid in production))\n`java\n// Yêu cầu J"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 176.31,
+      "end": 178.48,
+      "duration": 2.17,
+      "text_snippet": "Các Sai Lầm Phổ Biến (Common Mistakes)"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 178.48,
+      "end": 206.21,
+      "duration": 27.73,
+      "text_snippet": "Phụ thuộc vào System.gc(): Việc gọi System.gc() là một thực hành tồi. Nó chỉ gợi ý bộ thu gom rác nên chạy, nhưng JVM có"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 206.21,
+      "end": 209.24,
+      "duration": 3.03,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 209.24,
+      "end": 220.9,
+      "duration": 11.66,
+      "text_snippet": "Khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch (compile-time)?\nKhái niệm nào ở đây ảnh hưởng đến hành vi tại"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 220.9,
+      "end": 226.73,
+      "duration": 5.83,
+      "text_snippet": "Tại Sao Biên Dịch JIT và Thông Dịch Được Kết Hợp (Why JIT Compilation and Interpretation Are Combined)"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 226.73,
+      "end": 287.04,
+      "duration": 60.31,
+      "text_snippet": "Bộ thực thi của JVM kết hợp kỹ thuật thông dịch (interpretation) và biên dịch động (Just-In-Time - JIT compilation) để c"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 287.04,
+      "end": 292.13,
+      "duration": 5.09,
+      "text_snippet": "Mô hình Tư duy: Đường Ống Biên Dịch Phân Tầng (Mental Model: Tiered Compilation Pipeline)"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 292.13,
+      "end": 293.1,
+      "duration": 0.97,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 293.1,
+      "end": 294.76,
+      "duration": 1.66,
+      "text_snippet": "Ví Dụ Mã Nguồn (Code Example)"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 294.76,
+      "end": 304.59,
+      "duration": 9.83,
+      "text_snippet": "Dưới đây là một đoạn mã minh họa việc giả lập cơ chế phân tích vùng nóng. Trong JVM thực tế, việc thực thi lặp đi lặp lạ"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 304.59,
+      "end": 305.56,
+      "duration": 0.97,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 305.56,
+      "end": 332.83,
+      "duration": 27.27,
+      "text_snippet": "public class JitTieringDemo {\n    public static void main(String[] args) {\n        long start = System.nanoTime();\n     "
+    },
+    {
+      "paragraph_id": 41,
+      "start": 332.83,
+      "end": 349.87,
+      "duration": 17.04,
+      "text_snippet": "// Phương thức sẽ trở thành \"nóng\" và được biên dịch JIT bởi các trình biên dịch C1/C2\n    private static double compute"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 349.87,
+      "end": 372.05,
+      "duration": 22.18,
+      "text_snippet": "Chuỗi Nhân Quả (Cause-Effect Chain)\nBộ thông dịch bắt đầu chạy ứng dụng ngay lập tức &rarr; Bộ đếm phân tích theo dõi cá"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 372.05,
+      "end": 374.11,
+      "duration": 2.06,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 374.11,
+      "end": 380.11,
+      "duration": 6.0,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/gctuning/ (Hướng dẫn điều chỉnh bộ thu gom rác / Tổng quan JIT)"
+    }
+  ]
+}

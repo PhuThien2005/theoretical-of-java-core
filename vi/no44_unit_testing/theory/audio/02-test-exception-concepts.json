@@ -1,0 +1,525 @@
+{
+  "lesson": "02-test-exception-concepts",
+  "total_duration_seconds": 593.76,
+  "total_paragraphs": 74,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 2.91,
+      "duration": 2.91,
+      "text_snippet": "Kiểm thử đơn vị cơ bản - Phần 2: Ngoại lệ, Logic Private & Độ bao phủ mã nguồn"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 2.91,
+      "end": 3.5,
+      "duration": 0.6,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 3.5,
+      "end": 10.06,
+      "duration": 6.56,
+      "text_snippet": "Tài liệu này trình bày về việc kiểm thử hành vi ngoại lệ, chiến lược kiểm thử các phương thức private, cũng như ý nghĩa "
+    },
+    {
+      "paragraph_id": 4,
+      "start": 10.06,
+      "end": 10.73,
+      "duration": 0.67,
+      "text_snippet": "Nội Dung Tổng Quan"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 10.73,
+      "end": 22.58,
+      "duration": 11.85,
+      "text_snippet": "Test exception — Test exception: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nTest private logic indirect"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 22.58,
+      "end": 22.66,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 22.66,
+      "end": 23.26,
+      "duration": 0.6,
+      "text_snippet": "Ghi Chú Chi Tiết"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 23.26,
+      "end": 24.52,
+      "duration": 1.27,
+      "text_snippet": "Kiểm thử ngoại lệ (Test Exception)"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 24.52,
+      "end": 30.15,
+      "duration": 5.63,
+      "text_snippet": "Các bài kiểm thử đơn vị phải xác minh rằng mã nguồn xử lý các đầu vào tồi hoặc các chế độ lỗi một cách khéo léo bằng các"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 30.15,
+      "end": 43.04,
+      "duration": 12.89,
+      "text_snippet": "assertThrows — assertThrows: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\n  - Cách tiếp cận tiêu chuẩn là"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 43.04,
+      "end": 47.18,
+      "duration": 4.14,
+      "text_snippet": "Ví Dụ Thực Tế:\n  `java\n  import org.junit.jupiter.api.Test;\n  import static org.junit.jupiter.api.Assertions.*;"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 47.18,
+      "end": 48.86,
+      "duration": 1.68,
+      "text_snippet": "class Account {\n      private double balance;"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 48.86,
+      "end": 60.9,
+      "duration": 12.04,
+      "text_snippet": "public void withdraw(double amount) {\n          if (amount <= 0) {\n              throw new IllegalArgumentException(\"Amo"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 60.9,
+      "end": 74.28,
+      "duration": 13.38,
+      "text_snippet": "class AccountTest {\n      @Test\n      void testWithdrawalThrowsOnInsufficientFunds() {\n          Account acc = new Accou"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 74.28,
+      "end": 79.12,
+      "duration": 4.84,
+      "text_snippet": "// Xác minh chi tiết thông báo ngoại lệ\n          assertEquals(\"Insufficient funds: 0.0\", exception.getMessage());\n     "
+    },
+    {
+      "paragraph_id": 16,
+      "start": 79.12,
+      "end": 79.2,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 79.2,
+      "end": 81.58,
+      "duration": 2.39,
+      "text_snippet": "Kiểm thử gián tiếp logic private (Test Private Logic Indirectly)"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 81.58,
+      "end": 85.23,
+      "duration": 3.65,
+      "text_snippet": "Một tình huống khó xử phổ biến là làm thế nào để kiểm thử một phương thức bổ trợ private phức tạp."
+    },
+    {
+      "paragraph_id": 19,
+      "start": 85.23,
+      "end": 116.65,
+      "duration": 31.42,
+      "text_snippet": "Quy tắc: Không bao giờ chuyển một phương thức thành public hoặc sử dụng phản chiếu chỉ để kiểm thử nó. Các phương thức p"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 116.65,
+      "end": 116.72,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 116.72,
+      "end": 118.51,
+      "duration": 1.79,
+      "text_snippet": "Độ bao phủ mã nguồn cơ bản (Basic Code Coverage)"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 118.51,
+      "end": 132.04,
+      "duration": 13.53,
+      "text_snippet": "Độ bao phủ mã nguồn (Code Coverage) đo lường tỷ lệ mã nguồn được thực thi khi chạy bộ kiểm thử. Các loại phổ biến bao gồ"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 132.04,
+      "end": 151.61,
+      "duration": 19.57,
+      "text_snippet": "Giới hạn: Độ bao phủ cao không phải là sự đảm bảo cho chất lượng cao.\n  - Các công cụ đo độ bao phủ mã nguồn chỉ kiểm tr"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 151.61,
+      "end": 151.68,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 151.68,
+      "end": 152.58,
+      "duration": 0.89,
+      "text_snippet": "Sai Lầm Thường Gặp & Bẫy"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 152.58,
+      "end": 160.7,
+      "duration": 8.12,
+      "text_snippet": "Bẫy try-catch \"Bỏ Sót Ngoại Lệ\"\nTrước khi có assertThrows, các lập trình viên thường sử dụng các khối try-catch để khẳng"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 160.7,
+      "end": 171.66,
+      "duration": 10.96,
+      "text_snippet": "Sai:\n`java\n@Test\nvoid testWithdrawal_Bad() {\n    Account acc = new Account();\n    try {\n        acc.withdraw(100.0); // "
+    },
+    {
+      "paragraph_id": 28,
+      "start": 171.66,
+      "end": 181.68,
+      "duration": 10.03,
+      "text_snippet": "Đúng (Sử dụng assertThrows):\n`java\n@Test\nvoid testWithdrawal_Good() {\n    Account acc = new Account();\n    IllegalStateE"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 181.68,
+      "end": 181.76,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 181.76,
+      "end": 183.88,
+      "duration": 2.12,
+      "text_snippet": "Ví dụ Thực Tế: Kiểm Thử Gián Tiếp Logic Validator Private"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 183.88,
+      "end": 187.39,
+      "duration": 3.5,
+      "text_snippet": "Quan sát một UserRegistrationService có các quy tắc xác thực email và mật khẩu private nội bộ:"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 187.39,
+      "end": 188.02,
+      "duration": 0.63,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 188.02,
+      "end": 194.84,
+      "duration": 6.82,
+      "text_snippet": "private void validateEmail(String email) {\n        if (email == null || !email.contains(\"@\")) {\n            throw new Il"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 194.84,
+      "end": 202.11,
+      "duration": 7.27,
+      "text_snippet": "private void validatePassword(String password) {\n        if (password == null || password.length() < 8) {\n            th"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 202.11,
+      "end": 207.36,
+      "duration": 5.25,
+      "text_snippet": "Thay vì sử dụng phản chiếu hoặc chuyển validateEmail thành package-private, chúng ta kiểm thử logic này thông qua API cô"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 207.36,
+      "end": 207.99,
+      "duration": 0.63,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 207.99,
+      "end": 212.39,
+      "duration": 4.4,
+      "text_snippet": "class UserRegistrationServiceTest {\n    private final UserRegistrationService service = new UserRegistrationService();"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 212.39,
+      "end": 224.21,
+      "duration": 11.81,
+      "text_snippet": "@Test\n    void testRegisterUser_InvalidEmail_ThrowsException() {\n        IllegalArgumentException ex = assertThrows(\n   "
+    },
+    {
+      "paragraph_id": 39,
+      "start": 224.21,
+      "end": 235.83,
+      "duration": 11.63,
+      "text_snippet": "@Test\n    void testRegisterUser_ShortPassword_ThrowsException() {\n        IllegalArgumentException ex = assertThrows(\n  "
+    },
+    {
+      "paragraph_id": 40,
+      "start": 235.83,
+      "end": 235.91,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 235.91,
+      "end": 238.59,
+      "duration": 2.68,
+      "text_snippet": "Tại Sao Nên Kiểm Thử Gián Tiếp Các Phương Thức Private Qua API Công Khai"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 238.59,
+      "end": 252.57,
+      "duration": 13.98,
+      "text_snippet": "Một phương thức private là một chi tiết triển khai (implementation detail) — nó đại diện cho cách một lớp đạt được hành "
+    },
+    {
+      "paragraph_id": 43,
+      "start": 252.57,
+      "end": 266.36,
+      "duration": 13.79,
+      "text_snippet": "Khớp nối triển khai (Implementation coupling): Bài kiểm thử phụ thuộc vào tên phương thức nội bộ, chữ ký và sự tồn tại c"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 266.36,
+      "end": 278.47,
+      "duration": 12.11,
+      "text_snippet": "Bỏ sót hợp đồng: Các bài kiểm thử phương thức private xác minh rằng một cơ chế private cụ thể hoạt động đúng. Chúng khôn"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 278.47,
+      "end": 295.65,
+      "duration": 17.18,
+      "text_snippet": "Cách tiếp cận đúng: kiểm thử phương thức public với các đầu vào được thiết kế để vận hành phương thức bổ trợ private thô"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 295.65,
+      "end": 309.1,
+      "duration": 13.45,
+      "text_snippet": "Mô Hình Tư Duy: Kiểm Thử Trực Tiếp so với Gián Tiếp\n`\n[Sai — phản chiếu phá vỡ tính đóng gói]\nMethod method = MyClass.cl"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 309.1,
+      "end": 324.12,
+      "duration": 15.02,
+      "text_snippet": "[Đúng — kiểm thử qua API công khai]\n// Gọi registerUser với một email không hợp lệ\nIllegalArgumentException ex = assertT"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 324.12,
+      "end": 330.83,
+      "duration": 6.71,
+      "text_snippet": "Ví Dụ Thực Tế: Kiểm Thử Logic Private Qua API Công Khai\n`java\nclass UserRegistrationServiceTest {\n    private final User"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 330.83,
+      "end": 341.04,
+      "duration": 10.21,
+      "text_snippet": "@Test\n    void privateValidateEmail_isExercisedViaRegisterUser() {\n        // Vận hành validateEmail() private mà không "
+    },
+    {
+      "paragraph_id": 50,
+      "start": 341.04,
+      "end": 354.68,
+      "duration": 13.64,
+      "text_snippet": "@Test\n    void privateValidatePassword_isExercisedViaRegisterUser() {\n        // Vận hành validatePassword() private mà "
+    },
+    {
+      "paragraph_id": 51,
+      "start": 354.68,
+      "end": 375.59,
+      "duration": 20.91,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nPhương thức private là chi tiết triển khai &rarr; Kiểm thử trực tiếp qua phản chiếu gắn khớp"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 375.59,
+      "end": 375.67,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 375.67,
+      "end": 378.05,
+      "duration": 2.39,
+      "text_snippet": "Tại Sao assertThrows An Toàn Hơn Try-Catch Khi Kiểm Thử Ngoại Lệ"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 378.05,
+      "end": 389.08,
+      "duration": 11.03,
+      "text_snippet": "Mẫu try-catch để kiểm thử ngoại lệ có một chế độ thất bại âm thầm cực kỳ nguy hiểm: nếu ngoại lệ không được ném ra, bài "
+    },
+    {
+      "paragraph_id": 55,
+      "start": 389.08,
+      "end": 402.68,
+      "duration": 13.6,
+      "text_snippet": "assertThrows(ExceptionType.class, () -> ...) giải quyết vấn đề này bằng cách làm thất bại bài kiểm thử nếu không có ngoạ"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 402.68,
+      "end": 419.53,
+      "duration": 16.85,
+      "text_snippet": "Mô Hình Tư Duy: Bẫy try-catch so với Sự an toàn của assertThrows\n`\n[Try-catch — thành công âm thầm khi thiếu ngoại lệ]\nt"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 419.53,
+      "end": 432.76,
+      "duration": 13.23,
+      "text_snippet": "[assertThrows — thất bại rõ ràng khi thiếu ngoại lệ]\nIllegalStateException ex = assertThrows(\n    IllegalStateException."
+    },
+    {
+      "paragraph_id": 58,
+      "start": 432.76,
+      "end": 438.98,
+      "duration": 6.22,
+      "text_snippet": "Ví Dụ Thực Tế: Mẫu assertThrows Hoàn Chỉnh\n`java\n@Test\nvoid testWithdraw_insufficientFunds_throwsWithCorrectMessage() {\n"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 438.98,
+      "end": 445.88,
+      "duration": 6.89,
+      "text_snippet": "// assertThrows thất bại nếu không có ngoại lệ nào được ném ra\n    IllegalStateException ex = assertThrows(\n        Ille"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 445.88,
+      "end": 455.35,
+      "duration": 9.47,
+      "text_snippet": "// Cũng có thể khẳng định các chi tiết ngoại lệ — điều không thể làm trong try-catch nếu không viết thêm mã nguồn\n    as"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 455.35,
+      "end": 473.64,
+      "duration": 18.3,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nMẫu try-catch: ngoại lệ không được ném ra &rarr; khối catch bị bỏ qua &rarr; mọi khẳng định "
+    },
+    {
+      "paragraph_id": 62,
+      "start": 473.64,
+      "end": 473.72,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 473.72,
+      "end": 476.4,
+      "duration": 2.68,
+      "text_snippet": "Tại Sao Độ Bao Phủ Mã Nguồn Là Chỉ Số Chất Lượng Cần Thiết Nhưng Chưa Đủ"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 476.4,
+      "end": 492.91,
+      "duration": 16.51,
+      "text_snippet": "Độ bao phủ mã nguồn đo lường việc thực thi — một dòng hoặc nhánh mã nguồn có được đi qua trong các lần chạy kiểm thử hay"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 492.91,
+      "end": 506.55,
+      "duration": 13.64,
+      "text_snippet": "Ví dụ, một bài kiểm thử gọi calculator.add(2, 3) mà không gọi bất kỳ assertEquals hoặc khẳng định nào khác vẫn đạt được "
+    },
+    {
+      "paragraph_id": 66,
+      "start": 506.55,
+      "end": 519.82,
+      "duration": 13.27,
+      "text_snippet": "Độ bao phủ mã nguồn cao là một nền tảng cần thiết (mã nguồn chưa được kiểm thử chắc chắn có mức bảo vệ bằng không) nhưng"
+    },
+    {
+      "paragraph_id": 67,
+      "start": 519.82,
+      "end": 531.82,
+      "duration": 12.0,
+      "text_snippet": "Mô Hình Tư Duy: Độ Bao Phủ so với Tính Đúng Đắn\n`\n[Độ bao phủ cao, chất lượng bằng không]\n@Test\nvoid testAdd() {\n    cal"
+    },
+    {
+      "paragraph_id": 68,
+      "start": 531.82,
+      "end": 540.28,
+      "duration": 8.46,
+      "text_snippet": "[Độ bao phủ cao + khẳng định chất lượng]\n@Test\nvoid testAdd() {\n    int result = calculator.add(2, 3);\n    assertEquals("
+    },
+    {
+      "paragraph_id": 69,
+      "start": 540.28,
+      "end": 549.19,
+      "duration": 8.91,
+      "text_snippet": "Ví Dụ Thực Tế: Độ bao phủ nhánh và giới hạn của độ bao phủ dòng\n`java\npublic String classify(int n) {\n    if (n > 0) ret"
+    },
+    {
+      "paragraph_id": 70,
+      "start": 549.19,
+      "end": 562.04,
+      "duration": 12.86,
+      "text_snippet": "@Test\nvoid testClassify_linesCovered() {\n    classify(1);  // Bao phủ dòng 1 — 1/3 số dòng được bao phủ, 0 khẳng định\n  "
+    },
+    {
+      "paragraph_id": 71,
+      "start": 562.04,
+      "end": 571.73,
+      "duration": 9.69,
+      "text_snippet": "@Test\nvoid testClassify_withAssertions() {\n    assertEquals(\"positive\", classify(1));\n    assertEquals(\"negative\", class"
+    },
+    {
+      "paragraph_id": 72,
+      "start": 571.73,
+      "end": 588.62,
+      "duration": 16.88,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nĐạt 100% độ bao phủ dòng &rarr; Mọi dòng mã nguồn đều được thực thi trong quá trình kiểm thử"
+    },
+    {
+      "paragraph_id": 73,
+      "start": 588.62,
+      "end": 589.29,
+      "duration": 0.67,
+      "text_snippet": "Liên Kết Tham Khảo"
+    },
+    {
+      "paragraph_id": 74,
+      "start": 589.29,
+      "end": 593.76,
+      "duration": 4.47,
+      "text_snippet": "https://junit.org/junit5/docs/current/user-guide/ (JUnit 5 User Guide)\nhttps://site.mockito.org/ (Mockito documentation)"
+    }
+  ]
+}

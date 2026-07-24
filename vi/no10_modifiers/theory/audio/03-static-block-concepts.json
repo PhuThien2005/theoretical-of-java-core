@@ -1,0 +1,434 @@
+{
+  "lesson": "03-static-block-concepts",
+  "total_duration_seconds": 512.5,
+  "total_paragraphs": 61,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 2.73,
+      "duration": 2.73,
+      "text_snippet": "Các Từ Khóa Đặc Tả Trong Java - Phần 3 (Modifiers in Java - Part 3)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 2.73,
+      "end": 4.04,
+      "duration": 1.3,
+      "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 4.04,
+      "end": 11.9,
+      "duration": 7.87,
+      "text_snippet": "Tài liệu này bao quát một phần trọng tâm của Các Từ Khóa Đặc Tả Trong Java. Hãy nghiên cứu từng khái niệm dưới dạng quy "
+    },
+    {
+      "paragraph_id": 4,
+      "start": 11.9,
+      "end": 13.33,
+      "duration": 1.43,
+      "text_snippet": "Đề Cương Bao Phủ (Outline Coverage)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 13.33,
+      "end": 43.94,
+      "duration": 30.61,
+      "text_snippet": "Static block — Static block: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nStatic nested class — Static ne"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 43.94,
+      "end": 44.6,
+      "duration": 0.65,
+      "text_snippet": "Ghi Chú Chi Tiết"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 44.6,
+      "end": 45.58,
+      "duration": 0.98,
+      "text_snippet": "Khối tĩnh (Static block)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 45.58,
+      "end": 51.08,
+      "duration": 5.5,
+      "text_snippet": "Khối mã chạy một lần duy nhất khi lớp được tải lần đầu bởi JVM, thường dùng để khởi tạo biến tĩnh hoặc thực hiện các thi"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 51.08,
+      "end": 65.22,
+      "duration": 14.15,
+      "text_snippet": "Khái niệm này rất quan trọng vì mã nguồn xử lý đồng thời có thể hoạt động chính xác trong các bài kiểm tra đơn luồng như"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 65.22,
+      "end": 69.46,
+      "duration": 4.24,
+      "text_snippet": "Ví Dụ Mã Nguồn Khối Tĩnh\n`java\npublic class DatabaseConnector {\n    private static String connectionUrl;"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 69.46,
+      "end": 86.95,
+      "duration": 17.49,
+      "text_snippet": "// Khối tĩnh chạy một lần duy nhất khi lớp được tải lần đầu bởi JVM\n    static {\n        try {\n            // Khởi tạo p"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 86.95,
+      "end": 106.07,
+      "duration": 19.12,
+      "text_snippet": "Lỗi Thường Gặp - Truy cập các trường thực thể hoặc ném ra các ngoại lệ checked trong khối tĩnh\nCác khối tĩnh chạy trong "
+    },
+    {
+      "paragraph_id": 13,
+      "start": 106.07,
+      "end": 107.5,
+      "duration": 1.43,
+      "text_snippet": "Lớp lồng tĩnh (Static nested class)"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 107.5,
+      "end": 113.53,
+      "duration": 6.03,
+      "text_snippet": "Lớp lồng tĩnh hoạt động độc lập, không chứa tham chiếu ngầm định đến thể hiện của lớp bên ngoài và không yêu cầu thể hiệ"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 113.53,
+      "end": 118.91,
+      "duration": 5.38,
+      "text_snippet": "Ví Dụ Mã Nguồn Lớp Lồng Tĩnh\n`java\npublic class Outer {\n    private static int outerStatic = 10;\n    private int outerIn"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 118.91,
+      "end": 130.94,
+      "duration": 12.03,
+      "text_snippet": "// Lớp lồng tĩnh\n    public static class Nested {\n        public void print() {\n            System.out.println(\"Trường t"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 130.94,
+      "end": 145.49,
+      "duration": 14.55,
+      "text_snippet": "Lỗi Thường Gặp - Nhầm lẫn lớp lồng tĩnh với lớp nội bộ (inner class)\nMột lớp lồng tĩnh không chứa một tham chiếu ngầm đị"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 145.49,
+      "end": 146.59,
+      "duration": 1.1,
+      "text_snippet": "Import tĩnh (Static import)"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 146.59,
+      "end": 152.87,
+      "duration": 6.28,
+      "text_snippet": "Cú pháp cho phép truy cập trực tiếp các thành viên tĩnh (biến, phương thức) của lớp khác mà không cần lặp lại tiền tố tê"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 152.87,
+      "end": 158.49,
+      "duration": 5.63,
+      "text_snippet": "Ví Dụ Mã Nguồn Import Tĩnh\n`java\n// Import tĩnh Math.sqrt và Math.pow\nimport static java.lang.Math.sqrt;\nimport static j"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 158.49,
+      "end": 167.54,
+      "duration": 9.05,
+      "text_snippet": "public class Geometry {\n    public double hypotenuse(double a, double b) {\n        // Chúng ta có thể gọi các phương thứ"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 167.54,
+      "end": 182.99,
+      "duration": 15.45,
+      "text_snippet": "Lỗi Thường Gặp - Viết sai thứ tự import static\nCú pháp bắt buộc phải là import static package.Class.member; hoặc import "
+    },
+    {
+      "paragraph_id": 23,
+      "start": 182.99,
+      "end": 184.09,
+      "duration": 1.1,
+      "text_snippet": "Biến final (Final variable)"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 184.09,
+      "end": 190.01,
+      "duration": 5.91,
+      "text_snippet": "Biến có giá trị không thể bị thay đổi sau khi đã được khởi tạo, thường được sử dụng để tạo các hằng số hoặc đảm bảo tính"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 190.01,
+      "end": 199.5,
+      "duration": 9.5,
+      "text_snippet": "Quy Ước Đặt Tên (Naming Convention)\nKhi kết hợp static final để tạo hằng số toàn cục, quy ước bắt buộc trong Java là sử "
+    },
+    {
+      "paragraph_id": 26,
+      "start": 199.5,
+      "end": 218.91,
+      "duration": 19.4,
+      "text_snippet": "Thread-Safety Của Biến Final (JMM Guarantee)\nBiến final có một ý nghĩa đặc biệt trong Mô hình Bộ nhớ Java (JMM). JMM đảm"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 218.91,
+      "end": 229.79,
+      "duration": 10.88,
+      "text_snippet": "Ví Dụ Mã Nguồn Biến Final\n`java\npublic class Calculation {\n    public void run() {\n        final int maxIterations = 50;"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 229.79,
+      "end": 244.26,
+      "duration": 14.47,
+      "text_snippet": "Lỗi Thường Gặp - Giả định các trường final bắt buộc phải khởi tạo khi khai báo\nMột biến thể hiện final không nhất thiết "
+    },
+    {
+      "paragraph_id": 29,
+      "start": 244.26,
+      "end": 247.73,
+      "duration": 3.47,
+      "text_snippet": "Tại Sao Các Biến Final Ngăn Chặn Việc Gán Lại Giá Trị và Cho Phép Nhúng Mã (Inlining)"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 247.73,
+      "end": 282.91,
+      "duration": 35.18,
+      "text_snippet": "Từ khóa final trên một biến đảm bảo rằng một khi đã được gán giá trị, tham chiếu hoặc giá trị của biến đó không thể bị t"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 282.91,
+      "end": 284.82,
+      "duration": 1.92,
+      "text_snippet": "Mô Hình Tối Ưu Hóa Nhúng Mã Của Trình Biên Dịch"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 284.82,
+      "end": 285.52,
+      "duration": 0.69,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 285.52,
+      "end": 294.85,
+      "duration": 9.34,
+      "text_snippet": "Ví Dụ Mã Nguồn: Minh Họa Biến Final và Nhúng Mã (Inlining)\n`java\npublic class OptimizationDemo {\n    // Hằng số thời điể"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 294.85,
+      "end": 302.19,
+      "duration": 7.34,
+      "text_snippet": "public void displayLimit() {\n        // Trình biên dịch thay thế MAX_USERS bằng giá trị trực tiếp 500 trong mã bytecode\n"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 302.19,
+      "end": 308.71,
+      "duration": 6.52,
+      "text_snippet": "public static void main(String[] args) {\n        OptimizationDemo demo = new OptimizationDemo();\n        demo.displayLim"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 308.71,
+      "end": 332.27,
+      "duration": 23.56,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả của Biến Final (Cause-Effect Chain)\nTác nhân kích hoạt: Biến được khai báo với từ khóa final"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 332.27,
+      "end": 337.7,
+      "duration": 5.42,
+      "text_snippet": "> Xem thêm: Khái niệm Effectively Final khi sử dụng trong Lambda Expression, được trình bày chi tiết trong Ch.21 - Lambd"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 337.7,
+      "end": 339.0,
+      "duration": 1.3,
+      "text_snippet": "Phương thức final (Final method)"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 339.0,
+      "end": 344.91,
+      "duration": 5.91,
+      "text_snippet": "Phương thức không thể bị ghi đè (override) bởi các lớp con, đảm bảo hành vi nguyên bản của phương thức được giữ nguyên t"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 344.91,
+      "end": 356.49,
+      "duration": 11.58,
+      "text_snippet": "Sự dư thừa private final\nMọi phương thức private đều không thể bị lớp con nhìn thấy, do đó hiển nhiên không thể bị ghi đ"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 356.49,
+      "end": 363.3,
+      "duration": 6.81,
+      "text_snippet": "Ví Dụ Mã Nguồn Phương Thức Final\n`java\npublic class Parent {\n    public final void showMessage() {\n        System.out.pr"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 363.3,
+      "end": 369.13,
+      "duration": 5.83,
+      "text_snippet": "class Child extends Parent {\n    // Việc cố gắng ghi đè phương thức final sẽ gây ra lỗi biên dịch:\n    // public void sh"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 369.13,
+      "end": 384.13,
+      "duration": 15.0,
+      "text_snippet": "Lỗi Thường Gặp - Cố gắng ghi đè (override) một phương thức final trong lớp con\nNếu một lớp con cố gắng khai báo một phươ"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 384.13,
+      "end": 385.07,
+      "duration": 0.94,
+      "text_snippet": "Lớp final (Final class)"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 385.07,
+      "end": 391.75,
+      "duration": 6.69,
+      "text_snippet": "Lớp không thể bị kế thừa (extend) bởi bất kỳ lớp nào khác, thường được sử dụng cho các lớp cốt lõi để đảm bảo tính bảo m"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 391.75,
+      "end": 409.93,
+      "duration": 18.18,
+      "text_snippet": "Tại sao String và Integer là lớp final?\nCác lớp cốt lõi trong Java như String, Integer, Double đều được thiết kế là lớp "
+    },
+    {
+      "paragraph_id": 47,
+      "start": 409.93,
+      "end": 416.82,
+      "duration": 6.89,
+      "text_snippet": "Ví Dụ Mã Nguồn Lớp Final\n`java\npublic final class UtilityClass {\n    public static void printLog(String message) {\n     "
+    },
+    {
+      "paragraph_id": 48,
+      "start": 416.82,
+      "end": 421.22,
+      "duration": 4.4,
+      "text_snippet": "// Việc cố gắng kế thừa UtilityClass sẽ gây ra lỗi biên dịch:\n// class SubUtility extends UtilityClass { }\n`"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 421.22,
+      "end": 434.8,
+      "duration": 13.57,
+      "text_snippet": "Lỗi Thường Gặp - Giả định các trường trong một lớp final sẽ tự động là final\nKhai báo một lớp là final chỉ giúp ngăn chặ"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 434.8,
+      "end": 436.06,
+      "duration": 1.26,
+      "text_snippet": "Tham số final (Final parameter)"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 436.06,
+      "end": 441.48,
+      "duration": 5.42,
+      "text_snippet": "Tham số phương thức không thể bị gán lại giá trị mới bên trong thân phương thức, giúp ngăn chặn lỗi vô tình thay đổi đầu"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 441.48,
+      "end": 451.1,
+      "duration": 9.62,
+      "text_snippet": "Ví Dụ Mã Nguồn Tham Số Final\n`java\npublic class Logger {\n    public void log(final String message) {\n        // message "
+    },
+    {
+      "paragraph_id": 53,
+      "start": 451.1,
+      "end": 464.8,
+      "duration": 13.7,
+      "text_snippet": "Lỗi Thường Gặp - Gán lại giá trị cho tham số của phương thức bên trong thân phương thức\nKhai báo tham số phương thức là "
+    },
+    {
+      "paragraph_id": 54,
+      "start": 464.8,
+      "end": 466.39,
+      "duration": 1.59,
+      "text_snippet": "Biến final trống (Blank final variable)"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 466.39,
+      "end": 473.65,
+      "duration": 7.26,
+      "text_snippet": "Biến final chưa được gán giá trị khi khai báo, nhưng bắt buộc phải được gán giá trị chính xác một lần (trong constructor"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 473.65,
+      "end": 481.11,
+      "duration": 7.46,
+      "text_snippet": "Ví Dụ Mã Nguồn Biến Final Trống\n`java\npublic class Order {\n    private final long orderId; // Biến final trống\n    priva"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 481.11,
+      "end": 484.29,
+      "duration": 3.18,
+      "text_snippet": "static {\n        DEFAULT_STATUS = \"PENDING\"; // Khởi tạo trong khối tĩnh\n    }"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 484.29,
+      "end": 488.44,
+      "duration": 4.16,
+      "text_snippet": "public Order(long orderId) {\n        this.orderId = orderId; // Khởi tạo trong hàm khởi dựng\n    }\n}\n`"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 488.44,
+      "end": 503.57,
+      "duration": 15.12,
+      "text_snippet": "Lỗi Thường Gặp - Thất bại trong Phân Tích Gán Giá Trị Xác Định (Definite Assignment Analysis)\nMột trường final trống phả"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 503.57,
+      "end": 504.67,
+      "duration": 1.1,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Phổ Biến"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 504.67,
+      "end": 512.5,
+      "duration": 7.83,
+      "text_snippet": "Khái niệm nào ở đây là quy tắc tại thời điểm biên dịch (compile-time)?\nKhái niệm nào ở đây ảnh hưởng đến hành vi tại thờ"
+    }
+  ]
+}

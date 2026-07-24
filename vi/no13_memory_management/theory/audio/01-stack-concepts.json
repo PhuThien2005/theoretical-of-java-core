@@ -1,0 +1,441 @@
+{
+  "lesson": "01-stack-concepts",
+  "total_duration_seconds": 574.58,
+  "total_paragraphs": 62,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 2.1,
+      "duration": 2.1,
+      "text_snippet": "Quản Lý Bộ Nhớ Java (Java Memory Management) - Phần 1"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 2.1,
+      "end": 2.73,
+      "duration": 0.63,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 2.73,
+      "end": 8.87,
+      "duration": 6.14,
+      "text_snippet": "File này tập trung vào một phần cụ thể của Quản Lý Bộ Nhớ Java. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực "
+    },
+    {
+      "paragraph_id": 4,
+      "start": 8.87,
+      "end": 9.86,
+      "duration": 0.99,
+      "text_snippet": "Các Khái Niệm Được Đề Cập"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 9.86,
+      "end": 39.51,
+      "duration": 29.65,
+      "text_snippet": "Stack — Stack: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nHeap — Heap: Cung cấp các quy tắc và cơ chế h"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 39.51,
+      "end": 40.14,
+      "duration": 0.63,
+      "text_snippet": "Ghi Chú Chi Tiết"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 40.14,
+      "end": 40.77,
+      "duration": 0.63,
+      "text_snippet": "Stack (Ngăn Xếp)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 40.77,
+      "end": 46.79,
+      "duration": 6.02,
+      "text_snippet": "Bộ nhớ Stack là riêng của từng luồng (thread-private), dùng để lưu trữ khung thực thi phương thức, biến cục bộ, tham số,"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 46.79,
+      "end": 66.15,
+      "duration": 19.36,
+      "text_snippet": "Quy Tắc JVM\nMỗi khi một luồng gọi phương thức, một Stack Frame mới được đẩy lên stack của luồng đó.\nKhi phương thức hoàn"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 66.15,
+      "end": 80.52,
+      "duration": 14.37,
+      "text_snippet": "Ví Dụ Code: Vòng Đời Stack Frame\n`java\npublic class StackDemo {\n    public static void main(String[] args) {\n        int"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 80.52,
+      "end": 87.64,
+      "duration": 7.13,
+      "text_snippet": "private static int add(int x, int y) {\n        int sum = x + y; // Lưu trong stack frame của add\n        return sum; \n  "
+    },
+    {
+      "paragraph_id": 12,
+      "start": 87.64,
+      "end": 88.43,
+      "duration": 0.79,
+      "text_snippet": "Heap (Vùng Nhớ Heap)"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 88.43,
+      "end": 93.38,
+      "duration": 4.95,
+      "text_snippet": "Bộ nhớ Heap là vùng dữ liệu runtime được chia sẻ, nơi JVM phân bổ không gian cho tất cả các thực thể lớp (đối tượng) và "
+    },
+    {
+      "paragraph_id": 14,
+      "start": 93.38,
+      "end": 120.34,
+      "duration": 26.96,
+      "text_snippet": "Quy Tắc JVM\nTất cả các đối tượng Java, bất kể được tạo ở đâu, đều nằm trên Heap.\nBộ nhớ Heap được chia sẻ giữa tất cả cá"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 120.34,
+      "end": 136.89,
+      "duration": 16.55,
+      "text_snippet": "Ví Dụ Code: Phân Bổ Stack và Heap\n`java\npublic class MemoryAllocationDemo {\n    public static void main(String[] args) {"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 136.89,
+      "end": 145.4,
+      "duration": 8.51,
+      "text_snippet": "private static void modifyCustomer(Customer cust) {\n        // 'cust' là bản sao của biến tham chiếu, trỏ đến cùng một đ"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 145.4,
+      "end": 152.68,
+      "duration": 7.28,
+      "text_snippet": "class Customer {\n    private String name; // Tham chiếu đến đối tượng String trên Heap\n    private int age;     // Trườn"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 152.68,
+      "end": 156.44,
+      "duration": 3.76,
+      "text_snippet": "public Customer(String name, int age) {\n        this.name = name;\n        this.age = age;\n    }"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 156.44,
+      "end": 158.46,
+      "duration": 2.02,
+      "text_snippet": "public void setAge(int age) { this.age = age; }\n}\n`"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 158.46,
+      "end": 160.12,
+      "duration": 1.66,
+      "text_snippet": "Vùng Phương Thức (Method Area) / Metaspace"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 160.12,
+      "end": 166.73,
+      "duration": 6.61,
+      "text_snippet": "Vùng Phương Thức là vùng bộ nhớ JVM được chia sẻ, lưu trữ siêu dữ liệu cấp lớp. Trong các JVM HotSpot hiện đại (Java 8+)"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 166.73,
+      "end": 188.11,
+      "duration": 21.38,
+      "text_snippet": "Quy Tắc JVM\nMetaspace lưu thông tin cấu trúc lớp: định nghĩa lớp, bytecode phương thức, code constructor, bộ nhớ hằng số"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 188.11,
+      "end": 189.81,
+      "duration": 1.7,
+      "text_snippet": "PC Register (Thanh Ghi Bộ Đếm Chương Trình)"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 189.81,
+      "end": 191.79,
+      "duration": 1.98,
+      "text_snippet": "Mỗi luồng có Thanh Ghi PC (Program Counter) riêng."
+    },
+    {
+      "paragraph_id": 25,
+      "start": 191.79,
+      "end": 206.64,
+      "duration": 14.84,
+      "text_snippet": "Quy Tắc JVM\nNếu luồng đang thực thi một phương thức Java không phải native, PC Register chứa địa chỉ của lệnh JVM đang đ"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 206.64,
+      "end": 208.46,
+      "duration": 1.82,
+      "text_snippet": "Native Method Stack (Ngăn Xếp Phương Thức Gốc)"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 208.46,
+      "end": 215.74,
+      "duration": 7.28,
+      "text_snippet": "Native Method Stack là ngăn xếp riêng của từng luồng, dành riêng cho các phương thức viết bằng ngôn ngữ không phải Java "
+    },
+    {
+      "paragraph_id": 28,
+      "start": 215.74,
+      "end": 225.16,
+      "duration": 9.42,
+      "text_snippet": "Quy Tắc JVM\nKhi một phương thức Java gọi một phương thức native, ngữ cảnh thực thi chuyển sang Native Method Stack.\nGiốn"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 225.16,
+      "end": 226.63,
+      "duration": 1.46,
+      "text_snippet": "Vòng Đời Đối Tượng (Object Lifecycle)"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 226.63,
+      "end": 229.04,
+      "duration": 2.41,
+      "text_snippet": "Vòng đời của một đối tượng bao gồm nhiều giai đoạn khác nhau:"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 229.04,
+      "end": 251.88,
+      "duration": 22.84,
+      "text_snippet": "Tạo (Creation): Bộ nhớ được phân bổ trên heap, biến thực thể được khởi tạo, constructor thực thi.\nKhả năng truy cập (Rea"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 251.88,
+      "end": 253.31,
+      "duration": 1.43,
+      "text_snippet": "Biến Tham Chiếu (Reference Variable)"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 253.31,
+      "end": 257.9,
+      "duration": 4.59,
+      "text_snippet": "Biến tham chiếu là biến lưu trữ địa chỉ bộ nhớ (tham chiếu) của một đối tượng trên heap, thay vì bản thân đối tượng."
+    },
+    {
+      "paragraph_id": 34,
+      "start": 257.9,
+      "end": 275.12,
+      "duration": 17.22,
+      "text_snippet": "Quy Tắc JVM\nKhai báo biến tham chiếu (ví dụ: Customer c;) dành không gian trên stack hoặc heap cho một con trỏ, được khở"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 275.12,
+      "end": 275.79,
+      "duration": 0.67,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 275.79,
+      "end": 281.06,
+      "duration": 5.26,
+      "text_snippet": "private static void reassign(Customer c) {\n        c = new Customer(\"Dave\", 40); // Chỉ thay đổi tham số 'c' cục bộ đã s"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 281.06,
+      "end": 286.2,
+      "duration": 5.15,
+      "text_snippet": "private static void modify(Customer c) {\n        c.setName(\"Charlie\"); // Thay đổi đối tượng được trỏ đến bởi tham chiếu"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 286.2,
+      "end": 287.55,
+      "duration": 1.35,
+      "text_snippet": "Tham Chiếu Mạnh (Strong Reference)"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 287.55,
+      "end": 294.44,
+      "duration": 6.89,
+      "text_snippet": "Tham chiếu mạnh là kiểu tham chiếu mặc định trong Java. Bất kỳ đối tượng nào được tạo bằng phép gán thông thường (ví dụ:"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 294.44,
+      "end": 305.32,
+      "duration": 10.89,
+      "text_snippet": "Quy Tắc JVM\nChừng nào đối tượng còn đến được thông qua ít nhất một đường tham chiếu mạnh bắt đầu từ GC Root, nó sẽ không"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 305.32,
+      "end": 305.4,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 305.4,
+      "end": 305.96,
+      "duration": 0.55,
+      "text_snippet": "Lỗi Thường Gặp"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 305.96,
+      "end": 325.47,
+      "duration": 19.52,
+      "text_snippet": "Nghĩ Rằng Biến Nguyên Thủy Luôn Nằm Trên Stack\nMột bẫy phỏng vấn rất phổ biến là khẳng định rằng tất cả biến nguyên thủy"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 325.47,
+      "end": 340.91,
+      "duration": 15.44,
+      "text_snippet": "Giả Sử obj = null Giải Phóng Bộ Nhớ Ngay Lập Tức\nĐặt biến tham chiếu thành null không kích hoạt thu gom rác ngay lập tức"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 340.91,
+      "end": 354.49,
+      "duration": 13.58,
+      "text_snippet": "Nhầm Lẫn StackOverflowError với OutOfMemoryError\nStackOverflowError: Gây ra bởi cạn kiệt stack luồng (thường do đệ quy v"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 354.49,
+      "end": 366.52,
+      "duration": 12.03,
+      "text_snippet": "Tin Rằng Trường Static Nằm Trong Metaspace\nKể từ Java 8, biến static (cả nguyên thủy và tham chiếu đối tượng) được phân "
+    },
+    {
+      "paragraph_id": 47,
+      "start": 366.52,
+      "end": 367.43,
+      "duration": 0.91,
+      "text_snippet": "Câu Hỏi Ôn Tập Phổ Biến"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 367.43,
+      "end": 375.11,
+      "duration": 7.68,
+      "text_snippet": "Những khái niệm nào ở đây là quy tắc tại thời điểm biên dịch (compile-time)?\nNhững khái niệm nào ảnh hưởng đến hành vi l"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 375.11,
+      "end": 377.05,
+      "duration": 1.94,
+      "text_snippet": "Tại Sao Kiểu Nguyên Thủy Sống Trên Stack Hay Heap"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 377.05,
+      "end": 409.67,
+      "duration": 32.62,
+      "text_snippet": "JVM xác định vị trí phân bổ bộ nhớ vật lý của biến nguyên thủy hoàn toàn dựa trên phạm vi khai báo của chúng chứ không p"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 409.67,
+      "end": 439.52,
+      "duration": 29.85,
+      "text_snippet": "Mô Hình Tư Duy\n`\n-------------------------------------------------------------+\n| Thread Stack Frame (LIFO)             "
+    },
+    {
+      "paragraph_id": 52,
+      "start": 439.52,
+      "end": 448.39,
+      "duration": 8.87,
+      "text_snippet": "Ví Dụ Code\n`java\npublic class PrimitiveAllocation {\n    static int staticPrimitive = 300; // Phân bổ trên Heap (trong đố"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 448.39,
+      "end": 460.74,
+      "duration": 12.35,
+      "text_snippet": "public void methodScope() {\n        int localPrimitive = 100;     // Phân bổ trên Stack (trong frame hiện tại)\n        S"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 460.74,
+      "end": 469.72,
+      "duration": 8.99,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nPhương thức được gọi → Stack frame được đẩy lên → Biến nguyên thủy cục bộ được phân bổ trên "
+    },
+    {
+      "paragraph_id": 55,
+      "start": 469.72,
+      "end": 471.27,
+      "duration": 1.54,
+      "text_snippet": "Tại Sao Java Hoàn Toàn Là Pass-by-Value"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 471.27,
+      "end": 501.35,
+      "duration": 30.09,
+      "text_snippet": "Java hoàn toàn triển khai truyền theo giá trị (pass-by-value), nghĩa là JVM luôn sao chép giá trị thực sự được lưu trong"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 501.35,
+      "end": 528.55,
+      "duration": 27.2,
+      "text_snippet": "Mô Hình Tư Duy\n`\nStack Frame: main()               Stack Frame: modify()\n-----------------------+         +-------------"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 528.55,
+      "end": 537.1,
+      "duration": 8.55,
+      "text_snippet": "Ví Dụ Code\n`java\npublic class PassByValueEx {\n    public static void main(String[] args) {\n        int num = 10;\n       "
+    },
+    {
+      "paragraph_id": 59,
+      "start": 537.1,
+      "end": 555.98,
+      "duration": 18.88,
+      "text_snippet": "Customer c = new Customer(\"Alice\");\n        modifyObject(c);\n        System.out.println(\"Object: \" + c.name); // Output:"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 555.98,
+      "end": 566.55,
+      "duration": 10.57,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nTham chiếu được truyền vào phương thức → JVM sao chép giá trị con trỏ vào stack frame mới → "
+    },
+    {
+      "paragraph_id": 61,
+      "start": 566.55,
+      "end": 567.26,
+      "duration": 0.71,
+      "text_snippet": "Liên Kết Tham Khảo"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 567.26,
+      "end": 574.58,
+      "duration": 7.32,
+      "text_snippet": "https://docs.oracle.com/javase/specs/jls/se21/html/jls-4.htmljls-4.12.2 (Biến kiểu tham chiếu)\nhttps://docs.oracle.com/j"
+    }
+  ]
+}

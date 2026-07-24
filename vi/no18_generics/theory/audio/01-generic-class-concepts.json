@@ -1,0 +1,294 @@
+{
+  "lesson": "01-generic-class-concepts",
+  "total_duration_seconds": 245.47,
+  "total_paragraphs": 41,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 5.14,
+      "duration": 5.14,
+      "text_snippet": "Kiểu chung (Generics) – Phần 1: Lớp tổng quát (Generic Class), Phương thức (Method), Giao diện (Interface), Tham số kiểu"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 5.14,
+      "end": 6.08,
+      "duration": 0.95,
+      "text_snippet": "Lớp tổng quát (Generic Class)"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 6.08,
+      "end": 14.23,
+      "duration": 8.14,
+      "text_snippet": "Định nghĩa: Một lớp khai báo một hoặc nhiều tham số kiểu (type parameters) được đặt trong dấu <> phía sau tên lớp. Tham "
+    },
+    {
+      "paragraph_id": 4,
+      "start": 14.23,
+      "end": 32.45,
+      "duration": 18.22,
+      "text_snippet": "Quy tắc Java:\n`java\nclass Box<T> {\n    private T value;\n    public Box(T value) { this.value = value; }\n    public T get"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 32.45,
+      "end": 41.47,
+      "duration": 9.03,
+      "text_snippet": "Các trường hợp sử dụng hợp lệ:\nBox<String>, Box<Integer> — các bộ chứa đơn kiểu (single-typed containers).\nPair<K, V> — "
+    },
+    {
+      "paragraph_id": 6,
+      "start": 41.47,
+      "end": 55.15,
+      "duration": 13.67,
+      "text_snippet": "Trường hợp lỗi (Failure mode):\n`java\nBox rawBox = new Box(\"hello\");   // raw type – no compile-time check\nrawBox = new B"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 55.15,
+      "end": 55.21,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 55.21,
+      "end": 56.45,
+      "duration": 1.24,
+      "text_snippet": "Phương thức tổng quát (Generic Method)"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 56.45,
+      "end": 60.38,
+      "duration": 3.92,
+      "text_snippet": "Định nghĩa: Một phương thức tự khai báo các tham số kiểu của riêng nó, độc lập với bất kỳ tham số kiểu nào ở cấp độ lớp."
+    },
+    {
+      "paragraph_id": 10,
+      "start": 60.38,
+      "end": 73.17,
+      "duration": 12.79,
+      "text_snippet": "Quy tắc Java:\nCác tham số kiểu được đặt trước kiểu trả về.\n`java\npublic static <T> T identity(T obj) { return obj; }\npub"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 73.17,
+      "end": 86.22,
+      "duration": 13.05,
+      "text_snippet": "Các trường hợp sử dụng hợp lệ:\nCollections.max(Collection<? extends T>) — hoạt động với bất kỳ kiểu phần tử có thể so sá"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 86.22,
+      "end": 90.7,
+      "duration": 4.48,
+      "text_snippet": "> Xem thêm: Sự kết hợp chặt chẽ giữa Generics và Java Collections Framework, được trình bày chi tiết trong Ch.19 - Colle"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 90.7,
+      "end": 100.9,
+      "duration": 10.2,
+      "text_snippet": "Trường hợp lỗi (Failure mode):\n`java\n// Missing <T> — compiler falls back to raw types\npublic static Object broken(Objec"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 100.9,
+      "end": 100.97,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 100.97,
+      "end": 102.24,
+      "duration": 1.28,
+      "text_snippet": "Giao diện tổng quát (Generic Interface)"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 102.24,
+      "end": 106.86,
+      "duration": 4.61,
+      "text_snippet": "Định nghĩa: Một giao diện khai báo các tham số kiểu, bắt buộc các lớp triển khai (implementations) phải làm việc với một"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 106.86,
+      "end": 109.37,
+      "duration": 2.52,
+      "text_snippet": "Quy tắc Java:\n`java\ninterface Transformer<T, R> {\n    R transform(T input);\n}"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 109.37,
+      "end": 119.09,
+      "duration": 9.71,
+      "text_snippet": "class StringToInt implements Transformer<String, Integer> {\n    public Integer transform(String s) { return s.length(); "
+    },
+    {
+      "paragraph_id": 19,
+      "start": 119.09,
+      "end": 126.64,
+      "duration": 7.56,
+      "text_snippet": "Các ví dụ tiêu biểu trong JDK:\nComparable<T> — thứ tự toàn phần (total ordering).\nIterable<T> — hỗ trợ vòng lặp for-each"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 126.64,
+      "end": 135.97,
+      "duration": 9.32,
+      "text_snippet": "Trường hợp lỗi (Failure mode):\n`java\nclass Broken implements Comparable {   // raw Comparable – no type safety\n    publi"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 135.97,
+      "end": 136.03,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 136.03,
+      "end": 137.9,
+      "duration": 1.86,
+      "text_snippet": "Quy ước đặt tên tham số kiểu (Type Parameter Conventions)"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 137.9,
+      "end": 142.15,
+      "duration": 4.25,
+      "text_snippet": "Định nghĩa: Một tên trình giữ chỗ được khai báo trong <> đại diện cho một kiểu dữ liệu chưa xác định trong một khai báo "
+    },
+    {
+      "paragraph_id": 24,
+      "start": 142.15,
+      "end": 158.57,
+      "duration": 16.42,
+      "text_snippet": "Các quy ước ký tự đơn tiêu chuẩn:\nT — T: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nE — E: Cung cấp các"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 158.57,
+      "end": 162.26,
+      "duration": 3.7,
+      "text_snippet": "Phạm vi (Scope): Tham số kiểu chỉ có hiệu lực bên trong lớp/phương thức/giao diện tổng quát nơi nó được khai báo."
+    },
+    {
+      "paragraph_id": 26,
+      "start": 162.26,
+      "end": 170.34,
+      "duration": 8.08,
+      "text_snippet": "Lưu ý thực tế: Các tên như T1, T2 hoặc những tên mang tính mô tả (Source, Destination) đều được chấp nhận, nhưng quy ước"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 170.34,
+      "end": 170.41,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 170.41,
+      "end": 171.88,
+      "duration": 1.47,
+      "text_snippet": "Nhiều tham số kiểu (Multiple Type Parameters)"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 171.88,
+      "end": 179.83,
+      "duration": 7.95,
+      "text_snippet": "Cú pháp:\n`java\nclass Pair<K, V> {\n    private final K key;\n    private final V value;\n    public Pair(K key, V value) { "
+    },
+    {
+      "paragraph_id": 30,
+      "start": 179.83,
+      "end": 188.72,
+      "duration": 8.9,
+      "text_snippet": "Các trường hợp sử dụng:\nMap<K, V> — ánh xạ kiểu khóa sang kiểu giá trị.\nBiFunction<T, U, R> — hàm nhận vào hai kiểu dữ l"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 188.72,
+      "end": 194.22,
+      "duration": 5.49,
+      "text_snippet": "Quy tắc: Tất cả các tham số kiểu phải là các định danh phân biệt được phân tách bằng dấu phẩy. Thứ tự của chúng chỉ quan"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 194.22,
+      "end": 194.28,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 194.28,
+      "end": 196.51,
+      "duration": 2.22,
+      "text_snippet": "Tham số kiểu có giới hạn (Bounded Type Parameter): <T extends Bound>"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 196.51,
+      "end": 199.98,
+      "duration": 3.47,
+      "text_snippet": "Định nghĩa: Giới hạn tập hợp các đối số kiểu hợp lệ thành một kiểu T phải là kiểu con (subtype) của Bound."
+    },
+    {
+      "paragraph_id": 35,
+      "start": 199.98,
+      "end": 202.46,
+      "duration": 2.49,
+      "text_snippet": "Cú pháp:\n`java\n// Upper bound – single class or interface\n<T extends Number>"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 202.46,
+      "end": 206.09,
+      "duration": 3.63,
+      "text_snippet": "// Multiple bounds – class must come first, then interfaces\n<T extends Number & Comparable<T> & Serializable>\n`"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 206.09,
+      "end": 219.93,
+      "duration": 13.84,
+      "text_snippet": "Tại sao giới hạn trên (upper bounds) lại quan trọng:\nBên trong lớp hoặc phương thức, bạn có thể gọi các phương thức của "
+    },
+    {
+      "paragraph_id": 38,
+      "start": 219.93,
+      "end": 225.1,
+      "duration": 5.17,
+      "text_snippet": "Trường hợp lỗi (Failure mode):\n`java\nsum(List.of(\"a\", \"b\"));    // compile error: String does not extend Number\nnew Nume"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 225.1,
+      "end": 235.46,
+      "duration": 10.37,
+      "text_snippet": "Ký tự đại diện (Wildcard) so với tham số có giới hạn:\n<T extends Number> khai báo một biến kiểu có tên mới — sử dụng tro"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 235.46,
+      "end": 236.64,
+      "duration": 1.18,
+      "text_snippet": "Liên kết tham khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 236.64,
+      "end": 245.47,
+      "duration": 8.83,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/java/generics/types.html\nhttps://docs.oracle.com/javase/tutorial/java/generics/m"
+    }
+  ]
+}

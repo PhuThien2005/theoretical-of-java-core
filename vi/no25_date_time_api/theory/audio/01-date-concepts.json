@@ -1,0 +1,490 @@
+{
+  "lesson": "01-date-concepts",
+  "total_duration_seconds": 699.07,
+  "total_paragraphs": 69,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 2.14,
+      "duration": 2.14,
+      "text_snippet": "API Ngày và Giờ (Date and Time API) - Phần 1"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 2.14,
+      "end": 2.92,
+      "duration": 0.78,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 2.92,
+      "end": 11.68,
+      "duration": 8.76,
+      "text_snippet": "File này đề cập đến một phần trọng tâm của API Ngày và Giờ (Date and Time API). Hãy nghiên cứu từng khái niệm như một qu"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 11.68,
+      "end": 12.55,
+      "duration": 0.88,
+      "text_snippet": "Đề Cương Khái Niệm"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 12.55,
+      "end": 53.95,
+      "duration": 41.4,
+      "text_snippet": "Date — Date: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nCalendar — Calendar: Cung cấp các quy tắc và cơ"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 53.95,
+      "end": 54.73,
+      "duration": 0.78,
+      "text_snippet": "Ghi Chú Chi Tiết"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 54.73,
+      "end": 64.17,
+      "duration": 9.44,
+      "text_snippet": "Date\njava.util.Date là một lớp cũ đại diện cho một thời điểm cụ thể trong dòng thời gian, với độ chính xác tính bằng mil"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 64.17,
+      "end": 100.9,
+      "duration": 36.73,
+      "text_snippet": "Các Vấn Đề Của Lớp Cũ & Chế Độ Thất Bại:\nTính thay đổi được (Mutability): java.util.Date có trạng thái thay đổi được. Cá"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 100.9,
+      "end": 101.72,
+      "duration": 0.83,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 101.72,
+      "end": 110.92,
+      "duration": 9.19,
+      "text_snippet": "// A caller can mutate this date, affecting any other components sharing the reference\nsharedDate.setTime(0L); // Mutate"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 110.92,
+      "end": 119.24,
+      "duration": 8.32,
+      "text_snippet": "Calendar\njava.util.Calendar được giới thiệu trong JDK 1.1 để thay thế Date trong việc định dạng và thao tác với ngày thá"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 119.24,
+      "end": 143.8,
+      "duration": 24.57,
+      "text_snippet": "Giới Hạn & Những Điều Cần Lưu Ý:\nTính thay đổi được (Mutability): Nó có trạng thái thay đổi được, cho phép thay đổi trạn"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 143.8,
+      "end": 144.63,
+      "duration": 0.83,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 144.63,
+      "end": 149.3,
+      "duration": 4.67,
+      "text_snippet": "SimpleDateFormat\njava.text.SimpleDateFormat là lớp định dạng và phân tích cú pháp ngày tháng cũ."
+    },
+    {
+      "paragraph_id": 15,
+      "start": 149.3,
+      "end": 161.66,
+      "duration": 12.36,
+      "text_snippet": "Chế Độ Thất Bại Nghiêm Trọng:\nKhông an toàn luồng (Not Thread-Safe): Bên trong duy trì trạng thái (một thực thể Calendar"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 161.66,
+      "end": 162.48,
+      "duration": 0.83,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 162.48,
+      "end": 165.89,
+      "duration": 3.41,
+      "text_snippet": "Tại Sao Các API Cũ Như Date, Calendar, và SimpleDateFormat Lại Đầy Lỗi"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 165.89,
+      "end": 211.91,
+      "duration": 46.02,
+      "text_snippet": "Các lớp cũ java.util.Date và java.util.Calendar biểu diễn ngày tháng và các trường lịch bằng các trạng thái thay đổi đượ"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 211.91,
+      "end": 239.3,
+      "duration": 27.39,
+      "text_snippet": "Mô Hình Tư Duy: Xung Đột Đồng Thời Trong SimpleDateFormat\n`mermaid\nsequenceDiagram\n    participant ThreadA as Thread A\n "
+    },
+    {
+      "paragraph_id": 20,
+      "start": 239.3,
+      "end": 253.02,
+      "duration": 13.72,
+      "text_snippet": "Ví Dụ Mã Nguồn: Các Lỗi Về Tính Thay Đổi Được Và Chỉ Số\n`java\n// 0-based month (5 = June) and 1900-based year offset (12"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 253.02,
+      "end": 259.88,
+      "duration": 6.86,
+      "text_snippet": "// Mutability bug\nlegacyDate.setTime(0L); // Mutated to Epoch (Jan 1, 1970)\nSystem.out.println(legacyDate); // Thu Jan 0"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 259.88,
+      "end": 271.16,
+      "duration": 11.29,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nChia sẻ SimpleDateFormat có trạng thái thay đổi được &rarr; Nhiều luồng đồng thời phân tích/"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 271.16,
+      "end": 280.89,
+      "duration": 9.73,
+      "text_snippet": "LocalDate\njava.time.LocalDate đại diện cho một ngày không có giờ hoặc múi giờ trong hệ thống lịch ISO-8601 (ví dụ: 2026-"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 280.89,
+      "end": 281.72,
+      "duration": 0.83,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 281.72,
+      "end": 287.46,
+      "duration": 5.74,
+      "text_snippet": "System.out.println(\"Original: \" + date);   // 2026-06-12\nSystem.out.println(\"Next Week: \" + nextWeek); // 2026-06-19\n`"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 287.46,
+      "end": 293.69,
+      "duration": 6.23,
+      "text_snippet": "LocalTime\njava.time.LocalTime đại diện cho thời gian không có ngày hoặc múi giờ (ví dụ: 13:45:00). Nó bất biến và an toà"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 293.69,
+      "end": 294.52,
+      "duration": 0.83,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 294.52,
+      "end": 300.4,
+      "duration": 5.89,
+      "text_snippet": "System.out.println(\"Start Time: \" + time);          // 13:45\nSystem.out.println(\"End Time: \" + halfHourLater); // 14:15\n"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 300.4,
+      "end": 316.55,
+      "duration": 16.15,
+      "text_snippet": "LocalDateTime\njava.time.LocalDateTime kết hợp ngày và giờ vào một lớp duy nhất không có múi giờ (ví dụ: 2026-06-12T13:45"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 316.55,
+      "end": 317.38,
+      "duration": 0.83,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 317.38,
+      "end": 320.59,
+      "duration": 3.21,
+      "text_snippet": "System.out.println(\"LocalDateTime: \" + ldt); // 2026-06-12T13:45\n`"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 320.59,
+      "end": 324.58,
+      "duration": 3.99,
+      "text_snippet": "Tại Sao Các Đối Tượng Ngày Giờ Trong Java 8 Hiện Đại Lại Bất Biến và An Toàn Luồng"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 324.58,
+      "end": 363.55,
+      "duration": 38.97,
+      "text_snippet": "Các lớp trong gói java.time (như LocalDate, LocalTime, và LocalDateTime) được thiết kế dưới dạng các kiểu giá trị bất bi"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 363.55,
+      "end": 379.31,
+      "duration": 15.76,
+      "text_snippet": "Mô Hình Tư Duy: Chuyển Đổi Trạng Thái Bất Biến\n`mermaid\ngraph LR\n    ref1[Tham chiếu: date] --> obj1[Đối tượng LocalDate"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 379.31,
+      "end": 386.85,
+      "duration": 7.54,
+      "text_snippet": "Ví Dụ Mã Nguồn: Sửa Đổi Bất Biến\n`java\nLocalDate date = LocalDate.of(2026, 6, 12);\nLocalDate nextWeek = date.plusDays(7)"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 386.85,
+      "end": 393.71,
+      "duration": 6.86,
+      "text_snippet": "System.out.println(date);     // 2026-06-12 (original remains untouched)\nSystem.out.println(nextWeek); // 2026-06-19 (ne"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 393.71,
+      "end": 403.54,
+      "duration": 9.83,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nGọi plusDays() &rarr; Lấy giá trị từ các trường final &rarr; Tính toán giá trị mới &rarr; Kh"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 403.54,
+      "end": 415.5,
+      "duration": 11.97,
+      "text_snippet": "ZonedDateTime\njava.time.ZonedDateTime đại diện cho ngày và giờ với ngữ cảnh múi giờ đầy đủ (ví dụ: 2026-06-12T13:45:00+0"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 415.5,
+      "end": 416.33,
+      "duration": 0.83,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 416.33,
+      "end": 419.15,
+      "duration": 2.82,
+      "text_snippet": "System.out.println(\"Tokyo ZonedDateTime: \" + tokyoTime);\n`"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 419.15,
+      "end": 434.72,
+      "duration": 15.57,
+      "text_snippet": "OffsetDateTime\njava.time.OffsetDateTime đại diện cho ngày và giờ với khoảng lệch UTC/Greenwich cố định (ví dụ: 2026-06-1"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 434.72,
+      "end": 435.55,
+      "duration": 0.83,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 435.55,
+      "end": 439.24,
+      "duration": 3.7,
+      "text_snippet": "System.out.println(\"OffsetDateTime: \" + odt); // 2026-06-12T13:45:00+09:00\n`"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 439.24,
+      "end": 451.26,
+      "duration": 12.02,
+      "text_snippet": "Instant\njava.time.Instant đại diện cho một thời điểm tức thời trên dòng thời gian UTC (ví dụ: 2026-06-12T04:45:00Z). Nó "
+    },
+    {
+      "paragraph_id": 45,
+      "start": 451.26,
+      "end": 452.09,
+      "duration": 0.83,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 452.09,
+      "end": 462.59,
+      "duration": 10.51,
+      "text_snippet": "// ZonedDateTime can be converted to an Instant\nZonedDateTime zdt = ZonedDateTime.now(ZoneId.of(\"America/New_York\"));\nIn"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 462.59,
+      "end": 465.9,
+      "duration": 3.31,
+      "text_snippet": "Tại Sao Chúng Ta Phân Biệt Instant, OffsetDateTime, và ZonedDateTime"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 465.9,
+      "end": 503.22,
+      "duration": 37.31,
+      "text_snippet": "Java phân chia các mô hình thời gian để phản ánh cách các hệ thống khác nhau theo dõi thời gian. Một Instant đại diện ch"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 503.22,
+      "end": 519.76,
+      "duration": 16.54,
+      "text_snippet": "Mô Hình Tư Duy: Mối Quan Hệ Biểu Diễn Thời Gian\n`mermaid\nflowchart TD\n    I[\"Instant (Thời điểm UTC thô: 1773489600s)\"]\n"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 519.76,
+      "end": 525.79,
+      "duration": 6.03,
+      "text_snippet": "Ví Dụ Mã Nguồn: Chuyển Đổi Giữa Các Kiểu\n`java\nInstant instant = Instant.ofEpochSecond(1773489600L); // 2026-03-12T12:00"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 525.79,
+      "end": 532.94,
+      "duration": 7.15,
+      "text_snippet": "// Conversion to OffsetDateTime\nOffsetDateTime odt = instant.atOffset(ZoneOffset.ofHours(9));\nSystem.out.println(odt); /"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 532.94,
+      "end": 543.93,
+      "duration": 10.99,
+      "text_snippet": "// Conversion to ZonedDateTime (automatically shifts based on local DST/offset rules)\nZonedDateTime zdt = instant.atZone"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 543.93,
+      "end": 557.07,
+      "duration": 13.13,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nLấy Instant &rarr; Áp dụng ZoneId địa lý (ví dụ: Europe/London) &rarr; Tra cứu các quy tắc D"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 557.07,
+      "end": 569.47,
+      "duration": 12.41,
+      "text_snippet": "Duration\njava.time.Duration đại diện cho một khoảng thời gian dựa trên thời gian (ví dụ: \"34.5 giây\" hoặc \"2 giờ\"). Nó đ"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 569.47,
+      "end": 570.3,
+      "duration": 0.83,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 570.3,
+      "end": 580.03,
+      "duration": 9.73,
+      "text_snippet": "Duration duration = Duration.between(start, end);\nSystem.out.println(\"Duration in seconds: \" + duration.getSeconds()); /"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 580.03,
+      "end": 580.91,
+      "duration": 0.88,
+      "text_snippet": "Các Lỗi Thường Gặp"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 580.91,
+      "end": 583.34,
+      "duration": 2.43,
+      "text_snippet": "Bỏ Qua Đối Tượng Ngày Giờ Bất Biến Đã Được Sửa Đổi"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 583.34,
+      "end": 602.46,
+      "duration": 19.12,
+      "text_snippet": "Các đối tượng ngày giờ trong Java 8 có tính bất biến. Gọi .plusDays(), .minusHours(), hoặc .with() sẽ trả về một đối tượ"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 602.46,
+      "end": 607.71,
+      "duration": 5.25,
+      "text_snippet": "// GOOD: Reassign the return value\ndate = date.plusDays(5);\nSystem.out.println(date); // Prints 2026-06-17\n`"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 607.71,
+      "end": 609.27,
+      "duration": 1.56,
+      "text_snippet": "Nhầm Lẫn Giữa Period và Duration"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 609.27,
+      "end": 635.54,
+      "duration": 26.27,
+      "text_snippet": "Period đại diện cho một lượng thời gian dựa trên ngày tháng (năm, tháng, ngày).\nDuration đại diện cho một lượng thời gia"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 635.54,
+      "end": 642.06,
+      "duration": 6.52,
+      "text_snippet": "// GOOD: Period with LocalDate\nPeriod period = Period.between(d1, d2);\nSystem.out.println(\"Days between: \" + period.getD"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 642.06,
+      "end": 643.22,
+      "duration": 1.17,
+      "text_snippet": "Chia Sẻ SimpleDateFormat"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 643.22,
+      "end": 655.19,
+      "duration": 11.97,
+      "text_snippet": "Việc sử dụng một thực thể SimpleDateFormat ở dạng tĩnh hoặc chia sẻ giữa các luồng gây ra các giá trị định dạng/phân tíc"
+    },
+    {
+      "paragraph_id": 66,
+      "start": 655.19,
+      "end": 656.6,
+      "duration": 1.41,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
+    },
+    {
+      "paragraph_id": 67,
+      "start": 656.6,
+      "end": 665.6,
+      "duration": 9.0,
+      "text_snippet": "Những khái niệm nào ở đây là quy tắc tại thời điểm biên dịch?\nNhững khái niệm nào ở đây ảnh hưởng đến hành vi tại thời đ"
+    },
+    {
+      "paragraph_id": 68,
+      "start": 665.6,
+      "end": 667.35,
+      "duration": 1.75,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 69,
+      "start": 667.35,
+      "end": 699.07,
+      "duration": 31.72,
+      "text_snippet": "https://docs.oracle.com/datetime/ (Oracle Java Date-Time Trail)\nhttps://docs.oracle.com/en/java/javase/21/docs/api/java."
+    }
+  ]
+}

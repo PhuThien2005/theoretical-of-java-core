@@ -1,0 +1,658 @@
+{
+  "lesson": "01-math-concepts",
+  "total_duration_seconds": 674.74,
+  "total_paragraphs": 93,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 1.34,
+      "duration": 1.34,
+      "text_snippet": "Một Số Utility API Thông Dụng — Phần 1"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 1.34,
+      "end": 1.91,
+      "duration": 0.57,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 1.91,
+      "end": 8.92,
+      "duration": 7.0,
+      "text_snippet": "File này trình bày một lát cắt có trọng tâm về Một Số Utility API Thông Dụng gồm API toán học, độ chính xác tùy ý, hệ th"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 8.92,
+      "end": 9.52,
+      "duration": 0.6,
+      "text_snippet": "Nội Dung Đề Cương"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 9.52,
+      "end": 37.85,
+      "duration": 28.34,
+      "text_snippet": "Math — Math: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nRandom — Random: Cung cấp các quy tắc và cơ chế"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 37.85,
+      "end": 37.93,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 37.93,
+      "end": 38.49,
+      "duration": 0.57,
+      "text_snippet": "Ghi Chú Chi Tiết"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 38.49,
+      "end": 38.63,
+      "duration": 0.14,
+      "text_snippet": "Math"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 38.63,
+      "end": 43.02,
+      "duration": 4.39,
+      "text_snippet": "Lớp java.lang.Math chứa các phương thức tĩnh thực hiện các phép tính số cơ bản như mũ, logarithm, căn bậc hai và lượng g"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 43.02,
+      "end": 48.75,
+      "duration": 5.73,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  double squareRoot = Math.sqrt(25.0); // 5.0\n  int absoluteValue = Math.abs(-10);   // 10\n  lo"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 48.75,
+      "end": 71.96,
+      "duration": 23.21,
+      "text_snippet": "Lỗi Thường Gặp / Chế Độ Thất Bại:\n  - Lỗ Hổng Tràn Số (Overflow Vulnerability): Các phương thức tiêu chuẩn không kiểm tr"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 71.96,
+      "end": 72.03,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 72.03,
+      "end": 72.24,
+      "duration": 0.21,
+      "text_snippet": "Random"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 72.24,
+      "end": 76.74,
+      "duration": 4.49,
+      "text_snippet": "Lớp java.util.Random tạo số giả ngẫu nhiên sử dụng thuật toán Bộ Tạo Tuyến Tính Hợp Đồng (Linear Congruential Generator "
+    },
+    {
+      "paragraph_id": 15,
+      "start": 76.74,
+      "end": 83.63,
+      "duration": 6.9,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  Random rand = new Random();\n  int randomInt = rand.nextInt(100);    // 0 (bao gồm) đến 100 (k"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 83.63,
+      "end": 101.04,
+      "duration": 17.41,
+      "text_snippet": "Lỗi Thường Gặp / Chế Độ Thất Bại:\n  - Rủi Ro Bảo Mật: Random không an toàn về mặt mật mã (cryptographically secure) và c"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 101.04,
+      "end": 103.48,
+      "duration": 2.44,
+      "text_snippet": "Tại Sao Random và Math.random() Có Lỗ Hổng Trong Đồng Thời và Bảo Mật"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 103.48,
+      "end": 109.21,
+      "duration": 5.73,
+      "text_snippet": "java.util.Random và Math.random() được xây dựng trên thuật toán LCG. Thiết kế này tạo ra các giới hạn nghiêm trọng trong"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 109.21,
+      "end": 129.63,
+      "duration": 20.41,
+      "text_snippet": "Tranh Chấp Đa Luồng (Nút Thắt Cổ Chai Thread-Safety)\nĐể thread-safe, java.util.Random dùng một AtomicLong nội tại để lưu"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 129.63,
+      "end": 147.67,
+      "duration": 18.04,
+      "text_snippet": "Khả Năng Đoán Trước Về Mật Mã (Lỗ Hổng Bảo Mật)\nLCG là công thức xác định (deterministic): $X_{n+1} = (aX_n + c) \\pmod m"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 147.67,
+      "end": 164.33,
+      "duration": 16.66,
+      "text_snippet": "So Sánh Bằng Phép Ẩn Dụ\nHãy tưởng tượng một máy bán đồ uống đơn lẻ trong văn phòng đông người (Random dùng chung). Mỗi n"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 164.33,
+      "end": 164.93,
+      "duration": 0.6,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 164.93,
+      "end": 174.13,
+      "duration": 9.2,
+      "text_snippet": "Chuỗi Nhân Quả Của Tranh Chấp Luồng\n`text\nInstance Random dùng chung → Nhiều luồng yêu cầu số đồng thời → Luồng cố CAS A"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 174.13,
+      "end": 178.66,
+      "duration": 4.53,
+      "text_snippet": "Ví Dụ Chạy Được\n`java\nimport java.util.Random;\nimport java.util.concurrent.ThreadLocalRandom;\nimport java.security.Secur"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 178.66,
+      "end": 188.81,
+      "duration": 10.15,
+      "text_snippet": "public class RandomDemo {\n    public static void main(String[] args) {\n        // Math.random() nội bộ dùng một instance"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 188.81,
+      "end": 196.92,
+      "duration": 8.1,
+      "text_snippet": "// ThreadLocalRandom: Không tranh chấp, nhưng có thể đoán (đừng dùng cho bảo mật)\n        int localRandom = ThreadLocalR"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 196.92,
+      "end": 207.92,
+      "duration": 11.0,
+      "text_snippet": "// SecureRandom: An toàn mật mã, chậm hơn, không thể đoán trước\n        SecureRandom secure = new SecureRandom();\n      "
+    },
+    {
+      "paragraph_id": 28,
+      "start": 207.92,
+      "end": 207.99,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 207.99,
+      "end": 208.34,
+      "duration": 0.35,
+      "text_snippet": "BigInteger"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 208.34,
+      "end": 213.26,
+      "duration": 4.92,
+      "text_snippet": "java.math.BigInteger biểu diễn các số nguyên độ chính xác tùy ý. Nó bất biến và hoạt động như kiểu nguyên thủy nhưng khô"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 213.26,
+      "end": 220.51,
+      "duration": 7.25,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  BigInteger largeVal = new BigInteger(\"123456789012345678901234567890\");\n  BigInteger multipli"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 220.51,
+      "end": 232.19,
+      "duration": 11.67,
+      "text_snippet": "Lỗi Thường Gặp / Chế Độ Thất Bại:\n  - Bỏ Qua Tính Bất Biến: Các phép tính số học trên BigInteger không thay đổi instance"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 232.19,
+      "end": 232.26,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 232.26,
+      "end": 232.61,
+      "duration": 0.35,
+      "text_snippet": "BigDecimal"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 232.61,
+      "end": 236.82,
+      "duration": 4.21,
+      "text_snippet": "java.math.BigDecimal biểu diễn số thập phân độ chính xác tùy ý, cung cấp kiểm soát hoàn toàn về scale và cách làm tròn."
+    },
+    {
+      "paragraph_id": 36,
+      "start": 236.82,
+      "end": 242.8,
+      "duration": 5.98,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  BigDecimal val1 = new BigDecimal(\"0.1\");\n  BigDecimal val2 = new BigDecimal(\"0.2\");\n  BigDeci"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 242.8,
+      "end": 266.97,
+      "duration": 24.16,
+      "text_snippet": "Lỗi Thường Gặp / Chế Độ Thất Bại:\n  - Khởi Tạo Bằng Literal Double: Khởi tạo qua literal double đưa vào nhiễu dấu phẩy đ"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 266.97,
+      "end": 269.44,
+      "duration": 2.48,
+      "text_snippet": "Tại Sao BigDecimal Chính Xác: Cơ Chế Biểu Diễn Unscaled Value và Scale"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 269.44,
+      "end": 282.35,
+      "duration": 12.91,
+      "text_snippet": "Máy tính biểu diễn kiểu double và float theo định dạng dấu phẩy động IEEE 754 (cơ số 2). Vì các số phân số như 0.1 hay 0"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 282.35,
+      "end": 295.69,
+      "duration": 13.34,
+      "text_snippet": "Cơ Chế Biểu Diễn Nội Tại\njava.math.BigDecimal tránh các vấn đề nhị phân dấu phẩy động bằng cách lưu trữ số dưới dạng thậ"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 295.69,
+      "end": 299.48,
+      "duration": 3.79,
+      "text_snippet": "Giá trị toán học của một BigDecimal là:\n$$\\text{Giá trị} = \\text{unscaledValue} \\times 10^{-\\text{scale}}$$"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 299.48,
+      "end": 307.93,
+      "duration": 8.46,
+      "text_snippet": "Bảng Ví Dụ Biểu Diễn\n45 — 123.45: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\n0007 — 0.0007: Cung cấp cá"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 307.93,
+      "end": 326.44,
+      "duration": 18.5,
+      "text_snippet": "Rủi Ro Khởi Tạo Sớm Bằng Literal Double\nKhi bạn viết new BigDecimal(0.1), trình biên dịch trước tiên đánh giá literal do"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 326.44,
+      "end": 339.07,
+      "duration": 12.63,
+      "text_snippet": "So Sánh Bằng Phép Ẩn Dụ\nHãy nghĩ double như cố ghi $1/3$ ở định dạng thập phân lên mẩu giấy nhớ. Bạn sẽ viết 0.33333333 "
+    },
+    {
+      "paragraph_id": 45,
+      "start": 339.07,
+      "end": 339.67,
+      "duration": 0.6,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 339.67,
+      "end": 349.22,
+      "duration": 9.55,
+      "text_snippet": "Chuỗi Nhân Quả Của Nhiễu Literal Double\n`text\nLiteral double 0.1 → Biểu diễn nhị phân có phân số lặp → Giá trị được làm "
+    },
+    {
+      "paragraph_id": 47,
+      "start": 349.22,
+      "end": 352.09,
+      "duration": 2.87,
+      "text_snippet": "Ví Dụ Chạy Được\n`java\nimport java.math.BigDecimal;\nimport java.math.RoundingMode;"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 352.09,
+      "end": 361.35,
+      "duration": 9.27,
+      "text_snippet": "public class BigDecimalDemo {\n    public static void main(String[] args) {\n        // Tích lũy nhiễu dấu phẩy động\n     "
+    },
+    {
+      "paragraph_id": 49,
+      "start": 361.35,
+      "end": 368.29,
+      "duration": 6.93,
+      "text_snippet": "// SAI: Khởi tạo bằng literal double giữ lại nhiễu\n        BigDecimal bad = new BigDecimal(0.1);\n        System.out.prin"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 368.29,
+      "end": 376.81,
+      "duration": 8.53,
+      "text_snippet": "// ĐÚNG: Khởi tạo bằng String để có giá trị chính xác\n        BigDecimal good1 = new BigDecimal(\"0.1\");\n        BigDecim"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 376.81,
+      "end": 383.5,
+      "duration": 6.69,
+      "text_snippet": "// ĐÚNG: BigDecimal.valueOf(double) dùng chuyển đổi String nội bộ\n        BigDecimal good3 = BigDecimal.valueOf(0.1);\n  "
+    },
+    {
+      "paragraph_id": 52,
+      "start": 383.5,
+      "end": 402.68,
+      "duration": 19.18,
+      "text_snippet": "// Phép chia có và không có RoundingMode\n        BigDecimal one = BigDecimal.ONE;\n        BigDecimal three = new BigDeci"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 402.68,
+      "end": 402.75,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 402.75,
+      "end": 402.89,
+      "duration": 0.14,
+      "text_snippet": "UUID"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 402.89,
+      "end": 406.32,
+      "duration": 3.43,
+      "text_snippet": "java.util.UUID biểu diễn một định danh duy nhất toàn cầu (Universally Unique Identifier) 128-bit."
+    },
+    {
+      "paragraph_id": 56,
+      "start": 406.32,
+      "end": 412.58,
+      "duration": 6.26,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  UUID uniqueId = UUID.randomUUID(); // UUID kiểu 4 mạnh về mật mã\n  String uuidStr = uniqueId."
+    },
+    {
+      "paragraph_id": 57,
+      "start": 412.58,
+      "end": 420.72,
+      "duration": 8.14,
+      "text_snippet": "Lỗi Thường Gặp / Chế Độ Thất Bại:\n  - Phân tích đầu vào chưa kiểm tra: UUID.fromString(input) ném IllegalArgumentExcepti"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 420.72,
+      "end": 420.79,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 420.79,
+      "end": 421.04,
+      "duration": 0.25,
+      "text_snippet": "Objects"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 421.04,
+      "end": 425.32,
+      "duration": 4.28,
+      "text_snippet": "java.util.Objects gồm các phương thức tiện ích tĩnh để thao tác trên đối tượng (kiểm tra null, so sánh, tính hash, v.v.)"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 425.32,
+      "end": 434.48,
+      "duration": 9.16,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  boolean isSame = Objects.equals(objA, objB); // So sánh an toàn null\n  int hashValue = Object"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 434.48,
+      "end": 443.36,
+      "duration": 8.88,
+      "text_snippet": "Lỗi Thường Gặp / Chế Độ Thất Bại:\n  - Dùng Objects.equals(array1, array2) để so sánh giá trị mảng. Nó chỉ kiểm tra bằng "
+    },
+    {
+      "paragraph_id": 63,
+      "start": 443.36,
+      "end": 443.43,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 443.43,
+      "end": 443.72,
+      "duration": 0.28,
+      "text_snippet": "Optional"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 443.72,
+      "end": 449.87,
+      "duration": 6.16,
+      "text_snippet": "java.util.Optional là đối tượng container được giới thiệu trong Java 8 để biểu diễn sự có mặt hay vắng mặt của một giá t"
+    },
+    {
+      "paragraph_id": 66,
+      "start": 449.87,
+      "end": 459.53,
+      "duration": 9.66,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  Optional<String> opt = Optional.ofNullable(getStringThatMayBeNull());\n  String val = opt.orEl"
+    },
+    {
+      "paragraph_id": 67,
+      "start": 459.53,
+      "end": 482.99,
+      "duration": 23.46,
+      "text_snippet": "Lỗi Thường Gặp / Chế Độ Thất Bại:\n  - Đánh Giá Nhanh (Eager) trong orElse: Truyền một lời gọi phương thức vào orElse khi"
+    },
+    {
+      "paragraph_id": 68,
+      "start": 482.99,
+      "end": 483.06,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 69,
+      "start": 483.06,
+      "end": 483.27,
+      "duration": 0.21,
+      "text_snippet": "System"
+    },
+    {
+      "paragraph_id": 70,
+      "start": 483.27,
+      "end": 487.97,
+      "duration": 4.71,
+      "text_snippet": "java.lang.System cung cấp truy cập vào tài nguyên hệ thống, luồng I/O tiêu chuẩn, thuộc tính môi trường và bộ điều khiển"
+    },
+    {
+      "paragraph_id": 71,
+      "start": 487.97,
+      "end": 497.38,
+      "duration": 9.41,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  long start = System.nanoTime(); // Thời gian trôi qua độ chính xác cao tính bằng nanosecond\n "
+    },
+    {
+      "paragraph_id": 72,
+      "start": 497.38,
+      "end": 510.01,
+      "duration": 12.63,
+      "text_snippet": "Lỗi Thường Gặp / Chế Độ Thất Bại:\n  - Dùng CurrentTimeMillis cho Bộ Đếm Thời Gian: Dùng System.currentTimeMillis() để đo"
+    },
+    {
+      "paragraph_id": 73,
+      "start": 510.01,
+      "end": 510.09,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 74,
+      "start": 510.09,
+      "end": 510.33,
+      "duration": 0.25,
+      "text_snippet": "Runtime"
+    },
+    {
+      "paragraph_id": 75,
+      "start": 510.33,
+      "end": 514.47,
+      "duration": 4.14,
+      "text_snippet": "java.lang.Runtime cho phép ứng dụng giao tiếp với môi trường runtime JVM (truy vấn bộ nhớ, thêm shutdown hook, v.v.)."
+    },
+    {
+      "paragraph_id": 76,
+      "start": 514.47,
+      "end": 523.67,
+      "duration": 9.2,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  Runtime runtime = Runtime.getRuntime();\n  long freeMemory = runtime.freeMemory(); // Bộ nhớ t"
+    },
+    {
+      "paragraph_id": 77,
+      "start": 523.67,
+      "end": 529.97,
+      "duration": 6.3,
+      "text_snippet": "Lỗi Thường Gặp: Cố ép thu gom rác bằng Runtime.getRuntime().gc(). Đây chỉ là gợi ý cho JVM; bộ thu gom rác có thể bỏ qua"
+    },
+    {
+      "paragraph_id": 78,
+      "start": 529.97,
+      "end": 531.52,
+      "duration": 1.56,
+      "text_snippet": "System và Runtime: Mục Đích và Tương Tác JVM"
+    },
+    {
+      "paragraph_id": 79,
+      "start": 531.52,
+      "end": 539.06,
+      "duration": 7.54,
+      "text_snippet": "Mặc dù cả java.lang.System và java.lang.Runtime đều cho phép lập trình viên giao tiếp với môi trường chạy ứng dụng, chún"
+    },
+    {
+      "paragraph_id": 80,
+      "start": 539.06,
+      "end": 572.35,
+      "duration": 33.29,
+      "text_snippet": "Điểm Khác Biệt Chính và Ý Định Thiết Kế\njava.lang.System — java.lang.System: Cung cấp các quy tắc và cơ chế hoạt động cụ"
+    },
+    {
+      "paragraph_id": 81,
+      "start": 572.35,
+      "end": 582.68,
+      "duration": 10.33,
+      "text_snippet": "Các Phương Thức Ủy Quyền\nĐể làm các thao tác JVM thông dụng dễ viết hơn, System cung cấp một số phương thức bao bọc tiện"
+    },
+    {
+      "paragraph_id": 82,
+      "start": 582.68,
+      "end": 605.22,
+      "duration": 22.54,
+      "text_snippet": "So Sánh Bằng Phép Ẩn Dụ\nHãy nghĩ JVM như một con tàu du lịch.\nRuntime giống thuyền trưởng và boong chỉ huy. Chỉ có một t"
+    },
+    {
+      "paragraph_id": 83,
+      "start": 605.22,
+      "end": 605.82,
+      "duration": 0.6,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 84,
+      "start": 605.82,
+      "end": 615.44,
+      "duration": 9.62,
+      "text_snippet": "Chuỗi Nhân Quả Của Shutdown Hook JVM Duyên Dáng\n`text\nGọi Runtime.addShutdownHook() → JVM đăng ký luồng hook → Người dùn"
+    },
+    {
+      "paragraph_id": 85,
+      "start": 615.44,
+      "end": 635.43,
+      "duration": 19.99,
+      "text_snippet": "Ví Dụ Chạy Được\n`java\npublic class SystemRuntimeDemo {\n    public static void main(String[] args) {\n        // --- Dùng "
+    },
+    {
+      "paragraph_id": 86,
+      "start": 635.43,
+      "end": 644.13,
+      "duration": 8.7,
+      "text_snippet": "// --- Minh Họa Ủy Quyền ---\n        // Đăng ký shutdown hook phải thực hiện trực tiếp trên instance Runtime\n        rt."
+    },
+    {
+      "paragraph_id": 87,
+      "start": 644.13,
+      "end": 647.39,
+      "duration": 3.25,
+      "text_snippet": "// System.gc() đơn giản ủy quyền cho Runtime.getRuntime().gc() bên dưới\n        System.gc();"
+    },
+    {
+      "paragraph_id": 88,
+      "start": 647.39,
+      "end": 651.39,
+      "duration": 4.0,
+      "text_snippet": "long duration = System.nanoTime() - start;\n        System.out.println(\"Demo mất: \" + duration + \" ns\");\n    }\n}\n`"
+    },
+    {
+      "paragraph_id": 89,
+      "start": 651.39,
+      "end": 651.46,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 90,
+      "start": 651.46,
+      "end": 651.95,
+      "duration": 0.5,
+      "text_snippet": "ProcessBuilder"
+    },
+    {
+      "paragraph_id": 91,
+      "start": 651.95,
+      "end": 654.53,
+      "duration": 2.58,
+      "text_snippet": "ProcessBuilder được dùng để tạo và khởi động các tiến trình hệ điều hành."
+    },
+    {
+      "paragraph_id": 92,
+      "start": 654.53,
+      "end": 661.26,
+      "duration": 6.72,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  ProcessBuilder builder = new ProcessBuilder(\"ls\", \"-la\");\n  builder.redirectErrorStream(true)"
+    },
+    {
+      "paragraph_id": 93,
+      "start": 661.26,
+      "end": 674.74,
+      "duration": 13.48,
+      "text_snippet": "Lỗi Thường Gặp / Chế Độ Thất Bại:\n  - Tiến Trình Treo (Hanging Processes): Nếu bạn tạo tiến trình bên ngoài tạo ra đầu r"
+    }
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "lesson": "03-outofmemoryerror-concepts",
+  "total_duration_seconds": 291.05,
+  "total_paragraphs": 32,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 2.18,
+      "duration": 2.18,
+      "text_snippet": "Quản Lý Bộ Nhớ Java - Phần 3 (Java Memory Management - Part 3)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 2.18,
+      "end": 3.3,
+      "duration": 1.12,
+      "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 3.3,
+      "end": 10.71,
+      "duration": 7.41,
+      "text_snippet": "Tài liệu này bao gồm một phần nội dung trọng tâm về Quản lý bộ nhớ Java (Java Memory Management). Hãy nghiên cứu từng kh"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 10.71,
+      "end": 11.97,
+      "duration": 1.26,
+      "text_snippet": "Đề Cương Nội Dung (Outline Coverage)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 11.97,
+      "end": 18.82,
+      "duration": 6.85,
+      "text_snippet": "OutOfMemoryError — Ngoại lệ nghiêm trọng xảy ra khi JVM không thể cấp phát bộ nhớ heap/native.\nStackOverflowError — Stac"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 18.82,
+      "end": 19.97,
+      "duration": 1.16,
+      "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 19.97,
+      "end": 21.52,
+      "duration": 1.54,
+      "text_snippet": "Ngoại Lệ OutOfMemoryError (OutOfMemoryError)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 21.52,
+      "end": 29.77,
+      "duration": 8.25,
+      "text_snippet": "java.lang.OutOfMemoryError là một lỗi runtime xảy ra khi Máy ảo Java (JVM) không thể cấp phát bộ nhớ cho một đối tượng m"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 29.77,
+      "end": 63.22,
+      "duration": 33.45,
+      "text_snippet": "Quy Tắc JVM (JVM Rule)\nOOM là một Lỗi (Error) (kế thừa từ java.lang.VirtualMachineError), biểu thị một sự cố hệ thống ng"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 63.22,
+      "end": 68.56,
+      "duration": 5.34,
+      "text_snippet": "Ví Dụ Minh Họa Code: Kịch Bản Gây Ra OutOfMemoryError (Code Example: OutOfMemoryError Scenario)\n`java\nimport java.util.A"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 68.56,
+      "end": 84.39,
+      "duration": 15.83,
+      "text_snippet": "public class OOMDemo {\n    public static void main(String[] args) {\n        List<byte[]> list = new ArrayList<>();\n     "
+    },
+    {
+      "paragraph_id": 12,
+      "start": 84.39,
+      "end": 86.08,
+      "duration": 1.68,
+      "text_snippet": "Ngoại Lệ StackOverflowError (StackOverflowError)"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 86.08,
+      "end": 90.92,
+      "duration": 4.84,
+      "text_snippet": "java.lang.StackOverflowError là một lỗi runtime xảy ra khi không gian ngăn xếp (stack space) của một luồng thực thi bị c"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 90.92,
+      "end": 107.1,
+      "duration": 16.18,
+      "text_snippet": "Quy Tắc JVM (JVM Rule)\nTương tự như OOM, đây là một lỗi hệ thống VirtualMachineError và không nên được bắt lấy trong mã "
+    },
+    {
+      "paragraph_id": 15,
+      "start": 107.1,
+      "end": 114.65,
+      "duration": 7.55,
+      "text_snippet": "Ví Dụ Minh Họa Code: Kịch Bản Gây Ra StackOverflowError (Code Example: StackOverflowError Scenario)\n`java\npublic class S"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 114.65,
+      "end": 125.57,
+      "duration": 10.92,
+      "text_snippet": "// Lỗi: Không có điều kiện dừng để kết thúc đệ quy.\n    // Mỗi lời gọi hàm đẩy một khung ngăn xếp mới vào cho đến khi ng"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 125.57,
+      "end": 125.64,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 125.64,
+      "end": 126.9,
+      "duration": 1.26,
+      "text_snippet": "Các Lỗi Thường Gặp (Common Mistakes)"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 126.9,
+      "end": 150.91,
+      "duration": 24.01,
+      "text_snippet": "Bắt Lỗi OutOfMemoryError hoặc StackOverflowError (Catching OutOfMemoryError or StackOverflowError)\nNhiều lập trình viên "
+    },
+    {
+      "paragraph_id": 20,
+      "start": 150.91,
+      "end": 169.83,
+      "duration": 18.92,
+      "text_snippet": "Nhầm Lẫn Giữa Lỗi Bộ Nhớ Heap và Ngăn Xếp (Confusing Heap and Stack Errors)\nHeap OOM: Gây ra bởi rò rỉ bộ nhớ (memory le"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 169.83,
+      "end": 187.91,
+      "duration": 18.08,
+      "text_snippet": "Cho rằng GC Overhead Limit Exceeded là lỗi không gian Heap thông thường (Assuming GC Overhead Limit Exceeded is a Heap s"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 187.91,
+      "end": 189.77,
+      "duration": 1.86,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 189.77,
+      "end": 196.34,
+      "duration": 6.56,
+      "text_snippet": "Khái niệm nào ở đây thuộc về quy tắc thời điểm biên dịch (compile-time)?\nKhái niệm nào ở đây ảnh hưởng đến hành vi lúc r"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 196.34,
+      "end": 198.93,
+      "duration": 2.6,
+      "text_snippet": "Tại Sao Lỗi Heap và Stack Lại Khác Nhau (Why Heap and Stack Errors Differ)"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 198.93,
+      "end": 231.41,
+      "duration": 32.47,
+      "text_snippet": "JVM phân tách các cấu trúc gọi hàm riêng biệt của luồng khỏi dữ liệu ứng dụng dùng chung bằng cách chia bộ nhớ thành các"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 231.41,
+      "end": 245.87,
+      "duration": 14.46,
+      "text_snippet": "Mô Hình Tư Duy (Mental Model)\n`\n-------------------------------------------------------------+\n| StackOverflowError (Ngă"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 245.87,
+      "end": 257.1,
+      "duration": 11.23,
+      "text_snippet": "-------------------------------------------------------------+\n| OutOfMemoryError (Heap/Metaspace)                      "
+    },
+    {
+      "paragraph_id": 28,
+      "start": 257.1,
+      "end": 267.39,
+      "duration": 10.29,
+      "text_snippet": "Ví Dụ Minh Họa Code (Code Example)\n`java\npublic class MemoryErrorsDemo {\n    public static void main(String[] args) {\n  "
+    },
+    {
+      "paragraph_id": 29,
+      "start": 267.39,
+      "end": 271.5,
+      "duration": 4.11,
+      "text_snippet": "private static void causeStackOverflow(int depth) {\n        causeStackOverflow(depth + 1); // Đệ quy vô hạn\n    }\n}\n`"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 271.5,
+      "end": 282.55,
+      "duration": 11.06,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)\nKích thước ngăn xếp luồng bị vượt quá &rarr; Lỗi StackOverflowError đượ"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 282.55,
+      "end": 283.82,
+      "duration": 1.26,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 283.82,
+      "end": 291.05,
+      "duration": 7.23,
+      "text_snippet": "https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.htmljvms-2.5 (Các phân vùng dữ liệu lúc Runtime)\nhttps://docs"
+    }
+  ]
+}

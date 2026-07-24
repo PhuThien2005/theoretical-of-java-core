@@ -1,0 +1,546 @@
+{
+  "lesson": "03-compile-runtime-flow",
+  "total_duration_seconds": 597.36,
+  "total_paragraphs": 77,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 1.64,
+      "duration": 1.64,
+      "text_snippet": "Luồng Biên Dịch Và Runtime"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 1.64,
+      "end": 3.4,
+      "duration": 1.76,
+      "text_snippet": "Java có hai giai đoạn chính:"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 3.4,
+      "end": 7.24,
+      "duration": 3.84,
+      "text_snippet": "Compile time (thời gian biên dịch).\nRuntime (thời gian chạy)."
+    },
+    {
+      "paragraph_id": 4,
+      "start": 7.24,
+      "end": 13.41,
+      "duration": 6.17,
+      "text_snippet": "Hiểu sự khác biệt này giúp bạn hiểu lỗi biên dịch, ngoại lệ runtime, bytecode, và vai trò của JVM."
+    },
+    {
+      "paragraph_id": 5,
+      "start": 13.41,
+      "end": 15.55,
+      "duration": 2.14,
+      "text_snippet": "Compile Time (Thời Gian Biên Dịch)"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 15.55,
+      "end": 19.77,
+      "duration": 4.22,
+      "text_snippet": "Compile time là khi mã nguồn được trình biên dịch kiểm tra và dịch."
+    },
+    {
+      "paragraph_id": 7,
+      "start": 19.77,
+      "end": 20.46,
+      "duration": 0.69,
+      "text_snippet": "File nguồn:"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 20.46,
+      "end": 21.53,
+      "duration": 1.07,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 21.53,
+      "end": 22.47,
+      "duration": 0.94,
+      "text_snippet": "Lệnh biên dịch:"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 22.47,
+      "end": 23.54,
+      "duration": 1.07,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 23.54,
+      "end": 24.05,
+      "duration": 0.5,
+      "text_snippet": "Kết quả:"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 24.05,
+      "end": 25.12,
+      "duration": 1.07,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 25.12,
+      "end": 28.83,
+      "duration": 3.71,
+      "text_snippet": "File .class chứa bytecode, không phải mã nguồn Java dễ đọc."
+    },
+    {
+      "paragraph_id": 14,
+      "start": 28.83,
+      "end": 30.34,
+      "duration": 1.51,
+      "text_snippet": "Runtime (Thời Gian Chạy)"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 30.34,
+      "end": 33.74,
+      "duration": 3.4,
+      "text_snippet": "Runtime là khi chương trình đã biên dịch thực sự chạy."
+    },
+    {
+      "paragraph_id": 16,
+      "start": 33.74,
+      "end": 34.37,
+      "duration": 0.63,
+      "text_snippet": "Lệnh chạy:"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 34.37,
+      "end": 35.44,
+      "duration": 1.07,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 35.44,
+      "end": 43.06,
+      "duration": 7.62,
+      "text_snippet": "Lúc runtime, JVM nạp lớp, xác minh bytecode, thực thi lệnh, quản lý bộ nhớ, và có thể tối ưu hóa code bằng biên dịch JIT"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 43.06,
+      "end": 43.94,
+      "duration": 0.88,
+      "text_snippet": "Luồng Chi Tiết"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 43.94,
+      "end": 45.01,
+      "duration": 1.07,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 45.01,
+      "end": 58.48,
+      "duration": 13.47,
+      "text_snippet": "Source->>Compiler: biên dịch mã nguồn\n    Compiler->>ClassFile: tạo bytecode\n    ClassFile->>JVM: nạp lớp\n    JVM->>JVM:"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 58.48,
+      "end": 61.31,
+      "duration": 2.83,
+      "text_snippet": "Tại Sao Java Kết Hợp Biên Dịch Và Thực Thi Ảo"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 61.31,
+      "end": 125.96,
+      "duration": 64.65,
+      "text_snippet": "Ngôn ngữ thuần biên dịch như C biên dịch trực tiếp thành mã máy gốc đặc thù theo host. Dù nhanh, điều này thiếu tính di "
+    },
+    {
+      "paragraph_id": 24,
+      "start": 125.96,
+      "end": 128.73,
+      "duration": 2.77,
+      "text_snippet": "Mô Hình Tư Duy: Kiến Trúc Sư Và Đội Xây Dựng"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 128.73,
+      "end": 154.91,
+      "duration": 26.19,
+      "text_snippet": "Hãy nghĩ trình biên dịch (javac) như Kiến Trúc Sư kiểm tra bản vẽ về tính toàn vẹn cấu trúc, dịch thiết kế thành bản thi"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 154.91,
+      "end": 155.98,
+      "duration": 1.07,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 155.98,
+      "end": 158.94,
+      "duration": 2.96,
+      "text_snippet": "Ví Dụ Code: An Toàn Compile-Time và Lỗi Runtime"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 158.94,
+      "end": 168.44,
+      "duration": 9.5,
+      "text_snippet": "Để minh họa tại sao xác minh compile-time khác biệt với thực thi runtime, hãy xem code biên dịch hoàn hảo nhưng thất bại"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 168.44,
+      "end": 169.51,
+      "duration": 1.07,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 169.51,
+      "end": 171.21,
+      "duration": 1.7,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 171.21,
+      "end": 191.92,
+      "duration": 20.71,
+      "text_snippet": "Trình biên dịch dịch .java $\\rightarrow$ xác minh tĩnh cú pháp và kiểu $\\rightarrow$ tạo bytecode độc lập nền tảng $\\rig"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 191.92,
+      "end": 192.43,
+      "duration": 0.5,
+      "text_snippet": "Bytecode"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 192.43,
+      "end": 198.78,
+      "duration": 6.36,
+      "text_snippet": "Bytecode là biểu diễn trung gian của code Java. Nó cấp thấp hơn mã nguồn nhưng không phải mã máy gốc."
+    },
+    {
+      "paragraph_id": 34,
+      "start": 198.78,
+      "end": 200.55,
+      "duration": 1.76,
+      "text_snippet": "Tại sao bytecode quan trọng:"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 200.55,
+      "end": 208.35,
+      "duration": 7.81,
+      "text_snippet": "Nó cho phép thực thi đa nền tảng.\nNó cho phép JVM xác minh code trước khi chạy.\nNó cho phép JVM tối ưu hóa code lúc runt"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 208.35,
+      "end": 210.68,
+      "duration": 2.33,
+      "text_snippet": "Mã Nguồn Và Bytecode: Bên Dưới Bề Mặt"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 210.68,
+      "end": 266.45,
+      "duration": 55.77,
+      "text_snippet": "Ở cấp độ lưu trữ, mã nguồn Java (file .java) được lưu dưới dạng văn bản thuần Unicode dễ đọc (UTF-8 hoặc UTF-16). Ngược "
+    },
+    {
+      "paragraph_id": 38,
+      "start": 266.45,
+      "end": 270.61,
+      "duration": 4.15,
+      "text_snippet": "Mô Hình Tư Duy: Bản Vẽ Kiến Trúc Và Danh Sách Linh Kiện Có Mã Vạch"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 270.61,
+      "end": 287.66,
+      "duration": 17.06,
+      "text_snippet": "Mã nguồn giống như bản vẽ kiến trúc vẽ tay với nhãn và ghi chú viết tay. Bytecode giống như danh sách linh kiện tiêu chu"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 287.66,
+      "end": 288.73,
+      "duration": 1.07,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 288.73,
+      "end": 291.44,
+      "duration": 2.71,
+      "text_snippet": "Ví Dụ Code: Giải Mã Mã Nguồn Thành Bytecode"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 291.44,
+      "end": 302.46,
+      "duration": 11.02,
+      "text_snippet": "Để minh họa sự khác biệt định dạng, đây là câu lệnh Java đơn giản cùng với các lệnh JVM dựa trên stack được tạo ra khi b"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 302.46,
+      "end": 303.53,
+      "duration": 1.07,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 303.53,
+      "end": 344.13,
+      "duration": 40.6,
+      "text_snippet": "/* \nBytecode JVM tương ứng (thu được qua javap -c ClassName):\n 0: iconst_5       // Đẩy hằng số nguyên 5 vào operand sta"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 344.13,
+      "end": 345.83,
+      "duration": 1.7,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 345.83,
+      "end": 364.9,
+      "duration": 19.07,
+      "text_snippet": "Lập trình viên viết văn bản .java Unicode dễ đọc $\\rightarrow$ javac phân tích cú pháp và biên dịch thành .class nhị phâ"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 364.9,
+      "end": 366.85,
+      "duration": 1.95,
+      "text_snippet": "Biên Dịch JIT (JIT Compilation)"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 366.85,
+      "end": 369.62,
+      "duration": 2.77,
+      "text_snippet": "JIT là viết tắt của Just-In-Time (Đúng Lúc)."
+    },
+    {
+      "paragraph_id": 49,
+      "start": 369.62,
+      "end": 380.51,
+      "duration": 10.89,
+      "text_snippet": "JVM có thể quan sát phần nào của chương trình thường xuyên được thực thi. Những phần thường dùng này có thể được biên dị"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 380.51,
+      "end": 386.87,
+      "duration": 6.36,
+      "text_snippet": "Đây là lý do hiệu năng Java có thể cải thiện sau thời gian khởi động trong các ứng dụng chạy dài hạn."
+    },
+    {
+      "paragraph_id": 51,
+      "start": 386.87,
+      "end": 388.88,
+      "duration": 2.01,
+      "text_snippet": "Thu Gom Rác (Garbage Collection)"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 388.88,
+      "end": 396.5,
+      "duration": 7.62,
+      "text_snippet": "Java tạo nhiều đối tượng trên heap. Khi đối tượng không còn có thể tiếp cận, thu gom rác có thể thu hồi bộ nhớ của chúng"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 396.5,
+      "end": 396.88,
+      "duration": 0.38,
+      "text_snippet": "Ví dụ:"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 396.88,
+      "end": 397.95,
+      "duration": 1.07,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 397.95,
+      "end": 408.4,
+      "duration": 10.45,
+      "text_snippet": "Sau text = null, đối tượng String gốc có thể trở thành không thể tiếp cận nếu không có tham chiếu nào khác trỏ đến nó. C"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 408.4,
+      "end": 411.61,
+      "duration": 3.21,
+      "text_snippet": "Garbage Collection Thu Gom Gì Và Cách Phát Hiện Rác"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 411.61,
+      "end": 440.69,
+      "duration": 29.08,
+      "text_snippet": "Trong Java, bộ nhớ được chia thành các vùng khác nhau, chủ yếu là Stack và Heap. Các biến nguyên thủy (primitive) cục bộ"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 440.69,
+      "end": 478.71,
+      "duration": 38.02,
+      "text_snippet": "Để xác định đối tượng nào có thể được thu hồi an toàn, GC dùng cơ chế gọi là phân tích khả năng tiếp cận. Nó bắt đầu từ "
+    },
+    {
+      "paragraph_id": 59,
+      "start": 478.71,
+      "end": 480.66,
+      "duration": 1.95,
+      "text_snippet": "Mô Hình Tư Duy: Bóng Bay Và Neo"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 480.66,
+      "end": 514.84,
+      "duration": 34.18,
+      "text_snippet": "Hãy nghĩ các đối tượng Heap như những bóng bay. Hãy nghĩ các biến tham chiếu trên Stack như những bàn tay cầm dây buộc v"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 514.84,
+      "end": 515.91,
+      "duration": 1.07,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 515.91,
+      "end": 518.74,
+      "duration": 2.83,
+      "text_snippet": "Ví Dụ Code: Đối Tượng Heap Đủ Điều Kiện Bị GC"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 518.74,
+      "end": 526.8,
+      "duration": 8.06,
+      "text_snippet": "Đây là minh họa cách cập nhật tham chiếu phá vỡ chuỗi khả năng tiếp cận và đưa đối tượng vào trạng thái đủ điều kiện bị "
+    },
+    {
+      "paragraph_id": 64,
+      "start": 526.8,
+      "end": 527.87,
+      "duration": 1.07,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 527.87,
+      "end": 529.57,
+      "duration": 1.7,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+    },
+    {
+      "paragraph_id": 66,
+      "start": 529.57,
+      "end": 552.1,
+      "duration": 22.53,
+      "text_snippet": "Đối tượng Heap mất tất cả đường tham chiếu trở lại GC Roots đang hoạt động $\\rightarrow$ Phân tích khả năng tiếp cận đán"
+    },
+    {
+      "paragraph_id": 67,
+      "start": 552.1,
+      "end": 554.05,
+      "duration": 1.95,
+      "text_snippet": "Lỗi Compile-Time Và Lỗi Runtime"
+    },
+    {
+      "paragraph_id": 68,
+      "start": 554.05,
+      "end": 555.12,
+      "duration": 1.07,
+      "text_snippet": "Lỗi compile-time:"
+    },
+    {
+      "paragraph_id": 69,
+      "start": 555.12,
+      "end": 556.19,
+      "duration": 1.07,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 70,
+      "start": 556.19,
+      "end": 560.28,
+      "duration": 4.09,
+      "text_snippet": "Trình biên dịch từ chối điều này vì không thể gán String cho int."
+    },
+    {
+      "paragraph_id": 71,
+      "start": 560.28,
+      "end": 561.04,
+      "duration": 0.76,
+      "text_snippet": "Lỗi runtime:"
+    },
+    {
+      "paragraph_id": 72,
+      "start": 561.04,
+      "end": 562.11,
+      "duration": 1.07,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 73,
+      "start": 562.11,
+      "end": 565.95,
+      "duration": 3.84,
+      "text_snippet": "Cái này biên dịch được, nhưng thất bại khi chương trình chạy."
+    },
+    {
+      "paragraph_id": 74,
+      "start": 565.95,
+      "end": 566.83,
+      "duration": 0.88,
+      "text_snippet": "Lỗi Thường Gặp"
+    },
+    {
+      "paragraph_id": 75,
+      "start": 566.83,
+      "end": 577.03,
+      "duration": 10.2,
+      "text_snippet": "Nghĩ file .class là mã nguồn.\nNghĩ bytecode giống với mã máy gốc.\nNghĩ tất cả lỗi đều là lỗi compile-time.\nQuên rằng hàn"
+    },
+    {
+      "paragraph_id": 76,
+      "start": 577.03,
+      "end": 578.16,
+      "duration": 1.13,
+      "text_snippet": "Tài Liệu Tham Khảo"
+    },
+    {
+      "paragraph_id": 77,
+      "start": 578.16,
+      "end": 597.36,
+      "duration": 19.2,
+      "text_snippet": "https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.htmljvms-2.5 (Các Vùng Dữ Liệu Runtime)\nhttps://docs.oracle.c"
+    }
+  ]
+}

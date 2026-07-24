@@ -1,0 +1,1057 @@
+{
+  "lesson": "01-what-is-a-lambda-concepts",
+  "total_duration_seconds": 1139.21,
+  "total_paragraphs": 150,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 1.53,
+      "duration": 1.53,
+      "text_snippet": "Biểu Thức Lambda (Lambda Expression) - Phần 1"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 1.53,
+      "end": 2.07,
+      "duration": 0.54,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 2.07,
+      "end": 8.3,
+      "duration": 6.22,
+      "text_snippet": "Tài liệu này trình bày một phần trọng tâm của Biểu thức Lambda (Lambda Expression). Hãy nghiên cứu từng khái niệm dưới d"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 8.3,
+      "end": 8.91,
+      "duration": 0.61,
+      "text_snippet": "Nội Dung Tổng Quan"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 8.91,
+      "end": 43.85,
+      "duration": 34.93,
+      "text_snippet": "What is a lambda? — What is a lambda?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nLambda syntax — Lambd"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 43.85,
+      "end": 44.39,
+      "duration": 0.54,
+      "text_snippet": "Ghi Chú Chi Tiết"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 44.39,
+      "end": 45.51,
+      "duration": 1.12,
+      "text_snippet": "Lambda là gì? (What is a lambda?)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 45.51,
+      "end": 49.19,
+      "duration": 3.67,
+      "text_snippet": "Một biểu thức lambda là một khối dạng hàm nhỏ gọn được sử dụng ở những nơi mong đợi một giao diện chức năng."
+    },
+    {
+      "paragraph_id": 9,
+      "start": 49.19,
+      "end": 57.52,
+      "duration": 8.33,
+      "text_snippet": "Khái niệm này rất quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống xử lý dạng hàm (function-style pip"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 57.52,
+      "end": 58.1,
+      "duration": 0.58,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 58.1,
+      "end": 65.21,
+      "duration": 7.11,
+      "text_snippet": "Định nghĩa What is a lambda? trong một câu.\nNhận biết What is a lambda? trong mã nguồn, câu lệnh, tài liệu hoặc các câu "
+    },
+    {
+      "paragraph_id": 12,
+      "start": 65.21,
+      "end": 66.23,
+      "duration": 1.02,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 66.23,
+      "end": 68.71,
+      "duration": 2.48,
+      "text_snippet": "n -> n > 0 là một lambda được sử dụng làm điều kiện kiểm tra (predicate)."
+    },
+    {
+      "paragraph_id": 14,
+      "start": 68.71,
+      "end": 81.64,
+      "duration": 12.93,
+      "text_snippet": "Xác Định Kiểu Mục Tiêu Cho Giao Diện Chức Năng\nMột lambda không có kiểu dữ liệu rõ ràng của riêng nó. Nó được liên kết v"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 81.64,
+      "end": 85.07,
+      "duration": 3.44,
+      "text_snippet": "// Target type is Predicate<Integer>\njava.util.function.Predicate<Integer> isPositive = n -> n > 0;\n`"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 85.07,
+      "end": 87.97,
+      "duration": 2.89,
+      "text_snippet": "Tại Sao Lambda Sử Dụng invokedynamic Và Các Phương Thức Bootstrap (Bootstrap Methods)"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 87.97,
+      "end": 127.26,
+      "duration": 39.29,
+      "text_snippet": "Các lớp nội bộ vô danh (anonymous inner class) truyền thống sẽ được biên dịch thành các tệp lớp riêng biệt (ví dụ: Enclo"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 127.26,
+      "end": 150.42,
+      "duration": 23.17,
+      "text_snippet": "Mô Hình Tư Duy: Vòng Đời Khởi Động Lambda\n`mermaid\nsequenceDiagram\n    autonumber\n    participant JVM as Thực thi JVM\n  "
+    },
+    {
+      "paragraph_id": 19,
+      "start": 150.42,
+      "end": 165.86,
+      "duration": 15.44,
+      "text_snippet": "Ví Dụ Mã Nguồn: Đầu Ra Của Lớp Được Tạo Động\n`java\npublic class LambdaCompilationDemo {\n    public static void main(Stri"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 165.86,
+      "end": 181.92,
+      "duration": 16.06,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\n`\nLambda được viết trong mã nguồn\n  │\n  ▼\nTrình biên dịch biên dịch thân lambda thành một ph"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 181.92,
+      "end": 182.94,
+      "duration": 1.02,
+      "text_snippet": "Cú pháp lambda (Lambda syntax)"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 182.94,
+      "end": 186.61,
+      "duration": 3.67,
+      "text_snippet": "Một biểu thức lambda là một khối dạng hàm nhỏ gọn được sử dụng ở những nơi mong đợi một giao diện chức năng."
+    },
+    {
+      "paragraph_id": 23,
+      "start": 186.61,
+      "end": 194.95,
+      "duration": 8.33,
+      "text_snippet": "Khái niệm này rất quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống xử lý dạng hàm (function-style pip"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 194.95,
+      "end": 195.53,
+      "duration": 0.58,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 195.53,
+      "end": 202.23,
+      "duration": 6.7,
+      "text_snippet": "Định nghĩa Lambda syntax trong một câu.\nNhận biết Lambda syntax trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏn"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 202.23,
+      "end": 203.25,
+      "duration": 1.02,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 203.25,
+      "end": 205.73,
+      "duration": 2.48,
+      "text_snippet": "n -> n > 0 là một lambda được sử dụng làm điều kiện kiểm tra (predicate)."
+    },
+    {
+      "paragraph_id": 28,
+      "start": 205.73,
+      "end": 209.74,
+      "duration": 4.01,
+      "text_snippet": "Ví Dụ Mã Nguồn: Các Biến Thể Cú Pháp\n`java\n// 1. Zero parameters\nRunnable r = () -> System.out.println(\"Zero params\");"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 209.74,
+      "end": 219.17,
+      "duration": 9.42,
+      "text_snippet": "// 2. Single parameter (parentheses and types are optional)\njava.util.function.Consumer<String> c1 = s -> System.out.pri"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 219.17,
+      "end": 223.05,
+      "duration": 3.88,
+      "text_snippet": "// 3. Multiple parameters (parentheses required)\njava.util.function.BinaryOperator<Integer> add = (a, b) -> a + b;"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 223.05,
+      "end": 229.44,
+      "duration": 6.4,
+      "text_snippet": "// 4. Block body (curly braces, statements, semicolons, and return keyword required)\njava.util.function.BinaryOperator<I"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 229.44,
+      "end": 245.6,
+      "duration": 16.16,
+      "text_snippet": "Sai Lầm Thường Gặp: Dấu Ngoặc Nhọn Và Từ Khóa return Không Chính Xác\nThân lambda có một biểu thức đơn có thể trả về một "
+    },
+    {
+      "paragraph_id": 33,
+      "start": 245.6,
+      "end": 250.46,
+      "duration": 4.86,
+      "text_snippet": "// Compile error: curly braces are used but return keyword is missing\njava.util.function.BinaryOperator<Integer> bad2 = "
+    },
+    {
+      "paragraph_id": 34,
+      "start": 250.46,
+      "end": 251.89,
+      "duration": 1.43,
+      "text_snippet": "Giao diện chức năng (Functional interface)"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 251.89,
+      "end": 256.18,
+      "duration": 4.29,
+      "text_snippet": "Một giao diện chức năng chỉ có duy nhất một phương thức trừu tượng (abstract method) và có thể được triển khai bởi một l"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 256.18,
+      "end": 260.57,
+      "duration": 4.39,
+      "text_snippet": "> Xem thêm: Các interface phổ biến như Predicate, Function, Consumer, được trình bày chi tiết trong Ch.22 - Functional I"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 260.57,
+      "end": 268.9,
+      "duration": 8.33,
+      "text_snippet": "Khái niệm này rất quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống xử lý dạng hàm (function-style pip"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 268.9,
+      "end": 269.48,
+      "duration": 0.58,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 269.48,
+      "end": 276.89,
+      "duration": 7.42,
+      "text_snippet": "Định nghĩa Functional interface trong một câu.\nNhận biết Functional interface trong mã nguồn, câu lệnh, tài liệu hoặc cá"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 276.89,
+      "end": 277.91,
+      "duration": 1.02,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 277.91,
+      "end": 281.18,
+      "duration": 3.27,
+      "text_snippet": "Khi đọc mã nguồn, hãy hỏi: Functional interface thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 281.18,
+      "end": 286.66,
+      "duration": 5.48,
+      "text_snippet": "Ví Dụ Mã Nguồn: Định Nghĩa Các Giao Dịch Chức Năng Tùy Chỉnh\n`java\ninterface SimpleCalculator {\n    int calculate(int x,"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 286.66,
+      "end": 293.83,
+      "duration": 7.18,
+      "text_snippet": "// Inherited Object methods do not count towards the abstract method limit\ninterface ObjectOverride {\n    void process()"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 293.83,
+      "end": 294.51,
+      "duration": 0.68,
+      "text_snippet": "@FunctionalInterface"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 294.51,
+      "end": 297.61,
+      "duration": 3.1,
+      "text_snippet": "@FunctionalInterface — Bắt buộc interface chỉ có duy nhất một phương thức trừu tượng (SAM)."
+    },
+    {
+      "paragraph_id": 46,
+      "start": 297.61,
+      "end": 305.94,
+      "duration": 8.33,
+      "text_snippet": "Khái niệm này rất quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống xử lý dạng hàm (function-style pip"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 305.94,
+      "end": 306.52,
+      "duration": 0.58,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 306.52,
+      "end": 313.94,
+      "duration": 7.42,
+      "text_snippet": "Định nghĩa @FunctionalInterface trong một câu.\nNhận biết @FunctionalInterface trong mã nguồn, câu lệnh, tài liệu hoặc cá"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 313.94,
+      "end": 314.96,
+      "duration": 1.02,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 314.96,
+      "end": 318.22,
+      "duration": 3.27,
+      "text_snippet": "Khi đọc mã nguồn, hãy hỏi: @FunctionalInterface thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 318.22,
+      "end": 322.13,
+      "duration": 3.91,
+      "text_snippet": "Ví Dụ Mã Nguồn: Kiểm Tra Tại Thời Điểm Biên Dịch\n`java\n@FunctionalInterface\ninterface Valid {\n    void execute();\n}"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 322.13,
+      "end": 328.22,
+      "duration": 6.09,
+      "text_snippet": "// Compile Error: InvalidFunctionalInterfaceException (multiple non-overriding abstract methods)\n@FunctionalInterface\nin"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 328.22,
+      "end": 331.25,
+      "duration": 3.03,
+      "text_snippet": "Tại Sao Lambda Không Thể Ném Ngoại Lệ Được Kiểm Tra (Checked Exception) Và Cách Bỏ Qua Nó"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 331.25,
+      "end": 364.42,
+      "duration": 33.17,
+      "text_snippet": "Hệ thống kiểu dữ liệu của Java yêu cầu các ngoại lệ được kiểm tra (checked exception) phải được xử lý trong khối try-cat"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 364.42,
+      "end": 386.19,
+      "duration": 21.77,
+      "text_snippet": "Mô Hình Tư Duy: Xác Minh Chữ Ký Ngoại Lệ Được Kiểm Tra\n`\n[Biểu thức Lambda] ──(Cố gắng ném checked Exception)──► [Xác mi"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 386.19,
+      "end": 390.61,
+      "duration": 4.42,
+      "text_snippet": "Ví Dụ Mã Nguồn: Bắt so với Lan truyền Ngoại lệ Được Kiểm Tra\n`java\nimport java.io.IOException;\nimport java.util.function"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 390.61,
+      "end": 395.64,
+      "duration": 5.03,
+      "text_snippet": "public class LambdaExceptionHandling {\n    @FunctionalInterface\n    interface ThrowingConsumer<T> {\n        void accept("
+    },
+    {
+      "paragraph_id": 58,
+      "start": 395.64,
+      "end": 402.18,
+      "duration": 6.53,
+      "text_snippet": "public static void main(String[] args) {\n        // Standard Consumer: Compile error if we throw checked exception direc"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 402.18,
+      "end": 415.54,
+      "duration": 13.37,
+      "text_snippet": "// Fix 1: Try-catch block inside lambda\n        Consumer<String> consumerWithCatch = s -> {\n            try {\n          "
+    },
+    {
+      "paragraph_id": 60,
+      "start": 415.54,
+      "end": 428.2,
+      "duration": 12.65,
+      "text_snippet": "// Fix 2: Custom functional interface\n        ThrowingConsumer<String> customConsumer = s -> throwChecked(s);\n        tr"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 428.2,
+      "end": 432.35,
+      "duration": 4.15,
+      "text_snippet": "private static void throwChecked(String s) throws IOException {\n        throw new IOException(\"Test Exception\");\n    }\n}"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 432.35,
+      "end": 445.89,
+      "duration": 13.54,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\n`\nLambda ném ngoại lệ được kiểm tra (checked exception)\n  │\n  ▼\nTrình biên dịch kiểm tra chữ"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 445.89,
+      "end": 447.32,
+      "duration": 1.43,
+      "text_snippet": "Tham chiếu phương thức (Method reference):"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 447.32,
+      "end": 452.08,
+      "duration": 4.76,
+      "text_snippet": "Tham chiếu phương thức (Method reference) là một nhóm các quy tắc liên quan đến Biểu thức Lambda dùng để gom nhóm một số"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 452.08,
+      "end": 452.66,
+      "duration": 0.58,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 66,
+      "start": 452.66,
+      "end": 459.77,
+      "duration": 7.11,
+      "text_snippet": "Định nghĩa Method reference: trong một câu.\nNhận biết Method reference: trong mã nguồn, câu lệnh, tài liệu hoặc các câu "
+    },
+    {
+      "paragraph_id": 67,
+      "start": 459.77,
+      "end": 460.79,
+      "duration": 1.02,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 68,
+      "start": 460.79,
+      "end": 463.95,
+      "duration": 3.16,
+      "text_snippet": "Khi đọc mã nguồn, hãy hỏi: Method reference: thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 69,
+      "start": 463.95,
+      "end": 479.46,
+      "duration": 15.51,
+      "text_snippet": "Phân Loại Các Tham Chiếu Phương Thức\nCó 4 loại tham chiếu phương thức chính:\nTham chiếu phương thức tĩnh (Static method "
+    },
+    {
+      "paragraph_id": 70,
+      "start": 479.46,
+      "end": 481.26,
+      "duration": 1.8,
+      "text_snippet": "Tham chiếu phương thức tĩnh (static method reference)"
+    },
+    {
+      "paragraph_id": 71,
+      "start": 481.26,
+      "end": 484.09,
+      "duration": 2.82,
+      "text_snippet": "static có nghĩa là thành viên thuộc về lớp chứ không phải một đối tượng cụ thể nào."
+    },
+    {
+      "paragraph_id": 72,
+      "start": 484.09,
+      "end": 484.67,
+      "duration": 0.58,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 73,
+      "start": 484.67,
+      "end": 492.39,
+      "duration": 7.72,
+      "text_snippet": "Định nghĩa static method reference trong một câu.\nNhận biết static method reference trong mã nguồn, câu lệnh, tài liệu h"
+    },
+    {
+      "paragraph_id": 74,
+      "start": 492.39,
+      "end": 493.41,
+      "duration": 1.02,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 75,
+      "start": 493.41,
+      "end": 495.24,
+      "duration": 1.84,
+      "text_snippet": "ClassName.member truy cập một thành viên ở cấp độ lớp."
+    },
+    {
+      "paragraph_id": 76,
+      "start": 495.24,
+      "end": 500.52,
+      "duration": 5.27,
+      "text_snippet": "Ví Dụ Mã Nguồn: Các Tham Chiếu Phương Thức Tĩnh\n`java\n// Lambda form:\njava.util.function.Function<String, Integer> parse"
+    },
+    {
+      "paragraph_id": 77,
+      "start": 500.52,
+      "end": 504.22,
+      "duration": 3.71,
+      "text_snippet": "// Method reference equivalent:\njava.util.function.Function<String, Integer> parserRef = Integer::parseInt;\n`"
+    },
+    {
+      "paragraph_id": 78,
+      "start": 504.22,
+      "end": 506.23,
+      "duration": 2.01,
+      "text_snippet": "Tham chiếu phương thức thể hiện (instance method reference)"
+    },
+    {
+      "paragraph_id": 79,
+      "start": 506.23,
+      "end": 512.76,
+      "duration": 6.53,
+      "text_snippet": "Tham chiếu phương thức thể hiện (instance method reference) — Tham chiếu phương thức thể hiện (instance method reference"
+    },
+    {
+      "paragraph_id": 80,
+      "start": 512.76,
+      "end": 513.34,
+      "duration": 0.58,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 81,
+      "start": 513.34,
+      "end": 521.27,
+      "duration": 7.93,
+      "text_snippet": "Định nghĩa instance method reference trong một câu.\nNhận biết instance method reference trong mã nguồn, câu lệnh, tài li"
+    },
+    {
+      "paragraph_id": 82,
+      "start": 521.27,
+      "end": 522.29,
+      "duration": 1.02,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 83,
+      "start": 522.29,
+      "end": 525.72,
+      "duration": 3.44,
+      "text_snippet": "Khi đọc mã nguồn, hãy hỏi: instance method reference thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 84,
+      "start": 525.72,
+      "end": 549.7,
+      "duration": 23.98,
+      "text_snippet": "Tham Chiếu Phương Thức Thể Hiện Bị Giới Hạn (Bound) so với Tự Do (Unbound)\nTham chiếu phương thức bị giới hạn (Bound Met"
+    },
+    {
+      "paragraph_id": 85,
+      "start": 549.7,
+      "end": 556.03,
+      "duration": 6.33,
+      "text_snippet": "// 2. Unbound instance method reference\njava.util.function.BiFunction<String, String, String> unboundConcat = String::co"
+    },
+    {
+      "paragraph_id": 86,
+      "start": 556.03,
+      "end": 557.63,
+      "duration": 1.6,
+      "text_snippet": "Tham chiếu hàm khởi tạo (constructor reference)"
+    },
+    {
+      "paragraph_id": 87,
+      "start": 557.63,
+      "end": 563.34,
+      "duration": 5.71,
+      "text_snippet": "Tham chiếu hàm khởi tạo (constructor reference) — Tham chiếu hàm khởi tạo (constructor reference): Cung cấp các quy tắc "
+    },
+    {
+      "paragraph_id": 88,
+      "start": 563.34,
+      "end": 563.92,
+      "duration": 0.58,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 89,
+      "start": 563.92,
+      "end": 571.44,
+      "duration": 7.52,
+      "text_snippet": "Định nghĩa constructor reference trong một câu.\nNhận biết constructor reference trong mã nguồn, câu lệnh, tài liệu hoặc "
+    },
+    {
+      "paragraph_id": 90,
+      "start": 571.44,
+      "end": 572.46,
+      "duration": 1.02,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 91,
+      "start": 572.46,
+      "end": 575.76,
+      "duration": 3.3,
+      "text_snippet": "Khi đọc mã nguồn, hãy hỏi: constructor reference thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 92,
+      "start": 575.76,
+      "end": 582.02,
+      "duration": 6.26,
+      "text_snippet": "Ví Dụ Mã Nguồn: Các Tham Chiếu Hàm Khởi Tạo\n`java\n// Matches no-arg constructor ArrayList()\njava.util.function.Supplier<"
+    },
+    {
+      "paragraph_id": 93,
+      "start": 582.02,
+      "end": 587.36,
+      "duration": 5.34,
+      "text_snippet": "// Matches constructor ArrayList(int initialCapacity)\njava.util.function.Function<Integer, java.util.List<String>> sizeS"
+    },
+    {
+      "paragraph_id": 94,
+      "start": 587.36,
+      "end": 590.25,
+      "duration": 2.89,
+      "text_snippet": "Cách Thức Phân Giải Đối Tượng Nhận Và Chữ Ký Của Tham Chiếu Phương Thức Dưới Nền Tảng"
+    },
+    {
+      "paragraph_id": 95,
+      "start": 590.25,
+      "end": 618.62,
+      "duration": 28.37,
+      "text_snippet": "Các tham chiếu phương thức (Class::method hoặc instance::method) là cú pháp rút gọn (syntactic sugar) cho lambdas, nhưng"
+    },
+    {
+      "paragraph_id": 96,
+      "start": 618.62,
+      "end": 632.84,
+      "duration": 14.22,
+      "text_snippet": "Mô Hình Tư Duy: Ánh Xạ Tham Chiếu Phương Thức\n`mermaid\ngraph TD\n    A[Kiểu tham chiếu phương thức] --> B[Tĩnh: Class::st"
+    },
+    {
+      "paragraph_id": 97,
+      "start": 632.84,
+      "end": 635.7,
+      "duration": 2.86,
+      "text_snippet": "Ví Dụ Mã Nguồn: Sự Khác Biệt Trong Ánh Xạ Tham Số\n`java\nimport java.util.function.*;"
+    },
+    {
+      "paragraph_id": 98,
+      "start": 635.7,
+      "end": 652.37,
+      "duration": 16.67,
+      "text_snippet": "public class MethodRefResolution {\n    public static void main(String[] args) {\n        // 1. Static method reference\n  "
+    },
+    {
+      "paragraph_id": 99,
+      "start": 652.37,
+      "end": 660.22,
+      "duration": 7.86,
+      "text_snippet": "// 3. Unbound instance method reference\n        BiPredicate<String, String> unboundRef = String::startsWith;\n        Sys"
+    },
+    {
+      "paragraph_id": 100,
+      "start": 660.22,
+      "end": 673.93,
+      "duration": 13.71,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\n`\nLoại tham chiếu phương thức được xác định tại thời điểm biên dịch\n  │\n  ▼\nPhương thức tĩnh"
+    },
+    {
+      "paragraph_id": 101,
+      "start": 673.93,
+      "end": 675.02,
+      "duration": 1.09,
+      "text_snippet": "Sao chụp biến (Variable capture)"
+    },
+    {
+      "paragraph_id": 102,
+      "start": 675.02,
+      "end": 679.71,
+      "duration": 4.69,
+      "text_snippet": "Sao chụp biến (Variable capture) — Sao chụp biến (Variable capture): Cung cấp các quy tắc và cơ chế hoạt động cụ thể tro"
+    },
+    {
+      "paragraph_id": 103,
+      "start": 679.71,
+      "end": 680.29,
+      "duration": 0.58,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 104,
+      "start": 680.29,
+      "end": 687.3,
+      "duration": 7.01,
+      "text_snippet": "Định nghĩa Variable capture trong một câu.\nNhận biết Variable capture trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏ"
+    },
+    {
+      "paragraph_id": 105,
+      "start": 687.3,
+      "end": 688.32,
+      "duration": 1.02,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 106,
+      "start": 688.32,
+      "end": 691.45,
+      "duration": 3.13,
+      "text_snippet": "Khi đọc mã nguồn, hãy hỏi: Variable capture thay đổi, cho phép, từ chối hoặc làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 107,
+      "start": 691.45,
+      "end": 703.12,
+      "duration": 11.67,
+      "text_snippet": "Ví Dụ Mã Nguồn: Sao Chụp Các Biến Từ Phạm Vi Bao Quanh\nLambdas có thể đọc các biến tĩnh (static variable), biến thể hiện"
+    },
+    {
+      "paragraph_id": 108,
+      "start": 703.12,
+      "end": 705.94,
+      "duration": 2.82,
+      "text_snippet": "public void demo() {\n        int localVar = 30; // effectively final local variable"
+    },
+    {
+      "paragraph_id": 109,
+      "start": 705.94,
+      "end": 715.81,
+      "duration": 9.86,
+      "text_snippet": "Runnable r = () -> {\n            instanceVar++; // OK: instance variables are not restricted\n            staticVar++;   "
+    },
+    {
+      "paragraph_id": 110,
+      "start": 715.81,
+      "end": 717.0,
+      "duration": 1.19,
+      "text_snippet": "Hiệu dụng final (Effectively final)"
+    },
+    {
+      "paragraph_id": 111,
+      "start": 717.0,
+      "end": 720.84,
+      "duration": 3.84,
+      "text_snippet": "> Xem thêm: Từ khóa final và các đặc điểm của biến final, được trình bày chi tiết trong Ch.10 - Access Modifiers."
+    },
+    {
+      "paragraph_id": 112,
+      "start": 720.84,
+      "end": 724.31,
+      "duration": 3.47,
+      "text_snippet": "final có nghĩa là biến, phương thức, lớp hoặc tham số bị hạn chế thay đổi sau đó theo một cách cụ thể."
+    },
+    {
+      "paragraph_id": 113,
+      "start": 724.31,
+      "end": 730.33,
+      "duration": 6.02,
+      "text_snippet": "Hãy sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép, và các trường hợp lỗi xảy ra. Hãy ôn tậ"
+    },
+    {
+      "paragraph_id": 114,
+      "start": 730.33,
+      "end": 730.91,
+      "duration": 0.58,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 115,
+      "start": 730.91,
+      "end": 738.02,
+      "duration": 7.11,
+      "text_snippet": "Định nghĩa Effectively final trong một câu.\nNhận biết Effectively final trong mã nguồn, câu lệnh, tài liệu hoặc các câu "
+    },
+    {
+      "paragraph_id": 116,
+      "start": 738.02,
+      "end": 739.04,
+      "duration": 1.02,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 117,
+      "start": 739.04,
+      "end": 740.77,
+      "duration": 1.73,
+      "text_snippet": "final int limit = 10; không thể bị gán lại giá trị."
+    },
+    {
+      "paragraph_id": 118,
+      "start": 740.77,
+      "end": 760.47,
+      "duration": 19.7,
+      "text_snippet": "Ví Dụ Mã Nguồn: Các Lỗi Biên Dịch Liên Quan Đến Hiệu Dụng Final\nNếu một biến cục bộ bị gán lại giá trị ở bất kỳ nơi nào "
+    },
+    {
+      "paragraph_id": 119,
+      "start": 760.47,
+      "end": 770.27,
+      "duration": 9.8,
+      "text_snippet": "public void testReassignmentInLambda() {\n    int count = 0;\n    \n    // Compile Error: local variables referenced from a"
+    },
+    {
+      "paragraph_id": 120,
+      "start": 770.27,
+      "end": 773.09,
+      "duration": 2.82,
+      "text_snippet": "Tại Sao Các Biến Cục Bộ Được Sao Chụp Bởi Lambda Phải Là Final Hoặc Hiệu Dụng Final"
+    },
+    {
+      "paragraph_id": 121,
+      "start": 773.09,
+      "end": 805.75,
+      "duration": 32.66,
+      "text_snippet": "Các biến cục bộ nằm trên ngăn xếp thực thi (execution stack) và bị hủy ngay lập tức khi phương thức bao quanh kết thúc. "
+    },
+    {
+      "paragraph_id": 122,
+      "start": 805.75,
+      "end": 830.92,
+      "duration": 25.17,
+      "text_snippet": "Mô Hình Tư Duy: Vòng Đời Ngăn Xếp (Stack) so với Vùng Nhớ Heap của Sao Chụp Biến\n`\nNGĂN XẾP (STACK - Method Frame)      "
+    },
+    {
+      "paragraph_id": 123,
+      "start": 830.92,
+      "end": 850.1,
+      "duration": 19.19,
+      "text_snippet": "Ví Dụ Mã Nguồn: Truy Cập Các Biến Được Sao Chụp\n`java\npublic class VariableCaptureWhy {\n    public static void main(Stri"
+    },
+    {
+      "paragraph_id": 124,
+      "start": 850.1,
+      "end": 864.32,
+      "duration": 14.22,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\n`\nBiến cục bộ được lưu trữ trên khung ngăn xếp (stack frame)\n  │\n  ▼\nPhương thức bao quanh t"
+    },
+    {
+      "paragraph_id": 125,
+      "start": 864.32,
+      "end": 867.52,
+      "duration": 3.2,
+      "text_snippet": "Ví Dụ Thực Tế: Tái Cấu Trúc Mã Nguồn Gọi Lại Lớp Vô Danh Sang Lambda Và Tham Chiếu Phương Thức"
+    },
+    {
+      "paragraph_id": 126,
+      "start": 867.52,
+      "end": 878.23,
+      "duration": 10.72,
+      "text_snippet": "Trong mã nguồn Java cũ, các giao diện bất đồng bộ hoặc hướng gọi lại (callback-driven) được triển khai bằng các lớp nội "
+    },
+    {
+      "paragraph_id": 127,
+      "start": 878.23,
+      "end": 883.68,
+      "duration": 5.44,
+      "text_snippet": "Triển Khai Theo Cách Cũ (Lớp Nội Bộ Vô Danh)\n`java\nimport java.util.ArrayList;\nimport java.util.Collections;\nimport java"
+    },
+    {
+      "paragraph_id": 128,
+      "start": 883.68,
+      "end": 890.72,
+      "duration": 7.04,
+      "text_snippet": "public class RefactoringDemo {\n    public static void main(String[] args) {\n        List<String> names = new ArrayList<>"
+    },
+    {
+      "paragraph_id": 129,
+      "start": 890.72,
+      "end": 899.63,
+      "duration": 8.91,
+      "text_snippet": "// Verbose sorting callback using anonymous class\n        Collections.sort(names, new Comparator<String>() {\n           "
+    },
+    {
+      "paragraph_id": 130,
+      "start": 899.63,
+      "end": 909.39,
+      "duration": 9.76,
+      "text_snippet": "Tái Cấu Trúc Sang Biểu Thức Lambda\nVì Comparator là một giao diện chức năng có một phương thức trừu tượng duy nhất là co"
+    },
+    {
+      "paragraph_id": 131,
+      "start": 909.39,
+      "end": 920.14,
+      "duration": 10.75,
+      "text_snippet": "Tái Cấu Trúc Sang Tham Chiếu Phương Thức\nBởi vì lambda chỉ đơn giản là nhận các đối số và chuyển tiếp chúng đến s1.compa"
+    },
+    {
+      "paragraph_id": 132,
+      "start": 920.14,
+      "end": 922.18,
+      "duration": 2.04,
+      "text_snippet": "// Modern list sort syntax:\nnames.sort(String::compareTo);\n`"
+    },
+    {
+      "paragraph_id": 133,
+      "start": 922.18,
+      "end": 939.84,
+      "duration": 17.65,
+      "text_snippet": "Các Điểm Khác Biệt Và Lưu Ý Quan Trọng\nPhạm vi tham chiếu this: Bên trong một lớp vô danh, this tham chiếu đến chính thể"
+    },
+    {
+      "paragraph_id": 134,
+      "start": 939.84,
+      "end": 941.98,
+      "duration": 2.14,
+      "text_snippet": "Phạm Vi Và Ngữ Nghĩa Phạm Vi: Lambdas so với Lớp Nội Bộ Vô Danh"
+    },
+    {
+      "paragraph_id": 135,
+      "start": 941.98,
+      "end": 969.87,
+      "duration": 27.89,
+      "text_snippet": "Một lớp nội bộ vô danh giới thiệu một phạm vi từ vựng hoàn toàn mới, tạo ra một ngữ cảnh lớp mới nơi this tham chiếu đến"
+    },
+    {
+      "paragraph_id": 136,
+      "start": 969.87,
+      "end": 998.21,
+      "duration": 28.34,
+      "text_snippet": "Mô Hình Tư Duy: Ranh Giới Phạm Vi Từ Vựng so với Phạm Vi Lớp\n`\nPhạm vi từ vựng trong phương thức bao quanh:\n┌───────────"
+    },
+    {
+      "paragraph_id": 137,
+      "start": 998.21,
+      "end": 1002.46,
+      "duration": 4.25,
+      "text_snippet": "Ví Dụ Mã Nguồn: Phạm Vi Từ Vựng Và Phân Giải 'this'\n`java\npublic class ScopingDemo {\n    private final String name = \"Ou"
+    },
+    {
+      "paragraph_id": 138,
+      "start": 1002.46,
+      "end": 1020.05,
+      "duration": 17.59,
+      "text_snippet": "public void run() {\n        // 1. Anonymous Inner Class\n        Runnable r1 = new Runnable() {\n            private final"
+    },
+    {
+      "paragraph_id": 139,
+      "start": 1020.05,
+      "end": 1028.72,
+      "duration": 8.67,
+      "text_snippet": "// 2. Lambda Expression\n        Runnable r2 = () -> {\n            // 'this' refers to ScopingDemo instance\n            S"
+    },
+    {
+      "paragraph_id": 140,
+      "start": 1028.72,
+      "end": 1031.55,
+      "duration": 2.82,
+      "text_snippet": "public static void main(String[] args) {\n        new ScopingDemo().run();\n    }\n}\n`"
+    },
+    {
+      "paragraph_id": 141,
+      "start": 1031.55,
+      "end": 1042.5,
+      "duration": 10.95,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\n`\nLambda sử dụng phạm vi từ vựng (lexical scoping)\n  │\n  ▼\nPhạm vi được thừa hưởng từ môi tr"
+    },
+    {
+      "paragraph_id": 142,
+      "start": 1042.5,
+      "end": 1043.11,
+      "duration": 0.61,
+      "text_snippet": "Sai Lầm Thường Gặp"
+    },
+    {
+      "paragraph_id": 143,
+      "start": 1043.11,
+      "end": 1070.63,
+      "duration": 27.52,
+      "text_snippet": "Gán lại giá trị cho các biến bên trong hoặc bên ngoài một lambda (Quy tắc Hiệu dụng Final)\nMột sai lầm rất phổ biến là c"
+    },
+    {
+      "paragraph_id": 144,
+      "start": 1070.63,
+      "end": 1086.89,
+      "duration": 16.26,
+      "text_snippet": "Xung Đột Che Khuất Biến (Variable Shadowing)\nLambdas không giới thiệu một mức phạm vi mới. Chúng chia sẻ phạm vi của khố"
+    },
+    {
+      "paragraph_id": 145,
+      "start": 1086.89,
+      "end": 1109.27,
+      "duration": 22.38,
+      "text_snippet": "Nhầm Lẫn Số Lượng Tham Số Của Tham Chiếu Phương Thức Bị Giới Hạn (Bound) Và Tự Do (Unbound)\nKhi sử dụng Class::methodNam"
+    },
+    {
+      "paragraph_id": 146,
+      "start": 1109.27,
+      "end": 1119.75,
+      "duration": 10.48,
+      "text_snippet": "// Function<String, Boolean> requires only one parameter.\n// If unbound (String::startsWith), it resolves to: (str) -> s"
+    },
+    {
+      "paragraph_id": 147,
+      "start": 1119.75,
+      "end": 1120.74,
+      "duration": 0.99,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
+    },
+    {
+      "paragraph_id": 148,
+      "start": 1120.74,
+      "end": 1127.91,
+      "duration": 7.18,
+      "text_snippet": "Những khái niệm nào ở đây là quy tắc trong thời gian biên dịch (compile-time)?\nNhững khái niệm nào ở đây ảnh hưởng đến h"
+    },
+    {
+      "paragraph_id": 149,
+      "start": 1127.91,
+      "end": 1128.53,
+      "duration": 0.61,
+      "text_snippet": "Liên Kết Tham Khảo"
+    },
+    {
+      "paragraph_id": 150,
+      "start": 1128.53,
+      "end": 1139.21,
+      "duration": 10.68,
+      "text_snippet": "https://docs.oracle.com/javase/specs/jls/se21/html/jls-15.htmljls-15.27 (Lambda Expressions JLS)\nhttps://docs.oracle.com"
+    }
+  ]
+}

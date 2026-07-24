@@ -1,0 +1,329 @@
+{
+  "lesson": "01-how-are-jvm-jdk-and-jre-different-concepts",
+  "total_duration_seconds": 428.11,
+  "total_paragraphs": 46,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 2.77,
+      "duration": 2.77,
+      "text_snippet": "Các Câu Hỏi Phỏng Vấn Java Core Thường Gặp - Phần 1"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 2.77,
+      "end": 3.64,
+      "duration": 0.87,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 3.64,
+      "end": 15.76,
+      "duration": 12.12,
+      "text_snippet": "File này đề cập đến các câu hỏi phỏng vấn Java Core nền tảng liên quan đến kiến trúc JVM, quy tắc truyền tham trị (pass-"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 15.76,
+      "end": 16.74,
+      "duration": 0.98,
+      "text_snippet": "Đề Cương Khái Niệm"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 16.74,
+      "end": 80.82,
+      "duration": 64.08,
+      "text_snippet": "JVM, JDK, và JRE khác nhau như thế nào? — JVM, JDK, và JRE khác nhau như thế nào?: Cung cấp các quy tắc và cơ chế hoạt đ"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 80.82,
+      "end": 80.93,
+      "duration": 0.11,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 80.93,
+      "end": 81.8,
+      "duration": 0.87,
+      "text_snippet": "Ghi Chú Chi Tiết"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 81.8,
+      "end": 83.92,
+      "duration": 2.12,
+      "text_snippet": "JVM, JDK, và JRE Khác Nhau Như Thế Nào?"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 83.92,
+      "end": 116.31,
+      "duration": 32.39,
+      "text_snippet": "JVM (Java Virtual Machine - Máy ảo Java): Bộ máy thực thi Java bytecode (các tệp .class). Nó xử lý quản lý bộ nhớ (Stack"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 116.31,
+      "end": 116.42,
+      "duration": 0.11,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 116.42,
+      "end": 118.16,
+      "duration": 1.74,
+      "text_snippet": "Java Có Truyền Tham Chiếu Không?"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 118.16,
+      "end": 138.27,
+      "duration": 20.11,
+      "text_snippet": "Java tuân thủ nghiêm ngặt việc truyền tham trị (pass-by-value). Khi một tham chiếu đối tượng được truyền vào một phương "
+    },
+    {
+      "paragraph_id": 13,
+      "start": 138.27,
+      "end": 139.19,
+      "duration": 0.92,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 139.19,
+      "end": 146.2,
+      "duration": 7.01,
+      "text_snippet": "reassign(user); // Tries to reassign the reference\n        System.out.println(user.name); // Still prints \"Bob\" (no chan"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 146.2,
+      "end": 149.57,
+      "duration": 3.37,
+      "text_snippet": "static void changeName(User u) {\n        u.name = \"Bob\";\n    }"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 149.57,
+      "end": 155.98,
+      "duration": 6.41,
+      "text_snippet": "static void reassign(User u) {\n        u = new User(\"Charlie\"); // Only reassigns the local copied parameter\n    }\n}\n`"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 155.98,
+      "end": 156.09,
+      "duration": 0.11,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 156.09,
+      "end": 157.12,
+      "duration": 1.03,
+      "text_snippet": "== so với .equals()"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 157.12,
+      "end": 165.33,
+      "duration": 8.21,
+      "text_snippet": "== — ==: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\n.equals() — .equals(): Cung cấp các quy tắc và cơ c"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 165.33,
+      "end": 165.44,
+      "duration": 0.11,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 165.44,
+      "end": 168.05,
+      "duration": 2.61,
+      "text_snippet": "Tính Bất Biến Của String & Các Bộ Dựng (Builder)"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 168.05,
+      "end": 172.67,
+      "duration": 4.62,
+      "text_snippet": "Một khi đối tượng String được tạo ra trong Java, giá trị của nó không thể bị sửa đổi."
+    },
+    {
+      "paragraph_id": 23,
+      "start": 172.67,
+      "end": 201.58,
+      "duration": 28.91,
+      "text_snippet": "Tại sao String lại bất biến?:\n  1. String Pool (Bể chứa chuỗi): Cho phép chia sẻ các chuỗi literal để tiết kiệm không gi"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 201.58,
+      "end": 219.41,
+      "duration": 17.83,
+      "text_snippet": "String so với StringBuilder so với StringBuffer:\n  - String: Bất biến. Mỗi sửa đổi đều tạo ra một đối tượng mới.\n  - Str"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 219.41,
+      "end": 219.52,
+      "duration": 0.11,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 219.52,
+      "end": 221.42,
+      "duration": 1.9,
+      "text_snippet": "HashMap & Các Cải Tiến Trong Java 8"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 221.42,
+      "end": 225.28,
+      "duration": 3.86,
+      "text_snippet": "Một HashMap lưu trữ các cặp khóa-giá trị (key-value) sử dụng logic băm."
+    },
+    {
+      "paragraph_id": 28,
+      "start": 225.28,
+      "end": 269.74,
+      "duration": 44.46,
+      "text_snippet": "Cấu trúc bên trong: Sử dụng một mảng các nút (gọi là bucket).\n  1. Tính toán hashcode của khóa bằng hàm hash(key).\n  2. "
+    },
+    {
+      "paragraph_id": 29,
+      "start": 269.74,
+      "end": 269.85,
+      "duration": 0.11,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 269.85,
+      "end": 271.31,
+      "duration": 1.47,
+      "text_snippet": "ArrayList so với LinkedList"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 271.31,
+      "end": 293.05,
+      "duration": 21.74,
+      "text_snippet": "ArrayList:\n  - Triển khai List sử dụng một mảng có thể thay đổi kích thước.\n  - Truy cập ngẫu nhiên là O(1).\n  - Chèn/xó"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 293.05,
+      "end": 293.16,
+      "duration": 0.11,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 293.16,
+      "end": 294.9,
+      "duration": 1.74,
+      "text_snippet": "Các Lỗi Thường Gặp & Bẫy Cú Pháp"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 294.9,
+      "end": 309.14,
+      "duration": 14.24,
+      "text_snippet": "Bẫy Tham Chiếu Trong Truyền Tham Trị\nGiả định rằng một phương thức có thể gán lại một biến tham chiếu bên ngoài:\n`java\nv"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 309.14,
+      "end": 328.49,
+      "duration": 19.35,
+      "text_snippet": "Gọi equals() Trên Đối Tượng Null\nGọi equals() trên một tham chiếu null sẽ ném ra lỗi NullPointerException. Luôn luôn đặt"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 328.49,
+      "end": 328.6,
+      "duration": 0.11,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 328.6,
+      "end": 330.45,
+      "duration": 1.85,
+      "text_snippet": "Tại Sao JDK, JRE, và JVM Khác Nhau"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 330.45,
+      "end": 377.51,
+      "duration": 47.07,
+      "text_snippet": "Nền tảng Java được thiết kế với ba tầng lồng nhau để hỗ trợ mô hình phát triển phần mềm \"viết một lần, chạy mọi nơi\". JV"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 377.51,
+      "end": 379.63,
+      "duration": 2.12,
+      "text_snippet": "Phân tầng kiến trúc Java (Mental Model)"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 379.63,
+      "end": 380.56,
+      "duration": 0.92,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 380.56,
+      "end": 381.32,
+      "duration": 0.76,
+      "text_snippet": "Ví Dụ Mã Nguồn"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 381.32,
+      "end": 389.96,
+      "duration": 8.64,
+      "text_snippet": "Mã nguồn sau đây minh họa rằng quá trình thực thi yêu cầu công cụ của nhà phát triển javac để biên dịch, nhưng chỉ yêu c"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 389.96,
+      "end": 390.88,
+      "duration": 0.92,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 390.88,
+      "end": 425.72,
+      "duration": 34.84,
+      "text_snippet": "public class EnvironmentTest {\n    public static void main(String[] args) {\n        // Checking if JDK tools are on the "
+    },
+    {
+      "paragraph_id": 45,
+      "start": 425.72,
+      "end": 427.19,
+      "duration": 1.47,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 427.19,
+      "end": 428.11,
+      "duration": 0.92,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    }
+  ]
+}

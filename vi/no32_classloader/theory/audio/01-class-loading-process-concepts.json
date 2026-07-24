@@ -1,0 +1,434 @@
+{
+  "lesson": "01-class-loading-process-concepts",
+  "total_duration_seconds": 550.73,
+  "total_paragraphs": 61,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 0.88,
+      "duration": 0.88,
+      "text_snippet": "Trình nạp lớp (ClassLoader) - Phần 1"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 0.88,
+      "end": 1.66,
+      "duration": 0.78,
+      "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 1.66,
+      "end": 5.67,
+      "duration": 4.01,
+      "text_snippet": "Tài liệu này đề cập đến một phần trọng tâm của trình nạp lớp (ClassLoader). Hãy nghiên cứu từng khái niệm như một quy tắ"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 5.67,
+      "end": 6.57,
+      "duration": 0.9,
+      "text_snippet": "Nội Dung Khái Quát (Outline Coverage)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 6.57,
+      "end": 29.55,
+      "duration": 22.97,
+      "text_snippet": "Class loading process — Class loading process: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nBootstrap Cla"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 29.55,
+      "end": 30.35,
+      "duration": 0.81,
+      "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 30.35,
+      "end": 31.36,
+      "duration": 1.0,
+      "text_snippet": "Quy trình nạp lớp (Class loading process)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 31.36,
+      "end": 39.49,
+      "duration": 8.14,
+      "text_snippet": "Quy trình nạp lớp là cơ chế của JVM để đưa mã byte (bytecode) nhị phân đã biên dịch (được lưu trữ trong các tệp .class h"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 39.49,
+      "end": 41.57,
+      "duration": 2.08,
+      "text_snippet": "Tại Sao Ba Giai Đoạn Của Việc Nạp Lớp Kiểm Soát Việc Thực Thi Tĩnh (Static Execution)"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 41.57,
+      "end": 70.7,
+      "duration": 29.13,
+      "text_snippet": "Nạp lớp không phải là một bước đơn nguyên duy nhất mà là một quy trình có cấu trúc gồm ba giai đoạn riêng biệt: Nạp, Liê"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 70.7,
+      "end": 97.78,
+      "duration": 27.08,
+      "text_snippet": "Mô Hình Tư Duy: Các Giai Đoạn Nạp Lớp (Class Loading Phases)\n`\n---------------------------------------------------------"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 97.78,
+      "end": 106.34,
+      "duration": 8.55,
+      "text_snippet": "Ví Dụ Mã Nguồn (Code Example)\n`java\npublic class ClassLoadingPhasesDemo {\n    static class Target {\n        // Preparati"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 106.34,
+      "end": 123.64,
+      "duration": 17.3,
+      "text_snippet": "public static void main(String[] args) throws Exception {\n        System.out.println(\"Main started\");\n        \n        /"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 123.64,
+      "end": 131.54,
+      "duration": 7.89,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)\nKích hoạt lớp chủ động xảy ra (ví dụ: truy cập tĩnh) → Lớp được nạp nếu"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 131.54,
+      "end": 131.58,
+      "duration": 0.05,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 131.58,
+      "end": 132.73,
+      "duration": 1.15,
+      "text_snippet": "Trình nạp lớp Khởi động (Bootstrap ClassLoader)"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 132.73,
+      "end": 145.69,
+      "duration": 12.95,
+      "text_snippet": "Trình nạp lớp Khởi động (Bootstrap ClassLoader) là cha của tất cả các trình nạp lớp. Nó được viết bằng mã máy (C/C++) và"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 145.69,
+      "end": 147.23,
+      "duration": 1.54,
+      "text_snippet": "Trình nạp lớp Nền tảng/Mở rộng (Platform/Extension ClassLoader)"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 147.23,
+      "end": 156.49,
+      "duration": 9.26,
+      "text_snippet": "Trình nạp lớp Nền tảng (Platform ClassLoader) (được gọi là Trình nạp lớp Mở rộng (Extension ClassLoader) trước phiên bản"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 156.49,
+      "end": 157.66,
+      "duration": 1.17,
+      "text_snippet": "Trình nạp lớp Ứng dụng (Application ClassLoader)"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 157.66,
+      "end": 166.56,
+      "duration": 8.9,
+      "text_snippet": "Còn được gọi là Trình nạp lớp Hệ thống (System ClassLoader), Trình nạp lớp Ứng dụng chịu trách nhiệm nạp các lớp từ đườn"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 166.56,
+      "end": 167.68,
+      "duration": 1.12,
+      "text_snippet": "Mô hình ủy quyền cha (Parent delegation model)"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 167.68,
+      "end": 178.66,
+      "duration": 10.97,
+      "text_snippet": "Mô hình ủy quyền cha là khung phân cấp điều hướng cách các trình nạp lớp tìm kiếm các lớp. Khi một trình nạp lớp nhận đư"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 178.66,
+      "end": 179.9,
+      "duration": 1.25,
+      "text_snippet": "Tại Sao Mô Hình Ủy Quyền Cha Bảo Vệ Các API Cốt Lõi"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 179.9,
+      "end": 205.2,
+      "duration": 25.3,
+      "text_snippet": "Mô hình ủy quyền cha là một cơ chế bảo mật cốt lõi trong Máy ảo Java (Java Virtual Machine - JVM). Khi một trình nạp lớp"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 205.2,
+      "end": 216.42,
+      "duration": 11.22,
+      "text_snippet": "Mô Hình Tư Duy: Mô Hình Ủy Quyền Cha (Parent Delegation Model)\n`mermaid\nflowchart TD\n    Req[Yêu cầu nạp java.lang.Objec"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 216.42,
+      "end": 240.27,
+      "duration": 23.85,
+      "text_snippet": "Ví Dụ Mã Nguồn (Code Example)\n`java\n// Conceptual demonstration of package containment checks\npublic class ClassProtecti"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 240.27,
+      "end": 248.19,
+      "duration": 7.92,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)\nYêu cầu lớp tùy chỉnh → Được ủy quyền ngược lên Trình nạp lớp Khởi động"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 248.19,
+      "end": 248.24,
+      "duration": 0.05,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 248.24,
+      "end": 249.12,
+      "duration": 0.88,
+      "text_snippet": "Nạp lớp động (Dynamic class loading)"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 249.12,
+      "end": 257.74,
+      "duration": 8.63,
+      "text_snippet": "Nạp lớp động đề cập đến khả năng của JVM trong việc nạp các lớp vào thời gian chạy theo yêu cầu, thay vì biên dịch tĩnh "
+    },
+    {
+      "paragraph_id": 32,
+      "start": 257.74,
+      "end": 260.75,
+      "duration": 3.01,
+      "text_snippet": "Tại Sao Không Gian Tên (Namespace) Của Trình Nạp Lớp Quyết Định Tính Duy Nhất Của Định Danh Kiểu (Type Identity Uniquene"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 260.75,
+      "end": 280.37,
+      "duration": 19.63,
+      "text_snippet": "Trong Máy ảo Java, định danh của một lớp không chỉ được xác định bằng tên đầy đủ (fully qualified name) của nó (ví dụ: c"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 280.37,
+      "end": 303.84,
+      "duration": 23.46,
+      "text_snippet": "Mô Hình Tư Duy: Sự Phân Tách Kiểu Của Trình Nạp Lớp (ClassLoader Type Separation)\n`\n------------------------------------"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 303.84,
+      "end": 325.64,
+      "duration": 21.8,
+      "text_snippet": "Ví Dụ Mã Nguồn (Code Example)\n`java\n// Conceptual example of namespace type mismatch\npublic class NamespaceTypeMismatchD"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 325.64,
+      "end": 334.75,
+      "duration": 9.12,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)\nNhiều thực thể trình nạp lớp nạp cùng một lớp → Các đối tượng java.lang"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 334.75,
+      "end": 334.8,
+      "duration": 0.05,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 334.8,
+      "end": 335.12,
+      "duration": 0.32,
+      "text_snippet": "Class.forName"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 335.12,
+      "end": 344.36,
+      "duration": 9.24,
+      "text_snippet": "Class.forName là một phương thức API phản chiếu được sử dụng để nạp một lớp một cách động bằng tên đầy đủ của nó. Theo m"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 344.36,
+      "end": 346.63,
+      "duration": 2.27,
+      "text_snippet": "Tại Sao SPI Và Các Khung Tiện Ích Mở Rộng (Plugin Frameworks) Phải Phá Vỡ Cơ Chế Ủy Quyền Cha"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 346.63,
+      "end": 376.35,
+      "duration": 29.72,
+      "text_snippet": "Mô hình ủy quyền cha nghiêm ngặt hoạt động theo cách tiếp cận từ trên xuống (top-down), trong đó các trình nạp lớp ủy qu"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 376.35,
+      "end": 405.97,
+      "duration": 29.62,
+      "text_snippet": "Mô Hình Tư Duy: Phá Vỡ Cơ Chế Ủy Quyền Cha Cho SPI (Breaking Parent Delegation for SPI)\n`\n------------------------------"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 405.97,
+      "end": 408.19,
+      "duration": 2.22,
+      "text_snippet": "Ví Dụ Mã Nguồn (Code Example)\n`java\nimport java.sql.Driver;\nimport java.util.ServiceLoader;"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 408.19,
+      "end": 431.53,
+      "duration": 23.34,
+      "text_snippet": "public class TCCLDemo {\n    public static void main(String[] args) {\n        // TCCL is set to the Application ClassLoad"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 431.53,
+      "end": 441.36,
+      "duration": 9.82,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)\nThư viện cốt lõi được nạp bởi Trình nạp lớp Khởi động → Cần khởi tạo lớ"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 441.36,
+      "end": 441.41,
+      "duration": 0.05,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 441.41,
+      "end": 442.02,
+      "duration": 0.61,
+      "text_snippet": "Đường dẫn lớp (Classpath)"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 442.02,
+      "end": 446.27,
+      "duration": 4.25,
+      "text_snippet": "Đường dẫn lớp là một tham số cấu hình (tùy chọn dòng lệnh hoặc biến môi trường) chỉ định các thư mục và các tệp lưu trữ "
+    },
+    {
+      "paragraph_id": 49,
+      "start": 446.27,
+      "end": 448.47,
+      "duration": 2.2,
+      "text_snippet": "Tại Sao Các Trình Nạp Lớp Tùy Chỉnh Gây Ra Rò Rỉ Bộ Nhớ Metaspace (Metaspace Memory Leaks)"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 448.47,
+      "end": 481.42,
+      "duration": 32.94,
+      "text_snippet": "Các container ứng dụng web (web application containers) như Tomcat sử dụng các trình nạp lớp tùy chỉnh để cô lập nhiều b"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 481.42,
+      "end": 484.64,
+      "duration": 3.23,
+      "text_snippet": "> Xem thêm: Chi tiết về cấu trúc bộ nhớ JVM, Metaspace và Garbage Collector, được trình bày chi tiết trong Ch.37 - JVM A"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 484.64,
+      "end": 494.35,
+      "duration": 9.7,
+      "text_snippet": "Mô Hình Tư Duy: Chu Kỳ Tham Chiếu Trình Nạp Lớp (ClassLoader Reference Cycle)\n`\nSystem Registry (e.g., ThreadLocal or JD"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 494.35,
+      "end": 497.91,
+      "duration": 3.57,
+      "text_snippet": "Ví Dụ Mã Nguồn (Code Example)\n`java\npublic class MetaspaceLeakSample {\n    private static final ThreadLocal<Object> cont"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 497.91,
+      "end": 519.93,
+      "duration": 22.02,
+      "text_snippet": "public static void runLeak(ClassLoader webappLoader) throws Exception {\n        // Load an application class using our c"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 519.93,
+      "end": 532.57,
+      "duration": 12.64,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)\nGỡ bỏ triển khai ứng dụng web → Các tham chiếu đến trình nạp lớp tùy ch"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 532.57,
+      "end": 532.62,
+      "duration": 0.05,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 532.62,
+      "end": 533.57,
+      "duration": 0.95,
+      "text_snippet": "Nạp file JAR cơ bản (Basic JAR loading)"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 533.57,
+      "end": 541.71,
+      "duration": 8.14,
+      "text_snippet": "Nạp file JAR (Java Archive) cho phép tích hợp nhiều tệp .class đã biên dịch, tệp cấu hình tài nguyên và siêu dữ liệu vào"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 541.71,
+      "end": 542.59,
+      "duration": 0.88,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 542.59,
+      "end": 550.68,
+      "duration": 8.09,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html (Tài liệu ClassLoader API chính "
+    },
+    {
+      "paragraph_id": 61,
+      "start": 550.68,
+      "end": 550.73,
+      "duration": 0.05,
+      "text_snippet": "--"
+    }
+  ]
+}

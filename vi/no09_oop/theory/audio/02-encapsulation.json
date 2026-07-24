@@ -1,0 +1,427 @@
+{
+  "lesson": "02-encapsulation",
+  "total_duration_seconds": 474.05,
+  "total_paragraphs": 60,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 1.01,
+      "duration": 1.01,
+      "text_snippet": "Đóng Gói (Encapsulation)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 1.01,
+      "end": 16.32,
+      "duration": 15.31,
+      "text_snippet": "Đóng gói (encapsulation) là một nguyên lý của lập trình hướng đối tượng (OOP) nhằm gộp dữ liệu (các trường thể hiện - in"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 16.32,
+      "end": 16.4,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 16.4,
+      "end": 19.98,
+      "duration": 3.57,
+      "text_snippet": "Các Từ Khóa Đặc Tả Truy Cập và Các Cấp Độ Phạm Vi (Access Modifiers and Scope Levels)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 19.98,
+      "end": 39.28,
+      "duration": 19.3,
+      "text_snippet": "Java cung cấp các từ khóa đặc tả truy cập (access modifier) để giới hạn khả năng hiển thị ở hai cấp độ:\nCấp độ lớp (Clas"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 39.28,
+      "end": 52.61,
+      "duration": 13.33,
+      "text_snippet": "private — private: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\ndefault — default: Cung cấp các quy tắc v"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 52.61,
+      "end": 76.46,
+      "duration": 23.85,
+      "text_snippet": "Giải Thích Các Phạm Vi Chính:\nprivate — private: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\ndefault — d"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 76.46,
+      "end": 76.54,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 76.54,
+      "end": 79.27,
+      "duration": 2.73,
+      "text_snippet": "Mẫu Thiết Kế Getter và Setter (Getter and Setter Design Patterns)"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 79.27,
+      "end": 85.41,
+      "duration": 6.14,
+      "text_snippet": "Để tương tác với các trường private, các lớp sẽ cung cấp các phương thức truy xuất công khai (getter) và phương thức tha"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 85.41,
+      "end": 95.21,
+      "duration": 9.8,
+      "text_snippet": "Ví Dụ Về Đóng Gói Tiêu Chuẩn\nDưới đây là một lớp minh họa tính đóng gói tiêu chuẩn: các trường private, một hàm khởi dựn"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 95.21,
+      "end": 95.93,
+      "duration": 0.71,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 95.93,
+      "end": 102.87,
+      "duration": 6.94,
+      "text_snippet": "public Employee(String name, double salary) {\n        this.name = name;\n        setSalary(salary); // Bắt buộc kiểm chứn"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 102.87,
+      "end": 105.05,
+      "duration": 2.19,
+      "text_snippet": "public String getName() {\n        return name;\n    }"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 105.05,
+      "end": 107.83,
+      "duration": 2.78,
+      "text_snippet": "public void setName(String name) {\n        this.name = name;\n    }"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 107.83,
+      "end": 110.19,
+      "duration": 2.36,
+      "text_snippet": "public double getSalary() {\n        return salary;\n    }"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 110.19,
+      "end": 119.14,
+      "duration": 8.96,
+      "text_snippet": "public void setSalary(double salary) {\n        if (salary >= 0) {\n            this.salary = salary;\n        } else {\n   "
+    },
+    {
+      "paragraph_id": 18,
+      "start": 119.14,
+      "end": 121.92,
+      "duration": 2.78,
+      "text_snippet": "Mẫu thiết kế này đem lại nhiều lợi ích cho việc thiết kế phần mềm:"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 121.92,
+      "end": 136.09,
+      "duration": 14.17,
+      "text_snippet": "Kiểm Chứng Dữ Liệu (Data Validation)\nCác phương thức setter có thể kiểm tra dữ liệu đầu vào để ngăn chặn các trạng thái "
+    },
+    {
+      "paragraph_id": 20,
+      "start": 136.09,
+      "end": 151.61,
+      "duration": 15.52,
+      "text_snippet": "Kiểm Soát Chỉ Đọc (Read-Only) và Chỉ Ghi (Write-Only)\nLớp Chỉ Đọc (Read-Only): Cung cấp các phương thức getter nhưng khô"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 151.61,
+      "end": 165.95,
+      "duration": 14.34,
+      "text_snippet": "Sao Chép Phòng Thủ (Defensive Copying - Quan Trọng Với Kiểu Tham Chiếu)\nViệc cung cấp getter cho các đối tượng có thể th"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 165.95,
+      "end": 166.67,
+      "duration": 0.71,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 166.67,
+      "end": 172.38,
+      "duration": 5.72,
+      "text_snippet": "// Getter dễ bị tổn thương:\n    // public List<String> getMembers() { return this.members; } // Bên gọi có thể gọi getMe"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 172.38,
+      "end": 178.23,
+      "duration": 5.85,
+      "text_snippet": "// Getter đã đóng gói:\n    public List<String> getMembers() {\n        return new ArrayList<>(this.members); // Trả về mộ"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 178.23,
+      "end": 178.31,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 178.31,
+      "end": 179.16,
+      "duration": 0.84,
+      "text_snippet": "Lợi Ích Của Đóng Gói"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 179.16,
+      "end": 204.64,
+      "duration": 25.49,
+      "text_snippet": "Tính Linh Hoạt và Dễ Bảo Trì: Bạn có thể thay đổi cấu trúc dữ liệu nội bộ của một lớp mà không làm ảnh hưởng đến mã nguồ"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 204.64,
+      "end": 207.21,
+      "duration": 2.57,
+      "text_snippet": "Đi Sâu: Đóng Gói Không Chỉ Đơn Thuần Là Viết Getter Và Setter"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 207.21,
+      "end": 215.66,
+      "duration": 8.45,
+      "text_snippet": "Đóng gói không phải là thói quen tự động tạo ra getter và setter cho mọi trường dữ liệu. Nó là thói quen bảo vệ các bất "
+    },
+    {
+      "paragraph_id": 30,
+      "start": 215.66,
+      "end": 218.35,
+      "duration": 2.69,
+      "text_snippet": "Một thiết kế yếu sẽ để lộ mọi trường dữ liệu một cách gián tiếp:"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 218.35,
+      "end": 219.07,
+      "duration": 0.71,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 219.07,
+      "end": 221.93,
+      "duration": 2.86,
+      "text_snippet": "Một thiết kế mạnh mẽ hơn sẽ thể hiện hành vi thay vì trạng thái thô:"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 221.93,
+      "end": 222.64,
+      "duration": 0.71,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 222.64,
+      "end": 227.65,
+      "duration": 5.0,
+      "text_snippet": "public boolean matchesPassword(String rawPassword) {\n        return Passwords.matches(rawPassword, passwordHash);\n    }"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 227.65,
+      "end": 238.96,
+      "duration": 11.31,
+      "text_snippet": "public void changePassword(String oldPassword, String newPassword) {\n        if (!matchesPassword(oldPassword)) {\n      "
+    },
+    {
+      "paragraph_id": 36,
+      "start": 238.96,
+      "end": 239.04,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 239.04,
+      "end": 239.63,
+      "duration": 0.59,
+      "text_snippet": "Lỗi Thường Gặp"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 239.63,
+      "end": 253.89,
+      "duration": 14.26,
+      "text_snippet": "Vô Tư Tiết Lộ Mọi Trường Bằng Getter/Setter\nViệc tự động tạo getter và setter công khai cho tất cả các trường biến lớp đ"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 253.89,
+      "end": 282.4,
+      "duration": 28.51,
+      "text_snippet": "Làm Rò Rỉ Tham Chiếu Nội Bộ (Phá Vỡ Tính Đóng Gói)\nViệc cung cấp các phương thức getter cho các cấu trúc dữ liệu có thể "
+    },
+    {
+      "paragraph_id": 40,
+      "start": 282.4,
+      "end": 299.73,
+      "duration": 17.33,
+      "text_snippet": "Để Các Trường Ở Trạng Tính Package-Private (Quên Từ Khóa private)\nViệc bỏ qua các từ khóa đặc tả truy cập sẽ khiến chúng"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 299.73,
+      "end": 301.96,
+      "duration": 2.23,
+      "text_snippet": "Bảng Kiểm Tra Tính Đóng Gói (Encapsulation Checklist)"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 301.96,
+      "end": 319.83,
+      "duration": 17.87,
+      "text_snippet": "Giữ các trường ở trạng thái private theo mặc định.\nCung cấp các phương thức mô tả hành vi, chứ không chỉ mô tả nơi lưu t"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 319.83,
+      "end": 320.63,
+      "duration": 0.8,
+      "text_snippet": "Liên Kết Tham Chiếu"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 320.63,
+      "end": 331.98,
+      "duration": 11.35,
+      "text_snippet": "Hướng dẫn của Oracle Java - Các khái niệm OOP: https://docs.oracle.com/javase/tutorial/java/concepts/\nHướng dẫn của Orac"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 331.98,
+      "end": 332.07,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 332.07,
+      "end": 334.3,
+      "duration": 2.23,
+      "text_snippet": "Tại Sao Các Biến Thể Hiện Nên Để Ở Trạng Thái Private"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 334.3,
+      "end": 394.69,
+      "duration": 60.39,
+      "text_snippet": "Khi một biến thể hiện (instance variable) được khai báo là private, trình biên dịch Java sẽ bắt buộc giới hạn truy cập ở"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 394.69,
+      "end": 395.28,
+      "duration": 0.59,
+      "text_snippet": "Mô Hình Tư Duy"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 395.28,
+      "end": 395.99,
+      "duration": 0.71,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 395.99,
+      "end": 396.58,
+      "duration": 0.59,
+      "text_snippet": "Ví Dụ Mã Nguồn"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 396.58,
+      "end": 397.3,
+      "duration": 0.71,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 397.3,
+      "end": 400.7,
+      "duration": 3.41,
+      "text_snippet": "public Account(double openingBalance) {\n        setBalance(openingBalance);\n    }"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 400.7,
+      "end": 403.14,
+      "duration": 2.44,
+      "text_snippet": "public double getBalance() {\n        return balance;\n    }"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 403.14,
+      "end": 412.27,
+      "duration": 9.13,
+      "text_snippet": "public void setBalance(double amount) {\n        if (amount >= 0) {\n            this.balance = amount;\n        } else {\n "
+    },
+    {
+      "paragraph_id": 55,
+      "start": 412.27,
+      "end": 417.44,
+      "duration": 5.17,
+      "text_snippet": "public class Main {\n    public static void main(String[] args) throws Exception {\n        Account acc = new Account(500."
+    },
+    {
+      "paragraph_id": 56,
+      "start": 417.44,
+      "end": 421.14,
+      "duration": 3.7,
+      "text_snippet": "// acc.balance = -999; // Lỗi Biên Dịch: balance có quyền truy cập private trong Account"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 421.14,
+      "end": 424.72,
+      "duration": 3.57,
+      "text_snippet": "acc.setBalance(200.0);\n        System.out.println(acc.getBalance()); // Đầu ra: 200.0"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 424.72,
+      "end": 441.16,
+      "duration": 16.44,
+      "text_snippet": "// Vượt qua giới hạn bằng phản chiếu (JVM không ngăn cản ở runtime nếu dùng setAccessible)\n        java.lang.reflect.Fie"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 441.16,
+      "end": 443.18,
+      "duration": 2.02,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 443.18,
+      "end": 474.05,
+      "duration": 30.87,
+      "text_snippet": "Trường dữ liệu được khai báo là private\n→ Trình biên dịch Java từ chối mọi truy cập obj.field từ bên ngoài lớp tại thời "
+    }
+  ]
+}

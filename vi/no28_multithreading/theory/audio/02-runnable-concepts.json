@@ -1,0 +1,294 @@
+{
+  "lesson": "02-runnable-concepts",
+  "total_duration_seconds": 364.78,
+  "total_paragraphs": 41,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 1.62,
+      "duration": 1.62,
+      "text_snippet": "Đa luồng - Phần 2 (Multithreading - Part 2)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 1.62,
+      "end": 2.22,
+      "duration": 0.6,
+      "text_snippet": "Mục tiêu học tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 2.22,
+      "end": 10.56,
+      "duration": 8.34,
+      "text_snippet": "Tài liệu này tập trung vào các trạng thái thực thi luồng, lập lịch, và các thao tác cơ bản như khởi chạy, chạy và tạm dừ"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 10.56,
+      "end": 11.2,
+      "duration": 0.64,
+      "text_snippet": "Đề cương chi tiết"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 11.2,
+      "end": 36.18,
+      "duration": 24.99,
+      "text_snippet": "Runnable — Runnable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nRunning — Running: Cung cấp các quy tắc"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 36.18,
+      "end": 36.79,
+      "duration": 0.6,
+      "text_snippet": "Ghi chú chi tiết"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 36.79,
+      "end": 37.88,
+      "duration": 1.09,
+      "text_snippet": "Chi tiết các trạng thái luồng"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 37.88,
+      "end": 43.14,
+      "duration": 5.26,
+      "text_snippet": "Java định nghĩa các trạng thái luồng trong enum Thread.State. Chúng ta có thể truy vấn trạng thái của một luồng thông qu"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 43.14,
+      "end": 43.77,
+      "duration": 0.64,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 43.77,
+      "end": 52.12,
+      "duration": 8.34,
+      "text_snippet": "RUNNABLE\nLuồng đang chạy hoặc đủ điều kiện để chạy.\n`java\nThread t = new Thread(() -> {\n    while (true) {\n        // Ac"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 52.12,
+      "end": 59.97,
+      "duration": 7.85,
+      "text_snippet": "BLOCKED\nXảy ra khi một luồng cố gắng đi vào một khối synchronized nhưng một luồng khác đã giữ khóa giám sát (monitor loc"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 59.97,
+      "end": 68.76,
+      "duration": 8.79,
+      "text_snippet": "public static void main(String[] args) throws InterruptedException {\n        Runnable r = () -> {\n            synchroniz"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 68.76,
+      "end": 71.05,
+      "duration": 2.29,
+      "text_snippet": "Thread t1 = new Thread(r);\n        Thread t2 = new Thread(r);"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 71.05,
+      "end": 75.49,
+      "duration": 4.43,
+      "text_snippet": "t1.start();\n        Thread.sleep(100); // Ensure t1 gets the lock first\n        t2.start();\n        Thread.sleep(100);"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 75.49,
+      "end": 78.38,
+      "duration": 2.89,
+      "text_snippet": "System.out.println(\"t2 state: \" + t2.getState()); // Prints BLOCKED\n    }\n}\n`"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 78.38,
+      "end": 97.13,
+      "duration": 18.75,
+      "text_snippet": "WAITING và TIMED_WAITING\nWAITING được kích hoạt bằng cách gọi Object.wait() không có thời gian chờ (timeout) hoặc Thread"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 97.13,
+      "end": 97.21,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 97.21,
+      "end": 100.44,
+      "duration": 3.23,
+      "text_snippet": "Ví Dụ Thực Tế: Phân tích trạng thái luồng khi xảy ra tranh chấp khóa (Lock Contention)"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 100.44,
+      "end": 107.31,
+      "duration": 6.88,
+      "text_snippet": "Vấn đề\nMột hệ thống thương mại điện tử đang gặp phải thời gian phản hồi cực kỳ chậm ở bước thanh toán. Các bản kết xuất "
+    },
+    {
+      "paragraph_id": 20,
+      "start": 107.31,
+      "end": 119.56,
+      "duration": 12.25,
+      "text_snippet": "Phân tích\nBằng cách in ra các trạng thái luồng, nhà phát triển phát hiện ra:\nLuồng A (Thread-A) giữ khóa trên màn giám s"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 119.56,
+      "end": 136.73,
+      "duration": 17.17,
+      "text_snippet": "Ví dụ mã nguồn\n`java\nclass Inventory {\n    public synchronized void update() {\n        try {\n            // Simulated sl"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 136.73,
+      "end": 136.81,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 136.81,
+      "end": 137.49,
+      "duration": 0.68,
+      "text_snippet": "Các lỗi thường gặp"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 137.49,
+      "end": 153.91,
+      "duration": 16.42,
+      "text_snippet": "Giả định Thread.sleep() sẽ giải phóng khóa\nMột luồng đang tạm dừng (sleep) KHÔNG giải phóng các khóa giám sát của nó. Nế"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 153.91,
+      "end": 168.37,
+      "duration": 14.47,
+      "text_snippet": "Quên xử lý InterruptedException\nThread.sleep() ném ra ngoại lệ InterruptedException là một ngoại lệ được kiểm tra (check"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 168.37,
+      "end": 173.86,
+      "duration": 5.49,
+      "text_snippet": "// GOOD\ntry {\n    Thread.sleep(1000);\n} catch (InterruptedException e) {\n    Thread.currentThread().interrupt(); // Rest"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 173.86,
+      "end": 176.41,
+      "duration": 2.56,
+      "text_snippet": "Tại sao triển khai Runnable/Callable được ưu tiên hơn kế thừa Thread"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 176.41,
+      "end": 219.85,
+      "duration": 43.44,
+      "text_snippet": "Việc Java thực thi mô hình đơn kế thừa lớp tạo ra một hạn chế nghiêm trọng về mặt kiến trúc khi kế thừa lớp Thread. Nếu "
+    },
+    {
+      "paragraph_id": 29,
+      "start": 219.85,
+      "end": 229.13,
+      "duration": 9.28,
+      "text_snippet": "Mô hình tư duy\n`text\n[Liên kết chặt chẽ (Kế thừa)]\n-----------------------------+\n| CustomTask extends Thread   | ---> K"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 229.13,
+      "end": 238.6,
+      "duration": 9.47,
+      "text_snippet": "[Liên kết lỏng lẻo (Thành phần)]\n----------------------+     +-----------------------+\n|  Nhiệm vụ (Runnable) |     | Lu"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 238.6,
+      "end": 240.52,
+      "duration": 1.92,
+      "text_snippet": "Ví dụ mã nguồn\n`java\nimport java.util.concurrent.*;"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 240.52,
+      "end": 257.76,
+      "duration": 17.25,
+      "text_snippet": "public class TaskDecoupling {\n    public static void main(String[] args) throws Exception {\n        Callable<String> tas"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 257.76,
+      "end": 274.75,
+      "duration": 16.98,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả\nMã nguồn triển khai Runnable/Callable &rarr; Logic nhiệm vụ được tách biệt khỏi cơ chế thực "
+    },
+    {
+      "paragraph_id": 34,
+      "start": 274.75,
+      "end": 276.55,
+      "duration": 1.8,
+      "text_snippet": "Tại sao start() là bắt buộc để sinh ra một luồng"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 276.55,
+      "end": 312.06,
+      "duration": 35.51,
+      "text_snippet": "Gọi trực tiếp phương thức run() trên một thực thể Thread sẽ thực thi các lệnh nhiệm vụ một cách đồng bộ bên trong ngăn x"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 312.06,
+      "end": 316.15,
+      "duration": 4.1,
+      "text_snippet": "Mô hình tư duy\n`text\n[Gọi trực tiếp run()]\nNgăn xếp luồng gọi: [main()] -> [run()]   (Đồng bộ, cùng ngăn xếp)"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 316.15,
+      "end": 326.94,
+      "duration": 10.78,
+      "text_snippet": "[Gọi phương thức start()]\nNgăn xếp luồng gọi: [main()] -> [start()] -> [start0() gốc]\n                                  "
+    },
+    {
+      "paragraph_id": 38,
+      "start": 326.94,
+      "end": 335.77,
+      "duration": 8.83,
+      "text_snippet": "Ví dụ mã nguồn\n`java\npublic class StartVsRun {\n    public static void main(String[] args) {\n        Thread thread = new "
+    },
+    {
+      "paragraph_id": 39,
+      "start": 335.77,
+      "end": 339.83,
+      "duration": 4.06,
+      "text_snippet": "System.out.println(\"Calling run() directly:\");\n        thread.run(); // Executed synchronously on main stack"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 339.83,
+      "end": 347.83,
+      "duration": 8.0,
+      "text_snippet": "System.out.println(\"Calling start():\");\n        thread.start(); // Spawns new thread asynchronously\n    }\n}\n/*\nOutput:\nC"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 347.83,
+      "end": 364.78,
+      "duration": 16.95,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả\nTrình gọi kích hoạt start() trên một Thread &rarr; JVM thực hiện kiểm tra trạng thái để đảm "
+    }
+  ]
+}

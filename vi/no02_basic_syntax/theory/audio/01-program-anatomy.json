@@ -1,0 +1,490 @@
+{
+  "lesson": "01-program-anatomy",
+  "total_duration_seconds": 371.28,
+  "total_paragraphs": 69,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 2.86,
+      "duration": 2.86,
+      "text_snippet": "Cấu Trúc Chương Trình Java (Program Anatomy)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 2.86,
+      "end": 11.68,
+      "duration": 8.83,
+      "text_snippet": "Một chương trình Java thường được tổ chức xung quanh các lớp (classes). Ngay cả một chương trình rất nhỏ cũng thường có "
+    },
+    {
+      "paragraph_id": 3,
+      "start": 11.68,
+      "end": 12.59,
+      "duration": 0.91,
+      "text_snippet": "Ví Dụ Tối Giản"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 12.59,
+      "end": 13.69,
+      "duration": 1.1,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 13.69,
+      "end": 14.99,
+      "duration": 1.3,
+      "text_snippet": "Chương trình này có:"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 14.99,
+      "end": 26.8,
+      "duration": 11.81,
+      "text_snippet": "Khai báo lớp: public class HelloWorld.\nKhai báo phương thức: public static void main(String[] args).\nCâu lệnh: System.ou"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 26.8,
+      "end": 29.01,
+      "duration": 2.21,
+      "text_snippet": "Tại Sao Mọi Code Đều Nằm Trong Lớp"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 29.01,
+      "end": 60.29,
+      "duration": 31.28,
+      "text_snippet": "Java được thiết kế từ đầu là ngôn ngữ lập trình hướng đối tượng. Trong Java, lớp đóng vai trò là đơn vị cơ bản của mã ng"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 60.29,
+      "end": 73.98,
+      "duration": 13.69,
+      "text_snippet": "Mô Hình Tư Duy: Blueprint Nhà\nHãy tưởng tượng một bản vẽ nhà: bạn không thể có ổ cắm điện hoạt động (câu lệnh/biểu thức)"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 73.98,
+      "end": 75.09,
+      "duration": 1.1,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 75.09,
+      "end": 92.61,
+      "duration": 17.52,
+      "text_snippet": "Ví Dụ Code\n`java\n// HelloWorld.java\npublic class HelloWorld { // Cấu trúc lớp bao ngoài là bắt buộc\n    public static vo"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 92.61,
+      "end": 105.33,
+      "duration": 12.72,
+      "text_snippet": "Chuỗi Nhân Quả\nCode được viết bên trong lớp &rarr; Trình biên dịch tạo file .class có cấu trúc &rarr; JVM ClassLoader tả"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 105.33,
+      "end": 107.02,
+      "duration": 1.69,
+      "text_snippet": "Tên File Và Tên Lớp Public"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 107.02,
+      "end": 111.17,
+      "duration": 4.15,
+      "text_snippet": "Nếu lớp cấp cao nhất là public, tên file phải trùng với tên lớp."
+    },
+    {
+      "paragraph_id": 15,
+      "start": 111.17,
+      "end": 111.49,
+      "duration": 0.32,
+      "text_snippet": "Đúng:"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 111.49,
+      "end": 112.6,
+      "duration": 1.1,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 112.6,
+      "end": 112.86,
+      "duration": 0.26,
+      "text_snippet": "Sai:"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 112.86,
+      "end": 113.96,
+      "duration": 1.1,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 113.96,
+      "end": 120.58,
+      "duration": 6.62,
+      "text_snippet": "Phiên bản sai gây ra lỗi biên dịch (compile-time error) vì tên lớp public và tên file không khớp nhau."
+    },
+    {
+      "paragraph_id": 20,
+      "start": 120.58,
+      "end": 121.94,
+      "duration": 1.36,
+      "text_snippet": "Câu Lệnh (Statements)"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 121.94,
+      "end": 125.12,
+      "duration": 3.18,
+      "text_snippet": "Câu lệnh là một chỉ thị mà chương trình thực thi."
+    },
+    {
+      "paragraph_id": 22,
+      "start": 125.12,
+      "end": 125.51,
+      "duration": 0.39,
+      "text_snippet": "Ví dụ:"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 125.51,
+      "end": 126.62,
+      "duration": 1.1,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 126.62,
+      "end": 129.86,
+      "duration": 3.24,
+      "text_snippet": "Hầu hết câu lệnh Java kết thúc bằng dấu chấm phẩy."
+    },
+    {
+      "paragraph_id": 25,
+      "start": 129.86,
+      "end": 131.87,
+      "duration": 2.01,
+      "text_snippet": "Lỗi phổ biến của người mới học:"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 131.87,
+      "end": 132.98,
+      "duration": 1.1,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 132.98,
+      "end": 135.64,
+      "duration": 2.66,
+      "text_snippet": "Đoạn này thất bại vì thiếu dấu chấm phẩy."
+    },
+    {
+      "paragraph_id": 28,
+      "start": 135.64,
+      "end": 136.8,
+      "duration": 1.17,
+      "text_snippet": "Khối Lệnh (Blocks)"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 136.8,
+      "end": 139.6,
+      "duration": 2.79,
+      "text_snippet": "Khối lệnh là một nhóm code nằm giữa { và }."
+    },
+    {
+      "paragraph_id": 30,
+      "start": 139.6,
+      "end": 140.7,
+      "duration": 1.1,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 140.7,
+      "end": 146.34,
+      "duration": 5.65,
+      "text_snippet": "Khối lệnh quan trọng vì chúng định nghĩa cấu trúc và thường ảnh hưởng đến phạm vi biến."
+    },
+    {
+      "paragraph_id": 32,
+      "start": 146.34,
+      "end": 149.14,
+      "duration": 2.79,
+      "text_snippet": "Phân Biệt Chữ Hoa/Thường (Case Sensitivity)"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 149.14,
+      "end": 151.54,
+      "duration": 2.4,
+      "text_snippet": "Java phân biệt chữ hoa và chữ thường."
+    },
+    {
+      "paragraph_id": 34,
+      "start": 151.54,
+      "end": 153.16,
+      "duration": 1.62,
+      "text_snippet": "Đây là các tên khác nhau:"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 153.16,
+      "end": 154.26,
+      "duration": 1.1,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 154.26,
+      "end": 158.87,
+      "duration": 4.61,
+      "text_snippet": "Điều này quan trọng với tên lớp, tên biến, tên phương thức, và từ khóa."
+    },
+    {
+      "paragraph_id": 37,
+      "start": 158.87,
+      "end": 161.27,
+      "duration": 2.4,
+      "text_snippet": "Tại Sao Java Phân Biệt Chữ Hoa/Thường"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 161.27,
+      "end": 201.64,
+      "duration": 40.37,
+      "text_snippet": "Phân biệt chữ hoa/thường trong Java là quyết định thiết kế cốt lõi của ngôn ngữ, đảm bảo tính chính xác tuyệt đối trong "
+    },
+    {
+      "paragraph_id": 39,
+      "start": 201.64,
+      "end": 220.13,
+      "duration": 18.5,
+      "text_snippet": "Mô Hình Tư Duy: Bảng Ký Hiệu\nHãy nghĩ về các định danh phân biệt chữ hoa/thường như mật khẩu trên website: \"P@ssword\" và"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 220.13,
+      "end": 221.24,
+      "duration": 1.1,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 221.24,
+      "end": 235.32,
+      "duration": 14.08,
+      "text_snippet": "Ví Dụ Code\n`java\npublic class CaseDemo {\n    public static void main(String[] args) {\n        int age = 21;\n        int "
+    },
+    {
+      "paragraph_id": 42,
+      "start": 235.32,
+      "end": 253.36,
+      "duration": 18.04,
+      "text_snippet": "Chuỗi Nhân Quả\nSử dụng viết hoa khác nhau &rarr; Trình biên dịch đăng ký các ký hiệu riêng biệt trong bảng ký hiệu &rarr"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 253.36,
+      "end": 254.98,
+      "duration": 1.62,
+      "text_snippet": "Khoảng Trắng (Whitespace)"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 254.98,
+      "end": 262.45,
+      "duration": 7.46,
+      "text_snippet": "Java thường bỏ qua khoảng trắng và xuống dòng thừa giữa các token, nhưng định dạng vẫn quan trọng cho khả năng đọc."
+    },
+    {
+      "paragraph_id": 45,
+      "start": 262.45,
+      "end": 265.24,
+      "duration": 2.79,
+      "text_snippet": "Các ví dụ sau được biên dịch tương tự nhau:"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 265.24,
+      "end": 266.34,
+      "duration": 1.1,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 266.34,
+      "end": 267.44,
+      "duration": 1.1,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 267.44,
+      "end": 273.87,
+      "duration": 6.42,
+      "text_snippet": "Kiểu thứ hai hợp lệ về mặt ngữ pháp nhưng rất khó đọc. Định dạng tốt giúp code có thể bảo trì được."
+    },
+    {
+      "paragraph_id": 49,
+      "start": 273.87,
+      "end": 274.78,
+      "duration": 0.91,
+      "text_snippet": "Lỗi Thường Gặp"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 274.78,
+      "end": 282.24,
+      "duration": 7.46,
+      "text_snippet": "Quên dấu chấm phẩy.\nDùng viết hoa sai.\nĐặt code bên ngoài lớp.\nKhông khớp { và }.\nĐặt tên file khác với lớp public."
+    },
+    {
+      "paragraph_id": 51,
+      "start": 282.24,
+      "end": 284.51,
+      "duration": 2.27,
+      "text_snippet": "Lỗi Thường Gặp: Thiếu Dấu Chấm Phẩy"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 284.51,
+      "end": 285.61,
+      "duration": 1.1,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 285.61,
+      "end": 286.72,
+      "duration": 1.1,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 286.72,
+      "end": 288.99,
+      "duration": 2.27,
+      "text_snippet": "Lỗi Thường Gặp: Tên File Không Khớp"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 288.99,
+      "end": 290.09,
+      "duration": 1.1,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 290.09,
+      "end": 293.01,
+      "duration": 2.92,
+      "text_snippet": "Cách sửa: đổi tên file thành HelloWorld.java."
+    },
+    {
+      "paragraph_id": 57,
+      "start": 293.01,
+      "end": 294.05,
+      "duration": 1.04,
+      "text_snippet": "print Và println"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 294.05,
+      "end": 301.58,
+      "duration": 7.53,
+      "text_snippet": "System.out.print in mà không có ký tự xuống dòng ở cuối.\nSystem.out.println in và sau đó chuyển sang dòng tiếp theo."
+    },
+    {
+      "paragraph_id": 59,
+      "start": 301.58,
+      "end": 302.68,
+      "duration": 1.1,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 302.68,
+      "end": 310.28,
+      "duration": 7.59,
+      "text_snippet": "// println — thêm xuống dòng sau mỗi lần gọi\nSystem.out.println(\"A\");\nSystem.out.println(\"B\");\n// Output:\n// A\n// B\n`"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 310.28,
+      "end": 311.9,
+      "duration": 1.62,
+      "text_snippet": "Kết hợp cả hai là hợp lệ:"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 311.9,
+      "end": 313.0,
+      "duration": 1.1,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 313.0,
+      "end": 316.7,
+      "duration": 3.7,
+      "text_snippet": "Ví Dụ Thực Tế: Một Chương Trình Tối Giản Nhưng Hoàn Chỉnh"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 316.7,
+      "end": 317.8,
+      "duration": 1.1,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 317.8,
+      "end": 326.5,
+      "duration": 8.7,
+      "text_snippet": "/\n * A minimal greeting program demonstrating all basic anatomy elements.\n */\npublic class Greeter {          // tên lớp"
+    },
+    {
+      "paragraph_id": 66,
+      "start": 326.5,
+      "end": 346.16,
+      "duration": 19.66,
+      "text_snippet": "// Điểm vào chương trình\n    public static void main(String[] args) {\n        String name = \"Java\";   // biến có tên có "
+    },
+    {
+      "paragraph_id": 67,
+      "start": 346.16,
+      "end": 357.07,
+      "duration": 10.9,
+      "text_snippet": "Chương trình này minh họa: khai báo package, doc comment, lớp public khớp tên file, phương thức main, tên biến có ý nghĩ"
+    },
+    {
+      "paragraph_id": 68,
+      "start": 357.07,
+      "end": 358.24,
+      "duration": 1.17,
+      "text_snippet": "Tài Liệu Tham Khảo"
+    },
+    {
+      "paragraph_id": 69,
+      "start": 358.24,
+      "end": 371.28,
+      "duration": 13.04,
+      "text_snippet": "https://docs.oracle.com/javase/specs/jls/se21/html/jls-3.htmljls-3.8 (JLS Cấu Trúc Từ Vựng - Định Danh)\nhttps://docs.ora"
+    }
+  ]
+}

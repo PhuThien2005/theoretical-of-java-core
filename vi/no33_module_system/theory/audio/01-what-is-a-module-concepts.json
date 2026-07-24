@@ -1,0 +1,350 @@
+{
+  "lesson": "01-what-is-a-module-concepts",
+  "total_duration_seconds": 482.54,
+  "total_paragraphs": 49,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 2.3,
+      "duration": 2.3,
+      "text_snippet": "Hệ Thống Mô-đun Java (Java Module System) - Phần 1"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 2.3,
+      "end": 3.04,
+      "duration": 0.74,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 3.04,
+      "end": 17.12,
+      "duration": 14.08,
+      "text_snippet": "Tài liệu này tập trung vào Hệ Thống Mô-đun Java (được giới thiệu từ Java 9 dưới tên gọi Dự án Jigsaw). Hãy nghiên cứu cá"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 17.12,
+      "end": 18.73,
+      "duration": 1.61,
+      "text_snippet": "Tóm Tắt Nội Dung (Outline Coverage)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 18.73,
+      "end": 61.95,
+      "duration": 43.22,
+      "text_snippet": "What is a module? — What is a module?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nmodule-info.java — mo"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 61.95,
+      "end": 62.04,
+      "duration": 0.09,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 62.04,
+      "end": 62.78,
+      "duration": 0.74,
+      "text_snippet": "Ghi Chú Chi Tiết"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 62.78,
+      "end": 64.3,
+      "duration": 1.52,
+      "text_snippet": "Mô-đun là gì? (What is a Module?)"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 64.3,
+      "end": 79.58,
+      "duration": 15.28,
+      "text_snippet": "Một mô-đun (Module) là một gói chứa các lớp Java, giao diện (Interface), và tài nguyên được nhóm lại với nhau đi kèm một"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 79.58,
+      "end": 82.53,
+      "duration": 2.95,
+      "text_snippet": "Tại sao Mô-đun Giải quyết được Classpath Hell và Lỗ hổng Bảo mật"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 82.53,
+      "end": 129.98,
+      "duration": 47.45,
+      "text_snippet": "Trong Java truyền thống (Java 8 trở về trước), tất cả các lớp được tải qua Đường dẫn lớp (Classpath) đều được gom vào mộ"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 129.98,
+      "end": 165.79,
+      "duration": 35.81,
+      "text_snippet": "Hệ thống Mô-đun Java (Dự án Jigsaw) giải quyết những vấn đề này bằng cách giới thiệu cơ chế Đóng gói mạnh mẽ (Strong Enc"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 165.79,
+      "end": 190.73,
+      "duration": 24.95,
+      "text_snippet": "Phép so sánh: Đống bộ nhớ lộn xộn so với Thùng container niêm phong\nĐường dẫn lớp Classpath (Cũ): Một đống lộn xộn các b"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 190.73,
+      "end": 191.52,
+      "duration": 0.78,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 191.52,
+      "end": 203.94,
+      "duration": 12.43,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả của việc Xác thực lúc Khởi động\n`text\nThiếu tệp JAR trên Classpath\n  → JVM bỏ qua nó khi khở"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 203.94,
+      "end": 213.2,
+      "duration": 9.25,
+      "text_snippet": "Thiếu Mô-đun trên Module Path\n  → JVM giải quyết đồ thị mô-đun khi khởi động\n  → Phát hiện thiếu phụ thuộc trong module-"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 213.2,
+      "end": 213.29,
+      "duration": 0.09,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 213.29,
+      "end": 215.04,
+      "duration": 1.75,
+      "text_snippet": "module-info.java và các Chỉ thị Mô-đun"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 215.04,
+      "end": 223.37,
+      "duration": 8.33,
+      "text_snippet": "Tệp mô tả mô-đun phải được đặt tên là module-info.java và nằm ở thư mục gốc của thư mục nguồn (ví dụ: src/main/java/modu"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 223.37,
+      "end": 224.15,
+      "duration": 0.78,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 224.15,
+      "end": 228.25,
+      "duration": 4.1,
+      "text_snippet": "// Exports public classes in this package to all modules\n    exports com.example.app.api;"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 228.25,
+      "end": 233.82,
+      "duration": 5.57,
+      "text_snippet": "// Restricts exports to a specific module (Qualified Export)\n    exports com.example.app.internal to com.example.trusted"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 233.82,
+      "end": 240.58,
+      "duration": 6.77,
+      "text_snippet": "// Opens a package for deep reflection (even private fields) at runtime only\n    opens com.example.app.model to spring.b"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 240.58,
+      "end": 261.2,
+      "duration": 20.62,
+      "text_snippet": "Các Chỉ thị requires\nrequires <module-name>: Chỉ định rằng mô-đun này phụ thuộc vào một mô-đun khác. Nó thiết lập khả nă"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 261.2,
+      "end": 261.29,
+      "duration": 0.09,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 261.29,
+      "end": 263.09,
+      "duration": 1.8,
+      "text_snippet": "exports so với opens (exports vs opens)"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 263.09,
+      "end": 270.13,
+      "duration": 7.04,
+      "text_snippet": "Một nguồn gây nhầm lẫn phổ biến là khi nào nên sử dụng exports và khi nào nên dùng opens. Chúng đại diện cho các phong c"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 270.13,
+      "end": 284.63,
+      "duration": 14.5,
+      "text_snippet": "exports cho phép truy cập lúc biên dịch (các mô-đun khác có thể viết mã sử dụng các lớp này), cho phép truy cập trực tiế"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 284.63,
+      "end": 296.96,
+      "duration": 12.34,
+      "text_snippet": "opens chặn truy cập lúc biên dịch (trình biên dịch ném lỗi \"package does not exist\") và truy cập trực tiếp lúc chạy. Tuy"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 296.96,
+      "end": 298.94,
+      "duration": 1.98,
+      "text_snippet": "Chặn Phản chiếu Sâu (Deep Reflection Block)"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 298.94,
+      "end": 334.89,
+      "duration": 35.95,
+      "text_snippet": "Nếu bạn cố gắng thực hiện phản chiếu sâu trên một gói được xuất khẩu (exports) nhưng không được mở (opens):\n`java\npackag"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 334.89,
+      "end": 343.27,
+      "duration": 8.38,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả của opens so với exports\n`text\nLớp A cần gọi Lớp B tại thời điểm biên dịch\n  → Gói chứa Lớp "
+    },
+    {
+      "paragraph_id": 33,
+      "start": 343.27,
+      "end": 352.24,
+      "duration": 8.98,
+      "text_snippet": "Framework cần kiểm tra các trường private của Lớp B tại thời điểm chạy\n  → Gói chứa Lớp B phải được OPENED\n  → JVM cho p"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 352.24,
+      "end": 352.33,
+      "duration": 0.09,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 352.33,
+      "end": 353.62,
+      "duration": 1.29,
+      "text_snippet": "Classpath so với Module Path"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 353.62,
+      "end": 360.44,
+      "duration": 6.81,
+      "text_snippet": "Trình biên dịch Java (javac) và môi trường chạy (java) hoạt động khác nhau tùy thuộc vào việc mã nguồn được đặt trên Cla"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 360.44,
+      "end": 361.22,
+      "duration": 0.78,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 361.22,
+      "end": 394.77,
+      "duration": 33.55,
+      "text_snippet": "Tải Lớp Mô-đun so với Tải Lớp Phẳng\nĐường dẫn lớp Classpath (Phẳng):\n   - Dòng lệnh: java -cp lib/dep.jar:app.jar com.ex"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 394.77,
+      "end": 394.86,
+      "duration": 0.09,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 394.86,
+      "end": 397.53,
+      "duration": 2.67,
+      "text_snippet": "Mô-đun được Đặt tên, Không được Đặt tên, và Mô-đun Tự động"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 397.53,
+      "end": 400.94,
+      "duration": 3.41,
+      "text_snippet": "Để cho phép di chuyển từng bước từ Java 8, Java định nghĩa ba loại mô-đun:"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 400.94,
+      "end": 416.27,
+      "duration": 15.33,
+      "text_snippet": "Mô-đun được Đặt tên (Named Module) được định nghĩa bằng tệp module-info.class và được tải từ đường dẫn mô-đun (--module-"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 416.27,
+      "end": 427.54,
+      "duration": 11.28,
+      "text_snippet": "Mô-đun không Đặt tên (Unnamed Module) không có tệp module-info.class (ngầm định) và được tải từ đường dẫn lớp (-cp). Nó "
+    },
+    {
+      "paragraph_id": 44,
+      "start": 427.54,
+      "end": 441.17,
+      "duration": 13.62,
+      "text_snippet": "Mô-đun Tự động (Automatic Module) là tệp JAR cũ (không có module-info.class) và được tải từ đường dẫn mô-đun (--module-p"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 441.17,
+      "end": 474.72,
+      "duration": 33.55,
+      "text_snippet": "Cơ chế Cầu nối Di cư\nBởi vì các mô-đun được đặt tên không thể yêu cầu (requires) mô-đun không đặt tên (vì nó không có tê"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 474.72,
+      "end": 475.5,
+      "duration": 0.78,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 475.5,
+      "end": 475.59,
+      "duration": 0.09,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 475.59,
+      "end": 476.42,
+      "duration": 0.83,
+      "text_snippet": "Liên Kết Tham Khảo"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 476.42,
+      "end": 482.54,
+      "duration": 6.12,
+      "text_snippet": "Tài liệu hướng dẫn về Mô-đun Java của Oracle\nĐặc tả Ngôn ngữ Java: Chương 7.7 (Khai báo Mô-đun)\nHướng dẫn khởi đầu nhanh"
+    }
+  ]
+}

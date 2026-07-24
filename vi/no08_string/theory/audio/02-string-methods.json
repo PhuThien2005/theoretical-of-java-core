@@ -1,0 +1,420 @@
+{
+  "lesson": "02-string-methods",
+  "total_duration_seconds": 578.59,
+  "total_paragraphs": 59,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 3.17,
+      "duration": 3.17,
+      "text_snippet": "Các phương thức và Định dạng Chuỗi (String Methods and Formatting)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 3.17,
+      "end": 15.06,
+      "duration": 11.9,
+      "text_snippet": "Lớp String cung cấp một tập hợp phong phú các phương thức tích hợp sẵn (built-in methods). Vì chuỗi (string) có tính chấ"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 15.06,
+      "end": 15.16,
+      "duration": 0.1,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 15.16,
+      "end": 18.52,
+      "duration": 3.36,
+      "text_snippet": "Tài Liệu Tham Khảo Chi Tiết Về Phương Thức (Detailed Method Reference)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 18.52,
+      "end": 25.67,
+      "duration": 7.15,
+      "text_snippet": "Dưới đây là tài liệu tham khảo toàn diện về các phương thức cốt lõi của String, giải thích hành vi và các trường hợp đặc"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 25.67,
+      "end": 43.75,
+      "duration": 18.09,
+      "text_snippet": "length() và isEmpty() / isBlank()\nlength(): Trả về số lượng đơn vị mã Unicode (Unicode code units) (ký tự) trong chuỗi.\n"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 43.75,
+      "end": 56.22,
+      "duration": 12.47,
+      "text_snippet": "Tìm Kiếm Ký Tự (Character Lookup): charAt(int index)\nTrả về giá trị char tại chỉ mục (index) được chỉ định.\nGiới hạn chỉ"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 56.22,
+      "end": 80.4,
+      "duration": 24.18,
+      "text_snippet": "Trích Xuất (Extracting): substring(int beginIndex) và substring(int beginIndex, int endIndex)\nsubstring(beginIndex): Trả"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 80.4,
+      "end": 81.22,
+      "duration": 0.82,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 81.22,
+      "end": 96.86,
+      "duration": 15.64,
+      "text_snippet": "Tìm Kiếm và Định Vị (Search and Location): indexOf() và lastIndexOf()\nĐịnh vị một ký tự hoặc chuỗi con. Trả về -1 nếu kh"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 96.86,
+      "end": 111.06,
+      "duration": 14.2,
+      "text_snippet": "Kiểm Tra Tính Hợp Lệ (Validation Checks): contains(), startsWith(), endsWith()\ncontains(CharSequence s): Trả về true nếu"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 111.06,
+      "end": 111.87,
+      "duration": 0.82,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 111.87,
+      "end": 137.3,
+      "duration": 25.43,
+      "text_snippet": "Loại Bỏ Khoảng Trắng (Whitespace Cleanup): trim() so với strip()\ntrim(): Loại bỏ các ký tự ở đầu/cuối có điểm mã (code p"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 137.3,
+      "end": 143.2,
+      "duration": 5.9,
+      "text_snippet": "Phân Tích Sâu: Sự Khác Biệt Về Cơ Chế Giữa trim() và strip() (Deep-Dive: Mechanical Differences Between trim() and strip"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 143.2,
+      "end": 190.45,
+      "duration": 47.25,
+      "text_snippet": "Sự khác biệt về cơ chế (mechanical differences) giữa String.trim() and String.strip() nằm ở cách chúng định nghĩa và xác"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 190.45,
+      "end": 193.14,
+      "duration": 2.69,
+      "text_snippet": "Bảng So Sánh Khoảng Trắng (Whitespace Comparison Matrix)"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 193.14,
+      "end": 218.37,
+      "duration": 25.23,
+      "text_snippet": "| Ký tự khoảng trắng | Điểm mã (Code Point) | Hành động của trim() | Hành động của strip() | Lý do kỹ thuật |\n| :--- | :"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 218.37,
+      "end": 222.78,
+      "duration": 4.41,
+      "text_snippet": "Ví Dụ Mã Nguồn Minh Họa Khoảng Trắng Unicode (Unicode Whitespace Demonstration Code Example)"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 222.78,
+      "end": 223.6,
+      "duration": 0.82,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 223.6,
+      "end": 235.59,
+      "duration": 11.99,
+      "text_snippet": "System.out.println(\"Original length: \" + input.length()); // Output: 11\nSystem.out.println(\"trim() length: \" + input.tri"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 235.59,
+      "end": 259.43,
+      "duration": 23.84,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả Trong Xử Lý Khoảng Trắng Unicode (Cause-Effect Chain of Unicode Whitespace Processing)\nKý tự"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 259.43,
+      "end": 271.62,
+      "duration": 12.18,
+      "text_snippet": "Chuyển Đổi (Conversions): toLowerCase() và toUpperCase()\nChuyển đổi các ký tự bằng cách sử dụng các quy tắc đặc thù của "
+    },
+    {
+      "paragraph_id": 23,
+      "start": 271.62,
+      "end": 295.65,
+      "duration": 24.03,
+      "text_snippet": "Thay Thế (Replacement): replace() so với replaceAll()\nreplace(char oldChar, char newChar): Thay thế tất cả các lần xuất "
+    },
+    {
+      "paragraph_id": 24,
+      "start": 295.65,
+      "end": 296.47,
+      "duration": 0.82,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 296.47,
+      "end": 302.9,
+      "duration": 6.43,
+      "text_snippet": "// replace() treats \".\" as a literal string\nString r1 = src.replace(\".\", \"-\"); \nSystem.out.println(r1); // Output: apple"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 302.9,
+      "end": 310.86,
+      "duration": 7.96,
+      "text_snippet": "// replaceAll() treats \".\" as a regex wildcard (matches any character)\nString r2 = src.replaceAll(\".\", \"-\"); \nSystem.out"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 310.86,
+      "end": 335.76,
+      "duration": 24.9,
+      "text_snippet": "Tách Chuỗi (Splitting): split(String regex) và split(String regex, int limit)\nTách chuỗi dựa trên các kết quả khớp với b"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 335.76,
+      "end": 336.57,
+      "duration": 0.82,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 336.57,
+      "end": 345.98,
+      "duration": 9.4,
+      "text_snippet": "Chuyển Đổi Sang Mảng Ký Tự (Converting to Character Array): toCharArray()\nTrả về một mảng ký tự mới được cấp phát có độ "
+    },
+    {
+      "paragraph_id": 30,
+      "start": 345.98,
+      "end": 346.79,
+      "duration": 0.82,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 346.79,
+      "end": 346.89,
+      "duration": 0.1,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 346.89,
+      "end": 351.83,
+      "duration": 4.94,
+      "text_snippet": "Phép Cộng Chuỗi và Các Tối Ưu Hóa Của Trình Biên Dịch (String Concatenation and Compiler Optimizations)"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 351.83,
+      "end": 365.6,
+      "duration": 13.77,
+      "text_snippet": "Đánh Giá Tại Thời Điểm Biên Dịch (Compile-time Evaluation)\nNếu bạn cộng các chuỗi hằng (literals), trình biên dịch sẽ đá"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 365.6,
+      "end": 386.46,
+      "duration": 20.87,
+      "text_snippet": "Đánh Giá Động (Dynamic Evaluation) (Biến)\nNếu biểu thức chứa các biến, Java sẽ đánh giá chúng tại thời điểm chạy (runtim"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 386.46,
+      "end": 386.56,
+      "duration": 0.1,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 386.56,
+      "end": 389.49,
+      "duration": 2.93,
+      "text_snippet": "Các Tùy Chọn Định Dạng Chi Tiết (Detailed Formatting Options)"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 389.49,
+      "end": 392.94,
+      "duration": 3.45,
+      "text_snippet": "String.format() và System.out.printf() định dạng chuỗi dựa trên một mẫu."
+    },
+    {
+      "paragraph_id": 38,
+      "start": 392.94,
+      "end": 398.41,
+      "duration": 5.47,
+      "text_snippet": "Cú Pháp (Syntax):\n$$\\%[\\text{argument\\_index}\\$][\\text{flags}][\\text{width}][.\\text{precision}]\\text{conversion}$$"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 398.41,
+      "end": 409.01,
+      "duration": 10.6,
+      "text_snippet": "Các Chuyển Đổi Phổ Biến (Common Conversions):\n%s: Biểu diễn chuỗi\n%d: Số nguyên\n%f: Số dấu phẩy động (Floating-point)\n%t"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 409.01,
+      "end": 420.96,
+      "duration": 11.95,
+      "text_snippet": "Các Cờ Định Dạng và Độ Chính Xác (Formatting Flags and Precision):\n%-15s: Căn lề trái chuỗi bên trong một trường có độ r"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 420.96,
+      "end": 421.77,
+      "duration": 0.82,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 421.77,
+      "end": 426.04,
+      "duration": 4.27,
+      "text_snippet": "// Detailed Formatting Example:\nString name = \"Alice\";\nint age = 30;\ndouble gpa = 3.8567;"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 426.04,
+      "end": 433.57,
+      "duration": 7.53,
+      "text_snippet": "String formatted = String.format(\"Name: %s, Age: %d, GPA: %.2f\", name, age, gpa);\nSystem.out.println(formatted); // Outp"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 433.57,
+      "end": 433.67,
+      "duration": 0.1,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 433.67,
+      "end": 435.44,
+      "duration": 1.77,
+      "text_snippet": "Khối Văn Bản (Text Blocks) (Java 15+)"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 435.44,
+      "end": 439.33,
+      "duration": 3.89,
+      "text_snippet": "Khối văn bản là các chuỗi hằng nhiều dòng được bao bọc trong dấu nháy kép ba \"\"\"."
+    },
+    {
+      "paragraph_id": 47,
+      "start": 439.33,
+      "end": 459.38,
+      "duration": 20.05,
+      "text_snippet": "Thuật Toán Loại Bỏ Khoảng Trắng (Whitespace Stripping Algorithm)\nKhoảng Trắng Phát Sinh (Incidental Whitespace): Trình b"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 459.38,
+      "end": 473.82,
+      "duration": 14.44,
+      "text_snippet": "Các Chuỗi Thoát Đặc Biệt Trong Khối Văn Bản (Special Escape Sequences in Text Blocks)\n\\ (Nối dòng (Line Continuation)): "
+    },
+    {
+      "paragraph_id": 49,
+      "start": 473.82,
+      "end": 474.64,
+      "duration": 0.82,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 474.64,
+      "end": 474.73,
+      "duration": 0.1,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 474.73,
+      "end": 476.46,
+      "duration": 1.73,
+      "text_snippet": "Các Lỗi Thường Gặp (Common Mistakes)"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 476.46,
+      "end": 499.77,
+      "duration": 23.31,
+      "text_snippet": "Ngoại Lệ StringIndexOutOfBoundsException Với charAt và substring\nChuỗi trong Java có chỉ mục bắt đầu từ 0 (zero-indexed)"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 499.77,
+      "end": 521.07,
+      "duration": 21.3,
+      "text_snippet": "Tách Chuỗi Theo Các Ký Tự Đặc Biệt Của Biểu Thức Chính Quy (Splitting on Regex Metacharacters)\nSử dụng trực tiếp các ký "
+    },
+    {
+      "paragraph_id": 54,
+      "start": 521.07,
+      "end": 528.22,
+      "duration": 7.15,
+      "text_snippet": "// Correct: Escape the dot using a double backslash\nString[] correctParts = data.split(\"\\\\.\");\nSystem.out.println(correc"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 528.22,
+      "end": 557.68,
+      "duration": 29.45,
+      "text_snippet": "Nhầm Lẫn Giữa replace và replaceAll (Mixing up replace and replaceAll)\nGiả định rằng replace(CharSequence, CharSequence)"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 557.68,
+      "end": 557.77,
+      "duration": 0.1,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 557.77,
+      "end": 559.69,
+      "duration": 1.92,
+      "text_snippet": "Các Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 559.69,
+      "end": 578.5,
+      "duration": 18.81,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.htmltrim() (Oracle Java API: String.trim()"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 578.5,
+      "end": 578.59,
+      "duration": 0.1,
+      "text_snippet": "--"
+    }
+  ]
+}

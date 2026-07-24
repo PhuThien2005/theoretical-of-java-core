@@ -1,0 +1,861 @@
+{
+  "lesson": "01-comparable-concepts",
+  "total_duration_seconds": 1181.11,
+  "total_paragraphs": 122,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 2.78,
+      "duration": 2.78,
+      "text_snippet": "Comparable và Comparator - Phần 1 (Comparable and Comparator - Part 1)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 2.78,
+      "end": 3.42,
+      "duration": 0.64,
+      "text_snippet": "Mục tiêu học tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 3.42,
+      "end": 10.34,
+      "duration": 6.92,
+      "text_snippet": "Tài liệu này tập trung vào một phần trọng tâm của Comparable và Comparator. Hãy nghiên cứu từng khái niệm dưới dạng quy "
+    },
+    {
+      "paragraph_id": 4,
+      "start": 10.34,
+      "end": 11.02,
+      "duration": 0.68,
+      "text_snippet": "Đề cương chi tiết"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 11.02,
+      "end": 48.04,
+      "duration": 37.03,
+      "text_snippet": "Comparable — Comparable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\ncompareTo — compareTo: Cung cấp các"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 48.04,
+      "end": 48.68,
+      "duration": 0.64,
+      "text_snippet": "Ghi chú chi tiết"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 48.68,
+      "end": 49.08,
+      "duration": 0.4,
+      "text_snippet": "Comparable"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 49.08,
+      "end": 51.98,
+      "duration": 2.9,
+      "text_snippet": "Comparable định nghĩa thứ tự sắp xếp tự nhiên bên trong lớp được so sánh."
+    },
+    {
+      "paragraph_id": 9,
+      "start": 51.98,
+      "end": 71.95,
+      "duration": 19.96,
+      "text_snippet": "Comparable<T> là một giao diện generic (java.lang.Comparable) được triển khai bởi một lớp để định nghĩa thứ tự sắp xếp t"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 71.95,
+      "end": 77.08,
+      "duration": 5.13,
+      "text_snippet": "Ví dụ mã nguồn\n`java\npublic class User implements Comparable<User> {\n    private final String username;\n    private fina"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 77.08,
+      "end": 81.05,
+      "duration": 3.98,
+      "text_snippet": "public User(String username, int id) {\n        this.username = username;\n        this.id = id;\n    }"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 81.05,
+      "end": 87.38,
+      "duration": 6.32,
+      "text_snippet": "@Override\n    public int compareTo(User other) {\n        // Natural ordering based on ID ascending\n        return Intege"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 87.38,
+      "end": 114.66,
+      "duration": 27.28,
+      "text_snippet": "Các bẫy và trạng thái lỗi\nClassCastException: Nếu bạn cố gắng sắp xếp một danh sách các đối tượng không triển khai Compa"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 114.66,
+      "end": 117.52,
+      "duration": 2.86,
+      "text_snippet": "Tại sao TreeSet và TreeMap yêu cầu tính nhất quán với phương thức Equals"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 117.52,
+      "end": 151.17,
+      "duration": 33.65,
+      "text_snippet": "Các bộ sưu tập được sắp xếp như TreeSet và TreeMap hoạt động khác với các bộ sưu tập thông thường. Không giống như HashS"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 151.17,
+      "end": 172.05,
+      "duration": 20.88,
+      "text_snippet": "Mô hình tư duy: Giải quyết tính duy nhất trong Java Collections\n`mermaid\nflowchart TD\n    A[Thêm phần tử vào bộ sưu tập]"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 172.05,
+      "end": 178.33,
+      "duration": 6.28,
+      "text_snippet": "Ví dụ mã nguồn: Sự không nhất quán của BigDecimal\n`java\nimport java.math.BigDecimal;\nimport java.util.HashSet;\nimport ja"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 178.33,
+      "end": 185.21,
+      "duration": 6.88,
+      "text_snippet": "public class ConsistencyExample {\n    public static void main(String[] args) {\n        BigDecimal d1 = new BigDecimal(\"1"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 185.21,
+      "end": 197.66,
+      "duration": 12.45,
+      "text_snippet": "// 1. HashSet uses hashCode() and equals()\n        // d1.equals(d2) is false because scale differs (1 vs 2 decimal place"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 197.66,
+      "end": 210.75,
+      "duration": 13.08,
+      "text_snippet": "// 2. TreeSet uses compareTo()\n        // d1.compareTo(d2) is 0 because the numerical values are equal\n        Set<BigDe"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 210.75,
+      "end": 227.29,
+      "duration": 16.54,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả\n(x.compareTo(y) == 0) == (x.equals(y)) trả về false &rarr; TreeSet/TreeMap chỉ dựa vào compa"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 227.29,
+      "end": 233.69,
+      "duration": 6.4,
+      "text_snippet": "> Xem thêm: Chi tiết về cách TreeSet và TreeMap sử dụng Comparable để sắp xếp và kiểm tra trùng lặp, được trình bày chi "
+    },
+    {
+      "paragraph_id": 23,
+      "start": 233.69,
+      "end": 234.05,
+      "duration": 0.36,
+      "text_snippet": "compareTo"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 234.05,
+      "end": 237.67,
+      "duration": 3.62,
+      "text_snippet": "compareTo compareTo: Khái niệm cốt lõi cung cấp các quy tắc và cơ chế hoạt động trong Java."
+    },
+    {
+      "paragraph_id": 25,
+      "start": 237.67,
+      "end": 248.65,
+      "duration": 10.98,
+      "text_snippet": "Phương thức compareTo(T o) là phương thức trừu tượng duy nhất của giao diện Comparable. Nó so sánh đối tượng hiện tại (t"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 248.65,
+      "end": 255.57,
+      "duration": 6.92,
+      "text_snippet": "Ví dụ mã nguồn\n`java\n// String's compareTo implementation compares characters lexicographically\nint result = \"apple\".com"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 255.57,
+      "end": 275.73,
+      "duration": 20.16,
+      "text_snippet": "Các bẫy và trạng thái lỗi\nLỗi tràn số khi thực hiện phép trừ: Một lỗi kinh điển là triển khai compareTo bằng phép trừ:\n "
+    },
+    {
+      "paragraph_id": 28,
+      "start": 275.73,
+      "end": 278.28,
+      "duration": 2.55,
+      "text_snippet": "Tại sao so sánh dựa trên phép trừ dẫn đến lỗi tràn số (Overflow)"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 278.28,
+      "end": 306.75,
+      "duration": 28.48,
+      "text_snippet": "Sử dụng phép trừ (ví dụ: this.id - other.id) để thực hiện so sánh là một phản mẫu nguy hiểm trong Java. Công thức phép t"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 306.75,
+      "end": 327.51,
+      "duration": 20.76,
+      "text_snippet": "Mô hình tư duy: Tràn số khi thực hiện phép trừ trong số bù hai\nHãy so sánh hai giá trị: x = Integer.MIN_VALUE ($-2147483"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 327.51,
+      "end": 334.95,
+      "duration": 7.44,
+      "text_snippet": "Ví dụ mã nguồn: Lỗi phép trừ gây ra tràn số\n`java\npublic class SubtractionOverflowDemo {\n    public static void main(Str"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 334.95,
+      "end": 342.23,
+      "duration": 7.28,
+      "text_snippet": "// Subtraction method (BUGGY)\n        int buggyResult = x - y;\n        System.out.println(\"Buggy Result: \" + buggyResult"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 342.23,
+      "end": 350.3,
+      "duration": 8.07,
+      "text_snippet": "// Proper comparison method (SAFE)\n        int safeResult = Integer.compare(x, y);\n        System.out.println(\"Safe Resu"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 350.3,
+      "end": 368.79,
+      "duration": 18.49,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả\nCác giá trị khác dấu được so sánh qua phép trừ &rarr; Hiệu số vượt quá giới hạn tối thiểu ho"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 368.79,
+      "end": 369.19,
+      "duration": 0.4,
+      "text_snippet": "Comparator"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 369.19,
+      "end": 372.17,
+      "duration": 2.98,
+      "text_snippet": "Comparator định nghĩa thứ tự sắp xếp tùy chỉnh bên ngoài cho các đối tượng."
+    },
+    {
+      "paragraph_id": 37,
+      "start": 372.17,
+      "end": 392.14,
+      "duration": 19.96,
+      "text_snippet": "Comparator<T> là một giao diện chức năng (functional interface java.util.Comparator) được sử dụng để định nghĩa một thứ "
+    },
+    {
+      "paragraph_id": 38,
+      "start": 392.14,
+      "end": 394.09,
+      "duration": 1.95,
+      "text_snippet": "Ví dụ mã nguồn\n`java\nimport java.util.Comparator;"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 394.09,
+      "end": 402.4,
+      "duration": 8.31,
+      "text_snippet": "public class EmployeeSalaryComparator implements Comparator<Employee> {\n    @Override\n    public int compare(Employee e1"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 402.4,
+      "end": 416.24,
+      "duration": 13.84,
+      "text_snippet": "Các bẫy và trạng thái lỗi\nSửa đổi đồng thời / Các trường có thể thay đổi: Nếu bạn sắp xếp một bộ sưu tập và sau đó sửa đ"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 416.24,
+      "end": 418.31,
+      "duration": 2.07,
+      "text_snippet": "Tại sao Java phân tách giữa Comparable và Comparator"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 418.31,
+      "end": 452.55,
+      "duration": 34.24,
+      "text_snippet": "Java phân chia khả năng sắp xếp thành Comparable and Comparator để hỗ trợ nguyên lý đơn nhiệm (single-responsibility pri"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 452.55,
+      "end": 466.87,
+      "duration": 14.32,
+      "text_snippet": "Mô hình tư duy: Thứ tự sắp xếp Nội tại (Comparable) so với Bên ngoài (Comparator)\n`mermaid\nclassDiagram\n    class User {"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 466.87,
+      "end": 476.93,
+      "duration": 10.06,
+      "text_snippet": "class UserAgeComparator {\n        +compare(User u1, User u2) int\n    }\n    class Comparator~User~ {\n        <<interface>"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 476.93,
+      "end": 483.93,
+      "duration": 7.0,
+      "text_snippet": "Ví dụ mã nguồn: Sắp xếp tự nhiên so với Bộ so sánh tùy chỉnh\n`java\nimport java.util.ArrayList;\nimport java.util.Collecti"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 483.93,
+      "end": 489.5,
+      "duration": 5.57,
+      "text_snippet": "public class SortingComparison {\n    public static class User implements Comparable<User> {\n        final String name;\n "
+    },
+    {
+      "paragraph_id": 47,
+      "start": 489.5,
+      "end": 493.48,
+      "duration": 3.98,
+      "text_snippet": "public User(String name, int id) {\n            this.name = name;\n            this.id = id;\n        }"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 493.48,
+      "end": 500.99,
+      "duration": 7.52,
+      "text_snippet": "// Comparable defines the single, default natural order (by ID)\n        @Override\n        public int compareTo(User othe"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 500.99,
+      "end": 505.17,
+      "duration": 4.18,
+      "text_snippet": "@Override\n        public String toString() {\n            return name + \"(ID:\" + id + \")\";\n        }\n    }"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 505.17,
+      "end": 513.32,
+      "duration": 8.15,
+      "text_snippet": "public static void main(String[] args) {\n        List<User> users = new ArrayList<>(List.of(\n            new User(\"Charl"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 513.32,
+      "end": 521.16,
+      "duration": 7.83,
+      "text_snippet": "// 1. Natural Sort using Comparable (by ID)\n        Collections.sort(users);\n        System.out.println(\"Natural order: "
+    },
+    {
+      "paragraph_id": 52,
+      "start": 521.16,
+      "end": 531.5,
+      "duration": 10.34,
+      "text_snippet": "// 2. Custom Sort using an external Comparator (by Name lexicographically)\n        users.sort(Comparator.comparing(u -> "
+    },
+    {
+      "paragraph_id": 53,
+      "start": 531.5,
+      "end": 547.64,
+      "duration": 16.15,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả\nLớp yêu cầu một thứ tự mặc định duy nhất, phổ quát &rarr; Triển khai Comparable trong chính "
+    },
+    {
+      "paragraph_id": 54,
+      "start": 547.64,
+      "end": 547.92,
+      "duration": 0.28,
+      "text_snippet": "compare"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 547.92,
+      "end": 551.5,
+      "duration": 3.58,
+      "text_snippet": "compare là phương thức trừu tượng trong Comparator được sử dụng để đánh giá hai đối tượng."
+    },
+    {
+      "paragraph_id": 56,
+      "start": 551.5,
+      "end": 559.34,
+      "duration": 7.83,
+      "text_snippet": "Phương thức compare(T o1, T o2) là phương thức trừu tượng chính của Comparator.\nTrả về một số nguyên âm nếu o1 nhỏ hơn o"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 559.34,
+      "end": 566.97,
+      "duration": 7.64,
+      "text_snippet": "Ví dụ mã nguồn\n`java\nComparator<String> lengthComparator = (s1, s2) -> Integer.compare(s1.length(), s2.length());\nint re"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 566.97,
+      "end": 588.61,
+      "duration": 21.64,
+      "text_snippet": "Các bẫy và trạng thái lỗi\nAn toàn với Null: Không giống như compareTo (nơi x.compareTo(null) ném ra NPE theo giao ước), "
+    },
+    {
+      "paragraph_id": 59,
+      "start": 588.61,
+      "end": 591.59,
+      "duration": 2.98,
+      "text_snippet": "Tại sao giao ước bắc cầu (Transitivity) lại quan trọng đối với việc sắp xếp"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 591.59,
+      "end": 632.39,
+      "duration": 40.8,
+      "text_snippet": "Các giao ước toán học cho Comparable.compareTo và Comparator.compare quy định ba thuộc tính: tính phản xạ (reflexivity),"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 632.39,
+      "end": 651.68,
+      "duration": 19.29,
+      "text_snippet": "Mô hình tư duy: Thứ tự bắc cầu tuyến tính so với Mâu thuẫn vòng lặp\n`mermaid\ngraph TD\n    subgraph Non-Transitive Cycle "
+    },
+    {
+      "paragraph_id": 62,
+      "start": 651.68,
+      "end": 657.41,
+      "duration": 5.73,
+      "text_snippet": "Ví dụ mã nguồn: Bộ so sánh phi bắc cầu kích hoạt ngoại lệ\n`java\nimport java.util.ArrayList;\nimport java.util.Collections"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 657.41,
+      "end": 670.81,
+      "duration": 13.4,
+      "text_snippet": "public class TransitivityViolationDemo {\n    public static void main(String[] args) {\n        // Create a list represent"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 670.81,
+      "end": 698.73,
+      "duration": 27.92,
+      "text_snippet": "try {\n            // A cyclic, non-transitive comparator\n            rps.sort((a, b) -> {\n                if (a.equals(b"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 698.73,
+      "end": 715.75,
+      "duration": 17.02,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả\nPhương thức so sánh biểu hiện các mối quan hệ vòng lặp phi bắc cầu &rarr; Thuật toán sắp xếp"
+    },
+    {
+      "paragraph_id": 66,
+      "start": 715.75,
+      "end": 717.42,
+      "duration": 1.67,
+      "text_snippet": "Thứ tự sắp xếp tự nhiên (Natural ordering)"
+    },
+    {
+      "paragraph_id": 67,
+      "start": 717.42,
+      "end": 721.84,
+      "duration": 4.41,
+      "text_snippet": "Thứ tự sắp xếp tự nhiên (Natural ordering) là thứ tự mặc định được định nghĩa bởi triển khai compareTo của lớp."
+    },
+    {
+      "paragraph_id": 68,
+      "start": 721.84,
+      "end": 737.55,
+      "duration": 15.71,
+      "text_snippet": "Thứ tự sắp xếp tự nhiên đề cập đến thứ tự sắp xếp mặc định được định nghĩa bên trong một lớp bằng cách triển khai Compar"
+    },
+    {
+      "paragraph_id": 69,
+      "start": 737.55,
+      "end": 746.06,
+      "duration": 8.51,
+      "text_snippet": "Ví dụ mã nguồn\n`java\nList<String> fruits = new ArrayList<>(List.of(\"Orange\", \"Apple\", \"Banana\"));\nCollections.sort(fruit"
+    },
+    {
+      "paragraph_id": 70,
+      "start": 746.06,
+      "end": 756.28,
+      "duration": 10.22,
+      "text_snippet": "Các bẫy và trạng thái lỗi\nPhân biệt hoa thường: Thứ tự tự nhiên của String phân biệt chữ hoa chữ thường (lexicographical"
+    },
+    {
+      "paragraph_id": 71,
+      "start": 756.28,
+      "end": 757.95,
+      "duration": 1.67,
+      "text_snippet": "Thứ tự sắp xếp tùy chỉnh (Custom ordering)"
+    },
+    {
+      "paragraph_id": 72,
+      "start": 757.95,
+      "end": 762.41,
+      "duration": 4.45,
+      "text_snippet": "Thứ tự sắp xếp tùy chỉnh (Custom ordering) là một thứ tự thay thế được cung cấp từ bên ngoài bởi một Comparator."
+    },
+    {
+      "paragraph_id": 73,
+      "start": 762.41,
+      "end": 771.63,
+      "duration": 9.23,
+      "text_snippet": "Thứ tự sắp xếp tùy chỉnh cho phép sắp xếp các đối tượng theo một trình tự khác với thứ tự sắp xếp tự nhiên của chúng, ho"
+    },
+    {
+      "paragraph_id": 74,
+      "start": 771.63,
+      "end": 780.94,
+      "duration": 9.31,
+      "text_snippet": "Ví dụ mã nguồn\n`java\nList<String> fruits = new ArrayList<>(List.of(\"Orange\", \"Apple\", \"Banana\"));\n// Case-insensitive cu"
+    },
+    {
+      "paragraph_id": 75,
+      "start": 780.94,
+      "end": 795.49,
+      "duration": 14.56,
+      "text_snippet": "Các bẫy và trạng thái lỗi\nVi phạm giao ước: Trong Java 7 trở lên, các thuật toán sắp xếp sử dụng TimSort, vốn thực thi n"
+    },
+    {
+      "paragraph_id": 76,
+      "start": 795.49,
+      "end": 797.13,
+      "duration": 1.63,
+      "text_snippet": "Sắp xếp đối tượng List (Sort List object)"
+    },
+    {
+      "paragraph_id": 77,
+      "start": 797.13,
+      "end": 800.47,
+      "duration": 3.34,
+      "text_snippet": "Sắp xếp đối tượng List (Sort List object) thông qua Collections.sort hoặc List.sort."
+    },
+    {
+      "paragraph_id": 78,
+      "start": 800.47,
+      "end": 817.17,
+      "duration": 16.7,
+      "text_snippet": "Việc sắp xếp một danh sách có thể được thực hiện bằng cách sử dụng:\nCollections.sort(List<T> list): Sắp xếp dựa trên thứ"
+    },
+    {
+      "paragraph_id": 79,
+      "start": 817.17,
+      "end": 823.81,
+      "duration": 6.64,
+      "text_snippet": "List.sort() thường được ưu tiên hơn Collections.sort() vì nó là phương thức thực thể và có thể được ghi đè bởi các triển"
+    },
+    {
+      "paragraph_id": 80,
+      "start": 823.81,
+      "end": 835.23,
+      "duration": 11.41,
+      "text_snippet": "Ví dụ mã nguồn\n`java\nList<Integer> numbers = new ArrayList<>(List.of(3, 1, 4, 1, 5));\n// Using List.sort with natural or"
+    },
+    {
+      "paragraph_id": 81,
+      "start": 835.23,
+      "end": 852.49,
+      "duration": 17.26,
+      "text_snippet": "Các bẫy và trạng thái lỗi\nCác bộ sưu tập không thể sửa đổi/Kích thước cố định: Cố gắng sắp xếp một danh sách không thể s"
+    },
+    {
+      "paragraph_id": 82,
+      "start": 852.49,
+      "end": 854.67,
+      "duration": 2.19,
+      "text_snippet": "Sắp xếp theo nhiều tiêu chí (Sort by multiple criteria)"
+    },
+    {
+      "paragraph_id": 83,
+      "start": 854.67,
+      "end": 857.78,
+      "duration": 3.1,
+      "text_snippet": "Sắp xếp các đối tượng theo một chuỗi các khóa bằng cách sử dụng thenComparing."
+    },
+    {
+      "paragraph_id": 84,
+      "start": 857.78,
+      "end": 871.58,
+      "duration": 13.8,
+      "text_snippet": "Sắp xếp theo nhiều tiêu chí liên quan đến việc sắp xếp các đối tượng theo một khóa chính, và sau đó giải quyết các trườn"
+    },
+    {
+      "paragraph_id": 85,
+      "start": 871.58,
+      "end": 880.72,
+      "duration": 9.15,
+      "text_snippet": "Ví dụ mã nguồn\n`java\nList<Employee> list = getEmployees();\n// Sort by department, then by salary (ascending)\nlist.sort(C"
+    },
+    {
+      "paragraph_id": 86,
+      "start": 880.72,
+      "end": 901.84,
+      "duration": 21.12,
+      "text_snippet": "Các bẫy và trạng thái lỗi\nVấn đề suy luận kiểu: Đôi khi trình biên dịch thất bại khi suy luận các kiểu dữ liệu khi liên "
+    },
+    {
+      "paragraph_id": 87,
+      "start": 901.84,
+      "end": 902.64,
+      "duration": 0.8,
+      "text_snippet": "Comparator.comparing"
+    },
+    {
+      "paragraph_id": 88,
+      "start": 902.64,
+      "end": 905.42,
+      "duration": 2.78,
+      "text_snippet": "Phương thức tĩnh hỗ trợ tạo một Comparator từ một hàm trích xuất khóa."
+    },
+    {
+      "paragraph_id": 89,
+      "start": 905.42,
+      "end": 925.7,
+      "duration": 20.28,
+      "text_snippet": "Comparator.comparing là một phương thức nhà máy tĩnh (static factory method) được giới thiệu trong Java 8. Nó nhận một h"
+    },
+    {
+      "paragraph_id": 90,
+      "start": 925.7,
+      "end": 931.47,
+      "duration": 5.77,
+      "text_snippet": "Ví dụ mã nguồn\n`java\n// Avoids boxing from double to Double:\nComparator<Employee> salaryComp = Comparator.comparingDoubl"
+    },
+    {
+      "paragraph_id": 91,
+      "start": 931.47,
+      "end": 941.77,
+      "duration": 10.3,
+      "text_snippet": "Các bẫy và trạng thái lỗi\nGiá trị Null: Nếu hàm trích xuất khóa trả về null, việc gọi compare sẽ dẫn đến ngoại lệ NullPo"
+    },
+    {
+      "paragraph_id": 92,
+      "start": 941.77,
+      "end": 942.29,
+      "duration": 0.52,
+      "text_snippet": "thenComparing"
+    },
+    {
+      "paragraph_id": 93,
+      "start": 942.29,
+      "end": 945.27,
+      "duration": 2.98,
+      "text_snippet": "Phương thức mặc định trong Comparator để liên kết một tiêu chí so sánh phụ."
+    },
+    {
+      "paragraph_id": 94,
+      "start": 945.27,
+      "end": 956.05,
+      "duration": 10.78,
+      "text_snippet": "thenComparing là một phương thức mặc định trong giao diện Comparator. Nó trả về một bộ so sánh thứ tự từ điển kết hợp vớ"
+    },
+    {
+      "paragraph_id": 95,
+      "start": 956.05,
+      "end": 962.89,
+      "duration": 6.84,
+      "text_snippet": "Ví dụ mã nguồn\n`java\nComparator<Employee> comp = Comparator.comparing(Employee::getLastName)\n                           "
+    },
+    {
+      "paragraph_id": 96,
+      "start": 962.89,
+      "end": 976.81,
+      "duration": 13.92,
+      "text_snippet": "Các bẫy và trạng thái lỗi\nHiệu năng: Liên kết quá nhiều lệnh gọi thenComparing dựa trên đối tượng có thể gây ra việc cấp"
+    },
+    {
+      "paragraph_id": 97,
+      "start": 976.81,
+      "end": 976.89,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 98,
+      "start": 976.89,
+      "end": 979.87,
+      "duration": 2.98,
+      "text_snippet": "Ví Dụ Thực Tế: Sắp xếp danh sách nhân viên theo phòng ban sau đó theo lương"
+    },
+    {
+      "paragraph_id": 99,
+      "start": 979.87,
+      "end": 991.6,
+      "duration": 11.73,
+      "text_snippet": "Trong các ứng dụng thực tế, sắp xếp các bản ghi theo nhiều tiêu chí là cực kỳ phổ biến. Dưới đây là một ví dụ thực tế ho"
+    },
+    {
+      "paragraph_id": 100,
+      "start": 991.6,
+      "end": 998.05,
+      "duration": 6.44,
+      "text_snippet": "Bước 1: Định nghĩa lớp Employee\n`java\npublic class Employee {\n    private final String name;\n    private final String de"
+    },
+    {
+      "paragraph_id": 101,
+      "start": 998.05,
+      "end": 1004.57,
+      "duration": 6.52,
+      "text_snippet": "public Employee(String name, String department, double salary) {\n        this.name = name;\n        this.department = dep"
+    },
+    {
+      "paragraph_id": 102,
+      "start": 1004.57,
+      "end": 1010.38,
+      "duration": 5.81,
+      "text_snippet": "public String getName() { return name; }\n    public String getDepartment() { return department; }\n    public double getS"
+    },
+    {
+      "paragraph_id": 103,
+      "start": 1010.38,
+      "end": 1015.31,
+      "duration": 4.93,
+      "text_snippet": "@Override\n    public String toString() {\n        return String.format(\"%s (%s: $%.2f)\", name, department, salary);\n    }"
+    },
+    {
+      "paragraph_id": 104,
+      "start": 1015.31,
+      "end": 1020.52,
+      "duration": 5.21,
+      "text_snippet": "Bước 2: Logic sắp xếp (Liên kết trong Java 8)\n`java\nimport java.util.ArrayList;\nimport java.util.Comparator;\nimport java"
+    },
+    {
+      "paragraph_id": 105,
+      "start": 1020.52,
+      "end": 1034.99,
+      "duration": 14.48,
+      "text_snippet": "public class EmployeeSorter {\n    public static void main(String[] args) {\n        List<Employee> employees = new ArrayL"
+    },
+    {
+      "paragraph_id": 106,
+      "start": 1034.99,
+      "end": 1049.67,
+      "duration": 14.68,
+      "text_snippet": "// Comparator chaining: \n        // 1. Sort by department ascending (natural order of String)\n        // 2. Sort by sala"
+    },
+    {
+      "paragraph_id": 107,
+      "start": 1049.67,
+      "end": 1051.06,
+      "duration": 1.39,
+      "text_snippet": "employees.sort(deptThenSalaryComp);"
+    },
+    {
+      "paragraph_id": 108,
+      "start": 1051.06,
+      "end": 1059.02,
+      "duration": 7.95,
+      "text_snippet": "// Output:\n        // David (HR: $60000.00)\n        // Alice (HR: $50000.00)\n        // Charlie (IT: $90000.00)\n        "
+    },
+    {
+      "paragraph_id": 109,
+      "start": 1059.02,
+      "end": 1059.73,
+      "duration": 0.72,
+      "text_snippet": "Các lỗi thường gặp"
+    },
+    {
+      "paragraph_id": 110,
+      "start": 1059.73,
+      "end": 1063.87,
+      "duration": 4.14,
+      "text_snippet": "Dưới đây là các bẫy và lỗi nghiêm trọng mà các nhà phát triển hay gặp phải với Comparable và Comparator:"
+    },
+    {
+      "paragraph_id": 111,
+      "start": 1063.87,
+      "end": 1086.93,
+      "duration": 23.07,
+      "text_snippet": "Lỗi tràn số khi thực hiện phép trừ (Integer.compare so với phép trừ)\nSử dụng phép trừ để thực hiện so sánh là một phản m"
+    },
+    {
+      "paragraph_id": 112,
+      "start": 1086.93,
+      "end": 1106.78,
+      "duration": 19.85,
+      "text_snippet": "Sắp xếp các bộ sưu tập bất biến\nCollections.sort() và List.sort() thay đổi trực tiếp trên bộ sưu tập gốc. Nếu bộ sưu tập"
+    },
+    {
+      "paragraph_id": 113,
+      "start": 1106.78,
+      "end": 1111.0,
+      "duration": 4.22,
+      "text_snippet": "// Or using Stream API (returns a new list):\nList<Integer> sortedList = list.stream().sorted().toList();\n`"
+    },
+    {
+      "paragraph_id": 114,
+      "start": 1111.0,
+      "end": 1122.97,
+      "duration": 11.97,
+      "text_snippet": "Sự không nhất quán giữa compareTo và equals\nNếu x.compareTo(y) == 0 nhưng x.equals(y) trả về false, việc chèn cả hai vào"
+    },
+    {
+      "paragraph_id": 115,
+      "start": 1122.97,
+      "end": 1126.07,
+      "duration": 3.1,
+      "text_snippet": "BigDecimal d1 = new BigDecimal(\"1.0\");\nBigDecimal d2 = new BigDecimal(\"1.00\");"
+    },
+    {
+      "paragraph_id": 116,
+      "start": 1126.07,
+      "end": 1132.35,
+      "duration": 6.28,
+      "text_snippet": "// HashSet uses equals() -> d1 and d2 are NOT equal, so size is 2\nHashSet<BigDecimal> hashSet = new HashSet<>();\nhashSet"
+    },
+    {
+      "paragraph_id": 117,
+      "start": 1132.35,
+      "end": 1140.07,
+      "duration": 7.72,
+      "text_snippet": "// TreeSet uses compareTo() -> d1.compareTo(d2) is 0, so size is 1\nTreeSet<BigDecimal> treeSet = new TreeSet<>();\ntreeSe"
+    },
+    {
+      "paragraph_id": 118,
+      "start": 1140.07,
+      "end": 1157.69,
+      "duration": 17.62,
+      "text_snippet": "Lỗi NullPointerException với các bộ so sánh mặc định\nTruyền danh sách chứa các phần tử null vào các hàm sắp xếp tiêu chu"
+    },
+    {
+      "paragraph_id": 119,
+      "start": 1157.69,
+      "end": 1158.84,
+      "duration": 1.15,
+      "text_snippet": "Các câu hỏi ôn tập thường gặp"
+    },
+    {
+      "paragraph_id": 120,
+      "start": 1158.84,
+      "end": 1165.16,
+      "duration": 6.32,
+      "text_snippet": "Khái niệm nào ở đây là quy tắc thời điểm biên dịch?\nKhái niệm nào ở đây ảnh hưởng đến hành vi thời điểm chạy?\nKhái niệm "
+    },
+    {
+      "paragraph_id": 121,
+      "start": 1165.16,
+      "end": 1165.88,
+      "duration": 0.72,
+      "text_snippet": "Liên kết tham khảo"
+    },
+    {
+      "paragraph_id": 122,
+      "start": 1165.88,
+      "end": 1181.11,
+      "duration": 15.23,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Comparable.html (Comparable Interface Specificati"
+    }
+  ]
+}

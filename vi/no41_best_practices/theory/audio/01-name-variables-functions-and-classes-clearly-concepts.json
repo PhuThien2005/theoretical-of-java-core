@@ -1,0 +1,644 @@
+{
+  "lesson": "01-name-variables-functions-and-classes-clearly-concepts",
+  "total_duration_seconds": 538.13,
+  "total_paragraphs": 91,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 2.97,
+      "duration": 2.97,
+      "text_snippet": "Thực hành tốt nhất trong Java - Phần 1 (Best Practices in Java - Part 1)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 2.97,
+      "end": 3.63,
+      "duration": 0.66,
+      "text_snippet": "Mục tiêu học tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 3.63,
+      "end": 14.81,
+      "duration": 11.18,
+      "text_snippet": "Tài liệu này tập trung vào các Thực hành tốt nhất (Best Practices) nền tảng trong Java liên quan đến đặt tên, thiết kế c"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 14.81,
+      "end": 15.52,
+      "duration": 0.7,
+      "text_snippet": "Đề cương chi tiết"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 15.52,
+      "end": 70.44,
+      "duration": 54.92,
+      "text_snippet": "Name variables, functions, and classes clearly — Name variables, functions, and classes clearly: Cung cấp các quy tắc và"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 70.44,
+      "end": 70.52,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 70.52,
+      "end": 71.18,
+      "duration": 0.66,
+      "text_snippet": "Ghi chú chi tiết"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 71.18,
+      "end": 74.85,
+      "duration": 3.67,
+      "text_snippet": "Đặt tên rõ ràng cho các biến, hàm và lớp (Name variables, functions, and classes clearly)"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 74.85,
+      "end": 81.91,
+      "duration": 7.06,
+      "text_snippet": "Chọn các tên mô tả và thể hiện rõ ý định để làm cho mã nguồn tự tài liệu hóa. Tránh sử dụng tên có một ký tự (ngoại trừ "
+    },
+    {
+      "paragraph_id": 10,
+      "start": 81.91,
+      "end": 86.7,
+      "duration": 4.79,
+      "text_snippet": "Ví dụ:\n  `java\n  // BAD:\n  int d = 86400; // Unclear unit and purpose\n  \n  // GOOD:\n  int secondsPerDay = 86400;\n  `"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 86.7,
+      "end": 86.78,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 86.78,
+      "end": 88.88,
+      "duration": 2.1,
+      "text_snippet": "Viết mã theo quy ước (Code according to convention)"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 88.88,
+      "end": 92.43,
+      "duration": 3.55,
+      "text_snippet": "Tuân thủ các quy ước giúp mã nguồn của bạn dễ đọc hơn đối với các nhà phát triển khác."
+    },
+    {
+      "paragraph_id": 14,
+      "start": 92.43,
+      "end": 100.15,
+      "duration": 7.72,
+      "text_snippet": "Các quy ước:\n  - Lớp (Class): PascalCase (ví dụ: OrderProcessor)\n  - Phương thức & Biến: camelCase (ví dụ: processOrder,"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 100.15,
+      "end": 100.23,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 100.23,
+      "end": 102.09,
+      "duration": 1.86,
+      "text_snippet": "Không lạm dụng static (Do not overuse static)"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 102.09,
+      "end": 105.43,
+      "duration": 3.34,
+      "text_snippet": "static chỉ ra rằng một thành viên thuộc về kiểu lớp thay vì các thực thể của lớp."
+    },
+    {
+      "paragraph_id": 18,
+      "start": 105.43,
+      "end": 125.57,
+      "duration": 20.14,
+      "text_snippet": "Sự đánh đổi:\n  - Khả năng kiểm thử (Testability): Các phương thức tĩnh rất khó giả lập (mock) trong các bài kiểm thử đơn"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 125.57,
+      "end": 125.65,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 125.65,
+      "end": 127.75,
+      "duration": 2.1,
+      "text_snippet": "Không lạm dụng kế thừa (Do not overuse inheritance)"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 127.75,
+      "end": 131.72,
+      "duration": 3.96,
+      "text_snippet": "Kế thừa (extends) tạo ra một liên kết cứng nhắc tại thời điểm biên dịch giữa lớp cha và lớp con."
+    },
+    {
+      "paragraph_id": 22,
+      "start": 131.72,
+      "end": 146.36,
+      "duration": 14.65,
+      "text_snippet": "Rủi ro (Lớp cơ sở dễ vỡ - Fragile Base Class):\n  - Nếu một lớp cha thay đổi chi tiết triển khai của nó, nó có thể phá vỡ"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 146.36,
+      "end": 146.45,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 146.45,
+      "end": 149.25,
+      "duration": 2.81,
+      "text_snippet": "Ưu tiên thành phần hơn kế thừa (Prefer composition over inheritance)"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 149.25,
+      "end": 156.47,
+      "duration": 7.22,
+      "text_snippet": "Thay vì mở rộng các lớp để tái sử dụng hành vi, hãy thu được hành vi bằng cách giữ một tham chiếu đến một thực thể của l"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 156.47,
+      "end": 164.56,
+      "duration": 8.09,
+      "text_snippet": "Ví dụ:\n  `java\n  // BAD: Inheritance couples SecureStack tightly to Stack\n  class SecureStack extends Stack<String> {\n  "
+    },
+    {
+      "paragraph_id": 27,
+      "start": 164.56,
+      "end": 170.3,
+      "duration": 5.74,
+      "text_snippet": "// GOOD: Composition wraps Stack, exposing only safe methods\n  class SecureStack {\n      private final Stack<String> sta"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 170.3,
+      "end": 174.84,
+      "duration": 4.54,
+      "text_snippet": "public void push(String item) {\n          // validate and delegate\n          stack.push(item);\n      }\n  }\n  `"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 174.84,
+      "end": 174.92,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 174.92,
+      "end": 177.77,
+      "duration": 2.85,
+      "text_snippet": "Ghi đè equals/hashCode chính xác (Override equals/hashCode correctly)"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 177.77,
+      "end": 182.06,
+      "duration": 4.29,
+      "text_snippet": "Nếu bạn ghi đè equals(), bạn bắt buộc phải ghi đè hashCode() để duy trì giao ước bằng nhau về mặt logic."
+    },
+    {
+      "paragraph_id": 32,
+      "start": 182.06,
+      "end": 188.45,
+      "duration": 6.4,
+      "text_snippet": "Giao ước: Nếu a.equals(b) là true, thì a.hashCode() == b.hashCode() cũng phải trả về true.\nVí dụ:\n  `java\n  public class"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 188.45,
+      "end": 198.69,
+      "duration": 10.23,
+      "text_snippet": "@Override\n      public boolean equals(Object o) {\n          if (this == o) return true;\n          if (o == null || getCl"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 198.69,
+      "end": 213.71,
+      "duration": 15.02,
+      "text_snippet": "@Override\n      public int hashCode() {\n          return Objects.hash(email); // Must match equals evaluation fields!\n  "
+    },
+    {
+      "paragraph_id": 35,
+      "start": 213.71,
+      "end": 213.79,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 213.79,
+      "end": 218.08,
+      "duration": 4.29,
+      "text_snippet": "Sử dụng StringBuilder khi cộng chuỗi nhiều lần (Use StringBuilder when concatenating strings many times)"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 218.08,
+      "end": 227.24,
+      "duration": 9.16,
+      "text_snippet": "Vì các đối tượng String là bất biến trong Java, việc cộng các đối tượng chuỗi bên trong một vòng lặp bằng cách sử dụng t"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 227.24,
+      "end": 233.6,
+      "duration": 6.35,
+      "text_snippet": "Ví dụ:\n  `java\n  // BAD: Creates 10,000 temporary String objects in heap\n  String result = \"\";\n  for (int i = 0; i < 100"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 233.6,
+      "end": 241.85,
+      "duration": 8.25,
+      "text_snippet": "// GOOD: Single buffer modified in-place, O(n) execution\n  StringBuilder sb = new StringBuilder();\n  for (int i = 0; i <"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 241.85,
+      "end": 241.93,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 241.93,
+      "end": 244.28,
+      "duration": 2.35,
+      "text_snippet": "Sử dụng BigDecimal cho tiền tệ (Use BigDecimal for money)"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 244.28,
+      "end": 252.7,
+      "duration": 8.42,
+      "text_snippet": "Các kiểu dấu phẩy động nhị phân (double và float) không thể biểu diễn chính xác các phân số cơ số 10 (như 0.1), điều này"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 252.7,
+      "end": 256.17,
+      "duration": 3.47,
+      "text_snippet": "Ví dụ:\n  `java\n  // BAD: prints 0.30000000000000004\n  System.out.println(0.1 + 0.2);"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 256.17,
+      "end": 262.56,
+      "duration": 6.4,
+      "text_snippet": "// GOOD: prints 0.3 exactly\n  BigDecimal val1 = new BigDecimal(\"0.1\");\n  BigDecimal val2 = new BigDecimal(\"0.2\");\n  Syst"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 262.56,
+      "end": 262.65,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 262.65,
+      "end": 263.72,
+      "duration": 1.07,
+      "text_snippet": "Sử dụng try-with-resources"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 263.72,
+      "end": 271.4,
+      "duration": 7.68,
+      "text_snippet": "Luôn đóng các tay cầm tài nguyên (luồng, tệp, socket, kết nối cơ sở dữ liệu) có triển khai AutoCloseable bằng cách sử dụ"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 271.4,
+      "end": 284.35,
+      "duration": 12.96,
+      "text_snippet": "Ví dụ:\n  `java\n  // Automatically calls reader.close() when leaving block, even if an exception occurs\n  try (BufferedRe"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 284.35,
+      "end": 284.43,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 284.43,
+      "end": 288.89,
+      "duration": 4.46,
+      "text_snippet": "Không bắt Exception quá chung chung nếu không cần thiết (Do not catch overly broad Exception if unnecessary)"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 288.89,
+      "end": 295.74,
+      "duration": 6.85,
+      "text_snippet": "Bắt Exception hoặc Throwable mở rộng việc xử lý ngoại lệ để bắt tất cả các lớp con, bao gồm cả các lỗi thời gian chạy kh"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 295.74,
+      "end": 312.87,
+      "duration": 17.12,
+      "text_snippet": "Bẫy:\n  `java\n  try {\n      readConfigFile();\n  } catch (Exception e) {\n      // BAD: This catches IOException, but also "
+    },
+    {
+      "paragraph_id": 53,
+      "start": 312.87,
+      "end": 312.95,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 312.95,
+      "end": 314.43,
+      "duration": 1.49,
+      "text_snippet": "Tại sao đặt tên mô tả lại quan trọng"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 314.43,
+      "end": 355.04,
+      "duration": 40.6,
+      "text_snippet": "Đặt tên mang tính mô tả là một thực hành viết mã sạch cốt lõi nhằm giảm tải nhận thức (cognitive load) khi đọc và bảo tr"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 355.04,
+      "end": 356.94,
+      "duration": 1.9,
+      "text_snippet": "Mô hình tư duy: Tải nhận thức khi đọc mã nguồn"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 356.94,
+      "end": 357.64,
+      "duration": 0.7,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 357.64,
+      "end": 362.26,
+      "duration": 4.62,
+      "text_snippet": "Đặt tên mô tả:\n[Mã: tax = price * rate / 100] ---------------------------------------------> Hiểu ngay lập tức\n`"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 362.26,
+      "end": 362.84,
+      "duration": 0.58,
+      "text_snippet": "Ví dụ mã nguồn"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 362.84,
+      "end": 363.54,
+      "duration": 0.7,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 363.54,
+      "end": 375.59,
+      "duration": 12.05,
+      "text_snippet": "// Descriptive: Intention-revealing variables\n        double itemPrice = 150.0;\n        double salesTaxRate = 0.08;\n    "
+    },
+    {
+      "paragraph_id": 62,
+      "start": 375.59,
+      "end": 376.7,
+      "duration": 1.11,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 376.7,
+      "end": 377.4,
+      "duration": 0.7,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 377.4,
+      "end": 377.49,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 377.49,
+      "end": 380.21,
+      "duration": 2.72,
+      "text_snippet": "Tại sao các hằng số giúp ngăn ngừa các số ma thuật (Magic Numbers)"
+    },
+    {
+      "paragraph_id": 66,
+      "start": 380.21,
+      "end": 419.99,
+      "duration": 39.78,
+      "text_snippet": "Số ma thuật (magic number) là các giá trị literal được sử dụng trong mã nguồn mà không có lời giải thích, làm lu mờ ý đị"
+    },
+    {
+      "paragraph_id": 67,
+      "start": 419.99,
+      "end": 422.18,
+      "duration": 2.19,
+      "text_snippet": "Mô hình tư duy: Nội tuyến hằng số thời điểm biên dịch"
+    },
+    {
+      "paragraph_id": 68,
+      "start": 422.18,
+      "end": 422.88,
+      "duration": 0.7,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 69,
+      "start": 422.88,
+      "end": 430.59,
+      "duration": 7.72,
+      "text_snippet": "Bytecode (sau khi chạy javac):\nConfig.class  <-- Chứa định nghĩa trường\nClient.class  <-- Chứa trực tiếp giá trị literal"
+    },
+    {
+      "paragraph_id": 70,
+      "start": 430.59,
+      "end": 431.17,
+      "duration": 0.58,
+      "text_snippet": "Ví dụ mã nguồn"
+    },
+    {
+      "paragraph_id": 71,
+      "start": 431.17,
+      "end": 431.87,
+      "duration": 0.7,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 72,
+      "start": 431.87,
+      "end": 443.76,
+      "duration": 11.88,
+      "text_snippet": "public static void main(String[] args) {\n        double subtotal = 100.0;\n        // Bad: Magic number 8.25 makes it har"
+    },
+    {
+      "paragraph_id": 73,
+      "start": 443.76,
+      "end": 452.75,
+      "duration": 9.0,
+      "text_snippet": "// Good: Named constant clarifies intent and is inlined at compile-time\n        double taxAmountGood = subtotal * (SALES"
+    },
+    {
+      "paragraph_id": 74,
+      "start": 452.75,
+      "end": 453.87,
+      "duration": 1.11,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả"
+    },
+    {
+      "paragraph_id": 75,
+      "start": 453.87,
+      "end": 454.57,
+      "duration": 0.7,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 76,
+      "start": 454.57,
+      "end": 454.65,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 77,
+      "start": 454.65,
+      "end": 457.58,
+      "duration": 2.93,
+      "text_snippet": "Tại sao các mệnh đề bảo vệ (Guard Clause) đơn giản hóa luồng điều khiển"
+    },
+    {
+      "paragraph_id": 78,
+      "start": 457.58,
+      "end": 495.42,
+      "duration": 37.84,
+      "text_snippet": "Mô hình mệnh đề bảo vệ (guard clause) \"Trả về sớm\" hoặc \"Thất bại ngay\" thay thế các khối điều kiện lồng nhau sâu bằng c"
+    },
+    {
+      "paragraph_id": 79,
+      "start": 495.42,
+      "end": 497.69,
+      "duration": 2.27,
+      "text_snippet": "Mô hình tư duy: if-else lồng nhau so với Mệnh đề bảo vệ"
+    },
+    {
+      "paragraph_id": 80,
+      "start": 497.69,
+      "end": 498.39,
+      "duration": 0.7,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 81,
+      "start": 498.39,
+      "end": 507.18,
+      "duration": 8.79,
+      "text_snippet": "Mệnh đề bảo vệ (Đường dẫn tuyến tính):\n[Kiểm tra A không tốt] ---> Ném ngoại lệ/Trả về (Thoát sớm)\n[Kiểm tra B không tốt"
+    },
+    {
+      "paragraph_id": 82,
+      "start": 507.18,
+      "end": 507.76,
+      "duration": 0.58,
+      "text_snippet": "Ví dụ mã nguồn"
+    },
+    {
+      "paragraph_id": 83,
+      "start": 507.76,
+      "end": 508.46,
+      "duration": 0.7,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 84,
+      "start": 508.46,
+      "end": 517.5,
+      "duration": 9.04,
+      "text_snippet": "public static String processOrderGuard(String orderId, int quantity) {\n        // Guard clauses (fail fast)\n        if ("
+    },
+    {
+      "paragraph_id": 85,
+      "start": 517.5,
+      "end": 521.83,
+      "duration": 4.33,
+      "text_snippet": "// Core business logic (happy path)\n        return \"Order \" + orderId + \" processed successfully.\";\n    }"
+    },
+    {
+      "paragraph_id": 86,
+      "start": 521.83,
+      "end": 531.73,
+      "duration": 9.9,
+      "text_snippet": "public static void main(String[] args) {\n        System.out.println(processOrderNested(\"101\", 5)); // Order 101 processe"
+    },
+    {
+      "paragraph_id": 87,
+      "start": 531.73,
+      "end": 532.85,
+      "duration": 1.11,
+      "text_snippet": "Chuỗi nguyên nhân - kết quả"
+    },
+    {
+      "paragraph_id": 88,
+      "start": 532.85,
+      "end": 533.55,
+      "duration": 0.7,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 89,
+      "start": 533.55,
+      "end": 533.63,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 90,
+      "start": 533.63,
+      "end": 534.37,
+      "duration": 0.74,
+      "text_snippet": "Liên kết tham khảo"
+    },
+    {
+      "paragraph_id": 91,
+      "start": 534.37,
+      "end": 538.13,
+      "duration": 3.76,
+      "text_snippet": "Oracle Java Documentation\nOracle Java SE Naming Conventions\nJava JIT Compiler Optimizations"
+    }
+  ]
+}

@@ -1,0 +1,315 @@
+{
+  "lesson": "02-httpurlconnection-concepts",
+  "total_duration_seconds": 400.75,
+  "total_paragraphs": 44,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 1.47,
+      "duration": 1.47,
+      "text_snippet": "Lập Trình Mạng (Networking) - Phần 2"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 1.47,
+      "end": 2.12,
+      "duration": 0.65,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 2.12,
+      "end": 9.82,
+      "duration": 7.7,
+      "text_snippet": "Tài liệu này tập trung vào một phần chuyên sâu của Lập Trình Mạng (Networking). Hãy nghiên cứu từng khái niệm dưới dạng "
+    },
+    {
+      "paragraph_id": 4,
+      "start": 9.82,
+      "end": 11.24,
+      "duration": 1.43,
+      "text_snippet": "Tóm Tắt Nội Dung (Outline Coverage)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 11.24,
+      "end": 23.54,
+      "duration": 12.3,
+      "text_snippet": "HttpURLConnection — HttpURLConnection: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nJava 11 HttpClient — "
+    },
+    {
+      "paragraph_id": 6,
+      "start": 23.54,
+      "end": 24.19,
+      "duration": 0.65,
+      "text_snippet": "Ghi Chú Chi Tiết"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 24.19,
+      "end": 24.89,
+      "duration": 0.69,
+      "text_snippet": "HttpURLConnection"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 24.89,
+      "end": 39.22,
+      "duration": 14.34,
+      "text_snippet": "HttpURLConnection là API máy khách HTTP kế thừa của Java, được giới thiệu từ JDK 1.1. Nó đại diện cho một kết nối trực t"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 39.22,
+      "end": 56.66,
+      "duration": 17.43,
+      "text_snippet": "Hơn nữa, theo mặc định nó không thiết lập thời gian chờ kết nối (connect timeout) hoặc thời gian chờ đọc (read timeout) "
+    },
+    {
+      "paragraph_id": 10,
+      "start": 56.66,
+      "end": 57.39,
+      "duration": 0.73,
+      "text_snippet": "Java 11 HttpClient"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 57.39,
+      "end": 73.8,
+      "duration": 16.41,
+      "text_snippet": "Được giới thiệu từ Java 11 (JEP 321), HttpClient thay thế cho HttpURLConnection kế thừa để trở thành API HTTP client tiê"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 73.8,
+      "end": 89.73,
+      "duration": 15.93,
+      "text_snippet": "Nó hỗ trợ các phiên bản giao thức HTTP/1.1 và HTTP/2, cơ chế dự phòng (fallback), và hoàn toàn không gây chặn (non-block"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 89.73,
+      "end": 91.32,
+      "duration": 1.59,
+      "text_snippet": "Mô hình khách-chủ (Client-server model)"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 91.32,
+      "end": 107.24,
+      "duration": 15.93,
+      "text_snippet": "Mô hình khách-chủ là một kiến trúc ứng dụng phân tán phân chia các tác vụ hoặc khối lượng công việc giữa các bên cung cấ"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 107.24,
+      "end": 121.95,
+      "duration": 14.7,
+      "text_snippet": "Trong lập trình mạng Java, máy khách sử dụng các lớp như Socket hoặc HttpClient to initiate requests, whereas servers us"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 121.95,
+      "end": 122.03,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 122.03,
+      "end": 124.19,
+      "duration": 2.16,
+      "text_snippet": "Tại sao Java 11 HttpClient Thay thế HttpURLConnection"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 124.19,
+      "end": 161.5,
+      "duration": 37.31,
+      "text_snippet": "HttpURLConnection là API máy khách HTTP kế thừa của Java, được giới thiệu từ JDK 1.1. Nó có một số hạn chế nghiêm trọng:"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 161.5,
+      "end": 182.76,
+      "duration": 21.26,
+      "text_snippet": "Được giới thiệu từ Java 11, HttpClient thiết kế lại hoàn toàn cơ chế giao tiếp HTTP trong Java. Nó không gây chặn, được "
+    },
+    {
+      "paragraph_id": 20,
+      "start": 182.76,
+      "end": 190.87,
+      "duration": 8.11,
+      "text_snippet": "Mô hình tư duy: HttpURLConnection gây Chặn so với HttpClient Phản ứng\n`\n[HttpURLConnection (Chặn Luồng trên Mỗi Yêu cầu)"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 190.87,
+      "end": 203.9,
+      "duration": 13.03,
+      "text_snippet": "[HttpClient (Vòng lặp Sự kiện & CompletableFuture)]\nLuồng Gọi ---> Gửi Bất đồng bộ ---> Trả về CompletableFuture ---> Lu"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 203.9,
+      "end": 214.45,
+      "duration": 10.55,
+      "text_snippet": "Ví dụ Code: Thực thi Yêu cầu gây Chặn so với Bất đồng bộ\n`java\nimport java.net.URI;\nimport java.net.http.HttpClient;\nimp"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 214.45,
+      "end": 223.41,
+      "duration": 8.96,
+      "text_snippet": "public class HttpComparisonDemo {\n    public static void main(String[] args) throws Exception {\n        HttpClient clien"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 223.41,
+      "end": 229.19,
+      "duration": 5.78,
+      "text_snippet": "HttpRequest request = HttpRequest.newBuilder()\n            .uri(URI.create(\"https://api.github.com\"))\n            .GET()"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 229.19,
+      "end": 237.71,
+      "duration": 8.51,
+      "text_snippet": "// 1. Cuộc gọi bất đồng bộ không gây chặn trả về CompletableFuture\n        CompletableFuture<HttpResponse<String>> futur"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 237.71,
+      "end": 243.9,
+      "duration": 6.19,
+      "text_snippet": "// Làm việc khác trong khi yêu cầu đang thực thi ở nền sau\n        System.out.println(\"Request sent asynchronously. Thre"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 243.9,
+      "end": 255.71,
+      "duration": 11.81,
+      "text_snippet": "futureResponse.thenAccept(response -> {\n            System.out.println(\"Async Status Code: \" + response.statusCode());\n "
+    },
+    {
+      "paragraph_id": 28,
+      "start": 255.71,
+      "end": 266.46,
+      "duration": 10.75,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả\nSử dụng HttpURLConnection kế thừa &rarr; Yêu cầu đang thực thi chặn luồng thực hiện &rarr; C"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 266.46,
+      "end": 277.54,
+      "duration": 11.08,
+      "text_snippet": "Chuyển sang Java 11 HttpClient &rarr; Công cụ dòng phản ứng xử lý I/O bất đồng bộ &rarr; Trả về CompletableFuture không "
+    },
+    {
+      "paragraph_id": 30,
+      "start": 277.54,
+      "end": 277.62,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 277.62,
+      "end": 278.8,
+      "duration": 1.18,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 278.8,
+      "end": 303.81,
+      "duration": 25.01,
+      "text_snippet": "Khái niệm nào ở đây là quy tắc thời gian biên dịch?\n  Các lớp HttpClient, HttpRequest, và HttpResponse sử dụng các mẫu t"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 303.81,
+      "end": 303.89,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 303.89,
+      "end": 304.46,
+      "duration": 0.57,
+      "text_snippet": "Các Ví dụ Code"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 304.46,
+      "end": 315.79,
+      "duration": 11.32,
+      "text_snippet": "Yêu cầu HTTP sử dụng HttpURLConnection (Cổ điển)\n`java\nURL url = URI.create(\"https://api.github.com/users/octocat\").toUR"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 315.79,
+      "end": 319.7,
+      "duration": 3.91,
+      "text_snippet": "int responseCode = conn.getResponseCode();\nSystem.out.println(\"Response Code: \" + responseCode);"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 319.7,
+      "end": 333.91,
+      "duration": 14.22,
+      "text_snippet": "try (BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {\n    String inputLine;\n    S"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 333.91,
+      "end": 339.98,
+      "duration": 6.07,
+      "text_snippet": "Yêu cầu HTTP sử dụng HttpClient (Java 11+)\n`java\nHttpClient client = HttpClient.newBuilder()\n    .connectTimeout(Duratio"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 339.98,
+      "end": 347.07,
+      "duration": 7.09,
+      "text_snippet": "HttpRequest request = HttpRequest.newBuilder()\n    .uri(URI.create(\"https://api.github.com/users/octocat\"))\n    .header("
+    },
+    {
+      "paragraph_id": 40,
+      "start": 347.07,
+      "end": 355.79,
+      "duration": 8.72,
+      "text_snippet": "// Yêu cầu đồng bộ\nHttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());\nSystem.ou"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 355.79,
+      "end": 364.87,
+      "duration": 9.08,
+      "text_snippet": "// Yêu cầu bất đồng bộ\nclient.sendAsync(request, HttpResponse.BodyHandlers.ofString())\n    .thenApply(HttpResponse::body"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 364.87,
+      "end": 364.95,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 364.95,
+      "end": 365.68,
+      "duration": 0.73,
+      "text_snippet": "Các lỗi thường gặp"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 365.68,
+      "end": 400.75,
+      "duration": 35.07,
+      "text_snippet": "Quên cấu hình thời gian chờ (timeout) trên HttpURLConnection: Theo mặc định, HttpURLConnection có thời gian chờ vô hạn. "
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "lesson": "02-sequenced-collections-concepts",
+  "total_duration_seconds": 121.99,
+  "total_paragraphs": 19,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 3.11,
+      "duration": 3.11,
+      "text_snippet": "Các Khái Niệm Java Hiện Đại Cần Biết - Phần 2 (Modern Java Concepts To Know - Part 2)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 3.11,
+      "end": 4.28,
+      "duration": 1.17,
+      "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 4.28,
+      "end": 9.47,
+      "duration": 5.19,
+      "text_snippet": "Tài liệu này trình bày các khái niệm về Sequenced Collections và String Templates. Hãy nghiên cứu từng khái niệm như một"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 9.47,
+      "end": 10.83,
+      "duration": 1.35,
+      "text_snippet": "Khái Quát Nội Dung (Outline Coverage)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 10.83,
+      "end": 23.59,
+      "duration": 12.77,
+      "text_snippet": "Sequenced Collections — Sequenced Collections: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nString templa"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 23.59,
+      "end": 23.67,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 23.67,
+      "end": 24.87,
+      "duration": 1.21,
+      "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 24.87,
+      "end": 26.48,
+      "duration": 1.61,
+      "text_snippet": "Sequenced Collections (Bộ sưu tập có thứ tự)"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 26.48,
+      "end": 35.45,
+      "duration": 8.96,
+      "text_snippet": "Sequenced Collections (được giới thiệu từ Java 21) đồng nhất các bộ sưu tập có phần tử đầu tiên và cuối cùng được xác đị"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 35.45,
+      "end": 44.63,
+      "duration": 9.18,
+      "text_snippet": "Phân cấp Giao diện (Interface Hierarchy):\n  - SequencedCollection<E> (được kế thừa bởi List, Deque, và SequencedSet)\n  -"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 44.63,
+      "end": 49.6,
+      "duration": 4.97,
+      "text_snippet": "Ví dụ có thể chạy được (Runnable Example):\n  `java\n  SequencedCollection<String> coll = new ArrayList<>(List.of(\"one\", \""
+    },
+    {
+      "paragraph_id": 12,
+      "start": 49.6,
+      "end": 53.55,
+      "duration": 3.95,
+      "text_snippet": "// Uniform retrieval\n  String first = coll.getFirst(); // \"one\"\n  String last = coll.getLast();   // \"three\""
+    },
+    {
+      "paragraph_id": 13,
+      "start": 53.55,
+      "end": 56.19,
+      "duration": 2.63,
+      "text_snippet": "// Uniform modification\n  coll.addFirst(\"zero\");\n  coll.addLast(\"four\");"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 56.19,
+      "end": 62.59,
+      "duration": 6.4,
+      "text_snippet": "// Reverse view (runs in O(1) time without copying elements)\n  SequencedCollection<String> reversed = coll.reversed();\n "
+    },
+    {
+      "paragraph_id": 15,
+      "start": 62.59,
+      "end": 79.3,
+      "duration": 16.72,
+      "text_snippet": "Sai lầm thường gặp / Chế độ thất bại (Common Mistake / Failure Mode):\n  - Bộ sưu tập Rỗng (Empty Collections): Gọi getFi"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 79.3,
+      "end": 79.38,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 79.38,
+      "end": 86.07,
+      "duration": 6.69,
+      "text_snippet": "Mẫu chuỗi từng là tính năng xem trước; hiện tại không nên sử dụng như một tính năng ổn định (String templates were once "
+    },
+    {
+      "paragraph_id": 18,
+      "start": 86.07,
+      "end": 96.31,
+      "duration": 10.24,
+      "text_snippet": "Mẫu chuỗi (String Templates - ví dụ: STR.\"Hello \\{name}\") được giới thiệu dưới dạng tính năng xem trước (preview feature"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 96.31,
+      "end": 121.99,
+      "duration": 25.68,
+      "text_snippet": "Thực hành đúng (Correct Practice):\n  - Tránh sử dụng Mẫu chuỗi (STR.) trong bất kỳ mã nguồn tiêu chuẩn hoặc mã chạy thực"
+    }
+  ]
+}

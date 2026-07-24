@@ -1,0 +1,385 @@
+{
+  "lesson": "01-classes-objects",
+  "total_duration_seconds": 530.76,
+  "total_paragraphs": 54,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 2.09,
+      "duration": 2.09,
+      "text_snippet": "Lớp và Đối Tượng (Classes and Objects)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 2.09,
+      "end": 16.82,
+      "duration": 14.73,
+      "text_snippet": "Lập trình hướng đối tượng (Object-Oriented Programming - OOP) là một mô hình lập trình tập trung vào các \"đối tượng\" — c"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 16.82,
+      "end": 16.93,
+      "duration": 0.11,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 16.93,
+      "end": 18.9,
+      "duration": 1.98,
+      "text_snippet": "Lớp vs. Đối Tượng (Class vs. Object)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 18.9,
+      "end": 45.34,
+      "duration": 26.43,
+      "text_snippet": "Lớp (Class): Là một khuôn mẫu hoặc bản thiết kế định nghĩa cấu trúc và hành vi của một loại đối tượng. Nó là một thực th"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 45.34,
+      "end": 45.45,
+      "duration": 0.11,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 45.45,
+      "end": 47.98,
+      "duration": 2.53,
+      "text_snippet": "Các Trường và Phương Thức (Fields and Methods)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 47.98,
+      "end": 69.74,
+      "duration": 21.76,
+      "text_snippet": "Các trường (Fields - Biến thực thể / Thuộc tính): Là các biến được khai báo bên trong một lớp nhưng nằm ngoài bất kỳ phư"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 69.74,
+      "end": 69.85,
+      "duration": 0.11,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 69.85,
+      "end": 73.75,
+      "duration": 3.9,
+      "text_snippet": "Hàm Khởi Tạo và Phương Thức <init> (Constructors and the <init> Method)"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 73.75,
+      "end": 83.53,
+      "duration": 9.78,
+      "text_snippet": "Một Hàm khởi tạo (Constructor) là một khối mã được gọi trong quá trình khởi tạo đối tượng bằng từ khóa new. Vai trò chín"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 83.53,
+      "end": 96.17,
+      "duration": 12.64,
+      "text_snippet": "Quy tắc của Hàm Khởi Tạo:\nTên của hàm khởi tạo phải trùng khớp hoàn toàn với tên lớp.\nHàm khởi tạo không được khai báo k"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 96.17,
+      "end": 108.1,
+      "duration": 11.93,
+      "text_snippet": "Cơ chế của Trình Biên Dịch:\nBên dưới lớp vỏ, trình biên dịch Java sẽ biên dịch các hàm khởi tạo thành một phương thức mã"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 108.1,
+      "end": 162.39,
+      "duration": 54.3,
+      "text_snippet": "Các Loại Hàm Khởi Tạo:\nHàm khởi tạo mặc định (Default Constructor): Nếu bạn không viết bất kỳ hàm khởi tạo nào, trình bi"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 162.39,
+      "end": 163.33,
+      "duration": 0.93,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 163.33,
+      "end": 171.35,
+      "duration": 8.02,
+      "text_snippet": "// Hàm khởi tạo không tham số (No-arg constructor)\n    Student() {\n        this(\"Unknown\", 18); // Chuỗi hàm khởi tạo (C"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 171.35,
+      "end": 179.37,
+      "duration": 8.02,
+      "text_snippet": "// Hàm khởi tạo có tham số (Parameterized constructor)\n    Student(String name, int age) {\n        this.name = name;\n   "
+    },
+    {
+      "paragraph_id": 18,
+      "start": 179.37,
+      "end": 187.29,
+      "duration": 7.91,
+      "text_snippet": "// Hàm khởi tạo sao chép (Copy constructor)\n    Student(Student other) {\n        this.name = other.name;\n        this.ag"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 187.29,
+      "end": 187.4,
+      "duration": 0.11,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 187.4,
+      "end": 191.68,
+      "duration": 4.29,
+      "text_snippet": "Chuỗi Hàm Khởi Tạo và Từ Khóa this (Constructor Chaining and the this Keyword)"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 191.68,
+      "end": 199.38,
+      "duration": 7.69,
+      "text_snippet": "Chuỗi hàm khởi tạo (Constructor Chaining) là quá trình gọi một hàm khởi tạo từ một hàm khởi tạo khác trong cùng một lớp "
+    },
+    {
+      "paragraph_id": 22,
+      "start": 199.38,
+      "end": 219.16,
+      "duration": 19.78,
+      "text_snippet": "Quy tắc sử dụng this():\nĐể gọi một hàm khởi tạo khác trong cùng một lớp, hãy sử dụng this(các_tham_số).\nLời gọi this() ("
+    },
+    {
+      "paragraph_id": 23,
+      "start": 219.16,
+      "end": 219.27,
+      "duration": 0.11,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 219.27,
+      "end": 222.51,
+      "duration": 3.24,
+      "text_snippet": "Tham Chiếu Đối Tượng Trong Bộ Nhớ (Ngăn xếp Stack vs. Heap)"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 222.51,
+      "end": 226.42,
+      "duration": 3.9,
+      "text_snippet": "Khi bạn tạo một đối tượng, bộ nhớ sẽ được phân chia giữa Stack và Heap:"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 226.42,
+      "end": 227.35,
+      "duration": 0.93,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 227.35,
+      "end": 258.62,
+      "duration": 31.27,
+      "text_snippet": "Bộ nhớ Stack: Cấp phát một biến tham chiếu s1. Giá trị được lưu trữ trong s1 là địa chỉ bộ nhớ (con trỏ - pointer) của đ"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 258.62,
+      "end": 259.55,
+      "duration": 0.93,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 259.55,
+      "end": 259.66,
+      "duration": 0.11,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 259.66,
+      "end": 263.02,
+      "duration": 3.35,
+      "text_snippet": "Truyền Đối Tượng Vào Phương Thức (Passing Objects to Methods)"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 263.02,
+      "end": 288.9,
+      "duration": 25.88,
+      "text_snippet": "Java sử dụng cơ chế truyền bằng giá trị (pass-by-value) cho tất cả các đối số. Khi bạn truyền một đối tượng vào một phươ"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 288.9,
+      "end": 289.84,
+      "duration": 0.93,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 289.84,
+      "end": 289.95,
+      "duration": 0.11,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 289.95,
+      "end": 291.98,
+      "duration": 2.03,
+      "text_snippet": "Đối Tượng Ẩn Danh (Anonymous Objects)"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 291.98,
+      "end": 308.63,
+      "duration": 16.65,
+      "text_snippet": "Một đối tượng ẩn danh là một đối tượng được khởi tạo mà không được gán cho một biến tham chiếu nào.\nĐược sử dụng cho các"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 308.63,
+      "end": 308.74,
+      "duration": 0.11,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 308.74,
+      "end": 310.94,
+      "duration": 2.2,
+      "text_snippet": "Các Sai Lầm Thường Gặp (Common Mistakes)"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 310.94,
+      "end": 343.91,
+      "duration": 32.97,
+      "text_snippet": "Khai Báo Kiểu Trả Về Cho Hàm Khởi Tạo\nViệc thêm kiểu trả về (ngay cả void) sẽ biến khai báo hàm khởi tạo thành một phươn"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 343.91,
+      "end": 361.72,
+      "duration": 17.81,
+      "text_snippet": "Gọi Hàm Khởi Tạo Đệ Quy\nViệc liên kết các hàm khởi tạo thông qua this() không được tạo thành một vòng lặp kín; làm như v"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 361.72,
+      "end": 393.32,
+      "duration": 31.6,
+      "text_snippet": "Hiện Tượng Trùng Tên Tham Chiếu - Aliasing (Nhầm Lẫn Giữa Sao Chép Tham Chiếu Với Sao Chép Đối Tượng)\nViệc gán một biến "
+    },
+    {
+      "paragraph_id": 41,
+      "start": 393.32,
+      "end": 397.55,
+      "duration": 4.23,
+      "text_snippet": "Đánh Giá Chuyên Sâu: Danh Sách Kiểm Tra Thiết Kế Lớp (Class Design Checklist)"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 397.55,
+      "end": 408.65,
+      "duration": 11.1,
+      "text_snippet": "Khi bạn thiết kế một lớp, đừng chỉ dừng lại ở việc nghĩ \"nó có các trường và phương thức.\" Một lớp hữu ích thường có trá"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 408.65,
+      "end": 410.13,
+      "duration": 1.48,
+      "text_snippet": "Hãy tự đặt các câu hỏi sau:"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 410.13,
+      "end": 436.13,
+      "duration": 25.99,
+      "text_snippet": "Lớp này mô hình hóa khái niệm thực tế hay khái niệm chương trình nào?\nNhững trường nào đại diện cho trạng thái của đối t"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 436.13,
+      "end": 439.15,
+      "duration": 3.02,
+      "text_snippet": "Tính Bất Biến Của Hàm Khởi Tạo (Constructor Invariants)"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 439.15,
+      "end": 454.04,
+      "duration": 14.89,
+      "text_snippet": "Một hàm khởi tạo nên để lại đối tượng ở trạng thái có thể sử dụng được. Nếu một tài khoản ngân hàng BankAccount không th"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 454.04,
+      "end": 454.98,
+      "duration": 0.93,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 454.98,
+      "end": 465.64,
+      "duration": 10.66,
+      "text_snippet": "BankAccount(int openingBalance) {\n        if (openingBalance < 0) {\n            throw new IllegalArgumentException(\"nega"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 465.64,
+      "end": 469.92,
+      "duration": 4.29,
+      "text_snippet": "Định Danh Đối Tượng vs. Trạng Thái Đối Tượng (Object Identity vs Object State)"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 469.92,
+      "end": 478.17,
+      "duration": 8.24,
+      "text_snippet": "Hai tham chiếu có thể trỏ đến cùng một đối tượng. Hai đối tượng khác nhau cũng có thể có trạng thái bằng nhau nhưng có đ"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 478.17,
+      "end": 479.1,
+      "duration": 0.93,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 479.1,
+      "end": 491.25,
+      "duration": 12.15,
+      "text_snippet": "a == b trả về false vì chúng là hai đối tượng khác nhau trên heap.\na == c trả về true vì cả hai tham chiếu đều trỏ đến c"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 491.25,
+      "end": 493.23,
+      "duration": 1.98,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 493.23,
+      "end": 530.76,
+      "duration": 37.53,
+      "text_snippet": "Oracle Java Tutorials - Các khái niệm OOP: https://docs.oracle.com/javase/tutorial/java/concepts/\nOracle Java Tutorials "
+    }
+  ]
+}

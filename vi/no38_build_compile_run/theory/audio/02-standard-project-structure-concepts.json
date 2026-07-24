@@ -1,0 +1,252 @@
+{
+  "lesson": "02-standard-project-structure-concepts",
+  "total_duration_seconds": 380.71,
+  "total_paragraphs": 35,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 2.19,
+      "duration": 2.19,
+      "text_snippet": "Xây dựng, Biên dịch, Chạy (Build, Compile, Run) - Phần 2"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 2.19,
+      "end": 2.82,
+      "duration": 0.63,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 2.82,
+      "end": 8.85,
+      "duration": 6.03,
+      "text_snippet": "Tài liệu này trình bày về bố cục cấu trúc dự án tiêu chuẩn và kiểm thử đơn vị với JUnit. Hãy nghiên cứu từng khái niệm d"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 8.85,
+      "end": 9.56,
+      "duration": 0.7,
+      "text_snippet": "Nội Dung Tổng Quan"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 9.56,
+      "end": 18.68,
+      "duration": 9.12,
+      "text_snippet": "Standard project structure — Standard project structure: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nBas"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 18.68,
+      "end": 19.31,
+      "duration": 0.63,
+      "text_snippet": "Ghi Chú Chi Tiết"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 19.31,
+      "end": 21.42,
+      "duration": 2.11,
+      "text_snippet": "Cấu trúc dự án tiêu chuẩn (Standard project structure)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 21.42,
+      "end": 32.23,
+      "duration": 10.81,
+      "text_snippet": "Các dự án Java tuân theo một bố cục thư mục quy ước được định nghĩa bởi các công cụ xây dựng hiện đại (Maven/Gradle). Vi"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 32.23,
+      "end": 69.23,
+      "duration": 37.01,
+      "text_snippet": "Bố cục Thư Mục Tiêu Chuẩn:\n  `text\n  my-app/\n  ├── pom.xml                   Cấu hình dự án Maven (hoặc build.gradle cho"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 69.23,
+      "end": 98.76,
+      "duration": 29.53,
+      "text_snippet": "Sai Lầm Thường Gặp / Trường Hợp Lỗi:\n  - Đặt các tệp nguồn Java trực tiếp dưới src/main/ hoặc src/ thay vì src/main/java"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 98.76,
+      "end": 101.5,
+      "duration": 2.74,
+      "text_snippet": "Tại Sao Cấu Trúc Dự Án Tiêu Chuẩn Lại Tách Biệt Mã Nguồn Và Tài Nguyên"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 101.5,
+      "end": 136.86,
+      "duration": 35.36,
+      "text_snippet": "Các công cụ xây dựng như Maven và Gradle dựa trên các quy ước để tách biệt mã nguồn thực thi khỏi các tệp tài nguyên tĩn"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 136.86,
+      "end": 151.31,
+      "duration": 14.45,
+      "text_snippet": "Mô Hình Tư Duy: Nguyên Liệu Nấu Ăn so với Sách Công Thức\nsrc/main/java (Sách công thức): Chúng cần được dịch, in và đóng"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 151.31,
+      "end": 151.98,
+      "duration": 0.67,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 151.98,
+      "end": 169.13,
+      "duration": 17.15,
+      "text_snippet": "Ví Dụ Thực Tế\n`java\n// Cố gắng tải một tệp tài nguyên:\nInputStream input = App.class.getClassLoader().getResourceAsStrea"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 169.13,
+      "end": 186.01,
+      "duration": 16.88,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nLập trình viên đặt config.properties bên trong src/main/java/ &rarr; Tác vụ compiler:compile"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 186.01,
+      "end": 186.09,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 186.09,
+      "end": 188.48,
+      "duration": 2.39,
+      "text_snippet": "Kiểm thử đơn vị cơ bản với JUnit (Basic unit test with JUnit)"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 188.48,
+      "end": 196.66,
+      "duration": 8.18,
+      "text_snippet": "JUnit (hiện tại là JUnit 5 / Jupiter) là khung công tác chính để viết các bài kiểm thử đơn vị tự động trong hệ sinh thái"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 196.66,
+      "end": 198.46,
+      "duration": 1.8,
+      "text_snippet": "Ví Dụ Mã Nguồn:\n  `java\n  package com.example;"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 198.46,
+      "end": 201.83,
+      "duration": 3.37,
+      "text_snippet": "import org.junit.jupiter.api.Test;\n  import static org.junit.jupiter.api.Assertions.*;"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 201.83,
+      "end": 202.97,
+      "duration": 1.14,
+      "text_snippet": "public class CalculatorTest {"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 202.97,
+      "end": 205.12,
+      "duration": 2.15,
+      "text_snippet": "private final Calculator calculator = new Calculator();"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 205.12,
+      "end": 215.38,
+      "duration": 10.26,
+      "text_snippet": "@Test\n      void testAdd_withPositiveNumbers_shouldReturnSum() {\n          int result = calculator.add(2, 3);\n          "
+    },
+    {
+      "paragraph_id": 25,
+      "start": 215.38,
+      "end": 226.74,
+      "duration": 11.36,
+      "text_snippet": "@Test\n      void testDivide_byZero_shouldThrowArithmeticException() {\n          // Khẳng định việc ném ngoại lệ\n        "
+    },
+    {
+      "paragraph_id": 26,
+      "start": 226.74,
+      "end": 259.75,
+      "duration": 33.01,
+      "text_snippet": "Sai Lầm Thường Gặp / Trường Hợp Lỗi:\n  - Quên chú thích @Test: Nếu bạn bỏ qua @Test (từ gói org.junit.jupiter.api), công"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 259.75,
+      "end": 263.27,
+      "duration": 3.52,
+      "text_snippet": "Tại Sao Thứ Tự Khẳng Định (Assertion) Và Chú Thích (Annotation) Trong JUnit Lại Quan Trọng"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 263.27,
+      "end": 298.16,
+      "duration": 34.89,
+      "text_snippet": "Các khung kiểm thử tự động yêu cầu các giao thức nghiêm ngặt để xác định, thực thi và báo cáo kết quả kiểm thử một cách "
+    },
+    {
+      "paragraph_id": 29,
+      "start": 298.16,
+      "end": 327.1,
+      "duration": 28.94,
+      "text_snippet": "Mô Hình Tư Duy: Xác Minh Chú Thích và Định Dạng Khẳng Định\n`mermaid\nflowchart TD\n    subgraph TestRunner [\"Trình chạy ki"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 327.1,
+      "end": 332.47,
+      "duration": 5.36,
+      "text_snippet": "Ví Dụ Thực Tế\n`java\n// Thứ tự đúng: mong đợi là 5, thực tế là 4\nassertEquals(5, 4);\n// Đầu ra trên console:\n// Expected:"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 332.47,
+      "end": 336.81,
+      "duration": 4.35,
+      "text_snippet": "// Thứ tự đảo ngược (gây hiểu lầm):\nassertEquals(4, 5);\n// Đầu ra trên console:\n// Expected: 4\n// But was:  5\n`"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 336.81,
+      "end": 355.22,
+      "duration": 18.41,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nLập trình viên viết khẳng định kiểm thử &rarr; Lập trình viên đảo ngược các đối số thành ass"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 355.22,
+      "end": 355.3,
+      "duration": 0.08,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 355.3,
+      "end": 356.43,
+      "duration": 1.14,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 356.43,
+      "end": 380.71,
+      "duration": 24.28,
+      "text_snippet": "Thư mục nào chứa cấu hình chính so với dữ liệu giả lập để kiểm thử? (src/main/resources so với src/test/resources)\nRủi r"
+    }
+  ]
+}

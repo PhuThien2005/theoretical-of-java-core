@@ -1,0 +1,833 @@
+{
+  "lesson": "01-solid-concepts",
+  "total_duration_seconds": 835.01,
+  "total_paragraphs": 118,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 2.44,
+      "duration": 2.44,
+      "text_snippet": "Các Nguyên Tắc Thiết Kế Cơ Bản Thường Đi Kèm Với Java Core - Phần 1"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 2.44,
+      "end": 3.03,
+      "duration": 0.58,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 3.03,
+      "end": 11.56,
+      "duration": 8.53,
+      "text_snippet": "File này đề cập đến các Nguyên tắc thiết kế (Design Principles) cơ bản đi kèm với quá trình phát triển Java Core (SOLID,"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 11.56,
+      "end": 12.22,
+      "duration": 0.66,
+      "text_snippet": "Đề Cương Khái Niệm"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 12.22,
+      "end": 47.78,
+      "duration": 35.56,
+      "text_snippet": "SOLID — SOLID: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nDRY — DRY: Cung cấp các quy tắc và cơ chế hoạ"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 47.78,
+      "end": 47.85,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 47.85,
+      "end": 48.43,
+      "duration": 0.58,
+      "text_snippet": "Ghi Chú Chi Tiết"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 48.43,
+      "end": 48.62,
+      "duration": 0.18,
+      "text_snippet": "SOLID"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 48.62,
+      "end": 51.21,
+      "duration": 2.59,
+      "text_snippet": "SOLID đại diện cho năm nguyên tắc cốt lõi của thiết kế hướng đối tượng:"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 51.21,
+      "end": 56.68,
+      "duration": 5.47,
+      "text_snippet": "> Xem thêm: Các đặc tính cốt lõi của Lập trình Hướng đối tượng (OOP) tạo nền tảng cho các nguyên tắc SOLID, được trình b"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 56.68,
+      "end": 85.82,
+      "duration": 29.14,
+      "text_snippet": "Nguyên tắc Đơn trách nhiệm (Single Responsibility Principle - SRP): Một lớp chỉ nên có duy nhất một lý do để thay đổi.\nN"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 85.82,
+      "end": 89.97,
+      "duration": 4.16,
+      "text_snippet": "Ví dụ chạy được (Đảo ngược Phụ thuộc):\n  `java\n  public interface MessageSender {\n      void send(String msg);\n  }"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 89.97,
+      "end": 93.99,
+      "duration": 4.01,
+      "text_snippet": "public class EmailSender implements MessageSender {\n      public void send(String msg) { / sends email / }\n  }"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 93.99,
+      "end": 98.07,
+      "duration": 4.08,
+      "text_snippet": "public class NotificationService {\n      private final MessageSender sender; // Depends on interface abstraction"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 98.07,
+      "end": 102.67,
+      "duration": 4.6,
+      "text_snippet": "public NotificationService(MessageSender sender) { // Injected via constructor\n          this.sender = sender;\n      }\n "
+    },
+    {
+      "paragraph_id": 16,
+      "start": 102.67,
+      "end": 102.74,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 102.74,
+      "end": 102.85,
+      "duration": 0.11,
+      "text_snippet": "DRY"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 102.85,
+      "end": 108.98,
+      "duration": 6.13,
+      "text_snippet": "\"Don't Repeat Yourself\" (Đừng lặp lại chính mình) quy định rằng mỗi phần logic của hệ thống phải có một biểu diễn duy nh"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 108.98,
+      "end": 124.29,
+      "duration": 15.32,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  // BAD: Copy-pasting input verification logic in multiple controllers\n  \n  // GOOD: Extract v"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 124.29,
+      "end": 137.72,
+      "duration": 13.42,
+      "text_snippet": "Sai lầm phổ biến: Lạm dụng DRY (Over-DRYing). Chia sẻ mã nguồn giữa hai miền nghiệp vụ ngẫu nhiên trông giống hệt nhau ở"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 137.72,
+      "end": 137.79,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 137.79,
+      "end": 137.93,
+      "duration": 0.15,
+      "text_snippet": "KISS"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 137.93,
+      "end": 147.96,
+      "duration": 10.03,
+      "text_snippet": "\"Keep It Simple, Stupid\" (Giữ mọi thứ đơn giản) yêu cầu mã nguồn nên được viết đơn giản và trực tiếp nhất có thể. Tránh "
+    },
+    {
+      "paragraph_id": 24,
+      "start": 147.96,
+      "end": 155.66,
+      "duration": 7.7,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  // BAD: Over-engineered check\n  public boolean isPositive(int number) {\n      return Optional"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 155.66,
+      "end": 160.0,
+      "duration": 4.34,
+      "text_snippet": "// GOOD: Simple, direct, and performs better\n  public boolean isPositive(int number) {\n      return number > 0;\n  }\n  `"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 160.0,
+      "end": 160.07,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 160.07,
+      "end": 160.25,
+      "duration": 0.18,
+      "text_snippet": "YAGNI"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 160.25,
+      "end": 167.59,
+      "duration": 7.33,
+      "text_snippet": "\"You Aren't Gonna Need It\" (Bạn chưa cần đến nó đâu) quy định rằng bạn không nên triển khai các tính năng, lớp tiện ích "
+    },
+    {
+      "paragraph_id": 29,
+      "start": 167.59,
+      "end": 176.3,
+      "duration": 8.72,
+      "text_snippet": "Đánh đổi: Việc triển khai các tính năng suy đoán làm lãng phí thời gian của nhà phát triển, làm phình to các bài test, t"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 176.3,
+      "end": 176.37,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 176.37,
+      "end": 178.6,
+      "duration": 2.22,
+      "text_snippet": "Ưu Tiên Thành Phần Hơn Kế Thừa (Composition Over Inheritance)"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 178.6,
+      "end": 184.69,
+      "duration": 6.09,
+      "text_snippet": "Đạt được hành vi đa hình và tái sử dụng mã nguồn bằng cách nhóm các thực thể của các lớp trợ giúp (\"has-a\" - có một) tha"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 184.69,
+      "end": 187.64,
+      "duration": 2.95,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  public class Engine {\n      public void start() {}\n  }"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 187.64,
+      "end": 192.13,
+      "duration": 4.49,
+      "text_snippet": "// GOOD: Car encloses Engine to reuse start behavior\n  public class Car {\n      private final Engine engine = new Engine"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 192.13,
+      "end": 196.03,
+      "duration": 3.9,
+      "text_snippet": "public void drive() {\n          engine.start();\n          System.out.println(\"Driving...\");\n      }\n  }\n  `"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 196.03,
+      "end": 196.11,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 196.11,
+      "end": 196.98,
+      "duration": 0.88,
+      "text_snippet": "Tính Liên Kết (Coupling)"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 196.98,
+      "end": 202.78,
+      "duration": 5.8,
+      "text_snippet": "Tính liên kết (coupling) đo lường mức độ phụ thuộc lẫn nhau giữa hai lớp. Mục tiêu là liên kết lỏng (loose coupling) để "
+    },
+    {
+      "paragraph_id": 39,
+      "start": 202.78,
+      "end": 210.44,
+      "duration": 7.66,
+      "text_snippet": "Biện pháp giảm thiểu: Sử dụng các interface để xác định ranh giới, khai báo các phụ thuộc một cách tường minh qua các th"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 210.44,
+      "end": 210.51,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 210.51,
+      "end": 211.35,
+      "duration": 0.84,
+      "text_snippet": "Tính Gắn Kết (Cohesion)"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 211.35,
+      "end": 217.51,
+      "duration": 6.16,
+      "text_snippet": "Tính gắn kết (cohesion) đo lường mức độ tập trung của các phương thức và biến bên trong một lớp vào một nhiệm vụ logic d"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 217.51,
+      "end": 226.23,
+      "duration": 8.72,
+      "text_snippet": "Ví dụ:\n  - Gắn kết thấp: Một lớp tiện ích UserHelper xử lý cả băm mật khẩu, tải cơ sở dữ liệu, tuần tự hóa JSON và gửi S"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 226.23,
+      "end": 226.3,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 226.3,
+      "end": 228.13,
+      "duration": 1.82,
+      "text_snippet": "Tiêm Phụ Thuộc Cơ Bản (Basic Dependency Injection)"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 228.13,
+      "end": 233.31,
+      "duration": 5.18,
+      "text_snippet": "Các lớp nên nhận các phụ thuộc bắt buộc của chúng từ bên ngoài (thường qua các đối số của hàm khởi tạo) thay vì tự khởi "
+    },
+    {
+      "paragraph_id": 47,
+      "start": 233.31,
+      "end": 237.06,
+      "duration": 3.76,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  public class OrderService {\n      private final PaymentClient paymentClient;"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 237.06,
+      "end": 243.99,
+      "duration": 6.93,
+      "text_snippet": "// Dependency is injected rather than created via \"new PaymentClient()\"\n      public OrderService(PaymentClient paymentC"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 243.99,
+      "end": 244.07,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 244.07,
+      "end": 245.63,
+      "duration": 1.57,
+      "text_snippet": "Lập Trình Phòng Thủ (Defensive Programming)"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 245.63,
+      "end": 254.31,
+      "duration": 8.68,
+      "text_snippet": "Lập trình phòng thủ (defensive programming) là hoạt động thiết kế mã nguồn để tiếp tục thực thi hoặc thất bại một cách a"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 254.31,
+      "end": 266.79,
+      "duration": 12.47,
+      "text_snippet": "Ví dụ chạy được:\n  `java\n  public void registerUser(String username, int age) {\n      // Validate inputs early (fail fas"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 266.79,
+      "end": 266.86,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 266.86,
+      "end": 268.61,
+      "duration": 1.75,
+      "text_snippet": "Quy Tắc Viết Code Sạch Cơ Bản (Basic Clean Code)"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 268.61,
+      "end": 272.04,
+      "duration": 3.43,
+      "text_snippet": "Mã nguồn sạch (clean code) được viết chủ yếu để dễ đọc và dễ hiểu bởi các nhà phát triển khác."
+    },
+    {
+      "paragraph_id": 56,
+      "start": 272.04,
+      "end": 284.91,
+      "duration": 12.87,
+      "text_snippet": "Các quy tắc chính:\n  - Các hàm nên ngắn gọn và chỉ làm duy nhất một việc.\n  - Giới hạn độ sâu thụt lề phương thức (ví dụ"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 284.91,
+      "end": 284.99,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 284.99,
+      "end": 286.77,
+      "duration": 1.79,
+      "text_snippet": "Tại Sao Đơn Trách Nhiệm Thúc Đẩy Tính Gắn Kết Cao"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 286.77,
+      "end": 326.53,
+      "duration": 39.75,
+      "text_snippet": "Trong JVM, các lớp là đơn vị cơ bản của việc triển khai (deployment), tải lớp (class loading) và thực thi. Khi một lớp g"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 326.53,
+      "end": 342.9,
+      "duration": 16.38,
+      "text_snippet": "Đơn Trách Nhiệm và Sự Phân Tách (Mental Model)\n`text\nGắn kết thấp (Lớp phình to):\n--------------------------------------"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 342.9,
+      "end": 352.49,
+      "duration": 9.59,
+      "text_snippet": "Gắn kết cao (Tách biệt theo SRP):\n------------------+     +------------------+\n|    UserEntity    |     |   EmailService"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 352.49,
+      "end": 357.02,
+      "duration": 4.52,
+      "text_snippet": "Ví Dụ Mã Nguồn\n`java\n// SRP Compliant Design\nclass User {\n    private final String username;\n    private final String em"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 357.02,
+      "end": 361.1,
+      "duration": 4.08,
+      "text_snippet": "public User(String username, String email) {\n        this.username = username;\n        this.email = email;\n    }"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 361.1,
+      "end": 364.64,
+      "duration": 3.54,
+      "text_snippet": "public String getEmail() { return email; }\n    public String getUsername() { return username; }\n}"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 364.64,
+      "end": 369.64,
+      "duration": 5.0,
+      "text_snippet": "class EmailSender {\n    public void sendWelcomeEmail(User user) {\n        System.out.println(\"Email sent to \" + user.get"
+    },
+    {
+      "paragraph_id": 66,
+      "start": 369.64,
+      "end": 379.56,
+      "duration": 9.92,
+      "text_snippet": "public class Main {\n    public static void main(String[] args) {\n        User user = new User(\"alice\", \"alice@example.co"
+    },
+    {
+      "paragraph_id": 67,
+      "start": 379.56,
+      "end": 392.1,
+      "duration": 12.55,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nĐơn trách nhiệm cho một lớp &rarr; Tất cả các phương thức tập trung vào một nhiệm vụ duy nhấ"
+    },
+    {
+      "paragraph_id": 68,
+      "start": 392.1,
+      "end": 392.17,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 69,
+      "start": 392.17,
+      "end": 394.0,
+      "duration": 1.82,
+      "text_snippet": "Tại Sao Nguyên Tắc Đóng/Mở Bảo Vệ Mã Nguồn Hiện Có"
+    },
+    {
+      "paragraph_id": 70,
+      "start": 394.0,
+      "end": 436.16,
+      "duration": 42.16,
+      "text_snippet": "Nguyên tắc Đóng/Mở (OCP) tận dụng các cơ chế hướng đối tượng của Java như tính đa hình (polymorphism) và liên kết động ("
+    },
+    {
+      "paragraph_id": 71,
+      "start": 436.16,
+      "end": 444.77,
+      "duration": 8.61,
+      "text_snippet": "Đóng để Sửa đổi so với Mở để Mở rộng (Mental Model)\n`text\nKhông có OCP (Sửa đổi lớp hiện có):\nClient ---> [ PaymentProce"
+    },
+    {
+      "paragraph_id": 72,
+      "start": 444.77,
+      "end": 454.07,
+      "duration": 9.3,
+      "text_snippet": "Có OCP (Mở rộng qua Interface):\nClient ---> [ PaymentProcessor (Interface) ]\n                    ^                  ^\n  "
+    },
+    {
+      "paragraph_id": 73,
+      "start": 454.07,
+      "end": 456.33,
+      "duration": 2.26,
+      "text_snippet": "Ví Dụ Mã Nguồn\n`java\ninterface Payment {\n    void process();\n}"
+    },
+    {
+      "paragraph_id": 74,
+      "start": 456.33,
+      "end": 461.03,
+      "duration": 4.7,
+      "text_snippet": "class VisaPayment implements Payment {\n    public void process() {\n        System.out.println(\"Visa payment processed.\")"
+    },
+    {
+      "paragraph_id": 75,
+      "start": 461.03,
+      "end": 465.88,
+      "duration": 4.85,
+      "text_snippet": "class PayPalPayment implements Payment {\n    public void process() {\n        System.out.println(\"PayPal payment processe"
+    },
+    {
+      "paragraph_id": 76,
+      "start": 465.88,
+      "end": 469.79,
+      "duration": 3.9,
+      "text_snippet": "class PaymentService {\n    public void executePayment(Payment payment) {\n        payment.process();\n    }\n}"
+    },
+    {
+      "paragraph_id": 77,
+      "start": 469.79,
+      "end": 481.6,
+      "duration": 11.82,
+      "text_snippet": "public class Main {\n    public static void main(String[] args) {\n        PaymentService service = new PaymentService();\n"
+    },
+    {
+      "paragraph_id": 78,
+      "start": 481.6,
+      "end": 493.56,
+      "duration": 11.96,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nChương trình phụ thuộc vào các interface &rarr; Các tính năng mới được thực hiện bằng cách t"
+    },
+    {
+      "paragraph_id": 79,
+      "start": 493.56,
+      "end": 493.64,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 80,
+      "start": 493.64,
+      "end": 495.97,
+      "duration": 2.33,
+      "text_snippet": "Tại Sao Nguyên Tắc Thay Thế Liskov Thực Thi Các Hợp Đồng Hành Vi"
+    },
+    {
+      "paragraph_id": 81,
+      "start": 495.97,
+      "end": 538.72,
+      "duration": 42.74,
+      "text_snippet": "Đa hình kiểu con (subtype polymorphism) trong Java cho phép một biến tham chiếu thuộc kiểu lớp cha hoặc kiểu interface t"
+    },
+    {
+      "paragraph_id": 82,
+      "start": 538.72,
+      "end": 543.53,
+      "duration": 4.81,
+      "text_snippet": "Hợp đồng hành vi Liskov (Mental Model)\n`text\nLớp cha (Hợp đồng: trả về số nguyên dương)\n    [ MathHelper ] -> getValue()"
+    },
+    {
+      "paragraph_id": 83,
+      "start": 543.53,
+      "end": 546.85,
+      "duration": 3.32,
+      "text_snippet": "Lớp con A (Tuân thủ LSP)\n    [ SecureHelper ] -> getValue() trả về >= 1 (Tuân thủ hợp đồng)"
+    },
+    {
+      "paragraph_id": 84,
+      "start": 546.85,
+      "end": 552.58,
+      "duration": 5.73,
+      "text_snippet": "Lớp con B (Vi phạm LSP)\n    [ BadHelper ] -> getValue() trả về 0 hoặc số âm (Vi phạm hợp đồng!)\n    Client mong đợi số n"
+    },
+    {
+      "paragraph_id": 85,
+      "start": 552.58,
+      "end": 555.82,
+      "duration": 3.25,
+      "text_snippet": "Ví Dụ Mã Nguồn\n`java\nclass Rectangle {\n    protected int width;\n    protected int height;"
+    },
+    {
+      "paragraph_id": 86,
+      "start": 555.82,
+      "end": 562.13,
+      "duration": 6.31,
+      "text_snippet": "public void setWidth(int width) { this.width = width; }\n    public void setHeight(int height) { this.height = height; }\n"
+    },
+    {
+      "paragraph_id": 87,
+      "start": 562.13,
+      "end": 567.49,
+      "duration": 5.36,
+      "text_snippet": "class Square extends Rectangle {\n    @Override\n    public void setWidth(int width) {\n        this.width = width;\n       "
+    },
+    {
+      "paragraph_id": 88,
+      "start": 567.49,
+      "end": 571.72,
+      "duration": 4.23,
+      "text_snippet": "@Override\n    public void setHeight(int height) {\n        this.width = height;\n        this.height = height;\n    }\n}"
+    },
+    {
+      "paragraph_id": 89,
+      "start": 571.72,
+      "end": 579.02,
+      "duration": 7.29,
+      "text_snippet": "public class Main {\n    public static void verifyRectangle(Rectangle r) {\n        r.setWidth(5);\n        r.setHeight(10)"
+    },
+    {
+      "paragraph_id": 90,
+      "start": 579.02,
+      "end": 587.55,
+      "duration": 8.53,
+      "text_snippet": "public static void main(String[] args) {\n        verifyRectangle(new Rectangle()); // Output: Expected Area: 50, Actual:"
+    },
+    {
+      "paragraph_id": 91,
+      "start": 587.55,
+      "end": 601.05,
+      "duration": 13.49,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nLớp con ghi đè phương thức lớp cha &rarr; Lớp con tăng cường điều kiện tiên quyết hoặc làm y"
+    },
+    {
+      "paragraph_id": 92,
+      "start": 601.05,
+      "end": 601.12,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 93,
+      "start": 601.12,
+      "end": 603.49,
+      "duration": 2.37,
+      "text_snippet": "Tại Sao Phân Tách Interface Ngăn Chặn Liên Kết Interface Phình To"
+    },
+    {
+      "paragraph_id": 94,
+      "start": 603.49,
+      "end": 648.93,
+      "duration": 45.44,
+      "text_snippet": "Trong JVM, khi một lớp triển khai một interface, nó phải cung cấp các triển khai cụ thể cho tất cả các phương thức không"
+    },
+    {
+      "paragraph_id": 95,
+      "start": 648.93,
+      "end": 664.29,
+      "duration": 15.35,
+      "text_snippet": "Interface phình to so với Interface phân tách (Mental Model)\n`text\nInterface phình to (Liên kết các client không liên qu"
+    },
+    {
+      "paragraph_id": 96,
+      "start": 664.29,
+      "end": 674.5,
+      "duration": 10.21,
+      "text_snippet": "Các interface được phân tách (Tinh gọn, dành riêng cho client):\n-------------+   +-------------+\n|   Printer   |   |   S"
+    },
+    {
+      "paragraph_id": 97,
+      "start": 674.5,
+      "end": 676.69,
+      "duration": 2.19,
+      "text_snippet": "Ví Dụ Mã Nguồn\n`java\ninterface Printer {\n    void print();\n}"
+    },
+    {
+      "paragraph_id": 98,
+      "start": 676.69,
+      "end": 678.07,
+      "duration": 1.39,
+      "text_snippet": "interface Scanner {\n    void scan();\n}"
+    },
+    {
+      "paragraph_id": 99,
+      "start": 678.07,
+      "end": 682.63,
+      "duration": 4.56,
+      "text_snippet": "class BasicPrinter implements Printer {\n    public void print() {\n        System.out.println(\"Printing document...\");\n  "
+    },
+    {
+      "paragraph_id": 100,
+      "start": 682.63,
+      "end": 690.84,
+      "duration": 8.21,
+      "text_snippet": "class MultiFunctionPrinter implements Printer, Scanner {\n    public void print() {\n        System.out.println(\"Printing "
+    },
+    {
+      "paragraph_id": 101,
+      "start": 690.84,
+      "end": 704.44,
+      "duration": 13.6,
+      "text_snippet": "public class Main {\n    public static void main(String[] args) {\n        Printer printer = new BasicPrinter();\n        p"
+    },
+    {
+      "paragraph_id": 102,
+      "start": 704.44,
+      "end": 717.17,
+      "duration": 12.73,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nInterface phình to chứa các phương thức không liên quan &rarr; Các lớp triển khai bị buộc ph"
+    },
+    {
+      "paragraph_id": 103,
+      "start": 717.17,
+      "end": 717.24,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 104,
+      "start": 717.24,
+      "end": 719.18,
+      "duration": 1.93,
+      "text_snippet": "Tại Sao Đảo Ngược Phụ Thuộc Giúp Tách Biệt Các Module"
+    },
+    {
+      "paragraph_id": 105,
+      "start": 719.18,
+      "end": 762.47,
+      "duration": 43.29,
+      "text_snippet": "Nguyên tắc Đảo ngược Phụ thuộc (DIP) đảo ngược luồng phụ thuộc từ trên xuống truyền thống của các hệ thống phần mềm bằng"
+    },
+    {
+      "paragraph_id": 106,
+      "start": 762.47,
+      "end": 771.0,
+      "duration": 8.53,
+      "text_snippet": "Phụ thuộc trực tiếp so với Đảo ngược phụ thuộc (Mental Model)\n`text\nPhụ thuộc trực tiếp (Liên kết chặt chẽ):\n[ Service c"
+    },
+    {
+      "paragraph_id": 107,
+      "start": 771.0,
+      "end": 779.46,
+      "duration": 8.46,
+      "text_snippet": "Đảo ngược phụ thuộc (Liên kết lỏng):\n[ Service cấp cao ] ---> [ Database (Interface) ]\n                                 "
+    },
+    {
+      "paragraph_id": 108,
+      "start": 779.46,
+      "end": 782.05,
+      "duration": 2.59,
+      "text_snippet": "Ví Dụ Mã Nguồn\n`java\ninterface Database {\n    void save(String data);\n}"
+    },
+    {
+      "paragraph_id": 109,
+      "start": 782.05,
+      "end": 787.16,
+      "duration": 5.11,
+      "text_snippet": "class MySqlDatabase implements Database {\n    public void save(String data) {\n        System.out.println(\"Saved to MySQL"
+    },
+    {
+      "paragraph_id": 110,
+      "start": 787.16,
+      "end": 792.19,
+      "duration": 5.03,
+      "text_snippet": "class MockDatabase implements Database {\n    public void save(String data) {\n        System.out.println(\"Saved to Mock: "
+    },
+    {
+      "paragraph_id": 111,
+      "start": 792.19,
+      "end": 794.34,
+      "duration": 2.15,
+      "text_snippet": "class OrderProcessor {\n    private final Database database;"
+    },
+    {
+      "paragraph_id": 112,
+      "start": 794.34,
+      "end": 797.33,
+      "duration": 2.99,
+      "text_snippet": "public OrderProcessor(Database database) {\n        this.database = database;\n    }"
+    },
+    {
+      "paragraph_id": 113,
+      "start": 797.33,
+      "end": 800.14,
+      "duration": 2.81,
+      "text_snippet": "public void process(String orderId) {\n        database.save(orderId);\n    }\n}"
+    },
+    {
+      "paragraph_id": 114,
+      "start": 800.14,
+      "end": 806.78,
+      "duration": 6.64,
+      "text_snippet": "public class Main {\n    public static void main(String[] args) {\n        OrderProcessor production = new OrderProcessor("
+    },
+    {
+      "paragraph_id": 115,
+      "start": 806.78,
+      "end": 814.0,
+      "duration": 7.22,
+      "text_snippet": "OrderProcessor test = new OrderProcessor(new MockDatabase());\n        test.process(\"order-100\");\n        // Output:\n    "
+    },
+    {
+      "paragraph_id": 116,
+      "start": 814.0,
+      "end": 829.46,
+      "duration": 15.46,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả\nModule cấp cao tham chiếu tới interface trừu tượng &rarr; Các triển khai cụ thể cấp thấp kế "
+    },
+    {
+      "paragraph_id": 117,
+      "start": 829.46,
+      "end": 830.78,
+      "duration": 1.31,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 118,
+      "start": 830.78,
+      "end": 835.01,
+      "duration": 4.23,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/java/concepts/\nhttps://docs.oracle.com/javase/specs/jls/se21/html/index.html"
+    }
+  ]
+}

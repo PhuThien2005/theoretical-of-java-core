@@ -1,0 +1,147 @@
+{
+  "lesson": "generics",
+  "total_duration_seconds": 450.22,
+  "total_paragraphs": 20,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 2.93,
+      "duration": 2.93,
+      "text_snippet": "Kiểu Chung (Generics) trong Java – Lý Thuyết Chi Tiết"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 2.93,
+      "end": 48.89,
+      "duration": 45.96,
+      "text_snippet": "Lớp Generic (Generic Class)\nĐịnh nghĩa: Một lớp khai báo một hoặc nhiều tham số kiểu dữ liệu, cho phép nó hoạt động trên"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 48.89,
+      "end": 83.17,
+      "duration": 34.27,
+      "text_snippet": "Phương thức Generic (Generic Method)\nĐịnh nghĩa: Một phương thức giới thiệu các tham số kiểu dữ liệu của riêng nó, độc l"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 83.17,
+      "end": 111.79,
+      "duration": 28.63,
+      "text_snippet": "Giao diện Generic (Generic Interface)\nĐịnh nghĩa: Một giao diện khai báo các tham số kiểu dữ liệu, cho phép các lớp triể"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 111.79,
+      "end": 133.5,
+      "duration": 21.71,
+      "text_snippet": "Tham số kiểu dữ liệu (Type Parameter)\nĐịnh nghĩa: Một tên giữ chỗ (thường là một chữ cái in hoa duy nhất) đại diện cho m"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 133.5,
+      "end": 148.28,
+      "duration": 14.78,
+      "text_snippet": "Nhiều Tham Số Kiểu Dữ Liệu (Multiple Type Parameters)\nCú pháp: Phân tách bằng dấu phẩy, ví dụ class MapEntry<K, V> { pri"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 148.28,
+      "end": 175.36,
+      "duration": 27.08,
+      "text_snippet": "Tham Số Kiểu Bị Giới Hạn (Bounded Type Parameter)\nCú pháp: T extends Bound trong đó Bound có thể là một lớp hoặc giao di"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 175.36,
+      "end": 190.25,
+      "duration": 14.89,
+      "text_snippet": "Ký tự đại diện (?) (Wildcards)\n1 Ký tự đại diện không giới hạn – ? (Unbounded Wildcard)\nÝ nghĩa: Kiểu dữ liệu chưa xác đ"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 190.25,
+      "end": 213.34,
+      "duration": 23.09,
+      "text_snippet": "2 Ký tự đại diện giới hạn trên – <? extends T> (Upper-Bounded Wildcard)\nÝ nghĩa: Một phân lớp (subtype) chưa xác định kế"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 213.34,
+      "end": 235.16,
+      "duration": 21.82,
+      "text_snippet": "3 Ký tự đại diện giới hạn dưới – <? super T> (Lower-Bounded Wildcard)\nÝ nghĩa: Một siêu lớp (supertype) chưa xác định củ"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 235.16,
+      "end": 253.26,
+      "duration": 18.11,
+      "text_snippet": "PECS – Producer Extends, Consumer Super\nHướng dẫn: \n  - Nếu một generic sản xuất (produce) các giá trị &rarr; sử dụng ex"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 253.26,
+      "end": 279.18,
+      "duration": 25.91,
+      "text_snippet": "Generic với Collection\nList — List: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nSet — Set: Cung cấp các "
+    },
+    {
+      "paragraph_id": 13,
+      "start": 279.18,
+      "end": 297.62,
+      "duration": 18.44,
+      "text_snippet": "Ví dụ:\n`java\nList<String> names = new ArrayList<>();\nMap<Integer, String> idToName = new HashMap<>();\nQueue<Runnable> ta"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 297.62,
+      "end": 324.64,
+      "duration": 27.02,
+      "text_snippet": "Xóa kiểu dữ liệu (Type Erasure)\nĐiều gì xảy ra: Tại thời điểm biên dịch, thông tin kiểu generic bị loại bỏ. Mã byte (byt"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 324.64,
+      "end": 350.72,
+      "duration": 26.08,
+      "text_snippet": "Kiểu Thô (Raw Types)\nĐịnh nghĩa: Việc sử dụng một lớp hoặc giao diện generic mà không chỉ định các đối số kiểu dữ liệu, "
+    },
+    {
+      "paragraph_id": 16,
+      "start": 350.72,
+      "end": 379.95,
+      "duration": 29.24,
+      "text_snippet": "Các Hạn Chế Của Generic\nnew T[10] — new T[10]: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nInteger — Int"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 379.95,
+      "end": 393.9,
+      "duration": 13.95,
+      "text_snippet": "Ví Dụ Tổng Hợp\n`java\npublic class Pair<K, V> {\n    private final K key;\n    private final V value;\n    public Pair(K key"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 393.9,
+      "end": 407.36,
+      "duration": 13.45,
+      "text_snippet": "// Sử dụng các tham số kiểu bị giới hạn và quy tắc PECS\npublic static <T extends Number> double sum(List<? extends T> nu"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 407.36,
+      "end": 428.01,
+      "duration": 20.65,
+      "text_snippet": "public static void addIntegers(List<? super Integer> list) {\n    list.add(1); // safe: list can accept Integer or any of"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 428.01,
+      "end": 450.22,
+      "duration": 22.2,
+      "text_snippet": "--\nTóm lại: Generic mang lại tính định kiểu tĩnh (static typing) mạnh mẽ cho các bộ sưu tập và các API trong Java, đồng "
+    }
+  ]
+}

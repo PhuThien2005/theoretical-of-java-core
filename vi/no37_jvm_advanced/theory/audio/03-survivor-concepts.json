@@ -1,0 +1,315 @@
+{
+  "lesson": "03-survivor-concepts",
+  "total_duration_seconds": 513.22,
+  "total_paragraphs": 44,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 2.8,
+      "duration": 2.8,
+      "text_snippet": "JVM Nâng Cao - Phần 3 (Advanced JVM - Part 3)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 2.8,
+      "end": 4.79,
+      "duration": 1.99,
+      "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 4.79,
+      "end": 15.87,
+      "duration": 11.08,
+      "text_snippet": "Tài liệu này trình bày một phần trọng tâm về JVM Nâng Cao (Advanced JVM). Hãy nghiên cứu từng khái niệm như một quy tắc "
+    },
+    {
+      "paragraph_id": 4,
+      "start": 15.87,
+      "end": 17.93,
+      "duration": 2.05,
+      "text_snippet": "Khung Nội Dung (Outline Coverage)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 17.93,
+      "end": 59.07,
+      "duration": 41.14,
+      "text_snippet": "Survivor — Survivor: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nOld Generation — Old Generation: Cung c"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 59.07,
+      "end": 59.2,
+      "duration": 0.12,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 59.2,
+      "end": 61.25,
+      "duration": 2.05,
+      "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 61.25,
+      "end": 63.12,
+      "duration": 1.87,
+      "text_snippet": "Vùng Sống Sót (Survivor Space)"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 63.12,
+      "end": 79.11,
+      "duration": 16.0,
+      "text_snippet": "Vùng Sống Sót (Survivor) bao gồm hai không gian nhớ nhỏ có kích thước bằng nhau ký hiệu là S0 và S1 trong thế hệ Trẻ. Ch"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 79.11,
+      "end": 108.74,
+      "duration": 29.63,
+      "text_snippet": "Quy tắc dịch chuyển: Tại một thời điểm, một vùng Survivor sẽ ở trạng thái hoạt động (active) để chứa các đối tượng sống "
+    },
+    {
+      "paragraph_id": 11,
+      "start": 108.74,
+      "end": 108.87,
+      "duration": 0.12,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 108.87,
+      "end": 110.55,
+      "duration": 1.68,
+      "text_snippet": "Thế Hệ Già (Old Generation)"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 110.55,
+      "end": 122.06,
+      "duration": 11.52,
+      "text_snippet": "Thế hệ Già (Old Generation hay Tenured Generation) là vùng lưu trữ các đối tượng có thời gian sống lâu trong ứng dụng (n"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 122.06,
+      "end": 146.22,
+      "duration": 24.15,
+      "text_snippet": "Tần suất dọn rác: Các đợt dọn rác trên thế hệ Già (Major GC hoặc Full GC) xảy ra ít thường xuyên hơn so với thế hệ Trẻ n"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 146.22,
+      "end": 146.34,
+      "duration": 0.12,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 146.34,
+      "end": 148.95,
+      "duration": 2.61,
+      "text_snippet": "Các thuật toán thu gom rác (GC algorithms)"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 148.95,
+      "end": 160.1,
+      "duration": 11.14,
+      "text_snippet": "Việc hiểu rõ hành vi thời gian chạy của các thuật toán GC giúp giải thích hiệu năng, các lỗi bộ nhớ, hành vi khởi động c"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 160.1,
+      "end": 174.66,
+      "duration": 14.57,
+      "text_snippet": "Serial GC\nBộ thu gom rác chạy đơn luồng. Khi thực hiện dọn rác, nó sẽ dừng toàn bộ các luồng ứng dụng (Stop-The-World).\n"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 174.66,
+      "end": 191.41,
+      "duration": 16.74,
+      "text_snippet": "Parallel GC\nSử dụng nhiều luồng song song để thực hiện dọn rác nhằm giảm thiểu thời gian Stop-The-World, tối ưu hóa tối "
+    },
+    {
+      "paragraph_id": 20,
+      "start": 191.41,
+      "end": 209.89,
+      "duration": 18.49,
+      "text_snippet": "Concurrent Mark Sweep (CMS) GC\nThuật toán dọn rác đồng thời thế hệ cũ, cố gắng thực hiện phần lớn các công việc đánh dấu"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 209.89,
+      "end": 234.6,
+      "duration": 24.71,
+      "text_snippet": "G1 GC (Garbage-First)\nBộ thu gom rác mặc định từ Java 9. Nó chia bộ nhớ heap thành hàng nghìn vùng ảo (regions) có kích "
+    },
+    {
+      "paragraph_id": 22,
+      "start": 234.6,
+      "end": 265.1,
+      "duration": 30.5,
+      "text_snippet": "ZGC (Z Garbage Collector)\nBộ thu gom rác thế hệ mới có độ trễ siêu thấp. Nó thực hiện tất cả các công việc dọn rác nặng "
+    },
+    {
+      "paragraph_id": 23,
+      "start": 265.1,
+      "end": 265.23,
+      "duration": 0.12,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 265.23,
+      "end": 267.1,
+      "duration": 1.87,
+      "text_snippet": "Ví Dụ Mã Nguồn (Code Examples)"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 267.1,
+      "end": 275.13,
+      "duration": 8.03,
+      "text_snippet": "Lựa chọn thuật toán GC thông qua các cờ CLI khi khởi động JVM\n`bash\nKích hoạt bộ thu gom rác G1 GC\njava -XX:+UseG1GC -ja"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 275.13,
+      "end": 279.61,
+      "duration": 4.48,
+      "text_snippet": "Kích hoạt bộ thu gom rác độ trễ thấp ZGC\njava -XX:+UseZGC -jar app.jar\n`"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 279.61,
+      "end": 279.73,
+      "duration": 0.12,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 279.73,
+      "end": 282.22,
+      "duration": 2.49,
+      "text_snippet": "Các Sai Lầm Thường Gặp (Common Mistakes)"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 282.22,
+      "end": 316.89,
+      "duration": 34.67,
+      "text_snippet": "Sử dụng Serial GC trên các máy chủ đa nhân: Serial GC chỉ sử dụng một luồng duy nhất để dọn rác. Nó hoạt động tốt cho cá"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 316.89,
+      "end": 317.02,
+      "duration": 0.12,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 317.02,
+      "end": 320.32,
+      "duration": 3.3,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 320.32,
+      "end": 333.51,
+      "duration": 13.2,
+      "text_snippet": "Khái niệm nào ở đây là quy tắc tại thời điểm chạy? (Các thuật toán hoạt động của GC, cơ chế sao chép giữa các Survivor, "
+    },
+    {
+      "paragraph_id": 33,
+      "start": 333.51,
+      "end": 333.64,
+      "duration": 0.12,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 333.64,
+      "end": 340.24,
+      "duration": 6.6,
+      "text_snippet": "Tại Sao Các Vùng Survivor Ngăn Chặn Phân Mảnh Bộ Nhớ Heap (Why Survivor Spaces Prevent Heap Fragmentation)"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 340.24,
+      "end": 406.53,
+      "duration": 66.29,
+      "text_snippet": "Mô hình thu gom rác phân thế hệ sử dụng các vùng Sống Sót (S0 và S1) bên cạnh vùng Eden để ngăn chặn tình trạng phân mản"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 406.53,
+      "end": 411.01,
+      "duration": 4.48,
+      "text_snippet": "Mô hình Tư duy: Quy trình Sao chép và Sơ tán (Copy-and-Evacuate Process)"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 411.01,
+      "end": 412.07,
+      "duration": 1.06,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 412.07,
+      "end": 412.94,
+      "duration": 0.87,
+      "text_snippet": "Ví Dụ Mã Nguồn"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 412.94,
+      "end": 430.86,
+      "duration": 17.93,
+      "text_snippet": "Dưới đây là mã nguồn mô phỏng việc tạo liên tục các đối tượng ngắn hạn. Vì các đối tượng này có vòng đời ngắn, chúng đượ"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 430.86,
+      "end": 431.92,
+      "duration": 1.06,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 431.92,
+      "end": 468.71,
+      "duration": 36.79,
+      "text_snippet": "public class GenerationalGcSimulation {\n    public static void main(String[] args) {\n        // Tốc độ cấp phát cao cho "
+    },
+    {
+      "paragraph_id": 42,
+      "start": 468.71,
+      "end": 500.89,
+      "duration": 32.18,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)\nCác đối tượng mới được cấp phát trong vùng Eden $\\rightarrow$ Minor GC "
+    },
+    {
+      "paragraph_id": 43,
+      "start": 500.89,
+      "end": 503.13,
+      "duration": 2.24,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 503.13,
+      "end": 513.22,
+      "duration": 10.08,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/gctuning/factors-affecting-garbage-collection-performance.html (Tập trung vào "
+    }
+  ]
+}

@@ -1,0 +1,329 @@
+{
+  "lesson": "04-editions-and-versions",
+  "total_duration_seconds": 365.71,
+  "total_paragraphs": 46,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 4.02,
+      "duration": 4.02,
+      "text_snippet": "Các Phiên Bản Và Ấn Bản Java (Java Editions And Versions)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 4.02,
+      "end": 13.39,
+      "duration": 9.37,
+      "text_snippet": "Java có nhiều ấn bản và vô số phiên bản. Bạn không cần thuộc lòng từng bản phát hành, nhưng cần nắm những tên thường xuy"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 13.39,
+      "end": 13.88,
+      "duration": 0.49,
+      "text_snippet": "Java SE"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 13.88,
+      "end": 18.54,
+      "duration": 4.65,
+      "text_snippet": "Java SE là viết tắt của Java Standard Edition (Ấn Bản Chuẩn Java)."
+    },
+    {
+      "paragraph_id": 5,
+      "start": 18.54,
+      "end": 21.78,
+      "duration": 3.24,
+      "text_snippet": "Ấn bản này chứa ngôn ngữ lõi và các API chuẩn:"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 21.78,
+      "end": 31.79,
+      "duration": 10.01,
+      "text_snippet": "Cú pháp cơ bản.\nLập trình hướng đối tượng.\nCollections.\nExceptions.\nIO/NIO.\nDate and Time API.\nCác tiện ích đồng thời (C"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 31.79,
+      "end": 35.87,
+      "duration": 4.09,
+      "text_snippet": "Java Core thực chất là các kiến thức nền tảng của Java SE."
+    },
+    {
+      "paragraph_id": 8,
+      "start": 35.87,
+      "end": 36.58,
+      "duration": 0.7,
+      "text_snippet": "Jakarta EE"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 36.58,
+      "end": 45.11,
+      "duration": 8.53,
+      "text_snippet": "Jakarta EE là hệ sinh thái ấn bản doanh nghiệp (enterprise edition) dùng để xây dựng các ứng dụng phía server quy mô lớn"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 45.11,
+      "end": 46.73,
+      "duration": 1.62,
+      "text_snippet": "Nó bao gồm các API cho:"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 46.73,
+      "end": 51.87,
+      "duration": 5.14,
+      "text_snippet": "Ứng dụng web.\nDependency injection.\nPersistence.\nTransactions.\nMessaging."
+    },
+    {
+      "paragraph_id": 12,
+      "start": 51.87,
+      "end": 56.59,
+      "duration": 4.72,
+      "text_snippet": "Các tài liệu cũ có thể gọi là Java EE. Tên đã đổi thành Jakarta EE."
+    },
+    {
+      "paragraph_id": 13,
+      "start": 56.59,
+      "end": 57.09,
+      "duration": 0.49,
+      "text_snippet": "Java ME"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 57.09,
+      "end": 61.53,
+      "duration": 4.44,
+      "text_snippet": "Java ME là viết tắt của Java Micro Edition (Ấn Bản Vi Mô Java)."
+    },
+    {
+      "paragraph_id": 15,
+      "start": 61.53,
+      "end": 69.63,
+      "duration": 8.11,
+      "text_snippet": "Được thiết kế cho các thiết bị nhỏ hoặc nhúng. Ngày nay ít liên quan hơn nhiều trong việc học backend thông thường."
+    },
+    {
+      "paragraph_id": 16,
+      "start": 69.63,
+      "end": 71.32,
+      "duration": 1.69,
+      "text_snippet": "Các Phiên Bản Quan Trọng"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 71.32,
+      "end": 71.75,
+      "duration": 0.42,
+      "text_snippet": "Java 8"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 71.75,
+      "end": 74.21,
+      "duration": 2.47,
+      "text_snippet": "Java 8 quan trọng vì đã giới thiệu:"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 74.21,
+      "end": 80.98,
+      "duration": 6.77,
+      "text_snippet": "Biểu thức lambda (Lambda expressions).\nFunctional interfaces.\nStream API.\nDate and Time API mới."
+    },
+    {
+      "paragraph_id": 20,
+      "start": 80.98,
+      "end": 85.21,
+      "duration": 4.23,
+      "text_snippet": "Nhiều dự án doanh nghiệp cũ vẫn chứa code phong cách Java 8."
+    },
+    {
+      "paragraph_id": 21,
+      "start": 85.21,
+      "end": 85.7,
+      "duration": 0.49,
+      "text_snippet": "Java 11"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 85.7,
+      "end": 90.07,
+      "duration": 4.37,
+      "text_snippet": "Java 11 là phiên bản LTS (Long-Term Support) — Hỗ Trợ Dài Hạn."
+    },
+    {
+      "paragraph_id": 23,
+      "start": 90.07,
+      "end": 98.39,
+      "duration": 8.32,
+      "text_snippet": "Phiên bản này phổ biến trong môi trường production và đã giới thiệu/chuẩn hóa các API hữu ích như HttpClient hiện đại."
+    },
+    {
+      "paragraph_id": 24,
+      "start": 98.39,
+      "end": 98.88,
+      "duration": 0.49,
+      "text_snippet": "Java 17"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 98.88,
+      "end": 105.08,
+      "duration": 6.2,
+      "text_snippet": "Java 17 là phiên bản LTS khác và được sử dụng rộng rãi trong các dự án backend hiện đại."
+    },
+    {
+      "paragraph_id": 26,
+      "start": 105.08,
+      "end": 110.02,
+      "duration": 4.93,
+      "text_snippet": "Nó bao gồm nhiều cải tiến về ngôn ngữ và JVM so với Java 8 và Java 11."
+    },
+    {
+      "paragraph_id": 27,
+      "start": 110.02,
+      "end": 110.51,
+      "duration": 0.49,
+      "text_snippet": "Java 21"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 110.51,
+      "end": 116.92,
+      "duration": 6.41,
+      "text_snippet": "Java 21 là phiên bản LTS nổi bật với các tính năng hiện đại như virtual threads (luồng ảo)."
+    },
+    {
+      "paragraph_id": 29,
+      "start": 116.92,
+      "end": 122.56,
+      "duration": 5.64,
+      "text_snippet": "Virtual threads rất quan trọng cho các ứng dụng server đồng thời có thể mở rộng."
+    },
+    {
+      "paragraph_id": 30,
+      "start": 122.56,
+      "end": 126.93,
+      "duration": 4.37,
+      "text_snippet": "Tại Sao Các Dự Án Backend Chọn Phiên Bản LTS Như Java 17 Và 21"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 126.93,
+      "end": 165.77,
+      "duration": 38.83,
+      "text_snippet": "Các ứng dụng backend doanh nghiệp ưu tiên sự ổn định, tính dự đoán được, và bảo trì bảo mật dài hạn. Oracle và cộng đồng"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 165.77,
+      "end": 216.72,
+      "duration": 50.96,
+      "text_snippet": "Các dự án backend ưa chuộng Java 17 và 21 vì chúng mang lại tính năng cho nhà phát triển và tối ưu hóa runtime giúp cải "
+    },
+    {
+      "paragraph_id": 33,
+      "start": 216.72,
+      "end": 245.48,
+      "duration": 28.76,
+      "text_snippet": "Mô Hình Tư Duy: Lịch Tàu Express Vs. Xe Buýt Địa Phương\nHãy xem các phiên bản không phải LTS như xe buýt địa phương chạy"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 245.48,
+      "end": 246.67,
+      "duration": 1.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 246.67,
+      "end": 260.84,
+      "duration": 14.17,
+      "text_snippet": "Ví Dụ Code: Java 8 Verbose Vs. Records & Text Blocks Hiện Đại Của Java 17/21\nDưới đây là so sánh cho thấy các tính năng "
+    },
+    {
+      "paragraph_id": 36,
+      "start": 260.84,
+      "end": 262.04,
+      "duration": 1.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 262.04,
+      "end": 277.47,
+      "duration": 15.43,
+      "text_snippet": "public static void main(String[] args) {\n        User user = new User(\"Alice\", 30);\n        System.out.println(user.user"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 277.47,
+      "end": 298.97,
+      "duration": 21.5,
+      "text_snippet": "// 2. Text Blocks (Java 15+) simplify multi-line string definitions\n        String json = \"\"\"\n                {\n        "
+    },
+    {
+      "paragraph_id": 39,
+      "start": 298.97,
+      "end": 324.34,
+      "duration": 25.37,
+      "text_snippet": "Chuỗi Nhân Quả\nDự án backend chuyển sang phiên bản LTS (ví dụ Java 21) $\\rightarrow$ Dự án có đảm bảo vá lỗi bảo mật dài"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 324.34,
+      "end": 325.82,
+      "duration": 1.48,
+      "text_snippet": "Chọn Phiên Bản Để Học"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 325.82,
+      "end": 330.97,
+      "duration": 5.14,
+      "text_snippet": "Để học Java Core hiện nay, Java 17 hoặc Java 21 là lựa chọn mặc định tốt."
+    },
+    {
+      "paragraph_id": 42,
+      "start": 330.97,
+      "end": 338.37,
+      "duration": 7.4,
+      "text_snippet": "Bạn vẫn nên nhận biết các tính năng Java 8 vì nhiều buổi phỏng vấn và dự án kế thừa vẫn đề cập đến chúng."
+    },
+    {
+      "paragraph_id": 43,
+      "start": 338.37,
+      "end": 339.35,
+      "duration": 0.99,
+      "text_snippet": "Lỗi Thường Gặp"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 339.35,
+      "end": 349.92,
+      "duration": 10.57,
+      "text_snippet": "Nhầm Java SE và Java EE/Jakarta EE là một.\nChỉ học Java 8 mà bỏ qua Java hiện đại.\nChỉ học cú pháp hiện đại mà không nắm"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 349.92,
+      "end": 351.19,
+      "duration": 1.27,
+      "text_snippet": "Tài Liệu Tham Khảo"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 351.19,
+      "end": 365.71,
+      "duration": 14.52,
+      "text_snippet": "https://www.oracle.com/java/technologies/java-se-support-roadmap.html (Lộ Trình Hỗ Trợ Oracle Java SE)\nhttps://openjdk.o"
+    }
+  ]
+}

@@ -1,0 +1,287 @@
+{
+  "lesson": "04-cyclicbarrier-concepts",
+  "total_duration_seconds": 284.76,
+  "total_paragraphs": 40,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 2.5,
+      "duration": 2.5,
+      "text_snippet": "Đồng bộ hóa và Tính đồng thời (Synchronization and Concurrency) - Phần 4"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 2.5,
+      "end": 3.06,
+      "duration": 0.56,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 3.06,
+      "end": 12.73,
+      "duration": 9.67,
+      "text_snippet": "Tài liệu này tập trung vào các tập hợp đồng thời cấp cao (ConcurrentHashMap, CopyOnWriteArrayList, BlockingQueue) và các"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 12.73,
+      "end": 13.94,
+      "duration": 1.22,
+      "text_snippet": "Tóm Tắt Nội Dung (Outline Coverage)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 13.94,
+      "end": 41.44,
+      "duration": 27.5,
+      "text_snippet": "CyclicBarrier — CyclicBarrier: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nPhaser — Phaser: Cung cấp các"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 41.44,
+      "end": 42.0,
+      "duration": 0.56,
+      "text_snippet": "Ghi Chú Chi Tiết"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 42.0,
+      "end": 58.17,
+      "duration": 16.17,
+      "text_snippet": "CyclicBarrier so với CountDownLatch (CyclicBarrier vs CountDownLatch)\nCountDownLatch: Chỉ sử dụng một lần, không thể đặt"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 58.17,
+      "end": 58.76,
+      "duration": 0.59,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 58.76,
+      "end": 64.91,
+      "duration": 6.15,
+      "text_snippet": "public class CyclicBarrierDemo {\n    public static void main(String[] args) {\n        CyclicBarrier barrier = new Cyclic"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 64.91,
+      "end": 73.08,
+      "duration": 8.17,
+      "text_snippet": "Runnable worker = () -> {\n            try {\n                System.out.println(Thread.currentThread().getName() + \" arri"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 73.08,
+      "end": 78.13,
+      "duration": 5.04,
+      "text_snippet": "new Thread(worker, \"Thread-1\").start();\n        new Thread(worker, \"Thread-2\").start();\n        new Thread(worker, \"Thre"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 78.13,
+      "end": 99.51,
+      "duration": 21.38,
+      "text_snippet": "Các Tập hợp Đồng thời: ConcurrentHashMap so với SynchronizedMap\n Collections.synchronizedMap() khóa toàn bộ* bản đồ cho "
+    },
+    {
+      "paragraph_id": 13,
+      "start": 99.51,
+      "end": 100.1,
+      "duration": 0.59,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 100.1,
+      "end": 103.86,
+      "duration": 3.76,
+      "text_snippet": "public class MapDemo {\n    private final ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 103.86,
+      "end": 108.86,
+      "duration": 5.01,
+      "text_snippet": "// Thread-safe compound operation\n    public void increment(String key) {\n        map.compute(key, (k, v) -> (v == null)"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 108.86,
+      "end": 121.76,
+      "duration": 12.9,
+      "text_snippet": "CopyOnWriteArrayList\nCác thao tác thay đổi dữ liệu (add, set, remove) sẽ tạo bản sao của toàn bộ mảng nền. Điều này rất "
+    },
+    {
+      "paragraph_id": 17,
+      "start": 121.76,
+      "end": 121.83,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 121.83,
+      "end": 124.23,
+      "duration": 2.4,
+      "text_snippet": "Ví Dụ Thực Tế: Sổ đăng ký Lắng nghe Sự kiện (Event Listener Registry)"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 124.23,
+      "end": 137.62,
+      "duration": 13.39,
+      "text_snippet": "Bài toán\nMột khung công tác giao diện người dùng (GUI framework) có một lớp cốt lõi dùng để phát các sự kiện tới danh sá"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 137.62,
+      "end": 141.72,
+      "duration": 4.1,
+      "text_snippet": "Giải pháp\nSử dụng CopyOnWriteArrayList.\n`java\nimport java.util.List;\nimport java.util.concurrent.CopyOnWriteArrayList;"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 141.72,
+      "end": 148.46,
+      "duration": 6.75,
+      "text_snippet": "public class EventPublisher {\n    // Đọc nhiều, ghi ít: sự kiện được phát liên tục, danh sách listener ít khi thay đổi.\n"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 148.46,
+      "end": 150.86,
+      "duration": 2.4,
+      "text_snippet": "public void addListener(Listener l) {\n        listeners.add(l);\n    }"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 150.86,
+      "end": 153.47,
+      "duration": 2.61,
+      "text_snippet": "public void removeListener(Listener l) {\n        listeners.remove(l);\n    }"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 153.47,
+      "end": 164.95,
+      "duration": 11.47,
+      "text_snippet": "public void publishEvent(String event) {\n        // Duyệt qua danh sách an toàn không cần khóa. Không gây ra lỗi\n       "
+    },
+    {
+      "paragraph_id": 25,
+      "start": 164.95,
+      "end": 167.17,
+      "duration": 2.23,
+      "text_snippet": "interface Listener {\n        void onEvent(String msg);\n    }\n}\n`"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 167.17,
+      "end": 167.24,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 167.24,
+      "end": 167.87,
+      "duration": 0.63,
+      "text_snippet": "Các lỗi thường gặp"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 167.87,
+      "end": 183.51,
+      "duration": 15.65,
+      "text_snippet": "Sử dụng CopyOnWriteArrayList cho các Danh sách có thao tác Ghi nhiều\nNếu bạn thực hiện ghi vào một CopyOnWriteArrayList "
+    },
+    {
+      "paragraph_id": 29,
+      "start": 183.51,
+      "end": 196.48,
+      "duration": 12.97,
+      "text_snippet": "Lỗi Kiểm tra rồi Thực hiện (Check-Then-Act) với ConcurrentHashMap\nGiả định sai lầm rằng việc kiểm tra một giá trị trong "
+    },
+    {
+      "paragraph_id": 30,
+      "start": 196.48,
+      "end": 200.1,
+      "duration": 3.62,
+      "text_snippet": "// KHẮC PHỤC: Sử dụng phương thức computeIfAbsent nguyên tử\nmap.computeIfAbsent(\"key\", k -> newValue);\n`"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 200.1,
+      "end": 200.17,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 200.17,
+      "end": 201.87,
+      "duration": 1.7,
+      "text_snippet": "Tại sao CyclicBarrier và CountDownLatch Khác nhau"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 201.87,
+      "end": 230.62,
+      "duration": 28.75,
+      "text_snippet": "CountDownLatch và CyclicBarrier là các tiện ích đồng thời được thiết kế để đồng bộ hóa luồng, nhưng chúng khác nhau đáng"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 230.62,
+      "end": 236.74,
+      "duration": 6.12,
+      "text_snippet": "Mô hình Tư duy: CountDownLatch so với CyclicBarrier\n`\nCountDownLatch (Sử dụng một lần):\nLuồng ──► countDown() ──► [Bộ đế"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 236.74,
+      "end": 242.93,
+      "duration": 6.19,
+      "text_snippet": "CyclicBarrier (Tái sử dụng):\nLuồng 1 ──► await() ──┐\nLuồng 2 ──► await() ──┼─► [Bộ đếm: 3 -> 0] ─► Sập chắn ─► Chạy Tác "
+    },
+    {
+      "paragraph_id": 36,
+      "start": 242.93,
+      "end": 245.09,
+      "duration": 2.16,
+      "text_snippet": "Ví dụ Thực Tế\n`java\nimport java.util.concurrent.CyclicBarrier;"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 245.09,
+      "end": 254.2,
+      "duration": 9.11,
+      "text_snippet": "public class BarrierDemo {\n    public static void main(String[] args) {\n        // A barrier for 2 threads with a reusab"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 254.2,
+      "end": 264.28,
+      "duration": 10.08,
+      "text_snippet": "Runnable task = () -> {\n            try {\n                System.out.println(Thread.currentThread().getName() + \" arrivi"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 264.28,
+      "end": 267.51,
+      "duration": 3.23,
+      "text_snippet": "new Thread(task, \"Thread-1\").start();\n        new Thread(task, \"Thread-2\").start();\n    }\n}\n`"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 267.51,
+      "end": 284.76,
+      "duration": 17.25,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả\nCác luồng gọi barrier.await() &rarr; Chiếm giữ khóa nội bộ &rarr; Giảm số lượng luồng cần ch"
+    }
+  ]
+}

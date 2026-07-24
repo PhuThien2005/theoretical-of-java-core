@@ -1,0 +1,483 @@
+{
+  "lesson": "04-polymorphism",
+  "total_duration_seconds": 481.37,
+  "total_paragraphs": 68,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 0.81,
+      "duration": 0.81,
+      "text_snippet": "Đa hình (Polymorphism)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 0.81,
+      "end": 13.71,
+      "duration": 12.89,
+      "text_snippet": "Đa hình (Polymorphism), bắt nguồn từ tiếng Hy Lạp có nghĩa là \"nhiều dạng\", là khả năng một đối tượng cư xử khác nhau tù"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 13.71,
+      "end": 13.78,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 13.78,
+      "end": 16.59,
+      "duration": 2.81,
+      "text_snippet": "Nạp chồng Phương thức (Method Overloading - Đa hình tại thời điểm biên dịch)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 16.59,
+      "end": 24.86,
+      "duration": 8.28,
+      "text_snippet": "Nạp chồng phương thức xảy ra khi một lớp chứa nhiều phương thức có cùng tên nhưng khác chữ ký phương thức (Method signat"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 24.86,
+      "end": 35.72,
+      "duration": 10.86,
+      "text_snippet": "Quy tắc nạp chồng:\nCác phương thức phải khác nhau về tham số: số lượng, kiểu dữ liệu, hoặc thứ tự.\nKiểu trả về (Return t"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 35.72,
+      "end": 40.9,
+      "duration": 5.17,
+      "text_snippet": "Ví dụ Code: Nạp chồng\n`java\nclass Calculator {\n    // Overload 1: two int parameters\n    int add(int a, int b) {\n       "
+    },
+    {
+      "paragraph_id": 8,
+      "start": 40.9,
+      "end": 44.66,
+      "duration": 3.77,
+      "text_snippet": "// Overload 2: three int parameters\n    int add(int a, int b, int c) {\n        return a + b + c;\n    }"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 44.66,
+      "end": 48.4,
+      "duration": 3.73,
+      "text_snippet": "// Overload 3: double parameters\n    double add(double a, double b) {\n        return a + b;\n    }\n}\n`"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 48.4,
+      "end": 59.92,
+      "duration": 11.53,
+      "text_snippet": "Tự động nâng kiểu (Automatic Type Promotion)\nKhi nạp chồng phương thức, nếu các kiểu tham số truyền vào không khớp hoàn "
+    },
+    {
+      "paragraph_id": 11,
+      "start": 59.92,
+      "end": 60.55,
+      "duration": 0.63,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 60.55,
+      "end": 60.62,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 60.62,
+      "end": 64.43,
+      "duration": 3.81,
+      "text_snippet": "Ghi đè Phương thức và Điều phối Phương thức Động (Dynamic Method Dispatch - Đa hình tại thời điểm chạy)"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 64.43,
+      "end": 69.86,
+      "duration": 5.43,
+      "text_snippet": "Đa hình tại thời điểm chạy là quá trình cuộc gọi đến một phương thức bị ghi đè được giải quyết tại thời điểm chạy qua li"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 69.86,
+      "end": 81.2,
+      "duration": 11.34,
+      "text_snippet": "Đa hình thông qua Kiểu tham chiếu (Reference Type)\nĐa hình cho phép khai báo một biến tham chiếu có kiểu là lớp cha hoặc"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 81.2,
+      "end": 81.83,
+      "duration": 0.63,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 81.83,
+      "end": 87.15,
+      "duration": 5.32,
+      "text_snippet": "class LaserPrinter extends Printer {\n    @Override\n    void printDocument() { System.out.println(\"Printing high-quality "
+    },
+    {
+      "paragraph_id": 18,
+      "start": 87.15,
+      "end": 92.47,
+      "duration": 5.32,
+      "text_snippet": "class InkjetPrinter extends Printer {\n    @Override\n    void printDocument() { System.out.println(\"Printing standard ink"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 92.47,
+      "end": 97.46,
+      "duration": 4.99,
+      "text_snippet": "Bằng cách tham chiếu chúng qua kiểu cha Printer, chúng ta có thể viết các phương thức mang tính mô-đun để xử lý bất kỳ l"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 97.46,
+      "end": 98.08,
+      "duration": 0.63,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 98.08,
+      "end": 105.25,
+      "duration": 7.17,
+      "text_snippet": "public static void main(String[] args) {\n        Printer p1 = new LaserPrinter();  // Polymorphism via reference type\n  "
+    },
+    {
+      "paragraph_id": 22,
+      "start": 105.25,
+      "end": 110.5,
+      "duration": 5.25,
+      "text_snippet": "runJob(p1); // Prints \"Printing high-quality laser document...\"\n        runJob(p2); // Prints \"Printing standard inkjet "
+    },
+    {
+      "paragraph_id": 23,
+      "start": 110.5,
+      "end": 121.54,
+      "duration": 11.05,
+      "text_snippet": "Điều phối Phương thức Động (Dynamic Method Dispatch)\nKhi một phương thức ghi đè được gọi thông qua một tham chiếu lớp ch"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 121.54,
+      "end": 144.96,
+      "duration": 23.42,
+      "text_snippet": "Cách JVM Giải quyết Phương thức: Bảng Phương thức Ảo (Virtual Method Table - Vtable)\nĐối với mỗi lớp, JVM duy trì một bả"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 144.96,
+      "end": 145.59,
+      "duration": 0.63,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 145.59,
+      "end": 153.24,
+      "duration": 7.65,
+      "text_snippet": "Vehicle v = new Car();\nv.start(); // At compile time, compiler checks if start() exists in Vehicle class.\n           // "
+    },
+    {
+      "paragraph_id": 27,
+      "start": 153.24,
+      "end": 153.31,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 153.31,
+      "end": 155.2,
+      "duration": 1.88,
+      "text_snippet": "Ép kiểu Đối tượng (Object Casting) và Vùng nhớ Heap"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 155.2,
+      "end": 162.84,
+      "duration": 7.65,
+      "text_snippet": "Ép kiểu chuyển đổi kiểu tham chiếu của một đối tượng trong hệ thống phân cấp kế thừa. Hành động này không thay đổi đối t"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 162.84,
+      "end": 163.47,
+      "duration": 0.63,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 163.47,
+      "end": 172.19,
+      "duration": 8.72,
+      "text_snippet": "Ép kiểu lên (Upcasting)\nÉp kiểu từ một lớp con lên lớp cha.\nNgầm định và An toàn: Animal a = new Dog();\nBạn chỉ có thể g"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 172.19,
+      "end": 182.91,
+      "duration": 10.71,
+      "text_snippet": "Ép kiểu xuống (Downcasting)\nÉp kiểu từ lớp cha ngược về lớp con.\nTường minh và Rủi ro: Dog d = (Dog) a;\nCho phép truy cậ"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 182.91,
+      "end": 182.98,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 182.98,
+      "end": 184.79,
+      "duration": 1.81,
+      "text_snippet": "Toán tử instanceof và Khớp mẫu (Pattern Matching)"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 184.79,
+      "end": 189.15,
+      "duration": 4.36,
+      "text_snippet": "Để ngăn chặn lỗi ClassCastException, hãy kiểm tra kiểu thời gian chạy của đối tượng bằng instanceof trước khi ép kiểu."
+    },
+    {
+      "paragraph_id": 36,
+      "start": 189.15,
+      "end": 197.53,
+      "duration": 8.39,
+      "text_snippet": "Cú pháp truyền thống\nYêu cầu kiểm tra kiểu và sau đó thực hiện ép kiểu tường minh trên một dòng mới:\n`java\nif (obj insta"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 197.53,
+      "end": 204.37,
+      "duration": 6.83,
+      "text_snippet": "Khớp mẫu cho instanceof (Java 16+)\nKết hợp kiểm tra kiểu và ép kiểu trong một câu lệnh duy nhất. Nếu kiểm tra thành công"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 204.37,
+      "end": 205.0,
+      "duration": 0.63,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 205.0,
+      "end": 221.18,
+      "duration": 16.18,
+      "text_snippet": "Phạm vi hoạt động của Biến mẫu:\nBiến mẫu chỉ có hiệu lực trong phạm vi mà trình biên dịch đảm bảo phép kiểm tra trả về t"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 221.18,
+      "end": 222.4,
+      "duration": 1.22,
+      "text_snippet": "Đọc hiểu Mã nguồn Đa hình sâu sắc"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 222.4,
+      "end": 224.39,
+      "duration": 1.99,
+      "text_snippet": "Khi đọc mã nguồn đa hình, hãy tách biệt ba yếu tố sau:"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 224.39,
+      "end": 236.47,
+      "duration": 12.08,
+      "text_snippet": "Kiểu tham chiếu: những gì trình biên dịch cho phép bạn gọi.\nKiểu đối tượng: những gì thực sự tồn tại trong heap.\nLoại ph"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 236.47,
+      "end": 237.1,
+      "duration": 0.63,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 237.1,
+      "end": 245.41,
+      "duration": 8.31,
+      "text_snippet": "Trình biên dịch kiểm tra xem speak() có tồn tại trên Animal hay không.\nTại thời điểm chạy, Java điều phối phương thức th"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 245.41,
+      "end": 255.87,
+      "duration": 10.45,
+      "text_snippet": "Cách sử dụng Đa hình Tốt\nXử lý nhiều triển khai khác nhau thông qua một giao diện duy nhất.\nThay thế các chuỗi if/else b"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 255.87,
+      "end": 265.1,
+      "duration": 9.24,
+      "text_snippet": "Cách sử dụng Đa hình Chưa tốt\nTạo một hệ thống phân cấp chỉ để chia sẻ hai phương thức tiện ích.\nÉp kiểu xuống quá thườn"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 265.1,
+      "end": 265.18,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 265.18,
+      "end": 265.84,
+      "duration": 0.66,
+      "text_snippet": "Các lỗi thường gặp"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 265.84,
+      "end": 279.55,
+      "duration": 13.71,
+      "text_snippet": "Gọi các phương thức riêng của lớp con trên kiểu tham chiếu cha\nMột kiểu tham chiếu cha chỉ để lộ các phương thức được kh"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 279.55,
+      "end": 284.72,
+      "duration": 5.17,
+      "text_snippet": "Animal a = new Dog();\n// a.bark(); // Compile Error: bark() is not defined in Animal class\n((Dog) a).bark(); // Correct:"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 284.72,
+      "end": 298.8,
+      "duration": 14.08,
+      "text_snippet": "Ngoại lệ ClassCastException với các thể hiện của lớp không liên quan\nÉp kiểu một tham chiếu lớp cha đang trỏ đến một đối"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 298.8,
+      "end": 310.03,
+      "duration": 11.23,
+      "text_snippet": "Cố gắng ép kiểu các kiểu dữ liệu không thể chuyển đổi\nTrình biên dịch sẽ ngăn chặn việc ép kiểu giữa các lớp không có mố"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 310.03,
+      "end": 310.69,
+      "duration": 0.66,
+      "text_snippet": "Liên kết Tham khảo"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 310.69,
+      "end": 325.32,
+      "duration": 14.63,
+      "text_snippet": "Oracle Java Tutorials - Đa hình (Polymorphism): https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html\nOra"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 325.32,
+      "end": 325.39,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 325.39,
+      "end": 328.09,
+      "duration": 2.7,
+      "text_snippet": "Tại sao việc Ghi đè Phương thức sử dụng Điều phối Động tại Thời điểm chạy"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 328.09,
+      "end": 393.52,
+      "duration": 65.43,
+      "text_snippet": "Ghi đè phương thức được giải quyết tại thời điểm chạy thay vì thời điểm biên dịch vì trình biên dịch Java không thể luôn"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 393.52,
+      "end": 394.03,
+      "duration": 0.52,
+      "text_snippet": "Mô hình Tư duy"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 394.03,
+      "end": 394.66,
+      "duration": 0.63,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 394.66,
+      "end": 434.19,
+      "duration": 39.53,
+      "text_snippet": "Thời điểm chạy:\n  Stack: [ a → tham chiếu tới đối tượng Dog trong Heap ]\n                    |\n                    v\n  H"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 434.19,
+      "end": 434.56,
+      "duration": 0.37,
+      "text_snippet": "Ví dụ Code"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 434.56,
+      "end": 435.19,
+      "duration": 0.63,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 435.19,
+      "end": 439.18,
+      "duration": 3.99,
+      "text_snippet": "class Dog extends Animal {\n    @Override\n    void speak() {\n        System.out.println(\"Dog barks\");\n    }\n}"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 439.18,
+      "end": 443.17,
+      "duration": 3.99,
+      "text_snippet": "class Cat extends Animal {\n    @Override\n    void speak() {\n        System.out.println(\"Cat meows\");\n    }\n}"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 443.17,
+      "end": 449.15,
+      "duration": 5.98,
+      "text_snippet": "public class Main {\n    static void makeNoise(Animal a) {\n        // Compiled as invokevirtual — the actual method is re"
+    },
+    {
+      "paragraph_id": 66,
+      "start": 449.15,
+      "end": 458.09,
+      "duration": 8.94,
+      "text_snippet": "public static void main(String[] args) {\n        Animal[] animals = { new Dog(), new Cat(), new Animal() };\n        for "
+    },
+    {
+      "paragraph_id": 67,
+      "start": 458.09,
+      "end": 459.09,
+      "duration": 1.0,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
+    },
+    {
+      "paragraph_id": 68,
+      "start": 459.09,
+      "end": 481.37,
+      "duration": 22.28,
+      "text_snippet": "Cuộc gọi phương thức a.speak() được biên dịch thành lệnh bytecode invokevirtual\n→ Tại thời điểm chạy, JVM giải tham chiế"
+    }
+  ]
+}

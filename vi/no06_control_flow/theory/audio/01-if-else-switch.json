@@ -1,0 +1,476 @@
+{
+  "lesson": "01-if-else-switch",
+  "total_duration_seconds": 340.82,
+  "total_paragraphs": 67,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 1.07,
+      "duration": 1.07,
+      "text_snippet": "if, else, và switch"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 1.07,
+      "end": 5.64,
+      "duration": 4.57,
+      "text_snippet": "Cấu trúc rẽ nhánh cho phép một chương trình Java lựa chọn các đường đi khác nhau."
+    },
+    {
+      "paragraph_id": 3,
+      "start": 5.64,
+      "end": 5.75,
+      "duration": 0.11,
+      "text_snippet": "if"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 5.75,
+      "end": 9.7,
+      "duration": 3.95,
+      "text_snippet": "Một câu lệnh if chỉ thực thi một khối mã khi điều kiện của nó là true."
+    },
+    {
+      "paragraph_id": 5,
+      "start": 9.7,
+      "end": 10.66,
+      "duration": 0.96,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 10.66,
+      "end": 21.04,
+      "duration": 10.38,
+      "text_snippet": "Điều kiện phải là một biểu thức logic boolean. Java không coi các giá trị như 0, 1, chuỗi rỗng, hoặc các đối tượng phi n"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 21.04,
+      "end": 22.0,
+      "duration": 0.96,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 22.0,
+      "end": 22.39,
+      "duration": 0.39,
+      "text_snippet": "if/else"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 22.39,
+      "end": 25.61,
+      "duration": 3.21,
+      "text_snippet": "else cung cấp một đường đi thay thế khi điều kiện if sai."
+    },
+    {
+      "paragraph_id": 10,
+      "start": 25.61,
+      "end": 26.56,
+      "duration": 0.96,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 26.56,
+      "end": 29.33,
+      "duration": 2.76,
+      "text_snippet": "Chỉ duy nhất một trong hai khối mã được thực thi."
+    },
+    {
+      "paragraph_id": 12,
+      "start": 29.33,
+      "end": 29.72,
+      "duration": 0.39,
+      "text_snippet": "else if"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 29.72,
+      "end": 38.41,
+      "duration": 8.69,
+      "text_snippet": "Một chuỗi liên kết else if kiểm tra các điều kiện theo thứ tự từ trên xuống dưới. Java sẽ thực thi nhánh khớp đầu tiên v"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 38.41,
+      "end": 39.37,
+      "duration": 0.96,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 39.37,
+      "end": 46.47,
+      "duration": 7.11,
+      "text_snippet": "Thứ tự điều kiện rất quan trọng. Hãy đặt các điều kiện cụ thể hoặc nghiêm ngặt hơn lên trước các điều kiện mang tính bao"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 46.47,
+      "end": 48.28,
+      "duration": 1.8,
+      "text_snippet": "Lỗi Else Lơ Lửng (Dangling Else)"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 48.28,
+      "end": 54.37,
+      "duration": 6.09,
+      "text_snippet": "Khi bỏ qua các dấu ngoặc nhọn {}, một từ khóa else sẽ thuộc về câu lệnh if chưa có cặp else nằm gần nó nhất."
+    },
+    {
+      "paragraph_id": 18,
+      "start": 54.37,
+      "end": 55.33,
+      "duration": 0.96,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 55.33,
+      "end": 62.43,
+      "duration": 7.11,
+      "text_snippet": "Từ khóa else ở đây thuộc về if (isAdmin), chứ không thuộc về if (loggedIn). Hãy luôn sử dụng dấu ngoặc nhọn để tránh sự "
+    },
+    {
+      "paragraph_id": 20,
+      "start": 62.43,
+      "end": 66.21,
+      "duration": 3.78,
+      "text_snippet": "Tại Sao Sự Mơ Hồ Của Else Lơ Lửng Xảy Ra Và Cách Java Giải Quyết Nó"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 66.21,
+      "end": 112.86,
+      "duration": 46.64,
+      "text_snippet": "Vấn đề else lơ lửng (dangling-else) là một sự mơ hồ về mặt ngữ pháp kinh điển trong các cấu trúc điều khiển lồng nhau. K"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 112.86,
+      "end": 113.81,
+      "duration": 0.96,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 113.81,
+      "end": 115.62,
+      "duration": 1.8,
+      "text_snippet": "Ví Dụ Mã Nguồn: Lỗi Else Lơ Lửng"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 115.62,
+      "end": 124.59,
+      "duration": 8.97,
+      "text_snippet": "Trong ví dụ dưới đây, lập trình viên thụt dòng câu lệnh else thẳng hàng với câu lệnh if bên ngoài, với ý định in ra \"Log"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 124.59,
+      "end": 125.55,
+      "duration": 0.96,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 125.55,
+      "end": 136.77,
+      "duration": 11.22,
+      "text_snippet": "if (loggedIn)\n    if (isAdmin)\n        System.out.println(\"Admin\");\nelse\n    System.out.println(\"Logged out\"); // Được t"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 136.77,
+      "end": 139.59,
+      "duration": 2.82,
+      "text_snippet": "// Đầu ra:\n// (Không có kết quả nào được in ra!)\n`"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 139.59,
+      "end": 166.27,
+      "duration": 26.68,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)\nBỏ qua dấu ngoặc nhọn {} trong các câu lệnh if lồng nhau $\\rightarrow$ "
+    },
+    {
+      "paragraph_id": 29,
+      "start": 166.27,
+      "end": 167.96,
+      "duration": 1.69,
+      "text_snippet": "Mệnh Đề Bảo Vệ (Guard Clauses)"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 167.96,
+      "end": 176.31,
+      "duration": 8.35,
+      "text_snippet": "Một mệnh đề bảo vệ (guard clause) xử lý một trường hợp không hợp lệ hoặc trường hợp đặc biệt sớm hơn bình thường, thường"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 176.31,
+      "end": 177.26,
+      "duration": 0.96,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 177.26,
+      "end": 178.9,
+      "duration": 1.64,
+      "text_snippet": "System.out.println(name);\n}\n`"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 178.9,
+      "end": 188.94,
+      "duration": 10.04,
+      "text_snippet": "Các mệnh đề bảo vệ giúp giảm mức độ lồng nhau của mã nguồn. Thay vì bao bọc logic chính bên trong một khối if lớn, phươn"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 188.94,
+      "end": 189.79,
+      "duration": 0.85,
+      "text_snippet": "Câu Lệnh switch"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 189.79,
+      "end": 194.24,
+      "duration": 4.46,
+      "text_snippet": "Câu lệnh switch lựa chọn một nhánh thực thi dựa trên giá trị của một biểu thức."
+    },
+    {
+      "paragraph_id": 36,
+      "start": 194.24,
+      "end": 195.2,
+      "duration": 0.96,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 195.2,
+      "end": 202.25,
+      "duration": 7.05,
+      "text_snippet": "Các câu lệnh switch truyền thống yêu cầu từ khóa break để ngăn chặn hành vi trôi tuột sang các case tiếp theo (fall-thro"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 202.25,
+      "end": 204.05,
+      "duration": 1.8,
+      "text_snippet": "Hành Vi Trôi Tuột (Fall-Through)"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 204.05,
+      "end": 214.54,
+      "duration": 10.49,
+      "text_snippet": "Hành vi trôi tuột (fall-through) nghĩa là luồng thực thi tiếp tục chạy từ một nhánh case này sang nhánh case tiếp theo b"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 214.54,
+      "end": 215.5,
+      "duration": 0.96,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 215.5,
+      "end": 224.41,
+      "duration": 8.91,
+      "text_snippet": "Nếu level bằng 1, cả hai dòng đều được in ra. Đôi khi hành vi trôi tuột là cố ý, nhưng trong mã nguồn của người mới bắt "
+    },
+    {
+      "paragraph_id": 42,
+      "start": 224.41,
+      "end": 225.71,
+      "duration": 1.3,
+      "text_snippet": "Khi Nào Nên Dùng switch"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 225.71,
+      "end": 231.3,
+      "duration": 5.58,
+      "text_snippet": "Hãy sử dụng switch khi một biểu thức được so sánh với một tập hợp các giá trị cụ thể đã biết trước."
+    },
+    {
+      "paragraph_id": 44,
+      "start": 231.3,
+      "end": 239.14,
+      "duration": 7.84,
+      "text_snippet": "Hãy sử dụng if/else khi các điều kiện liên quan đến các khoảng giá trị (range), nhiều biến số khác nhau, hoặc các biểu t"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 239.14,
+      "end": 239.25,
+      "duration": 0.11,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 239.25,
+      "end": 240.04,
+      "duration": 0.79,
+      "text_snippet": "Lỗi Thường Gặp"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 240.04,
+      "end": 244.66,
+      "duration": 4.62,
+      "text_snippet": "Sai lầm 1 — Đảo lộn thứ tự else if (điều kiện bao quát đặt trước điều kiện cụ thể)"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 244.66,
+      "end": 250.53,
+      "duration": 5.87,
+      "text_snippet": "Việc đặt một điều kiện bao quát lên trước một điều kiện cụ thể sẽ âm thầm nuốt mất trường hợp cụ thể đó."
+    },
+    {
+      "paragraph_id": 49,
+      "start": 250.53,
+      "end": 251.49,
+      "duration": 0.96,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 251.49,
+      "end": 260.4,
+      "duration": 8.91,
+      "text_snippet": "// KHẮC PHỤC: đặt điều kiện cụ thể hơn lên trước\nif (score >= 90) {\n    System.out.println(\"A\");\n} else if (score >= 60)"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 260.4,
+      "end": 263.56,
+      "duration": 3.16,
+      "text_snippet": "Sai lầm 2 — Lỗi else lơ lửng gây hiểu nhầm cho người đọc"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 263.56,
+      "end": 270.32,
+      "duration": 6.77,
+      "text_snippet": "Nếu không có dấu ngoặc nhọn, else sẽ thuộc về câu lệnh if chưa có cặp nằm gần nó nhất, chứ không thuộc về if ngoài cùng."
+    },
+    {
+      "paragraph_id": 53,
+      "start": 270.32,
+      "end": 271.28,
+      "duration": 0.96,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 271.28,
+      "end": 280.19,
+      "duration": 8.91,
+      "text_snippet": "if (loggedIn)\n    if (isAdmin)\n        System.out.println(\"Admin\");\n    else\n        System.out.println(\"Not admin\");   "
+    },
+    {
+      "paragraph_id": 55,
+      "start": 280.19,
+      "end": 293.45,
+      "duration": 13.25,
+      "text_snippet": "// Nếu loggedIn là false, không có gì được in ra cả.\n// KHẮC PHỤC: luôn luôn sử dụng dấu ngoặc nhọn\nif (loggedIn) {\n    "
+    },
+    {
+      "paragraph_id": 56,
+      "start": 293.45,
+      "end": 296.83,
+      "duration": 3.38,
+      "text_snippet": "Sai lầm 3 — Thiếu break gây ra trôi tuột switch ngoài ý muốn"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 296.83,
+      "end": 297.79,
+      "duration": 0.96,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 297.79,
+      "end": 304.78,
+      "duration": 6.99,
+      "text_snippet": "Khắc phục: Thêm từ khóa break sau mỗi case, hoặc chuyển sang sử dụng cú pháp switch mũi tên (arrow-case syntax) từ Java "
+    },
+    {
+      "paragraph_id": 59,
+      "start": 304.78,
+      "end": 305.74,
+      "duration": 0.96,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 305.74,
+      "end": 305.86,
+      "duration": 0.11,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 305.86,
+      "end": 309.13,
+      "duration": 3.27,
+      "text_snippet": "Ví Dụ Thực Tế — Hành Vi Trôi Tuột Cố Ý so với Ngoài Ý Muốn"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 309.13,
+      "end": 311.67,
+      "duration": 2.54,
+      "text_snippet": "Đôi khi hành vi trôi tuột là cố ý và hữu ích:"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 311.67,
+      "end": 312.62,
+      "duration": 0.96,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 312.62,
+      "end": 324.47,
+      "duration": 11.84,
+      "text_snippet": "Đây là một cách viết quen thuộc trong Java. Hành vi \"trôi tuột\" ở đây chỉ đơn giản là các case trống chia sẻ chung một t"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 324.47,
+      "end": 325.43,
+      "duration": 0.96,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 66,
+      "start": 325.43,
+      "end": 326.5,
+      "duration": 1.07,
+      "text_snippet": "Liên Kết Tham Chiếu"
+    },
+    {
+      "paragraph_id": 67,
+      "start": 326.5,
+      "end": 340.82,
+      "duration": 14.33,
+      "text_snippet": "https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.htmljls-14.9.2 (Sự mơ hồ else lơ lửng trong Đặc tả Ngôn ngữ Ja"
+    }
+  ]
+}

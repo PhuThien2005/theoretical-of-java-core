@@ -1,0 +1,231 @@
+{
+  "lesson": "03-join-concepts",
+  "total_duration_seconds": 218.57,
+  "total_paragraphs": 32,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 0.84,
+      "duration": 0.84,
+      "text_snippet": "Đa luồng (Multithreading) - Phần 3"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 0.84,
+      "end": 1.62,
+      "duration": 0.79,
+      "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 1.62,
+      "end": 9.3,
+      "duration": 7.68,
+      "text_snippet": "Tài liệu này đề cập đến các nguyên hàm đồng bộ luồng (Thread Synchronization Primitives) (join), truyền tín hiệu (Signal"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 9.3,
+      "end": 10.22,
+      "duration": 0.91,
+      "text_snippet": "Nội Dung Khái Quát (Outline Coverage)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 10.22,
+      "end": 31.26,
+      "duration": 21.05,
+      "text_snippet": "join — join: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nyield — yield: Cung cấp các quy tắc và cơ chế h"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 31.26,
+      "end": 32.08,
+      "duration": 0.81,
+      "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 32.08,
+      "end": 42.61,
+      "duration": 10.54,
+      "text_snippet": "Phương thức Thread Join\njoin() được sử dụng để điều phối việc kết thúc luồng. Luồng gọi sẽ tạm dừng cho đến khi luồng đí"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 42.61,
+      "end": 47.53,
+      "duration": 4.92,
+      "text_snippet": "worker.start();\n        System.out.println(\"Waiting for worker...\");\n        worker.join(); // Main thread blocks here u"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 47.53,
+      "end": 58.96,
+      "duration": 11.42,
+      "text_snippet": "Phương thức Thread Interrupt\nCác ngắt mang tính chất hợp tác. Việc gọi thread.interrupt() không kết thúc luồng ngay lập "
+    },
+    {
+      "paragraph_id": 10,
+      "start": 58.96,
+      "end": 59.37,
+      "duration": 0.42,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 59.37,
+      "end": 61.96,
+      "duration": 2.58,
+      "text_snippet": "worker.start();\n        Thread.sleep(500);\n        worker.interrupt(); // Signal worker to stop\n    }\n}\n`"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 61.96,
+      "end": 71.31,
+      "duration": 9.35,
+      "text_snippet": "Luồng Daemon và Luồng Người Dùng (Daemon vs User Threads)\nTheo mặc định, các luồng mới được tạo sẽ kế thừa trạng thái da"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 71.31,
+      "end": 71.73,
+      "duration": 0.42,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 71.73,
+      "end": 78.45,
+      "duration": 6.72,
+      "text_snippet": "Vùng Tới Hạn (Critical Sections) và Tình Trạng Tương Tranh (Race Conditions)\nTình trạng tương tranh xảy ra khi nhiều luồ"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 78.45,
+      "end": 82.27,
+      "duration": 3.82,
+      "text_snippet": "public void increment() {\n        count++; // CRITICAL SECTION. Non-atomic: read, modify, write.\n    }\n    \n    public i"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 82.27,
+      "end": 82.32,
+      "duration": 0.05,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 82.32,
+      "end": 84.19,
+      "duration": 1.87,
+      "text_snippet": "Ví Dụ Thực Tế: Mô Hình Điều Phối Luồng Làm Việc (Worker Coordinator Pattern)"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 84.19,
+      "end": 87.98,
+      "duration": 3.79,
+      "text_snippet": "Vấn đề\nMột hệ thống báo cáo cần lấy dữ liệu đồng thời từ ba API bên ngoài. Sau khi tất cả các API trả về dữ liệu, hệ thố"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 87.98,
+      "end": 90.78,
+      "duration": 2.81,
+      "text_snippet": "Giải pháp\nSử dụng join() để điều phối các luồng làm việc.\n`java\nimport java.util.ArrayList;\nimport java.util.List;"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 90.78,
+      "end": 109.22,
+      "duration": 18.44,
+      "text_snippet": "public class ReportCoordinator {\n    public static void main(String[] args) throws InterruptedException {\n        List<T"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 109.22,
+      "end": 109.27,
+      "duration": 0.05,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 109.27,
+      "end": 110.16,
+      "duration": 0.89,
+      "text_snippet": "Các Lỗi Thường Gặp (Common Mistakes)"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 110.16,
+      "end": 118.4,
+      "duration": 8.25,
+      "text_snippet": "Nuốt ngoại lệ InterruptedException (Swallowing InterruptedException)\nViệc nuốt InterruptedException sẽ xóa trạng thái ng"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 118.4,
+      "end": 122.37,
+      "duration": 3.96,
+      "text_snippet": "// GOOD: Restore the interrupt flag so caller knows\ntry {\n    Thread.sleep(1000);\n} catch (InterruptedException e) {\n   "
+    },
+    {
+      "paragraph_id": 25,
+      "start": 122.37,
+      "end": 126.04,
+      "duration": 3.67,
+      "text_snippet": "Gọi setDaemon() trên một Luồng Đang Chạy\n`java\nThread t = new Thread(() -> {});\nt.start();\nt.setDaemon(true); // Throws "
+    },
+    {
+      "paragraph_id": 26,
+      "start": 126.04,
+      "end": 134.21,
+      "duration": 8.17,
+      "text_snippet": "Dựa vào Thread.yield() hoặc Độ Ưu Tiên của Luồng để Đảm Bảo Tính Đúng Đắn\nViệc lập lịch luồng phụ thuộc vào nền tảng. Đặ"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 134.21,
+      "end": 136.0,
+      "duration": 1.8,
+      "text_snippet": "Tại sao join() Làm Nghẽn Luồng Gọi (Why join() Blocks the Calling Thread)"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 136.0,
+      "end": 159.59,
+      "duration": 23.58,
+      "text_snippet": "Việc điều phối hoàn thành luồng thông qua join() được xây dựng trực tiếp trên cơ chế truyền tín hiệu wait-and-notify cơ "
+    },
+    {
+      "paragraph_id": 29,
+      "start": 159.59,
+      "end": 191.34,
+      "duration": 31.76,
+      "text_snippet": "Mô hình Tư duy (Mental Model)\n`text\nThread A (Caller)                 Thread B (Target)              JVM Runtime\n    |  "
+    },
+    {
+      "paragraph_id": 30,
+      "start": 191.34,
+      "end": 207.52,
+      "duration": 16.17,
+      "text_snippet": "Ví dụ Mã nguồn\n`java\npublic class JoinMechanism {\n    public static void main(String[] args) throws InterruptedException"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 207.52,
+      "end": 218.52,
+      "duration": 11.0,
+      "text_snippet": "Chuỗi Nguyên nhân - Kết quả (Cause-Effect Chain)\nLuồng A gọi threadB.join() &rarr; Luồng A giành được khóa giám sát trên"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 218.52,
+      "end": 218.57,
+      "duration": 0.05,
+      "text_snippet": "--"
+    }
+  ]
+}

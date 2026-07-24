@@ -1,0 +1,371 @@
+{
+  "lesson": "02-array-operations",
+  "total_duration_seconds": 476.02,
+  "total_paragraphs": 52,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 1.34,
+      "duration": 1.34,
+      "text_snippet": "Các Thao Tác Trên Mảng (Array Operations)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 1.34,
+      "end": 6.68,
+      "duration": 5.34,
+      "text_snippet": "Lớp java.util.Arrays và các phương thức hệ thống gốc (system native methods) cung cấp các thao tác hiệu năng cao để sao "
+    },
+    {
+      "paragraph_id": 3,
+      "start": 6.68,
+      "end": 6.75,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 6.75,
+      "end": 9.26,
+      "duration": 2.51,
+      "text_snippet": "Cơ Chế Chi Tiết Của Việc Sao Chép Mảng (Detailed Mechanics of Copying Arrays)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 9.26,
+      "end": 12.81,
+      "duration": 3.55,
+      "text_snippet": "Java cung cấp nhiều cách khác nhau để sao chép mảng, mỗi cách có các đặc tính hiệu năng và cú pháp khác nhau."
+    },
+    {
+      "paragraph_id": 6,
+      "start": 12.81,
+      "end": 19.16,
+      "duration": 6.35,
+      "text_snippet": "System.arraycopy()\nĐây là một phương thức gốc tĩnh (native static method) cấp thấp của lớp System. Nó được tối ưu hóa ca"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 19.16,
+      "end": 27.86,
+      "duration": 8.7,
+      "text_snippet": "Cú pháp:\n`java\nSystem.arraycopy(Object src, int srcPos, Object dest, int destPos, int length);\n`\nsrc: Mảng nguồn.\nsrcPos"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 27.86,
+      "end": 40.05,
+      "duration": 12.19,
+      "text_snippet": "Các đặc tính chính:\nBạn phải tự cấp phát trước mảng đích với kích thước đủ lớn.\nNém ra ngoại lệ NullPointerException nếu"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 40.05,
+      "end": 42.59,
+      "duration": 2.54,
+      "text_snippet": "Tại Sao System.arraycopy Đạt Hiệu Năng Cao và Chỉ Sao Chép Nông (Shallow Copy)"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 42.59,
+      "end": 74.89,
+      "duration": 32.29,
+      "text_snippet": "Phương thức System.arraycopy() đạt hiệu năng cực cao vì nó bỏ qua chi phí lặp qua từng phần tử của máy ảo Java (JVM loop"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 74.89,
+      "end": 75.44,
+      "duration": 0.55,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 75.44,
+      "end": 87.79,
+      "duration": 12.35,
+      "text_snippet": "Ví Dụ Mã Nguồn Có Thể Chạy Được:\n`java\npublic class ArrayCopyPerformanceDemo {\n    public static void main(String[] args"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 87.79,
+      "end": 99.07,
+      "duration": 11.28,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain):\nGọi System.arraycopy &rarr; Lời gọi hệ thống gốc bỏ qua vòng lặp JVM &"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 99.07,
+      "end": 101.77,
+      "duration": 2.7,
+      "text_snippet": "Arrays.copyOf()\nTạo ra một bản sao mảng mới từ chỉ mục 0 cho đến chỉ mục newLength."
+    },
+    {
+      "paragraph_id": 15,
+      "start": 101.77,
+      "end": 102.33,
+      "duration": 0.55,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 102.33,
+      "end": 132.54,
+      "duration": 30.21,
+      "text_snippet": "Ví Dụ Có Thể Chạy Được: Sử dụng Arrays.copyOf() và copyOfRange()\n`java\nimport java.util.Arrays;\n \npublic class ArrayCopy"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 132.54,
+      "end": 134.39,
+      "duration": 1.86,
+      "text_snippet": "Arrays.copyOfRange()\nSao chép một khoảng cụ thể của mảng."
+    },
+    {
+      "paragraph_id": 18,
+      "start": 134.39,
+      "end": 134.95,
+      "duration": 0.55,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 134.95,
+      "end": 135.01,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 135.01,
+      "end": 137.72,
+      "duration": 2.7,
+      "text_snippet": "Sắp Xếp Mảng: Thuật Toán và Tính Ổn Định (Sorting Arrays: Algorithms and Stability)"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 137.72,
+      "end": 141.5,
+      "duration": 3.78,
+      "text_snippet": "Phương thức Arrays.sort() được nạp chồng (overloaded) để sắp xếp các kiểu dữ liệu nguyên thủy và các kiểu đối tượng."
+    },
+    {
+      "paragraph_id": 22,
+      "start": 141.5,
+      "end": 159.1,
+      "duration": 17.6,
+      "text_snippet": "Sắp Xếp Mảng Nguyên Thủy (Dual-Pivot Quicksort)\nĐối với các mảng kiểu nguyên thủy (int[], double[], v.v.), Arrays.sort()"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 159.1,
+      "end": 179.24,
+      "duration": 20.14,
+      "text_snippet": "Sắp Xếp Mảng Đối Tượng (Timsort)\nĐối với các mảng đối tượng (String[], các lớp tự định nghĩa), Arrays.sort() sử dụng thu"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 179.24,
+      "end": 184.97,
+      "duration": 5.74,
+      "text_snippet": "Sắp Xếp Trong Một Khoảng (Sorting Ranges)\nBạn có thể sắp xếp một mảng con cụ thể bằng cách sử dụng:\n`java\nArrays.sort(ar"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 184.97,
+      "end": 242.85,
+      "duration": 57.88,
+      "text_snippet": "Ví Dụ Có Thể Chạy Được: Sắp xếp kiểu nguyên thủy vs. đối tượng\n`java\nimport java.util.Arrays;\nimport java.util.Comparato"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 242.85,
+      "end": 242.91,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 242.91,
+      "end": 247.25,
+      "duration": 4.33,
+      "text_snippet": "Tại Sao Tìm Kiếm Nhị Phân Yêu Cầu Mảng Đã Sắp Xếp và Cách Hoạt Động Toán Học Của Mã Trả Về (Why Binary Search Requires S"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 247.25,
+      "end": 278.08,
+      "duration": 30.83,
+      "text_snippet": "Phương thức Arrays.binarySearch() hoạt động dựa trên thuật toán tìm kiếm nhị phân, thuật toán này liên tục chia đôi khôn"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 278.08,
+      "end": 278.63,
+      "duration": 0.55,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 278.63,
+      "end": 297.5,
+      "duration": 18.87,
+      "text_snippet": "Ví Dụ Mã Nguồn Có Thể Chạy Được:\n`java\nimport java.util.Arrays;\n \npublic class BinarySearchDemo {\n    public static void"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 297.5,
+      "end": 308.71,
+      "duration": 11.21,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain):\nTìm kiếm nhị phân giả định mảng đã sắp xếp &rarr; Phần tử ở giữa được "
+    },
+    {
+      "paragraph_id": 32,
+      "start": 308.71,
+      "end": 308.77,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 308.77,
+      "end": 310.24,
+      "duration": 1.47,
+      "text_snippet": "So Sánh Mảng (Sao Chép Nông vs. Sao Chép Sâu)"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 310.24,
+      "end": 313.34,
+      "duration": 3.1,
+      "text_snippet": "Sử dụng toán tử == trên các biến mảng chỉ so sánh các tham chiếu (địa chỉ trên ngăn xếp stack)."
+    },
+    {
+      "paragraph_id": 35,
+      "start": 313.34,
+      "end": 324.71,
+      "duration": 11.37,
+      "text_snippet": "Arrays.equals()\nSo sánh hai mảng 1 chiều xem nội dung của chúng có bằng nhau hay không:\nTrả về true nếu cả hai mảng chứa"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 324.71,
+      "end": 336.6,
+      "duration": 11.89,
+      "text_snippet": "Arrays.deepEquals()\nSo sánh hai mảng đa chiều.\nGọi Arrays.equals() trên mảng 2 chiều thực chất là so sánh địa chỉ tham c"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 336.6,
+      "end": 337.16,
+      "duration": 0.55,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 337.16,
+      "end": 340.48,
+      "duration": 3.32,
+      "text_snippet": "Tại Sao Arrays.equals Thất Bại Trên Mảng Đa Chiều (Why Arrays.equals Fails on Multidimensional Arrays)"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 340.48,
+      "end": 373.69,
+      "duration": 33.21,
+      "text_snippet": "Phương thức Arrays.equals() được thiết kế để thực hiện kiểm tra bằng nhau ở cấp độ đơn lẻ (single-level), nghĩa là nó lặ"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 373.69,
+      "end": 374.24,
+      "duration": 0.55,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 374.24,
+      "end": 387.67,
+      "duration": 13.43,
+      "text_snippet": "Ví Dụ Mã Nguồn Có Thể Chạy Được:\n`java\nimport java.util.Arrays;\n \npublic class ArrayEqualityDemo {\n    public static voi"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 387.67,
+      "end": 398.0,
+      "duration": 10.33,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain):\nGọi Arrays.equals trên mảng 2D &rarr; Mảng con lồng nhau được coi như "
+    },
+    {
+      "paragraph_id": 43,
+      "start": 398.0,
+      "end": 398.06,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 398.06,
+      "end": 399.37,
+      "duration": 1.3,
+      "text_snippet": "Các Sai Lầm Thường Gặp (Common Mistakes)"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 399.37,
+      "end": 410.51,
+      "duration": 11.15,
+      "text_snippet": "Tìm kiếm trên mảng chưa sắp xếp với Arrays.binarySearch()\nArrays.binarySearch() yêu cầu mảng phải được sắp xếp theo thứ "
+    },
+    {
+      "paragraph_id": 46,
+      "start": 410.51,
+      "end": 427.04,
+      "duration": 16.52,
+      "text_snippet": "Sử dụng toán tử == hoặc .equals() để so sánh nội dung mảng\nCác mảng không ghi đè phương thức .equals() từ lớp Object. Do"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 427.04,
+      "end": 441.47,
+      "duration": 14.44,
+      "text_snippet": "Sử dụng Arrays.equals() cho mảng đa chiều\nArrays.equals() chỉ so sánh các tham chiếu ở cấp cao nhất khi chạy trên các mả"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 441.47,
+      "end": 455.94,
+      "duration": 14.47,
+      "text_snippet": "Ép kiểu trực tiếp trong System.arraycopy() với các kiểu không tương thích\nSystem.arraycopy() ném ra ngoại lệ ArrayStoreE"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 455.94,
+      "end": 461.87,
+      "duration": 5.93,
+      "text_snippet": "> Xem thêm: Chi tiết về tính hiệp biến của mảng (Array Covariance) và nguyên nhân gây ra ArrayStoreException khi so sánh"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 461.87,
+      "end": 461.94,
+      "duration": 0.07,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 461.94,
+      "end": 463.11,
+      "duration": 1.17,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 463.11,
+      "end": 476.02,
+      "duration": 12.9,
+      "text_snippet": "https://docs.oracle.com/javase/specs/jls/se21/html/jls-10.html (Các mảng trong Đặc tả Ngôn ngữ Java)\nhttps://docs.oracle"
+    }
+  ]
+}

@@ -1,0 +1,420 @@
+{
+  "lesson": "06-fail-fast-iterator-concepts",
+  "total_duration_seconds": 282.07,
+  "total_paragraphs": 59,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 1.29,
+      "duration": 1.29,
+      "text_snippet": "Cấu Trúc Tập Hợp (Collections Framework) - Phần 6"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 1.29,
+      "end": 1.71,
+      "duration": 0.42,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 1.71,
+      "end": 7.98,
+      "duration": 6.27,
+      "text_snippet": "File này đề cập đến một phần trọng tâm của Cấu Trúc Tập Hợp (Collections Framework) bao gồm các hành vi của bộ lặp (iter"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 7.98,
+      "end": 8.45,
+      "duration": 0.47,
+      "text_snippet": "Đề Cương Khái Niệm"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 8.45,
+      "end": 30.07,
+      "duration": 21.62,
+      "text_snippet": "Fail-fast iterator — Fail-fast iterator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nFail-safe iterator "
+    },
+    {
+      "paragraph_id": 6,
+      "start": 30.07,
+      "end": 30.5,
+      "duration": 0.42,
+      "text_snippet": "Ghi Chú Chi Tiết"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 30.5,
+      "end": 31.47,
+      "duration": 0.97,
+      "text_snippet": "Bộ Lặp Fail-Fast (Fail-Fast Iterator)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 31.47,
+      "end": 43.74,
+      "duration": 12.27,
+      "text_snippet": "Các bộ lặp cho các tập hợp tiêu chuẩn (như ArrayList, HashSet, HashMap) có tính chất fail-fast.\nCơ chế: Tập hợp duy trì "
+    },
+    {
+      "paragraph_id": 9,
+      "start": 43.74,
+      "end": 47.14,
+      "duration": 3.4,
+      "text_snippet": "Ví dụ Mã Nguồn Chạy Được (Hành vi Fail-Fast):\n`java\nimport java.util.ArrayList;\nimport java.util.Iterator;\nimport java.u"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 47.14,
+      "end": 52.09,
+      "duration": 4.95,
+      "text_snippet": "public class FailFastDemo {\n    public static void main(String[] args) {\n        List<String> list = new ArrayList<>(Lis"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 52.09,
+      "end": 62.55,
+      "duration": 10.45,
+      "text_snippet": "try {\n            while (it.hasNext()) {\n                String val = it.next();\n                if (val.equals(\"B\")) {\n"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 62.55,
+      "end": 64.47,
+      "duration": 1.92,
+      "text_snippet": "Bộ Lặp Fail-Safe / Nhất Quán Yếu (Fail-Safe / Weakly Consistent Iterator)"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 64.47,
+      "end": 80.72,
+      "duration": 16.25,
+      "text_snippet": "Các bộ lặp cho các tập hợp đồng thời (như CopyOnWriteArrayList, ConcurrentHashMap) không ném ra ConcurrentModificationEx"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 80.72,
+      "end": 84.14,
+      "duration": 3.42,
+      "text_snippet": "Ví dụ Mã Nguồn Chạy Được (Duyệt Trên Bản Chụp):\n`java\nimport java.util.Iterator;\nimport java.util.concurrent.CopyOnWrite"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 84.14,
+      "end": 89.93,
+      "duration": 5.79,
+      "text_snippet": "public class FailSafeDemo {\n    public static void main(String[] args) {\n        CopyOnWriteArrayList<String> list = new"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 89.93,
+      "end": 96.89,
+      "duration": 6.95,
+      "text_snippet": "while (it.hasNext()) {\n            String val = it.next();\n            if (val.equals(\"B\")) {\n                list.remov"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 96.89,
+      "end": 97.52,
+      "duration": 0.63,
+      "text_snippet": "Lớp Tiện Ích Collections"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 97.52,
+      "end": 111.32,
+      "duration": 13.8,
+      "text_snippet": "java.util.Collections cung cấp các thuật toán tĩnh hoạt động trên các tập hợp.\nsort(List<T> list) — sort(List<T> list): "
+    },
+    {
+      "paragraph_id": 19,
+      "start": 111.32,
+      "end": 114.27,
+      "duration": 2.95,
+      "text_snippet": "Ví dụ Mã Nguồn Chạy Được:\n`java\nimport java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 114.27,
+      "end": 118.09,
+      "duration": 3.82,
+      "text_snippet": "public class CollectionsDemo {\n    public static void main(String[] args) {\n        List<Integer> numbers = new ArrayLis"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 118.09,
+      "end": 120.51,
+      "duration": 2.42,
+      "text_snippet": "Collections.sort(numbers);\n        System.out.println(\"Sorted: \" + numbers); // [10, 20, 30]"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 120.51,
+      "end": 123.06,
+      "duration": 2.55,
+      "text_snippet": "Collections.reverse(numbers);\n        System.out.println(\"Reversed: \" + numbers); // [30, 20, 10]"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 123.06,
+      "end": 125.93,
+      "duration": 2.87,
+      "text_snippet": "Collections.shuffle(numbers);\n        System.out.println(\"Max: \" + Collections.max(numbers)); // 30\n    }\n}\n`"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 125.93,
+      "end": 125.99,
+      "duration": 0.05,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 125.99,
+      "end": 127.96,
+      "duration": 1.98,
+      "text_snippet": "Ví Dụ Thực Tế: Phân Tích Hiệu Năng Của Bộ Lặp Fail-Fast Với Bộ Lặp Snapshot"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 127.96,
+      "end": 134.36,
+      "duration": 6.4,
+      "text_snippet": "Hãy viết một bài kiểm tra hiệu năng để quan sát chi phí của các sửa đổi trên tập hợp tiêu chuẩn (vốn ném ra ngoại lệ trừ"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 134.36,
+      "end": 134.81,
+      "duration": 0.45,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 134.81,
+      "end": 142.34,
+      "duration": 7.53,
+      "text_snippet": "public class IteratorBenchmark {\n    public static void main(String[] args) {\n        int count = 10_000;\n        \n     "
+    },
+    {
+      "paragraph_id": 29,
+      "start": 142.34,
+      "end": 151.61,
+      "duration": 9.27,
+      "text_snippet": "long start = System.currentTimeMillis();\n        Iterator<Integer> it1 = arrayList.iterator();\n        while (it1.hasNex"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 151.61,
+      "end": 156.27,
+      "duration": 4.66,
+      "text_snippet": "// 2. Benchmarking CopyOnWriteArrayList using list.remove()\n        List<Integer> cowList = new CopyOnWriteArrayList<>()"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 156.27,
+      "end": 165.96,
+      "duration": 9.69,
+      "text_snippet": "start = System.currentTimeMillis();\n        Iterator<Integer> it2 = cowList.iterator();\n        while (it2.hasNext()) {\n"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 165.96,
+      "end": 170.99,
+      "duration": 5.03,
+      "text_snippet": "System.out.println(\"ArrayList (iterator.remove()): \" + durationArrayList + \" ms\");\n        System.out.println(\"CopyOnWri"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 170.99,
+      "end": 171.04,
+      "duration": 0.05,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 171.04,
+      "end": 171.52,
+      "duration": 0.47,
+      "text_snippet": "Các Lỗi Thường Gặp"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 171.52,
+      "end": 172.57,
+      "duration": 1.05,
+      "text_snippet": "Sửa Đổi Một List Trong Vòng Lặp For-Each"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 172.57,
+      "end": 182.58,
+      "duration": 10.01,
+      "text_snippet": "Vòng lặp for-each trong Java sử dụng một bộ lặp một cách nội bộ. Gọi list.remove(item) bên trong vòng lặp for-each sẽ kí"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 182.58,
+      "end": 184.0,
+      "duration": 1.42,
+      "text_snippet": "Chi Phí Lớn Của Các Phép Ghi Trên CopyOnWriteArrayList"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 184.0,
+      "end": 191.14,
+      "duration": 7.14,
+      "text_snippet": "Sử dụng CopyOnWriteArrayList trong một vòng lặp chuyên ghi dữ liệu là một sai lầm rất lớn. Vì mỗi lần ghi sẽ tạo một bản"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 191.14,
+      "end": 193.53,
+      "duration": 2.4,
+      "text_snippet": "Giả Định Rằng Việc Sửa Đổi Iterator Luôn Ảnh Hưởng Đến Tập Hợp Gốc Trong Mọi Kiểu Danh Sách"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 193.53,
+      "end": 197.43,
+      "duration": 3.9,
+      "text_snippet": "Một số dạng xem danh sách (như List.of() hoặc Collections.unmodifiableList()) sẽ ném ra UnsupportedOperationException nế"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 197.43,
+      "end": 197.48,
+      "duration": 0.05,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 197.48,
+      "end": 198.25,
+      "duration": 0.76,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 198.25,
+      "end": 208.1,
+      "duration": 9.85,
+      "text_snippet": "Làm thế nào một bộ lặp fail-fast phát hiện các sửa đổi đồng thời? (Bằng cách so sánh giá trị expectedModCount của bộ lặp"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 208.1,
+      "end": 209.76,
+      "duration": 1.66,
+      "text_snippet": "Tại Sao Bộ Lặp Fail-Fast Ném Ra ConcurrentModificationException"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 209.76,
+      "end": 239.25,
+      "duration": 29.49,
+      "text_snippet": "Để ngăn chặn các hành vi runtime không thể đoán trước và lỗi hỏng dữ liệu, các tập hợp không đồng thời của Java sử dụng "
+    },
+    {
+      "paragraph_id": 46,
+      "start": 239.25,
+      "end": 240.99,
+      "duration": 1.74,
+      "text_snippet": "Bộ Lặp Fail-Fast Kiểm Tra Số Lần Sửa Đổi Ở Mỗi Bước (Mental Model)"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 240.99,
+      "end": 241.44,
+      "duration": 0.45,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 241.44,
+      "end": 243.83,
+      "duration": 2.4,
+      "text_snippet": "Gọi iterator.next():\n   So sánh modCount (3) == expectedModCount (3) -> OK! Trả về phần tử."
+    },
+    {
+      "paragraph_id": 49,
+      "start": 243.83,
+      "end": 245.73,
+      "duration": 1.9,
+      "text_snippet": "Gọi collection.remove(x) (ngoài bộ lặp):\n   Tập hợp tăng modCount lên 4."
+    },
+    {
+      "paragraph_id": 50,
+      "start": 245.73,
+      "end": 249.92,
+      "duration": 4.19,
+      "text_snippet": "Gọi iterator.next():\n   So sánh modCount (4) == expectedModCount (3) -> Phát hiện không khớp!\n   Hành động: Ném Concurre"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 249.92,
+      "end": 250.68,
+      "duration": 0.76,
+      "text_snippet": "Ví Dụ Mã Nguồn (Code Example)"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 250.68,
+      "end": 251.13,
+      "duration": 0.45,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 251.13,
+      "end": 256.69,
+      "duration": 5.56,
+      "text_snippet": "public class ConcurrentModificationDemo {\n    public static void main(String[] args) {\n        List<String> list = new A"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 256.69,
+      "end": 257.84,
+      "duration": 1.16,
+      "text_snippet": "Iterator<String> iterator = list.iterator();"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 257.84,
+      "end": 271.56,
+      "duration": 13.72,
+      "text_snippet": "try {\n            while (iterator.hasNext()) {\n                String language = iterator.next();\n                if (la"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 271.56,
+      "end": 272.83,
+      "duration": 1.26,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 272.83,
+      "end": 273.28,
+      "duration": 0.45,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 273.28,
+      "end": 274.22,
+      "duration": 0.95,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 274.22,
+      "end": 282.07,
+      "duration": 7.85,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ConcurrentModificationException.html (Tài liệu AP"
+    }
+  ]
+}

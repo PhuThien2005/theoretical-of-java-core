@@ -1,0 +1,819 @@
+{
+  "lesson": "01-what-is-an-exception-concepts",
+  "total_duration_seconds": 888.46,
+  "total_paragraphs": 116,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.0,
+      "end": 1.13,
+      "duration": 1.13,
+      "text_snippet": "Xử Lý Ngoại Lệ - Phần 1"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 1.13,
+      "end": 1.91,
+      "duration": 0.78,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 1.91,
+      "end": 9.66,
+      "duration": 7.75,
+      "text_snippet": "File này bao gồm một phần tập trung của Xử Lý Ngoại Lệ (Exception Handling). Hãy học từng khái niệm như một quy tắc Java"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 9.66,
+      "end": 10.44,
+      "duration": 0.78,
+      "text_snippet": "Phạm Vi Đề Cương"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 10.44,
+      "end": 46.48,
+      "duration": 36.04,
+      "text_snippet": "Ngoại lệ là gì? — Ngoại lệ là gì?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.\nError vs Exception — Erro"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 46.48,
+      "end": 47.27,
+      "duration": 0.78,
+      "text_snippet": "Ghi Chú Chi Tiết"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 47.27,
+      "end": 48.0,
+      "duration": 0.74,
+      "text_snippet": "Ngoại lệ là gì?"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 48.0,
+      "end": 53.0,
+      "duration": 5.0,
+      "text_snippet": "Ngoại lệ (exception) đại diện cho một điều kiện bất thường mà chương trình có thể bắt hoặc lan truyền."
+    },
+    {
+      "paragraph_id": 9,
+      "start": 53.0,
+      "end": 64.18,
+      "duration": 11.18,
+      "text_snippet": "Quan trọng vì hành vi ngoại lệ quyết định liệu lỗi được xử lý cục bộ, lan truyền, hay được phép dừng chương trình. Nhầm "
+    },
+    {
+      "paragraph_id": 10,
+      "start": 64.18,
+      "end": 65.02,
+      "duration": 0.83,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 65.02,
+      "end": 74.53,
+      "duration": 9.51,
+      "text_snippet": "Định nghĩa Ngoại lệ là gì? trong một câu.\nNhận diện Ngoại lệ là gì? trong code, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.\n"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 74.53,
+      "end": 76.0,
+      "duration": 1.47,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 76.0,
+      "end": 80.07,
+      "duration": 4.07,
+      "text_snippet": "Khi đọc code, hỏi: Ngoại lệ là gì? thay đổi, cho phép, từ chối, hay làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 80.07,
+      "end": 86.0,
+      "duration": 5.93,
+      "text_snippet": "Ví Dụ Code Chạy Được: Ném và Bắt Ngoại Lệ\nDưới đây là ví dụ cơ bản về việc ném một Exception tiêu chuẩn và bắt nó cục bộ"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 86.0,
+      "end": 86.84,
+      "duration": 0.83,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 86.84,
+      "end": 87.72,
+      "duration": 0.88,
+      "text_snippet": "Error vs Exception"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 87.72,
+      "end": 92.13,
+      "duration": 4.41,
+      "text_snippet": "Ngoại lệ đại diện cho một điều kiện bất thường mà chương trình có thể bắt hoặc lan truyền."
+    },
+    {
+      "paragraph_id": 18,
+      "start": 92.13,
+      "end": 103.31,
+      "duration": 11.18,
+      "text_snippet": "Quan trọng vì hành vi ngoại lệ quyết định liệu lỗi được xử lý cục bộ, lan truyền, hay được phép dừng chương trình. Nhầm "
+    },
+    {
+      "paragraph_id": 19,
+      "start": 103.31,
+      "end": 104.14,
+      "duration": 0.83,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 104.14,
+      "end": 114.1,
+      "duration": 9.95,
+      "text_snippet": "Định nghĩa Error vs Exception trong một câu.\nNhận diện Error vs Exception trong code, lệnh, tài liệu, hoặc câu hỏi phỏng"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 114.1,
+      "end": 115.57,
+      "duration": 1.47,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 115.57,
+      "end": 119.78,
+      "duration": 4.22,
+      "text_snippet": "Khi đọc code, hỏi: Error vs Exception thay đổi, cho phép, từ chối, hay làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 119.78,
+      "end": 134.54,
+      "duration": 14.76,
+      "text_snippet": "Ví Dụ Code Chạy Được: Phục Hồi từ Exception vs Sập vì Error\nError (như StackOverflowError hoặc OutOfMemoryError) biểu th"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 134.54,
+      "end": 135.38,
+      "duration": 0.83,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 135.38,
+      "end": 142.54,
+      "duration": 7.16,
+      "text_snippet": "// 2. Exception: Chia cho 0 (vấn đề cấp chương trình có thể phục hồi)\n    public static void causeException() {\n        "
+    },
+    {
+      "paragraph_id": 26,
+      "start": 142.54,
+      "end": 154.7,
+      "duration": 12.16,
+      "text_snippet": "public static void main(String[] args) {\n        // Phục hồi từ Exception\n        try {\n            causeException();\n  "
+    },
+    {
+      "paragraph_id": 27,
+      "start": 154.7,
+      "end": 168.18,
+      "duration": 13.48,
+      "text_snippet": "// Gặp phải Error (Tránh bắt Error trong code production!)\n        try {\n            causeStackOverflow();\n        } cat"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 168.18,
+      "end": 185.19,
+      "duration": 17.01,
+      "text_snippet": "Sơ Đồ Phân Cấp Class\n`mermaid\ngraph TD\n    Throwable[\"java.lang.Throwable\"] --> Error[\"java.lang.Error (Unchecked)\"]\n   "
+    },
+    {
+      "paragraph_id": 29,
+      "start": 185.19,
+      "end": 187.3,
+      "duration": 2.11,
+      "text_snippet": "Checked exception (Ngoại lệ bắt buộc xử lý)"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 187.3,
+      "end": 192.35,
+      "duration": 5.05,
+      "text_snippet": "Ngoại lệ bắt buộc xử lý (checked exception) phải được xử lý hoặc khai báo theo quy tắc trình biên dịch."
+    },
+    {
+      "paragraph_id": 31,
+      "start": 192.35,
+      "end": 203.53,
+      "duration": 11.18,
+      "text_snippet": "Quan trọng vì hành vi ngoại lệ quyết định liệu lỗi được xử lý cục bộ, lan truyền, hay được phép dừng chương trình. Nhầm "
+    },
+    {
+      "paragraph_id": 32,
+      "start": 203.53,
+      "end": 204.36,
+      "duration": 0.83,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 204.36,
+      "end": 214.17,
+      "duration": 9.81,
+      "text_snippet": "Định nghĩa Checked exception trong một câu.\nNhận diện Checked exception trong code, lệnh, tài liệu, hoặc câu hỏi phỏng v"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 214.17,
+      "end": 215.64,
+      "duration": 1.47,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 215.64,
+      "end": 219.81,
+      "duration": 4.17,
+      "text_snippet": "Khi đọc code, hỏi: Checked exception thay đổi, cho phép, từ chối, hay làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 219.81,
+      "end": 233.69,
+      "duration": 13.88,
+      "text_snippet": "Ví Dụ Code Chạy Được: Xử Lý Checked Exception\nChecked exception đại diện cho các điều kiện nằm ngoài tầm kiểm soát của c"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 233.69,
+      "end": 234.52,
+      "duration": 0.83,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 234.52,
+      "end": 246.34,
+      "duration": 11.82,
+      "text_snippet": "public class CheckedExceptionDemo {\n    // Tùy chọn 1: Khai báo checked exception bằng 'throws'\n    public static void r"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 246.34,
+      "end": 262.22,
+      "duration": 15.89,
+      "text_snippet": "// Tùy chọn 2: Xử lý checked exception bằng 'try-catch'\n    public static void readFileWithTryCatch() {\n        try {\n  "
+    },
+    {
+      "paragraph_id": 40,
+      "start": 262.22,
+      "end": 266.24,
+      "duration": 4.02,
+      "text_snippet": "public static void main(String[] args) {\n        readFileWithTryCatch();\n    }\n}\n`"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 266.24,
+      "end": 268.74,
+      "duration": 2.5,
+      "text_snippet": "Unchecked exception (Ngoại lệ không bắt buộc xử lý)"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 268.74,
+      "end": 273.11,
+      "duration": 4.36,
+      "text_snippet": "Ngoại lệ không bắt buộc xử lý (unchecked exception) không yêu cầu phải bắt hoặc khai báo."
+    },
+    {
+      "paragraph_id": 43,
+      "start": 273.11,
+      "end": 284.29,
+      "duration": 11.18,
+      "text_snippet": "Quan trọng vì hành vi ngoại lệ quyết định liệu lỗi được xử lý cục bộ, lan truyền, hay được phép dừng chương trình. Nhầm "
+    },
+    {
+      "paragraph_id": 44,
+      "start": 284.29,
+      "end": 285.12,
+      "duration": 0.83,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 285.12,
+      "end": 295.22,
+      "duration": 10.1,
+      "text_snippet": "Định nghĩa Unchecked exception trong một câu.\nNhận diện Unchecked exception trong code, lệnh, tài liệu, hoặc câu hỏi phỏ"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 295.22,
+      "end": 296.69,
+      "duration": 1.47,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 296.69,
+      "end": 300.96,
+      "duration": 4.27,
+      "text_snippet": "Khi đọc code, hỏi: Unchecked exception thay đổi, cho phép, từ chối, hay làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 300.96,
+      "end": 311.4,
+      "duration": 10.44,
+      "text_snippet": "Ví Dụ Code Chạy Được: Unchecked Exception (RuntimeException)\nUnchecked exception đại diện cho lỗi lập trình (ví dụ: lỗi "
+    },
+    {
+      "paragraph_id": 49,
+      "start": 311.4,
+      "end": 312.23,
+      "duration": 0.83,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 312.23,
+      "end": 314.34,
+      "duration": 2.11,
+      "text_snippet": "Runtime exception (Ngoại lệ thời gian chạy)"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 314.34,
+      "end": 318.76,
+      "duration": 4.41,
+      "text_snippet": "Ngoại lệ đại diện cho một điều kiện bất thường mà chương trình có thể bắt hoặc lan truyền."
+    },
+    {
+      "paragraph_id": 52,
+      "start": 318.76,
+      "end": 329.93,
+      "duration": 11.18,
+      "text_snippet": "Quan trọng vì hành vi ngoại lệ quyết định liệu lỗi được xử lý cục bộ, lan truyền, hay được phép dừng chương trình. Nhầm "
+    },
+    {
+      "paragraph_id": 53,
+      "start": 329.93,
+      "end": 330.77,
+      "duration": 0.83,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 330.77,
+      "end": 340.57,
+      "duration": 9.81,
+      "text_snippet": "Định nghĩa Runtime exception trong một câu.\nNhận diện Runtime exception trong code, lệnh, tài liệu, hoặc câu hỏi phỏng v"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 340.57,
+      "end": 342.05,
+      "duration": 1.47,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 342.05,
+      "end": 346.21,
+      "duration": 4.17,
+      "text_snippet": "Khi đọc code, hỏi: Runtime exception thay đổi, cho phép, từ chối, hay làm rõ điều gì?"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 346.21,
+      "end": 355.24,
+      "duration": 9.02,
+      "text_snippet": "Ví Dụ Code Chạy Được: Runtime Exception (Các lớp con của RuntimeException)\nRuntimeException là lớp cha của những ngoại l"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 355.24,
+      "end": 356.07,
+      "duration": 0.83,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 356.07,
+      "end": 356.22,
+      "duration": 0.15,
+      "text_snippet": "try"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 356.22,
+      "end": 360.43,
+      "duration": 4.22,
+      "text_snippet": "try đánh dấu khối mà bạn muốn xử lý, dọn dẹp sau, hoặc lan truyền các ngoại lệ của nó."
+    },
+    {
+      "paragraph_id": 61,
+      "start": 360.43,
+      "end": 366.56,
+      "duration": 6.13,
+      "text_snippet": "Dùng nó để dự đoán quy tắc Java chính xác, dạng được phép, và chế độ lỗi. Xem lại với một ví dụ nhỏ thay vì chỉ ghi nhớ "
+    },
+    {
+      "paragraph_id": 62,
+      "start": 366.56,
+      "end": 367.4,
+      "duration": 0.83,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 367.4,
+      "end": 375.14,
+      "duration": 7.75,
+      "text_snippet": "Định nghĩa try trong một câu.\nNhận diện try trong code, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.\nGiải thích một bug, giới"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 375.14,
+      "end": 376.61,
+      "duration": 1.47,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 376.61,
+      "end": 380.24,
+      "duration": 3.63,
+      "text_snippet": "try { ... } catch (IOException ex) { ... } xử lý một đường dẫn lỗi cụ thể."
+    },
+    {
+      "paragraph_id": 66,
+      "start": 380.24,
+      "end": 392.35,
+      "duration": 12.11,
+      "text_snippet": "Ví Dụ Code Chạy Được: Phạm Vi Khối Try\nKhối try không thể tồn tại một mình. Nó phải được theo sau bởi ít nhất một khối c"
+    },
+    {
+      "paragraph_id": 67,
+      "start": 392.35,
+      "end": 393.19,
+      "duration": 0.83,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 68,
+      "start": 393.19,
+      "end": 393.43,
+      "duration": 0.25,
+      "text_snippet": "catch"
+    },
+    {
+      "paragraph_id": 69,
+      "start": 393.43,
+      "end": 396.32,
+      "duration": 2.89,
+      "text_snippet": "catch xử lý một kiểu ngoại lệ khớp được ném ra từ khối try."
+    },
+    {
+      "paragraph_id": 70,
+      "start": 396.32,
+      "end": 402.45,
+      "duration": 6.13,
+      "text_snippet": "Dùng nó để dự đoán quy tắc Java chính xác, dạng được phép, và chế độ lỗi. Xem lại với một ví dụ nhỏ thay vì chỉ ghi nhớ "
+    },
+    {
+      "paragraph_id": 71,
+      "start": 402.45,
+      "end": 403.29,
+      "duration": 0.83,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 72,
+      "start": 403.29,
+      "end": 411.33,
+      "duration": 8.04,
+      "text_snippet": "Định nghĩa catch trong một câu.\nNhận diện catch trong code, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.\nGiải thích một bug, "
+    },
+    {
+      "paragraph_id": 73,
+      "start": 411.33,
+      "end": 412.8,
+      "duration": 1.47,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 74,
+      "start": 412.8,
+      "end": 416.43,
+      "duration": 3.63,
+      "text_snippet": "try { ... } catch (IOException ex) { ... } xử lý một đường dẫn lỗi cụ thể."
+    },
+    {
+      "paragraph_id": 75,
+      "start": 416.43,
+      "end": 423.1,
+      "duration": 6.67,
+      "text_snippet": "Ví Dụ Code Chạy Được: Bắt Ngoại Lệ Cụ Thể\nKhi ngoại lệ được ném trong khối try, Java khớp kiểu ngoại lệ với kiểu tham số"
+    },
+    {
+      "paragraph_id": 76,
+      "start": 423.1,
+      "end": 423.93,
+      "duration": 0.83,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 77,
+      "start": 423.93,
+      "end": 425.55,
+      "duration": 1.62,
+      "text_snippet": "multiple catch (Nhiều khối catch)"
+    },
+    {
+      "paragraph_id": 78,
+      "start": 425.55,
+      "end": 432.41,
+      "duration": 6.86,
+      "text_snippet": "multiple catch (nhiều khối catch) cho phép các kiểu ngoại lệ khác nhau được xử lý bởi các trình xử lý khác nhau, sắp xếp"
+    },
+    {
+      "paragraph_id": 79,
+      "start": 432.41,
+      "end": 438.54,
+      "duration": 6.13,
+      "text_snippet": "Dùng nó để dự đoán quy tắc Java chính xác, dạng được phép, và chế độ lỗi. Xem lại với một ví dụ nhỏ thay vì chỉ ghi nhớ "
+    },
+    {
+      "paragraph_id": 80,
+      "start": 438.54,
+      "end": 439.37,
+      "duration": 0.83,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 81,
+      "start": 439.37,
+      "end": 448.74,
+      "duration": 9.37,
+      "text_snippet": "Định nghĩa multiple catch trong một câu.\nNhận diện multiple catch trong code, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.\nGi"
+    },
+    {
+      "paragraph_id": 82,
+      "start": 448.74,
+      "end": 450.21,
+      "duration": 1.47,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 83,
+      "start": 450.21,
+      "end": 453.84,
+      "duration": 3.63,
+      "text_snippet": "try { ... } catch (IOException ex) { ... } xử lý một đường dẫn lỗi cụ thể."
+    },
+    {
+      "paragraph_id": 84,
+      "start": 453.84,
+      "end": 464.09,
+      "duration": 10.25,
+      "text_snippet": "Ví Dụ Code Chạy Được: Nhiều Khối Catch vs Multi-Catch (Union Catch)\nJava cho phép định nghĩa nhiều khối catch cho một kh"
+    },
+    {
+      "paragraph_id": 85,
+      "start": 464.09,
+      "end": 464.92,
+      "duration": 0.83,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 86,
+      "start": 464.92,
+      "end": 490.51,
+      "duration": 25.59,
+      "text_snippet": "// Tình huống 2: Multi-catch (Union catch block)\n        try {\n            String str = null;\n            str.length(); "
+    },
+    {
+      "paragraph_id": 87,
+      "start": 490.51,
+      "end": 491.2,
+      "duration": 0.69,
+      "text_snippet": "Lỗi Thường Gặp"
+    },
+    {
+      "paragraph_id": 88,
+      "start": 491.2,
+      "end": 516.55,
+      "duration": 25.35,
+      "text_snippet": "Bắt Exception Cha Trước Exception Con\nVì việc khớp ngoại lệ được giải quyết theo thứ tự từ trên xuống dưới, bắt kiểu ngo"
+    },
+    {
+      "paragraph_id": 89,
+      "start": 516.55,
+      "end": 543.86,
+      "duration": 27.31,
+      "text_snippet": "Bắt Checked Exception Không Thể Được Ném Trong Khối Try\nNếu bạn viết khối catch cho một checked exception cụ thể, nhưng "
+    },
+    {
+      "paragraph_id": 90,
+      "start": 543.86,
+      "end": 562.0,
+      "duration": 18.14,
+      "text_snippet": "Gán Lại Biến Exception Trong Khối Multi-Catch\nBiến ngoại lệ e trong khối multi-catch (ví dụ: catch (ArithmeticException "
+    },
+    {
+      "paragraph_id": 91,
+      "start": 562.0,
+      "end": 563.23,
+      "duration": 1.23,
+      "text_snippet": "Câu Hỏi Ôn Tập Thường Gặp"
+    },
+    {
+      "paragraph_id": 92,
+      "start": 563.23,
+      "end": 569.36,
+      "duration": 6.13,
+      "text_snippet": "Khái niệm nào ở đây là quy tắc biên dịch?\nKhái niệm nào ảnh hưởng đến hành vi runtime?\nKhái niệm nào có thể là bẫy phỏng"
+    },
+    {
+      "paragraph_id": 93,
+      "start": 569.36,
+      "end": 569.46,
+      "duration": 0.1,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 94,
+      "start": 569.46,
+      "end": 571.71,
+      "duration": 2.26,
+      "text_snippet": "Tại Sao Java Có Checked và Unchecked Exception"
+    },
+    {
+      "paragraph_id": 95,
+      "start": 571.71,
+      "end": 598.38,
+      "duration": 26.67,
+      "text_snippet": "Các nhà thiết kế Java đã có sự phân biệt triết học có chủ đích khi phân loại ngoại lệ. Checked exception đại diện cho lỗ"
+    },
+    {
+      "paragraph_id": 96,
+      "start": 598.38,
+      "end": 624.08,
+      "duration": 25.69,
+      "text_snippet": "Unchecked exception (RuntimeException và các lớp con của nó) đại diện cho lỗi lập trình — truy cập null, lỗi chỉ số mảng"
+    },
+    {
+      "paragraph_id": 97,
+      "start": 624.08,
+      "end": 638.2,
+      "duration": 14.12,
+      "text_snippet": "Sự phân biệt ánh xạ vào câu hỏi: \"Đây có phải là chế độ lỗi mà người gọi có thể hợp lý kỳ vọng xử lý tại điểm gọi không?"
+    },
+    {
+      "paragraph_id": 98,
+      "start": 638.2,
+      "end": 651.44,
+      "duration": 13.24,
+      "text_snippet": "Mô Hình Tư Duy: Phân chia Checked vs Unchecked\n`\nLỗi Môi Trường Bên Ngoài (Checked — trình biên dịch bắt buộc xử lý):\n  "
+    },
+    {
+      "paragraph_id": 99,
+      "start": 651.44,
+      "end": 665.7,
+      "duration": 14.27,
+      "text_snippet": "Lỗi Lập Trình (Unchecked — trình biên dịch KHÔNG bắt buộc xử lý):\n  NullPointerException → ArrayIndexOutOfBoundsExceptio"
+    },
+    {
+      "paragraph_id": 100,
+      "start": 665.7,
+      "end": 669.68,
+      "duration": 3.97,
+      "text_snippet": "Ví Dụ Code: Checked vs Unchecked trong chữ ký phương thức\n`java\nimport java.io.*;"
+    },
+    {
+      "paragraph_id": 101,
+      "start": 669.68,
+      "end": 680.61,
+      "duration": 10.93,
+      "text_snippet": "// CHECKED — trình biên dịch bắt buộc người gọi xử lý hoặc khai báo throws\npublic void readFile(String path) throws File"
+    },
+    {
+      "paragraph_id": 102,
+      "start": 680.61,
+      "end": 689.73,
+      "duration": 9.12,
+      "text_snippet": "// UNCHECKED — không có yêu cầu trình biên dịch khai báo hoặc xử lý\npublic int divide(int a, int b) {\n    return a / b; "
+    },
+    {
+      "paragraph_id": 103,
+      "start": 689.73,
+      "end": 699.78,
+      "duration": 10.05,
+      "text_snippet": "// Người gọi readFile PHẢI xử lý\ntry {\n    readFile(\"config.txt\");       // phải bắt FileNotFoundException\n} catch (File"
+    },
+    {
+      "paragraph_id": 104,
+      "start": 699.78,
+      "end": 706.5,
+      "duration": 6.72,
+      "text_snippet": "// Người gọi divide không có yêu cầu trình biên dịch\nint result = divide(10, 0);  // ném ArithmeticException lúc runtime"
+    },
+    {
+      "paragraph_id": 105,
+      "start": 706.5,
+      "end": 736.31,
+      "duration": 29.81,
+      "text_snippet": "Chuỗi Nguyên Nhân-Kết Quả\nI/O file thất bại &rarr; FileNotFoundException được ném (checked) &rarr; Trình biên dịch phát "
+    },
+    {
+      "paragraph_id": 106,
+      "start": 736.31,
+      "end": 736.41,
+      "duration": 0.1,
+      "text_snippet": "--"
+    },
+    {
+      "paragraph_id": 107,
+      "start": 736.41,
+      "end": 738.52,
+      "duration": 2.11,
+      "text_snippet": "Tại Sao Bắt Kiểu Ngoại Lệ Rộng Là Nguy Hiểm"
+    },
+    {
+      "paragraph_id": 108,
+      "start": 738.52,
+      "end": 754.75,
+      "duration": 16.23,
+      "text_snippet": "Khi bạn bắt Exception hoặc Throwable một cách rộng rãi, bạn bắt không chỉ các ngoại lệ mà bạn mong đợi, mà còn mọi ngoại"
+    },
+    {
+      "paragraph_id": 109,
+      "start": 754.75,
+      "end": 770.83,
+      "duration": 16.08,
+      "text_snippet": "Thứ nhất, che khuất ngoại lệ (exception masking): một ngoại lệ không mong đợi bị bắt và xử lý như thể nó là ngoại lệ mon"
+    },
+    {
+      "paragraph_id": 110,
+      "start": 770.83,
+      "end": 780.39,
+      "duration": 9.56,
+      "text_snippet": "Thứ hai, nuốt error (swallowed errors): nếu các lớp con của Error được bắt qua Throwable, các thảm họa cấp JVM như OutOf"
+    },
+    {
+      "paragraph_id": 111,
+      "start": 780.39,
+      "end": 791.42,
+      "duration": 11.03,
+      "text_snippet": "Thứ ba, mất thông tin kiểu ngoại lệ: các khối catch thường phản ứng khác nhau tùy thuộc vào kiểu ngoại lệ. Một catch rộn"
+    },
+    {
+      "paragraph_id": 112,
+      "start": 791.42,
+      "end": 801.91,
+      "duration": 10.49,
+      "text_snippet": "Mô Hình Tư Duy: Phạm vi catch Hẹp vs Rộng\n`\n[Hẹp — đúng]\ntry { readFile(\"data.csv\"); }\ncatch (FileNotFoundException e) {"
+    },
+    {
+      "paragraph_id": 113,
+      "start": 801.91,
+      "end": 820.2,
+      "duration": 18.29,
+      "text_snippet": "[Rộng — nguy hiểm]\ntry { readFile(\"data.csv\"); }\ncatch (Exception e) {\n    // Bắt FileNotFoundException ← có chủ đích\n  "
+    },
+    {
+      "paragraph_id": 114,
+      "start": 820.2,
+      "end": 847.66,
+      "duration": 27.46,
+      "text_snippet": "Ví Dụ Code: Che khuất bug qua bắt ngoại lệ rộng\n`java\npublic void processFile(String path) {\n    try {\n        FileReade"
+    },
+    {
+      "paragraph_id": 115,
+      "start": 847.66,
+      "end": 861.83,
+      "duration": 14.17,
+      "text_snippet": "// ĐÚNG:\npublic void processFileCorrect(String path) throws FileNotFoundException {\n    FileReader fr = new FileReader(p"
+    },
+    {
+      "paragraph_id": 116,
+      "start": 861.83,
+      "end": 888.46,
+      "duration": 26.62,
+      "text_snippet": "Chuỗi Nguyên Nhân-Kết Quả\nBắt Exception rộng rãi &rarr; NullPointerException được ném trong try &rarr; Bị bắt bởi catch "
+    }
+  ]
+}
