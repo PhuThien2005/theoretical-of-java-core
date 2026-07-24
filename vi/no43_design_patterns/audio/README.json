@@ -1,0 +1,315 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 170.43,
+  "total_paragraphs": 44,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 6.01,
+      "duration": 5.91,
+      "text_snippet": "43 - Các Mẫu Thiết Kế Cơ Bản Thường Gặp Trong Java (Basic Design Patterns)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 5.96,
+      "end": 16.76,
+      "duration": 10.8,
+      "text_snippet": "Chủ đề này bám sát đề cương chính trong outline.md. Mục tiêu là hiểu sâu từng kh"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 16.76,
+      "end": 20.07,
+      "duration": 3.31,
+      "text_snippet": "Thứ Tự Học Tập (Study Order)"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 20.07,
+      "end": 24.42,
+      "duration": 4.35,
+      "text_snippet": "Khái Niệm Singleton"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 24.43,
+      "end": 25.48,
+      "duration": 1.05,
+      "text_snippet": "Khái Niệm Observer"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 24.53,
+      "end": 26.19,
+      "duration": 1.66,
+      "text_snippet": "Thuật Ngữ Chính"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 26.14,
+      "end": 29.29,
+      "duration": 3.15,
+      "text_snippet": "Checklist Đề Cương (Outline Checklist)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 29.29,
+      "end": 30.98,
+      "duration": 1.69,
+      "text_snippet": "Singleton"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 30.98,
+      "end": 32.89,
+      "duration": 1.91,
+      "text_snippet": "Factory Method"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 32.89,
+      "end": 34.88,
+      "duration": 1.99,
+      "text_snippet": "Abstract Factory"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 34.88,
+      "end": 35.28,
+      "duration": 0.4,
+      "text_snippet": "Builder"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 35.23,
+      "end": 35.63,
+      "duration": 0.4,
+      "text_snippet": "Prototype"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 35.58,
+      "end": 35.98,
+      "duration": 0.4,
+      "text_snippet": "Adapter"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 35.92,
+      "end": 36.32,
+      "duration": 0.4,
+      "text_snippet": "Decorator"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 36.27,
+      "end": 36.67,
+      "duration": 0.4,
+      "text_snippet": "Facade"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 36.62,
+      "end": 37.02,
+      "duration": 0.4,
+      "text_snippet": "Proxy"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 36.98,
+      "end": 37.38,
+      "duration": 0.4,
+      "text_snippet": "Strategy"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 37.33,
+      "end": 37.73,
+      "duration": 0.4,
+      "text_snippet": "Observer"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 37.67,
+      "end": 38.37,
+      "duration": 0.7,
+      "text_snippet": "Template Method"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 38.38,
+      "end": 38.78,
+      "duration": 0.4,
+      "text_snippet": "Command"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 38.83,
+      "end": 40.43,
+      "duration": 1.6,
+      "text_snippet": "Iterator"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 40.38,
+      "end": 41.53,
+      "duration": 1.15,
+      "text_snippet": "State"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 41.52,
+      "end": 43.44,
+      "duration": 1.92,
+      "text_snippet": "MVC"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 43.45,
+      "end": 44.62,
+      "duration": 1.17,
+      "text_snippet": "DAO"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 44.62,
+      "end": 46.17,
+      "duration": 1.55,
+      "text_snippet": "DTO"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 46.18,
+      "end": 46.58,
+      "duration": 0.4,
+      "text_snippet": "Repository"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 46.53,
+      "end": 48.28,
+      "duration": 1.75,
+      "text_snippet": "Service Layer (Tầng Dịch Vụ)"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 48.28,
+      "end": 49.68,
+      "duration": 1.4,
+      "text_snippet": "Thẻ Anki (Anki Cards)"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 49.68,
+      "end": 50.73,
+      "duration": 1.05,
+      "text_snippet": "Cơ Bản (Basic)"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 50.73,
+      "end": 52.83,
+      "duration": 2.1,
+      "text_snippet": "Cơ Bản Mở Rộng (Basic Extra)"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 52.83,
+      "end": 53.88,
+      "duration": 1.05,
+      "text_snippet": "Điền Khuyết (Cloze)"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 53.88,
+      "end": 55.63,
+      "duration": 1.75,
+      "text_snippet": "Câu Hỏi Code (Code Question)"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 55.62,
+      "end": 57.02,
+      "duration": 1.4,
+      "text_snippet": "Tự Kiểm Tra (Self-Check)"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 57.03,
+      "end": 64.38,
+      "duration": 7.35,
+      "text_snippet": "Trước khi chuyển sang chủ đề tiếp theo, hãy xác minh rằng bạn có thể trả lời các"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 64.38,
+      "end": 86.78,
+      "duration": 22.4,
+      "text_snippet": "Tại sao mẫu thiết kế Singleton được sử dụng để giới hạn một lớp chỉ có một thực "
+    },
+    {
+      "paragraph_id": 36,
+      "start": 86.78,
+      "end": 106.03,
+      "duration": 19.25,
+      "text_snippet": "Tại sao triển khai Bill Pugh Singleton (sử dụng một lớp helper static nội bộ) đư"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 106.03,
+      "end": 127.03,
+      "duration": 21.0,
+      "text_snippet": "Tại sao mẫu thiết kế Observer định nghĩa một mối quan hệ phụ thuộc một-nhiều giữ"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 127.03,
+      "end": 144.88,
+      "duration": 17.85,
+      "text_snippet": "Tại sao mẫu thiết kế Factory Method được ưa chuộng hơn khởi tạo hàm khởi tạo trự"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 144.88,
+      "end": 163.78,
+      "duration": 18.9,
+      "text_snippet": "Tại sao mẫu thiết kế Builder được sử dụng để xây dựng các đối tượng phức tạp, và"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 163.78,
+      "end": 166.23,
+      "duration": 2.45,
+      "text_snippet": "Tổng Quan Sơ Đồ Mermaid (Mermaid Overview)"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 166.23,
+      "end": 167.63,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 167.63,
+      "end": 169.73,
+      "duration": 2.1,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 169.73,
+      "end": 170.13,
+      "duration": 0.4,
+      "text_snippet": "https://refactoring.guru/design-patterns"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 170.08,
+      "end": 170.48,
+      "duration": 0.4,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/java/concepts/"
+    }
+  ]
+}

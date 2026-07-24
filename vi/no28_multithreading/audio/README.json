@@ -1,0 +1,371 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 206.54,
+  "total_paragraphs": 52,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 3.8,
+      "duration": 3.7,
+      "text_snippet": "28 - Đa Luồng (Multithreading)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 3.75,
+      "end": 14.57,
+      "duration": 10.82,
+      "text_snippet": "Chủ đề này tuân theo đề cương chính trong outline.md. Mục tiêu là hiểu từng khái"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 14.57,
+      "end": 16.14,
+      "duration": 1.57,
+      "text_snippet": "Thứ Tự Học"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 16.15,
+      "end": 20.75,
+      "duration": 4.6,
+      "text_snippet": "Khái Niệm Process và Thread"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 20.75,
+      "end": 21.8,
+      "duration": 1.05,
+      "text_snippet": "Khái Niệm Runnable"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 20.85,
+      "end": 24.65,
+      "duration": 3.8,
+      "text_snippet": "Khái Niệm Join"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 24.65,
+      "end": 26.4,
+      "duration": 1.75,
+      "text_snippet": "Khái Niệm An Toàn Luồng"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 24.65,
+      "end": 26.31,
+      "duration": 1.66,
+      "text_snippet": "Thuật Ngữ Chính"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 26.31,
+      "end": 28.9,
+      "duration": 2.59,
+      "text_snippet": "Danh Sách Kiểm Tra Theo Đề Cương"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 28.9,
+      "end": 30.84,
+      "duration": 1.94,
+      "text_snippet": "Process và Thread"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 30.94,
+      "end": 44.34,
+      "duration": 13.4,
+      "text_snippet": "Tạo luồng bằng: extends Thread implements Runnable implements Callable ExecutorS"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 44.34,
+      "end": 45.04,
+      "duration": 0.7,
+      "text_snippet": "extends Thread"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 45.04,
+      "end": 45.74,
+      "duration": 0.7,
+      "text_snippet": "implements Runnable"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 45.74,
+      "end": 46.44,
+      "duration": 0.7,
+      "text_snippet": "implements Callable"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 46.44,
+      "end": 46.84,
+      "duration": 0.4,
+      "text_snippet": "ExecutorService"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 44.44,
+      "end": 67.0,
+      "duration": 22.56,
+      "text_snippet": "Vòng đời của Thread: New (Mới) Runnable (Sẵn sàng chạy) Running (Đang chạy) Bloc"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 67.0,
+      "end": 67.7,
+      "duration": 0.7,
+      "text_snippet": "New (Mới)"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 67.7,
+      "end": 69.1,
+      "duration": 1.4,
+      "text_snippet": "Runnable (Sẵn sàng chạy)"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 69.1,
+      "end": 70.15,
+      "duration": 1.05,
+      "text_snippet": "Running (Đang chạy)"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 70.15,
+      "end": 71.2,
+      "duration": 1.05,
+      "text_snippet": "Blocked (Bị chặn)"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 67.1,
+      "end": 69.52,
+      "duration": 2.42,
+      "text_snippet": "Waiting (Chờ đợi)"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 69.47,
+      "end": 72.61,
+      "duration": 3.14,
+      "text_snippet": "Timed Waiting (Chờ có thời hạn)"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 72.61,
+      "end": 74.92,
+      "duration": 2.31,
+      "text_snippet": "Terminated (Kết thúc)"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 74.92,
+      "end": 77.15,
+      "duration": 2.23,
+      "text_snippet": "start() và run()"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 77.15,
+      "end": 78.4,
+      "duration": 1.25,
+      "text_snippet": "sleep"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 78.5,
+      "end": 79.7,
+      "duration": 1.2,
+      "text_snippet": "join"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 79.65,
+      "end": 80.9,
+      "duration": 1.25,
+      "text_snippet": "yield"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 80.9,
+      "end": 82.46,
+      "duration": 1.56,
+      "text_snippet": "interrupt"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 82.46,
+      "end": 88.05,
+      "duration": 5.59,
+      "text_snippet": "Luồng Daemon (Daemon thread)"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 88.05,
+      "end": 89.8,
+      "duration": 1.75,
+      "text_snippet": "Luồng người dùng (User thread)"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 88.15,
+      "end": 91.66,
+      "duration": 3.51,
+      "text_snippet": "Mức ưu tiên luồng (Thread priority)"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 91.61,
+      "end": 95.37,
+      "duration": 3.76,
+      "text_snippet": "Điều kiện tranh chấp (Race condition)"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 95.38,
+      "end": 98.98,
+      "duration": 3.6,
+      "text_snippet": "Đoạn quan trọng (Critical section)"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 98.98,
+      "end": 102.05,
+      "duration": 3.07,
+      "text_snippet": "An toàn luồng (Thread safety)"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 102.05,
+      "end": 105.28,
+      "duration": 3.23,
+      "text_snippet": "Đối tượng bất biến (Immutable object)"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 105.28,
+      "end": 107.38,
+      "duration": 2.1,
+      "text_snippet": "Thao tác nguyên tử (Atomic operation)"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 107.38,
+      "end": 108.43,
+      "duration": 1.05,
+      "text_snippet": "Tự Kiểm Tra"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 108.43,
+      "end": 115.43,
+      "duration": 7.0,
+      "text_snippet": "Trước khi chuyển sang chủ đề tiếp theo, hãy xác nhận bạn có thể trả lời các câu "
+    },
+    {
+      "paragraph_id": 39,
+      "start": 115.43,
+      "end": 130.83,
+      "duration": 15.4,
+      "text_snippet": "Tại sao một process khác với một thread về phân bổ tài nguyên, và layout bộ nhớ "
+    },
+    {
+      "paragraph_id": 40,
+      "start": 130.82,
+      "end": 147.62,
+      "duration": 16.8,
+      "text_snippet": "Tại sao nên cài đặt Runnable hay Callable thay vì kế thừa Thread (và ràng buộc k"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 147.72,
+      "end": 183.91,
+      "duration": 36.19,
+      "text_snippet": "Tại sao gọi start() trên một thread tạo ra một call stack mới trong khi run() th"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 183.91,
+      "end": 193.71,
+      "duration": 9.8,
+      "text_snippet": "Tại sao thread.join() khiến luồng gọi bị chặn, và cơ chế chờ và thông báo JVM/OS"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 193.71,
+      "end": 210.86,
+      "duration": 17.15,
+      "text_snippet": "Tại sao điều kiện tranh chấp và vấn đề hiển thị dữ liệu xảy ra trong môi trường "
+    },
+    {
+      "paragraph_id": 44,
+      "start": 183.91,
+      "end": 185.67,
+      "duration": 1.76,
+      "text_snippet": "Thẻ Anki"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 185.68,
+      "end": 187.03,
+      "duration": 1.35,
+      "text_snippet": "Basic"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 187.12,
+      "end": 189.12,
+      "duration": 2.0,
+      "text_snippet": "Basic Extra"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 189.08,
+      "end": 190.24,
+      "duration": 1.16,
+      "text_snippet": "Cloze"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 190.24,
+      "end": 191.98,
+      "duration": 1.74,
+      "text_snippet": "Code Question"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 191.97,
+      "end": 193.96,
+      "duration": 1.99,
+      "text_snippet": "Tổng Quan Mermaid"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 193.96,
+      "end": 196.16,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 196.26,
+      "end": 198.27,
+      "duration": 2.01,
+      "text_snippet": "Liên Kết Tham Khảo"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 198.22,
+      "end": 206.53,
+      "duration": 8.31,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/essential/concurrency/"
+    }
+  ]
+}

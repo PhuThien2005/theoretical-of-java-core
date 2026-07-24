@@ -1,0 +1,252 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 180.33,
+  "total_paragraphs": 35,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 4.72,
+      "duration": 4.62,
+      "text_snippet": "21 - Biểu Thức Lambda (Lambda Expression)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 4.67,
+      "end": 15.47,
+      "duration": 10.8,
+      "text_snippet": "Chủ đề này bám sát đề cương chính trong outline.md. Mục tiêu là hiểu sâu từng kh"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 15.47,
+      "end": 18.78,
+      "duration": 3.31,
+      "text_snippet": "Thứ Tự Học Tập (Study Order)"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 18.79,
+      "end": 24.0,
+      "duration": 5.21,
+      "text_snippet": "Khái Niệm Lambda Là Gì"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 24.0,
+      "end": 25.75,
+      "duration": 1.75,
+      "text_snippet": "Khái Niệm Lambda Với Collection"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 24.1,
+      "end": 25.76,
+      "duration": 1.66,
+      "text_snippet": "Thuật Ngữ Chính"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 25.71,
+      "end": 28.87,
+      "duration": 3.16,
+      "text_snippet": "Checklist Đề Cương (Outline Checklist)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 28.88,
+      "end": 31.02,
+      "duration": 2.14,
+      "text_snippet": "Lambda là gì?"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 31.01,
+      "end": 32.91,
+      "duration": 1.9,
+      "text_snippet": "Cú pháp lambda"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 32.91,
+      "end": 36.56,
+      "duration": 3.65,
+      "text_snippet": "Giao diện chức năng (Functional Interface)"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 36.66,
+      "end": 38.8,
+      "duration": 2.14,
+      "text_snippet": "@FunctionalInterface"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 38.75,
+      "end": 63.75,
+      "duration": 25.0,
+      "text_snippet": "Tham chiếu phương thức (Method reference): tham chiếu phương thức tĩnh (static m"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 63.75,
+      "end": 66.55,
+      "duration": 2.8,
+      "text_snippet": "tham chiếu phương thức tĩnh (static method reference)"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 66.55,
+      "end": 69.7,
+      "duration": 3.15,
+      "text_snippet": "tham chiếu phương thức thực thể (instance method reference)"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 69.7,
+      "end": 72.15,
+      "duration": 2.45,
+      "text_snippet": "tham chiếu hàm khởi tạo (constructor reference)"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 63.85,
+      "end": 67.11,
+      "duration": 3.26,
+      "text_snippet": "Thu nạp biến (Variable capture)"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 67.06,
+      "end": 70.62,
+      "duration": 3.56,
+      "text_snippet": "Thực sự hằng (Effectively final)"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 70.62,
+      "end": 77.76,
+      "duration": 7.14,
+      "text_snippet": "Lambda với Collection"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 77.76,
+      "end": 78.81,
+      "duration": 1.05,
+      "text_snippet": "Lambda với Thread"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 78.81,
+      "end": 79.86,
+      "duration": 1.05,
+      "text_snippet": "Lambda với Comparator"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 77.86,
+      "end": 80.5,
+      "duration": 2.64,
+      "text_snippet": "Tự Kiểm Tra (Self-Check)"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 80.45,
+      "end": 106.83,
+      "duration": 26.38,
+      "text_snippet": "Tại sao trình biên dịch Java lại biên dịch biểu thức lambda thành các chỉ thị in"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 106.83,
+      "end": 120.83,
+      "duration": 14.0,
+      "text_snippet": "Tại sao các biến cục bộ được thu nạp (captured) bởi các closure lambda phải là f"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 106.83,
+      "end": 121.77,
+      "duration": 14.94,
+      "text_snippet": "Làm thế nào mà các kiểu tham chiếu phương thức khác nhau (tĩnh, thực thể ràng bu"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 121.76,
+      "end": 133.77,
+      "duration": 12.01,
+      "text_snippet": "Tại sao một biểu thức lambda không thể ném ra ngoại lệ được kiểm tra (checked ex"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 133.88,
+      "end": 147.64,
+      "duration": 13.76,
+      "text_snippet": "Tại sao việc cấu trúc lại (refactoring) các lớp nội danh thành lambda lại làm th"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 147.59,
+      "end": 150.47,
+      "duration": 2.88,
+      "text_snippet": "Thẻ Anki (Anki Cards)"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 150.46,
+      "end": 156.13,
+      "duration": 5.67,
+      "text_snippet": "Cơ Bản (Basic)"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 156.14,
+      "end": 158.24,
+      "duration": 2.1,
+      "text_snippet": "Cơ Bản Mở Rộng (Basic Extra)"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 156.14,
+      "end": 158.05,
+      "duration": 1.91,
+      "text_snippet": "Điền Khuyết (Cloze)"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 158.15,
+      "end": 161.01,
+      "duration": 2.86,
+      "text_snippet": "Câu Hỏi Code (Code Question)"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 160.96,
+      "end": 164.95,
+      "duration": 3.99,
+      "text_snippet": "Tổng Quan Sơ Đồ Mermaid (Mermaid Overview)"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 164.95,
+      "end": 167.33,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 167.33,
+      "end": 170.73,
+      "duration": 3.4,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 170.73,
+      "end": 180.33,
+      "duration": 9.6,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html"
+    }
+  ]
+}

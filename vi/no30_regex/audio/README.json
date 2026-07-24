@@ -1,0 +1,273 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 191.69,
+  "total_paragraphs": 38,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 4.7,
+      "duration": 4.6,
+      "text_snippet": "30 - Biểu thức chính quy (Regular Expression)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 4.65,
+      "end": 15.79,
+      "duration": 11.14,
+      "text_snippet": "Chủ đề này tuân theo đề cương chính trong outline.md. Mục tiêu là hiểu sâu sắc t"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 15.79,
+      "end": 17.64,
+      "duration": 1.85,
+      "text_snippet": "Trình tự học tập"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 17.64,
+      "end": 23.4,
+      "duration": 5.76,
+      "text_snippet": "Khái niệm Regex là gì"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 23.4,
+      "end": 25.85,
+      "duration": 2.45,
+      "text_snippet": "Khái niệm cơ bản về Lookahead Lookbehind"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 23.5,
+      "end": 25.35,
+      "duration": 1.85,
+      "text_snippet": "Các thuật ngữ chính"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 25.3,
+      "end": 27.68,
+      "duration": 2.38,
+      "text_snippet": "Danh sách kiểm tra Đề cương"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 27.68,
+      "end": 31.26,
+      "duration": 3.58,
+      "text_snippet": "Biểu thức chính quy (Regex) là gì?"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 31.25,
+      "end": 32.7,
+      "duration": 1.45,
+      "text_snippet": "Pattern"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 32.7,
+      "end": 34.2,
+      "duration": 1.5,
+      "text_snippet": "Matcher"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 34.3,
+      "end": 35.69,
+      "duration": 1.39,
+      "text_snippet": "matches"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 35.64,
+      "end": 36.84,
+      "duration": 1.2,
+      "text_snippet": "find"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 36.84,
+      "end": 38.19,
+      "duration": 1.35,
+      "text_snippet": "group"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 38.19,
+      "end": 41.79,
+      "duration": 3.6,
+      "text_snippet": "Các lớp ký tự (character classes)"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 41.79,
+      "end": 44.68,
+      "duration": 2.89,
+      "text_snippet": "Các bộ định lượng (quantifiers)"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 44.78,
+      "end": 51.27,
+      "duration": 6.49,
+      "text_snippet": "Nhóm bắt giữ (capturing group)"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 51.26,
+      "end": 53.36,
+      "duration": 2.1,
+      "text_snippet": "Nhóm không bắt giữ (non-capturing group)"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 51.26,
+      "end": 54.7,
+      "duration": 3.44,
+      "text_snippet": "Khái niệm lookahead / lookbehind cơ bản"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 54.7,
+      "end": 58.37,
+      "duration": 3.67,
+      "text_snippet": "Xác thực email, số điện thoại, mật khẩu"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 58.38,
+      "end": 60.49,
+      "duration": 2.11,
+      "text_snippet": "Thay thế bằng regex"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 60.59,
+      "end": 62.65,
+      "duration": 2.06,
+      "text_snippet": "Tách chuỗi bằng regex"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 62.6,
+      "end": 65.24,
+      "duration": 2.64,
+      "text_snippet": "Tự kiểm tra (Self-Check)"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 65.24,
+      "end": 79.45,
+      "duration": 14.21,
+      "text_snippet": "Tại sao việc biên dịch một Pattern tốn kém tài nguyên tính toán, và tại sao Patt"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 79.45,
+      "end": 91.09,
+      "duration": 11.64,
+      "text_snippet": "Sự khác biệt chính giữa nhóm bắt giữ (group) và nhóm không bắt giữ (?:group) về "
+    },
+    {
+      "paragraph_id": 25,
+      "start": 91.09,
+      "end": 105.76,
+      "duration": 14.67,
+      "text_snippet": "Các khẳng định lookahead và lookbehind hoạt động về mặt khái niệm như thế nào mà"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 105.86,
+      "end": 154.68,
+      "duration": 48.82,
+      "text_snippet": "Hạn chế kỹ thuật về độ rộng của các khẳng định lookbehind trong công cụ regex củ"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 154.69,
+      "end": 177.09,
+      "duration": 22.4,
+      "text_snippet": "Tại sao hiện tượng quay lui (backtracking) xảy ra trong quá trình thực thi regex"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 177.09,
+      "end": 192.84,
+      "duration": 15.75,
+      "text_snippet": "Tại sao String.split(regex) loại bỏ các chuỗi trống ở cuối theo mặc định, và làm"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 154.69,
+      "end": 156.45,
+      "duration": 1.76,
+      "text_snippet": "Thẻ Anki"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 156.45,
+      "end": 157.9,
+      "duration": 1.45,
+      "text_snippet": "Cơ bản"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 158.0,
+      "end": 159.86,
+      "duration": 1.86,
+      "text_snippet": "Cơ bản bổ sung"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 159.81,
+      "end": 161.77,
+      "duration": 1.96,
+      "text_snippet": "Điền vào chỗ trống"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 161.78,
+      "end": 163.7,
+      "duration": 1.92,
+      "text_snippet": "Câu hỏi mã nguồn"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 163.7,
+      "end": 165.71,
+      "duration": 2.01,
+      "text_snippet": "Tổng quan Mermaid"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 165.71,
+      "end": 167.91,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 168.01,
+      "end": 170.02,
+      "duration": 2.01,
+      "text_snippet": "Liên kết tham khảo"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 169.97,
+      "end": 191.68,
+      "duration": 21.71,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/essential/regex/"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 191.69,
+      "end": 192.09,
+      "duration": 0.4,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/regex/Pat"
+    }
+  ]
+}

@@ -1,0 +1,273 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 180.47,
+  "total_paragraphs": 38,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 3.24,
+      "duration": 3.14,
+      "text_snippet": "18 - Kiểu Chung (Generics)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 3.19,
+      "end": 14.08,
+      "duration": 10.89,
+      "text_snippet": "Chủ đề này bám sát đề cương chính trong outline.md. Mục tiêu là hiểu sâu sắc từn"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 14.07,
+      "end": 15.88,
+      "duration": 1.81,
+      "text_snippet": "Thứ Tự Học Tập"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 15.89,
+      "end": 19.9,
+      "duration": 4.01,
+      "text_snippet": "Khái niệm Lớp Generic"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 19.9,
+      "end": 21.3,
+      "duration": 1.4,
+      "text_snippet": "Khái niệm Chủ đề"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 20.0,
+      "end": 22.96,
+      "duration": 2.96,
+      "text_snippet": "Khái niệm Kiểu Thô (Raw Type)"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 22.91,
+      "end": 24.62,
+      "duration": 1.71,
+      "text_snippet": "Thuật Ngữ Khóa"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 24.62,
+      "end": 26.56,
+      "duration": 1.94,
+      "text_snippet": "Danh Sách Nội Dung"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 26.56,
+      "end": 29.53,
+      "duration": 2.97,
+      "text_snippet": "Lớp generic (Generic class)"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 29.54,
+      "end": 32.55,
+      "duration": 3.01,
+      "text_snippet": "Phương thức generic (Generic method)"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 32.65,
+      "end": 36.14,
+      "duration": 3.49,
+      "text_snippet": "Giao diện generic (Generic interface)"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 36.09,
+      "end": 39.69,
+      "duration": 3.6,
+      "text_snippet": "Tham số kiểu dữ liệu (Type parameter)"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 39.69,
+      "end": 48.29,
+      "duration": 8.6,
+      "text_snippet": "Nhiều tham số kiểu dữ liệu (Multiple type parameters)"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 48.29,
+      "end": 51.44,
+      "duration": 3.15,
+      "text_snippet": "Tham số kiểu bị giới hạn (Bounded type parameter):"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 48.29,
+      "end": 50.89,
+      "duration": 2.6,
+      "text_snippet": "Ký tự đại diện (Wildcard):"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 50.99,
+      "end": 53.32,
+      "duration": 2.33,
+      "text_snippet": "Quy tắc PECS:"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 53.26,
+      "end": 57.22,
+      "duration": 3.96,
+      "text_snippet": "Nhà sản xuất mở rộng (Producer Extends)"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 57.23,
+      "end": 61.03,
+      "duration": 3.8,
+      "text_snippet": "Người tiêu thụ siêu lớp (Consumer Super)"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 61.03,
+      "end": 63.46,
+      "duration": 2.43,
+      "text_snippet": "Generic với Collection"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 63.45,
+      "end": 66.63,
+      "duration": 3.18,
+      "text_snippet": "Xóa kiểu dữ liệu (Type erasure)"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 66.72,
+      "end": 69.17,
+      "duration": 2.45,
+      "text_snippet": "Kiểu thô (Raw type)"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 69.12,
+      "end": 71.46,
+      "duration": 2.34,
+      "text_snippet": "Các hạn chế của Generic"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 71.46,
+      "end": 73.22,
+      "duration": 1.76,
+      "text_snippet": "Thẻ Anki"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 73.22,
+      "end": 76.57,
+      "duration": 3.35,
+      "text_snippet": "Basic"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 76.58,
+      "end": 77.28,
+      "duration": 0.7,
+      "text_snippet": "Basic Extra"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 76.67,
+      "end": 77.83,
+      "duration": 1.16,
+      "text_snippet": "Cloze"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 77.79,
+      "end": 79.53,
+      "duration": 1.74,
+      "text_snippet": "Code Question"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 79.53,
+      "end": 81.24,
+      "duration": 1.71,
+      "text_snippet": "Tự Kiểm Tra"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 81.24,
+      "end": 86.96,
+      "duration": 5.72,
+      "text_snippet": "Trước khi chuyển sang chủ đề tiếp theo, hãy xác nhận rằng bạn có thể trả lời các"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 86.96,
+      "end": 100.73,
+      "duration": 13.77,
+      "text_snippet": "Tại sao Java lại sử dụng Cơ chế xóa kiểu (Type Erasure) cho generic, và JVM duy "
+    },
+    {
+      "paragraph_id": 31,
+      "start": 100.74,
+      "end": 119.29,
+      "duration": 18.55,
+      "text_snippet": "Tại sao một kiểu generic lại là bất biến (invariant), và tính hiệp biến (covaria"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 119.29,
+      "end": 137.14,
+      "duration": 17.85,
+      "text_snippet": "Tại sao các kiểu thô (raw type) lại được cho phép trong Java, và những nguy hiểm"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 137.14,
+      "end": 154.64,
+      "duration": 17.5,
+      "text_snippet": "Tại sao các kiểu generic trong Java không thể được khởi tạo với các kiểu dữ liệu"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 154.64,
+      "end": 166.54,
+      "duration": 11.9,
+      "text_snippet": "Tại sao việc tạo mảng generic và kiểm tra kiểu tại thời điểm chạy (như instanceo"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 166.54,
+      "end": 168.29,
+      "duration": 1.75,
+      "text_snippet": "Sơ Đồ Mermaid Tổng Quan"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 168.39,
+      "end": 170.77,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 170.71,
+      "end": 172.72,
+      "duration": 2.01,
+      "text_snippet": "Liên Kết Tham Khảo"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 172.72,
+      "end": 180.47,
+      "duration": 7.75,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/java/generics/"
+    }
+  ]
+}

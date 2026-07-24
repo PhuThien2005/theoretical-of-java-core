@@ -1,0 +1,252 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 165.74,
+  "total_paragraphs": 35,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 3.65,
+      "duration": 3.55,
+      "text_snippet": "31 - Phản Chiếu (Reflection)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 3.6,
+      "end": 14.51,
+      "duration": 10.91,
+      "text_snippet": "Chủ đề này bám sát đề cương chính trong outline.md. Mục tiêu là hiểu sâu sắc từn"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 14.51,
+      "end": 16.32,
+      "duration": 1.81,
+      "text_snippet": "Thứ Tự Học Tập"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 16.32,
+      "end": 21.72,
+      "duration": 5.4,
+      "text_snippet": "Khái niệm Phản chiếu là gì"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 21.72,
+      "end": 24.87,
+      "duration": 3.15,
+      "text_snippet": "Khái niệm Ưu và nhược điểm của Phản chiếu"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 21.82,
+      "end": 23.53,
+      "duration": 1.71,
+      "text_snippet": "Thuật Ngữ Khóa"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 23.49,
+      "end": 25.42,
+      "duration": 1.93,
+      "text_snippet": "Danh Sách Nội Dung"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 25.41,
+      "end": 28.81,
+      "duration": 3.4,
+      "text_snippet": "Phản chiếu (Reflection) là gì?"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 28.81,
+      "end": 30.31,
+      "duration": 1.5,
+      "text_snippet": "Class<?>"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 30.31,
+      "end": 32.15,
+      "duration": 1.84,
+      "text_snippet": "Lấy thông tin lớp"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 32.25,
+      "end": 34.54,
+      "duration": 2.29,
+      "text_snippet": "Lấy trường (field)"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 34.49,
+      "end": 37.01,
+      "duration": 2.52,
+      "text_snippet": "Lấy phương thức (method)"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 37.01,
+      "end": 40.21,
+      "duration": 3.2,
+      "text_snippet": "Lấy hàm khởi tạo (constructor)"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 40.21,
+      "end": 42.68,
+      "duration": 2.47,
+      "text_snippet": "Gọi phương thức bằng phản chiếu"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 42.69,
+      "end": 45.18,
+      "duration": 2.49,
+      "text_snippet": "Tạo đối tượng bằng phản chiếu"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 45.27,
+      "end": 48.11,
+      "duration": 2.84,
+      "text_snippet": "Truy cập trường/phương thức private"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 48.06,
+      "end": 50.6,
+      "duration": 2.54,
+      "text_snippet": "Annotation + phản chiếu"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 50.6,
+      "end": 57.56,
+      "duration": 6.96,
+      "text_snippet": "Ưu điểm và nhược điểm của phản chiếu"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 57.56,
+      "end": 61.06,
+      "duration": 3.5,
+      "text_snippet": "Phản chiếu trong các khung công tác (framework) như Spring"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 57.56,
+      "end": 59.27,
+      "duration": 1.71,
+      "text_snippet": "Tự Kiểm Tra"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 59.38,
+      "end": 129.32,
+      "duration": 69.94,
+      "text_snippet": "Tại sao phản chiếu lại bỏ qua tính an toàn kiểu dữ liệu tại thời điểm biên dịch "
+    },
+    {
+      "paragraph_id": 22,
+      "start": 129.31,
+      "end": 144.71,
+      "duration": 15.4,
+      "text_snippet": "Tại sao phản chiếu lại gây ra tổn thất hiệu năng đáng kể so với thực thi mã byte"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 144.71,
+      "end": 156.61,
+      "duration": 11.9,
+      "text_snippet": "Tại sao setAccessible(true) có thể bỏ qua các kiểm soát khả thị truy cập của Jav"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 156.61,
+      "end": 174.81,
+      "duration": 18.2,
+      "text_snippet": "Tại sao việc tải lớp động (dynamic classloading) và khởi tạo đối tượng bằng phản"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 174.81,
+      "end": 195.46,
+      "duration": 20.65,
+      "text_snippet": "Tại sao phản chiếu là nhân tố kích hoạt quan trọng cho các khung công tác Tiêm p"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 129.41,
+      "end": 131.16,
+      "duration": 1.75,
+      "text_snippet": "Thẻ Anki"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 131.11,
+      "end": 134.46,
+      "duration": 3.35,
+      "text_snippet": "Basic"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 134.46,
+      "end": 135.16,
+      "duration": 0.7,
+      "text_snippet": "Basic Extra"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 134.46,
+      "end": 135.63,
+      "duration": 1.17,
+      "text_snippet": "Cloze"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 135.64,
+      "end": 137.38,
+      "duration": 1.74,
+      "text_snippet": "Code Question"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 137.47,
+      "end": 139.99,
+      "duration": 2.52,
+      "text_snippet": "Sơ Đồ Mermaid Tổng Quan"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 139.95,
+      "end": 142.33,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 142.32,
+      "end": 144.33,
+      "duration": 2.01,
+      "text_snippet": "Liên Kết Tham Khảo"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 144.34,
+      "end": 165.74,
+      "duration": 21.4,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/reflect/"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 165.74,
+      "end": 166.14,
+      "duration": 0.4,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/p"
+    }
+  ]
+}

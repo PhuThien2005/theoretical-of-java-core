@@ -1,0 +1,350 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 218.24,
+  "total_paragraphs": 49,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 5.16,
+      "duration": 5.06,
+      "text_snippet": "10 - Các Từ Khóa Đặc Tả Trong Java (Modifiers in Java)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 5.11,
+      "end": 16.15,
+      "duration": 11.04,
+      "text_snippet": "Chủ đề này tiếp nối đề cương chuẩn trong file outline.md. Mục tiêu là hiểu sâu s"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 16.15,
+      "end": 17.96,
+      "duration": 1.81,
+      "text_snippet": "Thứ Tự Học Tập"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 17.96,
+      "end": 23.27,
+      "duration": 5.31,
+      "text_snippet": "Các Khái Niệm Về Từ Khóa Đặc Tả Truy Cập"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 23.27,
+      "end": 25.02,
+      "duration": 1.75,
+      "text_snippet": "Các Khái Niệm Trừu Tượng"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 23.38,
+      "end": 25.61,
+      "duration": 2.23,
+      "text_snippet": "Các Khái Niệm Khối Tĩnh"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 25.55,
+      "end": 27.39,
+      "duration": 1.84,
+      "text_snippet": "Các Thuật Ngữ Chính"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 27.39,
+      "end": 30.55,
+      "duration": 3.16,
+      "text_snippet": "Danh Sách Đề Cương (Outline Checklist)"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 30.55,
+      "end": 37.15,
+      "duration": 6.6,
+      "text_snippet": "Từ khóa đặc tả truy cập (Access modifier): public protected default private"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 37.15,
+      "end": 37.55,
+      "duration": 0.4,
+      "text_snippet": "public"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 37.25,
+      "end": 38.61,
+      "duration": 1.36,
+      "text_snippet": "protected"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 38.56,
+      "end": 39.99,
+      "duration": 1.43,
+      "text_snippet": "default"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 39.99,
+      "end": 41.31,
+      "duration": 1.32,
+      "text_snippet": "private"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 41.31,
+      "end": 62.51,
+      "duration": 21.2,
+      "text_snippet": "Từ khóa đặc tả không truy cập (Non-access modifier): static final abstract → Học"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 62.51,
+      "end": 62.91,
+      "duration": 0.4,
+      "text_snippet": "static"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 62.61,
+      "end": 64.01,
+      "duration": 1.4,
+      "text_snippet": "final"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 63.96,
+      "end": 68.27,
+      "duration": 4.31,
+      "text_snippet": "abstract → Học sâu tại: Ch.09 - OOP"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 68.28,
+      "end": 74.03,
+      "duration": 5.75,
+      "text_snippet": "synchronized → Học sâu tại: Ch.29 - Synchronization Concurrency"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 74.03,
+      "end": 79.68,
+      "duration": 5.65,
+      "text_snippet": "volatile → Học sâu tại: Ch.29 - Synchronization Concurrency"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 79.68,
+      "end": 83.88,
+      "duration": 4.2,
+      "text_snippet": "transient → Học sâu tại: Ch.26 - IO"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 83.97,
+      "end": 85.33,
+      "duration": 1.36,
+      "text_snippet": "native"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 85.29,
+      "end": 86.53,
+      "duration": 1.24,
+      "text_snippet": "strictfp"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 86.53,
+      "end": 89.72,
+      "duration": 3.19,
+      "text_snippet": "Biến tĩnh (Static variable)"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 89.71,
+      "end": 92.82,
+      "duration": 3.11,
+      "text_snippet": "Phương thức tĩnh (Static method)"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 92.83,
+      "end": 95.52,
+      "duration": 2.69,
+      "text_snippet": "Khối tĩnh (Static block)"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 95.61,
+      "end": 99.21,
+      "duration": 3.6,
+      "text_snippet": "Lớp lồng tĩnh (Static nested class)"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 99.16,
+      "end": 102.32,
+      "duration": 3.16,
+      "text_snippet": "Import tĩnh (Static import)"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 102.33,
+      "end": 109.3,
+      "duration": 6.97,
+      "text_snippet": "Biến final (Final variable) → Học sâu tại: Ch.21 - Lambda Expression"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 109.3,
+      "end": 112.47,
+      "duration": 3.17,
+      "text_snippet": "Phương thức final (Final method)"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 112.47,
+      "end": 115.28,
+      "duration": 2.81,
+      "text_snippet": "Lớp final (Final class)"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 115.39,
+      "end": 119.04,
+      "duration": 3.65,
+      "text_snippet": "Tham số final (Final parameter)"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 118.99,
+      "end": 122.98,
+      "duration": 3.99,
+      "text_snippet": "Biến final trống (Blank final variable)"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 122.97,
+      "end": 124.92,
+      "duration": 1.95,
+      "text_snippet": "Các Thẻ Anki"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 124.92,
+      "end": 128.3,
+      "duration": 3.38,
+      "text_snippet": "Cơ Bản"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 128.3,
+      "end": 129.7,
+      "duration": 1.4,
+      "text_snippet": "Cơ Bản Mở Rộng"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 128.4,
+      "end": 129.81,
+      "duration": 1.41,
+      "text_snippet": "Điền Khuyết"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 129.76,
+      "end": 131.37,
+      "duration": 1.61,
+      "text_snippet": "Câu Hỏi Code"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 131.37,
+      "end": 133.88,
+      "duration": 2.51,
+      "text_snippet": "Biểu Đồ Mermaid Tổng Quan"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 133.89,
+      "end": 136.27,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 136.26,
+      "end": 138.72,
+      "duration": 2.46,
+      "text_snippet": "Tự Kiểm Tra (Self-Check)"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 138.82,
+      "end": 183.51,
+      "duration": 44.69,
+      "text_snippet": "Trước khi chuyển sang phần tiếp theo, hãy đảm bảo rằng bạn có thể trả lời được c"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 183.51,
+      "end": 193.31,
+      "duration": 9.8,
+      "text_snippet": "Tại sao từ khóa đặc tả private ngăn chặn việc kế thừa và truy cập từ bên ngoài, "
+    },
+    {
+      "paragraph_id": 43,
+      "start": 193.31,
+      "end": 205.91,
+      "duration": 12.6,
+      "text_snippet": "Tại sao các thành viên static được cấp phát cho từng lớp trong vùng nhớ Metaspac"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 205.91,
+      "end": 217.11,
+      "duration": 11.2,
+      "text_snippet": "Tại sao các biến final ngăn chặn việc gán lại giá trị, và điều này hỗ trợ các tố"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 217.11,
+      "end": 230.41,
+      "duration": 13.3,
+      "text_snippet": "Tại sao các phương thức synchronized dựa vào các khóa giám sát (monitor lock), v"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 183.61,
+      "end": 197.21,
+      "duration": 13.6,
+      "text_snippet": "Tại sao từ khóa volatile đảm bảo khả năng hiển thị bộ nhớ (memory visibility) và"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 197.16,
+      "end": 199.1,
+      "duration": 1.94,
+      "text_snippet": "Liên Kết Tham Chiếu"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 199.1,
+      "end": 218.24,
+      "duration": 19.14,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 218.24,
+      "end": 218.64,
+      "duration": 0.4,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html"
+    }
+  ]
+}

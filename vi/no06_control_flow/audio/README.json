@@ -1,0 +1,259 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 223.51,
+  "total_paragraphs": 36,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 9.86,
+      "duration": 9.76,
+      "text_snippet": "06 - Cấu Trúc Điều Khiển Luồng (Control Flow)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 9.86,
+      "end": 21.61,
+      "duration": 11.75,
+      "text_snippet": "Cấu trúc điều khiển luồng (control flow) là thứ tự thực thi các câu lệnh trong m"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 21.61,
+      "end": 29.2,
+      "duration": 7.59,
+      "text_snippet": "Chủ đề này tập trung vào việc đọc hiểu đường đi thực tế của chương trình."
+    },
+    {
+      "paragraph_id": 4,
+      "start": 29.2,
+      "end": 31.3,
+      "duration": 2.1,
+      "text_snippet": "Trình Tự Học Tập (Study Order)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 29.2,
+      "end": 31.76,
+      "duration": 2.56,
+      "text_snippet": "Đọc if, else, và switch."
+    },
+    {
+      "paragraph_id": 6,
+      "start": 31.86,
+      "end": 33.98,
+      "duration": 2.12,
+      "text_snippet": "Đọc Vòng Lặp (Loops)."
+    },
+    {
+      "paragraph_id": 7,
+      "start": 33.94,
+      "end": 42.96,
+      "duration": 9.02,
+      "text_snippet": "Đọc break, continue, và return."
+    },
+    {
+      "paragraph_id": 8,
+      "start": 42.96,
+      "end": 47.86,
+      "duration": 4.9,
+      "text_snippet": "Đọc Biểu Thức Switch và Điều Khiển Bằng Nhãn (Switch Expressions and Labeled Con"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 42.96,
+      "end": 45.82,
+      "duration": 2.86,
+      "text_snippet": "Ôn tập Thuật Ngữ Về Điều Khiển Luồng."
+    },
+    {
+      "paragraph_id": 10,
+      "start": 45.83,
+      "end": 49.73,
+      "duration": 3.9,
+      "text_snippet": "Luyện tập cả bốn loại thẻ Anki trong thư mục anki."
+    },
+    {
+      "paragraph_id": 11,
+      "start": 49.82,
+      "end": 53.44,
+      "duration": 3.62,
+      "text_snippet": "Sơ Đồ Điều Khiển Luồng (Control Flow Map)"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 53.4,
+      "end": 55.78,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 55.77,
+      "end": 58.08,
+      "duration": 2.31,
+      "text_snippet": "Những Việc Bạn Cần Làm Được"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 58.09,
+      "end": 62.4,
+      "duration": 4.31,
+      "text_snippet": "Xác định nhánh nào sẽ được thực thi trong một chuỗi if/else if/else."
+    },
+    {
+      "paragraph_id": 15,
+      "start": 62.4,
+      "end": 66.72,
+      "duration": 4.32,
+      "text_snippet": "Giải thích tại sao else lại liên kết với if chưa có cặp else gần nhất."
+    },
+    {
+      "paragraph_id": 16,
+      "start": 66.82,
+      "end": 73.28,
+      "duration": 6.46,
+      "text_snippet": "Lựa chọn phù hợp giữa for, while, do-while và enhanced for (vòng lặp for cải tiế"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 73.24,
+      "end": 76.85,
+      "duration": 3.61,
+      "text_snippet": "Dự đoán đầu ra và thời điểm kết thúc của vòng lặp."
+    },
+    {
+      "paragraph_id": 18,
+      "start": 76.85,
+      "end": 81.0,
+      "duration": 4.15,
+      "text_snippet": "Giải thích sự khác biệt giữa break, continue và return."
+    },
+    {
+      "paragraph_id": 19,
+      "start": 81.0,
+      "end": 87.65,
+      "duration": 6.65,
+      "text_snippet": "Sử dụng câu lệnh switch (switch statement) và biểu thức switch (switch expressio"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 87.65,
+      "end": 94.9,
+      "duration": 7.25,
+      "text_snippet": "Nhận biết break có nhãn (labeled break) và continue có nhãn (labeled continue) m"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 95.0,
+      "end": 97.62,
+      "duration": 2.62,
+      "text_snippet": "Tự Kiểm Tra (Self-Check)"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 97.57,
+      "end": 104.29,
+      "duration": 6.72,
+      "text_snippet": "Trước khi chuyển sang phần tiếp theo, hãy đảm bảo rằng bạn có thể trả lời các câ"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 104.3,
+      "end": 126.05,
+      "duration": 21.75,
+      "text_snippet": "Tại sao sự mơ hồ dangling-else (dangling-else ambiguity) xảy ra trong Java, và t"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 126.05,
+      "end": 140.43,
+      "duration": 14.38,
+      "text_snippet": "Tại sao vòng lặp while và do-while hoạt động khác nhau bên dưới hệ thống (under "
+    },
+    {
+      "paragraph_id": 25,
+      "start": 140.42,
+      "end": 146.2,
+      "duration": 5.78,
+      "text_snippet": "Tại sao vòng lặp enhanced-for biên dịch thành mã bytecode khác nhau đối với mảng"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 146.3,
+      "end": 170.84,
+      "duration": 24.54,
+      "text_snippet": "Tại sao break hoặc continue có nhãn giúp điều khiển các vòng lặp lồng nhau, và J"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 170.84,
+      "end": 186.75,
+      "duration": 15.91,
+      "text_snippet": "Tại sao Java bắt buộc phát hiện các câu lệnh không thể chạm tới (unreachable sta"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 186.75,
+      "end": 198.65,
+      "duration": 11.9,
+      "text_snippet": "Tại sao các biểu thức switch bắt buộc phải bao quát hết mọi trường hợp (exhausti"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 186.75,
+      "end": 188.7,
+      "duration": 1.95,
+      "text_snippet": "Các File Anki"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 188.7,
+      "end": 193.22,
+      "duration": 4.52,
+      "text_snippet": "basic.tsv: các câu hỏi trực tiếp về điều khiển luồng."
+    },
+    {
+      "paragraph_id": 31,
+      "start": 193.32,
+      "end": 198.04,
+      "duration": 4.72,
+      "text_snippet": "basic-extra.tsv: các thẻ giải thích sâu hơn."
+    },
+    {
+      "paragraph_id": 32,
+      "start": 198.0,
+      "end": 202.09,
+      "duration": 4.09,
+      "text_snippet": "cloze.tsv: các thẻ ghi nhớ (cloze)."
+    },
+    {
+      "paragraph_id": 33,
+      "start": 202.09,
+      "end": 207.35,
+      "duration": 5.26,
+      "text_snippet": "code-question.tsv: dự đoán đầu ra và phân tích lỗi code."
+    },
+    {
+      "paragraph_id": 34,
+      "start": 207.35,
+      "end": 210.55,
+      "duration": 3.2,
+      "text_snippet": "Ghi Chú Cá Nhân (Personal Notes)"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 210.55,
+      "end": 213.74,
+      "duration": 3.19,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 213.84,
+      "end": 223.52,
+      "duration": 9.68,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/java/nutsandbolts/flow.html"
+    }
+  ]
+}

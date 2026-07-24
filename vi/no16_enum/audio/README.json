@@ -1,0 +1,308 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 311.65,
+  "total_paragraphs": 43,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 3.49,
+      "duration": 3.39,
+      "text_snippet": "16 - Enum (Kiểu Liệt Kê)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 3.44,
+      "end": 14.2,
+      "duration": 10.76,
+      "text_snippet": "Chủ đề này bám sát đề cương chính trong outline.md. Mục tiêu là hiểu sâu từng kh"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 14.2,
+      "end": 17.51,
+      "duration": 3.31,
+      "text_snippet": "Thứ Tự Học Tập (Study Order)"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 17.51,
+      "end": 22.89,
+      "duration": 5.38,
+      "text_snippet": "Khái Niệm Enum Là Gì"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 22.89,
+      "end": 24.99,
+      "duration": 2.1,
+      "text_snippet": "Khái Niệm Enum Triển Khai Interface"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 22.99,
+      "end": 24.65,
+      "duration": 1.66,
+      "text_snippet": "Thuật Ngữ Chính"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 24.6,
+      "end": 27.75,
+      "duration": 3.15,
+      "text_snippet": "Checklist Đề Cương (Outline Checklist)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 27.75,
+      "end": 29.79,
+      "duration": 2.04,
+      "text_snippet": "Enum là gì?"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 29.79,
+      "end": 31.67,
+      "duration": 1.88,
+      "text_snippet": "Khai báo enum"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 31.66,
+      "end": 33.88,
+      "duration": 2.22,
+      "text_snippet": "Hàm khởi tạo enum"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 33.99,
+      "end": 36.75,
+      "duration": 2.76,
+      "text_snippet": "Trường (field) của enum"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 36.7,
+      "end": 38.81,
+      "duration": 2.11,
+      "text_snippet": "Phương thức của enum"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 38.81,
+      "end": 41.84,
+      "duration": 3.03,
+      "text_snippet": "values()"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 41.84,
+      "end": 42.24,
+      "duration": 0.4,
+      "text_snippet": "valueOf()"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 41.84,
+      "end": 43.68,
+      "duration": 1.84,
+      "text_snippet": "ordinal()"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 43.78,
+      "end": 45.17,
+      "duration": 1.39,
+      "text_snippet": "name()"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 45.11,
+      "end": 49.43,
+      "duration": 4.32,
+      "text_snippet": "Enum trong switch"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 49.44,
+      "end": 50.84,
+      "duration": 1.4,
+      "text_snippet": "Enum triển khai interface"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 49.44,
+      "end": 52.53,
+      "duration": 3.09,
+      "text_snippet": "Mẫu thiết kế Singleton bằng Enum"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 52.53,
+      "end": 55.0,
+      "duration": 2.47,
+      "text_snippet": "Tự Kiểm Tra (Self-Check)"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 55.1,
+      "end": 64.38,
+      "duration": 9.28,
+      "text_snippet": "Hãy cố gắng trả lời những câu hỏi này sau khi nghiên cứu chủ đề. Bạn nên giải th"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 64.38,
+      "end": 127.26,
+      "duration": 62.88,
+      "text_snippet": "Tại sao trình biên dịch Java biên dịch các enum thành các lớp final kế thừa từ j"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 127.25,
+      "end": 138.8,
+      "duration": 11.55,
+      "text_snippet": "Cơ chế chính: Ràng buộc đơn kế thừa của Java, an toàn kiểu dữ liệu tại thời điểm"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 138.8,
+      "end": 167.85,
+      "duration": 29.05,
+      "text_snippet": "Tại sao các hàm khởi tạo enum phải là private một cách ngầm định hoặc tường minh"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 167.85,
+      "end": 183.25,
+      "duration": 15.4,
+      "text_snippet": "Cơ chế chính: Kiểm soát thực thể (instance control) nghiêm ngặt để ngăn chặn việ"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 127.35,
+      "end": 167.66,
+      "duration": 40.31,
+      "text_snippet": "Làm thế nào mà mẫu thiết kế Singleton bằng Enum một phần tử (single-element Enum"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 167.66,
+      "end": 183.06,
+      "duration": 15.4,
+      "text_snippet": "Cơ chế chính: JVM tải lớp (class loading) đảm bảo an toàn đa luồng, việc chặn re"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 167.66,
+      "end": 225.34,
+      "duration": 57.68,
+      "text_snippet": "Các phương thức values() và valueOf(String) do trình biên dịch tự động tạo hoạt "
+    },
+    {
+      "paragraph_id": 29,
+      "start": 225.34,
+      "end": 237.94,
+      "duration": 12.6,
+      "text_snippet": "Cơ chế chính: Mảng tĩnh ẩn $VALUES lưu trữ các hằng số, việc sao chép mảng (arra"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 237.94,
+      "end": 259.64,
+      "duration": 21.7,
+      "text_snippet": "Tại sao các enum lại an toàn khi so sánh bằng toán tử == thay vì .equals(), và đ"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 225.44,
+      "end": 235.25,
+      "duration": 9.81,
+      "text_snippet": "Cơ chế chính: Bản chất Singleton của mỗi hằng số enum, so sánh danh tính tham ch"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 235.2,
+      "end": 266.42,
+      "duration": 31.22,
+      "text_snippet": "Làm thế nào các hằng số enum có thể triển khai các interface và định nghĩa các t"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 266.43,
+      "end": 279.38,
+      "duration": 12.95,
+      "text_snippet": "Cơ chế chính: Các lớp con nội danh (anonymous inner subclass) do trình biên dịch"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 266.43,
+      "end": 269.31,
+      "duration": 2.88,
+      "text_snippet": "Thẻ Anki (Anki Cards)"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 269.3,
+      "end": 271.44,
+      "duration": 2.14,
+      "text_snippet": "Cơ Bản (Basic)"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 271.54,
+      "end": 274.94,
+      "duration": 3.4,
+      "text_snippet": "Cơ Bản Mở Rộng (Basic Extra)"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 274.89,
+      "end": 277.01,
+      "duration": 2.12,
+      "text_snippet": "Điền Khuyết (Cloze)"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 277.01,
+      "end": 279.87,
+      "duration": 2.86,
+      "text_snippet": "Câu Hỏi Code (Code Question)"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 279.88,
+      "end": 283.85,
+      "duration": 3.97,
+      "text_snippet": "Tổng Quan Sơ Đồ Mermaid (Mermaid Overview)"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 283.85,
+      "end": 286.05,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 286.15,
+      "end": 289.51,
+      "duration": 3.36,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 289.46,
+      "end": 311.65,
+      "duration": 22.19,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 311.65,
+      "end": 312.05,
+      "duration": 0.4,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Enum.html"
+    }
+  ]
+}

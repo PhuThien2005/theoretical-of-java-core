@@ -1,0 +1,245 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 210.81,
+  "total_paragraphs": 34,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 4.64,
+      "duration": 4.54,
+      "text_snippet": "36 - Bảo mật cơ bản (Basic Security)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 4.59,
+      "end": 15.55,
+      "duration": 10.96,
+      "text_snippet": "Chủ đề này tuân theo đề cương chính trong outline.md. Mục tiêu là hiểu sâu sắc t"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 15.55,
+      "end": 18.86,
+      "duration": 3.31,
+      "text_snippet": "Thứ tự học tập (Study Order)"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 18.86,
+      "end": 30.21,
+      "duration": 11.35,
+      "text_snippet": "Các khái niệm lập trình bảo mật cơ bản (Basic Secure Coding Concepts)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 30.21,
+      "end": 35.46,
+      "duration": 5.25,
+      "text_snippet": "Các khái niệm tránh giải tuần tự hóa không an toàn (Avoid Insecure Deserializati"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 30.31,
+      "end": 33.06,
+      "duration": 2.75,
+      "text_snippet": "Các thuật ngữ chính (Key Terms)"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 33.01,
+      "end": 36.63,
+      "duration": 3.62,
+      "text_snippet": "Danh sách kiểm tra đề cương (Outline Checklist)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 36.64,
+      "end": 38.98,
+      "duration": 2.34,
+      "text_snippet": "Lập trình bảo mật cơ bản"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 38.97,
+      "end": 41.18,
+      "duration": 2.21,
+      "text_snippet": "Băm (Hashing)"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 41.19,
+      "end": 42.8,
+      "duration": 1.61,
+      "text_snippet": "MessageDigest"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 42.9,
+      "end": 45.3,
+      "duration": 2.4,
+      "text_snippet": "SHA-256"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 45.25,
+      "end": 47.2,
+      "duration": 1.95,
+      "text_snippet": "Base64"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 47.2,
+      "end": 52.35,
+      "duration": 5.15,
+      "text_snippet": "Mã hóa (Encryption)/giải mã (Decryption) cơ bản"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 52.35,
+      "end": 53.8,
+      "duration": 1.45,
+      "text_snippet": "KeyStore"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 53.8,
+      "end": 57.08,
+      "duration": 3.28,
+      "text_snippet": "SSL/TLS cơ bản"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 57.17,
+      "end": 61.48,
+      "duration": 4.31,
+      "text_snippet": "Kiểm chứng dữ liệu đầu vào (Input Validation)"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 61.44,
+      "end": 69.43,
+      "duration": 7.99,
+      "text_snippet": "Tránh tấn công chèn mã SQL (SQL Injection)"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 69.42,
+      "end": 72.22,
+      "duration": 2.8,
+      "text_snippet": "Tránh giải tuần tự hóa không an toàn"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 69.42,
+      "end": 72.3,
+      "duration": 2.88,
+      "text_snippet": "Thẻ Anki (Anki Cards)"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 72.3,
+      "end": 73.75,
+      "duration": 1.45,
+      "text_snippet": "Cơ bản"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 73.85,
+      "end": 75.73,
+      "duration": 1.88,
+      "text_snippet": "Cơ bản bổ sung"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 75.67,
+      "end": 78.36,
+      "duration": 2.69,
+      "text_snippet": "Điền vào chỗ trống (Cloze)"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 78.36,
+      "end": 81.52,
+      "duration": 3.16,
+      "text_snippet": "Câu hỏi mã nguồn (Code Question)"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 81.53,
+      "end": 84.17,
+      "duration": 2.64,
+      "text_snippet": "Tự kiểm tra (Self-Check)"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 84.16,
+      "end": 89.65,
+      "duration": 5.49,
+      "text_snippet": "Trước khi chuyển sang chủ đề tiếp theo, hãy đảm bảo rằng bạn có thể trả lời các "
+    },
+    {
+      "paragraph_id": 26,
+      "start": 89.75,
+      "end": 189.15,
+      "duration": 99.4,
+      "text_snippet": "Tại sao SHA-256 lại là một hàm một chiều (One-way function), và đặc tính nào (kh"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 189.15,
+      "end": 207.7,
+      "duration": 18.55,
+      "text_snippet": "Tại sao mã hóa Base64 (Base64 Encoding) KHÔNG phải là mã hóa, và nguy cơ bảo mật"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 207.7,
+      "end": 232.9,
+      "duration": 25.2,
+      "text_snippet": "Tại sao phải sử dụng SecureRandom thay vì Random để tạo khóa mật mã (Cryptograph"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 232.9,
+      "end": 256.35,
+      "duration": 23.45,
+      "text_snippet": "Tại sao quá trình giải tuần tự hóa đối tượng mặc định của Java lại thực thi các "
+    },
+    {
+      "paragraph_id": 30,
+      "start": 256.35,
+      "end": 274.9,
+      "duration": 18.55,
+      "text_snippet": "Tại sao dữ liệu nhạy cảm (như mật khẩu) nên được lưu trữ trong char[] thay vì St"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 189.25,
+      "end": 191.63,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 191.58,
+      "end": 194.98,
+      "duration": 3.4,
+      "text_snippet": "Liên kết tham khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 194.97,
+      "end": 210.81,
+      "duration": 15.84,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/security/"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 210.81,
+      "end": 211.21,
+      "duration": 0.4,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/security/"
+    }
+  ]
+}

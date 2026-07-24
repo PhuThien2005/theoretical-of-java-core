@@ -11,7 +11,7 @@
           "md_path": "vi/no00_setup/README.md",
           "mp3_path": "vi/no00_setup/audio/README.mp3",
           "json_path": "vi/no00_setup/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-setup-basics",
@@ -33,7 +33,7 @@
           "md_path": "vi/no01_overview/README.md",
           "mp3_path": "vi/no01_overview/audio/README.mp3",
           "json_path": "vi/no01_overview/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-what-is-java",
@@ -79,7 +79,7 @@
           "md_path": "vi/no02_basic_syntax/README.md",
           "mp3_path": "vi/no02_basic_syntax/audio/README.mp3",
           "json_path": "vi/no02_basic_syntax/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-program-anatomy",
@@ -125,7 +125,7 @@
           "md_path": "vi/no03_data_types/README.md",
           "mp3_path": "vi/no03_data_types/audio/README.mp3",
           "json_path": "vi/no03_data_types/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-primitive-types",
@@ -171,7 +171,7 @@
           "md_path": "vi/no04_variables_constants/README.md",
           "mp3_path": "vi/no04_variables_constants/audio/README.mp3",
           "json_path": "vi/no04_variables_constants/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-variable-categories",
@@ -217,7 +217,7 @@
           "md_path": "vi/no05_operators/README.md",
           "mp3_path": "vi/no05_operators/audio/README.mp3",
           "json_path": "vi/no05_operators/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-arithmetic-assignment-operators",
@@ -263,7 +263,7 @@
           "md_path": "vi/no06_control_flow/README.md",
           "mp3_path": "vi/no06_control_flow/audio/README.mp3",
           "json_path": "vi/no06_control_flow/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-if-else-switch",
@@ -309,7 +309,7 @@
           "md_path": "vi/no07_arrays/README.md",
           "mp3_path": "vi/no07_arrays/audio/README.mp3",
           "json_path": "vi/no07_arrays/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-array-basics",
@@ -339,7 +339,7 @@
           "md_path": "vi/no08_string/README.md",
           "mp3_path": "vi/no08_string/audio/README.mp3",
           "json_path": "vi/no08_string/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-string-basics",
@@ -377,7 +377,7 @@
           "md_path": "vi/no09_oop/README.md",
           "mp3_path": "vi/no09_oop/audio/README.mp3",
           "json_path": "vi/no09_oop/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-classes-objects",
@@ -431,7 +431,7 @@
           "md_path": "vi/no10_modifiers/README.md",
           "mp3_path": "vi/no10_modifiers/audio/README.mp3",
           "json_path": "vi/no10_modifiers/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-access-modifier-concepts",
@@ -469,7 +469,7 @@
           "md_path": "vi/no11_package_access_control/README.md",
           "mp3_path": "vi/no11_package_access_control/audio/README.mp3",
           "json_path": "vi/no11_package_access_control/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-what-is-a-package-concepts",
@@ -491,7 +491,7 @@
           "md_path": "vi/no12_exception_handling/README.md",
           "mp3_path": "vi/no12_exception_handling/audio/README.mp3",
           "json_path": "vi/no12_exception_handling/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-what-is-an-exception-concepts",
@@ -537,7 +537,7 @@
           "md_path": "vi/no13_memory_management/README.md",
           "mp3_path": "vi/no13_memory_management/audio/README.mp3",
           "json_path": "vi/no13_memory_management/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-stack-concepts",
@@ -575,7 +575,7 @@
           "md_path": "vi/no14_object_class/README.md",
           "mp3_path": "vi/no14_object_class/audio/README.mp3",
           "json_path": "vi/no14_object_class/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-tostring-concepts",
@@ -605,7 +605,7 @@
           "md_path": "vi/no15_inner_nested_class/README.md",
           "mp3_path": "vi/no15_inner_nested_class/audio/README.mp3",
           "json_path": "vi/no15_inner_nested_class/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-nested-class-concepts",
@@ -627,7 +627,7 @@
           "md_path": "vi/no16_enum/README.md",
           "mp3_path": "vi/no16_enum/audio/README.mp3",
           "json_path": "vi/no16_enum/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-what-is-an-enum-concepts",
@@ -657,7 +657,7 @@
           "md_path": "vi/no17_annotation/README.md",
           "mp3_path": "vi/no17_annotation/audio/README.mp3",
           "json_path": "vi/no17_annotation/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-what-is-an-annotation-concepts",
@@ -687,7 +687,7 @@
           "md_path": "vi/no18_generics/README.md",
           "mp3_path": "vi/no18_generics/audio/README.mp3",
           "json_path": "vi/no18_generics/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-generic-class-concepts",
@@ -733,7 +733,7 @@
           "md_path": "vi/no19_collections_framework/README.md",
           "mp3_path": "vi/no19_collections_framework/audio/README.mp3",
           "json_path": "vi/no19_collections_framework/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-what-is-the-collection-framework-concepts",
@@ -803,7 +803,7 @@
           "md_path": "vi/no20_comparable_comparator/README.md",
           "mp3_path": "vi/no20_comparable_comparator/audio/README.mp3",
           "json_path": "vi/no20_comparable_comparator/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-comparable-concepts",
@@ -833,7 +833,7 @@
           "md_path": "vi/no21_lambda_expression/README.md",
           "mp3_path": "vi/no21_lambda_expression/audio/README.mp3",
           "json_path": "vi/no21_lambda_expression/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-what-is-a-lambda-concepts",
@@ -863,7 +863,7 @@
           "md_path": "vi/no22_functional_interface/README.md",
           "mp3_path": "vi/no22_functional_interface/audio/README.mp3",
           "json_path": "vi/no22_functional_interface/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-predicate-t-concepts",
@@ -893,7 +893,7 @@
           "md_path": "vi/no23_stream_api/README.md",
           "mp3_path": "vi/no23_stream_api/audio/README.mp3",
           "json_path": "vi/no23_stream_api/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-what-is-stream-concepts",
@@ -955,7 +955,7 @@
           "md_path": "vi/no24_optional/README.md",
           "mp3_path": "vi/no24_optional/audio/README.mp3",
           "json_path": "vi/no24_optional/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-what-is-optional-t-concepts",
@@ -985,7 +985,7 @@
           "md_path": "vi/no25_date_time_api/README.md",
           "mp3_path": "vi/no25_date_time_api/audio/README.mp3",
           "json_path": "vi/no25_date_time_api/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-date-concepts",
@@ -1015,7 +1015,7 @@
           "md_path": "vi/no26_io/README.md",
           "mp3_path": "vi/no26_io/audio/README.mp3",
           "json_path": "vi/no26_io/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-file-concepts",
@@ -1053,7 +1053,7 @@
           "md_path": "vi/no27_nio/README.md",
           "mp3_path": "vi/no27_nio/audio/README.mp3",
           "json_path": "vi/no27_nio/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-path-concepts",
@@ -1083,7 +1083,7 @@
           "md_path": "vi/no28_multithreading/README.md",
           "mp3_path": "vi/no28_multithreading/audio/README.mp3",
           "json_path": "vi/no28_multithreading/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-process-vs-thread-concepts",
@@ -1129,7 +1129,7 @@
           "md_path": "vi/no29_synchronization_concurrency/README.md",
           "mp3_path": "vi/no29_synchronization_concurrency/audio/README.mp3",
           "json_path": "vi/no29_synchronization_concurrency/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-synchronized-method-concepts",
@@ -1191,7 +1191,7 @@
           "md_path": "vi/no30_regex/README.md",
           "mp3_path": "vi/no30_regex/audio/README.mp3",
           "json_path": "vi/no30_regex/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-what-is-regex-concepts",
@@ -1221,7 +1221,7 @@
           "md_path": "vi/no31_reflection/README.md",
           "mp3_path": "vi/no31_reflection/audio/README.mp3",
           "json_path": "vi/no31_reflection/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-what-is-reflection-concepts",
@@ -1251,7 +1251,7 @@
           "md_path": "vi/no32_classloader/README.md",
           "mp3_path": "vi/no32_classloader/audio/README.mp3",
           "json_path": "vi/no32_classloader/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-class-loading-process-concepts",
@@ -1273,7 +1273,7 @@
           "md_path": "vi/no33_module_system/README.md",
           "mp3_path": "vi/no33_module_system/audio/README.mp3",
           "json_path": "vi/no33_module_system/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-what-is-a-module-concepts",
@@ -1295,7 +1295,7 @@
           "md_path": "vi/no34_jdbc/README.md",
           "mp3_path": "vi/no34_jdbc/audio/README.mp3",
           "json_path": "vi/no34_jdbc/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-what-is-jdbc-concepts",
@@ -1325,7 +1325,7 @@
           "md_path": "vi/no35_networking/README.md",
           "mp3_path": "vi/no35_networking/audio/README.mp3",
           "json_path": "vi/no35_networking/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-socket-programming-concepts",
@@ -1355,7 +1355,7 @@
           "md_path": "vi/no36_security_basic/README.md",
           "mp3_path": "vi/no36_security_basic/audio/README.mp3",
           "json_path": "vi/no36_security_basic/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-basic-secure-coding-concepts",
@@ -1385,7 +1385,7 @@
           "md_path": "vi/no37_jvm_advanced/README.md",
           "mp3_path": "vi/no37_jvm_advanced/audio/README.mp3",
           "json_path": "vi/no37_jvm_advanced/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-jvm-architecture-concepts",
@@ -1439,7 +1439,7 @@
           "md_path": "vi/no38_build_compile_run/README.md",
           "mp3_path": "vi/no38_build_compile_run/audio/README.mp3",
           "json_path": "vi/no38_build_compile_run/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-javac-concepts",
@@ -1469,7 +1469,7 @@
           "md_path": "vi/no39_utility_apis/README.md",
           "mp3_path": "vi/no39_utility_apis/audio/README.mp3",
           "json_path": "vi/no39_utility_apis/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-math-concepts",
@@ -1499,7 +1499,7 @@
           "md_path": "vi/no40_modern_java_concepts/README.md",
           "mp3_path": "vi/no40_modern_java_concepts/audio/README.mp3",
           "json_path": "vi/no40_modern_java_concepts/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-var-concepts",
@@ -1529,7 +1529,7 @@
           "md_path": "vi/no41_best_practices/README.md",
           "mp3_path": "vi/no41_best_practices/audio/README.mp3",
           "json_path": "vi/no41_best_practices/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-name-variables-functions-and-classes-clearly-concepts",
@@ -1559,7 +1559,7 @@
           "md_path": "vi/no42_design_principles/README.md",
           "mp3_path": "vi/no42_design_principles/audio/README.mp3",
           "json_path": "vi/no42_design_principles/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-solid-concepts",
@@ -1581,7 +1581,7 @@
           "md_path": "vi/no43_design_patterns/README.md",
           "mp3_path": "vi/no43_design_patterns/audio/README.mp3",
           "json_path": "vi/no43_design_patterns/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-singleton-concepts",
@@ -1611,7 +1611,7 @@
           "md_path": "vi/no44_unit_testing/README.md",
           "mp3_path": "vi/no44_unit_testing/audio/README.mp3",
           "json_path": "vi/no44_unit_testing/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-junit-concepts",
@@ -1641,7 +1641,7 @@
           "md_path": "vi/no45_interview_questions/README.md",
           "mp3_path": "vi/no45_interview_questions/audio/README.mp3",
           "json_path": "vi/no45_interview_questions/audio/README.json",
-          "has_audio": false
+          "has_audio": true
         },
         {
           "id": "01-how-are-jvm-jdk-and-jre-different-concepts",

@@ -1,0 +1,301 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 181.54,
+  "total_paragraphs": 42,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 3.86,
+      "duration": 3.76,
+      "text_snippet": "32 - Bộ Tải Lớp (ClassLoader)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 3.81,
+      "end": 14.92,
+      "duration": 11.11,
+      "text_snippet": "Chủ đề này tuân theo đề cương chính trong outline.md. Mục tiêu là hiểu sâu sắc t"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 14.93,
+      "end": 16.74,
+      "duration": 1.81,
+      "text_snippet": "Thứ Tự Học Tập"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 16.74,
+      "end": 20.75,
+      "duration": 4.01,
+      "text_snippet": "Khái niệm Quá trình Tải Lớp (Class Loading Process)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 20.75,
+      "end": 22.66,
+      "duration": 1.91,
+      "text_snippet": "Các Thuật Ngữ Khóa"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 22.76,
+      "end": 24.7,
+      "duration": 1.94,
+      "text_snippet": "Danh Sách Khái Niệm"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 24.65,
+      "end": 28.21,
+      "duration": 3.56,
+      "text_snippet": "Quá trình tải lớp (Class loading process)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 28.21,
+      "end": 42.33,
+      "duration": 14.12,
+      "text_snippet": "Bộ tải lớp Khởi động (Bootstrap ClassLoader)"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 42.34,
+      "end": 45.14,
+      "duration": 2.8,
+      "text_snippet": "Bộ tải lớp Nền tảng/Mở rộng (Platform/Extension ClassLoader)"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 45.14,
+      "end": 47.59,
+      "duration": 2.45,
+      "text_snippet": "Bộ tải lớp Ứng dụng (Application ClassLoader)"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 42.44,
+      "end": 46.7,
+      "duration": 4.26,
+      "text_snippet": "Mô hình ủy thác cha (Parent delegation model)"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 46.65,
+      "end": 52.35,
+      "duration": 5.7,
+      "text_snippet": "Tải lớp động (Dynamic class loading)"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 52.35,
+      "end": 52.75,
+      "duration": 0.4,
+      "text_snippet": "Class.forName"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 52.35,
+      "end": 55.1,
+      "duration": 2.75,
+      "text_snippet": "Đường dẫn lớp (Classpath)"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 55.1,
+      "end": 59.59,
+      "duration": 4.49,
+      "text_snippet": "Tải tệp JAR cơ bản (Basic JAR loading)"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 59.69,
+      "end": 61.59,
+      "duration": 1.9,
+      "text_snippet": "Các Thuật Ngữ Khóa"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 61.54,
+      "end": 76.73,
+      "duration": 15.19,
+      "text_snippet": "Bộ tải lớp (Class loader)"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 76.73,
+      "end": 79.18,
+      "duration": 2.45,
+      "text_snippet": "Bộ tải lớp Khởi động (Bootstrap ClassLoader)"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 79.18,
+      "end": 81.63,
+      "duration": 2.45,
+      "text_snippet": "Bộ tải lớp Nền tảng (Platform ClassLoader)"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 81.62,
+      "end": 84.07,
+      "duration": 2.45,
+      "text_snippet": "Bộ tải lớp Ứng dụng (Application ClassLoader)"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 76.83,
+      "end": 81.11,
+      "duration": 4.28,
+      "text_snippet": "Mô hình ủy thác cha (Parent delegation model)"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 81.05,
+      "end": 89.06,
+      "duration": 8.01,
+      "text_snippet": "TCCL (Thread Context ClassLoader - Bộ tải lớp theo ngữ cảnh luồng)"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 89.06,
+      "end": 90.11,
+      "duration": 1.05,
+      "text_snippet": "Tải lớp (Loading)"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 89.06,
+      "end": 91.51,
+      "duration": 2.45,
+      "text_snippet": "Liên kết (Linking)"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 91.51,
+      "end": 94.34,
+      "duration": 2.83,
+      "text_snippet": "Khởi tạo (Initialization)"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 94.44,
+      "end": 96.1,
+      "duration": 1.66,
+      "text_snippet": "Metaspace"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 96.05,
+      "end": 99.36,
+      "duration": 3.31,
+      "text_snippet": "Rò rỉ bộ nhớ (Memory leak)"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 99.36,
+      "end": 101.07,
+      "duration": 1.71,
+      "text_snippet": "Tự Kiểm Tra"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 101.08,
+      "end": 120.88,
+      "duration": 19.8,
+      "text_snippet": "Tại sao ba giai đoạn của quá trình tải lớp (classloading) chi phối việc thực thi"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 120.88,
+      "end": 130.68,
+      "duration": 9.8,
+      "text_snippet": "Tại sao mô hình ủy thác cha bảo vệ các API cốt lõi? → Xem Tại sao mô hình ủy thá"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 120.97,
+      "end": 153.77,
+      "duration": 32.8,
+      "text_snippet": "Tại sao không gian tên (namespace) của Bộ tải lớp quyết định tính duy nhất của d"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 153.78,
+      "end": 167.78,
+      "duration": 14.0,
+      "text_snippet": "Tại sao các khung công tác SPI và plugin bắt buộc phải phá vỡ mô hình ủy thác ch"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 167.78,
+      "end": 179.33,
+      "duration": 11.55,
+      "text_snippet": "Tại sao các bộ tải lớp tùy chỉnh lại gây ra rò rỉ bộ nhớ Metaspace? → Xem Tại sa"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 153.78,
+      "end": 155.54,
+      "duration": 1.76,
+      "text_snippet": "Thẻ Anki"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 155.54,
+      "end": 156.89,
+      "duration": 1.35,
+      "text_snippet": "Basic"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 156.99,
+      "end": 158.99,
+      "duration": 2.0,
+      "text_snippet": "Basic Extra"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 158.94,
+      "end": 160.11,
+      "duration": 1.17,
+      "text_snippet": "Cloze"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 160.11,
+      "end": 161.85,
+      "duration": 1.74,
+      "text_snippet": "Code Question"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 161.85,
+      "end": 164.38,
+      "duration": 2.53,
+      "text_snippet": "Sơ Đồ Mermaid Tổng Quan"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 164.38,
+      "end": 166.59,
+      "duration": 2.21,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 166.69,
+      "end": 168.7,
+      "duration": 2.01,
+      "text_snippet": "Liên Kết Tham Khảo"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 168.65,
+      "end": 181.54,
+      "duration": 12.89,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoad"
+    }
+  ]
+}

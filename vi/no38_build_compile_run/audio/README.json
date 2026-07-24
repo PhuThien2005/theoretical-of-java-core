@@ -1,0 +1,266 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 171.88,
+  "total_paragraphs": 37,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 5.84,
+      "duration": 5.74,
+      "text_snippet": "38 - Xây Dựng, Biên Dịch, Chạy (Build, Compile, Run)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 5.79,
+      "end": 16.6,
+      "duration": 10.81,
+      "text_snippet": "Chủ đề này bám sát đề cương chính trong outline.md. Mục tiêu là hiểu sâu từng kh"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 16.6,
+      "end": 19.91,
+      "duration": 3.31,
+      "text_snippet": "Thứ Tự Học Tập (Study Order)"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 19.91,
+      "end": 24.61,
+      "duration": 4.7,
+      "text_snippet": "Khái Niệm Javac"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 24.61,
+      "end": 27.41,
+      "duration": 2.8,
+      "text_snippet": "Khái Niệm Cấu Trúc Dự Án Tiêu Chuẩn"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 24.71,
+      "end": 26.37,
+      "duration": 1.66,
+      "text_snippet": "Thuật Ngữ Chính"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 26.32,
+      "end": 29.46,
+      "duration": 3.14,
+      "text_snippet": "Checklist Đề Cương (Outline Checklist)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 29.46,
+      "end": 30.81,
+      "duration": 1.35,
+      "text_snippet": "javac"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 30.81,
+      "end": 32.2,
+      "duration": 1.39,
+      "text_snippet": "java"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 32.2,
+      "end": 33.39,
+      "duration": 1.19,
+      "text_snippet": "jar"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 33.49,
+      "end": 40.59,
+      "duration": 7.1,
+      "text_snippet": "Tạo tệp JAR"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 40.59,
+      "end": 43.39,
+      "duration": 2.8,
+      "text_snippet": "Tệp JAR có thể thực thi (Executable JAR)"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 40.59,
+      "end": 43.21,
+      "duration": 2.62,
+      "text_snippet": "Classpath (Đường dẫn lớp)"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 43.21,
+      "end": 47.76,
+      "duration": 4.55,
+      "text_snippet": "Tệp Manifest (MANIFEST.MF)"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 47.76,
+      "end": 49.74,
+      "duration": 1.98,
+      "text_snippet": "Maven cơ bản"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 49.84,
+      "end": 52.1,
+      "duration": 2.26,
+      "text_snippet": "Gradle cơ bản"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 52.05,
+      "end": 56.13,
+      "duration": 4.08,
+      "text_snippet": "Quản lý phụ thuộc (Dependency management)"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 56.12,
+      "end": 58.48,
+      "duration": 2.36,
+      "text_snippet": "Cấu trúc dự án tiêu chuẩn"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 58.49,
+      "end": 61.52,
+      "duration": 3.03,
+      "text_snippet": "Kiểm thử đơn vị cơ bản với JUnit"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 61.51,
+      "end": 64.22,
+      "duration": 2.71,
+      "text_snippet": "Thẻ Anki (Anki Cards)"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 64.32,
+      "end": 69.96,
+      "duration": 5.64,
+      "text_snippet": "Cơ Bản (Basic)"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 69.96,
+      "end": 72.06,
+      "duration": 2.1,
+      "text_snippet": "Cơ Bản Mở Rộng (Basic Extra)"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 69.96,
+      "end": 72.07,
+      "duration": 2.11,
+      "text_snippet": "Điền Khuyết (Cloze)"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 72.07,
+      "end": 74.96,
+      "duration": 2.89,
+      "text_snippet": "Câu Hỏi Code (Code Question)"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 74.96,
+      "end": 78.78,
+      "duration": 3.82,
+      "text_snippet": "Tổng Quan Sơ Đồ Mermaid (Mermaid Overview)"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 78.89,
+      "end": 81.27,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 81.21,
+      "end": 83.83,
+      "duration": 2.62,
+      "text_snippet": "Tự Kiểm Tra (Self-Check)"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 83.84,
+      "end": 89.17,
+      "duration": 5.33,
+      "text_snippet": "Hãy trả lời các câu hỏi sau khi nghiên cứu lý thuyết để xác minh độ sâu hiểu biế"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 89.16,
+      "end": 99.82,
+      "duration": 10.66,
+      "text_snippet": "Tại sao chúng ta cần các công cụ tự động hóa xây dựng (build automation tool) nh"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 99.82,
+      "end": 107.93,
+      "duration": 8.11,
+      "text_snippet": "Cơ chế phân giải Classpath hoạt động như thế nào tại thời điểm chạy, và sự khác "
+    },
+    {
+      "paragraph_id": 31,
+      "start": 107.94,
+      "end": 117.74,
+      "duration": 9.8,
+      "text_snippet": "Mục đích của tệp Manifest (MANIFEST.MF) trong một tệp JAR là gì, và nó cấu hình "
+    },
+    {
+      "paragraph_id": 32,
+      "start": 117.74,
+      "end": 126.84,
+      "duration": 9.1,
+      "text_snippet": "Tại sao việc đặt các tệp tài nguyên (resource file) trong src/main/java/ thay vì"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 126.84,
+      "end": 139.09,
+      "duration": 12.25,
+      "text_snippet": "Cơ chế quản lý phụ thuộc xử lý các phụ thuộc bắc cầu (transitive dependency) như"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 139.09,
+      "end": 148.19,
+      "duration": 9.1,
+      "text_snippet": "Tại sao việc tuân thủ thứ tự đối số assertEquals(expected, actual) lại quan trọn"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 148.19,
+      "end": 150.29,
+      "duration": 2.1,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 150.39,
+      "end": 171.88,
+      "duration": 21.49,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 171.88,
+      "end": 172.28,
+      "duration": 0.4,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html"
+    }
+  ]
+}

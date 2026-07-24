@@ -1,0 +1,357 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 173.76,
+  "total_paragraphs": 50,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 3.96,
+      "duration": 3.86,
+      "text_snippet": "02 - Cú Pháp Cơ Bản (Basic Syntax)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 3.91,
+      "end": 5.7,
+      "duration": 1.79,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 5.7,
+      "end": 9.57,
+      "duration": 3.87,
+      "text_snippet": "Sau khi hoàn thành chủ đề này, bạn cần có thể:"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 9.57,
+      "end": 13.08,
+      "duration": 3.51,
+      "text_snippet": "Đọc được cấu trúc của một chương trình Java tối giản."
+    },
+    {
+      "paragraph_id": 5,
+      "start": 13.09,
+      "end": 17.7,
+      "duration": 4.61,
+      "text_snippet": "Giải thích ý nghĩa của public static void main(String[] args)."
+    },
+    {
+      "paragraph_id": 6,
+      "start": 17.8,
+      "end": 20.13,
+      "duration": 2.33,
+      "text_snippet": "Sử dụng comment đúng cách."
+    },
+    {
+      "paragraph_id": 7,
+      "start": 20.07,
+      "end": 23.06,
+      "duration": 2.99,
+      "text_snippet": "Hiểu mục đích của package và import."
+    },
+    {
+      "paragraph_id": 8,
+      "start": 23.06,
+      "end": 25.77,
+      "duration": 2.71,
+      "text_snippet": "Tuân theo quy tắc đặt tên Java."
+    },
+    {
+      "paragraph_id": 9,
+      "start": 25.77,
+      "end": 32.12,
+      "duration": 6.35,
+      "text_snippet": "Hiểu khối lệnh (blocks), câu lệnh (statements), và phạm vi biến (variable scope)"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 32.12,
+      "end": 33.69,
+      "duration": 1.57,
+      "text_snippet": "Thứ Tự Học"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 33.8,
+      "end": 35.66,
+      "duration": 1.86,
+      "text_snippet": "Cấu Trúc Chương Trình"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 35.61,
+      "end": 37.27,
+      "duration": 1.66,
+      "text_snippet": "Phương Thức main"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 37.28,
+      "end": 40.48,
+      "duration": 3.2,
+      "text_snippet": "Comment, Package, Và Import"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 40.48,
+      "end": 44.62,
+      "duration": 4.14,
+      "text_snippet": "Đặt Tên, Từ Khóa, Khối Lệnh, Và Phạm Vi"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 44.61,
+      "end": 46.57,
+      "duration": 1.96,
+      "text_snippet": "Chương Trình Tối Giản"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 46.68,
+      "end": 49.06,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 49.0,
+      "end": 50.84,
+      "duration": 1.84,
+      "text_snippet": "Tổng Quan Cấu Trúc"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 50.84,
+      "end": 53.2,
+      "duration": 2.36,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 53.2,
+      "end": 54.86,
+      "duration": 1.66,
+      "text_snippet": "Thuật Ngữ Chính"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 54.86,
+      "end": 56.61,
+      "duration": 1.75,
+      "text_snippet": "Class — Lớp"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 56.71,
+      "end": 58.75,
+      "duration": 2.04,
+      "text_snippet": "Method — Phương Thức"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 58.7,
+      "end": 59.89,
+      "duration": 1.19,
+      "text_snippet": "main"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 59.89,
+      "end": 62.21,
+      "duration": 2.32,
+      "text_snippet": "Statement — Câu Lệnh"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 62.21,
+      "end": 64.29,
+      "duration": 2.08,
+      "text_snippet": "Block — Khối Lệnh"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 64.29,
+      "end": 66.53,
+      "duration": 2.24,
+      "text_snippet": "Comment — Ghi Chú"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 66.62,
+      "end": 68.64,
+      "duration": 2.02,
+      "text_snippet": "Package — Gói"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 68.6,
+      "end": 70.77,
+      "duration": 2.17,
+      "text_snippet": "Import — Nhập Khẩu"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 70.78,
+      "end": 72.86,
+      "duration": 2.08,
+      "text_snippet": "Keyword — Từ Khóa"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 72.85,
+      "end": 74.81,
+      "duration": 1.96,
+      "text_snippet": "Scope — Phạm Vi"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 74.81,
+      "end": 77.8,
+      "duration": 2.99,
+      "text_snippet": "Stack Memory — Bộ Nhớ Stack"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 77.9,
+      "end": 80.81,
+      "duration": 2.91,
+      "text_snippet": "Symbol Table — Bảng Ký Hiệu"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 80.76,
+      "end": 84.71,
+      "duration": 3.95,
+      "text_snippet": "Case Sensitivity — Phân Biệt Chữ Hoa/Thường"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 84.71,
+      "end": 88.49,
+      "duration": 3.78,
+      "text_snippet": "Lexical Analysis — Phân Tích Từ Vựng"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 88.49,
+      "end": 91.84,
+      "duration": 3.35,
+      "text_snippet": "Reverse DNS — DNS Đảo"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 91.84,
+      "end": 93.55,
+      "duration": 1.71,
+      "text_snippet": "Tự Kiểm Tra"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 93.65,
+      "end": 103.41,
+      "duration": 9.76,
+      "text_snippet": "Tại sao chương trình Java phải bắt đầu thực thi từ một lớp?"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 103.41,
+      "end": 111.13,
+      "duration": 7.72,
+      "text_snippet": "Tại sao chữ ký phương thức main phải là chính xác public static void main(String"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 111.14,
+      "end": 120.87,
+      "duration": 9.73,
+      "text_snippet": "Comment được xử lý như thế nào trong quá trình biên dịch và tạo Javadoc? (Chi ti"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 120.86,
+      "end": 138.39,
+      "duration": 17.53,
+      "text_snippet": "Tại sao cần package và import trong Java, và tại sao cách đặt tên package theo t"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 138.39,
+      "end": 150.29,
+      "duration": 11.9,
+      "text_snippet": "Tại sao phạm vi biến cục bộ bị giới hạn trong khối khai báo, và hạn chế này giúp"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 138.49,
+      "end": 144.27,
+      "duration": 5.78,
+      "text_snippet": "Tại sao Java thực thi phân biệt chữ hoa/thường cả ở thời điểm biên dịch và thời "
+    },
+    {
+      "paragraph_id": 42,
+      "start": 144.21,
+      "end": 145.97,
+      "duration": 1.76,
+      "text_snippet": "Thẻ Anki"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 145.98,
+      "end": 149.87,
+      "duration": 3.89,
+      "text_snippet": "Thẻ cơ bản"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 149.86,
+      "end": 151.61,
+      "duration": 1.75,
+      "text_snippet": "Thẻ cơ bản mở rộng"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 149.86,
+      "end": 151.5,
+      "duration": 1.64,
+      "text_snippet": "Thẻ điền khuyết"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 151.6,
+      "end": 153.46,
+      "duration": 1.86,
+      "text_snippet": "Thẻ câu hỏi code"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 153.41,
+      "end": 155.32,
+      "duration": 1.91,
+      "text_snippet": "Ghi Chú Của Tôi"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 155.33,
+      "end": 157.35,
+      "duration": 2.02,
+      "text_snippet": "Tài Liệu Tham Khảo"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 157.35,
+      "end": 173.76,
+      "duration": 16.41,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/getStarted/application/"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 173.76,
+      "end": 174.16,
+      "duration": 0.4,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/java/nutsandbolts/"
+    }
+  ]
+}

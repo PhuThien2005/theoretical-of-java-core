@@ -1,0 +1,238 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 141.28,
+  "total_paragraphs": 33,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 5.05,
+      "duration": 4.95,
+      "text_snippet": "33 - Hệ thống Mô-đun Java (Java Module System)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 5.0,
+      "end": 16.15,
+      "duration": 11.15,
+      "text_snippet": "Chủ đề này tuân theo đề cương chính trong outline.md. Mục tiêu là hiểu sâu sắc t"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 16.15,
+      "end": 18.0,
+      "duration": 1.85,
+      "text_snippet": "Trình tự học tập"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 18.0,
+      "end": 20.32,
+      "duration": 2.32,
+      "text_snippet": "Khái niệm Mô-đun là gì"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 20.32,
+      "end": 22.17,
+      "duration": 1.85,
+      "text_snippet": "Các thuật ngữ chính"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 22.28,
+      "end": 24.66,
+      "duration": 2.38,
+      "text_snippet": "Danh sách kiểm tra Đề cương"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 24.6,
+      "end": 31.15,
+      "duration": 6.55,
+      "text_snippet": "Mô-đun (module) là gì?"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 31.15,
+      "end": 31.55,
+      "duration": 0.4,
+      "text_snippet": "module-info.java"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 31.15,
+      "end": 32.58,
+      "duration": 1.43,
+      "text_snippet": "requires"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 32.58,
+      "end": 33.89,
+      "duration": 1.31,
+      "text_snippet": "exports"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 33.99,
+      "end": 35.53,
+      "duration": 1.54,
+      "text_snippet": "opens"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 35.48,
+      "end": 45.73,
+      "duration": 10.25,
+      "text_snippet": "Mô-đun có tên (named module)"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 45.73,
+      "end": 47.48,
+      "duration": 1.75,
+      "text_snippet": "Mô-đun không tên (unnamed module)"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 47.48,
+      "end": 49.23,
+      "duration": 1.75,
+      "text_snippet": "Mô-đun tự động (automatic module)"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 45.73,
+      "end": 48.33,
+      "duration": 2.6,
+      "text_snippet": "Đóng gói ở cấp độ mô-đun"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 48.43,
+      "end": 53.64,
+      "duration": 5.21,
+      "text_snippet": "Đường dẫn mô-đun (module path) so với Đường dẫn lớp (classpath)"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 53.59,
+      "end": 56.23,
+      "duration": 2.64,
+      "text_snippet": "Tự kiểm tra (Self-Check)"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 56.23,
+      "end": 62.03,
+      "duration": 5.8,
+      "text_snippet": "Trước khi chuyển sang các thẻ Anki, hãy xác nhận rằng bạn có thể trả lời các câu"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 62.03,
+      "end": 70.97,
+      "duration": 8.94,
+      "text_snippet": "Tại sao Java 9 giới thiệu Hệ thống Mô-đun (Project Jigsaw), và nó đã giải quyết "
+    },
+    {
+      "paragraph_id": 20,
+      "start": 70.96,
+      "end": 80.45,
+      "duration": 9.49,
+      "text_snippet": "Sự khác biệt giữa exports và opens trong module-info.java là gì, và opens ảnh hư"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 80.55,
+      "end": 90.61,
+      "duration": 10.06,
+      "text_snippet": "Đường dẫn mô-đun (Module Path) khác với Đường dẫn lớp (Classpath) như thế nào (n"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 90.56,
+      "end": 98.88,
+      "duration": 8.32,
+      "text_snippet": "Các mô-đun tự động và mô-đun không tên là gì, và chúng làm cầu nối chuyển đổi nh"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 98.89,
+      "end": 107.77,
+      "duration": 8.88,
+      "text_snippet": "Tại sao các phụ thuộc vòng lặp (cyclic dependency) và phân tách gói (split packa"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 107.76,
+      "end": 109.52,
+      "duration": 1.76,
+      "text_snippet": "Thẻ Anki"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 109.53,
+      "end": 110.98,
+      "duration": 1.45,
+      "text_snippet": "Cơ bản"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 111.07,
+      "end": 112.93,
+      "duration": 1.86,
+      "text_snippet": "Cơ bản bổ sung"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 112.89,
+      "end": 114.85,
+      "duration": 1.96,
+      "text_snippet": "Điền vào chỗ trống"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 114.85,
+      "end": 116.77,
+      "duration": 1.92,
+      "text_snippet": "Câu hỏi mã nguồn"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 116.77,
+      "end": 118.78,
+      "duration": 2.01,
+      "text_snippet": "Tổng quan Mermaid"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 118.79,
+      "end": 120.99,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 121.09,
+      "end": 123.1,
+      "duration": 2.01,
+      "text_snippet": "Liên kết tham khảo"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 123.05,
+      "end": 141.28,
+      "duration": 18.23,
+      "text_snippet": "https://dev.java/learn/modules/"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 141.28,
+      "end": 141.68,
+      "duration": 0.4,
+      "text_snippet": "https://docs.oracle.com/javase/specs/jls/se21/html/jls-7.html#jls-7.7"
+    }
+  ]
+}

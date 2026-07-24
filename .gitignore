@@ -17,4 +17,4 @@ Thumbs.db
 scripts/__pycache__/
 *.py[cod]
 
-0.tmp
+0.tmpnode_modules

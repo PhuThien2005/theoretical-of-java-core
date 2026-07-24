@@ -1,0 +1,266 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 146.07,
+  "total_paragraphs": 37,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 3.72,
+      "duration": 3.62,
+      "text_snippet": "20 - Comparable và Comparator"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 3.67,
+      "end": 14.81,
+      "duration": 11.14,
+      "text_snippet": "Chủ đề này tuân theo đề cương chính trong outline.md. Mục tiêu là hiểu sâu sắc t"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 14.81,
+      "end": 16.62,
+      "duration": 1.81,
+      "text_snippet": "Thứ Tự Học Tập"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 16.62,
+      "end": 22.43,
+      "duration": 5.81,
+      "text_snippet": "Khái niệm Comparable"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 22.44,
+      "end": 25.24,
+      "duration": 2.8,
+      "text_snippet": "Khái niệm Đảo Ngược Thứ Tự (Reverse Order)"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 22.54,
+      "end": 24.45,
+      "duration": 1.91,
+      "text_snippet": "Các Thuật Ngữ Khóa"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 24.4,
+      "end": 26.35,
+      "duration": 1.95,
+      "text_snippet": "Danh Sách Khái Niệm"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 26.35,
+      "end": 31.93,
+      "duration": 5.58,
+      "text_snippet": "Comparable"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 31.93,
+      "end": 32.33,
+      "duration": 0.4,
+      "text_snippet": "compareTo"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 32.27,
+      "end": 32.67,
+      "duration": 0.4,
+      "text_snippet": "Comparator"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 32.02,
+      "end": 33.52,
+      "duration": 1.5,
+      "text_snippet": "compare"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 33.48,
+      "end": 41.07,
+      "duration": 7.59,
+      "text_snippet": "Thứ tự tự nhiên (Natural ordering)"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 41.06,
+      "end": 43.16,
+      "duration": 2.1,
+      "text_snippet": "Thứ tự tùy chỉnh (Custom ordering)"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 41.06,
+      "end": 49.16,
+      "duration": 8.1,
+      "text_snippet": "Sắp xếp đối tượng danh sách (Sort List object)"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 49.16,
+      "end": 52.66,
+      "duration": 3.5,
+      "text_snippet": "Sắp xếp theo nhiều tiêu chí (Sort by multiple criteria)"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 49.26,
+      "end": 52.02,
+      "duration": 2.76,
+      "text_snippet": "Comparator.comparing"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 51.98,
+      "end": 53.74,
+      "duration": 1.76,
+      "text_snippet": "thenComparing"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 53.74,
+      "end": 57.07,
+      "duration": 3.33,
+      "text_snippet": "Thứ tự đảo ngược (Reverse order)"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 57.06,
+      "end": 62.46,
+      "duration": 5.4,
+      "text_snippet": "Xử lý giá trị null (Null handling): nullsFirst nullsLast"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 62.46,
+      "end": 62.86,
+      "duration": 0.4,
+      "text_snippet": "nullsFirst"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 62.56,
+      "end": 63.96,
+      "duration": 1.4,
+      "text_snippet": "nullsLast"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 63.91,
+      "end": 65.62,
+      "duration": 1.71,
+      "text_snippet": "Tự Kiểm Tra"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 65.62,
+      "end": 103.02,
+      "duration": 37.4,
+      "text_snippet": "Tại sao Java phân tách thứ tự tự nhiên (Comparable) khỏi thứ tự tùy chỉnh bên ng"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 103.03,
+      "end": 117.03,
+      "duration": 14.0,
+      "text_snippet": "Tại sao ràng buộc về tính bắc cầu (Transitivity contract) trong Comparable.compa"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 117.03,
+      "end": 131.73,
+      "duration": 14.7,
+      "text_snippet": "Tại sao TreeSet và TreeMap yêu cầu phương thức so sánh (compareTo / compare) phả"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 103.03,
+      "end": 117.03,
+      "duration": 14.0,
+      "text_snippet": "Tại sao việc triển khai compareTo hoặc compare bằng phép trừ số nguyên/số thực ("
+    },
+    {
+      "paragraph_id": 27,
+      "start": 117.03,
+      "end": 138.03,
+      "duration": 21.0,
+      "text_snippet": "Tại sao Java sử dụng thuật toán sắp xếp nhanh hai chốt (Dual-Pivot Quicksort) để"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 138.03,
+      "end": 138.73,
+      "duration": 0.7,
+      "text_snippet": "Thẻ Anki"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 138.73,
+      "end": 139.13,
+      "duration": 0.4,
+      "text_snippet": "Basic"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 139.08,
+      "end": 139.78,
+      "duration": 0.7,
+      "text_snippet": "Basic Extra"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 139.78,
+      "end": 140.18,
+      "duration": 0.4,
+      "text_snippet": "Cloze"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 140.12,
+      "end": 140.82,
+      "duration": 0.7,
+      "text_snippet": "Code Question"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 140.83,
+      "end": 142.58,
+      "duration": 1.75,
+      "text_snippet": "Sơ Đồ Mermaid Tổng Quan"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 142.58,
+      "end": 143.98,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 143.97,
+      "end": 145.37,
+      "duration": 1.4,
+      "text_snippet": "Liên Kết Tham Khảo"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 145.38,
+      "end": 145.78,
+      "duration": 0.4,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Comparabl"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 145.72,
+      "end": 146.12,
+      "duration": 0.4,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Comparato"
+    }
+  ]
+}

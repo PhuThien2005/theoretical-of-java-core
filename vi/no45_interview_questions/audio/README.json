@@ -1,0 +1,399 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 275.11,
+  "total_paragraphs": 56,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 6.49,
+      "duration": 6.39,
+      "text_snippet": "45 - Các Câu Hỏi Phỏng Vấn Java Core Thường Gặp (Common Java Core Interview Ques"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 6.44,
+      "end": 17.94,
+      "duration": 11.5,
+      "text_snippet": "Chủ đề này bám sát đề cương chính trong outline.md. Mục tiêu là hiểu sâu sắc từn"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 17.94,
+      "end": 21.25,
+      "duration": 3.31,
+      "text_snippet": "Thứ Tự Học Tập (Study Order)"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 21.25,
+      "end": 29.6,
+      "duration": 8.35,
+      "text_snippet": "Sự Khác Biệt Giữa JVM, JDK Và JRE (How Are Jvm Jdk And Jre Different Concepts)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 29.6,
+      "end": 35.15,
+      "duration": 5.55,
+      "text_snippet": "Cách HashSet Loại Bỏ Các Phần Tử Trùng Lặp (How Does Hashset Remove Duplicates C"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 35.15,
+      "end": 40.05,
+      "duration": 4.9,
+      "text_snippet": "Sự Khác Biệt Giữa Comparable Và Comparator (How Are Comparable And Comparator Di"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 40.05,
+      "end": 44.95,
+      "duration": 4.9,
+      "text_snippet": "Sự Khác Biệt Giữa map Và flatMap (How Are Map And Flatmap Different Concepts)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 44.95,
+      "end": 47.05,
+      "duration": 2.1,
+      "text_snippet": "Các Thuật Ngữ Khóa (Key Terms)"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 47.05,
+      "end": 49.15,
+      "duration": 2.1,
+      "text_snippet": "Danh Sách Đề Cương (Outline Checklist)"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 49.15,
+      "end": 52.65,
+      "duration": 3.5,
+      "text_snippet": "Sự khác biệt giữa JVM, JDK và JRE là gì?"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 52.65,
+      "end": 55.45,
+      "duration": 2.8,
+      "text_snippet": "Có phải Java truyền tham chiếu (pass references)?"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 55.45,
+      "end": 60.0,
+      "duration": 4.55,
+      "text_snippet": "Sự khác biệt giữa toán tử == và phương thức .equals() là gì?"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 60.0,
+      "end": 62.45,
+      "duration": 2.45,
+      "text_snippet": "Tại sao String lại bất biến (immutable)?"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 62.45,
+      "end": 65.95,
+      "duration": 3.5,
+      "text_snippet": "Sự khác biệt giữa String, StringBuilder và StringBuffer là gì?"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 65.95,
+      "end": 68.4,
+      "duration": 2.45,
+      "text_snippet": "Lớp HashMap hoạt động như thế nào?"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 68.4,
+      "end": 72.95,
+      "duration": 4.55,
+      "text_snippet": "Những cải tiến nào đã được áp dụng cho HashMap trong Java 8?"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 72.95,
+      "end": 76.1,
+      "duration": 3.15,
+      "text_snippet": "Sự khác biệt giữa ArrayList và LinkedList là gì?"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 76.1,
+      "end": 79.25,
+      "duration": 3.15,
+      "text_snippet": "Cách HashSet loại bỏ các phần tử trùng lặp?"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 79.25,
+      "end": 82.75,
+      "duration": 3.5,
+      "text_snippet": "Sự khác biệt giữa final, finally và finalize là gì?"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 82.75,
+      "end": 86.6,
+      "duration": 3.85,
+      "text_snippet": "Sự khác biệt giữa checked exception và unchecked exception là gì?"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 86.6,
+      "end": 91.85,
+      "duration": 5.25,
+      "text_snippet": "Sự khác biệt giữa abstract class (lớp trừu tượng) và interface (giao diện) là gì"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 91.85,
+      "end": 97.8,
+      "duration": 5.95,
+      "text_snippet": "Sự khác biệt giữa nạp chồng phương thức (overload) và ghi đè phương thức (overri"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 97.8,
+      "end": 101.3,
+      "duration": 3.5,
+      "text_snippet": "Các phương thức static có thể bị ghi đè không?"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 101.3,
+      "end": 104.8,
+      "duration": 3.5,
+      "text_snippet": "Các hàm khởi tạo (constructors) có được kế thừa không?"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 104.8,
+      "end": 108.65,
+      "duration": 3.85,
+      "text_snippet": "Sự khác biệt giữa từ khóa this và super là gì?"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 108.65,
+      "end": 111.8,
+      "duration": 3.15,
+      "text_snippet": "Sự khác biệt giữa Comparable và Comparator là gì?"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 111.8,
+      "end": 115.65,
+      "duration": 3.85,
+      "text_snippet": "Sự khác biệt giữa bộ lặp fail-fast và fail-safe là gì?"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 115.65,
+      "end": 118.8,
+      "duration": 3.15,
+      "text_snippet": "Sự khác biệt giữa volatile và synchronized là gì?"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 118.8,
+      "end": 121.25,
+      "duration": 2.45,
+      "text_snippet": "Hiện tượng bế tắc (deadlock) là gì?"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 121.25,
+      "end": 126.15,
+      "duration": 4.9,
+      "text_snippet": "Sự khác biệt giữa phương thức start() và run() của lớp Thread là gì?"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 126.15,
+      "end": 130.0,
+      "duration": 3.85,
+      "text_snippet": "Sự khác biệt giữa phương thức sleep() và wait() là gì?"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 130.0,
+      "end": 133.85,
+      "duration": 3.85,
+      "text_snippet": "Sự khác biệt giữa phương thức notify() và notifyAll() là gì?"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 133.85,
+      "end": 137.0,
+      "duration": 3.15,
+      "text_snippet": "Stream API có cơ chế lười (lazy evaluation) không?"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 137.0,
+      "end": 140.15,
+      "duration": 3.15,
+      "text_snippet": "Sự khác biệt giữa map và flatMap là gì?"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 140.15,
+      "end": 143.3,
+      "duration": 3.15,
+      "text_snippet": "Sự khác biệt giữa orElse và orElseGet là gì?"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 143.3,
+      "end": 146.8,
+      "duration": 3.5,
+      "text_snippet": "Sự khác biệt giữa HashMap, Hashtable và ConcurrentHashMap là gì?"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 146.8,
+      "end": 151.7,
+      "duration": 4.9,
+      "text_snippet": "Tại sao khi ghi đè equals() thì cũng bắt buộc phải ghi đè hashCode()?"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 151.7,
+      "end": 155.55,
+      "duration": 3.85,
+      "text_snippet": "Bộ thu gom rác (Garbage Collection) hoạt động như thế nào?"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 155.55,
+      "end": 159.4,
+      "duration": 3.85,
+      "text_snippet": "Sự khác biệt giữa bộ nhớ Stack và Heap là gì?"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 159.4,
+      "end": 160.8,
+      "duration": 1.4,
+      "text_snippet": "Tự Kiểm Tra (Self-Check)"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 160.8,
+      "end": 167.8,
+      "duration": 7.0,
+      "text_snippet": "Trước khi chuyển sang chủ đề tiếp theo, hãy đảm bảo bạn có thể trả lời các câu h"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 167.8,
+      "end": 184.95,
+      "duration": 17.15,
+      "text_snippet": "Tại sao JDK, JRE và JVM phục vụ các mục đích khác nhau trong vòng đời phát triển"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 184.95,
+      "end": 201.75,
+      "duration": 16.8,
+      "text_snippet": "Tại sao HashSet loại bỏ được các phần tử trùng lặp, và làm thế nào nó tận dụng p"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 201.75,
+      "end": 220.3,
+      "duration": 18.55,
+      "text_snippet": "Tại sao Comparable và Comparator phục vụ các mục đích thiết kế sắp xếp khác nhau"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 220.3,
+      "end": 234.3,
+      "duration": 14.0,
+      "text_snippet": "Tại sao các hoạt động map và flatMap trong Streams có chữ ký biến đổi khác nhau,"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 234.3,
+      "end": 253.55,
+      "duration": 19.25,
+      "text_snippet": "Tại sao việc xác minh kiểu generic lúc biên dịch của Java khác với hành vi thực "
+    },
+    {
+      "paragraph_id": 47,
+      "start": 253.55,
+      "end": 255.3,
+      "duration": 1.75,
+      "text_snippet": "Thẻ Học Anki (Anki Cards)"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 255.3,
+      "end": 255.7,
+      "duration": 0.4,
+      "text_snippet": "Basic"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 255.65,
+      "end": 256.35,
+      "duration": 0.7,
+      "text_snippet": "Basic Extra"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 256.35,
+      "end": 256.75,
+      "duration": 0.4,
+      "text_snippet": "Cloze"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 256.8,
+      "end": 258.54,
+      "duration": 1.74,
+      "text_snippet": "Code Question"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 258.49,
+      "end": 262.67,
+      "duration": 4.18,
+      "text_snippet": "Sơ Đồ Mermaid Tổng Quan (Mermaid Overview)"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 262.66,
+      "end": 265.04,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 265.04,
+      "end": 268.44,
+      "duration": 3.4,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 268.44,
+      "end": 274.76,
+      "duration": 6.32,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 274.76,
+      "end": 275.16,
+      "duration": 0.4,
+      "text_snippet": "https://dev.java/learn/"
+    }
+  ]
+}

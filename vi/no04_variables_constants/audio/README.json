@@ -1,0 +1,252 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 150.8,
+  "total_paragraphs": 35,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 4.68,
+      "duration": 4.58,
+      "text_snippet": "04 - Biến Và Hằng Số (Variables And Constants)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 4.62,
+      "end": 8.03,
+      "duration": 3.41,
+      "text_snippet": "Mục Tiêu Học Tập (What You Should Learn)"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 8.04,
+      "end": 11.88,
+      "duration": 3.84,
+      "text_snippet": "Sau khi hoàn thành chủ đề này, bạn sẽ có thể:"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 11.88,
+      "end": 15.27,
+      "duration": 3.39,
+      "text_snippet": "Giải thích biến (variable) là gì."
+    },
+    {
+      "paragraph_id": 5,
+      "start": 15.26,
+      "end": 23.44,
+      "duration": 8.18,
+      "text_snippet": "Phân biệt biến cục bộ (local variable), biến thực thể (instance variable) và biế"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 23.54,
+      "end": 26.74,
+      "duration": 3.2,
+      "text_snippet": "Giải thích ý nghĩa của final đối với biến."
+    },
+    {
+      "paragraph_id": 7,
+      "start": 26.69,
+      "end": 36.88,
+      "duration": 10.19,
+      "text_snippet": "Hiểu rõ về hằng số (constant) và các quy ước đặt tên (naming convention)."
+    },
+    {
+      "paragraph_id": 8,
+      "start": 36.88,
+      "end": 41.78,
+      "duration": 4.9,
+      "text_snippet": "Hiểu rõ giá trị mặc định của các trường so với biến cục bộ."
+    },
+    {
+      "paragraph_id": 9,
+      "start": 36.88,
+      "end": 39.72,
+      "duration": 2.84,
+      "text_snippet": "Sử dụng var một cách chính xác."
+    },
+    {
+      "paragraph_id": 10,
+      "start": 39.71,
+      "end": 45.72,
+      "duration": 6.01,
+      "text_snippet": "Giải thích phạm vi (scope) và vòng đời (lifetime) của biến ở mức độ cơ bản."
+    },
+    {
+      "paragraph_id": 11,
+      "start": 45.82,
+      "end": 49.46,
+      "duration": 3.64,
+      "text_snippet": "Liên kết các biến với mô hình tư duy Stack/Heap."
+    },
+    {
+      "paragraph_id": 12,
+      "start": 49.41,
+      "end": 52.76,
+      "duration": 3.35,
+      "text_snippet": "Trình Tự Học Tập (Study Order)"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 52.76,
+      "end": 54.46,
+      "duration": 1.7,
+      "text_snippet": "Phân Loại Biến"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 54.46,
+      "end": 56.96,
+      "duration": 2.5,
+      "text_snippet": "Biến Final và Hằng Số"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 56.96,
+      "end": 60.37,
+      "duration": 3.41,
+      "text_snippet": "Giá Trị Mặc Định, Phạm Vi và Vòng Đời"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 60.47,
+      "end": 65.57,
+      "duration": 5.1,
+      "text_snippet": "var và Suy Luận Kiểu Dữ Liệu (var and Type Inference)"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 65.52,
+      "end": 69.73,
+      "duration": 4.21,
+      "text_snippet": "Thuật Ngữ (Term Notes)"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 69.74,
+      "end": 71.14,
+      "duration": 1.4,
+      "text_snippet": "Thuật Ngữ Về Biến"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 69.74,
+      "end": 72.81,
+      "duration": 3.07,
+      "text_snippet": "Bức Tranh Toàn Cảnh (Big Picture)"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 72.81,
+      "end": 75.02,
+      "duration": 2.21,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 75.12,
+      "end": 77.76,
+      "duration": 2.64,
+      "text_snippet": "Tự Kiểm Tra (Self-Check)"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 77.71,
+      "end": 85.35,
+      "duration": 7.64,
+      "text_snippet": "Tại sao biến cục bộ phải được gán giá trị rõ ràng trước khi sử dụng, trong khi c"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 85.35,
+      "end": 92.95,
+      "duration": 7.6,
+      "text_snippet": "Sự khác biệt về vòng đời, vị trí bộ nhớ và cơ chế lưu trữ giữa biến cục bộ, biến"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 92.95,
+      "end": 108.73,
+      "duration": 15.78,
+      "text_snippet": "Tại sao từ khóa final ngăn chặn việc gán lại giá trị, và làm thế nào nó giúp trì"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 108.72,
+      "end": 113.62,
+      "duration": 4.9,
+      "text_snippet": "Tại sao các hằng số trong Java thường được khai báo là static final?"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 108.82,
+      "end": 118.54,
+      "duration": 9.72,
+      "text_snippet": "Tại sao tính năng suy luận kiểu dữ liệu biến cục bộ (var) chỉ giới hạn cho các b"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 118.5,
+      "end": 124.9,
+      "duration": 6.4,
+      "text_snippet": "Phạm vi giới hạn khả năng hiển thị của biến như thế nào, và phạm vi khác với vòn"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 124.9,
+      "end": 127.76,
+      "duration": 2.86,
+      "text_snippet": "Thẻ Anki (Anki Cards)"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 127.76,
+      "end": 129.49,
+      "duration": 1.73,
+      "text_snippet": "Thẻ cơ bản"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 129.49,
+      "end": 131.14,
+      "duration": 1.65,
+      "text_snippet": "Thẻ bổ sung"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 131.24,
+      "end": 132.88,
+      "duration": 1.64,
+      "text_snippet": "Thẻ điền khuyết"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 132.82,
+      "end": 134.68,
+      "duration": 1.86,
+      "text_snippet": "Thẻ câu hỏi code"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 134.69,
+      "end": 137.5,
+      "duration": 2.81,
+      "text_snippet": "Ghi Chú Của Tôi (My Notes)"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 137.5,
+      "end": 140.9,
+      "duration": 3.4,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 140.9,
+      "end": 150.8,
+      "duration": 9.9,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html"
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 157.99,
+  "total_paragraphs": 36,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 5.25,
+      "duration": 5.15,
+      "text_snippet": "44 - Kiểm Thử Đơn Vị Cơ Bản (Basic Unit Testing)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 5.2,
+      "end": 16.08,
+      "duration": 10.88,
+      "text_snippet": "Chủ đề này bám sát đề cương chính trong outline.md. Mục tiêu là hiểu sâu sắc từn"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 16.07,
+      "end": 17.88,
+      "duration": 1.81,
+      "text_snippet": "Thứ Tự Học Tập"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 17.89,
+      "end": 22.14,
+      "duration": 4.25,
+      "text_snippet": "Khái niệm Junit"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 22.14,
+      "end": 24.24,
+      "duration": 2.1,
+      "text_snippet": "Khái niệm Kiểm thử ngoại lệ"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 22.24,
+      "end": 23.95,
+      "duration": 1.71,
+      "text_snippet": "Thuật Ngữ Khóa"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 23.9,
+      "end": 25.83,
+      "duration": 1.93,
+      "text_snippet": "Danh Sách Nội Dung"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 25.82,
+      "end": 27.13,
+      "duration": 1.31,
+      "text_snippet": "JUnit"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 27.14,
+      "end": 30.09,
+      "duration": 2.95,
+      "text_snippet": "Test case (Trường hợp kiểm thử)"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 30.09,
+      "end": 32.73,
+      "duration": 2.64,
+      "text_snippet": "Khẳng định (Assertion)"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 32.73,
+      "end": 33.13,
+      "duration": 0.4,
+      "text_snippet": "@Test"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 33.08,
+      "end": 33.48,
+      "duration": 0.4,
+      "text_snippet": "@BeforeEach"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 33.43,
+      "end": 33.83,
+      "duration": 0.4,
+      "text_snippet": "@AfterEach"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 33.77,
+      "end": 34.17,
+      "duration": 0.4,
+      "text_snippet": "@BeforeAll"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 34.12,
+      "end": 34.52,
+      "duration": 0.4,
+      "text_snippet": "@AfterAll"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 40.51,
+      "end": 42.63,
+      "duration": 2.12,
+      "text_snippet": "Mockito cơ bản"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 42.59,
+      "end": 45.59,
+      "duration": 3.0,
+      "text_snippet": "Đối tượng giả lập (Mock object)"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 45.59,
+      "end": 50.29,
+      "duration": 4.7,
+      "text_snippet": "Kiểm thử ngoại lệ"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 50.29,
+      "end": 52.39,
+      "duration": 2.1,
+      "text_snippet": "Kiểm thử gián tiếp logic private"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 50.29,
+      "end": 54.48,
+      "duration": 4.19,
+      "text_snippet": "Độ bao phủ mã nguồn cơ bản (Basic code coverage)"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 54.58,
+      "end": 56.33,
+      "duration": 1.75,
+      "text_snippet": "Thẻ Anki"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 56.27,
+      "end": 59.62,
+      "duration": 3.35,
+      "text_snippet": "Basic"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 59.62,
+      "end": 60.32,
+      "duration": 0.7,
+      "text_snippet": "Basic Extra"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 59.62,
+      "end": 60.79,
+      "duration": 1.17,
+      "text_snippet": "Cloze"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 60.8,
+      "end": 62.54,
+      "duration": 1.74,
+      "text_snippet": "Code Question"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 62.54,
+      "end": 63.59,
+      "duration": 1.05,
+      "text_snippet": "Tự Kiểm Tra"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 63.59,
+      "end": 70.94,
+      "duration": 7.35,
+      "text_snippet": "Trước khi chuyển sang chủ đề tiếp theo, hãy xác nhận rằng bạn có thể trả lời các"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 70.94,
+      "end": 84.24,
+      "duration": 13.3,
+      "text_snippet": "Tại sao Mockito lại giả lập (mock) các phụ thuộc thay vì khởi tạo chúng, và điều"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 84.24,
+      "end": 98.24,
+      "duration": 14.0,
+      "text_snippet": "Tại sao theo mặc định JUnit 5 tạo một thể hiện lớp kiểm thử mới cho mỗi phương t"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 98.24,
+      "end": 115.39,
+      "duration": 17.15,
+      "text_snippet": "Tại sao không nên kiểm thử trực tiếp các phương thức private qua phản chiếu (ref"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 115.39,
+      "end": 127.29,
+      "duration": 11.9,
+      "text_snippet": "Tại sao assertThrows trả về ngoại lệ được ném ra, và lỗi khẳng định cụ thể nào d"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 127.29,
+      "end": 145.49,
+      "duration": 18.2,
+      "text_snippet": "Tại sao độ bao phủ mã nguồn (code coverage) 100% không đảm bảo chất lượng kiểm t"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 145.49,
+      "end": 147.24,
+      "duration": 1.75,
+      "text_snippet": "Sơ Đồ Mermaid Tổng Quan"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 147.24,
+      "end": 148.64,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 148.64,
+      "end": 150.04,
+      "duration": 1.4,
+      "text_snippet": "Liên Kết Tham Khảo"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 150.14,
+      "end": 157.99,
+      "duration": 7.85,
+      "text_snippet": "https://junit.org/junit5/docs/current/user-guide/"
+    }
+  ]
+}

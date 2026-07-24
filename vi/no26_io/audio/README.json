@@ -1,0 +1,385 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 175.86,
+  "total_paragraphs": 54,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 3.09,
+      "duration": 2.99,
+      "text_snippet": "26 - IO trong Java"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 3.04,
+      "end": 13.93,
+      "duration": 10.89,
+      "text_snippet": "Chủ đề này bám sát đề cương chính trong outline.md. Mục tiêu là hiểu sâu sắc từn"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 13.93,
+      "end": 15.74,
+      "duration": 1.81,
+      "text_snippet": "Thứ Tự Học Tập"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 15.74,
+      "end": 20.24,
+      "duration": 4.5,
+      "text_snippet": "Khái Niệm về File"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 20.24,
+      "end": 21.64,
+      "duration": 1.4,
+      "text_snippet": "Khái Niệm về BufferedInputStream"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 20.34,
+      "end": 22.86,
+      "duration": 2.52,
+      "text_snippet": "Khái Niệm về Tuần Tự Hóa"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 22.81,
+      "end": 24.52,
+      "duration": 1.71,
+      "text_snippet": "Thuật Ngữ Khóa"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 24.52,
+      "end": 27.11,
+      "duration": 2.59,
+      "text_snippet": "Danh Sách Kiểm Tra Theo Đề Cương"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 27.11,
+      "end": 29.76,
+      "duration": 2.65,
+      "text_snippet": "File"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 29.76,
+      "end": 30.46,
+      "duration": 0.7,
+      "text_snippet": "Tạo file"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 29.86,
+      "end": 31.31,
+      "duration": 1.45,
+      "text_snippet": "Xóa file"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 31.26,
+      "end": 33.49,
+      "duration": 2.23,
+      "text_snippet": "Kiểm tra sự tồn tại"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 33.49,
+      "end": 36.17,
+      "duration": 2.68,
+      "text_snippet": "Đọc metadata của file"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 36.16,
+      "end": 37.76,
+      "duration": 1.6,
+      "text_snippet": "Tạo thư mục"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 37.76,
+      "end": 39.46,
+      "duration": 1.7,
+      "text_snippet": "InputStream"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 39.56,
+      "end": 41.29,
+      "duration": 1.73,
+      "text_snippet": "OutputStream"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 41.24,
+      "end": 43.14,
+      "duration": 1.9,
+      "text_snippet": "FileInputStream"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 43.14,
+      "end": 45.08,
+      "duration": 1.94,
+      "text_snippet": "FileOutputStream"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 45.07,
+      "end": 48.62,
+      "duration": 3.55,
+      "text_snippet": "BufferedInputStream"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 48.62,
+      "end": 49.02,
+      "duration": 0.4,
+      "text_snippet": "BufferedOutputStream"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 48.73,
+      "end": 50.13,
+      "duration": 1.4,
+      "text_snippet": "Reader"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 50.08,
+      "end": 51.79,
+      "duration": 1.71,
+      "text_snippet": "Writer"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 51.79,
+      "end": 53.39,
+      "duration": 1.6,
+      "text_snippet": "FileReader"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 53.39,
+      "end": 55.28,
+      "duration": 1.89,
+      "text_snippet": "FileWriter"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 55.27,
+      "end": 56.71,
+      "duration": 1.44,
+      "text_snippet": "BufferedReader"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 56.81,
+      "end": 58.79,
+      "duration": 1.98,
+      "text_snippet": "BufferedWriter"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 58.74,
+      "end": 62.45,
+      "duration": 3.71,
+      "text_snippet": "ObjectInputStream"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 62.45,
+      "end": 62.85,
+      "duration": 0.4,
+      "text_snippet": "ObjectOutputStream"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 62.45,
+      "end": 65.83,
+      "duration": 3.38,
+      "text_snippet": "Tuần tự hóa (Serialization)"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 65.83,
+      "end": 69.32,
+      "duration": 3.49,
+      "text_snippet": "Giải tuần tự hóa (Deserialization)"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 69.41,
+      "end": 73.46,
+      "duration": 4.05,
+      "text_snippet": "Serializable"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 73.46,
+      "end": 73.86,
+      "duration": 0.4,
+      "text_snippet": "serialVersionUID"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 73.46,
+      "end": 74.91,
+      "duration": 1.45,
+      "text_snippet": "transient"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 74.91,
+      "end": 76.38,
+      "duration": 1.47,
+      "text_snippet": "Scanner"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 76.39,
+      "end": 78.93,
+      "duration": 2.54,
+      "text_snippet": "System.in"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 78.92,
+      "end": 79.32,
+      "duration": 0.4,
+      "text_snippet": "System.out"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 79.27,
+      "end": 79.67,
+      "duration": 0.4,
+      "text_snippet": "System.err"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 79.62,
+      "end": 80.32,
+      "duration": 0.7,
+      "text_snippet": "Thẻ Anki"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 80.33,
+      "end": 80.73,
+      "duration": 0.4,
+      "text_snippet": "Basic"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 80.67,
+      "end": 81.37,
+      "duration": 0.7,
+      "text_snippet": "Basic Extra"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 81.47,
+      "end": 82.63,
+      "duration": 1.16,
+      "text_snippet": "Cloze"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 82.59,
+      "end": 84.33,
+      "duration": 1.74,
+      "text_snippet": "Code Question"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 84.33,
+      "end": 86.04,
+      "duration": 1.71,
+      "text_snippet": "Tự Kiểm Tra"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 86.04,
+      "end": 91.54,
+      "duration": 5.5,
+      "text_snippet": "Trước khi chuyển sang chủ đề tiếp theo, hãy xác nhận bạn có thể trả lời các câu "
+    },
+    {
+      "paragraph_id": 45,
+      "start": 91.54,
+      "end": 102.46,
+      "duration": 10.92,
+      "text_snippet": "Tại sao Java phân biệt giữa luồng byte (byte stream) và luồng ký tự (character s"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 102.56,
+      "end": 147.2,
+      "duration": 44.64,
+      "text_snippet": "Tại sao BufferedInputStream / BufferedOutputStream vượt trội hẳn so với thao tác"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 147.2,
+      "end": 161.55,
+      "duration": 14.35,
+      "text_snippet": "Tại sao tuần tự hóa (serialization) Java yêu cầu serialVersionUID, và những vấn "
+    },
+    {
+      "paragraph_id": 48,
+      "start": 161.55,
+      "end": 176.25,
+      "duration": 14.7,
+      "text_snippet": "Tại sao các trường transient bị loại trừ khỏi quá trình tuần tự hóa, và điều gì "
+    },
+    {
+      "paragraph_id": 49,
+      "start": 176.25,
+      "end": 187.8,
+      "duration": 11.55,
+      "text_snippet": "Tại sao cơ chế tuần tự hóa mặc định của Java bị coi là rủi ro bảo mật, và đâu là"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 147.2,
+      "end": 149.72,
+      "duration": 2.52,
+      "text_snippet": "Sơ Đồ Mermaid Tổng Quan"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 149.82,
+      "end": 152.2,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 152.15,
+      "end": 154.16,
+      "duration": 2.01,
+      "text_snippet": "Liên Kết Tham Khảo"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 154.16,
+      "end": 175.86,
+      "duration": 21.7,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/essential/io/"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 175.86,
+      "end": 176.26,
+      "duration": 0.4,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/package-sum"
+    }
+  ]
+}

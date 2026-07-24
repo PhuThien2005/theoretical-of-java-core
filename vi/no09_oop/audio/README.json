@@ -1,0 +1,280 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 318.84,
+  "total_paragraphs": 39,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 4.15,
+      "duration": 4.05,
+      "text_snippet": "09 - Lập Trình Hướng Đối Tượng (OOP)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 4.1,
+      "end": 7.72,
+      "duration": 3.62,
+      "text_snippet": "Những Gì Bạn Cần Học (What You Should Learn)"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 7.72,
+      "end": 17.72,
+      "duration": 10.0,
+      "text_snippet": "Các định nghĩa và mối quan hệ của lớp (class), đối tượng (object), trường dữ liệ"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 17.73,
+      "end": 23.22,
+      "duration": 5.49,
+      "text_snippet": "Ý nghĩa và ứng dụng của tham chiếu this và đối tượng vô danh (anonymous object)."
+    },
+    {
+      "paragraph_id": 5,
+      "start": 23.21,
+      "end": 79.86,
+      "duration": 56.65,
+      "text_snippet": "Bốn cột trụ cốt lõi của Lập trình hướng đối tượng (OOP - Object-Oriented Program"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 79.96,
+      "end": 132.25,
+      "duration": 52.29,
+      "text_snippet": "Tính Đóng Gói (Encapsulation): Công cụ sửa đổi quyền truy cập (access modifier),"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 132.25,
+      "end": 143.8,
+      "duration": 11.55,
+      "text_snippet": "Tính Kế Thừa (Inheritance): Lớp cha/lớp con (superclass/subclass), hệ thống phân"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 143.8,
+      "end": 156.75,
+      "duration": 12.95,
+      "text_snippet": "Tính Đa Hình (Polymorphism): So sánh nạp chồng phương thức (method overloading) "
+    },
+    {
+      "paragraph_id": 9,
+      "start": 156.75,
+      "end": 167.6,
+      "duration": 10.85,
+      "text_snippet": "Tính Trừu Tượng (Abstraction): Lớp trừu tượng (abstract class), phương thức trừu"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 132.25,
+      "end": 135.45,
+      "duration": 3.2,
+      "text_snippet": "Lộ Trình Học Tập (Study Order)"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 135.55,
+      "end": 137.56,
+      "duration": 2.01,
+      "text_snippet": "Lớp và Đối Tượng"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 137.51,
+      "end": 144.3,
+      "duration": 6.79,
+      "text_snippet": "Tính Đóng Gói"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 144.3,
+      "end": 145.35,
+      "duration": 1.05,
+      "text_snippet": "Tính Kế Thừa"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 145.35,
+      "end": 146.4,
+      "duration": 1.05,
+      "text_snippet": "Tính Đa Hình"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 146.4,
+      "end": 147.45,
+      "duration": 1.05,
+      "text_snippet": "Tính Trừu Tượng"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 144.4,
+      "end": 149.31,
+      "duration": 4.91,
+      "text_snippet": "Thuật Ngữ Ghi Nhớ (Term Notes)"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 149.31,
+      "end": 150.36,
+      "duration": 1.05,
+      "text_snippet": "Thuật Ngữ OOP"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 149.31,
+      "end": 153.35,
+      "duration": 4.04,
+      "text_snippet": "Sơ Đồ Tổng Quan Mermaid (Mermaid Overview)"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 153.35,
+      "end": 155.73,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 155.72,
+      "end": 158.18,
+      "duration": 2.46,
+      "text_snippet": "Tự Kiểm Tra (Self-Check)"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 158.29,
+      "end": 163.78,
+      "duration": 5.49,
+      "text_snippet": "Trước khi chuyển sang chủ đề tiếp theo, hãy đảm bảo bạn có thể trả lời các câu h"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 163.72,
+      "end": 210.86,
+      "duration": 47.14,
+      "text_snippet": "Tại sao các biến thực thể nên được khai báo là private, và sự khác biệt giữa việ"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 210.86,
+      "end": 225.21,
+      "duration": 14.35,
+      "text_snippet": "Tại sao Java không hỗ trợ đa kế thừa lớp, và cơ chế giao diện giải quyết bài toá"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 225.21,
+      "end": 239.21,
+      "duration": 14.0,
+      "text_snippet": "Tại sao việc ghi đè phương thức lại được phân giải tại thời điểm thực thi (phân "
+    },
+    {
+      "paragraph_id": 25,
+      "start": 239.21,
+      "end": 253.21,
+      "duration": 14.0,
+      "text_snippet": "Tại sao câu lệnh super() bắt buộc phải là câu lệnh đầu tiên trong hàm khởi tạo c"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 210.96,
+      "end": 221.4,
+      "duration": 10.44,
+      "text_snippet": "Khi nào bạn nên chọn lớp trừu tượng thay vì giao diện, và quy tắc thiết kế ở đây"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 221.4,
+      "end": 224.28,
+      "duration": 2.88,
+      "text_snippet": "Thẻ Anki (Anki Cards)"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 224.27,
+      "end": 227.6,
+      "duration": 3.33,
+      "text_snippet": "Cơ Bản"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 227.6,
+      "end": 229.0,
+      "duration": 1.4,
+      "text_snippet": "Cơ Bản Bổ Sung"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 227.6,
+      "end": 229.01,
+      "duration": 1.41,
+      "text_snippet": "Điền Khuyết"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 229.11,
+      "end": 230.95,
+      "duration": 1.84,
+      "text_snippet": "Câu Hỏi Viết Code"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 230.9,
+      "end": 234.25,
+      "duration": 3.35,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 234.25,
+      "end": 270.49,
+      "duration": 36.24,
+      "text_snippet": "Hướng dẫn Java của Oracle - Các khái niệm OOP: https://docs.oracle.com/javase/tu"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 270.49,
+      "end": 274.34,
+      "duration": 3.85,
+      "text_snippet": "Hướng dẫn Java của Oracle - Lớp và Đối tượng: https://docs.oracle.com/javase/tut"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 274.34,
+      "end": 277.49,
+      "duration": 3.15,
+      "text_snippet": "Hướng dẫn Java của Oracle - Kế thừa: https://docs.oracle.com/javase/tutorial/jav"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 270.59,
+      "end": 308.49,
+      "duration": 37.9,
+      "text_snippet": "Hướng dẫn Java của Oracle - Đa hình: https://docs.oracle.com/javase/tutorial/jav"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 308.49,
+      "end": 311.64,
+      "duration": 3.15,
+      "text_snippet": "Hướng dẫn Java của Oracle - Giao diện: https://docs.oracle.com/javase/tutorial/j"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 311.64,
+      "end": 316.54,
+      "duration": 4.9,
+      "text_snippet": "Hướng dẫn Java của Oracle - Các phương thức và lớp trừu tượng: https://docs.orac"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 308.49,
+      "end": 318.84,
+      "duration": 10.35,
+      "text_snippet": "Dev.java - Đối tượng, Lớp, Giao diện, Gói và Kế thừa: https://dev.java/learn/oop"
+    }
+  ]
+}

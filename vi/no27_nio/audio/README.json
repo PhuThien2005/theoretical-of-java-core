@@ -1,0 +1,266 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 135.02,
+  "total_paragraphs": 37,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 4.19,
+      "duration": 4.09,
+      "text_snippet": "27 - NIO / NIO.2"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 4.14,
+      "end": 14.92,
+      "duration": 10.78,
+      "text_snippet": "Chủ đề này tuân theo đề cương chính trong outline.md. Mục tiêu là hiểu từng khái"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 14.91,
+      "end": 16.49,
+      "duration": 1.58,
+      "text_snippet": "Thứ Tự Học"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 16.49,
+      "end": 20.74,
+      "duration": 4.25,
+      "text_snippet": "Khái Niệm về Path"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 20.74,
+      "end": 22.14,
+      "duration": 1.4,
+      "text_snippet": "Khái Niệm về FileChannel"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 20.74,
+      "end": 21.79,
+      "duration": 1.05,
+      "text_snippet": "Thuật Ngữ Chính"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 21.79,
+      "end": 24.24,
+      "duration": 2.45,
+      "text_snippet": "Danh Sách Kiểm Tra Theo Đề Cương"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 24.24,
+      "end": 24.64,
+      "duration": 0.4,
+      "text_snippet": "Path"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 24.59,
+      "end": 24.99,
+      "duration": 0.4,
+      "text_snippet": "Paths"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 24.94,
+      "end": 25.34,
+      "duration": 0.4,
+      "text_snippet": "Files"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 25.39,
+      "end": 27.05,
+      "duration": 1.66,
+      "text_snippet": "StandardOpenOption"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 27.0,
+      "end": 29.56,
+      "duration": 2.56,
+      "text_snippet": "Đọc/ghi file bằng Files"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 29.56,
+      "end": 32.5,
+      "duration": 2.94,
+      "text_snippet": "Duyệt cây thư mục (Walk file tree)"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 32.5,
+      "end": 35.61,
+      "duration": 3.11,
+      "text_snippet": "Sao chép/di chuyển/xóa file"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 35.61,
+      "end": 37.6,
+      "duration": 1.99,
+      "text_snippet": "Channel (Kênh)"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 37.7,
+      "end": 40.19,
+      "duration": 2.49,
+      "text_snippet": "Buffer (Bộ đệm)"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 40.14,
+      "end": 41.5,
+      "duration": 1.36,
+      "text_snippet": "ByteBuffer"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 41.5,
+      "end": 43.14,
+      "duration": 1.64,
+      "text_snippet": "FileChannel"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 43.14,
+      "end": 45.28,
+      "duration": 2.14,
+      "text_snippet": "Selector cơ bản"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 45.27,
+      "end": 49.51,
+      "duration": 4.24,
+      "text_snippet": "IO bất đồng bộ cơ bản (Basic Asynchronous IO)"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 49.61,
+      "end": 51.36,
+      "duration": 1.75,
+      "text_snippet": "Thẻ Anki"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 51.31,
+      "end": 54.66,
+      "duration": 3.35,
+      "text_snippet": "Basic"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 54.66,
+      "end": 55.36,
+      "duration": 0.7,
+      "text_snippet": "Basic Extra"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 54.66,
+      "end": 55.83,
+      "duration": 1.17,
+      "text_snippet": "Cloze"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 55.84,
+      "end": 57.58,
+      "duration": 1.74,
+      "text_snippet": "Code Question"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 57.68,
+      "end": 59.39,
+      "duration": 1.71,
+      "text_snippet": "Tự Kiểm Tra"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 59.34,
+      "end": 64.85,
+      "duration": 5.51,
+      "text_snippet": "Trước khi chuyển sang chủ đề tiếp theo, hãy xác nhận bạn có thể trả lời các câu "
+    },
+    {
+      "paragraph_id": 28,
+      "start": 64.85,
+      "end": 91.68,
+      "duration": 26.83,
+      "text_snippet": "Những khác biệt chính giữa Java Classic I/O (BIO) và Java New I/O (NIO) về chặn "
+    },
+    {
+      "paragraph_id": 29,
+      "start": 91.68,
+      "end": 106.63,
+      "duration": 14.95,
+      "text_snippet": "Buffer của NIO quản lý trạng thái bằng các con trỏ position, limit và capacity n"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 106.62,
+      "end": 121.67,
+      "duration": 15.05,
+      "text_snippet": "Tại sao file ánh xạ bộ nhớ (FileChannel.map trả về MappedByteBuffer) cực kỳ nhan"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 106.72,
+      "end": 115.76,
+      "duration": 9.04,
+      "text_snippet": "Selector cho phép I/O không chặn đa hợp (multiplexed non-blocking I/O), cho phép"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 115.71,
+      "end": 127.97,
+      "duration": 12.26,
+      "text_snippet": "Tại sao Path và Files (NIO.2) cung cấp thông báo lỗi, xử lý liên kết tượng trưng"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 127.97,
+      "end": 129.96,
+      "duration": 1.99,
+      "text_snippet": "Tổng Quan Mermaid"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 129.96,
+      "end": 132.32,
+      "duration": 2.36,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 132.32,
+      "end": 134.32,
+      "duration": 2.0,
+      "text_snippet": "Liên Kết Tham Khảo"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 134.32,
+      "end": 134.72,
+      "duration": 0.4,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/package-su"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 134.67,
+      "end": 135.07,
+      "duration": 0.4,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/packa"
+    }
+  ]
+}

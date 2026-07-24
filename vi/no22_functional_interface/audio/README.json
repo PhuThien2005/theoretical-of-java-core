@@ -1,0 +1,259 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 135.3,
+  "total_paragraphs": 36,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 4.75,
+      "duration": 4.65,
+      "text_snippet": "22 - Giao diện chức năng (Functional Interface)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 4.7,
+      "end": 15.84,
+      "duration": 11.14,
+      "text_snippet": "Chủ đề này tuân theo đề cương chính trong outline.md. Mục tiêu là hiểu sâu sắc t"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 15.84,
+      "end": 17.69,
+      "duration": 1.85,
+      "text_snippet": "Trình tự học tập"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 17.69,
+      "end": 22.88,
+      "duration": 5.19,
+      "text_snippet": "Khái niệm Predicate T"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 22.88,
+      "end": 25.68,
+      "duration": 2.8,
+      "text_snippet": "Khái niệm Kết quả đầu ra là gì"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 22.98,
+      "end": 24.83,
+      "duration": 1.85,
+      "text_snippet": "Các thuật ngữ chính"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 24.77,
+      "end": 27.15,
+      "duration": 2.38,
+      "text_snippet": "Danh sách kiểm tra Đề cương"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 27.15,
+      "end": 28.81,
+      "duration": 1.66,
+      "text_snippet": "Predicate"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 28.81,
+      "end": 31.88,
+      "duration": 3.07,
+      "text_snippet": "Function<T, R>"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 31.89,
+      "end": 33.63,
+      "duration": 1.74,
+      "text_snippet": "Consumer"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 33.73,
+      "end": 35.17,
+      "duration": 1.44,
+      "text_snippet": "Supplier"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 35.11,
+      "end": 36.98,
+      "duration": 1.87,
+      "text_snippet": "UnaryOperator"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 36.99,
+      "end": 38.94,
+      "duration": 1.95,
+      "text_snippet": "BinaryOperator"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 38.94,
+      "end": 42.06,
+      "duration": 3.12,
+      "text_snippet": "BiPredicate<T, U>"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 42.06,
+      "end": 45.87,
+      "duration": 3.81,
+      "text_snippet": "BiFunction<T, U, R>"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 45.98,
+      "end": 48.99,
+      "duration": 3.01,
+      "text_snippet": "BiConsumer<T, U>"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 48.94,
+      "end": 51.1,
+      "duration": 2.16,
+      "text_snippet": "Đầu vào là gì?"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 51.1,
+      "end": 53.61,
+      "duration": 2.51,
+      "text_snippet": "Kết quả đầu ra là gì?"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 53.61,
+      "end": 56.31,
+      "duration": 2.7,
+      "text_snippet": "Khi nào sử dụng giao diện nào?"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 56.31,
+      "end": 58.06,
+      "duration": 1.75,
+      "text_snippet": "Thẻ Anki"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 58.16,
+      "end": 61.43,
+      "duration": 3.27,
+      "text_snippet": "Cơ bản"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 61.44,
+      "end": 62.84,
+      "duration": 1.4,
+      "text_snippet": "Cơ bản bổ sung"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 61.44,
+      "end": 63.4,
+      "duration": 1.96,
+      "text_snippet": "Điền vào chỗ trống"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 63.4,
+      "end": 65.32,
+      "duration": 1.92,
+      "text_snippet": "Câu hỏi mã nguồn"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 65.33,
+      "end": 67.34,
+      "duration": 2.01,
+      "text_snippet": "Tổng quan Mermaid"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 67.44,
+      "end": 69.82,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 69.76,
+      "end": 72.4,
+      "duration": 2.64,
+      "text_snippet": "Tự kiểm tra (Self-Check)"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 72.4,
+      "end": 82.07,
+      "duration": 9.67,
+      "text_snippet": "Dưới đây là 5 câu hỏi khái niệm chuyên sâu để kiểm tra sự hiểu biết của bạn về c"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 82.08,
+      "end": 88.23,
+      "duration": 6.15,
+      "text_snippet": "Tại sao chú thích @FunctionalInterface là tùy chọn, và những lợi ích biên dịch n"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 88.23,
+      "end": 97.51,
+      "duration": 9.28,
+      "text_snippet": "Các kiểu giao ước chức năng của Predicate, Function, Consumer, và Supplier khác "
+    },
+    {
+      "paragraph_id": 31,
+      "start": 97.5,
+      "end": 110.8,
+      "duration": 13.3,
+      "text_snippet": "Tại sao chúng ta cần các chuyên biệt hóa kiểu nguyên thủy (như IntPredicate, Lon"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 110.8,
+      "end": 119.55,
+      "duration": 8.75,
+      "text_snippet": "Các giao diện chức năng tận dụng các phương thức mặc định (default method) như t"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 119.55,
+      "end": 133.2,
+      "duration": 13.65,
+      "text_snippet": "Quy chuẩn Ngôn ngữ Java (JLS) đếm các phương thức trừu tượng cho một giao diện c"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 133.2,
+      "end": 134.6,
+      "duration": 1.4,
+      "text_snippet": "Liên kết tham khảo"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 134.6,
+      "end": 135.0,
+      "duration": 0.4,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 134.95,
+      "end": 135.35,
+      "duration": 0.4,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Functiona"
+    }
+  ]
+}

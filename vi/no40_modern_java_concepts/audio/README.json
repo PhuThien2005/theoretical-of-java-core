@@ -1,0 +1,259 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 205.87,
+  "total_paragraphs": 36,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 5.55,
+      "duration": 5.45,
+      "text_snippet": "40 - Các khái niệm Java hiện đại cần biết (Modern Java Concepts)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 5.5,
+      "end": 16.62,
+      "duration": 11.12,
+      "text_snippet": "Chủ đề này tuân theo đề cương chính trong outline.md. Mục tiêu là hiểu sâu sắc t"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 16.62,
+      "end": 18.47,
+      "duration": 1.85,
+      "text_snippet": "Trình tự học tập"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 18.48,
+      "end": 23.42,
+      "duration": 4.94,
+      "text_snippet": "Khái niệm var"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 23.41,
+      "end": 24.81,
+      "duration": 1.4,
+      "text_snippet": "Khái niệm Sequenced Collections"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 23.51,
+      "end": 25.36,
+      "duration": 1.85,
+      "text_snippet": "Các thuật ngữ chính"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 25.31,
+      "end": 27.69,
+      "duration": 2.38,
+      "text_snippet": "Danh sách kiểm tra Đề cương"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 27.69,
+      "end": 29.23,
+      "duration": 1.54,
+      "text_snippet": "var"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 29.23,
+      "end": 31.58,
+      "duration": 2.35,
+      "text_snippet": "Bản ghi (record)"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 31.58,
+      "end": 34.0,
+      "duration": 2.42,
+      "text_snippet": "Lớp kín (sealed class)"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 34.1,
+      "end": 38.86,
+      "duration": 4.76,
+      "text_snippet": "Khớp mẫu cho instanceof (pattern matching for instanceof)"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 38.81,
+      "end": 42.11,
+      "duration": 3.3,
+      "text_snippet": "Biểu thức switch (switch expression)"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 42.11,
+      "end": 44.8,
+      "duration": 2.69,
+      "text_snippet": "Khối văn bản (text block)"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 44.8,
+      "end": 48.16,
+      "duration": 3.36,
+      "text_snippet": "Thông báo lỗi NullPointerException được cải thiện"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 48.16,
+      "end": 50.7,
+      "duration": 2.54,
+      "text_snippet": "Luồng ảo (virtual thread)"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 50.8,
+      "end": 55.59,
+      "duration": 4.79,
+      "text_snippet": "Lập trình đồng thời có cấu trúc cơ bản (structured concurrency)"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 55.54,
+      "end": 59.21,
+      "duration": 3.67,
+      "text_snippet": "Khớp mẫu cho switch (pattern matching for switch)"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 59.21,
+      "end": 63.25,
+      "duration": 4.04,
+      "text_snippet": "Bộ sưu tập có thứ tự (sequenced collection)"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 63.25,
+      "end": 69.85,
+      "duration": 6.6,
+      "text_snippet": "Mẫu chuỗi (string template) từng là tính năng xem trước; hiện tại không nên dùng"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 69.85,
+      "end": 71.61,
+      "duration": 1.76,
+      "text_snippet": "Thẻ Anki"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 71.71,
+      "end": 74.98,
+      "duration": 3.27,
+      "text_snippet": "Cơ bản"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 74.99,
+      "end": 76.39,
+      "duration": 1.4,
+      "text_snippet": "Cơ bản bổ sung"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 74.99,
+      "end": 76.96,
+      "duration": 1.97,
+      "text_snippet": "Điền vào chỗ trống"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 76.96,
+      "end": 78.88,
+      "duration": 1.92,
+      "text_snippet": "Câu hỏi mã nguồn"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 78.89,
+      "end": 81.35,
+      "duration": 2.46,
+      "text_snippet": "Tự kiểm tra (Self-Check)"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 81.35,
+      "end": 88.35,
+      "duration": 7.0,
+      "text_snippet": "Trước khi chuyển sang chủ đề tiếp theo, hãy xác nhận bạn có thể trả lời các câu "
+    },
+    {
+      "paragraph_id": 27,
+      "start": 88.35,
+      "end": 111.8,
+      "duration": 23.45,
+      "text_snippet": "Tại sao var thực hiện suy luận kiểu tại thời điểm biên dịch (compile-time type i"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 111.8,
+      "end": 131.75,
+      "duration": 19.95,
+      "text_snippet": "Tại sao các bản ghi Java (record) bất biến (immutable) theo thiết kế, và hàm khở"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 131.75,
+      "end": 151.35,
+      "duration": 19.6,
+      "text_snippet": "Tại sao các lớp kín (sealed class) cho phép khớp mẫu toàn diện (exhaustive patte"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 151.35,
+      "end": 173.05,
+      "duration": 21.7,
+      "text_snippet": "Tại sao khớp mẫu cho switch (pattern matching for switch) yêu cầu sắp xếp các mẫ"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 173.15,
+      "end": 188.48,
+      "duration": 15.33,
+      "text_snippet": "Tại sao các luồng ảo (virtual thread) ghim (pin) luồng mang (carrier thread) của"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 188.47,
+      "end": 190.48,
+      "duration": 2.01,
+      "text_snippet": "Tổng quan Mermaid"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 190.49,
+      "end": 192.87,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 192.86,
+      "end": 194.87,
+      "duration": 2.01,
+      "text_snippet": "Liên kết tham khảo"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 194.87,
+      "end": 200.03,
+      "duration": 5.16,
+      "text_snippet": "https://dev.java/learn/"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 200.14,
+      "end": 205.88,
+      "duration": 5.74,
+      "text_snippet": "https://openjdk.org/jeps/0"
+    }
+  ]
+}

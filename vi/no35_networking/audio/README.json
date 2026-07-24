@@ -1,0 +1,266 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 226.66,
+  "total_paragraphs": 37,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 3.91,
+      "duration": 3.81,
+      "text_snippet": "35 - Lập trình mạng (Networking)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 3.86,
+      "end": 14.76,
+      "duration": 10.9,
+      "text_snippet": "Chủ đề này bám sát đề cương chính trong outline.md. Mục tiêu là hiểu sâu sắc từn"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 14.76,
+      "end": 18.07,
+      "duration": 3.31,
+      "text_snippet": "Thứ tự học tập (Study Order)"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 18.07,
+      "end": 26.53,
+      "duration": 8.46,
+      "text_snippet": "Các khái niệm lập trình socket (Socket Programming Concepts)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 26.54,
+      "end": 28.99,
+      "duration": 2.45,
+      "text_snippet": "Các khái niệm về HttpURLConnection (HttpURLConnection Concepts)"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 26.64,
+      "end": 29.33,
+      "duration": 2.69,
+      "text_snippet": "Thuật ngữ khóa (Key Terms)"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 29.27,
+      "end": 32.88,
+      "duration": 3.61,
+      "text_snippet": "Danh sách kiểm tra đề cương (Outline Checklist)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 32.89,
+      "end": 41.95,
+      "duration": 9.06,
+      "text_snippet": "Lập trình socket"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 41.95,
+      "end": 43.35,
+      "duration": 1.4,
+      "text_snippet": "Socket TCP (TCP Socket)"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 43.35,
+      "end": 44.75,
+      "duration": 1.4,
+      "text_snippet": "Socket UDP (UDP Socket)"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 42.05,
+      "end": 46.81,
+      "duration": 4.76,
+      "text_snippet": "Socket"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 46.81,
+      "end": 47.21,
+      "duration": 0.4,
+      "text_snippet": "ServerSocket"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 47.16,
+      "end": 47.56,
+      "duration": 0.4,
+      "text_snippet": "DatagramSocket"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 46.81,
+      "end": 48.76,
+      "duration": 1.95,
+      "text_snippet": "InetAddress"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 48.76,
+      "end": 52.6,
+      "duration": 3.84,
+      "text_snippet": "đường dẫn URL (URL)"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 52.7,
+      "end": 56.28,
+      "duration": 3.58,
+      "text_snippet": "định danh tài nguyên thống nhất (URI)"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 56.23,
+      "end": 60.93,
+      "duration": 4.7,
+      "text_snippet": "Yêu cầu HTTP cơ bản (Basic HTTP Request)"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 60.92,
+      "end": 62.62,
+      "duration": 1.7,
+      "text_snippet": "HttpURLConnection"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 62.62,
+      "end": 65.17,
+      "duration": 2.55,
+      "text_snippet": "Java 11 HttpClient"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 65.17,
+      "end": 68.76,
+      "duration": 3.59,
+      "text_snippet": "Mô hình khách-chủ (Client-Server Model)"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 68.76,
+      "end": 70.16,
+      "duration": 1.4,
+      "text_snippet": "Tự kiểm tra (Self-Check)"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 70.16,
+      "end": 77.51,
+      "duration": 7.35,
+      "text_snippet": "Trước khi chuyển sang chủ đề tiếp theo, hãy đảm bảo rằng bạn có thể trả lời các "
+    },
+    {
+      "paragraph_id": 23,
+      "start": 77.51,
+      "end": 99.56,
+      "duration": 22.05,
+      "text_snippet": "Tại sao giao thức TCP (TCP) yêu cầu giai đoạn thiết lập kết nối (bắt tay) (Conne"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 99.56,
+      "end": 120.91,
+      "duration": 21.35,
+      "text_snippet": "Tại sao việc chạy các thao tác vào/ra socket chặn (Blocking Socket I/O Operation"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 120.91,
+      "end": 141.21,
+      "duration": 20.3,
+      "text_snippet": "Tại sao Java 20 lại đánh dấu lỗi thời (Deprecate) các hàm khởi tạo URL (URL Cons"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 141.21,
+      "end": 163.26,
+      "duration": 22.05,
+      "text_snippet": "Tại sao HttpURLConnection gặp phải các giới hạn hiệu năng (Performance Limitatio"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 163.26,
+      "end": 185.66,
+      "duration": 22.4,
+      "text_snippet": "Tại sao các luồng socket (Socket Stream) và socket phải được đóng đúng cách, và "
+    },
+    {
+      "paragraph_id": 28,
+      "start": 185.66,
+      "end": 187.06,
+      "duration": 1.4,
+      "text_snippet": "Thẻ Anki (Anki Cards)"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 187.06,
+      "end": 188.11,
+      "duration": 1.05,
+      "text_snippet": "Cơ bản (Basic)"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 188.11,
+      "end": 190.21,
+      "duration": 2.1,
+      "text_snippet": "Cơ bản bổ sung (Basic Extra)"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 190.31,
+      "end": 193.0,
+      "duration": 2.69,
+      "text_snippet": "Điền vào chỗ trống (Cloze)"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 192.95,
+      "end": 196.06,
+      "duration": 3.11,
+      "text_snippet": "Câu hỏi lập trình (Code Question)"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 196.06,
+      "end": 200.12,
+      "duration": 4.06,
+      "text_snippet": "Sơ đồ tổng quan Mermaid (Mermaid Overview)"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 200.12,
+      "end": 202.5,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 202.5,
+      "end": 205.7,
+      "duration": 3.2,
+      "text_snippet": "Liên kết tham khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 205.8,
+      "end": 226.66,
+      "duration": 20.86,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/networking/"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 226.66,
+      "end": 227.06,
+      "duration": 0.4,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/package-su"
+    }
+  ]
+}

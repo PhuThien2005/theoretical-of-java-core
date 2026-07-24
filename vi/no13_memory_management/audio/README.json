@@ -1,0 +1,308 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 198.87,
+  "total_paragraphs": 43,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 5.52,
+      "duration": 5.42,
+      "text_snippet": "13 - Quản Lý Bộ Nhớ Java (Java Memory Management)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 5.47,
+      "end": 16.17,
+      "duration": 10.7,
+      "text_snippet": "Chủ đề này tuân theo bản outline chính trong outline.md. Mục tiêu là hiểu sâu từ"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 16.18,
+      "end": 17.75,
+      "duration": 1.57,
+      "text_snippet": "Thứ Tự Học"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 17.75,
+      "end": 21.65,
+      "duration": 3.9,
+      "text_snippet": "Khái Niệm Stack"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 21.65,
+      "end": 23.4,
+      "duration": 1.75,
+      "text_snippet": "Khái Niệm Tham Chiếu Yếu"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 21.75,
+      "end": 24.16,
+      "duration": 2.41,
+      "text_snippet": "Khái Niệm OutOfMemoryError"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 24.11,
+      "end": 25.77,
+      "duration": 1.66,
+      "text_snippet": "Thuật Ngữ Chính"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 25.77,
+      "end": 28.12,
+      "duration": 2.35,
+      "text_snippet": "Danh Sách Kiểm Tra Outline"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 28.12,
+      "end": 30.17,
+      "duration": 2.05,
+      "text_snippet": "Stack (Ngăn xếp)"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 30.17,
+      "end": 32.22,
+      "duration": 2.05,
+      "text_snippet": "Heap (Vùng nhớ heap)"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 32.32,
+      "end": 36.09,
+      "duration": 3.77,
+      "text_snippet": "Vùng Phương Thức (Method Area) / Metaspace"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 36.05,
+      "end": 39.84,
+      "duration": 3.79,
+      "text_snippet": "PC Register (Thanh ghi bộ đếm chương trình)"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 39.84,
+      "end": 43.45,
+      "duration": 3.61,
+      "text_snippet": "Native Method Stack (Ngăn xếp phương thức gốc)"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 43.45,
+      "end": 47.0,
+      "duration": 3.55,
+      "text_snippet": "Vòng đời đối tượng (Object lifecycle)"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 47.0,
+      "end": 50.37,
+      "duration": 3.37,
+      "text_snippet": "Biến tham chiếu (Reference variable)"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 50.47,
+      "end": 63.55,
+      "duration": 13.08,
+      "text_snippet": "Tham chiếu mạnh (Strong reference)"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 63.55,
+      "end": 65.3,
+      "duration": 1.75,
+      "text_snippet": "Tham chiếu yếu (Weak reference)"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 65.3,
+      "end": 67.05,
+      "duration": 1.75,
+      "text_snippet": "Tham chiếu mềm (Soft reference)"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 67.05,
+      "end": 68.8,
+      "duration": 1.75,
+      "text_snippet": "Tham chiếu ảo (Phantom reference)"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 63.55,
+      "end": 66.6,
+      "duration": 3.05,
+      "text_snippet": "Thu gom rác (Garbage Collection)"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 66.7,
+      "end": 70.0,
+      "duration": 3.3,
+      "text_snippet": "Điều kiện để đối tượng bị GC thu hồi"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 69.95,
+      "end": 72.35,
+      "duration": 2.4,
+      "text_snippet": "System.gc()"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 72.35,
+      "end": 77.47,
+      "duration": 5.12,
+      "text_snippet": "Finalization, finalize() đã bị deprecated (không dùng nữa)"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 77.47,
+      "end": 81.58,
+      "duration": 4.11,
+      "text_snippet": "Rò rỉ bộ nhớ (Memory leak) trong Java"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 81.59,
+      "end": 83.47,
+      "duration": 1.88,
+      "text_snippet": "OutOfMemoryError"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 83.56,
+      "end": 85.38,
+      "duration": 1.82,
+      "text_snippet": "StackOverflowError"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 85.34,
+      "end": 87.09,
+      "duration": 1.75,
+      "text_snippet": "Thẻ Anki"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 87.09,
+      "end": 90.44,
+      "duration": 3.35,
+      "text_snippet": "Basic"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 90.44,
+      "end": 91.14,
+      "duration": 0.7,
+      "text_snippet": "Basic Extra"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 90.44,
+      "end": 91.6,
+      "duration": 1.16,
+      "text_snippet": "Cloze"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 91.7,
+      "end": 93.44,
+      "duration": 1.74,
+      "text_snippet": "Code Question"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 93.39,
+      "end": 95.1,
+      "duration": 1.71,
+      "text_snippet": "Tự Kiểm Tra"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 95.1,
+      "end": 100.61,
+      "duration": 5.51,
+      "text_snippet": "Trước khi chuyển sang chủ đề tiếp theo, hãy xác nhận bạn có thể trả lời các câu "
+    },
+    {
+      "paragraph_id": 34,
+      "start": 100.61,
+      "end": 127.39,
+      "duration": 26.78,
+      "text_snippet": "Tại sao JVM phân bổ biến kiểu nguyên thủy (primitive) trên Stack trong một số tì"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 127.39,
+      "end": 141.74,
+      "duration": 14.35,
+      "text_snippet": "Tại sao Java hoàn toàn là truyền theo giá trị (pass-by-value), và điều gì xảy ra"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 127.49,
+      "end": 168.23,
+      "duration": 40.74,
+      "text_snippet": "Tại sao Tham chiếu Yếu, Mềm và Ảo hoạt động khác nhau trong quá trình Thu Gom Rá"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 168.22,
+      "end": 185.72,
+      "duration": 17.5,
+      "text_snippet": "Tại sao các tham chiếu vòng tròn (đảo cô lập — islands of isolation) có thể được"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 185.72,
+      "end": 201.47,
+      "duration": 15.75,
+      "text_snippet": "Tại sao OutOfMemoryError và StackOverflowError xảy ra ở các vùng bộ nhớ JVM khác"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 168.22,
+      "end": 170.21,
+      "duration": 1.99,
+      "text_snippet": "Tổng Quan Mermaid"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 170.21,
+      "end": 172.42,
+      "duration": 2.21,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 172.52,
+      "end": 174.53,
+      "duration": 2.01,
+      "text_snippet": "Liên Kết Tham Khảo"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 174.49,
+      "end": 198.88,
+      "duration": 24.39,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/gctuning/introduction-garbage-collecti"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 198.87,
+      "end": 199.27,
+      "duration": 0.4,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ref/packa"
+    }
+  ]
+}

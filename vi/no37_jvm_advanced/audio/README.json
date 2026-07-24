@@ -1,0 +1,448 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 284.15,
+  "total_paragraphs": 63,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 5.45,
+      "duration": 5.35,
+      "text_snippet": "37 - JVM Nâng Cao (Advanced JVM)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 5.4,
+      "end": 16.35,
+      "duration": 10.95,
+      "text_snippet": "Chủ đề này bám sát đề cương chính trong outline.md. Mục tiêu là hiểu sâu sắc từn"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 16.35,
+      "end": 19.66,
+      "duration": 3.31,
+      "text_snippet": "Thứ Tự Học Tập (Study Order)"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 19.66,
+      "end": 29.41,
+      "duration": 9.75,
+      "text_snippet": "Các Khái Niệm Kiến Trúc JVM (JVM Architecture Concepts)"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 29.41,
+      "end": 32.56,
+      "duration": 3.15,
+      "text_snippet": "Các Khái Niệm Trình Thực Thi (Execution Engine Concepts)"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 29.51,
+      "end": 42.51,
+      "duration": 13.0,
+      "text_snippet": "Các Khái Niệm Vùng Sống Sót (Survivor Concepts)"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 42.51,
+      "end": 46.01,
+      "duration": 3.5,
+      "text_snippet": "Các Khái Niệm Bộ Dọn Rác Shenandoah (Shenandoah GC Concepts)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 46.01,
+      "end": 48.81,
+      "duration": 2.8,
+      "text_snippet": "Các Khái Niệm Tham Số -XX (XX Concepts)"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 42.51,
+      "end": 45.59,
+      "duration": 3.08,
+      "text_snippet": "Các Thuật Ngữ Cốt Lõi (Key Terms)"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 45.59,
+      "end": 48.61,
+      "duration": 3.02,
+      "text_snippet": "Danh Sách Đề Cương (Outline Checklist)"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 48.61,
+      "end": 50.36,
+      "duration": 1.75,
+      "text_snippet": "Kiến trúc JVM (JVM Architecture)"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 50.36,
+      "end": 52.81,
+      "duration": 2.45,
+      "text_snippet": "Phân hệ tải lớp (Class Loader Subsystem)"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 52.81,
+      "end": 56.31,
+      "duration": 3.5,
+      "text_snippet": "Các vùng dữ liệu thời gian chạy (Runtime Data Areas):"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 56.31,
+      "end": 57.71,
+      "duration": 1.4,
+      "text_snippet": "Bộ nhớ Heap (Heap)"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 57.71,
+      "end": 59.11,
+      "duration": 1.4,
+      "text_snippet": "Bộ nhớ Stack (Stack)"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 59.11,
+      "end": 61.56,
+      "duration": 2.45,
+      "text_snippet": "Vùng phương thức (Method Area) / Metaspace"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 61.56,
+      "end": 63.31,
+      "duration": 1.75,
+      "text_snippet": "Thanh ghi PC (PC Register)"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 63.31,
+      "end": 66.46,
+      "duration": 3.15,
+      "text_snippet": "Stack phương thức thuần bản địa (Native Method Stack)"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 66.46,
+      "end": 68.21,
+      "duration": 1.75,
+      "text_snippet": "Trình thực thi (Execution Engine)"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 68.21,
+      "end": 69.61,
+      "duration": 1.4,
+      "text_snippet": "Bộ thông dịch (Interpreter)"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 69.61,
+      "end": 71.71,
+      "duration": 2.1,
+      "text_snippet": "Trình biên dịch JIT (JIT Compiler)"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 71.71,
+      "end": 73.46,
+      "duration": 1.75,
+      "text_snippet": "Bộ dọn rác (Garbage Collector)"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 73.46,
+      "end": 76.61,
+      "duration": 3.15,
+      "text_snippet": "Giao diện phương thức thuần bản địa (Native Interface)"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 76.61,
+      "end": 79.41,
+      "duration": 2.8,
+      "text_snippet": "Các phân thế bộ nhớ Heap (Heap Generation):"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 79.41,
+      "end": 81.16,
+      "duration": 1.75,
+      "text_snippet": "Phân thế trẻ (Young Generation)"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 81.26,
+      "end": 86.77,
+      "duration": 5.51,
+      "text_snippet": "Vùng Eden (Eden)"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 86.77,
+      "end": 88.17,
+      "duration": 1.4,
+      "text_snippet": "Vùng Sống Sót (Survivor)"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 86.77,
+      "end": 90.12,
+      "duration": 3.35,
+      "text_snippet": "Phân thế già (Old Generation)"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 90.12,
+      "end": 93.63,
+      "duration": 3.51,
+      "text_snippet": "Các thuật toán dọn rác (GC Algorithms):"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 93.64,
+      "end": 97.23,
+      "duration": 3.59,
+      "text_snippet": "Bộ dọn rác tuần tự (Serial GC)"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 97.22,
+      "end": 99.67,
+      "duration": 2.45,
+      "text_snippet": "Bộ dọn rác song song (Parallel GC)"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 99.67,
+      "end": 101.07,
+      "duration": 1.4,
+      "text_snippet": "CMS cũ (old CMS)"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 101.07,
+      "end": 103.17,
+      "duration": 2.1,
+      "text_snippet": "Bộ dọn rác G1 (G1 GC)"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 103.17,
+      "end": 104.92,
+      "duration": 1.75,
+      "text_snippet": "Bộ dọn rác ZGC (ZGC)"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 104.92,
+      "end": 106.32,
+      "duration": 1.4,
+      "text_snippet": "Bộ dọn rác Shenandoah"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 106.42,
+      "end": 109.76,
+      "duration": 3.34,
+      "text_snippet": "Trạng thái dừng hoàn toàn (Stop-the-world)"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 109.71,
+      "end": 120.39,
+      "duration": 10.68,
+      "text_snippet": "Dọn rác phân thế trẻ (Minor GC)"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 120.39,
+      "end": 122.84,
+      "duration": 2.45,
+      "text_snippet": "Dọn rác phân thế già (Major GC)"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 122.84,
+      "end": 124.94,
+      "duration": 2.1,
+      "text_snippet": "Dọn rác toàn phần (Full GC)"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 120.39,
+      "end": 125.38,
+      "duration": 4.99,
+      "text_snippet": "Tối ưu hóa JVM cơ bản (Basic JVM Tuning):"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 125.37,
+      "end": 125.77,
+      "duration": 0.4,
+      "text_snippet": "-Xms"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 125.72,
+      "end": 126.12,
+      "duration": 0.4,
+      "text_snippet": "-Xmx"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 126.07,
+      "end": 126.47,
+      "duration": 0.4,
+      "text_snippet": "-XX"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 126.42,
+      "end": 129.22,
+      "duration": 2.8,
+      "text_snippet": "Giám sát hiệu năng cơ bản (Basic Profiling)"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 129.22,
+      "end": 131.32,
+      "duration": 2.1,
+      "text_snippet": "Kết xuất bộ nhớ (Memory Dump)"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 137.31,
+      "end": 139.06,
+      "duration": 1.75,
+      "text_snippet": "Kết xuất luồng (Thread Dump)"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 139.06,
+      "end": 140.46,
+      "duration": 1.4,
+      "text_snippet": "Tự Kiểm Tra (Self-Check)"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 140.46,
+      "end": 147.46,
+      "duration": 7.0,
+      "text_snippet": "Trước khi chuyển sang chủ đề tiếp theo, hãy đảm bảo bạn có thể trả lời các câu h"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 147.46,
+      "end": 165.66,
+      "duration": 18.2,
+      "text_snippet": "Tại sao phân hệ tải lớp JVM lại chia quá trình tải thành ba giai đoạn: Tải (Load"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 165.66,
+      "end": 186.31,
+      "duration": 20.65,
+      "text_snippet": "Tại sao trình thực thi JVM lại kết hợp giữa biên dịch JIT (JIT Compilation) (với"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 186.31,
+      "end": 206.61,
+      "duration": 20.3,
+      "text_snippet": "Tại sao mô hình dọn rác phân thế (Generational Garbage Collection) lại sử dụng c"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 206.61,
+      "end": 226.91,
+      "duration": 20.3,
+      "text_snippet": "Tại sao bộ dọn rác Shenandoah đạt được thời gian tạm dừng (Pause Times) cực thấp"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 226.91,
+      "end": 249.66,
+      "duration": 22.75,
+      "text_snippet": "Tại sao các tham số -XX của JVM được phân loại thành các tùy chọn tiêu chuẩn, kh"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 249.66,
+      "end": 251.06,
+      "duration": 1.4,
+      "text_snippet": "Thẻ Anki (Anki Cards)"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 251.06,
+      "end": 251.76,
+      "duration": 0.7,
+      "text_snippet": "Cơ Bản"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 251.86,
+      "end": 253.8,
+      "duration": 1.94,
+      "text_snippet": "Cơ Bản Mở Rộng"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 253.75,
+      "end": 255.87,
+      "duration": 2.12,
+      "text_snippet": "Điền Khuyết (Cloze)"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 255.88,
+      "end": 257.49,
+      "duration": 1.61,
+      "text_snippet": "Câu Hỏi Code"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 257.49,
+      "end": 261.48,
+      "duration": 3.99,
+      "text_snippet": "Tổng Quan Sơ Đồ Mermaid (Mermaid Overview)"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 261.47,
+      "end": 263.67,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 263.78,
+      "end": 267.16,
+      "duration": 3.38,
+      "text_snippet": "Đường Dẫn Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 267.1,
+      "end": 284.15,
+      "duration": 17.05,
+      "text_snippet": "https://docs.oracle.com/javase/specs/jvms/se21/html/"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 284.15,
+      "end": 284.55,
+      "duration": 0.4,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/gctuning/"
+    }
+  ]
+}

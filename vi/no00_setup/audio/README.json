@@ -1,0 +1,238 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 116.54,
+  "total_paragraphs": 33,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 3.55,
+      "duration": 3.45,
+      "text_snippet": "00 - Cài Đặt Môi Trường (Setup)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 3.5,
+      "end": 5.29,
+      "duration": 1.79,
+      "text_snippet": "Mục Tiêu Học Tập"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 5.29,
+      "end": 9.18,
+      "duration": 3.89,
+      "text_snippet": "Sau khi hoàn thành chủ đề này, bạn cần có thể:"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 9.18,
+      "end": 15.53,
+      "duration": 6.35,
+      "text_snippet": "Phân biệt JDK (Bộ Phát Triển Java) và JRE (Môi Trường Chạy Java)."
+    },
+    {
+      "paragraph_id": 5,
+      "start": 15.53,
+      "end": 20.97,
+      "duration": 5.44,
+      "text_snippet": "Biên dịch và chạy chương trình Java bằng công cụ dòng lệnh (javac và java)."
+    },
+    {
+      "paragraph_id": 6,
+      "start": 21.06,
+      "end": 25.32,
+      "duration": 4.26,
+      "text_snippet": "Hiểu tại sao tên file nguồn Java phải trùng với tên lớp public."
+    },
+    {
+      "paragraph_id": 7,
+      "start": 25.27,
+      "end": 30.13,
+      "duration": 4.86,
+      "text_snippet": "Quyết định khi nào nên dùng terminal thay vì IDE để phát triển Java."
+    },
+    {
+      "paragraph_id": 8,
+      "start": 30.14,
+      "end": 31.71,
+      "duration": 1.57,
+      "text_snippet": "Thứ Tự Học"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 31.71,
+      "end": 33.51,
+      "duration": 1.8,
+      "text_snippet": "Cơ Bản Cài Đặt"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 33.51,
+      "end": 35.17,
+      "duration": 1.66,
+      "text_snippet": "Thuật Ngữ Chính"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 35.27,
+      "end": 40.03,
+      "duration": 4.76,
+      "text_snippet": "JDK (Java Development Kit) — Bộ Phát Triển Java"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 39.99,
+      "end": 44.96,
+      "duration": 4.97,
+      "text_snippet": "JRE (Java Runtime Environment) — Môi Trường Chạy Java"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 44.96,
+      "end": 49.67,
+      "duration": 4.71,
+      "text_snippet": "JVM (Java Virtual Machine) — Máy Ảo Java"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 49.67,
+      "end": 52.21,
+      "duration": 2.54,
+      "text_snippet": "Compilation — Biên dịch"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 52.21,
+      "end": 54.82,
+      "duration": 2.61,
+      "text_snippet": "Execution — Thực thi"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 54.93,
+      "end": 57.29,
+      "duration": 2.36,
+      "text_snippet": "Bytecode — Mã Bytecode"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 57.24,
+      "end": 58.59,
+      "duration": 1.35,
+      "text_snippet": "javac"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 58.59,
+      "end": 59.98,
+      "duration": 1.39,
+      "text_snippet": "java"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 59.98,
+      "end": 62.81,
+      "duration": 2.83,
+      "text_snippet": "Public Class — Lớp Công Khai"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 62.8,
+      "end": 68.19,
+      "duration": 5.39,
+      "text_snippet": "IDE (Integrated Development Environment) — Môi Trường Phát Triển Tích Hợp"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 68.29,
+      "end": 70.78,
+      "duration": 2.49,
+      "text_snippet": "Terminal — Dòng Lệnh"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 70.72,
+      "end": 72.43,
+      "duration": 1.71,
+      "text_snippet": "Tự Kiểm Tra"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 72.44,
+      "end": 79.4,
+      "duration": 6.96,
+      "text_snippet": "JDK và JRE khác nhau thế nào? → Xem JDK vs JRE"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 79.4,
+      "end": 87.14,
+      "duration": 7.74,
+      "text_snippet": "Tại sao tên file phải trùng với tên lớp public trong Java? → Xem Tại Sao Tên Fil"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 87.14,
+      "end": 95.29,
+      "duration": 8.15,
+      "text_snippet": "Khi nào nên dùng IDE, khi nào nên dùng terminal? → Xem Biên Dịch Và Chạy Qua Ter"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 95.39,
+      "end": 97.14,
+      "duration": 1.75,
+      "text_snippet": "Thẻ Anki"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 97.09,
+      "end": 100.98,
+      "duration": 3.89,
+      "text_snippet": "Thẻ cơ bản"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 100.97,
+      "end": 102.72,
+      "duration": 1.75,
+      "text_snippet": "Thẻ cơ bản mở rộng"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 100.97,
+      "end": 102.61,
+      "duration": 1.64,
+      "text_snippet": "Thẻ điền khuyết"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 102.61,
+      "end": 104.47,
+      "duration": 1.86,
+      "text_snippet": "Thẻ câu hỏi code"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 104.57,
+      "end": 106.47,
+      "duration": 1.9,
+      "text_snippet": "Ghi Chú Của Tôi"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 106.42,
+      "end": 108.44,
+      "duration": 2.02,
+      "text_snippet": "Tài Liệu Tham Khảo"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 108.45,
+      "end": 116.54,
+      "duration": 8.09,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/getStarted/cupojava/"
+    }
+  ]
+}

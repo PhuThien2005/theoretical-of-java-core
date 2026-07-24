@@ -1,0 +1,378 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 191.65,
+  "total_paragraphs": 53,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 2.91,
+      "duration": 2.81,
+      "text_snippet": "01 - Tổng Quan Về Java"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 2.86,
+      "end": 4.85,
+      "duration": 1.99,
+      "text_snippet": "Bạn Cần Học Gì"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 4.85,
+      "end": 8.88,
+      "duration": 4.03,
+      "text_snippet": "Sau khi hoàn thành chủ đề này, bạn sẽ có thể giải thích:"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 8.88,
+      "end": 12.73,
+      "duration": 3.85,
+      "text_snippet": "Java là gì và tại sao nó được sử dụng rộng rãi."
+    },
+    {
+      "paragraph_id": 5,
+      "start": 12.72,
+      "end": 18.92,
+      "duration": 6.2,
+      "text_snippet": "Ý nghĩa thực sự của \"viết một lần, chạy mọi nơi\" (write once, run anywhere)."
+    },
+    {
+      "paragraph_id": 6,
+      "start": 19.03,
+      "end": 24.18,
+      "duration": 5.15,
+      "text_snippet": "Sự khác biệt giữa JVM, JRE, và JDK."
+    },
+    {
+      "paragraph_id": 7,
+      "start": 24.12,
+      "end": 28.98,
+      "duration": 4.86,
+      "text_snippet": "Cách mã nguồn Java trở thành bytecode và sau đó chạy trên JVM."
+    },
+    {
+      "paragraph_id": 8,
+      "start": 28.99,
+      "end": 35.8,
+      "duration": 6.81,
+      "text_snippet": "JIT compilation (biên dịch JIT) và Garbage Collection (thu gom rác) làm gì."
+    },
+    {
+      "paragraph_id": 9,
+      "start": 35.8,
+      "end": 41.14,
+      "duration": 5.34,
+      "text_snippet": "Sự khác biệt giữa Java SE, Jakarta EE, và Java ME."
+    },
+    {
+      "paragraph_id": 10,
+      "start": 41.14,
+      "end": 46.75,
+      "duration": 5.61,
+      "text_snippet": "Tại sao Java 8, 11, 17, và 21 thường được nhắc đến."
+    },
+    {
+      "paragraph_id": 11,
+      "start": 46.85,
+      "end": 48.42,
+      "duration": 1.57,
+      "text_snippet": "Thứ Tự Học"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 48.38,
+      "end": 50.3,
+      "duration": 1.92,
+      "text_snippet": "Java Là Gì"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 50.3,
+      "end": 54.28,
+      "duration": 3.98,
+      "text_snippet": "JVM, JRE Và JDK"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 54.27,
+      "end": 56.72,
+      "duration": 2.45,
+      "text_snippet": "Luồng Biên Dịch Và Runtime"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 56.73,
+      "end": 59.68,
+      "duration": 2.95,
+      "text_snippet": "Các Phiên Bản Và Bản Phát Hành Java"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 59.77,
+      "end": 63.62,
+      "duration": 3.85,
+      "text_snippet": "Ghi Chú Thuật Ngữ"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 63.62,
+      "end": 64.67,
+      "duration": 1.05,
+      "text_snippet": "Thuật Ngữ Runtime"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 63.62,
+      "end": 65.61,
+      "duration": 1.99,
+      "text_snippet": "Bức Tranh Tổng Thể"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 65.61,
+      "end": 67.99,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 67.99,
+      "end": 78.11,
+      "duration": 10.12,
+      "text_snippet": "Mã nguồn Java không được thực thi trực tiếp bởi hệ điều hành. Mã nguồn được biên"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 78.21,
+      "end": 79.86,
+      "duration": 1.65,
+      "text_snippet": "Thuật Ngữ Chính"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 79.81,
+      "end": 96.59,
+      "duration": 16.78,
+      "text_snippet": "Java"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 96.59,
+      "end": 99.39,
+      "duration": 2.8,
+      "text_snippet": "JVM (Java Virtual Machine — Máy Ảo Java)"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 99.39,
+      "end": 102.89,
+      "duration": 3.5,
+      "text_snippet": "JRE (Java Runtime Environment — Môi Trường Thực Thi Java)"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 102.89,
+      "end": 106.74,
+      "duration": 3.85,
+      "text_snippet": "JDK (Java Development Kit — Bộ Công Cụ Phát Triển Java)"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 96.69,
+      "end": 99.2,
+      "duration": 2.51,
+      "text_snippet": "Bytecode (Mã bytecode)"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 99.15,
+      "end": 103.16,
+      "duration": 4.01,
+      "text_snippet": "JIT Compiler (Trình biên dịch JIT)"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 103.16,
+      "end": 106.33,
+      "duration": 3.17,
+      "text_snippet": "Garbage Collection (Thu gom rác)"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 106.34,
+      "end": 111.34,
+      "duration": 5.0,
+      "text_snippet": "Java SE (Java Standard Edition — Phiên bản Chuẩn)"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 111.34,
+      "end": 116.68,
+      "duration": 5.34,
+      "text_snippet": "Jakarta EE (Jakarta Enterprise Edition — Phiên bản Doanh Nghiệp)"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 116.78,
+      "end": 121.43,
+      "duration": 4.65,
+      "text_snippet": "Java ME (Java Micro Edition — Phiên bản Nhúng)"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 121.38,
+      "end": 125.57,
+      "duration": 4.19,
+      "text_snippet": "LTS (Long-Term Support — Hỗ Trợ Dài Hạn)"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 125.56,
+      "end": 127.61,
+      "duration": 2.05,
+      "text_snippet": "Stack (Ngăn xếp)"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 127.61,
+      "end": 129.81,
+      "duration": 2.2,
+      "text_snippet": "Heap (Vùng nhớ heap)"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 129.81,
+      "end": 132.6,
+      "duration": 2.79,
+      "text_snippet": "GC Roots (Gốc thu gom rác)"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 132.7,
+      "end": 135.03,
+      "duration": 2.33,
+      "text_snippet": "Records (Bản ghi)"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 134.98,
+      "end": 137.68,
+      "duration": 2.7,
+      "text_snippet": "Virtual Threads (Luồng ảo)"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 137.68,
+      "end": 139.39,
+      "duration": 1.71,
+      "text_snippet": "Tự Kiểm Tra"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 139.39,
+      "end": 142.5,
+      "duration": 3.11,
+      "text_snippet": "JVM giải quyết vấn đề gì?"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 142.5,
+      "end": 146.05,
+      "duration": 3.55,
+      "text_snippet": "Sự khác biệt giữa mã nguồn và bytecode là gì?"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 146.15,
+      "end": 155.58,
+      "duration": 9.43,
+      "text_snippet": "Tại sao Java cần cả trình biên dịch lẫn máy ảo?"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 155.58,
+      "end": 161.53,
+      "duration": 5.95,
+      "text_snippet": "Tại sao JDK cần thiết cho phát triển nhưng JRE là đủ để chạy nhiều ứng dụng?"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 155.58,
+      "end": 158.72,
+      "duration": 3.14,
+      "text_snippet": "Garbage Collection thu gom những gì?"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 158.71,
+      "end": 163.65,
+      "duration": 4.94,
+      "text_snippet": "Tại sao nhiều dự án backend dùng Java 17 hoặc Java 21?"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 163.65,
+      "end": 165.41,
+      "duration": 1.76,
+      "text_snippet": "Thẻ Anki"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 165.51,
+      "end": 172.66,
+      "duration": 7.15,
+      "text_snippet": "Thẻ cơ bản"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 172.66,
+      "end": 174.41,
+      "duration": 1.75,
+      "text_snippet": "Thẻ cơ bản mở rộng"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 174.41,
+      "end": 175.11,
+      "duration": 0.7,
+      "text_snippet": "Thẻ cloze"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 175.11,
+      "end": 176.51,
+      "duration": 1.4,
+      "text_snippet": "Thẻ câu hỏi code"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 172.66,
+      "end": 174.56,
+      "duration": 1.9,
+      "text_snippet": "Ghi Chú Của Tôi"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 174.66,
+      "end": 176.68,
+      "duration": 2.02,
+      "text_snippet": "Tài Liệu Tham Khảo"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 176.64,
+      "end": 191.65,
+      "duration": 15.01,
+      "text_snippet": "https://docs.oracle.com/javase/tutorial/getStarted/intro/definition.html"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 191.65,
+      "end": 192.05,
+      "duration": 0.4,
+      "text_snippet": "https://dev.java/learn/"
+    }
+  ]
+}

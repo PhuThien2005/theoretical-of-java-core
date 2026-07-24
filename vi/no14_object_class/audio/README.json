@@ -1,0 +1,252 @@
+{
+  "lesson": "README",
+  "total_duration_seconds": 145.25,
+  "total_paragraphs": 35,
+  "timestamps": [
+    {
+      "paragraph_id": 1,
+      "start": 0.1,
+      "end": 3.72,
+      "duration": 3.62,
+      "text_snippet": "14 - Lớp Object (Object class)"
+    },
+    {
+      "paragraph_id": 2,
+      "start": 3.67,
+      "end": 14.44,
+      "duration": 10.77,
+      "text_snippet": "Chủ đề này bám sát đề cương chính trong outline.md. Mục tiêu là hiểu sâu từng kh"
+    },
+    {
+      "paragraph_id": 3,
+      "start": 14.45,
+      "end": 17.76,
+      "duration": 3.31,
+      "text_snippet": "Thứ Tự Học Tập (Study Order)"
+    },
+    {
+      "paragraph_id": 4,
+      "start": 17.76,
+      "end": 22.16,
+      "duration": 4.4,
+      "text_snippet": "Khái Niệm toString"
+    },
+    {
+      "paragraph_id": 5,
+      "start": 22.16,
+      "end": 23.91,
+      "duration": 1.75,
+      "text_snippet": "Khái Niệm Hợp Đồng equals"
+    },
+    {
+      "paragraph_id": 6,
+      "start": 22.26,
+      "end": 23.91,
+      "duration": 1.65,
+      "text_snippet": "Thuật Ngữ Chính"
+    },
+    {
+      "paragraph_id": 7,
+      "start": 23.86,
+      "end": 27.01,
+      "duration": 3.15,
+      "text_snippet": "Checklist Đề Cương (Outline Checklist)"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 27.01,
+      "end": 28.71,
+      "duration": 1.7,
+      "text_snippet": "toString()"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 28.71,
+      "end": 30.29,
+      "duration": 1.58,
+      "text_snippet": "equals()"
+    },
+    {
+      "paragraph_id": 10,
+      "start": 30.29,
+      "end": 32.04,
+      "duration": 1.75,
+      "text_snippet": "hashCode()"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 32.14,
+      "end": 33.9,
+      "duration": 1.76,
+      "text_snippet": "getClass()"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 33.85,
+      "end": 35.25,
+      "duration": 1.4,
+      "text_snippet": "clone()"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 35.25,
+      "end": 39.11,
+      "duration": 3.86,
+      "text_snippet": "finalize() (đã bị phản đối - deprecated)"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 39.11,
+      "end": 40.48,
+      "duration": 1.37,
+      "text_snippet": "wait()"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 40.49,
+      "end": 42.37,
+      "duration": 1.88,
+      "text_snippet": "notify()"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 42.46,
+      "end": 44.41,
+      "duration": 1.95,
+      "text_snippet": "notifyAll()"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 44.36,
+      "end": 48.97,
+      "duration": 4.61,
+      "text_snippet": "Tại sao khi ghi đè equals() bạn cũng nên ghi đè hashCode()"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 48.97,
+      "end": 53.76,
+      "duration": 4.79,
+      "text_snippet": "Hợp đồng của equals()"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 53.76,
+      "end": 55.16,
+      "duration": 1.4,
+      "text_snippet": "Hợp đồng của hashCode()"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 53.76,
+      "end": 59.25,
+      "duration": 5.49,
+      "text_snippet": "So sánh đối tượng theo tham chiếu (reference) và theo giá trị (value)"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 59.35,
+      "end": 62.24,
+      "duration": 2.89,
+      "text_snippet": "Thẻ Anki (Anki Cards)"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 62.19,
+      "end": 67.87,
+      "duration": 5.68,
+      "text_snippet": "Cơ Bản (Basic)"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 67.86,
+      "end": 69.96,
+      "duration": 2.1,
+      "text_snippet": "Cơ Bản Mở Rộng (Basic Extra)"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 67.86,
+      "end": 69.97,
+      "duration": 2.11,
+      "text_snippet": "Điền Khuyết (Cloze)"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 69.97,
+      "end": 72.61,
+      "duration": 2.64,
+      "text_snippet": "Câu Hỏi Code (Code Question)"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 72.71,
+      "end": 75.33,
+      "duration": 2.62,
+      "text_snippet": "Tự Kiểm Tra (Self-Check)"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 75.29,
+      "end": 112.54,
+      "duration": 37.25,
+      "text_snippet": "Tại sao việc không ghi đè hashCode() cùng với equals() lại làm hỏng việc tra cứu"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 112.54,
+      "end": 126.54,
+      "duration": 14.0,
+      "text_snippet": "Tại sao việc thêm một trường giá trị (value field) vào lớp con lại khiến cho việ"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 126.54,
+      "end": 133.54,
+      "duration": 7.0,
+      "text_snippet": "Tại sao identityHashCode mặc định không đại diện cho địa chỉ bộ nhớ vật lý trong"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 133.54,
+      "end": 146.84,
+      "duration": 13.3,
+      "text_snippet": "Tại sao toString() được tự động gọi trong phép nối chuỗi (string concatenation) "
+    },
+    {
+      "paragraph_id": 31,
+      "start": 112.64,
+      "end": 123.18,
+      "duration": 10.54,
+      "text_snippet": "Tại sao việc nạp chồng equals(MyClass) thay vì ghi đè equals(Object) vẫn biên dị"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 123.12,
+      "end": 126.68,
+      "duration": 3.56,
+      "text_snippet": "Tổng Quan Mermaid (Mermaid Overview)"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 126.69,
+      "end": 129.06,
+      "duration": 2.37,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 129.06,
+      "end": 132.46,
+      "duration": 3.4,
+      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 132.46,
+      "end": 145.25,
+      "duration": 12.79,
+      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.ht"
+    }
+  ]
+}
