@@ -1,33 +1,28 @@
 /* ==========================================================================
-   JAVA CORE AUDIO STUDIO - NEUMORPHISM (SOFT UI) DESIGN SYSTEM
+   JAVA CORE AUDIO STUDIO - NEUMORPHISM (SOFT UI) DUAL THEME (DARK & LIGHT)
    ========================================================================== */
 
 :root {
-  /* Neumorphic Base Colors */
+  /* DARK NEUMORPHISM BASE */
   --bg-primary: #1e222d;
   --bg-secondary: #191c25;
   --bg-card: #222734;
   
-  /* Dual Shadows for Extruded Neumorphism */
   --neu-shadow-dark: 6px 6px 14px #151820;
   --neu-shadow-light: -6px -6px 14px #272c3a;
   --neu-shadow-flat: 6px 6px 14px #151820, -6px -6px 14px #272c3a;
   --neu-shadow-pressed: inset 4px 4px 8px #14171f, inset -4px -4px 8px #282d3b;
   --neu-shadow-glow: 0 0 20px rgba(0, 242, 254, 0.4);
   
-  /* Text Colors */
   --text-main: #d0d7de;
   --text-bright: #ffffff;
   --text-muted: #8b949e;
   --text-dim: #6e7681;
   
-  /* Accent Colors (Cyan/Neon Gradient) */
   --accent-cyan: #00f2fe;
   --accent-blue: #4facfe;
   --accent-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
-  --accent-orange: #ff7b72;
-  
-  --border-subtle: rgba(255, 255, 255, 0.04);
+  --border-subtle: rgba(255, 255, 255, 0.05);
   
   --sidebar-width: 320px;
   --header-height: 64px;
@@ -36,6 +31,29 @@
   --font-main: 'Inter', system-ui, -apple-system, sans-serif;
   --font-heading: 'Outfit', sans-serif;
   --font-code: 'Fira Code', monospace;
+}
+
+/* LIGHT NEUMORPHISM THEME */
+body.light-theme {
+  --bg-primary: #e6ecf5;
+  --bg-secondary: #dc6e4e0;
+  --bg-card: #e6ecf5;
+  
+  --neu-shadow-dark: 6px 6px 14px #b8c2d0;
+  --neu-shadow-light: -6px -6px 14px #ffffff;
+  --neu-shadow-flat: 6px 6px 14px #b8c2d0, -6px -6px 14px #ffffff;
+  --neu-shadow-pressed: inset 4px 4px 8px #b8c2d0, inset -4px -4px 8px #ffffff;
+  --neu-shadow-glow: 0 0 18px rgba(0, 168, 255, 0.35);
+  
+  --text-main: #2d3748;
+  --text-bright: #1a202c;
+  --text-muted: #4a5568;
+  --text-dim: #718096;
+  
+  --accent-cyan: #0088ff;
+  --accent-blue: #0055ff;
+  --accent-gradient: linear-gradient(135deg, #0088ff 0%, #0055ff 100%);
+  --border-subtle: rgba(0, 0, 0, 0.06);
 }
 
 * {
@@ -52,6 +70,7 @@ body {
   overflow: hidden;
   height: 100vh;
   width: 100vw;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .app-container {
@@ -70,7 +89,7 @@ body {
   justify-content: space-between;
   padding: 0 24px;
   z-index: 100;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -140,7 +159,7 @@ body {
 }
 
 .search-box input:focus {
-  box-shadow: var(--neu-shadow-pressed), 0 0 10px rgba(0, 242, 254, 0.3);
+  box-shadow: var(--neu-shadow-pressed), 0 0 10px rgba(0, 168, 255, 0.3);
 }
 
 /* NEUMORPHIC BUTTONS */
@@ -276,7 +295,7 @@ body {
   gap: 10px;
   margin-bottom: 6px;
   background: var(--bg-primary);
-  box-shadow: 3px 3px 8px #151820, -3px -3px 8px #272c3a;
+  box-shadow: var(--neu-shadow-flat);
   transition: all 0.2s ease;
   text-decoration: none;
 }
@@ -362,10 +381,10 @@ body {
 .markdown-container li,
 .markdown-container blockquote {
   margin-bottom: 1.2rem;
-  padding: 12px 18px;
+  padding: 14px 20px;
   border-radius: 16px;
   background: var(--bg-primary);
-  box-shadow: 4px 4px 10px #161922, -4px -4px 10px #262b38;
+  box-shadow: var(--neu-shadow-flat);
   transition: all 0.3s ease;
   cursor: pointer;
 }
@@ -380,13 +399,13 @@ body {
 .markdown-container .active-sync {
   box-shadow: var(--neu-shadow-pressed), var(--neu-shadow-glow) !important;
   border: 2px solid var(--accent-cyan) !important;
-  color: #ffffff !important;
+  color: var(--text-bright) !important;
   font-weight: 500;
   transform: scale(1.01);
 }
 
 .markdown-container pre {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
   border-radius: 16px;
   padding: 18px 22px;
   overflow-x: auto;
@@ -398,6 +417,10 @@ body {
   font-family: var(--font-code);
   font-size: 0.92rem;
   color: #ff7b72;
+}
+
+body.light-theme .markdown-container code {
+  color: #d73a49;
 }
 
 /* WELCOME CARD */
@@ -446,7 +469,7 @@ body {
 
 .btn-primary {
   background: var(--accent-gradient);
-  color: #000;
+  color: #fff;
   font-weight: 700;
   box-shadow: var(--neu-shadow-flat), var(--neu-shadow-glow);
 }
@@ -468,7 +491,7 @@ body {
   justify-content: space-between;
   padding: 0 28px;
   z-index: 100;
-  box-shadow: 0 -4px 16px rgba(0,0,0,0.3);
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.15);
   border-top: 1px solid var(--border-subtle);
 }
 
@@ -532,13 +555,12 @@ body {
   box-shadow: var(--neu-shadow-pressed);
 }
 
-/* NEUMORPHIC MAIN PLAY BUTTON WITH CYAN NEON GLOW */
 .play-main-btn {
   width: 48px;
   height: 48px;
   border-radius: 50%;
   background: var(--accent-gradient);
-  color: #000;
+  color: #fff;
   border: none;
   font-size: 1.3rem;
   cursor: pointer;
@@ -629,7 +651,7 @@ body {
   .sidebar {
     position: absolute;
     height: calc(100vh - var(--header-height) - var(--player-height));
-    box-shadow: 6px 0 24px rgba(0,0,0,0.6);
+    box-shadow: 6px 0 24px rgba(0,0,0,0.4);
   }
   .content-viewer {
     padding: 20px;
