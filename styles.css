@@ -1,54 +1,34 @@
 /* ==========================================================================
-   JAVA CORE AUDIO STUDIO - MODERN STYLESHEET
+   JAVA CORE AUDIO STUDIO - VS CODE STYLESHEET (MATCHING IMAGE COPY 12)
    ========================================================================== */
 
 :root {
-  --bg-primary: #0b0f19;
-  --bg-secondary: #111827;
-  --bg-tertiary: #1f2937;
-  --bg-card: #1e293b;
-  --bg-hover: #334155;
+  --bg-primary: #1e1e1e;
+  --bg-secondary: #252526;
+  --bg-tertiary: #2d2d2d;
+  --bg-card: #252526;
+  --bg-hover: #37373d;
   
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --text-dim: #64748b;
+  --text-main: #cccccc;
+  --text-bright: #ffffff;
+  --text-muted: #858585;
+  --text-dim: #6e6e6e;
   
-  --primary-color: #6366f1;
-  --primary-hover: #4f46e5;
-  --primary-light: rgba(99, 102, 241, 0.15);
-  --accent-orange: #f97316;
-  --accent-green: #10b981;
+  --teal-accent: #14b8a6;
+  --teal-hover: #0d9488;
+  --teal-light: rgba(20, 184, 166, 0.15);
+  --teal-border: #06b6d4;
+  --teal-glow: rgba(6, 182, 212, 0.25);
   
-  --border-color: rgba(255, 255, 255, 0.08);
-  --highlight-bg: rgba(99, 102, 241, 0.22);
-  --highlight-border: #818cf8;
+  --border-color: #3e3e42;
   
-  --sidebar-width: 320px;
-  --player-height: 80px;
-  --header-height: 60px;
+  --sidebar-width: 300px;
+  --header-height: 52px;
+  --player-height: 72px;
   
   --font-main: 'Inter', system-ui, -apple-system, sans-serif;
   --font-heading: 'Outfit', sans-serif;
   --font-code: 'Fira Code', monospace;
-}
-
-body.light-theme {
-  --bg-primary: #f8fafc;
-  --bg-secondary: #ffffff;
-  --bg-tertiary: #f1f5f9;
-  --bg-card: #ffffff;
-  --bg-hover: #e2e8f0;
-  
-  --text-main: #0f172a;
-  --text-muted: #475569;
-  --text-dim: #94a3b8;
-  
-  --primary-color: #4f46e5;
-  --primary-hover: #4338ca;
-  --primary-light: rgba(79, 70, 229, 0.1);
-  --border-color: rgba(0, 0, 0, 0.08);
-  --highlight-bg: rgba(99, 102, 241, 0.15);
-  --highlight-border: #4f46e5;
 }
 
 * {
@@ -61,12 +41,13 @@ body {
   font-family: var(--font-main);
   background-color: var(--bg-primary);
   color: var(--text-main);
-  line-height: 1.6;
+  line-height: 1.7;
   overflow: hidden;
   height: 100vh;
+  width: 100vw;
 }
 
-/* APP LAYOUT CONTAINER */
+/* APP CONTAINER */
 .app-container {
   display: flex;
   flex-direction: column;
@@ -74,7 +55,7 @@ body {
   width: 100vw;
 }
 
-/* ---------------- HEADER NAVBAR ---------------- */
+/* ---------------- TOP NAVBAR (VS CODE TAB STYLE) ---------------- */
 .navbar {
   height: var(--header-height);
   background-color: var(--bg-secondary);
@@ -82,42 +63,44 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 16px;
   z-index: 100;
 }
 
 .nav-left {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 700;
+  color: var(--text-bright);
+}
 
 .brand-icon {
-  color: var(--accent-orange);
-  font-size: 1.5rem;
+  color: #e5532d;
+  font-size: 1.3rem;
 }
 
 .badge {
-  font-size: 0.75rem;
-  padding: 3px 8px;
-  border-radius: 12px;
-  background: var(--primary-light);
-  color: var(--primary-color);
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--teal-light);
+  color: var(--teal-accent);
   font-weight: 600;
 }
 
 .nav-center {
   flex: 1;
-  max-width: 480px;
-  margin: 0 20px;
+  max-width: 450px;
+  margin: 0 16px;
 }
 
 .search-box {
@@ -127,7 +110,7 @@ body {
 
 .search-icon {
   position: absolute;
-  left: 14px;
+  left: 12px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--text-dim);
@@ -135,35 +118,33 @@ body {
 
 .search-box input {
   width: 100%;
-  padding: 8px 16px 8px 40px;
-  background-color: var(--bg-tertiary);
+  padding: 6px 12px 6px 36px;
+  background-color: var(--bg-primary);
   border: 1px solid var(--border-color);
-  border-radius: 20px;
-  color: var(--text-main);
-  font-size: 0.9rem;
+  border-radius: 6px;
+  color: var(--text-bright);
+  font-size: 0.85rem;
   outline: none;
-  transition: all 0.2s ease;
 }
 
 .search-box input:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px var(--primary-light);
+  border-color: var(--teal-accent);
 }
 
 .icon-btn {
   background: none;
   border: none;
   color: var(--text-muted);
-  font-size: 1.1rem;
-  padding: 8px 12px;
-  border-radius: 8px;
+  font-size: 1rem;
+  padding: 6px 10px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s;
 }
 
 .icon-btn:hover {
   background-color: var(--bg-hover);
-  color: var(--text-main);
+  color: var(--text-bright);
 }
 
 /* ---------------- MAIN BODY ---------------- */
@@ -172,6 +153,7 @@ body {
   flex: 1;
   height: calc(100vh - var(--header-height) - var(--player-height));
   overflow: hidden;
+  position: relative;
 }
 
 /* SIDEBAR */
@@ -181,8 +163,9 @@ body {
   border-right: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
-  transition: margin-left 0.3s ease;
+  transition: margin-left 0.25s ease;
   z-index: 50;
+  flex-shrink: 0;
 }
 
 .sidebar.collapsed {
@@ -190,7 +173,7 @@ body {
 }
 
 .sidebar-header {
-  padding: 16px 20px;
+  padding: 12px 16px;
   border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
@@ -198,54 +181,53 @@ body {
 }
 
 .sidebar-header h3 {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: var(--text-muted);
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .badge-count {
   font-size: 0.75rem;
   background-color: var(--bg-tertiary);
   color: var(--text-muted);
-  padding: 2px 8px;
-  border-radius: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
 }
 
 .sidebar-content {
   flex: 1;
   overflow-y: auto;
-  padding: 12px;
+  padding: 8px 6px;
 }
 
 .chapter-group {
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .chapter-header {
-  padding: 10px 12px;
-  font-size: 0.85rem;
+  padding: 8px 10px;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--text-muted);
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: background 0.2s;
+  transition: background 0.15s;
 }
 
 .chapter-header:hover {
   background-color: var(--bg-hover);
-  color: var(--text-main);
+  color: var(--text-bright);
 }
 
 .chapter-lessons {
   display: none;
-  padding-left: 12px;
-  margin-top: 4px;
+  padding-left: 8px;
+  margin-top: 2px;
 }
 
 .chapter-group.open .chapter-lessons {
@@ -253,158 +235,172 @@ body {
 }
 
 .lesson-item {
-  padding: 8px 12px;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.82rem;
+  color: var(--text-main);
+  border-radius: 4px;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 2px;
-  transition: all 0.2s;
+  transition: all 0.15s;
   text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .lesson-item:hover {
   background-color: var(--bg-hover);
-  color: var(--text-main);
+  color: var(--text-bright);
 }
 
 .lesson-item.active {
-  background-color: var(--primary-light);
-  color: var(--primary-color);
+  background-color: var(--teal-light);
+  color: var(--teal-accent);
   font-weight: 600;
 }
 
-/* CONTENT VIEWER */
+/* CONTENT VIEWER (DOCUMENT READER) */
 .content-viewer {
   flex: 1;
   overflow-y: auto;
-  padding: 40px 60px;
+  padding: 30px 50px 100px 50px;
   scroll-behavior: smooth;
+  background-color: var(--bg-primary);
 }
 
 .content-header {
-  margin-bottom: 32px;
-  padding-bottom: 20px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
   border-bottom: 1px solid var(--border-color);
 }
 
 .breadcrumb {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-dim);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .lesson-title {
   font-family: var(--font-heading);
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  color: var(--text-main);
-  margin-bottom: 12px;
-  line-height: 1.3;
+  color: var(--text-bright);
+  margin-bottom: 8px;
 }
 
 .lesson-meta {
   display: flex;
-  gap: 12px;
+  gap: 10px;
 }
 
 .meta-tag {
-  font-size: 0.8rem;
-  padding: 4px 10px;
-  background-color: var(--bg-tertiary);
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  background-color: var(--bg-secondary);
   color: var(--text-muted);
-  border-radius: 12px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
   display: inline-flex;
   align-items: center;
   gap: 6px;
 }
 
-/* MARKDOWN STYLING & SYNC HIGHLIGHT */
+/* MARKDOWN STYLING & SYNC FOCUS HIGHLIGHT (MATCHING IMAGE COPY 12) */
 .markdown-container {
   max-width: 860px;
   margin: 0 auto;
   font-size: 1.05rem;
   line-height: 1.8;
+  color: #d4d4d4;
 }
 
-.markdown-container p,
-.markdown-container li,
-.markdown-container blockquote,
 .markdown-container h1,
 .markdown-container h2,
 .markdown-container h3,
 .markdown-container h4 {
-  margin-bottom: 1.2rem;
+  color: var(--text-bright);
+  margin-top: 1.6rem;
+  margin-bottom: 0.8rem;
+  font-family: var(--font-heading);
+}
+
+.markdown-container p,
+.markdown-container li,
+.markdown-container blockquote {
+  margin-bottom: 1rem;
   padding: 8px 12px;
-  border-radius: 8px;
-  transition: all 0.25s ease-in-out;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
   cursor: pointer;
-  position: relative;
 }
 
 .markdown-container p:hover,
 .markdown-container li:hover {
-  background-color: rgba(255, 255, 255, 0.03);
+  background-color: rgba(255, 255, 255, 0.02);
 }
 
-/* ACTIVE HIGHLIGHT SYNC CLASS */
+/* ACTIVE HIGHLIGHT SYNC (TEAL CYAN BOX LIKE EXTENSION IMAGE COPY 12) */
 .markdown-container .active-sync {
-  background-color: var(--highlight-bg) !important;
-  border-left: 4px solid var(--highlight-border) !important;
-  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.15);
-  transform: translateX(4px);
+  background-color: var(--teal-light) !important;
+  border: 2px solid var(--teal-border) !important;
+  box-shadow: 0 0 16px var(--teal-glow);
+  color: var(--text-bright) !important;
+  font-weight: 500;
 }
 
 .markdown-container pre {
-  background-color: var(--bg-secondary);
+  background-color: #141414;
   border: 1px solid var(--border-color);
-  border-radius: 10px;
-  padding: 16px;
+  border-radius: 6px;
+  padding: 14px 16px;
   overflow-x: auto;
-  margin: 1.5rem 0;
+  margin: 1.2rem 0;
 }
 
 .markdown-container code {
   font-family: var(--font-code);
   font-size: 0.9rem;
+  color: #ce9178;
 }
 
 /* WELCOME CARD */
 .welcome-card {
   text-align: center;
-  padding: 60px 40px;
-  background-color: var(--bg-card);
+  padding: 50px 30px;
+  background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
-  border-radius: 16px;
-  margin-top: 40px;
+  border-radius: 12px;
+  margin-top: 30px;
 }
 
 .welcome-icon {
-  font-size: 4rem;
-  color: var(--accent-orange);
-  margin-bottom: 20px;
+  font-size: 3.5rem;
+  color: #e5532d;
+  margin-bottom: 16px;
 }
 
 .welcome-card h2 {
   font-family: var(--font-heading);
-  font-size: 1.8rem;
-  margin-bottom: 12px;
+  font-size: 1.6rem;
+  color: var(--text-bright);
+  margin-bottom: 10px;
 }
 
 .welcome-card p {
   color: var(--text-muted);
-  max-width: 600px;
-  margin: 0 auto 24px auto;
+  max-width: 580px;
+  margin: 0 auto 20px auto;
 }
 
 .btn {
-  padding: 10px 24px;
+  padding: 8px 20px;
   border-radius: 20px;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   border: none;
   cursor: pointer;
   transition: all 0.2s;
@@ -414,60 +410,59 @@ body {
 }
 
 .btn-primary {
-  background-color: var(--primary-color);
+  background-color: var(--teal-accent);
   color: #fff;
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-hover);
-  transform: translateY(-2px);
+  background-color: var(--teal-hover);
 }
 
-/* ---------------- AUDIO PLAYER BAR ---------------- */
+/* ---------------- AUDIO PLAYER BAR (TEAL CYAN CONTROLS MATCHING IMAGE 12) ---------------- */
 .audio-player-bar {
   height: var(--player-height);
-  background-color: var(--bg-secondary);
+  background-color: #181818;
   border-top: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 0 20px;
   z-index: 100;
 }
 
 .player-left {
-  width: 25%;
+  width: 28%;
 }
 
 .audio-title {
   font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--text-main);
+  font-size: 0.9rem;
+  color: var(--text-bright);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .audio-snippet {
-  font-size: 0.8rem;
-  color: var(--text-muted);
+  font-size: 0.78rem;
+  color: var(--teal-accent);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .player-center {
-  width: 45%;
+  width: 44%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
 }
 
 .controls {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
 .ctrl-btn {
@@ -476,18 +471,19 @@ body {
   color: var(--text-muted);
   font-size: 1.1rem;
   cursor: pointer;
-  transition: color 0.2s;
+  transition: color 0.15s;
 }
 
 .ctrl-btn:hover {
-  color: var(--text-main);
+  color: var(--text-bright);
 }
 
+/* TEAL ROUND PLAY BUTTON (MATCHING IMAGE 12) */
 .play-main-btn {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background-color: var(--primary-color);
+  background-color: var(--teal-accent);
   color: #fff;
   border: none;
   font-size: 1.1rem;
@@ -496,26 +492,27 @@ body {
   align-items: center;
   justify-content: center;
   transition: all 0.2s;
+  box-shadow: 0 0 12px var(--teal-glow);
 }
 
 .play-main-btn:hover {
-  background-color: var(--primary-hover);
-  transform: scale(1.08);
+  background-color: var(--teal-hover);
+  transform: scale(1.06);
 }
 
 .progress-container {
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   font-size: 0.75rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
 .progress-bar-wrapper {
   flex: 1;
-  height: 6px;
-  background-color: var(--bg-tertiary);
+  height: 5px;
+  background-color: #333333;
   border-radius: 3px;
   cursor: pointer;
   position: relative;
@@ -525,33 +522,33 @@ body {
 .progress-bar {
   height: 100%;
   width: 0%;
-  background-color: var(--primary-color);
+  background-color: var(--teal-accent);
   border-radius: 3px;
   transition: width 0.1s linear;
 }
 
 .player-right {
-  width: 25%;
+  width: 28%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 20px;
+  gap: 16px;
 }
 
 .speed-selector {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
 }
 
 .speed-selector select {
-  background-color: var(--bg-tertiary);
-  color: var(--text-main);
+  background-color: var(--bg-secondary);
+  color: var(--text-bright);
   border: 1px solid var(--border-color);
-  border-radius: 6px;
-  padding: 4px 8px;
+  border-radius: 4px;
+  padding: 3px 6px;
   outline: none;
   cursor: pointer;
 }
@@ -559,12 +556,12 @@ body {
 .volume-container {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .volume-container input[type="range"] {
-  width: 80px;
-  accent-color: var(--primary-color);
+  width: 70px;
+  accent-color: var(--teal-accent);
   cursor: pointer;
 }
 
@@ -573,15 +570,9 @@ body {
   .sidebar {
     position: absolute;
     height: calc(100vh - var(--header-height) - var(--player-height));
-    box-shadow: 4px 0 20px rgba(0,0,0,0.4);
+    box-shadow: 4px 0 20px rgba(0,0,0,0.5);
   }
   .content-viewer {
-    padding: 20px;
-  }
-  .player-left, .player-right {
-    width: 20%;
-  }
-  .player-center {
-    width: 60%;
+    padding: 16px;
   }
 }

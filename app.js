@@ -66,6 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
       
       document.getElementById('lesson-count').textContent = `${manifestData.total_lessons} bài`;
       renderSidebar(manifestData.chapters);
+
+      // Auto-load first lesson by default
+      if (manifestData.chapters.length > 0 && manifestData.chapters[0].lessons.length > 0) {
+        const firstLesson = manifestData.chapters[0].lessons[0];
+        selectLesson(firstLesson, manifestData.chapters[0].title);
+      }
     } catch (err) {
       console.error('Error loading manifest:', err);
       sidebarContent.innerHTML = `<div class="error-msg" style="padding:16px; color:#ef4444;"><i class="fa-solid fa-triangle-exclamation"></i> Lỗi nạp danh sách bài học</div>`;
@@ -83,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const headerEl = document.createElement('div');
       headerEl.className = 'chapter-header';
       headerEl.innerHTML = `
-        <span><i class="fa-regular fa-folder"></i> ${chapter.title}</span>
+        <span><i class="fa-regular fa-folder-open"></i> ${chapter.title}</span>
         <i class="fa-solid fa-chevron-down arrow-icon"></i>
       `;
       headerEl.onclick = () => groupEl.classList.toggle('open');
@@ -96,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         itemEl.className = 'lesson-item';
         itemEl.dataset.lessonId = lesson.id;
         itemEl.innerHTML = `
-          <i class="fa-solid fa-circle-play" style="font-size:0.75rem; color:${lesson.has_audio ? '#10b981' : '#64748b'};"></i>
+          <i class="fa-solid fa-circle-play" style="font-size:0.75rem; color:${lesson.has_audio ? '#14b8a6' : '#64748b'};"></i>
           <span>${lesson.title}</span>
         `;
         itemEl.onclick = (e) => {
@@ -116,6 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
   async function selectLesson(lesson, chapterTitle) {
     currentLesson = lesson;
     activeParagraphIdx = -1;
+    if (isPlaying) pauseAudio();
     
     // Highlight sidebar active item
     document.querySelectorAll('.lesson-item').forEach(el => el.classList.remove('active'));
@@ -126,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
     breadcrumb.textContent = `Chương: ${chapterTitle} / ${lesson.id}`;
     lessonTitle.textContent = lesson.title;
     playerLessonTitle.textContent = lesson.title;
-    playerSnippet.textContent = 'Sẵn sàng phát...';
+    playerSnippet.textContent = 'Nhấn Play để bắt đầu nghe đọc...';
     
     // Load Markdown content
     try {
@@ -205,18 +212,23 @@ document.addEventListener('DOMContentLoaded', () => {
       const segIdx = activeTs.paragraph_id - 1;
       if (segIdx !== activeParagraphIdx && segIdx >= 0 && segIdx < paragraphElements.length) {
         activeParagraphIdx = segIdx;
-        highlightAndScrollTo(segIdx, activeTs.text_snippet);
+        highlightAndScrollTo(segIdx, activeTs);
       }
     }
   });
 
-  function highlightAndScrollTo(idx, snippet) {
+  function highlightAndScrollTo(idx, tsObj) {
     paragraphElements.forEach(el => el.classList.remove('active-sync'));
     const targetEl = paragraphElements[idx];
     if (targetEl) {
       targetEl.classList.add('active-sync');
+      
+      // Smooth auto-scroll to center
       targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      playerSnippet.textContent = snippet || targetEl.textContent.slice(0, 80) + '...';
+      
+      const segNum = idx + 1;
+      const totalSegs = paragraphElements.length;
+      playerSnippet.textContent = `[Đoạn ${segNum}/${totalSegs}] ${tsObj.text_snippet || targetEl.textContent.slice(0, 70)}`;
     }
   }
 
@@ -245,12 +257,6 @@ document.addEventListener('DOMContentLoaded', () => {
     playBtn.onclick = togglePlay;
     
     sidebarToggleBtn.onclick = () => sidebar.classList.toggle('collapsed');
-    
-    themeToggleBtn.onclick = () => {
-      document.body.classList.toggle('light-theme');
-      const isLight = document.body.classList.contains('light-theme');
-      themeToggleBtn.innerHTML = isLight ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
-    };
 
     rewindBtn.onclick = () => { audioEngine.currentTime = Math.max(0, audioEngine.currentTime - 5); };
     forwardBtn.onclick = () => { audioEngine.currentTime = Math.min(audioEngine.duration, audioEngine.currentTime + 5); };
@@ -309,15 +315,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (q !== '' && hasMatch) group.classList.add('open');
       });
     };
-
-    if (startLearningBtn) {
-      startLearningBtn.onclick = () => {
-        if (manifestData && manifestData.chapters.length > 0) {
-          const firstLesson = manifestData.chapters[0].lessons[0];
-          selectLesson(firstLesson, manifestData.chapters[0].title);
-        }
-      };
-    }
 
     // KEYBOARD SHORTCUTS
     window.addEventListener('keydown', (e) => {
