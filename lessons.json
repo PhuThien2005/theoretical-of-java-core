@@ -737,7 +737,7 @@
         },
         {
           "id": "01-what-is-the-collection-framework-concepts",
-          "title": "Cấu Trúc Tập Hợp (Collections Framework) - Phần 1",
+          "title": "Cấu Trúc Tập Hợp (Collections Framework) - Tổng Quan & Kiến Trúc Core",
           "md_path": "vi/no19_collections_framework/theory/01-what-is-the-collection-framework-concepts.md",
           "mp3_path": "vi/no19_collections_framework/theory/audio/01-what-is-the-collection-framework-concepts.mp3",
           "json_path": "vi/no19_collections_framework/theory/audio/01-what-is-the-collection-framework-concepts.json",
@@ -745,7 +745,7 @@
         },
         {
           "id": "02-arraylist-concepts",
-          "title": "Khung Tập Hợp (Collections Framework) - Phần 2",
+          "title": "ArrayList, LinkedList & Các Triển Khai List Cốt Lõi",
           "md_path": "vi/no19_collections_framework/theory/02-arraylist-concepts.md",
           "mp3_path": "vi/no19_collections_framework/theory/audio/02-arraylist-concepts.mp3",
           "json_path": "vi/no19_collections_framework/theory/audio/02-arraylist-concepts.json",
@@ -753,7 +753,7 @@
         },
         {
           "id": "03-treeset-concepts",
-          "title": "Khung tập hợp (Collections Framework) - Phần 3",
+          "title": "TreeSet, SortedSet, NavigableSet & Hàng Đợi Ưu Tiên",
           "md_path": "vi/no19_collections_framework/theory/03-treeset-concepts.md",
           "mp3_path": "vi/no19_collections_framework/theory/audio/03-treeset-concepts.mp3",
           "json_path": "vi/no19_collections_framework/theory/audio/03-treeset-concepts.json",
@@ -761,7 +761,7 @@
         },
         {
           "id": "04-linkedlist-as-queue-concepts",
-          "title": "Khung bộ sưu tập (Collections Framework) - Phần 4",
+          "title": "Triển Khai Map Cốt Lõi: HashMap, LinkedHashMap, TreeMap & Hashtable",
           "md_path": "vi/no19_collections_framework/theory/04-linkedlist-as-queue-concepts.md",
           "mp3_path": "vi/no19_collections_framework/theory/audio/04-linkedlist-as-queue-concepts.mp3",
           "json_path": "vi/no19_collections_framework/theory/audio/04-linkedlist-as-queue-concepts.json",
@@ -769,7 +769,7 @@
         },
         {
           "id": "05-concurrenthashmap-concepts",
-          "title": "Collections Framework - Phần 5 (Collections Framework - Part 5)",
+          "title": "ConcurrentHashMap & Xử Lý Đa Luồng Trong Collections Framework",
           "md_path": "vi/no19_collections_framework/theory/05-concurrenthashmap-concepts.md",
           "mp3_path": "vi/no19_collections_framework/theory/audio/05-concurrenthashmap-concepts.mp3",
           "json_path": "vi/no19_collections_framework/theory/audio/05-concurrenthashmap-concepts.json",
@@ -777,7 +777,7 @@
         },
         {
           "id": "06-fail-fast-iterator-concepts",
-          "title": "Cấu Trúc Tập Hợp (Collections Framework) - Phần 6",
+          "title": "Fail-Fast & Fail-Safe Iterators Trong Java",
           "md_path": "vi/no19_collections_framework/theory/06-fail-fast-iterator-concepts.md",
           "mp3_path": "vi/no19_collections_framework/theory/audio/06-fail-fast-iterator-concepts.mp3",
           "json_path": "vi/no19_collections_framework/theory/audio/06-fail-fast-iterator-concepts.json",
@@ -785,7 +785,7 @@
         },
         {
           "id": "07-collections-unmodifiablelist-concepts",
-          "title": "Khung Bộ Sưu Tập - Phần 7 (Collections Framework - Part 7)",
+          "title": "Collections.unmodifiableList vs List.of() (Unmodifiable vs Immutable Collections)",
           "md_path": "vi/no19_collections_framework/theory/07-collections-unmodifiablelist-concepts.md",
           "mp3_path": "vi/no19_collections_framework/theory/audio/07-collections-unmodifiablelist-concepts.mp3",
           "json_path": "vi/no19_collections_framework/theory/audio/07-collections-unmodifiablelist-concepts.json",

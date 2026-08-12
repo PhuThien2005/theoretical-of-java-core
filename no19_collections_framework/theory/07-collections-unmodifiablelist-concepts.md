@@ -1,239 +1,107 @@
-# Collections Framework - Part 7
+# Collections.unmodifiableList vs List.of() (Unmodifiable vs Immutable Collections)
 
-## Learning Goal
+## Unmodifiable Views vs True Immutability
 
-This file covers a focused slice of **Collections Framework** including wrapper collections (`unmodifiableList`, `synchronizedList`) and essential `Arrays` utility class algorithms.
+In software design with Java, immutability is a key architectural principle that promotes thread-safe design, simplified reasoning, and side-effect prevention.
 
-## Outline Coverage
+Java provides two distinct mechanisms for constructing read-only lists:
+1. **Unmodifiable View Wrappers**: Exposed via static utility methods such as `Collections.unmodifiableList()`, `Collections.unmodifiableSet()`, and `Collections.unmodifiableMap()`.
+2. **True Immutable Collection Factory Methods (Java 9+)**: Exposed via `List.of()`, `Set.of()`, `Map.of()`, and `List.copyOf()`.
 
-| Concept | What to know |
-| --- | --- |
-| `Collections.unmodifiableList` | Returns a read-only view of a backing list. Attempts to modify it throw `UnsupportedOperationException`. Modifications to the backing list still propagate to the view. |
-| `Collections.synchronizedList` | Returns a thread-safe list backed by the specified list. Iteration requires manual synchronization on the list object. |
-| `Arrays.sort` | Sorts primitive or object arrays. Object arrays use Timsort; primitive arrays use Dual-Pivot Quicksort. |
-| `Arrays.binarySearch` | Searches a sorted array. Returns index of match, or a negative value representing insertion point if not found. Undefined result if array is not sorted. |
-| `Arrays.asList` | Returns a fixed-size list backed by the passed array. Modifications to elements write through to the array, but structural changes (add/remove) throw `UnsupportedOperationException`. |
-| `Arrays.copyOf` | Copies the specified array, truncating or padding with default values as necessary. |
-| `Arrays.equals` | Compares two 1D arrays for equality based on element contents. |
-| `Arrays.deepEquals` | Recursively compares multi-dimensional arrays for deep equality. |
+Although both mechanisms throw `UnsupportedOperationException` upon mutation attempts (`add`, `remove`, `set`), **their underlying implementation mechanics and immutability guarantees differ fundamentally**.
 
-## Detailed Notes
+---
 
-### Unmodifiable vs Immutable Lists
+## Architectural Deep Dive
 
-`Collections.unmodifiableList(List)` returns an **unmodifiable view** of the backing list. It is not fully immutable because modifications to the original backing list are visible in the view. In contrast, `List.copyOf()` and `List.of()` return fully **immutable** lists that hold no reference to any original backing collections.
+### 1. `Collections.unmodifiableList()` Mechanics (View Wrapper Pattern)
+`Collections.unmodifiableList(existingList)` **DOES NOT construct a new collection**.
 
-**Runnable Code Example:**
+```mermaid
+graph LR
+    UserCode[Unmodifiable List View] --> Wrapper[UnmodifiableList Wrapper]
+    Wrapper --> TargetList[Original ArrayList]
+    DirectRef[Direct Reference] --> TargetList
+```
+
+- **Decorator Pattern**: It constructs a lightweight wrapper object implementing `List`. This wrapper intercepts all write operations (`add`, `remove`, `set`) and throws `UnsupportedOperationException`. Read operations (`get`, `size`, `contains`) are directly delegated to the underlying backing list.
+- **Reference Leak & Live Updates**:
+  - If the underlying backing list is mutated via another reference, **the changes immediately reflect in the Unmodifiable View**!
+  - *Conclusion*: `Collections.unmodifiableList()` is a **Read-Only View**, NOT a True Immutable Collection.
+
+---
+
+### 2. Java 9+ Factory Methods (`List.of()` & `List.copyOf()`)
+Introduced in Java 9, `List.of(...)` and `List.copyOf(...)` construct true immutable collections.
+
+- **True Immutability**:
+  - Completely encapsulated data. No external reference can mutate the contents of an immutable list after creation.
+  - `List.copyOf(collection)` automatically performs a **Defensive Copy** if the passed collection is not already a Java 9 immutable list.
+- **Compact Memory Layout**:
+  - For lists with 1 or 2 elements, Java instantiates ultra-compact implementations: `List12<E>` (stores elements directly as 2 fields inside the object, eliminating internal array object allocation $\implies$ minimal RAM usage).
+  - For lists with 3 or more elements, Java utilizes `ListN<E>`.
+- **Strict `null` Prohibition**:
+  - `List.of()` and `Set.of()` throw `NullPointerException` if any element is `null` (during creation or when calling `contains(null)`).
+
+---
+
+## Comprehensive Comparison Matrix
+
+| Feature | `Collections.unmodifiableList(list)` | `List.of(e1, e2)` / `List.copyOf(list)` |
+| :--- | :--- | :--- |
+| **Java Version** | Java 1.2+ | Java 9+ |
+| **Nature** | **Read-Only View Wrapper** over backing List | **True Immutable Collection** |
+| **Backing List Mutation Effect** | **Reflects changes** (Live view wrapper) | **Completely independent** (Defensive copy) |
+| **Permits `null` Elements** | Yes (If backing list permits `null`) | **Prohibits `null`** (throws `NullPointerException`) |
+| **Internal Storage** | Wraps an intermediate `List` instance | Uses lightweight `List12` / `ListN` classes |
+| **Mutation Operations** | Throws `UnsupportedOperationException` | Throws `UnsupportedOperationException` |
+
+---
+
+## Executable Code Example
+
 ```java
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class UnmodifiableDemo {
+public class UnmodifiableVsImmutableDemo {
     public static void main(String[] args) {
-        List<String> backingList = new ArrayList<>();
-        backingList.add("A");
-        backingList.add("B");
+        // 1. Demo Collections.unmodifiableList (Read-only View)
+        List<String> originalList = new ArrayList<>();
+        originalList.add("Alpha");
+        originalList.add("Beta");
 
-        List<String> unmodifiableView = Collections.unmodifiableList(backingList);
-        List<String> immutableList = List.copyOf(backingList);
+        List<String> unmodifiableView = Collections.unmodifiableList(originalList);
+        System.out.println("Initial Unmodifiable View: " + unmodifiableView);
 
-        backingList.add("C"); // Modifying backing list
+        // Mutating backing list reflects in unmodifiable view!
+        originalList.add("Gamma");
+        System.out.println("Unmodifiable View after backing mutation: " + unmodifiableView);
 
-        System.out.println("Unmodifiable view: " + unmodifiableView); // [A, B, C]
-        System.out.println("Immutable List: " + immutableList);       // [A, B]
+        // 2. Demo List.of() & List.copyOf() (True Immutable)
+        List<String> immutableList = List.copyOf(originalList);
+        originalList.add("Delta");
 
+        System.out.println("Immutable List (Unaffected): " + immutableList);
+
+        // Mutation throws UnsupportedOperationException
         try {
-            unmodifiableView.add("D"); // Throws exception
+            immutableList.add("Epsilon");
         } catch (UnsupportedOperationException e) {
-            System.out.println("Cannot modify unmodifiable view directly");
+            System.out.println("Blocked! Cannot mutate List.of / List.copyOf");
         }
-    }
-}
-```
-
-### Collections.synchronizedList
-
-Returns a synchronized (thread-safe) wrapper.
-- **Iteration Trap**: Even though individual methods (`add`, `get`) are synchronized, iterating over the list is NOT thread-safe. You must manually synchronize on the wrapper list object during iteration.
-
-**Runnable Code Example:**
-```java
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-public class SynchronizedListDemo {
-    public static void main(String[] args) {
-        List<String> syncList = Collections.synchronizedList(new ArrayList<>());
-        syncList.add("A");
-        syncList.add("B");
-
-        // Safe iteration requires manual synchronization
-        synchronized (syncList) {
-            for (String s : syncList) {
-                System.out.println(s);
-            }
-        }
-    }
-}
-```
-
-### Arrays Utility Class
-
-- **`Arrays.sort()`** — Arrays.sort(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Arrays.binarySearch()`** — Arrays.binarySearch(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-  - **Rule**: If the element is found, it returns the index. If not found, it returns `-(insertion point) - 1`.
-- **`Arrays.asList()`** — Arrays.asList(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Arrays.equals()`** — Arrays.equals(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
-**Runnable Code Example:**
-```java
-import java.util.Arrays;
-import java.util.List;
-
-public class ArraysDemo {
-    public static void main(String[] args) {
-        // 1. Arrays.asList fixed-size list behavior
-        String[] arr = {"One", "Two"};
-        List<String> list = Arrays.asList(arr);
-        list.set(0, "Updated"); // Writes through to backing array
-        System.out.println("Array value: " + arr[0]); // Updated
-
-        // 2. Binary search on sorted array
-        int[] numbers = {10, 20, 30, 40};
-        int index = Arrays.binarySearch(numbers, 30);
-        System.out.println("Index of 30: " + index); // 2
-
-        // 3. Equals vs Deep Equals
-        int[][] matrix1 = {{1, 2}, {3, 4}};
-        int[][] matrix2 = {{1, 2}, {3, 4}};
-        System.out.println("Equals: " + Arrays.equals(matrix1, matrix2)); // false (checks 1D reference identity)
-        System.out.println("Deep Equals: " + Arrays.deepEquals(matrix1, matrix2)); // true (checks nested contents)
     }
 }
 ```
 
 ---
 
-## Case Study: Evaluating Collections.unmodifiableList vs List.copyOf vs List.of
+## Common Pitfalls & Interview Traps
 
-Let's look at reference behavior, null allowance, and performance characteristics of these unmodifiable/immutable factories.
+1. **Assuming `Collections.unmodifiableList()` Guarantees Data Security**:
+   - *Trap*: Returning `Collections.unmodifiableList(internalList)` in a DTO/Entity Getter assuming complete data protection.
+   - *Fact*: If internal code or caller retains a reference to `internalList`, the returned view updates unexpectedly. **Always use `List.copyOf()` to guarantee true immutability**.
 
-```java
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-public class UnmodifiableComparison {
-    public static void main(String[] args) {
-        List<String> original = new ArrayList<>();
-        original.add("A");
-        original.add(null); // original has null
-
-        // 1. Collections.unmodifiableList allows nulls because it's a wrapper view
-        List<String> view = Collections.unmodifiableList(original);
-        System.out.println("View size: " + view.size()); // 2
-
-        // 2. List.copyOf throws NullPointerException if collection contains null
-        try {
-            List.copyOf(original);
-        } catch (NullPointerException e) {
-            System.out.println("List.copyOf rejected list containing null");
-        }
-
-        // 3. List.of rejects null elements directly
-        try {
-            List.of("A", null);
-        } catch (NullPointerException e) {
-            System.out.println("List.of rejected direct null insertion");
-        }
-
-        // 4. Memory footprint and optimization
-        // List.copyOf of an already immutable list returned by List.copyOf/List.of
-        // will return the SAME reference (no duplication).
-        List<String> immutable1 = List.of("X", "Y");
-        List<String> immutable2 = List.copyOf(immutable1);
-        System.out.println("Same reference: " + (immutable1 == immutable2)); // true!
-    }
-}
-```
-
----
-
-## Common Mistakes
-
-### 1. Adding/removing elements from an `Arrays.asList` list
-Since the list returned by `Arrays.asList` is fixed-size, calling `add()` or `remove()` throws `UnsupportedOperationException`. To get a fully mutable copy, wrap it: `new ArrayList<>(Arrays.asList(arr))`.
-
-### 2. Binary search on unsorted arrays
-Calling `Arrays.binarySearch()` on an unsorted array returns unpredictable results. Always sort the array first.
-
-### 3. Iterating synchronized lists without manual locking
-Writing concurrent loops over `Collections.synchronizedList()` without enclosing in a `synchronized(list)` block is a bug that leads to race conditions or `ConcurrentModificationException` if another thread modifies the list during traversal.
-
----
-
-## Common Review Prompts
-
-- What happens if you call `add()` on an `Arrays.asList()` list? (UnsupportedOperationException)
-- What is the difference between `Arrays.equals` and `Arrays.deepEquals`? (equals is for 1D arrays, deepEquals recursively compares multi-dimensional array structures)
-- Does List.copyOf copy the elements if the source list is already an immutable list? (No, it returns the same instance as an optimization)
-
-## Why Unmodifiable Views and Immutable Collections Differ
-
-In Java, there is a fundamental architectural difference between unmodifiable views and truly immutable collections. When you invoke `Collections.unmodifiableList()`, the JVM constructs a wrapper class (an instance of `Collections.UnmodifiableList`) that delegates all read operations directly to the original backing list, while intercepting write operations to throw an `UnsupportedOperationException`. Because the wrapper retains a live reference to the original list, any structural changes made directly to that backing list are immediately reflected when querying the unmodifiable view. Conversely, `List.of()` and `List.copyOf()` create entirely self-contained, immutable collection instances (e.g., `ImmutableCollections.ListN`) that allocate a fresh, isolated array under the hood. These immutable collections do not reference any external mutable arrays, store elements in a highly optimized structure, reject `null` elements entirely to prevent design bugs, and permit internal JVM optimizations such as returning the same instance when copying an already immutable list.
-
-### Mental Model
-
-Unmodifiable view wraps a live mutable list, whereas immutable collections copy data into a new private structure:
-```text
-Unmodifiable View:
-[ Unmodifiable View ] ---> [ Backing List (Mutable) ] ---> [ Element Array (Heap) ]
-    (Throws on write)        (Modifiable directly)             [ A ] [ B ] [ C ]
-
-Immutable Collection (List.copyOf):
-[ Immutable Collection ] ---> [ Private Immutable Array (Heap) ]
-    (Throws on write)             [ A ] [ B ] (Completely isolated)
-```
-
-### Code Example
-
-```java
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-public class ImmutabilityDemo {
-    public static void main(String[] args) {
-        List<String> mutableList = new ArrayList<>();
-        mutableList.add("Red");
-        mutableList.add("Green");
-
-        // 1. Create wrapper view
-        List<String> view = Collections.unmodifiableList(mutableList);
-
-        // 2. Create copy of list
-        List<String> copy = List.copyOf(mutableList);
-
-        // Modify the original list
-        mutableList.add("Blue");
-
-        System.out.println("Original List: " + mutableList); // Original List: [Red, Green, Blue]
-        System.out.println("Unmodifiable View: " + view);    // Unmodifiable View: [Red, Green, Blue]
-        System.out.println("Immutable Copy: " + copy);        // Immutable Copy: [Red, Green]
-    }
-}
-```
-
-### Cause-Effect Chain
-
-```text
-Call Collections.unmodifiableList() → Wrapper retains reference to backing list → Backing list modified → Reads through the view access the modified backing list → Changes are visible.
-Call List.copyOf() → Elements copied to a new private array structure → Backing list modified → Immutable collection remains completely isolated → Changes are not visible.
-```
-
-## Reference Links
-
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collections.html#unmodifiableList(java.util.List) (unmodifiableList documentation)
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html#copyOf(java.util.Collection) (List.copyOf documentation)
+2. **Passing `null` to `List.of()` or Calling `contains(null)`**:
+   - *Fact*: `List.of("A", null)` throws `NullPointerException`. Even invoking `List.of("A", "B").contains(null)` throws `NullPointerException` rather than returning `false`.

@@ -1,250 +1,126 @@
-# Cấu Trúc Tập Hợp (Collections Framework) - Phần 6
+# Fail-Fast & Fail-Safe Iterators Trong Java
 
-## Mục Tiêu Học Tập
+## Khái Niệm Iterator & Trạng Thái Sửa Đổi Cấu Trúc
 
-File này đề cập đến một phần trọng tâm của **Cấu Trúc Tập Hợp (Collections Framework)** bao gồm các hành vi của bộ lặp (iterator) (`Fail-fast` so với `Fail-safe`), các sửa đổi cấu trúc, và các thuật toán trong lớp tiện ích `Collections` tiêu chuẩn.
+Trong Java Collections Framework, việc duyệt qua một tập hợp dữ liệu được thực hiện thông qua giao diện `Iterator<E>`. Tuy nhiên, điều gì sẽ xảy ra nếu một luồng đang duyệt tập hợp trong khi tập hợp đó bị **thay đổi cấu trúc (structural modification)** bởi một hành động khác?
 
-## Đề Cương Khái Niệm
+Thay đổi cấu trúc bao gồm bất kỳ thao tác nào thêm, xóa hoặc làm thay đổi kích thước (`size`) của tập hợp bên dưới (không bao gồm việc sửa đổi nội dung bên trong của một phần tử hiện có). 
 
-- **`Fail-fast iterator`** — Fail-fast iterator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Fail-safe iterator`** — Fail-safe iterator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ConcurrentModificationException`** — ConcurrentModificationException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Collections.sort`** — Collections.sort: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Collections.reverse`** — Collections.reverse: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Collections.shuffle`** — Collections.shuffle: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Collections.max`** — Collections.max: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Collections.min`** — Collections.min: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+Để xử lý bài toán này, Java chia các trình duyệt (Iterators) thành hai chiến lược chính: **Fail-Fast** và **Fail-Safe (Weakly-Consistent)**.
 
-## Ghi Chú Chi Tiết
+---
 
-### Bộ Lặp Fail-Fast (Fail-Fast Iterator)
+## Phân Tích Chuyên Sâu Trình Duyệt Fail-Fast
 
-Các bộ lặp cho các tập hợp tiêu chuẩn (như `ArrayList`, `HashSet`, `HashMap`) có tính chất **fail-fast**.
-- **Cơ chế**: Tập hợp duy trì một bộ đếm được gọi là `modCount` (số lần sửa đổi - modification count). Khi một bộ lặp được tạo ra, nó sao chép `modCount` vào `expectedModCount`. Trên mỗi lời gọi `next()` hoặc `remove()`, bộ lặp sẽ so sánh hai giá trị đếm này. Nếu chúng không khớp (nghĩa là đã xảy ra sửa đổi bên ngoài bộ lặp), nó sẽ ngay lập tức ném ra `ConcurrentModificationException`.
+Hầu hết các tập hợp chuẩn không an toàn đa luồng trong `java.util` (như `ArrayList`, `HashSet`, `HashMap`, `LinkedList`, `Vector`) đều sử dụng trình duyệt **Fail-Fast**.
 
-**Ví dụ Mã Nguồn Chạy Được (Hành vi Fail-Fast):**
+```mermaid
+sequenceDiagram
+    participant Loop as Vòng lặp For-Each
+    participant Iter as Fail-Fast Iterator
+    participant Coll as ArrayList (modCount)
+    
+    Loop->>Iter: next()
+    Iter->>Coll: Kiểm tra expectedModCount == modCount
+    Coll-->>Iter: Khớp (Equal)
+    Iter-->>Loop: Trả về phần tử
+    
+    Note over Coll: Luồng khác gọi list.add() -> modCount++
+    
+    Loop->>Iter: next()
+    Iter->>Coll: Kiểm tra expectedModCount == modCount
+    Coll-->>Iter: Không khớp (Mismatch!)
+    Iter-->>Loop: Ném ConcurrentModificationException!
+```
+
+### 1. Cơ Chế Báo Động `modCount`
+- Lớp tập hợp duy trì một trường dữ liệu đếm số lần sửa đổi cấu trúc gọi là `modCount` (bảo vệ bởi từ khóa `transient int modCount`).
+- Khi một `Iterator` được tạo ra, nó lưu lại giá trị `modCount` tại thời điểm đó vào trường nội bộ `expectedModCount`:
+  $$\text{expectedModCount} = \text{modCount}$$
+- Trong **mỗi lời gọi** `next()` hoặc `remove()`, `Iterator` kiểm tra điều kiện an toàn:
+  ```java
+  final void checkForComodification() {
+      if (modCount != expectedModCount)
+          throw new ConcurrentModificationException();
+  }
+  ```
+- Nếu phát hiện `modCount != expectedModCount`, `Iterator` sẽ ngay lập tức ném ra ngoại lệ `ConcurrentModificationException` để ngăn chặn việc duyệt tiếp trên một tập hợp đã bị hỏng trạng thái.
+
+### 2. Chiến Lược Sửa Đổi An Toàn Khi Duyệt Tập Hợp Fail-Fast
+Có 2 cách hợp lệ để sửa đổi tập hợp trong quá trình duyệt mà không gây ra ngoại lệ:
+1. **Sử dụng `Iterator.remove()`**: Phương thức `remove()` của chính Iterator sẽ cập nhật cả `modCount` của tập hợp lẫn `expectedModCount` của Iterator, giữ cho chúng luôn bằng nhau.
+2. **Sử dụng `Collection.removeIf(Predicate)` (Java 8+)**: Phương thức tiện ích nội bộ xử lý việc xóa an toàn trong một thao tác duy nhất.
+
+---
+
+## Phân Tích Chuyên Sâu Trình Duyệt Fail-Safe / Nhất Quán Yếu
+
+Các tập hợp đa luồng trong `java.util.concurrent` (như `CopyOnWriteArrayList`, `ConcurrentHashMap`, `ConcurrentLinkedQueue`) sử dụng trình duyệt **Fail-Safe** hoặc **Weakly-Consistent**.
+
+### 1. Cơ Chế Sao Chép Khi Ghi (`CopyOnWriteArrayList`)
+- Khi tạo `Iterator`, nó tham chiếu trực tiếp đến **mảng ảnh chụp (snapshot array)** tại thời điểm đó.
+- Bất kỳ thao tác thêm/xóa nào trên `CopyOnWriteArrayList` sẽ tạo ra một bản sao mảng mới hoàn toàn. `Iterator` hiện tại vẫn tiếp tục duyệt trên mảng ảnh chụp cũ mà không bị ảnh hưởng.
+- *Đánh đổi*: Tốn bộ nhớ khi ghi nhiều, nhưng bù lại thao tác đọc/duyệt hoàn toàn không cần khóa và không bao giờ ném `ConcurrentModificationException`.
+
+### 2. Cơ Chế Nhất Quán Yếu (`ConcurrentHashMap`)
+- Duyệt trực tiếp trên mảng thùng băm mà không cần tạo bản sao mảng.
+- Phản ánh trạng thái của Map tại hoặc sau thời điểm tạo Iterator.
+- Không ném `ConcurrentModificationException` khi có luồng khác ghi đồng thời.
+
+---
+
+## Bảng So Sánh Chi Tiết Fail-Fast vs Fail-Safe
+
+| Tiêu Chí | Fail-Fast Iterator | Fail-Safe / Weakly-Consistent Iterator |
+| :--- | :--- | :--- |
+| **Gói hỗ trợ (Package)** | `java.util.*` (`ArrayList`, `HashMap`...) | `java.util.concurrent.*` (`CopyOnWriteArrayList`...) |
+| **Ném ngoại lệ `ConcurrentModificationException`** | **Có** (Ngay lập tức khi phát hiện sửa đổi) | **Không bao giờ** |
+| **Cơ chế hoạt động** | Kiểm tra biến đếm `modCount == expectedModCount` | Duyệt trên mảng ảnh chụp (Snapshot) hoặc con trỏ Volatile |
+| **Chi phí bộ nhớ & Hiệu năng** | Thấp ($O(1)$ bộ nhớ phụ) | Cao hơn nếu phải tạo mảng ảnh chụp khi ghi |
+| **Phản ánh thay đổi tức thời** | Không (Hành vi bị cấm) | Có thể phản ánh hoặc không phản ánh thay đổi |
+
+---
+
+## Minh Họa Mã Nguồn Chạy Được
+
 ```java
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
-public class FailFastDemo {
-    public static void main(String[] args) {
-        List<String> list = new ArrayList<>(List.of("A", "B", "C"));
-        Iterator<String> it = list.iterator();
-
-        try {
-            while (it.hasNext()) {
-                String val = it.next();
-                if (val.equals("B")) {
-                    list.remove(val); // Modifies the collection structurally!
-                }
-            }
-        } catch (java.util.ConcurrentModificationException e) {
-            System.out.println("Caught expected ConcurrentModificationException");
-        }
-    }
-}
-```
-
-### Bộ Lặp Fail-Safe / Nhất Quán Yếu (Fail-Safe / Weakly Consistent Iterator)
-
-Các bộ lặp cho các tập hợp đồng thời (như `CopyOnWriteArrayList`, `ConcurrentHashMap`) không ném ra `ConcurrentModificationException`.
-- **Dựa trên bản chụp (Snapshot-based) (ví dụ: `CopyOnWriteArrayList`)**: Bộ lặp hoạt động trên một bản chụp (snapshot) của mảng cơ sở được chụp lại khi bộ lặp được tạo ra. Các sửa đổi trong quá trình duyệt sẽ tạo ra các bản sao mảng mới, giữ cho bản chụp của bộ lặp không bị ảnh hưởng.
-- **Nhất quán yếu (Weakly consistent) (ví dụ: `ConcurrentHashMap`)**: Bộ lặp duyệt qua các phần tử khi chúng tồn tại, và có thể phản ánh hoặc không phản ánh các sửa đổi tiếp theo, nhưng sẽ không bao giờ gây lỗi crash.
-
-**Ví dụ Mã Nguồn Chạy Được (Duyệt Trên Bản Chụp):**
-```java
-import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class FailSafeDemo {
+public class IteratorBehaviorDemo {
     public static void main(String[] args) {
-        CopyOnWriteArrayList<String> list = new CopyOnWriteArrayList<>(new String[]{"A", "B", "C"});
+        // 1. Fail-Fast Iterator với ArrayList (Xóa an toàn bằng Iterator.remove)
+        List<String> list = new ArrayList<>(List.of("A", "B", "C", "D"));
         Iterator<String> it = list.iterator();
-
         while (it.hasNext()) {
             String val = it.next();
             if (val.equals("B")) {
-                list.remove(val); // Safe, makes a copy under the hood
+                it.remove(); // Hợp lệ! Cập nhật đồng thời modCount & expectedModCount
             }
         }
-        System.out.println("List after loop: " + list); // [A, C]
-    }
-}
-```
+        System.out.println("ArrayList sau khi xóa an toàn qua Iterator: " + list);
 
-### Lớp Tiện Ích Collections
-
-`java.util.Collections` cung cấp các thuật toán tĩnh hoạt động trên các tập hợp.
-- **`sort(List<T> list)`** — sort(List<T> list): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`reverse(List<?> list)`** — reverse(List<?> list): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`shuffle(List<?> list)`** — shuffle(List<?> list): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`max(Collection<? extends T> coll)`** — max(Collection<? extends T> coll): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
-**Ví dụ Mã Nguồn Chạy Được:**
-```java
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-public class CollectionsDemo {
-    public static void main(String[] args) {
-        List<Integer> numbers = new ArrayList<>(List.of(30, 10, 20));
-
-        Collections.sort(numbers);
-        System.out.println("Sorted: " + numbers); // [10, 20, 30]
-
-        Collections.reverse(numbers);
-        System.out.println("Reversed: " + numbers); // [30, 20, 10]
-
-        Collections.shuffle(numbers);
-        System.out.println("Max: " + Collections.max(numbers)); // 30
+        // 2. Fail-Safe Iterator với CopyOnWriteArrayList
+        List<String> cowList = new CopyOnWriteArrayList<>(List.of("X", "Y", "Z"));
+        for (String item : cowList) {
+            if (item.equals("Y")) {
+                cowList.add("NEW"); // Không ném ngoại lệ! Ghi vào bản sao mảng mới
+            }
+        }
+        System.out.println("CopyOnWriteArrayList sau khi chỉnh sửa trong loop: " + cowList);
     }
 }
 ```
 
 ---
 
-## Ví Dụ Thực Tế: Phân Tích Hiệu Năng Của Bộ Lặp Fail-Fast Với Bộ Lặp Snapshot
+## Bẫy Phỏng Vấn & Lưu Ý Thực Tế
 
-Hãy viết một bài kiểm tra hiệu năng để quan sát chi phí của các sửa đổi trên tập hợp tiêu chuẩn (vốn ném ra ngoại lệ trừ khi sử dụng `iterator.remove()`) so với các tập hợp đồng thời dựa trên bản chụp (vốn sao chép toàn bộ mảng sao lưu khi ghi).
+1. **Lầm Tưởng Duyệt For-Index Là An Toàn Tuyệt Đối**:
+   - *Bẫy*: Sử dụng vòng lặp chỉ số `for (int i = 0; i < list.size(); i++)` để xóa phần tử.
+   - *Thực tế*: Dù không ném `ConcurrentModificationException`, việc `list.remove(i)` sẽ làm dịch chuyển các phần tử phía sau sang trái $\implies$ Phần tử ngay sau `i` sẽ bị **bỏ sót hoàn toàn** không được duyệt!
 
-```java
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-
-public class IteratorBenchmark {
-    public static void main(String[] args) {
-        int count = 10_000;
-        
-        // 1. Benchmarking ArrayList using Iterator.remove()
-        List<Integer> arrayList = new ArrayList<>();
-        for (int i = 0; i < count; i++) arrayList.add(i);
-
-        long start = System.currentTimeMillis();
-        Iterator<Integer> it1 = arrayList.iterator();
-        while (it1.hasNext()) {
-            if (it1.next() % 2 == 0) {
-                it1.remove(); // Structural modification through iterator is fast and allowed
-            }
-        }
-        long durationArrayList = System.currentTimeMillis() - start;
-
-        // 2. Benchmarking CopyOnWriteArrayList using list.remove()
-        List<Integer> cowList = new CopyOnWriteArrayList<>();
-        for (int i = 0; i < count; i++) cowList.add(i);
-
-        start = System.currentTimeMillis();
-        Iterator<Integer> it2 = cowList.iterator();
-        while (it2.hasNext()) {
-            int val = it2.next();
-            if (val % 2 == 0) {
-                cowList.remove(Integer.valueOf(val)); // Triggers array copying every time!
-            }
-        }
-        long durationCowList = System.currentTimeMillis() - start;
-
-        System.out.println("ArrayList (iterator.remove()): " + durationArrayList + " ms");
-        System.out.println("CopyOnWriteArrayList (cowList.remove()): " + durationCowList + " ms");
-    }
-}
-```
-
----
-
-## Các Lỗi Thường Gặp
-
-### 1. Sửa Đổi Một List Trong Vòng Lặp For-Each
-
-Vòng lặp for-each trong Java sử dụng một bộ lặp một cách nội bộ. Gọi `list.remove(item)` bên trong vòng lặp for-each sẽ kích hoạt một `ConcurrentModificationException` vì sửa đổi này mang tính cấu trúc và diễn ra bên ngoài bộ lặp.
-```java
-// BUG: Will throw ConcurrentModificationException
-for (String item : list) {
-    if (item.equals("target")) {
-        list.remove(item);
-    }
-}
-```
-
-### 2. Chi Phí Lớn Của Các Phép Ghi Trên CopyOnWriteArrayList
-
-Sử dụng `CopyOnWriteArrayList` trong một vòng lặp chuyên ghi dữ liệu là một sai lầm rất lớn. Vì mỗi lần ghi sẽ tạo một bản sao của mảng sao lưu, các danh sách lớn sẽ gây ra hiện tượng xáo trộn bộ nhớ và dẫn đến các khoảng tạm dừng để thu gom rác (garbage collection pause).
-
-### 3. Giả Định Rằng Việc Sửa Đổi Iterator Luôn Ảnh Hưởng Đến Tập Hợp Gốc Trong Mọi Kiểu Danh Sách
-
-Một số dạng xem danh sách (như `List.of()` hoặc `Collections.unmodifiableList()`) sẽ ném ra `UnsupportedOperationException` nếu bạn gọi `iterator.remove()`.
-
----
-
-## Các Câu Hỏi Ôn Tập Thường Gặp
-
-- Làm thế nào một bộ lặp fail-fast phát hiện các sửa đổi đồng thời? (Bằng cách so sánh giá trị expectedModCount của bộ lặp với modCount của tập hợp)
-- Kiểu bộ lặp nào được trả về bởi bộ lặp của CopyOnWriteArrayList? (Một bộ lặp mảng bản chụp không theo dõi các sửa đổi)
-- Liệu Collections.sort sửa đổi danh sách tại chỗ hay trả về một danh sách mới? (Nó sửa đổi danh sách tại chỗ)
-
-## Tại Sao Bộ Lặp Fail-Fast Ném Ra ConcurrentModificationException
-
-Để ngăn chặn các hành vi runtime không thể đoán trước và lỗi hỏng dữ liệu, các tập hợp không đồng thời của Java sử dụng cơ chế bộ lặp fail-fast để phát hiện các sửa đổi đồng thời. Tập hợp bên dưới duy trì một trình theo dõi nội bộ gọi là `modCount` (số lần sửa đổi), số này sẽ tăng lên sau mỗi lần sửa đổi cấu trúc như thêm, chèn hoặc xóa. Khi một bộ lặp được khởi tạo, nó sẽ lưu giá trị bộ đếm này vào trường riêng của nó là `expectedModCount`. Trong suốt các hoạt động tiếp theo như `next()`, `remove()`, hoặc `forEachRemaining()`, bộ lặp so sánh `modCount` đang chạy của tập hợp với giá trị `expectedModCount` mà nó lưu trữ. Nếu chúng không khớp, cho thấy tập hợp đã bị thay đổi ngoài tầm kiểm soát của bộ lặp, bộ lặp sẽ ngay lập tức ném ra một ngoại lệ `ConcurrentModificationException`. Ngược lại, các bộ lặp fail-safe hoặc nhất quán yếu (như của `CopyOnWriteArrayList`) tránh hoàn toàn xung đột này bằng cách duyệt trên một bản chụp bất biến của mảng sao lưu được tạo tại thời điểm xây dựng bộ lặp, nghĩa là các sửa đổi đối với tập hợp đang chạy sẽ nhắm vào một bản sao riêng biệt và không bao giờ can thiệp vào bản chụp của bộ lặp.
-
-### Bộ Lặp Fail-Fast Kiểm Tra Số Lần Sửa Đổi Ở Mỗi Bước (Mental Model)
-
-```text
-Trạng thái tập hợp: modCount = 3
-Khởi tạo bộ lặp -> expectedModCount = 3
-
-1. Gọi iterator.next():
-   So sánh modCount (3) == expectedModCount (3) -> OK! Trả về phần tử.
-
-2. Gọi collection.remove(x) (ngoài bộ lặp):
-   Tập hợp tăng modCount lên 4.
-
-3. Gọi iterator.next():
-   So sánh modCount (4) == expectedModCount (3) -> Phát hiện không khớp!
-   Hành động: Ném ConcurrentModificationException ngay lập tức.
-```
-
-### Ví Dụ Mã Nguồn (Code Example)
-
-```java
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
-public class ConcurrentModificationDemo {
-    public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("Java");
-        list.add("Python");
-        list.add("Go");
-
-        Iterator<String> iterator = list.iterator();
-
-        try {
-            while (iterator.hasNext()) {
-                String language = iterator.next();
-                if (language.equals("Python")) {
-                    // Modifying the backing list directly, not via iterator.remove()
-                    list.remove(language);
-                }
-            }
-        } catch (java.util.ConcurrentModificationException e) {
-            System.out.println("Caught ConcurrentModificationException!");
-            // Caught ConcurrentModificationException!
-        }
-    }
-}
-```
-
-### Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)
-
-```text
-Khởi tạo Bộ lặp → Lưu modCount vào expectedModCount → Sửa đổi cấu trúc tập hợp (thêm/xóa) → modCount tăng trên tập hợp cơ sở → Bộ lặp gọi next() và so sánh modCount với expectedModCount → Phát hiện không khớp → Ném ConcurrentModificationException ngay lập tức
-```
-
-## Liên Kết Tham Khảo (Reference Links)
-
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ConcurrentModificationException.html (Tài liệu API ConcurrentModificationException)
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CopyOnWriteArrayList.html (Tài liệu API CopyOnWriteArrayList)
+2. **Tính Tính Chất Best-Effort Của Fail-Fast**:
+   - *Thực tế*: Javadoc của Java nhấn mạnh rằng cơ chế fail-fast chỉ mang tính chất *nỗ lực tối đa (best-effort)*. Không nên dựa vào `ConcurrentModificationException` để viết logic chương trình chính xác trong môi trường đa luồng.

@@ -1,193 +1,132 @@
-# Collections Framework - Part 2
+# ArrayList, LinkedList & Core List Implementations
 
-## Learning Goal
+## List Interface & Implementation Overview
 
-This file covers a focused slice of **Collections Framework**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
-| Concept | What to know |
-| --- | --- |
-| `ArrayList` | A List is an ordered collection that can contain duplicates and supports positional access. |
-| `LinkedList` | A List is an ordered collection that can contain duplicates and supports positional access. |
-| `Vector` |`Vector` — A synchronized, thread-safe legacy List implementation backed by a dynamically resizing array. |
-| `Stack` | Stack stores method frames, local variables, and call flow for each thread. |
-| `Comparing ArrayList and LinkedList` | A List is an ordered collection that can contain duplicates and supports positional access. |
-| `When to use List?` | A List is an ordered collection that can contain duplicates and supports positional access. |
-| `HashSet` | A Set is a collection that rejects duplicates according to equality rules. |
-| `LinkedHashSet` | A Set is a collection that rejects duplicates according to equality rules. |
-
-## Detailed Notes
-
-### ArrayList
-
-An `ArrayList` is a resizable-array implementation of the `List` interface. 
-- **Internal Structure**: Backed by a standard Java array. When the array is full, it dynamically grows by creating a new array (usually `1.5x` the old capacity) and copying elements over via `System.arraycopy()`.
-- **Complexity**: O(1) random access by index. Adding/removing elements at the end is amortized O(1), but adding/removing in the middle requires shifting elements, which is O(N).
-
-### LinkedList
-
-A `LinkedList` is a doubly-linked list implementation of the `List` and `Deque` interfaces.
-- **Internal Structure**: Composed of nodes, where each node has a reference to the element, the `next` node, and the `prev` node.
-- **Complexity**: O(N) lookup time, as it must traverse from head or tail to locate the index. Insertion and removal at the head/tail are O(1), and insertion/removal at a known iterator position is O(1).
-
-### Vector
-
-`Vector` is a legacy, thread-safe version of `ArrayList`.
-- **Synchronization**: Every public method is individually `synchronized`, leading to massive thread-contention overhead.
-- **Obsolete**: Virtually obsolete. For single-thread applications, use `ArrayList`. For multi-thread applications, prefer `CopyOnWriteArrayList` or wrap with `Collections.synchronizedList()`.
-
-### Stack
-
-The `Stack` class represents a last-in-first-out (LIFO) stack of objects.
-- **Design Flaw**: `Stack` extends `Vector`, which means it inherits all list operations (like index-based insertion/removal at arbitrary indices), violating the stack abstraction. It is also synchronized, harming performance.
-- **Replacement**: Use `Deque` implementations like `ArrayDeque` for stack operations.
-
-### Comparing ArrayList and LinkedList
-
-| Operation | ArrayList | LinkedList | Note |
-| --- | --- | --- | --- |
-| **Get (index)** | `O(1)` | `O(N)` | ArrayList uses direct array offsetting. |
-| **Insert/Remove (End)** | `O(1)` (Amortized) | `O(1)` | ArrayList may trigger resize; LinkedList updates pointers. |
-| **Insert/Remove (Front)**| `O(N)` | `O(1)` | ArrayList shifts all items; LinkedList updates head pointers. |
-| **Insert/Remove (Middle)**| `O(N)` | `O(N)` | LinkedList must traverse to middle index; ArrayList shifts. |
-| **Memory Overhead** | Low (contiguous array) | High (3 references per node) | LinkedList creates a wrapper object for every element. |
-
-#### Memory & Cache Friendliness
-`ArrayList` stores elements in a contiguous block of memory. This matches modern CPU cache structures perfectly: loading one element pulls adjacent elements into the L2/L3 cache (spatial locality). `LinkedList` nodes can be scattered all over the heap, causing CPU cache misses on traversal.
-
-### When to use List?
-Use a `List` when:
-1. Element order needs to be preserved.
-2. Duplicate elements are acceptable.
-3. Index-based element retrieval is required.
-*Default choice: Always prefer `ArrayList` unless you have verified requirements for extensive insertion/removal at the head.*
-
-### HashSet
-
-A `HashSet` is a Set backed by a `HashMap` instance.
-- **Ordering**: Offers no guarantee of iteration order. Order can change when new elements are added.
-- **Performance**: O(1) time complexity for basic operations (`add`, `remove`, `contains`), assuming a good hash function.
-- **Nulls**: Allows one `null` element.
-
-### LinkedHashSet
-
-`LinkedHashSet` is a hash-table and doubly-linked-list implementation of the `Set` interface.
-- **Ordering**: Maintains insertion order. Iteration returns elements in the order they were added.
-- **Performance**: O(1) operations, slightly slower than `HashSet` due to the cost of maintaining the doubly-linked list pointers.
+The `List<E>` interface in the Java Collections Framework models an **ordered sequence** that **permits duplicate elements**. Although all concrete `List` implementations adhere to the same API contract, their underlying data structures and memory layout strategies produce significant differences in runtime execution efficiency and memory footprint.
 
 ---
 
-**Runnable Code Example (Performance & Order Comparison):**
-```java
-import java.util.*;
+## Deep Architectural Analysis
 
-public class ListSetComparison {
-    public static void main(String[] args) {
-        // 1. Insertion order comparison
-        Set<String> hashSet = new HashSet<>();
-        Set<String> linkedHashSet = new LinkedHashSet<>();
-        
-        List<String> fruits = List.of("Orange", "Apple", "Banana");
-        hashSet.addAll(fruits);
-        linkedHashSet.addAll(fruits);
-        
-        System.out.println("HashSet (arbitrary order): " + hashSet);
-        System.out.println("LinkedHashSet (insertion order): " + linkedHashSet);
-        
-        // 2. Performance Comparison (ArrayList vs LinkedList lookup)
-        List<Integer> arrayList = new ArrayList<>();
-        List<Integer> linkedList = new LinkedList<>();
-        int count = 100_000;
-        
-        for (int i = 0; i < count; i++) {
-            arrayList.add(i);
-            linkedList.add(i);
-        }
-        
-        long start = System.nanoTime();
-        int val1 = arrayList.get(count / 2);
-        long arrayListTime = System.nanoTime() - start;
-        
-        start = System.nanoTime();
-        int val2 = linkedList.get(count / 2);
-        long linkedListTime = System.nanoTime() - start;
-        
-        System.out.println("ArrayList mid-lookup time: " + arrayListTime + " ns");
-        System.out.println("LinkedList mid-lookup time: " + linkedListTime + " ns");
-    }
-}
-```
+### 1. Mechanics of `ArrayList`
+`ArrayList` is backed by a standard dynamic Java array (`Object[] elementData`).
+
+- **Resizing Mechanism**:
+  - When an element is added to a full `ArrayList` (`size == capacity`), it automatically allocates a larger array:
+    $$\text{New Capacity} = \text{Old Capacity} + (\text{Old Capacity} \gg 1) = 1.5 \times \text{Old Capacity}$$
+  - The elements from the old array are copied into the new array using system-level `System.arraycopy()`.
+- **Algorithmic Complexity**:
+  - Index-based lookup `get(index)` / `set(index)`: $O(1)$ time complexity due to direct pointer offset calculation:
+    $$\text{Address}(i) = \text{Base Address} + i \times \text{Element Size}$$
+  - Appending elements `add(element)`: **Amortized $O(1)$**. The $O(N)$ reallocation overhead is distributed across $N$ successful insertions.
+  - Insertion/Deletion at the start or middle: $O(N)$ due to element array shifting.
+
+- **CPU Cache Locality**:
+  `ArrayList` stores elements contiguously in memory. Loading an element into L1/L2/L3 cache loads adjacent elements simultaneously (Spatial Locality), drastically reducing CPU cache misses compared to linked structures.
 
 ---
 
-## Common Mistakes
+### 2. Mechanics of `LinkedList`
+`LinkedList` is a doubly-linked list implementation of the `List` and `Deque` interfaces, wrapping each element inside a dedicated `Node<E>` object.
 
-### 1. Believing LinkedList is always faster for additions
-A common misconception is that `LinkedList` is always superior for adding elements. While pointer updates are O(1), finding the index where the insertion must occur takes O(N) time. Furthermore, because each insertion creates a new node object, `LinkedList` causes far more garbage collection activity than `ArrayList`.
-
-### 2. Using Stack instead of Deque
-Using the legacy `java.util.Stack` class exposes synchronization overhead and bad OOP design (exposing list methods). Instead, use `Deque<Integer> stack = new ArrayDeque<>();`.
-
-### 3. Modifying keys in a HashSet
-If you insert a mutable object into a `HashSet`, and then modify that object's fields such that its `hashCode()` changes, the element is lost inside the Set. Attempts to search for it using `contains()` will return `false`, because Java searches in the bucket matching the new hashcode, while the object remains in the bucket matching the old hashcode.
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
-
-## Why ArrayList Resizes by 1.5x
-
-When an `ArrayList` exceeds its current capacity, it must resize to accommodate new elements. The JDK implementation of `ArrayList` grows its capacity by 50% (1.5x) using the formula `newCapacity = oldCapacity + (oldCapacity >> 1)`. This growth factor of 1.5 represents a mathematical sweet spot in computer systems engineering: growing by 2x would waste too much memory and prevent memory reuse in subsequent allocations, while a factor closer to 1.0 would cause frequent, expensive resizes. Because Java arrays are allocated as contiguous memory blocks on the JVM heap, their size is immutable once created. Consequently, to resize, the JVM must allocate a completely new array of the larger size and copy every existing reference over via `Arrays.copyOf()` (which delegates to the native `System.arraycopy()`), making the resizing operation an `O(N)` complexity cost in the worst case.
-
-### Mental Model
-
-When the backing array is full, a larger array is allocated and elements are copied:
-```text
-Backing Array (Full, Capacity 4):
-[ A ] [ B ] [ C ] [ D ]  (Contiguous heap memory)
-  |     |     |     |
-  v     v     v     v
-Allocating new array (1.5x size = Capacity 6):
-[ A ] [ B ] [ C ] [ D ] [   ] [   ]
-  |     |     |     |     ^     ^
-  +-----+-----+-----+-----+-----+---- (Elements copied via System.arraycopy)
+```mermaid
+graph LR
+    Head --> Node1[Node A]
+    Node1 <--> Node2[Node B]
+    Node2 <--> Node3[Node C]
+    Node3 --> Tail
 ```
 
-### Code Example
+- **Node Overhead**:
+  Each `Node<E>` contains 3 fields: `E item`, `Node<E> next`, and `Node<E> prev`. On a 64-bit JVM with Compressed OOPs, a node object adds approximately **24 - 32 bytes** of overhead per element purely for pointer references.
+- **Algorithmic Complexity**:
+  - Positional lookup `get(index)`: $O(N)$ time complexity. `LinkedList` checks if `index < (size >> 1)` to traverse forward from head or backward from tail.
+  - Insert/Remove at ends (`addFirst`, `removeFirst`, `addLast`, `removeLast`): $O(1)$ pointer update.
+  - Insert/Remove at arbitrary position given a valid Iterator: $O(1)$.
+
+---
+
+### 3. Legacy Classes: `Vector` & `Stack`
+
+- **`Vector`**:
+  - Dynamic array similar to `ArrayList` with all public methods marked `synchronized`.
+  - Doubles capacity ($2\times$) when full.
+  - *Status*: Obsolete. Coarse-grained synchronization causes severe thread contention penalties. Use `Collections.synchronizedList()` or `CopyOnWriteArrayList` for thread safety.
+
+- **`Stack`**:
+  - Extends `Vector` to model a LIFO (Last-In-First-Out) stack.
+  - *Design Flaw*: Inheritance from `Vector` permits arbitrary positional insertion/deletion (`add(index, element)`), violating LIFO abstraction invariants.
+  - *Replacement*: Use `ArrayDeque` for stack or queue operations.
+
+---
+
+### 4. Related Set Implementations: `HashSet` & `LinkedHashSet`
+
+- **`HashSet`**:
+  - Uses an internal `HashMap` for storage, storing elements as keys mapped to a dummy object constant (`PRESENT`).
+  - $O(1)$ for `add`, `remove`, `contains`. Unordered.
+- **`LinkedHashSet`**:
+  - Extends `HashSet` with a doubly-linked list running through all entries.
+  - Preserves exact **insertion order** during iteration.
+
+---
+
+## Comparative Performance Matrix
+
+| Metric | `ArrayList` | `LinkedList` | `Vector` | `ArrayDeque` (LIFO/FIFO) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Data Structure** | Dynamic Array (`Object[]`) | Doubly-Linked List | Synchronized Array | Circular Array |
+| **Random Access `get(i)`** | $O(1)$ | $O(N)$ | $O(1)$ | $O(1)$ (Ends) |
+| **Add/Remove Tail** | $O(1)$ (Amortized) | $O(1)$ | $O(1)$ (Amortized) | $O(1)$ |
+| **Add/Remove Head** | $O(N)$ | $O(1)$ | $O(N)$ | $O(1)$ |
+| **CPU Cache Locality** | High | Low (Cache Misses) | High | High |
+| **Memory Overhead/Element** | Low | High (Node Objects) | Low | Low |
+| **Thread Safety** | No | No | Yes (`synchronized`) | No |
+
+---
+
+## Executable Code Example
 
 ```java
+import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.lang.reflect.Field;
+import java.util.Deque;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
 
-public class ArrayListResizeDemo {
-    public static void main(String[] args) throws Exception {
-        ArrayList<Integer> list = new ArrayList<>(4);
-        System.out.println("Initial size: " + list.size()); // Initial size: 0
-        
-        list.add(1); list.add(2); list.add(3); list.add(4);
-        // Under the hood, capacity is 4. Adding 5th element triggers grow()
-        list.add(5);
-        
-        // Reflectively check the backing array capacity
-        Field elementDataField = ArrayList.class.getDeclaredField("elementData");
-        elementDataField.setAccessible(true);
-        Object[] elementData = (Object[]) elementDataField.get(list);
-        System.out.println("New capacity after 1.5x resize: " + elementData.length);
-        // New capacity after 1.5x resize: 6
+public class ListImplementationsDemo {
+    public static void main(String[] args) {
+        // 1. ArrayList: Fast indexed access
+        List<String> arrayList = new ArrayList<>();
+        arrayList.add("Java");
+        arrayList.add("Kotlin");
+        System.out.println("ArrayList element at index 1: " + arrayList.get(1));
+
+        // 2. ArrayDeque: Modern Stack replacement
+        Deque<String> stack = new ArrayDeque<>();
+        stack.push("Layer 1");
+        stack.push("Layer 2");
+        System.out.println("Stack Pop (LIFO): " + stack.pop());
+
+        // 3. HashSet vs LinkedHashSet ordering
+        Set<String> hashSet = new HashSet<>(List.of("C", "A", "B"));
+        Set<String> linkedHashSet = new LinkedHashSet<>(List.of("C", "A", "B"));
+
+        System.out.println("HashSet (Arbitrary order): " + hashSet);
+        System.out.println("LinkedHashSet (Insertion order C->A->B): " + linkedHashSet);
     }
 }
 ```
 
-### Cause-Effect Chain
+---
 
-```text
-ArrayList reaches capacity limit → Add operation triggers grow() internal helper → Bitwise shift calculates capacity + capacity/2 (1.5x) → JVM allocates new contiguous array on Heap → System.arraycopy() copies all elements (O(N) cost) → Old backing array reference is discarded for Garbage Collection
-```
+## Common Pitfalls & Interview Traps
 
-## Reference Links
+1. **Assuming `LinkedList` is Always Faster for Insertions**:
+   - *Fact*: Inserting into the middle of a `LinkedList` requires traversing $O(N)$ nodes first. Pointer chasing on the Heap causes `LinkedList` to be slower than `ArrayList` in practice.
 
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html (ArrayList class API docs)
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Arrays.html#copyOf(T%5B%5D,int) (Arrays.copyOf method)
+2. **Omitting Initial Capacity for `ArrayList`**:
+   - *Fact*: When total elements are known beforehand (e.g. 100,000 items), instantiate `new ArrayList<>(100000)` to avoid repeated array allocations and memory copy calls.

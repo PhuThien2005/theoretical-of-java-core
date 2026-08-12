@@ -1,239 +1,107 @@
-# Khung Bộ Sưu Tập - Phần 7 (Collections Framework - Part 7)
+# Collections.unmodifiableList vs List.of() (Unmodifiable vs Immutable Collections)
 
-## Mục Tiêu Học Tập (Learning Goal)
+## Khái Niệm Tập Hợp Không Thể Sửa Đổi (Unmodifiable vs Immutable)
 
-Tài liệu này tập trung vào một phần nhỏ trong **Khung Bộ Sưu Tập (Collections Framework)** bao gồm các bộ sưu tập bao bọc (`unmodifiableList`, `synchronizedList`) và các thuật toán thiết yếu của lớp tiện ích `Arrays`.
+Trong phát triển phần mềm bằng Java, tính bất biến (Immutability) là một nguyên tắc thiết kế quan trọng giúp tạo ra các chương trình an toàn đa luồng, dễ suy luận và ngăn chặn các tác dụng phụ ngoài ý muốn (side-effects). 
 
-## Khung Nội Dung (Outline Coverage)
+Java cung cấp hai cơ chế chính để tạo ra danh sách chỉ đọc:
+1. **Giao diện bao bọc không thể sửa đổi (Unmodifiable View Wrappers)**: Thông qua các phương thức tĩnh như `Collections.unmodifiableList()`, `Collections.unmodifiableSet()`, `Collections.unmodifiableMap()`.
+2. **Các phương thức khởi tạo tập hợp bất biến (Factory Methods Java 9+)**: Thông qua `List.of()`, `Set.of()`, `Map.of()`, và `List.copyOf()`.
 
-- **`Collections.unmodifiableList`** — Collections.unmodifiableList: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Collections.synchronizedList`** — Collections.synchronizedList: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Arrays.sort`** — Arrays.sort: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Arrays.binarySearch`** — Arrays.binarySearch: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Arrays.asList`** — Arrays.asList: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Arrays.copyOf`** — Arrays.copyOf: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Arrays.equals`** — Arrays.equals: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Arrays.deepEquals`** — Arrays.deepEquals: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+Mặc dù cả hai đều ném ra ngoại lệ `UnsupportedOperationException` khi cố gắng gọi các thao tác sửa đổi (`add`, `remove`, `set`), **cơ chế hoạt động bên trong và tính bất biến thực sự của chúng hoàn toàn khác nhau**.
 
-## Ghi Chú Chi Tiết (Detailed Notes)
+---
 
-### Danh Sách Không Thể Sửa Đổi vs. Danh Sách Bất Biến (Unmodifiable vs Immutable Lists)
+## Phân Tích Chuyên Sâu Cơ Chế Hoạt Động
 
-`Collections.unmodifiableList(List)` trả về một **chế độ xem không thể sửa đổi (unmodifiable view)** của danh sách nền tảng bên dưới. Nó không hoàn toàn bất biến vì các thay đổi đối với danh sách gốc vẫn hiển thị trong chế độ xem này. Ngược lại, `List.copyOf()` và `List.of()` trả về các danh sách hoàn toàn **bất biến (immutable)** và không giữ bất kỳ tham chiếu nào đến các bộ sưu tập gốc.
+### 1. Cơ Chế `Collections.unmodifiableList()` (View Wrapper Pattern)
+`Collections.unmodifiableList(existingList)` **KHÔNG tạo ra một tập hợp mới**. 
 
-**Ví Dụ Mã Nguồn Có Thể Chạy Được:**
+```mermaid
+graph LR
+    UserCode[Unmodifiable List View] --> Wrapper[UnmodifiableList Wrapper]
+    Wrapper --> TargetList[Original ArrayList]
+    DirectRef[Direct Reference] --> TargetList
+```
+
+- **Mô hình Wrapper (Decorator Pattern)**: Nó tạo ra một đối tượng bao bọc nhẹ (lightweight wrapper) triển khai giao diện `List`. Đối tượng này chặn tất cả các phương thức ghi (`add`, `remove`, `set`) và ném `UnsupportedOperationException`. Đối với các phương thức đọc (`get`, `size`, `contains`), nó ủy quyền trực tiếp (delegate) cho danh sách gốc bên dưới.
+- **Rò rỉ tham chiếu (Reference Leak & Reflection)**:
+  - Nếu danh sách gốc bên dưới bị thay đổi bởi một tham chiếu khác, **Unmodifiable View cũng sẽ bị thay đổi theo**!
+  - *Kết luận*: `Collections.unmodifiableList()` là một **Góc nhìn chỉ đọc (Read-only view)**, KHÔNG PHẢI là một tập hợp bất biến thực sự (True Immutable Collection).
+
+---
+
+### 2. Cơ Chế Factory Methods Java 9+ (`List.of()` & `List.copyOf()`)
+Được giới thiệu từ Java 9, `List.of(...)` và `List.copyOf(...)` tạo ra các tập hợp bất biến thực sự.
+
+- **Tính Bất Biến Thực Sự (True Immutability)**:
+  - Dữ liệu được đóng gói hoàn toàn. Không có bất kỳ tham chiếu danh sách nào bên ngoài có thể làm thay đổi nội dung của danh sách bất biến sau khi khởi tạo.
+  - `List.copyOf(collection)` sẽ tự động thực hiện **Defensive Copy (Sao chép phòng thủ)** nếu đối tượng truyền vào không phải là một List bất biến Java 9.
+- **Tối Ưu Hóa Bộ Nhớ Cực Cao (Compact Internal Implementations)**:
+  - Với danh sách có 1 hoặc 2 phần tử, Java tạo ra các lớp tối ưu dung lượng siêu nhỏ: `List12<E>` (chỉ lưu 2 trường dữ liệu trực tiếp trong object, không tạo mảng `Object[]` bên dưới $\implies$ tiết kiệm RAM tuyệt đối).
+  - Với danh sách từ 3 phần tử trở lên, Java sử dụng `ListN<E>`.
+- **Cấm Hoàn Toàn Phần Tử `null`**:
+  - `List.of()` và `Set.of()` ném ngay `NullPointerException` nếu có bất kỳ phần tử nào là `null` (cả khi khởi tạo lẫn khi gọi `contains(null)`).
+
+---
+
+## Bảng So Sánh Chi Tiết
+
+| Tiêu Chí | `Collections.unmodifiableList(list)` | `List.of(e1, e2)` / `List.copyOf(list)` |
+| :--- | :--- | :--- |
+| **Phiên bản Java** | Từ Java 1.2+ | Từ Java 9+ |
+| **Bản chất** | **Read-Only View Wrapper** xung quanh List gốc | **True Immutable Collection** (Bất biến thực sự) |
+| **Ảnh hưởng khi List gốc thay đổi** | **Thay đổi theo** (Do chỉ bao bọc tham chiếu) | **Hoàn toàn độc lập** (Do sao chép phòng thủ) |
+| **Cho phép phần tử `null`** | Cho phép (Nếu List gốc chứa `null`) | **Cấm hoàn toàn `null`** (Ném `NullPointerException`) |
+| **Cấu trúc lưu trữ** | Bọc 1 đối tượng `List` trung gian | Dùng các lớp cực nhẹ `List12` / `ListN` |
+| **Thao tác ghi (`add`, `remove`)** | Ném `UnsupportedOperationException` | Ném `UnsupportedOperationException` |
+
+---
+
+## Minh Họa Mã Nguồn Chạy Được
+
 ```java
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class UnmodifiableDemo {
+public class UnmodifiableVsImmutableDemo {
     public static void main(String[] args) {
-        List<String> backingList = new ArrayList<>();
-        backingList.add("A");
-        backingList.add("B");
+        // 1. Demo Collections.unmodifiableList (Read-only View)
+        List<String> originalList = new ArrayList<>();
+        originalList.add("Alpha");
+        originalList.add("Beta");
 
-        List<String> unmodifiableView = Collections.unmodifiableList(backingList);
-        List<String> immutableList = List.copyOf(backingList);
+        List<String> unmodifiableView = Collections.unmodifiableList(originalList);
+        System.out.println("Unmodifiable View ban đầu: " + unmodifiableView);
 
-        backingList.add("C"); // Sửa đổi danh sách gốc bên dưới
+        // Thay đổi List gốc -> Unmodifiable View bị thay đổi theo!
+        originalList.add("Gamma");
+        System.out.println("Unmodifiable View sau khi gốc sửa đổi: " + unmodifiableView);
 
-        System.out.println("Unmodifiable view: " + unmodifiableView); // [A, B, C]
-        System.out.println("Immutable List: " + immutableList);       // [A, B]
+        // 2. Demo List.of() & List.copyOf() (True Immutable)
+        List<String> immutableList = List.copyOf(originalList);
+        originalList.add("Delta");
 
+        System.out.println("Immutable List (Không bị ảnh hưởng): " + immutableList);
+
+        // Thao tác sửa đổi ném UnsupportedOperationException
         try {
-            unmodifiableView.add("D"); // Ném ra ngoại lệ
+            immutableList.add("Epsilon");
         } catch (UnsupportedOperationException e) {
-            System.out.println("Cannot modify unmodifiable view directly");
+            System.out.println("Bị chặn! Không thể sửa đổi List.of / List.copyOf");
         }
-    }
-}
-```
-
-### Collections.synchronizedList
-
-Trả về một lớp bao bọc được đồng bộ hóa (an toàn luồng).
-- **Cạm Bẫy Khi Duyệt (Iteration Trap)**: Mặc dù các phương thức riêng lẻ (`add`, `get`) đều được đồng bộ hóa, việc duyệt (iterate) qua danh sách này KHÔNG tự động an toàn luồng. Bạn phải thực hiện đồng bộ hóa thủ công trên đối tượng danh sách bao bọc trong quá trình duyệt qua nó.
-
-**Ví Dụ Mã Nguồn Có Thể Chạy Được:**
-```java
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-public class SynchronizedListDemo {
-    public static void main(String[] args) {
-        List<String> syncList = Collections.synchronizedList(new ArrayList<>());
-        syncList.add("A");
-        syncList.add("B");
-
-        // Việc duyệt qua danh sách an toàn đòi hỏi phải đồng bộ hóa thủ công
-        synchronized (syncList) {
-            for (String s : syncList) {
-                System.out.println(s);
-            }
-        }
-    }
-}
-```
-
-### Lớp Tiện Ích Arrays (Arrays Utility Class)
-
-- **`Arrays.sort()`** — Arrays.sort(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Arrays.binarySearch()`** — Arrays.binarySearch(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-  - **Quy tắc**: Nếu tìm thấy phần tử, nó trả về chỉ mục của nó. Nếu không tìm thấy, nó trả về `-(điểm_chèn) - 1`.
-- **`Arrays.asList()`** — Arrays.asList(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Arrays.equals()`** — Arrays.equals(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
-**Ví Dụ Mã Nguồn Có Thể Chạy Được:**
-```java
-import java.util.Arrays;
-import java.util.List;
-
-public class ArraysDemo {
-    public static void main(String[] args) {
-        // 1. Hành vi danh sách có kích thước cố định của Arrays.asList
-        String[] arr = {"One", "Two"};
-        List<String> list = Arrays.asList(arr);
-        list.set(0, "Updated"); // Ghi trực tiếp xuống mảng nền tảng bên dưới
-        System.out.println("Array value: " + arr[0]); // In ra: Updated
-
-        // 2. Tìm kiếm nhị phân trên mảng đã sắp xếp
-        int[] numbers = {10, 20, 30, 40};
-        int index = Arrays.binarySearch(numbers, 30);
-        System.out.println("Index of 30: " + index); // In ra: 2
-
-        // 3. So sánh equals vs deepEquals
-        int[][] matrix1 = { {1, 2}, {3, 4}};
-        int[][] matrix2 = { {1, 2}, {3, 4}};
-        System.out.println("Equals: " + Arrays.equals(matrix1, matrix2)); // false (so sánh định danh tham chiếu mảng 1 chiều)
-        System.out.println("Deep Equals: " + Arrays.deepEquals(matrix1, matrix2)); // true (so sánh đệ quy nội dung lồng nhau)
     }
 }
 ```
 
 ---
 
-## Ví Dụ Thực Tế: So Sánh Collections.unmodifiableList vs List.copyOf vs List.of
+## Bẫy Phỏng Vấn & Lưu Ý Thực Tế
 
-Hãy xem xét hành vi tham chiếu, khả năng chấp nhận giá trị null và các đặc tính hiệu năng của các phương thức tạo tập hợp không thể sửa đổi/bất biến này.
+1. **Lầm Tưởng `Collections.unmodifiableList()` Bảo Vệ Dữ Liệu Tuyệt Đối**:
+   - *Bẫy*: Trả về `Collections.unmodifiableList(internalList)` trong một phương thức Getter của DTO/Entity và tin rằng dữ liệu an toàn.
+   - *Thực tế*: Nếu mã bên ngoài giữ tham chiếu tới `internalList` hoặc mã nội bộ sửa đổi `internalList`, dữ liệu trả về cho client sẽ bị thay đổi bất ngờ. **Luôn sử dụng `List.copyOf()` nếu muốn bảo đảm tính bất biến tuyệt đối**.
 
-```java
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-public class UnmodifiableComparison {
-    public static void main(String[] args) {
-        List<String> original = new ArrayList<>();
-        original.add("A");
-        original.add(null); // original có chứa giá trị null
-
-        // 1. Collections.unmodifiableList cho phép giá trị null vì nó là một chế độ xem bọc ngoài
-        List<String> view = Collections.unmodifiableList(original);
-        System.out.println("View size: " + view.size()); // In ra: 2
-
-        // 2. List.copyOf ném ra NullPointerException nếu bộ sưu tập nguồn chứa giá trị null
-        try {
-            List.copyOf(original);
-        } catch (NullPointerException e) {
-            System.out.println("List.copyOf rejected list containing null");
-        }
-
-        // 3. List.of từ chối trực tiếp các phần tử null khi thêm vào
-        try {
-            List.of("A", null);
-        } catch (NullPointerException e) {
-            System.out.println("List.of rejected direct null insertion");
-        }
-
-        // 4. Tối ưu hóa vùng nhớ
-        // Gọi List.copyOf trên một danh sách đã bất biến (được tạo bởi List.copyOf/List.of)
-        // sẽ trả về CÙNG một tham chiếu (không nhân đôi đối tượng).
-        List<String> immutable1 = List.of("X", "Y");
-        List<String> immutable2 = List.copyOf(immutable1);
-        System.out.println("Same reference: " + (immutable1 == immutable2)); // In ra: true!
-    }
-}
-```
-
----
-
-## Các Sai Lầm Thường Gặp (Common Mistakes)
-
-### 1. Thêm/Xóa phần tử từ danh sách trả về bởi `Arrays.asList`
-Vì danh sách trả về từ `Arrays.asList` có kích thước cố định, việc gọi `add()` hoặc `remove()` sẽ ném ra ngoại lệ `UnsupportedOperationException`. Để có một bản sao hoàn toàn khả biến, hãy bọc nó lại: `new ArrayList<>(Arrays.asList(arr))`.
-
-### 2. Tìm kiếm nhị phân trên mảng chưa được sắp xếp
-Việc gọi `Arrays.binarySearch()` trên một mảng chưa được sắp xếp sẽ trả về kết quả không thể dự đoán được. Hãy luôn sắp xếp mảng trước khi tìm kiếm.
-
-### 3. Duyệt qua các danh sách được đồng bộ hóa mà không khóa thủ công
-Thực hiện các vòng lặp đồng thời trên `Collections.synchronizedList()` mà không bao bọc trong một khối `synchronized(list)` là một lỗi lập trình dẫn đến tranh chấp điều kiện hoặc ném ra ngoại lệ `ConcurrentModificationException` nếu một luồng khác sửa đổi danh sách trong khi duyệt.
-
----
-
-## Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)
-
-- Điều gì xảy ra khi bạn gọi `add()` trên một danh sách được tạo bởi `Arrays.asList()`? (Ném ra ngoại lệ UnsupportedOperationException)
-- Sự khác biệt giữa `Arrays.equals` và `Arrays.deepEquals` là gì? (`equals` dùng cho mảng 1 chiều, `deepEquals` so sánh đệ quy cấu trúc mảng đa chiều)
-- Lớp `List.copyOf` có sao chép các phần tử nếu danh sách nguồn đã là một danh sách bất biến không? (Không, nó trả về chính thực thể đó như một hình thức tối ưu hóa)
-
----
-
-## Tại sao Chế Độ Xem Không Thể Sửa Đổi và Bộ Sưu Tập Bất Biến Khác Nhau (Why Unmodifiable Views and Immutable Collections Differ)
-
-Trong Java, có sự khác biệt lớn về mặt kiến trúc giữa chế độ xem không thể sửa đổi (unmodifiable views) và bộ sưu tập thực sự bất biến (immutable collections). Khi bạn gọi `Collections.unmodifiableList()`, JVM sẽ xây dựng một lớp bao bọc (một thực thể của `Collections.UnmodifiableList`) để ủy quyền tất cả các hoạt động đọc trực tiếp cho danh sách gốc bên dưới, đồng thời chặn đứng các hoạt động ghi và ném ra ngoại lệ `UnsupportedOperationException`. Vì lớp bao bọc này duy trì một tham chiếu trực tiếp đến danh sách gốc, bất kỳ thay đổi cấu trúc nào được thực hiện trực tiếp trên danh sách gốc sẽ ngay lập tức được phản ánh khi truy vấn thông qua chế độ xem không thể sửa đổi đó. Ngược lại, `List.of()` và `List.copyOf()` tạo ra các thực thể bộ sưu tập hoàn toàn độc lập và bất biến (ví dụ: `ImmutableCollections.ListN`) để phân bổ một mảng mới, cô lập hoàn toàn bên dưới. Các bộ sưu tập bất biến này không tham chiếu đến bất kỳ mảng khả biến bên ngoài nào, lưu trữ các phần tử trong một cấu trúc được tối ưu hóa cao, từ chối hoàn toàn các phần tử `null` để ngăn ngừa lỗi thiết kế và cho phép các tối ưu hóa nội bộ của JVM như trả về cùng một thực thể khi sao chép một danh sách đã bất biến.
-
-### Mô hình Tư duy (Mental Model)
-
-Chế độ xem không thể sửa đổi bọc một danh sách khả biến đang hoạt động, trong khi các bộ sưu tập bất biến sao chép dữ liệu vào một cấu trúc riêng tư mới:
-```text
-Chế độ xem không thể sửa đổi (Unmodifiable View):
-[ Unmodifiable View ] ---> [ Backing List (Khả biến) ] ---> [ Mảng phần tử (Heap) ]
-    (Ném lỗi khi ghi)        (Có thể sửa đổi trực tiếp)        [ A ] [ B ] [ C ]
-
-Bộ sưu tập bất biến (Immutable Collection - List.copyOf):
-[ Immutable Collection ] ---> [ Mảng bất biến riêng tư (Heap) ]
-    (Ném lỗi khi ghi)             [ A ] [ B ] (Hoàn toàn cô lập)
-```
-
-### Ví Dụ Mã Nguồn (Code Example)
-
-```java
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-public class ImmutabilityDemo {
-    public static void main(String[] args) {
-        List<String> mutableList = new ArrayList<>();
-        mutableList.add("Red");
-        mutableList.add("Green");
-
-        // 1. Tạo chế độ xem bọc ngoài
-        List<String> view = Collections.unmodifiableList(mutableList);
-
-        // 2. Tạo bản sao của danh sách
-        List<String> copy = List.copyOf(mutableList);
-
-        // Sửa đổi danh sách gốc
-        mutableList.add("Blue");
-
-        System.out.println("Original List: " + mutableList); // In ra: Original List: [Red, Green, Blue]
-        System.out.println("Unmodifiable View: " + view);    // In ra: Unmodifiable View: [Red, Green, Blue]
-        System.out.println("Immutable Copy: " + copy);        // In ra: Immutable Copy: [Red, Green]
-    }
-}
-```
-
-### Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)
-
-```text
-Gọi Collections.unmodifiableList() → Lớp bọc giữ tham chiếu đến danh sách gốc → Danh sách gốc bị sửa đổi → Đọc thông qua chế độ xem truy cập trực tiếp danh sách gốc đã sửa đổi → Nhìn thấy các thay đổi.
-Gọi List.copyOf() → Các phần tử được sao chép sang một cấu trúc mảng riêng tư mới → Danh sách gốc bị sửa đổi → Bộ sưu tập bất biến vẫn cô lập hoàn toàn → Không nhìn thấy các thay đổi.
-```
-
-## Liên Kết Tham Khảo (Reference Links)
-
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collections.html#unmodifiableList(java.util.List) (Tài liệu về unmodifiableList)
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html#copyOf(java.util.Collection) (Tài liệu về List.copyOf)
+2. **Truyền `null` Vào `List.of()` Hoặc Call `contains(null)`**:
+   - *Thực tế*: `List.of("A", null)` sẽ ném `NullPointerException`. Thậm chí gọi `List.of("A", "B").contains(null)` cũng ném `NullPointerException` thay vì trả về `false`.

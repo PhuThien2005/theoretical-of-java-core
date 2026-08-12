@@ -1,399 +1,259 @@
 {
   "lesson": "07-collections-unmodifiablelist-concepts",
-  "total_duration_seconds": 438.75,
-  "total_paragraphs": 56,
+  "total_duration_seconds": 344.16,
+  "total_paragraphs": 36,
   "timestamps": [
     {
       "paragraph_id": 1,
       "start": 0.1,
-      "end": 5.19,
-      "duration": 5.09,
-      "text_snippet": "Khung Bộ Sưu Tập - Phần 7 (Collections Framework - Part 7)"
+      "end": 7.18,
+      "duration": 7.08,
+      "text_snippet": "Collections.unmodifiableList vs List.of() (Unmodifiable vs Immutable Collections"
     },
     {
       "paragraph_id": 2,
-      "start": 5.14,
-      "end": 8.14,
-      "duration": 3.0,
-      "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
+      "start": 7.12,
+      "end": 12.48,
+      "duration": 5.36,
+      "text_snippet": "Khái Niệm Tập Hợp Không Thể Sửa Đổi (Unmodifiable vs Immutable)"
     },
     {
       "paragraph_id": 3,
-      "start": 8.14,
-      "end": 30.94,
-      "duration": 22.8,
-      "text_snippet": "Tài liệu này tập trung vào một phần nhỏ trong Khung Bộ Sưu Tập (Collections Fram"
+      "start": 12.49,
+      "end": 24.75,
+      "duration": 12.26,
+      "text_snippet": "Trong phát triển phần mềm bằng Java, tính bất biến (Immutability) là một nguyên "
     },
     {
       "paragraph_id": 4,
-      "start": 30.94,
-      "end": 32.69,
-      "duration": 1.75,
-      "text_snippet": "Khung Nội Dung (Outline Coverage)"
+      "start": 24.75,
+      "end": 28.69,
+      "duration": 3.94,
+      "text_snippet": "Java cung cấp hai cơ chế chính để tạo ra danh sách chỉ đọc:"
     },
     {
       "paragraph_id": 5,
-      "start": 32.69,
-      "end": 38.64,
-      "duration": 5.95,
-      "text_snippet": "Collections.unmodifiableList — Collections.unmodifiableList: Cung cấp các quy tắ"
+      "start": 28.79,
+      "end": 49.55,
+      "duration": 20.76,
+      "text_snippet": "Giao diện bao bọc không thể sửa đổi (Unmodifiable View Wrappers): Thông qua các "
     },
     {
       "paragraph_id": 6,
-      "start": 31.04,
-      "end": 38.42,
-      "duration": 7.38,
-      "text_snippet": "Collections.synchronizedList — Collections.synchronizedList: Cung cấp các quy tắ"
+      "start": 49.55,
+      "end": 56.55,
+      "duration": 7.0,
+      "text_snippet": "Các phương thức khởi tạo tập hợp bất biến (Factory Methods Java 9+): Thông qua L"
     },
     {
       "paragraph_id": 7,
-      "start": 38.36,
-      "end": 66.32,
-      "duration": 27.96,
-      "text_snippet": "Arrays.sort — Arrays.sort: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong"
+      "start": 49.55,
+      "end": 60.39,
+      "duration": 10.84,
+      "text_snippet": "Mặc dù cả hai đều ném ra ngoại lệ UnsupportedOperationException khi cố gắng gọi "
     },
     {
       "paragraph_id": 8,
-      "start": 66.32,
-      "end": 72.27,
-      "duration": 5.95,
-      "text_snippet": "Arrays.binarySearch — Arrays.binarySearch: Cung cấp các quy tắc và cơ chế hoạt đ"
+      "start": 60.39,
+      "end": 63.14,
+      "duration": 2.75,
+      "text_snippet": "Phân Tích Chuyên Sâu Cơ Chế Hoạt Động"
     },
     {
       "paragraph_id": 9,
-      "start": 72.27,
-      "end": 78.22,
-      "duration": 5.95,
-      "text_snippet": "Arrays.asList — Arrays.asList: Cung cấp các quy tắc và cơ chế hoạt động cụ thể t"
+      "start": 63.24,
+      "end": 73.85,
+      "duration": 10.61,
+      "text_snippet": "1. Cơ Chế Collections.unmodifiableList() (View Wrapper Pattern)"
     },
     {
       "paragraph_id": 10,
-      "start": 78.22,
-      "end": 84.17,
-      "duration": 5.95,
-      "text_snippet": "Arrays.copyOf — Arrays.copyOf: Cung cấp các quy tắc và cơ chế hoạt động cụ thể t"
+      "start": 73.85,
+      "end": 76.65,
+      "duration": 2.8,
+      "text_snippet": "Collections.unmodifiableList(existingList) KHÔNG tạo ra một tập hợp mới."
     },
     {
       "paragraph_id": 11,
-      "start": 66.42,
-      "end": 79.57,
-      "duration": 13.15,
-      "text_snippet": "Arrays.equals — Arrays.equals: Cung cấp các quy tắc và cơ chế hoạt động cụ thể t"
+      "start": 73.85,
+      "end": 76.23,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 12,
-      "start": 79.57,
-      "end": 85.52,
-      "duration": 5.95,
-      "text_snippet": "Arrays.deepEquals — Arrays.deepEquals: Cung cấp các quy tắc và cơ chế hoạt động "
+      "start": 76.23,
+      "end": 97.74,
+      "duration": 21.51,
+      "text_snippet": "Mô hình Wrapper (Decorator Pattern): Nó tạo ra một đối tượng bao bọc nhẹ (lightw"
     },
     {
       "paragraph_id": 13,
-      "start": 79.57,
-      "end": 82.56,
-      "duration": 2.99,
-      "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
+      "start": 97.84,
+      "end": 133.28,
+      "duration": 35.44,
+      "text_snippet": "Rò rỉ tham chiếu (Reference Leak & Reflection): Nếu danh sách gốc bên dưới bị th"
     },
     {
       "paragraph_id": 14,
-      "start": 82.56,
-      "end": 90.13,
-      "duration": 7.57,
-      "text_snippet": "Danh Sách Không Thể Sửa Đổi vs. Danh Sách Bất Biến (Unmodifiable vs Immutable Li"
+      "start": 133.28,
+      "end": 140.98,
+      "duration": 7.7,
+      "text_snippet": "Nếu danh sách gốc bên dưới bị thay đổi bởi một tham chiếu khác, Unmodifiable Vie"
     },
     {
       "paragraph_id": 15,
-      "start": 90.14,
-      "end": 114.12,
-      "duration": 23.98,
-      "text_snippet": "Collections.unmodifiableList(List) trả về một chế độ xem không thể sửa đổi (unmo"
+      "start": 140.98,
+      "end": 149.38,
+      "duration": 8.4,
+      "text_snippet": "Kết luận: Collections.unmodifiableList() là một Góc nhìn chỉ đọc (Read-only view"
     },
     {
       "paragraph_id": 16,
-      "start": 114.11,
-      "end": 116.91,
-      "duration": 2.8,
-      "text_snippet": "Ví Dụ Mã Nguồn Có Thể Chạy Được:"
+      "start": 133.28,
+      "end": 139.18,
+      "duration": 5.9,
+      "text_snippet": "2. Cơ Chế Factory Methods Java 9+ (List.of() & List.copyOf())"
     },
     {
       "paragraph_id": 17,
-      "start": 116.91,
-      "end": 118.31,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 139.28,
+      "end": 146.4,
+      "duration": 7.12,
+      "text_snippet": "Được giới thiệu từ Java 9, List.of(...) và List.copyOf(...) tạo ra các tập hợp b"
     },
     {
       "paragraph_id": 18,
-      "start": 118.31,
-      "end": 118.71,
-      "duration": 0.4,
-      "text_snippet": "Collections.synchronizedList"
+      "start": 146.35,
+      "end": 186.49,
+      "duration": 40.14,
+      "text_snippet": "Tính Bất Biến Thực Sự (True Immutability): Dữ liệu được đóng gói hoàn toàn. Khôn"
     },
     {
       "paragraph_id": 19,
-      "start": 118.66,
-      "end": 123.21,
-      "duration": 4.55,
-      "text_snippet": "Trả về một lớp bao bọc được đồng bộ hóa (an toàn luồng)."
+      "start": 186.49,
+      "end": 198.39,
+      "duration": 11.9,
+      "text_snippet": "Dữ liệu được đóng gói hoàn toàn. Không có bất kỳ tham chiếu danh sách nào bên ng"
     },
     {
       "paragraph_id": 20,
-      "start": 123.21,
-      "end": 142.46,
-      "duration": 19.25,
-      "text_snippet": "Cạm Bẫy Khi Duyệt (Iteration Trap): Mặc dù các phương thức riêng lẻ (add, get) đ"
+      "start": 198.39,
+      "end": 207.49,
+      "duration": 9.1,
+      "text_snippet": "List.copyOf(collection) sẽ tự động thực hiện Defensive Copy (Sao chép phòng thủ)"
     },
     {
       "paragraph_id": 21,
-      "start": 142.56,
-      "end": 145.46,
-      "duration": 2.9,
-      "text_snippet": "Ví Dụ Mã Nguồn Có Thể Chạy Được:"
+      "start": 186.59,
+      "end": 225.3,
+      "duration": 38.71,
+      "text_snippet": "Tối Ưu Hóa Bộ Nhớ Cực Cao (Compact Internal Implementations): Với danh sách có 1"
     },
     {
       "paragraph_id": 22,
-      "start": 145.41,
-      "end": 147.79,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 225.3,
+      "end": 240.35,
+      "duration": 15.05,
+      "text_snippet": "Với danh sách có 1 hoặc 2 phần tử, Java tạo ra các lớp tối ưu dung lượng siêu nh"
     },
     {
       "paragraph_id": 23,
-      "start": 147.79,
-      "end": 166.72,
-      "duration": 18.93,
-      "text_snippet": "Lớp Tiện Ích Arrays (Arrays Utility Class)"
+      "start": 240.35,
+      "end": 244.9,
+      "duration": 4.55,
+      "text_snippet": "Với danh sách từ 3 phần tử trở lên, Java sử dụng ListN<E>."
     },
     {
       "paragraph_id": 24,
-      "start": 166.71,
-      "end": 171.28,
-      "duration": 4.57,
-      "text_snippet": "Arrays.sort() — Arrays.sort(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể t"
+      "start": 225.3,
+      "end": 236.14,
+      "duration": 10.84,
+      "text_snippet": "Cấm Hoàn Toàn Phần Tử null: List.of() và Set.of() ném ngay NullPointerException "
     },
     {
       "paragraph_id": 25,
-      "start": 171.29,
-      "end": 175.63,
-      "duration": 4.34,
-      "text_snippet": "Arrays.binarySearch() — Arrays.binarySearch(): Cung cấp các quy tắc và cơ chế ho"
+      "start": 236.24,
+      "end": 245.6,
+      "duration": 9.36,
+      "text_snippet": "List.of() và Set.of() ném ngay NullPointerException nếu có bất kỳ phần tử nào là"
     },
     {
       "paragraph_id": 26,
-      "start": 175.62,
-      "end": 184.02,
-      "duration": 8.4,
-      "text_snippet": "Quy tắc: Nếu tìm thấy phần tử, nó trả về chỉ mục của nó. Nếu không tìm thấy, nó "
+      "start": 245.55,
+      "end": 247.64,
+      "duration": 2.09,
+      "text_snippet": "Bảng So Sánh Chi Tiết"
     },
     {
       "paragraph_id": 27,
-      "start": 184.02,
-      "end": 189.97,
-      "duration": 5.95,
-      "text_snippet": "Arrays.asList() — Arrays.asList(): Cung cấp các quy tắc và cơ chế hoạt động cụ t"
+      "start": 247.64,
+      "end": 250.02,
+      "duration": 2.38,
+      "text_snippet": "Minh Họa Mã Nguồn Chạy Được"
     },
     {
       "paragraph_id": 28,
-      "start": 189.97,
-      "end": 195.92,
-      "duration": 5.95,
-      "text_snippet": "Arrays.equals() — Arrays.equals(): Cung cấp các quy tắc và cơ chế hoạt động cụ t"
+      "start": 250.01,
+      "end": 252.21,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 29,
-      "start": 195.92,
-      "end": 198.72,
-      "duration": 2.8,
-      "text_snippet": "Ví Dụ Mã Nguồn Có Thể Chạy Được:"
+      "start": 252.31,
+      "end": 255.14,
+      "duration": 2.83,
+      "text_snippet": "Bẫy Phỏng Vấn & Lưu Ý Thực Tế"
     },
     {
       "paragraph_id": 30,
-      "start": 198.72,
-      "end": 200.12,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 255.09,
+      "end": 296.2,
+      "duration": 41.11,
+      "text_snippet": "Lầm Tưởng Collections.unmodifiableList() Bảo Vệ Dữ Liệu Tuyệt Đối: Bẫy: Trả về C"
     },
     {
       "paragraph_id": 31,
-      "start": 200.12,
-      "end": 203.97,
-      "duration": 3.85,
-      "text_snippet": "Ví Dụ Thực Tế: So Sánh Collections.unmodifiableList vs List.copyOf vs List.of"
+      "start": 296.2,
+      "end": 299.35,
+      "duration": 3.15,
+      "text_snippet": "Lầm Tưởng Collections.unmodifiableList() Bảo Vệ Dữ Liệu Tuyệt Đối:"
     },
     {
       "paragraph_id": 32,
-      "start": 203.97,
-      "end": 215.52,
-      "duration": 11.55,
-      "text_snippet": "Hãy xem xét hành vi tham chiếu, khả năng chấp nhận giá trị null và các đặc tính "
+      "start": 299.35,
+      "end": 305.65,
+      "duration": 6.3,
+      "text_snippet": "Bẫy: Trả về Collections.unmodifiableList(internalList) trong một phương thức Get"
     },
     {
       "paragraph_id": 33,
-      "start": 215.52,
-      "end": 216.92,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 296.3,
+      "end": 310.08,
+      "duration": 13.78,
+      "text_snippet": "Thực tế: Nếu mã bên ngoài giữ tham chiếu tới internalList hoặc mã nội bộ sửa đổi"
     },
     {
       "paragraph_id": 34,
-      "start": 216.92,
-      "end": 219.37,
-      "duration": 2.45,
-      "text_snippet": "Các Sai Lầm Thường Gặp (Common Mistakes)"
+      "start": 310.07,
+      "end": 344.16,
+      "duration": 34.09,
+      "text_snippet": "Truyền null Vào List.of() Hoặc Call contains(null): Thực tế: List.of(\"A\", null) "
     },
     {
       "paragraph_id": 35,
-      "start": 219.37,
-      "end": 223.22,
-      "duration": 3.85,
-      "text_snippet": "1. Thêm/Xóa phần tử từ danh sách trả về bởi Arrays.asList"
+      "start": 344.16,
+      "end": 346.61,
+      "duration": 2.45,
+      "text_snippet": "Truyền null Vào List.of() Hoặc Call contains(null):"
     },
     {
       "paragraph_id": 36,
-      "start": 223.32,
-      "end": 237.97,
-      "duration": 14.65,
-      "text_snippet": "Vì danh sách trả về từ Arrays.asList có kích thước cố định, việc gọi add() hoặc "
-    },
-    {
-      "paragraph_id": 37,
-      "start": 237.97,
-      "end": 241.73,
-      "duration": 3.76,
-      "text_snippet": "2. Tìm kiếm nhị phân trên mảng chưa được sắp xếp"
-    },
-    {
-      "paragraph_id": 38,
-      "start": 241.74,
-      "end": 251.03,
-      "duration": 9.29,
-      "text_snippet": "Việc gọi Arrays.binarySearch() trên một mảng chưa được sắp xếp sẽ trả về kết quả"
-    },
-    {
-      "paragraph_id": 39,
-      "start": 251.02,
-      "end": 255.32,
-      "duration": 4.3,
-      "text_snippet": "3. Duyệt qua các danh sách được đồng bộ hóa mà không khóa thủ công"
-    },
-    {
-      "paragraph_id": 40,
-      "start": 255.32,
-      "end": 268.13,
-      "duration": 12.81,
-      "text_snippet": "Thực hiện các vòng lặp đồng thời trên Collections.synchronizedList() mà không ba"
-    },
-    {
-      "paragraph_id": 41,
-      "start": 268.14,
-      "end": 271.64,
-      "duration": 3.5,
-      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)"
-    },
-    {
-      "paragraph_id": 42,
-      "start": 271.64,
-      "end": 278.99,
-      "duration": 7.35,
-      "text_snippet": "Điều gì xảy ra khi bạn gọi add() trên một danh sách được tạo bởi Arrays.asList()"
-    },
-    {
-      "paragraph_id": 43,
-      "start": 278.99,
-      "end": 287.74,
-      "duration": 8.75,
-      "text_snippet": "Sự khác biệt giữa Arrays.equals và Arrays.deepEquals là gì? (equals dùng cho mản"
-    },
-    {
-      "paragraph_id": 44,
-      "start": 287.74,
-      "end": 299.99,
-      "duration": 12.25,
-      "text_snippet": "Lớp List.copyOf có sao chép các phần tử nếu danh sách nguồn đã là một danh sách "
-    },
-    {
-      "paragraph_id": 45,
-      "start": 299.99,
-      "end": 308.39,
-      "duration": 8.4,
-      "text_snippet": "Tại sao Chế Độ Xem Không Thể Sửa Đổi và Bộ Sưu Tập Bất Biến Khác Nhau (Why Unmod"
-    },
-    {
-      "paragraph_id": 46,
-      "start": 308.49,
-      "end": 373.95,
-      "duration": 65.46,
-      "text_snippet": "Trong Java, có sự khác biệt lớn về mặt kiến trúc giữa chế độ xem không thể sửa đ"
-    },
-    {
-      "paragraph_id": 47,
-      "start": 373.95,
-      "end": 377.25,
-      "duration": 3.3,
-      "text_snippet": "Mô hình Tư duy (Mental Model)"
-    },
-    {
-      "paragraph_id": 48,
-      "start": 377.25,
-      "end": 385.61,
-      "duration": 8.36,
-      "text_snippet": "Chế độ xem không thể sửa đổi bọc một danh sách khả biến đang hoạt động, trong kh"
-    },
-    {
-      "paragraph_id": 49,
-      "start": 385.61,
-      "end": 387.99,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 50,
-      "start": 387.99,
-      "end": 391.15,
-      "duration": 3.16,
-      "text_snippet": "Ví Dụ Mã Nguồn (Code Example)"
-    },
-    {
-      "paragraph_id": 51,
-      "start": 391.25,
-      "end": 393.63,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 52,
-      "start": 393.57,
-      "end": 397.47,
-      "duration": 3.9,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)"
-    },
-    {
-      "paragraph_id": 53,
-      "start": 397.47,
-      "end": 399.84,
-      "duration": 2.37,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 54,
-      "start": 399.85,
-      "end": 403.24,
-      "duration": 3.39,
-      "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
-    },
-    {
-      "paragraph_id": 55,
-      "start": 403.24,
-      "end": 421.75,
-      "duration": 18.51,
-      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collectio"
-    },
-    {
-      "paragraph_id": 56,
-      "start": 421.85,
-      "end": 438.75,
-      "duration": 16.9,
-      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html"
+      "start": 346.61,
+      "end": 353.61,
+      "duration": 7.0,
+      "text_snippet": "Thực tế: List.of(\"A\", null) sẽ ném NullPointerException. Thậm chí gọi List.of(\"A"
     }
   ]
 }

@@ -1,441 +1,266 @@
 {
   "lesson": "05-concurrenthashmap-concepts",
-  "total_duration_seconds": 418.8,
-  "total_paragraphs": 62,
+  "total_duration_seconds": 289.78,
+  "total_paragraphs": 37,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 3.5,
-      "duration": 3.5,
-      "text_snippet": "Collections Framework - Phần 5 (Collections Framework - Part 5)"
+      "start": 0.1,
+      "end": 4.32,
+      "duration": 4.22,
+      "text_snippet": "ConcurrentHashMap & Xử Lý Đa Luồng Trong Collections Framework"
     },
     {
       "paragraph_id": 2,
-      "start": 3.5,
-      "end": 4.9,
-      "duration": 1.4,
-      "text_snippet": "Mục tiêu học tập"
+      "start": 4.28,
+      "end": 8.32,
+      "duration": 4.04,
+      "text_snippet": "Thách Thức An Toàn Luồng (Thread-Safety Challenges)"
     },
     {
       "paragraph_id": 3,
-      "start": 4.9,
-      "end": 19.95,
-      "duration": 15.05,
-      "text_snippet": "Tài liệu này tập trung vào một phần trọng tâm của Collections Framework bao gồm "
+      "start": 8.31,
+      "end": 18.72,
+      "duration": 10.41,
+      "text_snippet": "Trong môi trường lập trình đa luồng (multithreaded environments), việc ghi đồng "
     },
     {
       "paragraph_id": 4,
-      "start": 19.95,
-      "end": 21.35,
-      "duration": 1.4,
-      "text_snippet": "Đề cương chi tiết"
+      "start": 18.73,
+      "end": 25.43,
+      "duration": 6.7,
+      "text_snippet": "Tranh chấp dữ liệu (Data Race): Ghi đè các phần tử, dẫn đến mất mát dữ liệu mà k"
     },
     {
       "paragraph_id": 5,
-      "start": 21.35,
-      "end": 27.3,
-      "duration": 5.95,
-      "text_snippet": "ConcurrentHashMap — ConcurrentHashMap: Cung cấp các quy tắc và cơ chế hoạt động "
+      "start": 25.53,
+      "end": 39.78,
+      "duration": 14.25,
+      "text_snippet": "Vòng lặp vô tận (Infinite Loops in Legacy HashMap): Trong Java 7 trở về trước, v"
     },
     {
       "paragraph_id": 6,
-      "start": 27.4,
-      "end": 33.49,
-      "duration": 6.09,
-      "text_snippet": "WeakHashMap — WeakHashMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong"
+      "start": 39.73,
+      "end": 46.28,
+      "duration": 6.55,
+      "text_snippet": "Ngoại lệ ConcurrentModificationException: Ném ra khi một luồng đang duyệt tập hợ"
     },
     {
       "paragraph_id": 7,
-      "start": 33.44,
-      "end": 39.79,
-      "duration": 6.35,
-      "text_snippet": "IdentityHashMap — IdentityHashMap: Cung cấp các quy tắc và cơ chế hoạt động cụ t"
+      "start": 46.28,
+      "end": 49.51,
+      "duration": 3.23,
+      "text_snippet": "Tiến Trình Tiến Hóa Đa Luồng Trong Java Map"
     },
     {
       "paragraph_id": 8,
-      "start": 39.79,
-      "end": 45.53,
-      "duration": 5.74,
-      "text_snippet": "SortedMap — SortedMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Jav"
-    },
-    {
-      "paragraph_id": 9,
-      "start": 45.52,
-      "end": 51.91,
-      "duration": 6.39,
-      "text_snippet": "NavigableMap — NavigableMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể tro"
-    },
-    {
-      "paragraph_id": 10,
-      "start": 51.91,
-      "end": 57.8,
-      "duration": 5.89,
-      "text_snippet": "Iterator — Iterator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 11,
-      "start": 57.8,
-      "end": 63.75,
-      "duration": 5.95,
-      "text_snippet": "ListIterator — ListIterator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể tro"
-    },
-    {
-      "paragraph_id": 12,
-      "start": 63.75,
-      "end": 65.15,
-      "duration": 1.4,
-      "text_snippet": "Ghi chú chi tiết"
-    },
-    {
-      "paragraph_id": 13,
-      "start": 65.15,
-      "end": 65.55,
-      "duration": 0.4,
-      "text_snippet": "ConcurrentHashMap"
-    },
-    {
-      "paragraph_id": 14,
-      "start": 65.5,
-      "end": 74.25,
-      "duration": 8.75,
-      "text_snippet": "ConcurrentHashMap cung cấp khả năng đồng thời hoàn toàn cho các thao tác đọc và "
-    },
-    {
-      "paragraph_id": 15,
-      "start": 74.25,
-      "end": 97.35,
-      "duration": 23.1,
-      "text_snippet": "Cơ chế khóa: Trong Java 7, nó sử dụng khóa phân đoạn (segment locking). Từ Java "
-    },
-    {
-      "paragraph_id": 16,
-      "start": 97.35,
-      "end": 101.55,
-      "duration": 4.2,
-      "text_snippet": "An toàn với Null: Từ chối các khóa và giá trị null."
-    },
-    {
-      "paragraph_id": 17,
-      "start": 101.55,
-      "end": 103.65,
-      "duration": 2.1,
-      "text_snippet": "Ví dụ mã nguồn chạy được:"
-    },
-    {
-      "paragraph_id": 18,
-      "start": 103.65,
-      "end": 105.05,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 19,
-      "start": 105.05,
-      "end": 105.45,
-      "duration": 0.4,
-      "text_snippet": "WeakHashMap"
-    },
-    {
-      "paragraph_id": 20,
-      "start": 105.4,
-      "end": 121.5,
-      "duration": 16.1,
-      "text_snippet": "Một Map dựa trên bảng băm với các khóa được bao bọc trong WeakReference. Khi một"
-    },
-    {
-      "paragraph_id": 21,
-      "start": 121.6,
-      "end": 133.41,
-      "duration": 11.81,
-      "text_snippet": "Trường hợp sử dụng điển hình: Bộ đệm cache, bảng tra cứu siêu dữ liệu (metadata)"
-    },
-    {
-      "paragraph_id": 22,
-      "start": 133.36,
-      "end": 135.83,
-      "duration": 2.47,
-      "text_snippet": "Ví dụ mã nguồn chạy được:"
-    },
-    {
-      "paragraph_id": 23,
-      "start": 135.84,
-      "end": 138.21,
-      "duration": 2.37,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 24,
-      "start": 138.21,
-      "end": 149.57,
-      "duration": 11.36,
-      "text_snippet": "IdentityHashMap"
-    },
-    {
-      "paragraph_id": 25,
-      "start": 149.57,
-      "end": 153.63,
-      "duration": 4.06,
-      "text_snippet": "Một IdentityHashMap so sánh các khóa bằng cách sử dụng so sánh bằng tham chiếu ("
-    },
-    {
-      "paragraph_id": 26,
-      "start": 153.74,
-      "end": 162.53,
-      "duration": 8.79,
-      "text_snippet": "Trường hợp sử dụng điển hình: Các thuật toán duyệt đồ thị để phát hiện chu trình"
-    },
-    {
-      "paragraph_id": 27,
-      "start": 162.47,
-      "end": 164.93,
-      "duration": 2.46,
-      "text_snippet": "Ví dụ mã nguồn chạy được:"
-    },
-    {
-      "paragraph_id": 28,
-      "start": 164.94,
-      "end": 167.32,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 29,
-      "start": 167.31,
-      "end": 174.95,
-      "duration": 7.64,
-      "text_snippet": "SortedMap & NavigableMap"
-    },
-    {
-      "paragraph_id": 30,
-      "start": 174.95,
-      "end": 180.55,
-      "duration": 5.6,
-      "text_snippet": "SortedMap: Một giao diện duy trì các khóa của nó theo thứ tự đã sắp xếp."
-    },
-    {
-      "paragraph_id": 31,
-      "start": 174.95,
-      "end": 187.2,
-      "duration": 12.25,
-      "text_snippet": "NavigableMap: Mở rộng SortedMap và bổ sung các phương thức như lowerEntry(), flo"
-    },
-    {
-      "paragraph_id": 32,
-      "start": 187.2,
-      "end": 188.6,
-      "duration": 1.4,
-      "text_snippet": "Iterator so với ListIterator"
-    },
-    {
-      "paragraph_id": 33,
-      "start": 188.6,
-      "end": 196.3,
-      "duration": 7.7,
-      "text_snippet": "Iterator: Có thể duyệt qua bất kỳ Collection nào theo chiều tiến. Hỗ trợ xóa các"
-    },
-    {
-      "paragraph_id": 34,
-      "start": 196.3,
-      "end": 209.25,
-      "duration": 12.95,
-      "text_snippet": "ListIterator: Mở rộng Iterator. Chỉ có thể duyệt qua các triển khai List. Hỗ trợ"
-    },
-    {
-      "paragraph_id": 35,
-      "start": 209.25,
-      "end": 211.35,
-      "duration": 2.1,
-      "text_snippet": "Ví dụ mã nguồn chạy được:"
-    },
-    {
-      "paragraph_id": 36,
-      "start": 211.45,
-      "end": 213.83,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 37,
-      "start": 213.78,
-      "end": 218.64,
-      "duration": 4.86,
-      "text_snippet": "Ví Dụ Thực Tế: Bộ đếm có tính đồng thời cao sử dụng ConcurrentHashMap"
-    },
-    {
-      "paragraph_id": 38,
-      "start": 218.64,
-      "end": 232.72,
-      "duration": 14.08,
-      "text_snippet": "Khi xây dựng các bộ tổng hợp đa luồng, việc sử dụng các khối synchronized hoặc s"
-    },
-    {
-      "paragraph_id": 39,
-      "start": 232.71,
-      "end": 235.09,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 40,
-      "start": 235.09,
-      "end": 236.94,
-      "duration": 1.85,
-      "text_snippet": "Các lỗi thường gặp"
-    },
-    {
-      "paragraph_id": 41,
-      "start": 237.04,
-      "end": 241.4,
-      "duration": 4.36,
-      "text_snippet": "1. Vòng lặp tham chiếu mạnh từ giá trị đến khóa trong WeakHashMap"
-    },
-    {
-      "paragraph_id": 42,
-      "start": 241.35,
-      "end": 253.57,
-      "duration": 12.22,
-      "text_snippet": "Nếu giá trị trong một WeakHashMap chứa một tham chiếu mạnh đến khóa, khóa đó sẽ "
-    },
-    {
-      "paragraph_id": 43,
-      "start": 253.57,
-      "end": 258.56,
-      "duration": 4.99,
-      "text_snippet": "2. Sửa đổi các bộ sưu tập trong quá trình lặp bằng các phương thức của Collectio"
-    },
-    {
-      "paragraph_id": 44,
-      "start": 258.56,
-      "end": 269.64,
-      "duration": 11.08,
-      "text_snippet": "Sử dụng list.remove() thay vì iterator.remove() bên trong một vòng lặp trình lặp"
-    },
-    {
-      "paragraph_id": 45,
-      "start": 269.64,
-      "end": 274.35,
-      "duration": 4.71,
-      "text_snippet": "3. Giả định tất cả các thao tác của ConcurrentHashMap đều mang tính nguyên tử"
-    },
-    {
-      "paragraph_id": 46,
-      "start": 274.35,
-      "end": 293.6,
-      "duration": 19.25,
-      "text_snippet": "Mặc dù các thao tác đọc và ghi riêng lẻ trên ConcurrentHashMap là an toàn luồng "
-    },
-    {
-      "paragraph_id": 47,
-      "start": 293.6,
-      "end": 296.05,
-      "duration": 2.45,
-      "text_snippet": "Các câu hỏi ôn tập thường gặp"
-    },
-    {
-      "paragraph_id": 48,
-      "start": 296.05,
-      "end": 304.1,
-      "duration": 8.05,
-      "text_snippet": "ConcurrentHashMap sử dụng gì từ Java 8 thay thế cho khóa phân đoạn? (các thao tá"
-    },
-    {
-      "paragraph_id": 49,
-      "start": 304.1,
-      "end": 316.0,
-      "duration": 11.9,
-      "text_snippet": "Tại sao IdentityHashMap sử dụng ==? (Để so sánh danh tính thực thể thay vì so sá"
-    },
-    {
-      "paragraph_id": 50,
-      "start": 316.0,
-      "end": 319.15,
-      "duration": 3.15,
-      "text_snippet": "Trình lặp nào hỗ trợ đi giật lùi? (ListIterator)"
-    },
-    {
-      "paragraph_id": 51,
-      "start": 319.25,
-      "end": 322.44,
-      "duration": 3.19,
-      "text_snippet": "Tại sao ConcurrentHashMap tránh việc khóa toàn cục"
-    },
-    {
-      "paragraph_id": 52,
-      "start": 322.39,
-      "end": 394.85,
-      "duration": 72.46,
-      "text_snippet": "Các bản đồ đồng bộ truyền thống (chẳng hạn như Hashtable hoặc bộ bao bọc được tr"
-    },
-    {
-      "paragraph_id": 53,
-      "start": 394.85,
-      "end": 396.76,
-      "duration": 1.91,
-      "text_snippet": "Mô hình tư duy"
-    },
-    {
-      "paragraph_id": 54,
-      "start": 396.76,
-      "end": 402.93,
-      "duration": 6.17,
-      "text_snippet": "Khóa hạt mịn (fine-grained locking) nhắm vào các xô riêng lẻ thay vì khóa toàn b"
-    },
-    {
-      "paragraph_id": 55,
-      "start": 402.94,
-      "end": 405.14,
+      "start": 49.5,
+      "end": 51.7,
       "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 56,
-      "start": 405.24,
-      "end": 407.18,
-      "duration": 1.94,
-      "text_snippet": "Ví dụ mã nguồn"
+      "paragraph_id": 9,
+      "start": 51.8,
+      "end": 55.5,
+      "duration": 3.7,
+      "text_snippet": "1. Hashtable & Collections.synchronizedMap()"
     },
     {
-      "paragraph_id": 57,
-      "start": 407.13,
-      "end": 409.49,
-      "duration": 2.36,
+      "paragraph_id": 10,
+      "start": 55.45,
+      "end": 67.41,
+      "duration": 11.96,
+      "text_snippet": "Cơ chế: Khóa cấp bảng băm (Table-Level Locking). Tất cả các luồng muốn đọc hoặc "
+    },
+    {
+      "paragraph_id": 11,
+      "start": 67.41,
+      "end": 75.99,
+      "duration": 8.58,
+      "text_snippet": "Hạn chế: Khi số lượng luồng tăng lên, nút thắt hiệu năng (bottleneck) xuất hiện "
+    },
+    {
+      "paragraph_id": 12,
+      "start": 75.99,
+      "end": 80.26,
+      "duration": 4.27,
+      "text_snippet": "2. ConcurrentHashMap Trong Java 7 (Segmented Locking)"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 80.36,
+      "end": 88.21,
+      "duration": 7.85,
+      "text_snippet": "Chia mảng thùng băm thành 16 phân đoạn độc lập (Segments). Mỗi Segment hoạt động"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 88.21,
+      "end": 93.62,
+      "duration": 5.41,
+      "text_snippet": "Cho phép tối đa 16 luồng ghi đồng thời vào các phân đoạn khác nhau mà không cạnh"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 93.62,
+      "end": 107.48,
+      "duration": 13.86,
+      "text_snippet": "3. ConcurrentHashMap Từ Java 8 Trở Đi (CAS + Bucket Synchronization)"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 107.49,
+      "end": 116.59,
+      "duration": 9.1,
+      "text_snippet": "Java 8 đã loại bỏ hoàn toàn kiến trúc Segment và thay thế bằng cơ chế khóa mịn h"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 107.59,
+      "end": 118.44,
+      "duration": 10.85,
+      "text_snippet": "Phép toán CAS (Compare-And-Swap) không khóa: Nếu thùng băm đang trống (node == n"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 118.39,
+      "end": 131.7,
+      "duration": 13.31,
+      "text_snippet": "Khóa mịn synchronized trên nút đầu (Head Node): Nếu thùng băm đã có phần tử (xun"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 131.7,
+      "end": 146.71,
+      "duration": 15.01,
+      "text_snippet": "Đọc không dùng khóa (Lock-free Reads): Các phương thức đọc như get() hoàn toàn k"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 146.71,
+      "end": 149.16,
+      "duration": 2.45,
+      "text_snippet": "Các Phương Thức Nguyên Tử (Atomic Operations)"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 146.81,
+      "end": 155.28,
+      "duration": 8.47,
+      "text_snippet": "Để tránh hiện tượng Check-Then-Act Race Condition (kiểm tra rồi mới hành động), "
+    },
+    {
+      "paragraph_id": 22,
+      "start": 155.24,
+      "end": 161.95,
+      "duration": 6.71,
+      "text_snippet": "putIfAbsent(K key, V value): Thêm cặp (key, value) nếu key chưa tồn tại."
+    },
+    {
+      "paragraph_id": 23,
+      "start": 161.95,
+      "end": 168.66,
+      "duration": 6.71,
+      "text_snippet": "computeIfAbsent(K key, Function mappingFunction): Tính toán và thêm giá trị chỉ "
+    },
+    {
+      "paragraph_id": 24,
+      "start": 168.66,
+      "end": 175.67,
+      "duration": 7.01,
+      "text_snippet": "merge(K key, V value, BiFunction remappingFunction): Gộp giá trị cũ và mới một c"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 175.78,
+      "end": 178.78,
+      "duration": 3.0,
+      "text_snippet": "Bảng So Sánh Các Giải Pháp Map Đa Luồng"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 178.73,
+      "end": 199.35,
+      "duration": 20.62,
+      "text_snippet": "[!CAUTION] ConcurrentHashMap cấm hoàn toàn null cho cả Key và Value. Lý do là để"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 199.35,
+      "end": 201.73,
+      "duration": 2.38,
+      "text_snippet": "Minh Họa Mã Nguồn Chạy Được"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 201.73,
+      "end": 203.93,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 58,
-      "start": 409.49,
-      "end": 411.96,
-      "duration": 2.47,
-      "text_snippet": "Chuỗi nguyên nhân - kết quả"
+      "paragraph_id": 29,
+      "start": 204.03,
+      "end": 206.84,
+      "duration": 2.81,
+      "text_snippet": "Bẫy Phỏng Vấn & Lưu Ý Thực Tế"
     },
     {
-      "paragraph_id": 59,
-      "start": 411.96,
-      "end": 414.33,
-      "duration": 2.37,
+      "paragraph_id": 30,
+      "start": 206.79,
+      "end": 248.2,
+      "duration": 41.41,
+      "text_snippet": "Ghép Nối Nhiều Phương Thức An ToànLuồng Nhưng Tạo Ra Lỗi Race Condition: Bẫy: if"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 248.2,
+      "end": 252.75,
+      "duration": 4.55,
+      "text_snippet": "Ghép Nối Nhiều Phương Thức An ToànLuồng Nhưng Tạo Ra Lỗi Race Condition:"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 252.75,
+      "end": 259.4,
+      "duration": 6.65,
+      "text_snippet": "Bẫy: if (!map.containsKey(key)) { map.put(key, value); // RACE CONDITION! Luồng "
+    },
+    {
+      "paragraph_id": 33,
+      "start": 248.3,
+      "end": 250.68,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 60,
-      "start": 414.34,
-      "end": 416.35,
-      "duration": 2.01,
-      "text_snippet": "Liên kết tham khảo"
+      "paragraph_id": 34,
+      "start": 250.63,
+      "end": 261.63,
+      "duration": 11.0,
+      "text_snippet": "Thực tế: Dù containsKey và put đều an toàn đa luồng độc lập, việc ghép chúng lại"
     },
     {
-      "paragraph_id": 61,
-      "start": 416.35,
-      "end": 417.75,
+      "paragraph_id": 35,
+      "start": 261.62,
+      "end": 278.11,
+      "duration": 16.49,
+      "text_snippet": "Duyệt ConcurrentHashMap Bằng Iterator: Thực tế: Iterator của ConcurrentHashMap l"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 278.11,
+      "end": 279.51,
       "duration": 1.4,
-      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurren"
+      "text_snippet": "Duyệt ConcurrentHashMap Bằng Iterator:"
     },
     {
-      "paragraph_id": 62,
-      "start": 417.75,
-      "end": 418.8,
-      "duration": 1.05,
-      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collectio"
+      "paragraph_id": 37,
+      "start": 278.21,
+      "end": 289.77,
+      "duration": 11.56,
+      "text_snippet": "Thực tế: Iterator của ConcurrentHashMap là Weakly-Consistent (Nhất quán yếu). Nó"
     }
   ]
 }

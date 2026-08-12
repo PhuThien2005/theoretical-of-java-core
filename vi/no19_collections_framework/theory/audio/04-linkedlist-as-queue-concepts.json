@@ -1,511 +1,343 @@
 {
   "lesson": "04-linkedlist-as-queue-concepts",
-  "total_duration_seconds": 497.36,
-  "total_paragraphs": 72,
+  "total_duration_seconds": 347.96,
+  "total_paragraphs": 48,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 3.15,
-      "duration": 3.15,
-      "text_snippet": "Khung bộ sưu tập (Collections Framework) - Phần 4"
+      "start": 0.1,
+      "end": 5.35,
+      "duration": 5.25,
+      "text_snippet": "Triển Khai Map Cốt Lõi: HashMap, LinkedHashMap, TreeMap & Hashtable"
     },
     {
       "paragraph_id": 2,
-      "start": 3.15,
-      "end": 4.55,
-      "duration": 1.4,
-      "text_snippet": "Mục Tiêu Học Tập"
+      "start": 5.3,
+      "end": 7.95,
+      "duration": 2.65,
+      "text_snippet": "Phân Loại Cấu Trúc Các Triển Khai Map"
     },
     {
       "paragraph_id": 3,
-      "start": 4.55,
-      "end": 17.85,
-      "duration": 13.3,
-      "text_snippet": "Tài liệu này trình bày một phần trọng tâm của Khung bộ sưu tập (Collections Fram"
+      "start": 7.95,
+      "end": 31.99,
+      "duration": 24.04,
+      "text_snippet": "Giao diện Map<K, V> đại diện cho một cấu trúc dữ liệu ánh xạ các Khóa (Keys) duy"
     },
     {
       "paragraph_id": 4,
-      "start": 17.85,
-      "end": 19.25,
-      "duration": 1.4,
-      "text_snippet": "Nội Dung Tổng Quan"
+      "start": 31.99,
+      "end": 35.28,
+      "duration": 3.29,
+      "text_snippet": "Phân Tích Chuyên Sâu Cấu Trúc Nội Tại HashMap"
     },
     {
       "paragraph_id": 5,
-      "start": 19.25,
-      "end": 26.6,
-      "duration": 7.35,
-      "text_snippet": "LinkedList as Queue — LinkedList as Queue: Cung cấp các quy tắc và cơ chế hoạt đ"
+      "start": 35.38,
+      "end": 42.54,
+      "duration": 7.16,
+      "text_snippet": "HashMap là triển khai Map được sử dụng phổ biến nhất trong Java, hoạt động dựa t"
     },
     {
       "paragraph_id": 6,
-      "start": 26.6,
-      "end": 32.55,
-      "duration": 5.95,
-      "text_snippet": "FIFO — FIFO: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
+      "start": 42.49,
+      "end": 46.61,
+      "duration": 4.12,
+      "text_snippet": "1. Hàm Băm & Trải Rộng Mã Băm (Hash Spreading)"
     },
     {
       "paragraph_id": 7,
-      "start": 32.55,
-      "end": 38.5,
-      "duration": 5.95,
-      "text_snippet": "LIFO — LIFO: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
+      "start": 46.61,
+      "end": 55.4,
+      "duration": 8.79,
+      "text_snippet": "Khi một cặp (key, value) được chèn vào HashMap:"
     },
     {
       "paragraph_id": 8,
-      "start": 38.5,
-      "end": 44.45,
-      "duration": 5.95,
-      "text_snippet": "HashMap — HashMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
+      "start": 55.4,
+      "end": 59.25,
+      "duration": 3.85,
+      "text_snippet": "HashMap tính toán mã băm của khóa bằng phương thức key.hashCode()."
     },
     {
       "paragraph_id": 9,
-      "start": 44.45,
-      "end": 50.4,
-      "duration": 5.95,
-      "text_snippet": "LinkedHashMap — LinkedHashMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể t"
+      "start": 55.5,
+      "end": 73.45,
+      "duration": 17.95,
+      "text_snippet": "Để hạn chế xung đột khi số lượng thùng băm (buckets) nhỏ, HashMap áp dụng hàm xá"
     },
     {
       "paragraph_id": 10,
-      "start": 50.4,
-      "end": 56.35,
-      "duration": 5.95,
-      "text_snippet": "TreeMap — TreeMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
+      "start": 73.45,
+      "end": 75.83,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 11,
-      "start": 56.45,
-      "end": 62.16,
-      "duration": 5.71,
-      "text_snippet": "Hashtable — Hashtable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Jav"
+      "start": 75.83,
+      "end": 87.79,
+      "duration": 11.96,
+      "text_snippet": "Vị trí thùng băm được xác định bằng phép toán bit thay cho phép chia lấy dư: $$\\"
     },
     {
       "paragraph_id": 12,
-      "start": 62.11,
-      "end": 63.94,
-      "duration": 1.83,
-      "text_snippet": "Ghi Chú Chi Tiết"
+      "start": 87.79,
+      "end": 93.29,
+      "duration": 5.5,
+      "text_snippet": "2. Xử Lý Xung Đột Băm (Collision Resolution & Treeification)"
     },
     {
       "paragraph_id": 13,
-      "start": 63.94,
-      "end": 73.36,
-      "duration": 9.42,
-      "text_snippet": "LinkedList dưới dạng Hàng đợi (LinkedList as Queue)"
+      "start": 93.39,
+      "end": 98.01,
+      "duration": 4.62,
+      "text_snippet": "Nếu hai khóa có cùng chỉ số thùng băm (Bucket Index trùng nhau):"
     },
     {
       "paragraph_id": 14,
-      "start": 73.36,
-      "end": 83.55,
-      "duration": 10.19,
-      "text_snippet": "LinkedList triển khai Queue, cho phép nó hoạt động như một cấu trúc FIFO. Vì nó "
+      "start": 97.96,
+      "end": 111.34,
+      "duration": 13.38,
+      "text_snippet": "Trước Java 8: HashMap dùng danh sách liên kết đơn (Singly-Linked List). Trong tr"
     },
     {
       "paragraph_id": 15,
-      "start": 83.55,
-      "end": 86.28,
-      "duration": 2.73,
-      "text_snippet": "Ví Dụ Mã Nguồn Có Thể Chạy Được:"
+      "start": 111.34,
+      "end": 118.84,
+      "duration": 7.5,
+      "text_snippet": "Từ Java 8 trở đi (Cây hóa - Treeification): Ban đầu, các phần tử xung đột được l"
     },
     {
       "paragraph_id": 16,
-      "start": 86.37,
-      "end": 88.75,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 118.84,
+      "end": 124.09,
+      "duration": 5.25,
+      "text_snippet": "Ban đầu, các phần tử xung đột được lưu trong danh sách liên kết đơn."
     },
     {
       "paragraph_id": 17,
-      "start": 88.7,
-      "end": 97.88,
-      "duration": 9.18,
-      "text_snippet": "FIFO so với LIFO"
+      "start": 118.94,
+      "end": 134.62,
+      "duration": 15.68,
+      "text_snippet": "Khi số phần tử trong một thùng băm đạt đến ngưỡng TREEIFY_THRESHOLD = 8 VÀ tổng "
     },
     {
       "paragraph_id": 18,
-      "start": 97.87,
-      "end": 102.06,
-      "duration": 4.19,
-      "text_snippet": "FIFO (Vào trước - Ra trước): Các phần tử được xử lý theo đúng thứ tự khi chúng đ"
+      "start": 134.56,
+      "end": 142.57,
+      "duration": 8.01,
+      "text_snippet": "Nhờ cơ chế này, độ phức tạp truy vấn trong trường hợp xấu nhất được cải thiện từ"
     },
     {
       "paragraph_id": 19,
-      "start": 102.06,
-      "end": 124.76,
-      "duration": 22.7,
-      "text_snippet": "LIFO (Vào sau - Ra trước): Phần tử mới nhất được xử lý trước tiên. Được sử dụng "
+      "start": 142.57,
+      "end": 152.32,
+      "duration": 9.75,
+      "text_snippet": "Khi số phần tử trong thùng băm giảm xuống còn UNTREEIFY_THRESHOLD = 6, nó sẽ chu"
     },
     {
       "paragraph_id": 20,
-      "start": 124.76,
-      "end": 127.56,
-      "duration": 2.8,
-      "text_snippet": "Ví Dụ Mã Nguồn Có Thể Chạy Được:"
+      "start": 152.32,
+      "end": 154.52,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 21,
-      "start": 124.76,
-      "end": 126.16,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 154.62,
+      "end": 168.2,
+      "duration": 13.58,
+      "text_snippet": "3. Tải Trọng (Load Factor) & Cơ Chế Tái Băm (Rehashing)"
     },
     {
       "paragraph_id": 22,
-      "start": 126.16,
-      "end": 126.56,
-      "duration": 0.4,
-      "text_snippet": "HashMap"
+      "start": 168.2,
+      "end": 175.2,
+      "duration": 7.0,
+      "text_snippet": "Tải trọng mặc định (DEFAULT_LOAD_FACTOR = 0.75): Cân bằng giữa chi phí bộ nhớ và"
     },
     {
       "paragraph_id": 23,
-      "start": 126.51,
-      "end": 131.76,
-      "duration": 5.25,
-      "text_snippet": "HashMap lưu trữ các cặp khóa-giá trị bằng cách sử dụng bảng băm (hash table)."
+      "start": 168.2,
+      "end": 174.2,
+      "duration": 6.0,
+      "text_snippet": "Ngưỡng tái băm (Threshold): $$\\text{Threshold} = \\text{Capacity} \\times \\text{Lo"
     },
     {
       "paragraph_id": 24,
-      "start": 131.76,
-      "end": 161.51,
-      "duration": 29.75,
-      "text_snippet": "Cấu trúc nội bộ: Một mảng gồm các ngăn chứa (bucket) kiểu Node/Entry. Khi xảy ra"
+      "start": 174.2,
+      "end": 184.5,
+      "duration": 10.3,
+      "text_snippet": "Khi số lượng entry vượt quá Threshold, HashMap sẽ tăng gấp đôi dung lượng ($n \\t"
     },
     {
       "paragraph_id": 25,
-      "start": 161.51,
-      "end": 164.66,
-      "duration": 3.15,
-      "text_snippet": "Duyệt phần tử (Iteration): Không đảm bảo thứ tự."
+      "start": 184.6,
+      "end": 186.7,
+      "duration": 2.1,
+      "text_snippet": "Các Triển Khai Map Khác"
     },
     {
       "paragraph_id": 26,
-      "start": 164.66,
-      "end": 167.46,
-      "duration": 2.8,
-      "text_snippet": "Ví Dụ Mã Nguồn Có Thể Chạy Được:"
+      "start": 186.65,
+      "end": 188.74,
+      "duration": 2.09,
+      "text_snippet": "1. LinkedHashMap"
     },
     {
       "paragraph_id": 27,
-      "start": 167.46,
-      "end": 168.86,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 188.74,
+      "end": 194.38,
+      "duration": 5.64,
+      "text_snippet": "Extends từ HashMap nhưng bổ sung một danh sách liên kết đôi chạy xuyên qua tất c"
     },
     {
       "paragraph_id": 28,
-      "start": 168.86,
-      "end": 169.26,
-      "duration": 0.4,
-      "text_snippet": "LinkedHashMap"
+      "start": 194.37,
+      "end": 201.02,
+      "duration": 6.65,
+      "text_snippet": "Bảo toàn thứ tự chèn phần tử (Insertion Order) hoặc thứ tự truy cập (Access Orde"
     },
     {
       "paragraph_id": 29,
-      "start": 169.21,
-      "end": 177.26,
-      "duration": 8.05,
-      "text_snippet": "LinkedHashMap kế thừa từ HashMap nhưng duy trì một danh sách liên kết kép đi qua"
+      "start": 201.12,
+      "end": 218.21,
+      "duration": 17.09,
+      "text_snippet": "Ứng dụng xây dựng LRU Cache: Khi khởi tạo với accessOrder = true, mỗi khi gọi ge"
     },
     {
       "paragraph_id": 30,
-      "start": 177.26,
-      "end": 201.76,
-      "duration": 24.5,
-      "text_snippet": "Các chế độ sắp xếp thứ tự: Thứ tự chèn (Insertion Order): Việc duyệt phần tử khớ"
+      "start": 218.21,
+      "end": 219.75,
+      "duration": 1.54,
+      "text_snippet": "2. TreeMap"
     },
     {
       "paragraph_id": 31,
-      "start": 201.86,
-      "end": 217.28,
-      "duration": 15.42,
-      "text_snippet": "Thứ tự chèn (Insertion Order): Việc duyệt phần tử khớp với trình tự chèn (mặc đị"
+      "start": 219.75,
+      "end": 223.19,
+      "duration": 3.44,
+      "text_snippet": "Triển khai NavigableMap dựa trên Cây Đỏ-Đen."
     },
     {
       "paragraph_id": 32,
-      "start": 217.29,
-      "end": 220.82,
-      "duration": 3.53,
-      "text_snippet": "Thứ tự truy cập (Access Order): Việc duyệt phần tử khớp với thứ tự của lần truy "
+      "start": 223.19,
+      "end": 229.01,
+      "duration": 5.82,
+      "text_snippet": "Tự động sắp xếp các Khóa theo thứ tự tự nhiên (Comparable) hoặc theo Comparator."
     },
     {
       "paragraph_id": 33,
-      "start": 220.81,
-      "end": 223.71,
-      "duration": 2.9,
-      "text_snippet": "Ví Dụ Mã Nguồn Có Thể Chạy Được:"
+      "start": 229.11,
+      "end": 235.52,
+      "duration": 6.41,
+      "text_snippet": "Độ phức tạp $O(\\log N)$ cho get, put, remove. Cấm Khóa null."
     },
     {
       "paragraph_id": 34,
-      "start": 223.71,
-      "end": 226.09,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
+      "start": 235.52,
+      "end": 238.94,
+      "duration": 3.42,
+      "text_snippet": "3. Hashtable (Legacy Class)"
     },
     {
       "paragraph_id": 35,
-      "start": 226.09,
-      "end": 227.23,
-      "duration": 1.14,
-      "text_snippet": "TreeMap"
+      "start": 238.95,
+      "end": 242.64,
+      "duration": 3.69,
+      "text_snippet": "Đồng bộ hóa tất cả phương thức (synchronized)."
     },
     {
       "paragraph_id": 36,
-      "start": 227.32,
-      "end": 231.06,
-      "duration": 3.74,
-      "text_snippet": "TreeMap là một triển khai Cây đỏ-đen của NavigableMap."
+      "start": 242.64,
+      "end": 247.24,
+      "duration": 4.6,
+      "text_snippet": "Cấm hoàn toàn khóa null và giá trị null (ném NullPointerException)."
     },
     {
       "paragraph_id": 37,
-      "start": 231.01,
-      "end": 237.72,
-      "duration": 6.71,
-      "text_snippet": "Thứ tự: Được sắp xếp theo thứ tự tự nhiên của các khóa hoặc thông qua một bộ so "
+      "start": 247.34,
+      "end": 250.95,
+      "duration": 3.61,
+      "text_snippet": "Lỗi thời: Bị thay thế bởi ConcurrentHashMap."
     },
     {
       "paragraph_id": 38,
-      "start": 237.72,
-      "end": 242.79,
-      "duration": 5.07,
-      "text_snippet": "Hạn chế: Các khóa phải có khả năng so sánh được với nhau và không được là null."
+      "start": 250.9,
+      "end": 253.77,
+      "duration": 2.87,
+      "text_snippet": "Bảng So Sánh Chi Tiết Các Triển Khai Map"
     },
     {
       "paragraph_id": 39,
-      "start": 242.8,
-      "end": 245.69,
-      "duration": 2.89,
-      "text_snippet": "Ví Dụ Mã Nguồn Có Thể Chạy Được:"
+      "start": 253.77,
+      "end": 258.77,
+      "duration": 5.0,
+      "text_snippet": "Minh Họa Mã Nguồn Chạy Được: Xây Dựng LRU Cache Bằng LinkedHashMap"
     },
     {
       "paragraph_id": 40,
-      "start": 245.69,
-      "end": 247.89,
+      "start": 258.77,
+      "end": 260.97,
       "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 41,
-      "start": 247.89,
-      "end": 248.29,
-      "duration": 0.4,
-      "text_snippet": "Hashtable"
+      "start": 261.07,
+      "end": 263.88,
+      "duration": 2.81,
+      "text_snippet": "Bẫy Phỏng Vấn & Lưu Ý Thực Tế"
     },
     {
       "paragraph_id": 42,
-      "start": 248.24,
-      "end": 252.09,
-      "duration": 3.85,
-      "text_snippet": "Hashtable là lớp map đồng bộ cũ (legacy synchronized map class)."
+      "start": 263.84,
+      "end": 303.95,
+      "duration": 40.11,
+      "text_snippet": "Thay Đổi Thuộc Tính Của Khóa Sau Khi Đã Cho Vào HashMap: Bẫy: Dùng một Mutable O"
     },
     {
       "paragraph_id": 43,
-      "start": 252.09,
-      "end": 256.99,
-      "duration": 4.9,
-      "text_snippet": "Đồng bộ hóa: Sử dụng đồng bộ hóa thô (coarse-grained) trên mọi phương thức."
+      "start": 303.95,
+      "end": 308.15,
+      "duration": 4.2,
+      "text_snippet": "Thay Đổi Thuộc Tính Của Khóa Sau Khi Đã Cho Vào HashMap:"
     },
     {
       "paragraph_id": 44,
-      "start": 256.99,
-      "end": 264.34,
-      "duration": 7.35,
-      "text_snippet": "An toàn null (Null Safety): Ném ra ngoại lệ NullPointerException nếu có bất kỳ k"
+      "start": 308.15,
+      "end": 315.85,
+      "duration": 7.7,
+      "text_snippet": "Bẫy: Dùng một Mutable Object làm Key (ví dụ List hoặc CustomClass), sau đó sửa đ"
     },
     {
       "paragraph_id": 45,
-      "start": 264.34,
-      "end": 273.79,
-      "duration": 9.45,
-      "text_snippet": "Lỗi thời: Tránh sử dụng nó. Hãy sử dụng ConcurrentHashMap cho các bản đồ đồng th"
+      "start": 304.05,
+      "end": 321.31,
+      "duration": 17.26,
+      "text_snippet": "Thực tế: Khi gọi map.get(key) sau khi sửa đổi, HashMap sẽ tính lại hashCode() mớ"
     },
     {
       "paragraph_id": 46,
-      "start": 273.89,
-      "end": 286.15,
-      "duration": 12.26,
-      "text_snippet": "Ví Dụ Thực Tế: Thiết kế bộ nhớ đệm LRU (Least Recently Used Cache)"
+      "start": 321.31,
+      "end": 347.96,
+      "duration": 26.65,
+      "text_snippet": "Khác Biệt Giữa Cấm Null Của Hashtable và HashMap: Thực tế: HashMap cho phép key "
     },
     {
       "paragraph_id": 47,
-      "start": 286.15,
-      "end": 293.06,
-      "duration": 6.91,
-      "text_snippet": "Bộ nhớ đệm LRU sẽ loại bỏ các phần tử ít được truy cập nhất trước khi dung lượng"
+      "start": 347.96,
+      "end": 351.11,
+      "duration": 3.15,
+      "text_snippet": "Khác Biệt Giữa Cấm Null Của Hashtable và HashMap:"
     },
     {
       "paragraph_id": 48,
-      "start": 293.06,
-      "end": 295.44,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 49,
-      "start": 295.44,
-      "end": 297.37,
-      "duration": 1.93,
-      "text_snippet": "Sai Lầm Thường Gặp"
-    },
-    {
-      "paragraph_id": 50,
-      "start": 297.36,
-      "end": 301.65,
-      "duration": 4.29,
-      "text_snippet": "1. Nhầm lẫn phương thức Queue: poll() so với remove()"
-    },
-    {
-      "paragraph_id": 51,
-      "start": 301.65,
-      "end": 316.7,
-      "duration": 15.05,
-      "text_snippet": "Gọi phương thức remove() trên một Queue trống sẽ ném ra ngoại lệ NoSuchElementEx"
-    },
-    {
-      "paragraph_id": 52,
-      "start": 316.7,
-      "end": 319.5,
-      "duration": 2.8,
-      "text_snippet": "2. Thay đổi các khóa trong một HashMap"
-    },
-    {
-      "paragraph_id": 53,
-      "start": 319.5,
-      "end": 336.3,
-      "duration": 16.8,
-      "text_snippet": "Nếu các thuộc tính của khóa bị thay đổi sau khi chèn phần tử sao cho giá trị has"
-    },
-    {
-      "paragraph_id": 54,
-      "start": 336.3,
-      "end": 339.1,
-      "duration": 2.8,
-      "text_snippet": "3. Giả định rằng LinkedHashMap được sắp xếp"
-    },
-    {
-      "paragraph_id": 55,
-      "start": 339.1,
-      "end": 348.2,
-      "duration": 9.1,
-      "text_snippet": "Các lập trình viên đôi khi nhầm lẫn LinkedHashMap (duy trì thứ tự chèn/truy cập)"
-    },
-    {
-      "paragraph_id": 56,
-      "start": 348.3,
-      "end": 350.74,
-      "duration": 2.44,
-      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
-    },
-    {
-      "paragraph_id": 57,
-      "start": 350.69,
-      "end": 356.0,
-      "duration": 5.31,
-      "text_snippet": "Những triển khai map nào từ chối khóa null? (TreeMap, Hashtable)"
-    },
-    {
-      "paragraph_id": 58,
-      "start": 356.0,
-      "end": 365.31,
-      "duration": 9.31,
-      "text_snippet": "Sự khác biệt giữa peek() và element() là gì? (peek() trả về null khi hàng đợi tr"
-    },
-    {
-      "paragraph_id": 59,
-      "start": 365.31,
-      "end": 376.38,
-      "duration": 11.07,
-      "text_snippet": "HashMap xử lý xung đột băm như thế nào kể từ Java 8? (Danh sách liên kết lên đến"
-    },
-    {
-      "paragraph_id": 60,
-      "start": 376.39,
-      "end": 380.24,
-      "duration": 3.85,
-      "text_snippet": "Tại Sao Phải Ghi Đè Đồng Thời Equals Và HashCode"
-    },
-    {
-      "paragraph_id": 61,
-      "start": 380.34,
-      "end": 400.01,
-      "duration": 19.67,
-      "text_snippet": "Xem thêm: Sự liên kết chặt chẽ và nguyên tắc (contract) giữa equals và hashCode,"
-    },
-    {
-      "paragraph_id": 62,
-      "start": 400.01,
-      "end": 445.86,
-      "duration": 45.85,
-      "text_snippet": "Trong khung bộ sưu tập của Java, các cấu trúc dựa trên băm như HashMap và HashSe"
-    },
-    {
-      "paragraph_id": 63,
-      "start": 445.86,
-      "end": 447.78,
-      "duration": 1.92,
-      "text_snippet": "Mô Hình Tư Duy"
-    },
-    {
-      "paragraph_id": 64,
-      "start": 447.79,
-      "end": 454.13,
-      "duration": 6.34,
-      "text_snippet": "Nếu không ghi đè hashCode(), hai đối tượng bằng nhau về mặt logic sẽ kết thúc ở "
-    },
-    {
-      "paragraph_id": 65,
-      "start": 454.12,
-      "end": 456.32,
-      "duration": 2.2,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 66,
-      "start": 456.43,
-      "end": 458.37,
-      "duration": 1.94,
-      "text_snippet": "Ví Dụ Mã Nguồn"
-    },
-    {
-      "paragraph_id": 67,
-      "start": 458.31,
-      "end": 460.67,
-      "duration": 2.36,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 68,
-      "start": 460.68,
-      "end": 463.18,
-      "duration": 2.5,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
-    },
-    {
-      "paragraph_id": 69,
-      "start": 463.18,
-      "end": 465.54,
-      "duration": 2.36,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 70,
-      "start": 465.54,
-      "end": 467.54,
-      "duration": 2.0,
-      "text_snippet": "Liên Kết Tham Khảo"
-    },
-    {
-      "paragraph_id": 71,
-      "start": 467.64,
-      "end": 497.36,
-      "duration": 29.72,
-      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.ht"
-    },
-    {
-      "paragraph_id": 72,
-      "start": 497.36,
-      "end": 498.41,
-      "duration": 1.05,
-      "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/HashMap.h"
+      "start": 351.11,
+      "end": 359.86,
+      "duration": 8.75,
+      "text_snippet": "Thực tế: HashMap cho phép key == null (lưu tại bucket 0). Hashtable gọi key.hash"
     }
   ]
 }

@@ -1,142 +1,64 @@
-# Collections Framework - Phần 5 (Collections Framework - Part 5)
+# ConcurrentHashMap & Xử Lý Đa Luồng Trong Collections Framework
 
-## Mục tiêu học tập
+## Thách Thức An Toàn Luồng (Thread-Safety Challenges)
 
-Tài liệu này tập trung vào một phần trọng tâm của **Collections Framework** bao gồm các bản đồ đồng thời (`ConcurrentHashMap`), các bản đồ chuyên dụng (`WeakHashMap`, `IdentityHashMap`), các bản đồ được sắp xếp/điều hướng, và các mô hình duyệt của trình lặp.
-
-## Đề cương chi tiết
-
-- **`ConcurrentHashMap`** — ConcurrentHashMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`WeakHashMap`** — WeakHashMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`IdentityHashMap`** — IdentityHashMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`SortedMap`** — SortedMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`NavigableMap`** — NavigableMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Iterator`** — Iterator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ListIterator`** — ListIterator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
-## Ghi chú chi tiết
-
-### ConcurrentHashMap
-
-`ConcurrentHashMap` cung cấp khả năng đồng thời hoàn toàn cho các thao tác đọc và khả năng đồng thời cao cho các thao tác ghi.
-- **Cơ chế khóa**: Trong Java 7, nó sử dụng khóa phân đoạn (segment locking). Từ Java 8 trở đi, nó sử dụng khóa cấp nút (node-level locking - chỉ đồng bộ hóa trên nút đầu tiên của một xô bucket/bin) và các thao tác CAS (Compare-And-Swap) cho các xô trống. Điều này cho phép nhiều luồng ghi vào các xô khác nhau một cách đồng thời.
-- **An toàn với Null**: Từ chối các khóa và giá trị `null`.
-
-**Ví dụ mã nguồn chạy được:**
-```java
-import java.util.concurrent.ConcurrentHashMap;
-
-public class ConcurrentMapDemo {
-    public static void main(String[] args) {
-        ConcurrentHashMap<String, Integer> inventory = new ConcurrentHashMap<>();
-        inventory.put("Widget A", 100);
-
-        // Atomic write operations
-        inventory.computeIfPresent("Widget A", (key, val) -> val - 5);
-        inventory.putIfAbsent("Widget B", 50);
-
-        System.out.println("Inventory: " + inventory); // {Widget A=95, Widget B=50}
-    }
-}
-```
-
-### WeakHashMap
-
-Một Map dựa trên bảng băm với các khóa được bao bọc trong `WeakReference`. Khi một khóa không còn được tham chiếu ở nơi khác, nó sẽ bị thu gom rác, và mục nhập tương ứng sau đó sẽ tự động bị xóa khỏi bản đồ.
-- **Trường hợp sử dụng điển hình**: Bộ đệm cache, bảng tra cứu siêu dữ liệu (metadata), hoặc các đăng ký trình lắng nghe (listener registry) nơi việc ánh xạ không nên giữ cho các đối tượng tiếp tục sống.
-
-**Ví dụ mã nguồn chạy được:**
-```java
-import java.util.Map;
-import java.util.WeakHashMap;
-
-public class WeakHashMapDemo {
-    public static void main(String[] args) throws InterruptedException {
-        Map<Object, String> weakMap = new WeakHashMap<>();
-        Object key = new Object(); // Strong reference to the key
-
-        weakMap.put(key, "Cached Metadata");
-        System.out.println("Before GC: " + weakMap.containsKey(key)); // true
-
-        key = null; // Clear the strong reference
-        System.gc(); // Request GC execution
-        Thread.sleep(100); // Give GC time to run
-
-        System.out.println("After GC: " + weakMap.isEmpty()); // true (key was garbage collected)
-    }
-}
-```
-
-### IdentityHashMap
-
-Một `IdentityHashMap` so sánh các khóa bằng cách sử dụng so sánh bằng tham chiếu (`key1 == key2`) thay vì so sánh bằng đối tượng (`key1.equals(key2)`). Nó cố tình không phải là một triển khai Map đa mục đích thông thường.
-- **Trường hợp sử dụng điển hình**: Các thuật toán duyệt đồ thị để phát hiện chu trình, tuần tự hóa đồ thị đối tượng, hoặc duy trì các thực thể đối tượng chính xác.
-
-**Ví dụ mã nguồn chạy được:**
-```java
-import java.util.IdentityHashMap;
-import java.util.Map;
-
-public class IdentityMapDemo {
-    public static void main(String[] args) {
-        Map<String, String> map = new IdentityHashMap<>();
-        
-        String key1 = new String("key");
-        String key2 = new String("key");
-        
-        map.put(key1, "Value A");
-        map.put(key2, "Value B");
-        
-        // Logical contents match, but references are different
-        System.out.println("Size: " + map.size()); // 2
-        System.out.println("Key1 value: " + map.get(key1)); // Value A
-    }
-}
-```
-
-### SortedMap & NavigableMap
-
-- **SortedMap**: Một giao diện duy trì các khóa của nó theo thứ tự đã sắp xếp.
-- **NavigableMap**: Mở rộng `SortedMap` và bổ sung các phương thức như `lowerEntry()`, `floorKey()`, `ceilingKey()`, và `higherKey()` để tìm các kết quả khớp gần nhất so với một khóa nhất định. `TreeMap` là triển khai chính.
-
-### Iterator so với ListIterator
-
-- **Iterator**: Có thể duyệt qua bất kỳ `Collection` nào theo chiều tiến. Hỗ trợ xóa các phần tử trong quá trình lặp.
-- **ListIterator**: Mở rộng `Iterator`. Chỉ có thể duyệt qua các triển khai `List`. Hỗ trợ duyệt hai chiều (`hasPrevious()`, `previous()`), thay thế phần tử (`set()`), thêm phần tử (`add()`), và truy xuất chỉ số index hiện tại.
-
-**Ví dụ mã nguồn chạy được:**
-```java
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ListIterator;
-
-public class ListIteratorDemo {
-    public static void main(String[] args) {
-        List<String> list = new ArrayList<>(List.of("A", "B", "C"));
-        ListIterator<String> lit = list.listIterator();
-
-        // Traverse forward
-        while (lit.hasNext()) {
-            String element = lit.next();
-            if (element.equals("B")) {
-                lit.set("Updated B"); // Replace element
-            }
-        }
-
-        // Traverse backward
-        while (lit.hasPrevious()) {
-            System.out.print(lit.previous() + " "); // C Updated B A 
-        }
-        System.out.println();
-    }
-}
-```
+Trong môi trường lập trình đa luồng (multithreaded environments), việc ghi đồng thời vào các cấu trúc dữ liệu không an toàn luồng như `HashMap` hoặc `ArrayList` gây ra các hiện tượng cực kỳ nguy hiểm:
+- **Tranh chấp dữ liệu (Data Race)**: Ghi đè các phần tử, dẫn đến mất mát dữ liệu mà không có cảnh báo.
+- **Vòng lặp vô tận (Infinite Loops in Legacy HashMap)**: Trong Java 7 trở về trước, việc tái băm (`resize()`) đồng thời trên `HashMap` có thể làm hỏng các con trỏ của danh sách liên kết, tạo thành một vòng lặp kín gây treo CPU 100%.
+- **Ngoại lệ `ConcurrentModificationException`**: Ném ra khi một luồng đang duyệt tập hợp trong khi một luồng khác thực hiện thay đổi cấu trúc.
 
 ---
 
-## Ví Dụ Thực Tế: Bộ đếm có tính đồng thời cao sử dụng ConcurrentHashMap
+## Tiến Trình Tiến Hóa Đa Luồng Trong Java Map
 
-Khi xây dựng các bộ tổng hợp đa luồng, việc sử dụng các khối synchronized hoặc `synchronizedMap` sẽ tạo ra các nút thắt cổ chai hiệu năng nghiêm trọng. Sử dụng `ConcurrentHashMap` kết hợp với `LongAdder` cho phép cập nhật bộ đếm đồng thời một cách cực kỳ hiệu quả.
+```mermaid
+graph TD
+    Hashtable[Hashtable / SynchronizedMap: Lock Toàn Bộ Bảng] --> SegmentLock[Java 7 ConcurrentHashMap: Lock Theo Segment (Segmented Locking)]
+    SegmentLock --> BucketCAS[Java 8+ ConcurrentHashMap: CAS + Synchronized Từng Thùng Băm]
+```
+
+### 1. `Hashtable` & `Collections.synchronizedMap()`
+- **Cơ chế**: Khóa cấp bảng băm (Table-Level Locking). Tất cả các luồng muốn đọc hoặc ghi đều phải tranh chấp một khóa duy nhất (`synchronized(this)` hoặc `synchronized(mutex)`).
+- **Hạn chế**: Khi số lượng luồng tăng lên, nút thắt hiệu năng (bottleneck) xuất hiện nghiêm trọng do các luồng bị chặn (blocked) chờ khóa.
+
+### 2. `ConcurrentHashMap` Trong Java 7 (Segmented Locking)
+- Chia mảng thùng băm thành 16 phân đoạn độc lập (Segments). Mỗi `Segment` hoạt động như một ReentrantLock riêng biệt.
+- Cho phép tối đa 16 luồng ghi đồng thời vào các phân đoạn khác nhau mà không cạnh tranh khóa.
+
+### 3. `ConcurrentHashMap` Từ Java 8 Trở Đi (CAS + Bucket Synchronization)
+Java 8 đã loại bỏ hoàn toàn kiến trúc `Segment` và thay thế bằng cơ chế khóa mịn hơn ở cấp từng thùng băm (Bucket-Level Locking):
+- **Phép toán CAS (Compare-And-Swap) không khóa**: Nếu thùng băm đang trống (`node == null`), `ConcurrentHashMap` dùng lệnh CPU gốc `Unsafe.compareAndSwapObject` để chèn nút mới mà **không cần dùng khóa**.
+- **Khóa mịn `synchronized` trên nút đầu (`Head Node`)**: Nếu thùng băm đã có phần tử (xung đột băm), nó chỉ khóa duy nhất nút đầu tiên của thùng băm đó (`synchronized (f)`). Các thùng băm khác hoàn toàn không bị ảnh hưởng.
+- **Đọc không dùng khóa (Lock-free Reads)**: Các phương thức đọc như `get()` hoàn toàn không dùng khóa nhờ sử dụng các từ khóa `volatile` cho mảng thùng băm và con trỏ liên kết nút (`volatile Node<K,V> next`).
+
+---
+
+## Các Phương Thức Nguyên Tử (Atomic Operations)
+
+Để tránh hiện tượng Check-Then-Act Race Condition (kiểm tra rồi mới hành động), `ConcurrentHashMap` cung cấp các phương thức thao tác nguyên tử:
+
+- `putIfAbsent(K key, V value)`: Thêm cặp (key, value) nếu key chưa tồn tại.
+- `computeIfAbsent(K key, Function mappingFunction)`: Tính toán và thêm giá trị chỉ khi key chưa có trong Map.
+- `merge(K key, V value, BiFunction remappingFunction)`: Gộp giá trị cũ và mới một cách nguyên tử.
+
+---
+
+## Bảng So Sánh Các Giải Pháp Map Đa Luồng
+
+| Tiêu Chí | `HashMap` | `Collections.synchronizedMap()` | `ConcurrentHashMap` |
+| :--- | :--- | :--- | :--- |
+| **An toàn đa luồng** | Không | Có | **Có** |
+| **Cơ chế khóa** | Không có | Khóa toàn bộ Map (Mutex) | **CAS cho thùng trống + Synchronized cho thùng băm** |
+| **Độ song song (Concurrency)** | 0 | 1 luồng tại một thời điểm | **Rất cao (Song song theo từng bucket)** |
+| **Thao tác Đọc `get()`** | Không khóa | Phải lấy khóa Mutex | **Lock-free ($O(1)$)** |
+| **Cho phép Khóa/Giá trị `null`** | Cho phép | Cho phép | **Cấm cả Key & Value `null`** |
+
+> [!CAUTION]
+> `ConcurrentHashMap` cấm hoàn toàn `null` cho cả Key và Value. Lý do là để tránh sự mơ hồ trong môi trường đa luồng: nếu `get(key)` trả về `null`, ta không thể phân biệt giữa "Key không tồn tại" và "Key tồn tại nhưng giá trị là null" bằng cách gọi `containsKey(key)`, vì trạng thái của Map có thể đã bị luồng khác thay đổi giữa 2 lời gọi hàm đó.
+
+---
+
+## Minh Họa Mã Nguồn Chạy Được
 
 ```java
 import java.util.Map;
@@ -144,110 +66,41 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.LongAdder;
 
-public class ConcurrentCounterApp {
+public class ConcurrentHashMapDemo {
     public static void main(String[] args) throws InterruptedException {
-        // ConcurrentHashMap + LongAdder (preferred over AtomicInteger for high write-rate counters)
-        ConcurrentHashMap<String, LongAdder> pageCounts = new ConcurrentHashMap<>();
+        Map<String, Integer> wordCounts = new ConcurrentHashMap<>();
 
-        ExecutorService executor = Executors.newFixedThreadPool(4);
+        // Giả lập 10 luồng cập nhật bộ đếm từ đồng thời
+        ExecutorService executor = Executors.newFixedThreadPool(10);
 
-        // Submit 1000 tasks to increment counts
         for (int i = 0; i < 1000; i++) {
             executor.submit(() -> {
-                // computeIfAbsent is thread-safe and atomic
-                pageCounts.computeIfAbsent("/home", k -> new LongAdder()).increment();
+                // Thao tác gộp nguyên tử safe-thread không bị thất thoát dữ liệu
+                wordCounts.merge("Java", 1, Integer::sum);
             });
         }
 
         executor.shutdown();
         executor.awaitTermination(5, TimeUnit.SECONDS);
 
-        System.out.println("Total visits to /home: " + pageCounts.get("/home").sum()); // 1000
+        System.out.println("Tổng số đếm từ (Kỳ vọng 1000): " + wordCounts.get("Java"));
     }
 }
 ```
 
 ---
 
-## Các lỗi thường gặp
+## Bẫy Phỏng Vấn & Lưu Ý Thực Tế
 
-### 1. Vòng lặp tham chiếu mạnh từ giá trị đến khóa trong WeakHashMap
-Nếu giá trị trong một `WeakHashMap` chứa một tham chiếu mạnh đến khóa, khóa đó sẽ không bao giờ bị thu gom rác. Điều này gây ra rò rỉ bộ nhớ trong im lặng và làm mất đi toàn bộ mục đích của `WeakHashMap`.
+1. **Ghép Nối Nhiều Phương Thức An ToànLuồng Nhưng Tạo Ra Lỗi Race Condition**:
+   - *Bẫy*: 
+     ```java
+     if (!map.containsKey(key)) {
+         map.put(key, value); // RACE CONDITION! Luồng khác có thể chèn giữa 2 lệnh này
+     }
+     ```
+   - *Thực tế*: Dù `containsKey` và `put` đều an toàn đa luồng độc lập, việc ghép chúng lại vẫn tạo ra lỗi hổng thời gian. Phải dùng `map.putIfAbsent(key, value)`.
 
-### 2. Sửa đổi các bộ sưu tập trong quá trình lặp bằng các phương thức của Collection
-Sử dụng `list.remove()` thay vì `iterator.remove()` bên trong một vòng lặp trình lặp đang hoạt động sẽ kích hoạt ngoại lệ `ConcurrentModificationException`. Luôn sửa đổi thông qua các phương thức của chính trình lặp.
-
-### 3. Giả định tất cả các thao tác của ConcurrentHashMap đều mang tính nguyên tử
-Mặc dù các thao tác đọc và ghi riêng lẻ trên `ConcurrentHashMap` là an toàn luồng và mang tính nguyên tử, nhưng chuỗi các thao tác (ví dụ: `if (!map.containsKey(key)) { map.put(key, value); }`) thì KHÔNG mang tính nguyên tử. Hãy sử dụng `putIfAbsent()`, `compute()`, hoặc `computeIfAbsent()` thay thế để đảm bảo tính nguyên tử.
-
----
-
-## Các câu hỏi ôn tập thường gặp
-
-- ConcurrentHashMap sử dụng gì từ Java 8 thay thế cho khóa phân đoạn? (các thao tác CAS và các nút đầu xô synchronized)
-- Tại sao IdentityHashMap sử dụng `==`? (Để so sánh danh tính thực thể thay vì so sánh bằng logic equals, hữu ích cho việc duyệt đồ thị hoặc bộ đệm cache cấp hệ thống)
-- Trình lặp nào hỗ trợ đi giật lùi? (ListIterator)
-
-## Tại sao ConcurrentHashMap tránh việc khóa toàn cục
-
-Các bản đồ đồng bộ truyền thống (chẳng hạn như `Hashtable` hoặc bộ bao bọc được trả về bởi `Collections.synchronizedMap()`) đạt được tính an toàn luồng bằng cách khóa toàn bộ cấu trúc dữ liệu trong quá trình đọc và ghi, tạo ra các nút thắt cổ chai hiệu năng nghiêm trọng. Để khắc phục hạn chế này, `ConcurrentHashMap` áp dụng chiến lược phân tách khóa (lock-striping) trong đó các thao tác đọc hoàn toàn không dùng khóa (lock-free), và các thao tác ghi đồng bộ hóa ở cấp độ từng xô (bucket) riêng lẻ. Khi chèn một phần tử vào một xô trống, bản đồ sử dụng chỉ thị CPU So sánh và Hoán đổi (Compare-And-Swap - CAS) để đặt nút một cách nguyên tử mà không cần lấy khóa phần mềm. Nếu xô đích không trống, luồng ghi chỉ giành lấy khóa trên nút đầu (head node) của xô cụ thể đó bằng cách sử dụng một khối `synchronized` tiêu chuẩn của Java, cho phép các luồng khác đọc hoặc ghi vào các xô khác một cách đồng thời. Ngoài ra, `ConcurrentHashMap` từ chối các khóa và giá trị `null` để ngăn ngừa sự mơ hồ trong các ngữ cảnh đồng thời; nếu các giá trị `null` được cho phép, chúng ta sẽ không thể phân biệt một cách an toàn liệu một khóa có giá trị ánh xạ là `null` hay khóa đó chỉ đơn giản là không tồn tại trong bản đồ, do việc gọi `containsKey(key)` ngay sau `get(key)` là không nguyên tử và dễ xảy ra tình trạng tranh đoạt dữ liệu (race condition).
-
-### Mô hình tư duy
-
-Khóa hạt mịn (fine-grained locking) nhắm vào các xô riêng lẻ thay vì khóa toàn bộ bản đồ:
-```text
-Hashtable / Bản đồ được đồng bộ hóa (Synchronized Map):
-[Khóa hoạt động] -> Khóa toàn bộ mảng [Xô 0 | Xô 1 | Xô 2 | Xô 3] (Chặn tất cả các luồng)
-
-ConcurrentHashMap:
-Xô 0 (Trống): [ (Không có nút) ] -> Luồng ghi chèn nút bằng CAS (Không dùng khóa!)
-Xô 1 (Hoạt động): [ Nút đầu *Bị khóa* ] -> Luồng ghi chỉ khóa nút đầu.
-Xô 2 (Hoạt động): [ Nút đầu ] -> Các luồng đọc duyệt qua không cần khóa.
-Xô 3 (Hoạt động): [ Nút đầu ] -> Các luồng ghi khác khóa xô 3 một cách đồng thời.
-```
-
-### Ví dụ mã nguồn
-
-```java
-import java.util.concurrent.ConcurrentHashMap;
-
-public class ConcurrentHashMapLockingDemo {
-    public static void main(String[] args) {
-        ConcurrentHashMap<String, String> map = new ConcurrentHashMap<>();
-
-        // 1. Concurrent lock-free writes to different buckets
-        map.put("KeyA", "ValueA"); // Hash maps to Bucket X
-        map.put("KeyB", "ValueB"); // Hash maps to Bucket Y
-        
-        System.out.println("Map content: " + map); // Map content: {KeyA=ValueA, KeyB=ValueB}
-
-        // 2. Demonstration of NullPointerException for null keys/values
-        try {
-            map.put("KeyC", null);
-        } catch (NullPointerException e) {
-            System.out.println("Caught NullPointerException for null value");
-            // Caught NullPointerException for null value
-        }
-        
-        try {
-            map.put(null, "ValueC");
-        } catch (NullPointerException e) {
-            System.out.println("Caught NullPointerException for null key");
-            // Caught NullPointerException for null key
-        }
-    }
-}
-```
-
-### Chuỗi nguyên nhân - kết quả
-
-```text
-Khởi tạo ghi đồng thời ➔ Xô trống? ➔ Sử dụng thao tác CAS để ghi nút không cần khóa ➔ Xô đã có phần tử? ➔ Chỉ đồng bộ hóa trên nút đầu của xô ➔ Cho phép ghi đồng thời vào các xô khác nhau ➔ Từ chối các khóa/giá trị null để tránh sự mơ hồ do tranh đoạt dữ liệu của get()/containsKey()
-```
-
-## Liên kết tham khảo
-
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html (ConcurrentHashMap API docs)
-- https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collections.html#synchronizedMap(java.util.Map) (synchronizedMap wrapper)
+2. **Duyệt `ConcurrentHashMap` Bằng Iterator**:
+   - *Thực tế*: Iterator của `ConcurrentHashMap` là **Weakly-Consistent (Nhất quán yếu)**. Nó không ném `ConcurrentModificationException` và phản ánh trạng thái của Map tại hoặc sau thời điểm Iterator được tạo.
