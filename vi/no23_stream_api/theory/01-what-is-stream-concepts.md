@@ -1,29 +1,12 @@
 # Stream API - Phần 1
 
-## Mục Tiêu Học Tập
-
-File này đề cập đến một phần trọng tâm của **Stream API**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải là những từ vựng rời rạc.
-
-## Đề Cương Khái Niệm
-
-- **`Stream là gì?`** — Stream là gì?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Stream so với Collection`** — Stream so với Collection: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Tạo Stream:`** — Tạo Stream:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Từ List`** — Từ List: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Từ Array`** — Từ Array: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Từ Map`** — Từ Map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Stream.of`** — Stream.of: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`IntStream`** — IntStream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### Stream là gì?
 
-Một Stream là một đường ống để xử lý các phần tử thông qua các hoạt động lười (lazy operation).
+Stream là một chuỗi các phần tử hỗ trợ các thao tác tổng hợp tuần tự và song song. Nó xử lý dữ liệu theo hướng khai báo thông qua một đường ống, và quan trọng nhất là nó không làm thay đổi nguồn dữ liệu gốc (không làm thay đổi cấu trúc dữ liệu ban đầu).
 
 > Xem thêm: Các phương thức trung gian và kết thúc trong Stream API thường nhận tham số là Biểu thức Lambda, được trình bày chi tiết trong [Ch.21 - Lambda Expression](../../no21_lambda_expression/README.md).
-
-Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều đường ống kiểu lập trình hàm. Một nhầm lẫn phổ biến là quên mất hoạt động nào là lười và hoạt động nào thực sự kích hoạt việc thực thi.
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -35,21 +18,9 @@ long count = list.stream()
 System.out.println(count); // Output: 1
 ```
 
-Kiểm tra thực tế:
-
-- Định nghĩa `Stream là gì?` trong một câu.
-- Nhận diện `Stream là gì?` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến `Stream là gì?`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy tự hỏi: `Stream là gì?` thay đổi, cho phép, từ chối hay làm rõ điều gì?
-
 ### Stream so với Collection
 
-Một tập hợp là một đối tượng nhóm nhiều phần tử lại với nhau dưới một API chung.
-
-Nó quan trọng vì việc chọn sai cấu trúc dữ liệu sẽ ảnh hưởng đến tính đúng đắn, hiệu năng và hành vi xử lý trùng lặp. Một nhầm lẫn phổ biến là ghi nhớ tên lớp mà không biết thứ tự tra cứu, quy tắc so sánh bằng hoặc hành vi duyệt phần tử.
+Collection là cấu trúc dữ liệu lưu trữ các phần tử trong bộ nhớ, trong khi Stream không lưu trữ dữ liệu mà chỉ truyền chúng qua một đường ống xử lý. Hơn nữa, Stream chỉ có thể được duyệt một lần duy nhất, còn Collection có thể duyệt nhiều lần.
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -65,21 +36,9 @@ stream.forEach(System.out::print);
 // stream.forEach(System.out::print); // Throws IllegalStateException!
 ```
 
-Kiểm tra thực tế:
+### Tạo Stream
 
-- Định nghĩa `Stream so với Collection` trong một câu.
-- Nhận diện `Stream so với Collection` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `Stream so với Collection`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy tự hỏi: `Stream so với Collection` thay đổi, cho phép, từ chối hay làm rõ điều gì?
-
-### Tạo Stream:
-
-Một Stream là một đường ống để xử lý các phần tử thông qua các hoạt động lười.
-
-Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều đường ống kiểu lập trình hàm. Một nhầm lẫn phổ biến là quên mất hoạt động nào là lười và hoạt động nào thực sự kích hoạt việc thực thi.
+Việc khởi tạo một Stream là bước đầu tiên để xây dựng đường ống xử lý, với nhiều phương thức factory được cung cấp bởi Java để tạo Stream từ các nguồn dữ liệu khác nhau.
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -88,21 +47,9 @@ Stream<String> emptyStream = Stream.empty();
 Stream<Integer> streamOf = Stream.of(1, 2, 3);
 ```
 
-Kiểm tra thực tế:
-
-- Định nghĩa `Tạo Stream:` trong một câu.
-- Nhận diện `Tạo Stream:` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `Tạo Stream:`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy tự hỏi: `Tạo Stream:` thay đổi, cho phép, từ chối hay làm rõ điều gì?
-
 ### Từ List
 
-Một List là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí.
-
-Nó quan trọng vì việc chọn sai cấu trúc dữ liệu sẽ ảnh hưởng đến tính đúng đắn, hiệu năng và hành vi xử lý trùng lặp. Một nhầm lẫn phổ biến là ghi nhớ tên lớp mà không biết thứ tự tra cứu, quy tắc so sánh bằng hoặc hành vi duyệt phần tử.
+Bạn có thể dễ dàng tạo một Stream từ một List (hoặc bất kỳ Collection nào) bằng cách gọi phương thức `.stream()` được cung cấp mặc định trên interface Collection.
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -110,21 +57,9 @@ List<String> list = List.of("Java", "Stream", "API");
 Stream<String> stream = list.stream(); // Returns Stream<String>
 ```
 
-Kiểm tra thực tế:
-
-- Định nghĩa `Từ List` trong một câu.
-- Nhận diện `Từ List` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `Từ List`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- `List<String> names = new ArrayList<>();` lưu trữ các phần tử có thứ tự.
-
 ### Từ Array
 
-**`từ Array`** — từ Array: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+Lớp tiện ích `Arrays` cung cấp phương thức `Arrays.stream()` để tạo Stream từ một mảng. Nếu truyền vào một mảng kiểu nguyên thủy, nó sẽ trả về một Stream nguyên thủy tương ứng (như IntStream, DoubleStream) để tối ưu hiệu năng.
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -136,21 +71,9 @@ int[] intArr = {1, 2, 3};
 IntStream intStream = Arrays.stream(intArr);
 ```
 
-Kiểm tra thực tế:
-
-- Định nghĩa `Từ Array` trong một câu.
-- Nhận diện `Từ Array` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `Từ Array`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy tự hỏi: `Từ Array` thay đổi, cho phép, từ chối hay làm rõ điều gì?
-
 ### Từ Map
 
-Một Map lưu trữ các cặp khóa-giá trị và truy xuất các giá trị bằng khóa.
-
-Nó quan trọng vì việc chọn sai cấu trúc dữ liệu sẽ ảnh hưởng đến tính đúng đắn, hiệu năng và hành vi xử lý trùng lặp. Một nhầm lẫn phổ biến là ghi nhớ tên lớp mà không biết thứ tự tra cứu, quy tắc so sánh bằng hoặc hành vi duyệt phần tử.
+Map không kế thừa Collection nên không có trực tiếp phương thức `.stream()`. Tuy nhiên, bạn có thể tạo Stream từ Map gián tiếp thông qua `.keySet().stream()`, `.values().stream()`, hoặc phổ biến nhất là `.entrySet().stream()`.
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -161,21 +84,9 @@ Stream<Integer> valueStream = map.values().stream();
 Stream<Map.Entry<String, Integer>> entryStream = map.entrySet().stream();
 ```
 
-Kiểm tra thực tế:
-
-- Định nghĩa `Từ Map` trong một câu.
-- Nhận diện `Từ Map` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `Từ Map`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- `Map<String, Integer> scores = new HashMap<>();` ánh xạ các khóa tới các giá trị.
-
 ### Stream.of
 
-Một Stream là một đường ống để xử lý các phần tử thông qua các hoạt động lười.
-
-Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều đường ống kiểu lập trình hàm. Một nhầm lẫn phổ biến là quên mất hoạt động nào là lười và hoạt động nào thực sự kích hoạt việc thực thi.
+Phương thức tĩnh `Stream.of()` cho phép bạn tạo nhanh một Stream từ các giá trị truyền vào trực tiếp (varargs).
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -197,21 +108,9 @@ try (Stream<String> lines = Files.lines(Paths.get("example.txt"))) {
 }
 ```
 
-Kiểm tra thực tế:
-
-- Định nghĩa `Stream.of` trong một câu.
-- Nhận diện `Stream.of` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `Stream.of`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy tự hỏi: `Stream.of` thay đổi, cho phép, từ chối hay làm rõ điều gì?
-
 ### IntStream
 
-Một Stream là một đường ống để xử lý các phần tử thông qua các hoạt động lười.
-
-Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều đường ống kiểu lập trình hàm. Một nhầm lẫn phổ biến là quên mất hoạt động nào là lười và hoạt động nào thực sự kích hoạt việc thực thi.
+`IntStream` (và tương tự là `LongStream`, `DoubleStream`) là các luồng chuyên biệt dành riêng cho kiểu dữ liệu nguyên thủy để tránh chi phí autoboxing. Bạn có thể dễ dàng tạo dãy số liên tiếp bằng các phương thức như `IntStream.range()`.
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -243,22 +142,6 @@ System.out.println(badStream.count()); // Prints 1
 IntStream goodStream = Arrays.stream(numbers);
 System.out.println(goodStream.count()); // Prints 3
 ```
-
-Kiểm tra thực tế:
-
-- Định nghĩa `IntStream` trong một câu.
-- Nhận diện `IntStream` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `IntStream`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy tự hỏi: `IntStream` thay đổi, cho phép, từ chối hay làm rõ điều gì?
-
-## Các Câu Hỏi Ôn Tập Thường Gặp
-
-- Những khái niệm nào ở đây là quy tắc tại thời điểm biên dịch?
-- Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy?
-- Những khái niệm nào ở đây có khả năng là bẫy phỏng vấn?
 
 ## Tại Sao Các Luồng Nguyên Thủy Tồn Tại và Giúp Tránh Cơ Chế Tự Động Đóng Hộp (Autoboxing)
 

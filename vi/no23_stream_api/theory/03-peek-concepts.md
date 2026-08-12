@@ -1,27 +1,10 @@
 # API Dòng Chảy (Stream API) - Phần 3
 
-## Mục Tiêu Học Tập
-
-Tài liệu này tập trung vào một phần chuyên sâu của **API Dòng Chảy (Stream API)**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc thực tế trong Java, không chỉ đơn thuần là lý thuyết từ vựng.
-
-## Tóm Tắt Nội Dung (Outline Coverage)
-
-- **`peek`** — peek: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`limit`** — limit: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`skip`** — skip: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Các thao tác kết thúc:`** — Các thao tác kết thúc:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`forEach`** — forEach: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`collect`** — collect: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`toList`** — toList: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`count`** — count: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
-### peek
+### peek()
 
-**`peek`** — Thực hiện một thao tác phụ trên từng phần tử khi stream được tiêu thụ (dùng để debug).
-
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
+peek() nhận một Consumer và thực thi nó trên mỗi phần tử mà không thay đổi stream — giống như đặt camera giám sát trên đường ống dữ liệu.
 
 #### Ví dụ Code
 ```java
@@ -34,19 +17,33 @@ List<String> result = Stream.of("one", "two", "three")
                             .collect(Collectors.toList());
 ```
 
-Kiểm tra thực tế:
-- Định nghĩa `peek` trong một câu.
-- Nhận biết `peek` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `peek`.
+### peek() vs forEach()
 
-Ví dụ nhỏ hoặc mô hình tư duy:
-- Khi đọc mã nguồn, hãy tự hỏi: `peek` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+Cả hai nhận Consumer nhưng peek() là intermediate (lazy, cần terminal operation mới chạy) còn forEach() là terminal (kích hoạt pipeline ngay).
+
+#### Ví dụ Code
+```java
+// Thực hiện hành động trên từng phần tử
+Stream.of("a", "b").forEach(System.out::print); // Output: ab
+```
+
+### peek() và Lazy Evaluation
+
+Vì peek() là thao tác trung gian, nó chỉ thực thi khi terminal operation kéo dữ liệu qua pipeline.
+
+### peek() không nên thay đổi trạng thái (should not mutate)
+
+Theo API spec, peek() chỉ dành cho quan sát (debug/logging), không phải để thay đổi phần tử hay trạng thái bên ngoài.
+
+### peek() trong Parallel Streams
+
+Trong parallel stream, nhiều thread cùng xử lý nên thứ tự peek() in ra không đảm bảo, nhưng kết quả cuối vẫn giữ đúng encounter order.
+
+### peek() có thể bị bỏ qua (Java 9+)
+
+Từ Java 9, JVM có thể tối ưu hóa bằng cách bỏ qua toàn bộ pipeline nếu terminal operation (như count()) có thể lấy kết quả trực tiếp từ source metadata.
 
 ### limit
-
-**`limit`** — limit: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 
 #### Ví dụ Code
 ```java
@@ -56,19 +53,7 @@ Stream.of(1, 2, 3, 4, 5)
       .forEach(System.out::print); // Prints: 123
 ```
 
-Kiểm tra thực tế:
-- Định nghĩa `limit` trong một câu.
-- Nhận biết `limit` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `limit`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-- Khi đọc mã nguồn, hãy tự hỏi: `limit` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### skip
-
-**`skip`** — skip: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 
 #### Ví dụ Code
 ```java
@@ -78,19 +63,7 @@ Stream.of(1, 2, 3, 4, 5)
       .forEach(System.out::print); // Prints: 345
 ```
 
-Kiểm tra thực tế:
-- Định nghĩa `skip` trong một câu.
-- Nhận biết `skip` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `skip`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-- Khi đọc mã nguồn, hãy tự hỏi: `skip` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### Các thao tác kết thúc (Terminal operations)
-
-Các thao tác kết thúc là một nhóm các quy tắc liên quan trong Stream API để gom nhóm nhiều chi tiết kỹ thuật có liên quan.
-
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 
 #### Ví dụ Code
 ```java
@@ -98,39 +71,7 @@ Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức
 long count = Stream.of(1, 2, 3).count();
 ```
 
-Kiểm tra thực tế:
-- Định nghĩa `Terminal operations:` trong một câu.
-- Nhận biết `Terminal operations:` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `Terminal operations:`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-- Khi đọc mã nguồn, hãy tự hỏi: các thao tác kết thúc thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
-### forEach
-
-**`forEach`** — forEach: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
-
-#### Ví dụ Code
-```java
-// Thực hiện hành động trên từng phần tử
-Stream.of("a", "b").forEach(System.out::print); // Output: ab
-```
-
-Kiểm tra thực tế:
-- Định nghĩa `forEach` trong một câu.
-- Nhận biết `forEach` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `forEach`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-- Khi đọc mã nguồn, hãy tự hỏi: `forEach` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### collect
-
-**`collect`** — collect: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 
 #### Ví dụ Code
 ```java
@@ -138,19 +79,7 @@ Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức
 List<String> list = Stream.of("a", "b").collect(Collectors.toList());
 ```
 
-Kiểm tra thực tế:
-- Định nghĩa `collect` trong một câu.
-- Nhận biết `collect` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `collect`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-- Khi đọc mã nguồn, hãy tự hỏi: `collect` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### toList
-
-Một `List` là một tập hợp có thứ tự có thể chứa các phần tử trùng lặp và hỗ trợ truy cập theo vị trí.
-
-Nó quan trọng vì việc chọn sai cấu trúc dữ liệu sẽ ảnh hưởng đến tính đúng đắn, hiệu năng và hành vi xử lý trùng lặp. Một hiểu lầm phổ biến là ghi nhớ tên lớp mà không biết thứ tự tìm kiếm, quy tắc bằng nhau, hoặc hành vi lặp.
 
 #### Ví dụ Code
 ```java
@@ -158,33 +87,13 @@ Nó quan trọng vì việc chọn sai cấu trúc dữ liệu sẽ ảnh hưở
 List<String> unmodifiableList = Stream.of("a", "b").toList();
 ```
 
-Kiểm tra thực tế:
-- Định nghĩa `toList` trong một câu.
-- Nhận biết `toList` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `toList`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-- `List<String> names = new ArrayList<>();` lưu trữ các phần tử có thứ tự.
-
 ### count
-
-**`count`** — count: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng thức được cho phép và kịch bản thất bại. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn mô tả thuần túy.
 
 #### Ví dụ Code
 ```java
 // Đếm các phần tử
 long total = Stream.of(1, 2, 3).count(); // 3
 ```
-
-Kiểm tra thực tế:
-- Định nghĩa `count` trong một câu.
-- Nhận biết `count` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `count`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-- Khi đọc mã nguồn, hãy tự hỏi: `count` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ---
 
@@ -208,14 +117,6 @@ Việc sửa đổi trạng thái chung không an toàn luồng (non-thread-safe
 List<Integer> list = new ArrayList<>(); // Không an toàn luồng
 List.of(1, 2, 3, 4).parallelStream().forEach(list::add); // Race condition!
 ```
-
----
-
-## Các Câu Hỏi Ôn Tập Thường Gặp
-
-- Những khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch?
-- Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy?
-- Những khái niệm nào ở đây dễ trở thành bẫy khi phỏng vấn?
 
 ---
 

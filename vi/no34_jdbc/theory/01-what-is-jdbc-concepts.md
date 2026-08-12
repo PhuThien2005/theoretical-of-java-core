@@ -2,118 +2,116 @@
 
 ## Mục tiêu học tập
 
-Tài liệu này tập trung vào một phần trọng tâm của **JDBC**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc Java thực tế, thay vì chỉ học các từ vựng rời rạc.
+Tài liệu này giải thích kiến trúc JDBC và các thành phần cốt lõi: từ cách Java tìm đúng Driver, mở Connection, gửi truy vấn qua Statement/PreparedStatement, đọc kết quả từ ResultSet, đến cách quản lý Transaction. Mỗi khái niệm được trình bày kèm cơ chế hoạt động bên trong, lỗi thường gặp, và ví dụ mã nguồn cụ thể.
 
 ## Đề cương chi tiết
 
-- **`What is JDBC?`** — What is JDBC?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Driver`** — Driver: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`DriverManager`** — DriverManager: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Connection`** — Connection: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Statement`** — Statement: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`PreparedStatement`** — PreparedStatement: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`CallableStatement`** — CallableStatement: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ResultSet`** — ResultSet: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Transaction:`** — Transaction:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`commit`** — commit: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`What is JDBC?`** — API chuẩn trong `java.sql` và `javax.sql`, trừu tượng hóa sự khác biệt giữa các hệ cơ sở dữ liệu phía sau một tập interface thống nhất.
+- **`Driver`** — Triển khai cụ thể của `java.sql.Driver` do nhà cung cấp DBMS viết; từ JDBC 4.0+ tự đăng ký qua `ServiceLoader`.
+- **`DriverManager`** — Factory tĩnh khớp JDBC URL với Driver đã đăng ký để tạo Connection.
+- **`Connection`** — Đại diện cho phiên TCP tới database server; nắm giữ trạng thái giao dịch và tạo ra Statement.
+- **`Statement`** — Thực thi SQL tĩnh không có tham số; KHÔNG được dùng với đầu vào từ người dùng vì dễ bị SQL injection.
+- **`PreparedStatement`** — Biên dịch trước SQL với placeholder `?`, tách biệt cấu trúc truy vấn và dữ liệu tham số ở cấp giao thức.
+- **`CallableStatement`** — Gọi stored procedure trên database qua cú pháp `{call proc(?, ?)}` với tham số IN/OUT/INOUT.
+- **`ResultSet`** — Con trỏ (cursor) duyệt tuần tự qua các hàng kết quả; vị trí ban đầu nằm **trước** hàng đầu tiên.
+- **`Transaction`** — Nhóm các câu lệnh SQL thực thi nguyên tử, tuân thủ ACID (Atomicity, Consistency, Isolation, Durability).
+- **`commit`** — Ghi vĩnh viễn tất cả thay đổi kể từ lần commit cuối vào database; ở chế độ auto-commit, mỗi statement tự động commit.
 
 ## Ghi chú chi tiết
 
 ### What is JDBC?
 
-JDBC là API Java để kết nối với các cơ sở dữ liệu quan hệ.
+JDBC (Java Database Connectivity) là API chuẩn nằm trong hai package `java.sql` (core) và `javax.sql` (extension cho DataSource, connection pooling, distributed transactions). Thay vì viết mã riêng cho MySQL, PostgreSQL, Oracle, ứng dụng Java chỉ giao tiếp với các interface JDBC — còn mã cụ thể cho từng hệ cơ sở dữ liệu được đóng gói trong Driver.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
+Kiến trúc phân tầng:
 
-Kiểm tra thực tế:
+```text
+Java Application
+      ↓
+  JDBC API (java.sql.*)
+      ↓
+  DriverManager / DataSource
+      ↓
+  Driver (mysql-connector-j.jar, postgresql.jar, ...)
+      ↓
+  Database Server (MySQL, PostgreSQL, Oracle, ...)
+```
 
-- Định nghĩa `What is JDBC?` trong một câu.
-- Nhận diện `What is JDBC?` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `What is JDBC?`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- `PreparedStatement` liên kết các giá trị một cách an toàn với các tham số giữ chỗ.
+Lợi ích cốt lõi: khi chuyển từ MySQL sang PostgreSQL, ứng dụng chỉ cần đổi Driver JAR và JDBC URL — toàn bộ mã `Connection`, `PreparedStatement`, `ResultSet` giữ nguyên.
 
 ### Trình điều khiển (Driver)
 
-**`Trình điều khiển (Driver)`** — Trình điều khiển (Driver): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
+Driver là lớp triển khai interface `java.sql.Driver` do nhà cung cấp cơ sở dữ liệu viết. Nó chịu trách nhiệm dịch các lời gọi JDBC thành giao thức mạng cụ thể của database (ví dụ: MySQL protocol, PostgreSQL wire protocol).
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
+**Cơ chế tự đăng ký (JDBC 4.0+, Java 6 trở lên):** Khi bạn thêm file JAR của driver vào classpath (ví dụ: `mysql-connector-j-8.x.jar`), JVM sử dụng `ServiceLoader` để quét file `META-INF/services/java.sql.Driver` bên trong JAR đó. File này chứa tên fully-qualified class của Driver (ví dụ: `com.mysql.cj.jdbc.Driver`). `DriverManager` tự động gọi `Class.forName()` để load và đăng ký Driver — bạn không cần viết `Class.forName("com.mysql.cj.jdbc.Driver")` nữa.
 
-Kiểm tra thực tế:
-
-- Định nghĩa `Driver` trong một câu.
-- Nhận diện `Driver` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `Driver`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `Driver` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+**Bẫy thường gặp:** Nếu JAR driver không nằm trên classpath, `DriverManager.getConnection()` ném `SQLException: No suitable driver found for jdbc:mysql://...`. Cách sửa: kiểm tra dependency trong `pom.xml` hoặc `build.gradle`.
 
 ### Trình quản lý trình điều khiển (DriverManager)
 
-**`Trình quản lý trình điều khiển (DriverManager)`** — Trình quản lý trình điều khiển (DriverManager): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
+`DriverManager` là lớp tiện ích tĩnh hoạt động như một factory tạo `Connection`. Khi bạn gọi `DriverManager.getConnection(url, user, password)`, nó lặp qua danh sách các Driver đã đăng ký và gọi `driver.connect(url, props)` trên từng Driver cho đến khi có một Driver trả về kết nối thành công.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
+**Định dạng JDBC URL:** `jdbc:<subprotocol>:<subname>`
+- MySQL: `jdbc:mysql://localhost:3306/mydb`
+- PostgreSQL: `jdbc:postgresql://localhost:5432/mydb`
+- H2 in-memory: `jdbc:h2:mem:testdb`
 
-Kiểm tra thực tế:
+```java
+// Ví dụ kết nối cơ bản
+Connection conn = DriverManager.getConnection(
+    "jdbc:mysql://localhost:3306/mydb",
+    "root",
+    "password123"
+);
+```
 
-- Định nghĩa `DriverManager` trong một câu.
-- Nhận diện `DriverManager` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `DriverManager`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `DriverManager` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+**Hạn chế:** `DriverManager` tạo kết nối vật lý mới mỗi lần gọi — không có connection pooling. Trong production, nên dùng `DataSource` (xem Phần 2).
 
 ### Kết nối (Connection)
 
-Kết nối (Connection) đại diện cho một kết nối cơ sở dữ liệu đang hoạt động được sử dụng để tạo các câu lệnh và quản lý các giao dịch.
+`Connection` đại diện cho một phiên TCP đang hoạt động tới database server. Nó nắm giữ trạng thái giao dịch hiện tại, tạo ra các đối tượng `Statement` / `PreparedStatement`, và phải được đóng khi không còn sử dụng để giải phóng tài nguyên phía server (bộ nhớ, socket, cursor).
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
+**Các quy tắc quan trọng:**
+- `Connection` **KHÔNG** thread-safe — không nên chia sẻ một Connection giữa nhiều thread.
+- Mặc định, `Connection` ở chế độ auto-commit (`setAutoCommit(true)`): mỗi câu lệnh SQL tự động commit ngay sau khi thực thi.
+- Nếu không đóng Connection, socket TCP và bộ nhớ phía server sẽ bị rò rỉ. Luôn dùng try-with-resources.
 
-Kiểm tra thực tế:
-
-- Định nghĩa `Connection` trong một câu.
-- Nhận diện `Connection` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `Connection`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `Connection` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+```java
+// Connection tự đóng khi ra khỏi khối try
+try (Connection conn = DriverManager.getConnection(url, user, pass)) {
+    // sử dụng conn
+} // conn.close() được gọi tự động
+```
 
 ### Câu lệnh (Statement)
 
-Câu lệnh (Statement) thực thi các câu lệnh SQL tĩnh nhưng không nên được sử dụng với đầu vào không đáng tin cậy.
+`Statement` thực thi các câu lệnh SQL tĩnh — tức SQL không chứa tham số động. Nó cung cấp ba phương thức thực thi chính:
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
+- **`executeQuery(sql)`** — Dành cho `SELECT`. Trả về `ResultSet`.
+- **`executeUpdate(sql)`** — Dành cho `INSERT`, `UPDATE`, `DELETE`, DDL. Trả về số hàng bị ảnh hưởng (`int`).
+- **`execute(sql)`** — Dành cho mọi loại SQL. Trả về `true` nếu kết quả là `ResultSet`, `false` nếu là update count.
 
-Kiểm tra thực tế:
+**CẢNH BÁO NGHIÊM TRỌNG:** Tuyệt đối KHÔNG ghép chuỗi (string concatenation) đầu vào từ người dùng vào câu SQL khi dùng `Statement` — đây là cửa ngõ chính cho SQL Injection. Luôn dùng `PreparedStatement` thay thế.
 
-- Định nghĩa `Statement` trong một câu.
-- Nhận diện `Statement` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `Statement`.
+```java
+// ❌ NGUY HIỂM — SQL Injection
+String sql = "SELECT * FROM users WHERE name = '" + userInput + "'";
+Statement stmt = conn.createStatement();
+ResultSet rs = stmt.executeQuery(sql);
 
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `Statement` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+// ✅ AN TOÀN — Dùng PreparedStatement (xem phần tiếp theo)
+```
 
 ### Câu lệnh chuẩn bị trước (PreparedStatement)
 
-Câu lệnh chuẩn bị trước (PreparedStatement) biên dịch trước SQL với các tham số giữ chỗ và liên kết các giá trị một cách an toàn.
+`PreparedStatement` biên dịch trước câu lệnh SQL với các placeholder `?`. Các giá trị tham số được gửi tách biệt qua giao thức nhị phân tới database, không bao giờ trở thành một phần của cú pháp SQL. Điều này mang lại hai lợi ích đồng thời: **ngăn chặn SQL Injection** (vì tham số không thể thay đổi cấu trúc truy vấn) và **tận dụng query plan caching** (vì cấu trúc SQL luôn giống nhau giữa các lần gọi).
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
+Các phương thức setter đặt giá trị theo thứ tự tham số (1-indexed):
+- `setString(1, "Alice")` — đặt tham số thứ nhất là chuỗi
+- `setInt(2, 42)` — đặt tham số thứ hai là số nguyên
+- `setNull(3, Types.VARCHAR)` — đặt tham số thứ ba là NULL
 
-Kiểm tra thực tế:
-
-- Định nghĩa `PreparedStatement` trong một câu.
-- Nhận diện `PreparedStatement` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `PreparedStatement`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- `PreparedStatement` liên kết các giá trị một cách an toàn với các tham số giữ chỗ.
+**Bẫy thường gặp:** Gọi `executeQuery()` mà quên gọi `setXxx()` cho mọi placeholder `?` sẽ ném `SQLException`. Số lượng tham số phải khớp chính xác.
 
 ## Tại sao PreparedStatement ngăn chặn SQL Injection và tận dụng bộ nhớ đệm kế hoạch truy vấn (Query Plan Caching)
 
@@ -178,67 +176,53 @@ try (Connection conn = dataSource.getConnection();
 
 ### Câu lệnh gọi hàm (CallableStatement)
 
-Câu lệnh gọi hàm (CallableStatement) gọi các thủ tục lưu trữ (stored procedure) thông qua JDBC.
+`CallableStatement` dùng để gọi stored procedure (thủ tục lưu trữ) hoặc function đã được định nghĩa sẵn trên database server. Nó kế thừa từ `PreparedStatement`, nên cũng hỗ trợ placeholder `?` và ngăn SQL Injection.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
+**Cú pháp gọi:**
+- Stored procedure: `{call procedure_name(?, ?)}`
+- Function: `{? = call function_name(?)}`
 
-Kiểm tra thực tế:
+**Ba loại tham số:**
+- **IN** — Tham số đầu vào, đặt giá trị bằng `setXxx()`. Đây là mặc định.
+- **OUT** — Tham số đầu ra, phải đăng ký kiểu trước bằng `registerOutParameter(index, Types.XXX)`, sau đó đọc giá trị bằng `getXxx()` sau khi `execute()`.
+- **INOUT** — Vừa là đầu vào vừa là đầu ra. Phải gọi cả `setXxx()` và `registerOutParameter()`.
 
-- Định nghĩa `CallableStatement` trong một câu.
-- Nhận diện `CallableStatement` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `CallableStatement`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `CallableStatement` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+**Bẫy thường gặp:** Quên gọi `registerOutParameter()` cho tham số OUT trước khi `execute()` sẽ ném `SQLException`. Ngoài ra, không phải mọi database đều hỗ trợ stored procedure — H2 và SQLite có hỗ trợ hạn chế.
 
 ### Tập kết quả (ResultSet)
 
-Tập kết quả (ResultSet) đại diện cho một tập hợp kết quả cơ sở dữ liệu, cung cấp quyền truy cập tuần tự vào các hàng dữ liệu đã được lấy ra.
+`ResultSet` là một con trỏ (cursor) duyệt qua các hàng kết quả trả về từ câu lệnh `SELECT`. Vị trí ban đầu của con trỏ nằm **trước hàng đầu tiên** — bạn bắt buộc phải gọi `next()` ít nhất một lần trước khi đọc dữ liệu.
 
-Nó quan trọng vì nó duy trì một con trỏ (cursor) trỏ đến hàng dữ liệu hiện tại, con trỏ này ban đầu được đặt trước hàng đầu tiên. Bạn phải gọi `next()` để di chuyển con trỏ tiến lên và lấy dữ liệu.
+**Cách đọc dữ liệu:**
+- `rs.next()` — Di chuyển con trỏ đến hàng kế tiếp. Trả về `true` nếu có hàng, `false` nếu hết.
+- `rs.getInt("id")` hoặc `rs.getInt(1)` — Đọc cột theo tên hoặc theo chỉ số (1-indexed).
+- `rs.getString("name")`, `rs.getDouble("price")`, `rs.getTimestamp("created_at")` — Mỗi kiểu dữ liệu SQL có getter tương ứng.
 
-Kiểm tra thực tế:
+**Ba loại ResultSet (type):**
+- `TYPE_FORWARD_ONLY` (mặc định) — Chỉ duyệt tiến, hiệu suất tốt nhất.
+- `TYPE_SCROLL_INSENSITIVE` — Có thể cuộn qua lại (`previous()`, `absolute(n)`), không phản ánh thay đổi DB trong khi đang đọc.
+- `TYPE_SCROLL_SENSITIVE` — Cuộn qua lại và phản ánh thay đổi DB (ít database hỗ trợ, hiệu suất kém).
 
-- Định nghĩa `ResultSet` trong một câu.
-- Nhận diện `ResultSet` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `ResultSet`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `ResultSet` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+**Bẫy kinh điển:** Gọi `rs.getString(1)` mà không gọi `rs.next()` trước → ném `SQLException` vì con trỏ chưa trỏ đến hàng nào.
 
 ### Giao dịch (Transaction)
 
-Giao dịch (Transaction) là một nhóm các quy tắc liên quan trong JDBC tập hợp một số chi tiết liên quan.
+Giao dịch (Transaction) trong JDBC là một nhóm các câu lệnh SQL được thực thi như một đơn vị nguyên tử — hoặc tất cả thành công (commit), hoặc tất cả bị hủy (rollback). Transaction đảm bảo bốn thuộc tính ACID:
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
+- **Atomicity (Tính nguyên tử):** Tất cả hoặc không gì cả. Nếu một câu lệnh trong nhóm thất bại, toàn bộ nhóm bị hủy.
+- **Consistency (Tính nhất quán):** Database chuyển từ trạng thái hợp lệ này sang trạng thái hợp lệ khác, không bao giờ ở trạng thái "nửa vời".
+- **Isolation (Tính cô lập):** Các giao dịch đồng thời không nhìn thấy dữ liệu chưa commit của nhau (mức độ cô lập phụ thuộc vào cấu hình database).
+- **Durability (Tính bền vững):** Sau khi commit thành công, dữ liệu được ghi vĩnh viễn ngay cả khi server crash ngay lập tức sau đó.
 
-Kiểm tra thực tế:
-
-- Định nghĩa `Transaction:` trong một câu.
-- Nhận diện `Transaction:` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `Transaction:`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `Transaction:` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+Mặc định, JDBC ở chế độ auto-commit — mỗi câu lệnh SQL là một transaction riêng. Để nhóm nhiều câu lệnh vào một transaction, phải gọi `conn.setAutoCommit(false)`, thực thi các câu lệnh, rồi gọi `conn.commit()` hoặc `conn.rollback()`.
 
 ### commit
 
-commit lưu các thay đổi của giao dịch hiện tại một cách vĩnh viễn.
+`conn.commit()` ra lệnh cho database ghi vĩnh viễn tất cả thay đổi đã thực hiện kể từ lần `setAutoCommit(false)` hoặc lần `commit()` gần nhất. Sau khi commit, các thay đổi trở nên nhìn thấy được bởi các phiên làm việc khác và không thể rollback.
 
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
+Ở chế độ auto-commit (mặc định), mỗi `executeUpdate()` tự động gọi commit ngầm — bạn không cần gọi thủ công. Chỉ khi `setAutoCommit(false)` thì mới cần gọi `commit()` tường minh.
 
-Kiểm tra thực tế:
-
-- Định nghĩa `commit` trong một câu.
-- Nhận diện `commit` trong mã nguồn, lệnh, tài liệu, hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế, hoặc sự đánh đổi liên quan đến `commit`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `commit` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
+**Bẫy thường gặp:** Quên gọi `commit()` sau `setAutoCommit(false)` → khi `Connection` đóng, database sẽ **rollback** tất cả thay đổi chưa commit (hành vi chuẩn JDBC, mặc dù một số driver có thể auto-commit — đừng dựa vào điều này).
 
 ## Tại sao các tài nguyên JDBC phải được đóng theo thứ tự ngược lại một cách nghiêm ngặt
 
@@ -288,11 +272,14 @@ try (Connection conn = dataSource.getConnection();                       // 1st 
 5. **`Connection.close()` được gọi cuối cùng, trả kết nối vật lý về lại bể chứa (pool)** -> 
 6. **Không xảy ra rò rỉ tài nguyên trên cả client JVM lẫn máy chủ cơ sở dữ liệu**.
 
-## Câu hỏi ôn tập thường gặp
+## Câu hỏi ôn tập
 
-- Khái niệm nào ở đây là quy tắc thời điểm biên dịch?
-- Khái niệm nào ở đây ảnh hưởng đến hành vi thời điểm chạy?
-- Khái niệm nào ở đây có khả năng là bẫy phỏng vấn?
+- Tại sao `PreparedStatement` an toàn hơn `Statement` khi xử lý input từ người dùng? Cơ chế ngăn chặn SQL Injection hoạt động ở tầng nào (ứng dụng hay giao thức database)?
+- Điều gì xảy ra nếu bạn gọi `rs.getString("name")` mà không gọi `rs.next()` trước?
+- Tại sao phải đóng `ResultSet` trước `Statement`, và `Statement` trước `Connection`? Nếu đóng ngược lại, hậu quả cụ thể là gì?
+- Từ JDBC 4.0, tại sao không cần viết `Class.forName("com.mysql.cj.jdbc.Driver")` nữa?
+- `executeQuery()`, `executeUpdate()`, và `execute()` khác nhau như thế nào? Mỗi phương thức dùng cho loại SQL nào?
+- Sự khác biệt giữa tham số IN, OUT, và INOUT trong `CallableStatement` là gì?
 
 ## Các ví dụ mã nguồn
 

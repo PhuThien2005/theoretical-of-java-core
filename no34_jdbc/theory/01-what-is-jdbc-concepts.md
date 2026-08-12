@@ -1,24 +1,5 @@
 # JDBC - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **JDBC**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
-| Concept | What to know |
-| --- | --- |
-| `What is JDBC?` | JDBC is the Java API for connecting to relational databases. |
-| `Driver` |`Driver` — Driver provides specific functionality and rules in Java development. |
-| `DriverManager` |`DriverManager` — DriverManager provides specific functionality and rules in Java development. |
-| `Connection` |Connection represents an active database connection used to create statements and manage transactions. |
-| `Statement` |Statement executes static SQL but should not be used with untrusted input. |
-| `PreparedStatement` |PreparedStatement precompiles SQL with placeholders and binds values safely. |
-| `CallableStatement` |CallableStatement calls stored procedures through JDBC. |
-| `ResultSet` | ResultSet represents a database result set, providing access to retrieved data. |
-| `Transaction:` | Transaction is a group of related rules in JDBC that groups several related details. |
-| `commit` |commit makes current transaction changes permanent. |
-
 ## Detailed Notes
 
 ### What is JDBC?
@@ -27,15 +8,7 @@ JDBC is the Java API for connecting to relational databases.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
-Practical check:
 
-- Define `What is JDBC?` in one sentence.
-- Recognize `What is JDBC?` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `What is JDBC?`.
-
-Tiny example or mental model:
-
-- `PreparedStatement` binds values safely with placeholders.
 
 ### Driver
 
@@ -55,15 +28,7 @@ PreparedStatement precompiles SQL with placeholders and binds values safely.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
-Practical check:
 
-- Define `PreparedStatement` in one sentence.
-- Recognize `PreparedStatement` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `PreparedStatement`.
-
-Tiny example or mental model:
-
-- `PreparedStatement` binds values safely with placeholders.
 
 ## Why PreparedStatement Prevents SQL Injection and Leverages Query Plan Caching
 
@@ -136,15 +101,7 @@ ResultSet represents a database result set, providing sequential access to retri
 
 It matters because it maintains a cursor pointing to its current row of data, which is initially positioned before the first row. You must call `next()` to advance the cursor and retrieve data.
 
-Practical check:
 
-- Define `ResultSet` in one sentence.
-- Recognize `ResultSet` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `ResultSet`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `ResultSet` change, allow, reject, or clarify?
 
 ### Transaction:
 

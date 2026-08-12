@@ -1,27 +1,10 @@
 # Stream API - Phần 5 (Stream API - Part 5)
 
-## Mục tiêu học tập
-
-Tài liệu này tập trung vào một phần trọng tâm của **Stream API**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc Java thực tế, thay vì chỉ học các từ vựng rời rạc.
-
-## Đề cương chi tiết
-
-- **`Lazy evaluation`** — Lazy evaluation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Short-circuiting`** — Short-circuiting: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Parallel stream`** — Parallel stream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Collectors:`** — Collectors:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`toSet`** — toSet: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`toMap`** — toMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`joining`** — joining: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`groupingBy`** — groupingBy: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi chú chi tiết
 
 ### Đánh giá lười biếng (Lazy evaluation)
 
-**`Đánh giá lười biếng (lazy evaluation)`** — Đánh giá lười biếng (lazy evaluation): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
+Các thao tác trung gian (filter, map, peek...) không chạy ngay khi khai báo — chúng chỉ 'ghi nhận' vào pipeline và đợi terminal operation kích hoạt. Điều này giúp tránh tạo collection trung gian và cho phép xử lý stream vô hạn.
 
 #### Ví dụ mã nguồn
 ```java
@@ -32,19 +15,9 @@ System.out.println("Stream pipeline built.");
 stream.count(); // Now execution starts!
 ```
 
-Kiểm tra thực tế:
-- Định nghĩa `Đánh giá lười biếng` trong một câu.
-- Nhận diện `Đánh giá lười biếng` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `Đánh giá lười biếng`.
+### Ngắt mạch (short-circuiting)
 
-Ví dụ nhỏ hoặc mô hình tư duy:
-- Khi đọc mã nguồn, hãy hỏi: `Đánh giá lười biếng` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
-### Ngắt mạch (Short-circuiting)
-
-Ngắt mạch (short-**`circuiting)`** — circuiting): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
+Ngắt mạch là khả năng dừng xử lý pipeline sớm mà không cần duyệt hết tất cả phần tử — ví dụ findFirst() dừng ngay khi tìm thấy, limit(n) dừng sau n phần tử.
 
 #### Ví dụ mã nguồn
 ```java
@@ -55,19 +28,9 @@ Stream.iterate(1, i -> i + 1)
       .count(); // Prints Generated: 1, 2, 3
 ```
 
-Kiểm tra thực tế:
-- Định nghĩa `Ngắt mạch` trong một câu.
-- Nhận diện `Ngắt mạch` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `Ngắt mạch`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-- Khi đọc mã nguồn, hãy hỏi: `Ngắt mạch` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### Luồng song song (Parallel stream)
 
-Một Stream là một đường ống để xử lý các phần tử thông qua các thao tác lười biếng.
-
-Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều đường ống kiểu hàm. Một sự hiểu lầm thường gặp là quên mất thao tác nào là lười biếng và thao tác nào thực sự kích hoạt thực thi.
+Parallel stream tự động chia dữ liệu thành nhiều phần và xử lý đồng thời trên ForkJoinPool.commonPool(), nhưng không phải lúc nào cũng nhanh hơn sequential.
 
 #### Ví dụ mã nguồn
 ```java
@@ -95,19 +58,9 @@ Một phương pháp phán đoán tốt để quyết định có nên sử dụ
 - $Q$ là chi phí tính toán cho mỗi phần tử.
 Nếu $N \times Q$ nhỏ, các luồng tuần tự hầu như luôn nhanh hơn.
 
-Kiểm tra thực tế:
-- Định nghĩa `Luồng song song` trong một câu.
-- Nhận diện `Luồng song song` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `Luồng song song`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-- Khi đọc mã nguồn, hãy hỏi: `Luồng song song` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### Các bộ thu thập (Collectors)
 
-Collectors là một nhóm các quy tắc liên quan trong Stream API nhóm một số chi tiết liên quan.
-
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
+Collectors là lớp factory cung cấp các bộ thu thập sẵn dùng (toList, toSet, toMap, groupingBy, joining...) để gom kết quả từ stream vào các cấu trúc dữ liệu.
 
 #### Ví dụ mã nguồn
 ```java
@@ -115,19 +68,9 @@ Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được ch
 List<String> list = Stream.of("a", "b").collect(Collectors.toList());
 ```
 
-Kiểm tra thực tế:
-- Định nghĩa `Bộ thu thập` trong một câu.
-- Nhận diện `Bộ thu thập` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `Bộ thu thập`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-- Khi đọc mã nguồn, hãy hỏi: `Bộ thu thập` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### toSet
 
-Một Set là một bộ sưu tập từ chối các phần tử trùng lặp theo quy tắc bằng nhau.
-
-Nó quan trọng vì việc chọn sai cấu trúc dữ liệu sẽ làm thay đổi tính chính xác, hiệu năng và hành vi xử lý trùng lặp. Một sự hiểu lầm thường gặp là ghi nhớ tên các lớp mà không biết thứ tự tra cứu, quy tắc bằng nhau hoặc hành vi lặp.
+Collectors.toSet() gom kết quả stream vào một Set, tự động loại bỏ phần tử trùng lặp theo equals()/hashCode().
 
 #### Ví dụ mã nguồn
 ```java
@@ -135,19 +78,9 @@ Nó quan trọng vì việc chọn sai cấu trúc dữ liệu sẽ làm thay đ
 Set<String> set = Stream.of("a", "b", "a").collect(Collectors.toSet()); // ["a", "b"]
 ```
 
-Kiểm tra thực tế:
-- Định nghĩa `toSet` trong một câu.
-- Nhận diện `toSet` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `toSet`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-- Khi đọc mã nguồn, hãy hỏi: `toSet` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### toMap
 
-Một Map lưu trữ các cặp khóa-giá trị và truy xuất các giá trị theo khóa.
-
-Nó quan trọng vì việc chọn sai cấu trúc dữ liệu sẽ làm thay đổi tính chính xác, hiệu năng và hành vi xử lý trùng lặp. Một sự hiểu lầm thường gặp là ghi nhớ tên các lớp mà không biết thứ tự tra cứu, quy tắc bằng nhau hoặc hành vi lặp.
+Collectors.toMap(keyMapper, valueMapper) gom stream thành Map, yêu cầu key mapper trả về khóa duy nhất — nếu trùng key sẽ ném IllegalStateException trừ khi cung cấp merge function.
 
 #### Ví dụ mã nguồn
 ```java
@@ -160,19 +93,9 @@ Map<Integer, String> map = Stream.of("apple", "banana")
                                  ));
 ```
 
-Kiểm tra thực tế:
-- Định nghĩa `toMap` trong một câu.
-- Nhận diện `toMap` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `toMap`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-- `Map<String, Integer> scores = new HashMap<>();` ánh xạ các khóa sang các giá trị.
-
 ### joining
 
-**`joining`** — joining: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
+Collectors.joining(delimiter) nối các phần tử String thành một chuỗi duy nhất, ngăn cách bởi delimiter cho trước.
 
 #### Ví dụ mã nguồn
 ```java
@@ -181,19 +104,9 @@ String joined = Stream.of("a", "b", "c")
                       .collect(Collectors.joining(", ")); // "a, b, c"
 ```
 
-Kiểm tra thực tế:
-- Định nghĩa `joining` trong một câu.
-- Nhận diện `joining` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `joining`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-- Khi đọc mã nguồn, hãy hỏi: `joining` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### groupingBy
 
-**`groupingBy`** — groupingBy: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
-Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
+Collectors.groupingBy(classifier) phân nhóm các phần tử theo giá trị classifier trả về, kết quả là Map<K, List<T>> với số nhóm không giới hạn.
 
 #### Ví dụ mã nguồn
 ```java
@@ -202,6 +115,18 @@ Map<Integer, List<String>> groups = Stream.of("a", "bb", "c", "ddd")
                                           .collect(Collectors.groupingBy(String::length));
 // Result: {1=["a", "c"], 2=["bb"], 3=["ddd"]}
 ```
+
+### Thao tác không trạng thái (Stateless operations)
+
+Stateless operations (filter, map, peek) xử lý mỗi phần tử hoàn toàn độc lập — không cần biết hay nhớ phần tử nào khác.
+
+### Thao tác có trạng thái (Stateful operations)
+
+Stateful operations (sorted, distinct, limit, skip) phải lưu trạng thái nội bộ — ví dụ sorted() phải buffer tất cả phần tử trước khi sắp xếp.
+
+### Thao tác kết thúc kích hoạt ngay (Terminal operations are eager)
+
+Tất cả terminal operations đều kích hoạt pipeline ngay khi được gọi — chúng không lazy.
 
 ## Các lỗi thường gặp
 
@@ -227,20 +152,6 @@ Các luồng song song thực thi các thao tác trên nhiều luồng. Việc t
 List<Integer> list = new ArrayList<>();
 List.of(1, 2, 3, 4).parallelStream().forEach(list::add); // DANGEROUS: Race condition!
 ```
-
-Kiểm tra thực tế:
-- Định nghĩa `groupingBy` trong một câu.
-- Nhận diện `groupingBy` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến `groupingBy`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-- Khi đọc mã nguồn, hãy hỏi: `groupingBy` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
-## Các câu hỏi ôn tập thường gặp
-
-- Khái niệm nào ở đây là quy tắc thời điểm biên dịch?
-- Khái niệm nào ở đây ảnh hưởng đến hành vi thời điểm chạy?
-- Khái niệm nào ở đây có khả năng là bẫy phỏng vấn?
 
 ## Tại sao các Stream được đánh giá lười biếng
 

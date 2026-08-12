@@ -1,22 +1,5 @@
 # Stream API - Part 4
 
-## Learning Goal
-
-This file covers a focused slice of **Stream API**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
-| Concept | What to know |
-| --- | --- |
-| `min` |`min` — Returns the minimum element of the stream according to the provided Comparator. |
-| `max` |`max` — max provides specific functionality and rules in Java development. |
-| `reduce` |`reduce` — reduce provides specific functionality and rules in Java development. |
-| `anyMatch` |`anyMatch` — anyMatch provides specific functionality and rules in Java development. |
-| `allMatch` |`allMatch` — allMatch provides specific functionality and rules in Java development. |
-| `noneMatch` |`noneMatch` — noneMatch provides specific functionality and rules in Java development. |
-| `findFirst` |`findFirst` — findFirst provides specific functionality and rules in Java development. |
-| `findAny` |`findAny` — findAny provides specific functionality and rules in Java development. |
-
 ## Detailed Notes
 
 ### min
@@ -32,15 +15,7 @@ Optional<Integer> minVal = Stream.of(5, 2, 8, 1)
                                  .min(Integer::compareTo); // Returns Optional[1]
 ```
 
-Practical check:
 
-- Define `min` in one sentence.
-- Recognize `min` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `min`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `min` change, allow, reject, or clarify?
 
 ### max
 
@@ -55,15 +30,7 @@ Optional<Integer> maxVal = Stream.of(5, 2, 8, 1)
                                  .max(Integer::compareTo); // Returns Optional[8]
 ```
 
-Practical check:
 
-- Define `max` in one sentence.
-- Recognize `max` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `max`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `max` change, allow, reject, or clarify?
 
 ### reduce
 
@@ -78,15 +45,7 @@ int sum = Stream.of(1, 2, 3, 4)
                 .reduce(0, (a, b) -> a + b); // Returns 10
 ```
 
-Practical check:
 
-- Define `reduce` in one sentence.
-- Recognize `reduce` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `reduce`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `reduce` change, allow, reject, or clarify?
 
 ### anyMatch
 
@@ -101,15 +60,7 @@ boolean hasEven = Stream.of(1, 3, 4, 5)
                         .anyMatch(n -> n % 2 == 0); // true
 ```
 
-Practical check:
 
-- Define `anyMatch` in one sentence.
-- Recognize `anyMatch` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `anyMatch`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `anyMatch` change, allow, reject, or clarify?
 
 ### allMatch
 
@@ -124,15 +75,7 @@ boolean allEven = Stream.of(2, 4, 6)
                         .allMatch(n -> n % 2 == 0); // true
 ```
 
-Practical check:
 
-- Define `allMatch` in one sentence.
-- Recognize `allMatch` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `allMatch`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `allMatch` change, allow, reject, or clarify?
 
 ### noneMatch
 
@@ -147,15 +90,7 @@ boolean noneNegative = Stream.of(1, 2, 3)
                              .noneMatch(n -> n < 0); // true
 ```
 
-Practical check:
 
-- Define `noneMatch` in one sentence.
-- Recognize `noneMatch` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `noneMatch`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `noneMatch` change, allow, reject, or clarify?
 
 ### findFirst
 
@@ -170,15 +105,7 @@ Optional<String> first = Stream.of("banana", "apple", "cherry")
                                .findFirst(); // Optional["banana"]
 ```
 
-Practical check:
 
-- Define `findFirst` in one sentence.
-- Recognize `findFirst` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `findFirst`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `findFirst` change, allow, reject, or clarify?
 
 ### findAny
 
@@ -219,15 +146,7 @@ Optional<Integer> any = List.of(1, 2, 3, 4, 5).parallelStream()
                              .findAny();
 ```
 
-Practical check:
 
-- Define `findAny` in one sentence.
-- Recognize `findAny` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `findAny`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `findAny` change, allow, reject, or clarify?
 
 ## Common Review Prompts
 

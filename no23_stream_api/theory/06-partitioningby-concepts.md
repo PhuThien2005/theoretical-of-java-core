@@ -1,19 +1,5 @@
 # Stream API - Part 6
 
-## Learning Goal
-
-This file covers a focused slice of **Stream API**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
-| Concept | What to know |
-| --- | --- |
-| `partitioningBy` |`partitioningBy` — Collector that partitions stream elements into two groups based on a Predicate. |
-| `counting` |`counting` — counting provides specific functionality and rules in Java development. |
-| `summarizingInt` |`summarizingInt` — summarizingInt provides specific functionality and rules in Java development. |
-| `mapping` | A Map stores key-value pairs and retrieves values by key. |
-| `reducing` |`reducing` — reducing provides specific functionality and rules in Java development. |
-
 ## Detailed Notes
 
 ### partitioningBy
@@ -30,15 +16,7 @@ Map<Boolean, List<String>> partitioned = Stream.of("a", "bb", "c", "ddd")
 // Result: {false=["a", "c"], true=["bb", "ddd"]}
 ```
 
-Practical check:
 
-- Define `partitioningBy` in one sentence.
-- Recognize `partitioningBy` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `partitioningBy`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `partitioningBy` change, allow, reject, or clarify?
 
 ### counting
 
@@ -57,15 +35,7 @@ Map<Boolean, Long> counts = Stream.of("a", "bb", "c", "ddd")
 // Result: {false=2, true=2}
 ```
 
-Practical check:
 
-- Define `counting` in one sentence.
-- Recognize `counting` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `counting`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `counting` change, allow, reject, or clarify?
 
 ### summarizingInt
 
@@ -81,21 +51,11 @@ IntSummaryStatistics stats = Stream.of("a", "bb", "ccc")
 System.out.println("Max: " + stats.getMax() + ", Average: " + stats.getAverage());
 ```
 
-Practical check:
 
-- Define `summarizingInt` in one sentence.
-- Recognize `summarizingInt` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `summarizingInt`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `summarizingInt` change, allow, reject, or clarify?
 
 ### mapping
 
-A Map stores key-value pairs and retrieves values by key.
-
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
+Map does not inherit from Collection, so it does not have a direct `.stream()` method. However, you can create a Stream from a Map indirectly via `.keySet().stream()`, `.values().stream()`, or `.entrySet().stream()`.
 
 #### Code Example
 ```java
@@ -108,15 +68,7 @@ Map<Integer, Set<String>> map = Stream.of("apple", "banana", "apricot")
 // Result: {5=["a"], 6=["b", "a"]}
 ```
 
-Practical check:
 
-- Define `mapping` in one sentence.
-- Recognize `mapping` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `mapping`.
-
-Tiny example or mental model:
-
-- `Map<String, Integer> scores = new HashMap<>();` maps keys to values.
 
 ### reducing
 
@@ -144,15 +96,7 @@ Map<Boolean, List<String>> result = Stream.of("a", "b")
 System.out.println(result.get(true)); // Prints [] (empty list, not null or missing key)
 ```
 
-Practical check:
 
-- Define `reducing` in one sentence.
-- Recognize `reducing` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `reducing`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `reducing` change, allow, reject, or clarify?
 
 ## Common Review Prompts
 
@@ -162,7 +106,9 @@ Tiny example or mental model:
 
 ## Why groupingBy and partitioningBy Serve Different Purposes
 
-In the Java Collectors API, `partitioningBy` and `groupingBy` serve distinct classification strategies, differing in key types, optimization, and structure. The `partitioningBy` collector accepts a `Predicate` and divides the input stream into exactly two categories, returning a map with keys of type `Boolean` (specifically, `true` and `false`). Internally, it leverages a specialized, highly efficient binary-only collector that pre-populates a map with both boolean keys initialized to empty downstream structures. Conversely, `groupingBy` is a general-purpose classifier accepting a `Function<T, K>`, mapping elements to arbitrary keys of type `K`. It dynamically constructs keys and groups items into a standard `HashMap` (by default) or a specified map type, allowing multiple arbitrary buckets based on the classifier's output.
+In the Java Collectors API, `partitioningBy` and `groupingBy` serve distinct classification strategies, differing in key types, optimization, and structure. The `partitioningBy` collector accepts a `Predicate` and divides the input stream into exactly two categories, returning a map with keys of type `Boolean` (`true` and `false`). Internally, it leverages a specialized, highly efficient binary-only collector that pre-populates a map with both boolean keys initialized to empty downstream structures.
+
+Conversely, `groupingBy` is a general-purpose classifier accepting a `Function<T, K>`, mapping elements to arbitrary keys of type `K`. It dynamically constructs keys and groups items into a standard `HashMap` (by default) or a specified map type, allowing multiple arbitrary buckets based on the classifier's output.
 
 ### Mental Model
 ```

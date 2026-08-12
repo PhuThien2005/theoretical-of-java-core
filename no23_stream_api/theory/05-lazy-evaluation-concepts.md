@@ -1,22 +1,5 @@
 # Stream API - Part 5
 
-## Learning Goal
-
-This file covers a focused slice of **Stream API**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
-| Concept | What to know |
-| --- | --- |
-| `Lazy evaluation` |`Lazy evaluation` — Intermediate stream operations are not executed until a terminal operation is invoked. |
-| `Short-circuiting` |`Short-circuiting` — Short-circuiting provides specific functionality and rules in Java development. |
-| `Parallel stream` | A Stream is a pipeline for processing elements through lazy operations. |
-| `Collectors:` | Collectors is a group of related rules in Stream API that groups several related details. |
-| `toSet` | A Set is a collection that rejects duplicates according to equality rules. |
-| `toMap` | A Map stores key-value pairs and retrieves values by key. |
-| `joining` |`joining` — joining provides specific functionality and rules in Java development. |
-| `groupingBy` |`groupingBy` — groupingBy provides specific functionality and rules in Java development. |
-
 ## Detailed Notes
 
 ### Lazy evaluation
@@ -34,15 +17,7 @@ System.out.println("Stream pipeline built.");
 stream.count(); // Now execution starts!
 ```
 
-Practical check:
 
-- Define `Lazy evaluation` in one sentence.
-- Recognize `Lazy evaluation` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Lazy evaluation`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Lazy evaluation` change, allow, reject, or clarify?
 
 ### Short-circuiting
 
@@ -59,21 +34,11 @@ Stream.iterate(1, i -> i + 1)
       .count(); // Prints Generated: 1, 2, 3
 ```
 
-Practical check:
 
-- Define `Short-circuiting` in one sentence.
-- Recognize `Short-circuiting` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Short-circuiting`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Short-circuiting` change, allow, reject, or clarify?
 
 ### Parallel stream
 
-A Stream is a pipeline for processing elements through lazy operations.
-
-It matters because modern Java APIs use function-style pipelines heavily. A common confusion is forgetting which operations are lazy and which operation actually triggers execution.
+The static factory method `Stream.of()` allows you to quickly create a Stream from directly supplied values (varargs).
 
 #### Code Example
 ```java
@@ -101,15 +66,7 @@ A good heuristic to decide whether to use parallel streams is $N \times Q > 10,0
 - $Q$ is the computational cost per element.
 If $N \times Q$ is small, sequential streams are almost always faster.
 
-Practical check:
 
-- Define `Parallel stream` in one sentence.
-- Recognize `Parallel stream` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Parallel stream`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Parallel stream` change, allow, reject, or clarify?
 
 ### Collectors:
 
@@ -123,15 +80,7 @@ Use it to predict the exact Java rule, the allowed form, and the failure mode. R
 List<String> list = Stream.of("a", "b").collect(Collectors.toList());
 ```
 
-Practical check:
 
-- Define `Collectors:` in one sentence.
-- Recognize `Collectors:` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Collectors:`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Collectors:` change, allow, reject, or clarify?
 
 ### toSet
 
@@ -145,21 +94,11 @@ It matters because choosing the wrong data structure changes correctness, perfor
 Set<String> set = Stream.of("a", "b", "a").collect(Collectors.toSet()); // ["a", "b"]
 ```
 
-Practical check:
 
-- Define `toSet` in one sentence.
-- Recognize `toSet` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `toSet`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `toSet` change, allow, reject, or clarify?
 
 ### toMap
 
-A Map stores key-value pairs and retrieves values by key.
-
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
+Map does not inherit from Collection, so it does not have a direct `.stream()` method. However, you can create a Stream from a Map indirectly via `.keySet().stream()`, `.values().stream()`, or `.entrySet().stream()`.
 
 #### Code Example
 ```java
@@ -172,15 +111,7 @@ Map<Integer, String> map = Stream.of("apple", "banana")
                                  ));
 ```
 
-Practical check:
 
-- Define `toMap` in one sentence.
-- Recognize `toMap` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `toMap`.
-
-Tiny example or mental model:
-
-- `Map<String, Integer> scores = new HashMap<>();` maps keys to values.
 
 ### joining
 
@@ -195,15 +126,7 @@ String joined = Stream.of("a", "b", "c")
                       .collect(Collectors.joining(", ")); // "a, b, c"
 ```
 
-Practical check:
 
-- Define `joining` in one sentence.
-- Recognize `joining` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `joining`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `joining` change, allow, reject, or clarify?
 
 ### groupingBy
 
@@ -244,15 +167,7 @@ List<Integer> list = new ArrayList<>();
 List.of(1, 2, 3, 4).parallelStream().forEach(list::add); // DANGEROUS: Race condition!
 ```
 
-Practical check:
 
-- Define `groupingBy` in one sentence.
-- Recognize `groupingBy` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `groupingBy`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `groupingBy` change, allow, reject, or clarify?
 
 ## Common Review Prompts
 

@@ -1,27 +1,9 @@
 # Stream API - Phần 4
 
-## Mục Tiêu Học Tập
-
-Tài liệu này trình bày một phần trọng tâm của **Stream API**. Hãy nghiên cứu từng khái niệm dưới dạng một quy tắc Java thực tế, thay vì chỉ học từ vựng riêng lẻ.
-
-## Nội Dung Tổng Quan
-
-- **`min`** — min: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`max`** — max: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`reduce`** — reduce: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`anyMatch`** — anyMatch: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`allMatch`** — allMatch: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`noneMatch`** — noneMatch: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`findFirst`** — findFirst: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`findAny`** — findAny: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
-## Ghi Chú Chi Tiết
-
 ### min
 
-**`min`** — Trả về phần tử nhỏ nhất trong stream dựa trên Comparator cung cấp.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
+min(Comparator) duyệt toàn bộ stream và trả về phần tử nhỏ nhất theo Comparator cho trước, gói trong Optional vì stream có thể rỗng.
+Trên IntStream/LongStream/DoubleStream, min() không cần Comparator vì thứ tự tự nhiên của số đã xác định.
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -30,21 +12,9 @@ Optional<Integer> minVal = Stream.of(5, 2, 8, 1)
                                  .min(Integer::compareTo); // Returns Optional[1]
 ```
 
-Kiểm tra thực tế:
-
-- Định nghĩa `min` trong một câu.
-- Nhận biết `min` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `min`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `min` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### max
 
-**`max`** — max: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
+max(Comparator) hoạt động tương tự min() nhưng trả về phần tử lớn nhất — cũng trả Optional.
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -53,21 +23,9 @@ Optional<Integer> maxVal = Stream.of(5, 2, 8, 1)
                                  .max(Integer::compareTo); // Returns Optional[8]
 ```
 
-Kiểm tra thực tế:
-
-- Định nghĩa `max` trong một câu.
-- Nhận biết `max` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `max`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `max` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### reduce
 
-**`reduce`** — reduce: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
+reduce() gộp tất cả phần tử thành một giá trị duy nhất bằng cách áp dụng BinaryOperator lặp đi lặp lại. Có hai dạng: với identity (trả về T) và không identity (trả về Optional<T>).
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -76,21 +34,9 @@ int sum = Stream.of(1, 2, 3, 4)
                 .reduce(0, (a, b) -> a + b); // Returns 10
 ```
 
-Kiểm tra thực tế:
-
-- Định nghĩa `reduce` trong một câu.
-- Nhận biết `reduce` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `reduce`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `reduce` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### anyMatch
 
-**`anyMatch`** — anyMatch: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
+anyMatch(Predicate) trả về true ngay khi tìm thấy phần tử đầu tiên thỏa điều kiện — là short-circuiting terminal operation.
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -99,21 +45,9 @@ boolean hasEven = Stream.of(1, 3, 4, 5)
                         .anyMatch(n -> n % 2 == 0); // true
 ```
 
-Kiểm tra thực tế:
-
-- Định nghĩa `anyMatch` trong một câu.
-- Nhận biết `anyMatch` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `anyMatch`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `anyMatch` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### allMatch
 
-**`allMatch`** — allMatch: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
+allMatch(Predicate) trả về true chỉ khi tất cả phần tử thỏa điều kiện. Trả false ngay khi gặp phần tử không thỏa (short-circuiting).
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -122,21 +56,9 @@ boolean allEven = Stream.of(2, 4, 6)
                         .allMatch(n -> n % 2 == 0); // true
 ```
 
-Kiểm tra thực tế:
-
-- Định nghĩa `allMatch` trong một câu.
-- Nhận biết `allMatch` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `allMatch`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `allMatch` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### noneMatch
 
-**`noneMatch`** — noneMatch: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
+noneMatch(Predicate) trả về true chỉ khi không có phần tử nào thỏa điều kiện. Trả false ngay khi gặp phần tử thỏa (short-circuiting).
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -145,21 +67,9 @@ boolean noneNegative = Stream.of(1, 2, 3)
                              .noneMatch(n -> n < 0); // true
 ```
 
-Kiểm tra thực tế:
-
-- Định nghĩa `noneMatch` trong một câu.
-- Nhận biết `noneMatch` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `noneMatch`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `noneMatch` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### findFirst
 
-**`findFirst`** — findFirst: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
+findFirst() trả về phần tử đầu tiên theo encounter order, gói trong Optional. Là short-circuiting — dừng ngay khi có kết quả.
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -168,21 +78,9 @@ Optional<String> first = Stream.of("banana", "apple", "cherry")
                                .findFirst(); // Optional["banana"]
 ```
 
-Kiểm tra thực tế:
-
-- Định nghĩa `findFirst` trong một câu.
-- Nhận biết `findFirst` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `findFirst`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `findFirst` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### findAny
 
-**`findAny`** — findAny: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
-Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạng được cho phép và trường hợp lỗi xảy ra. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn định nghĩa.
+findAny() trả về một phần tử bất kỳ trong stream, được tối ưu cho parallel stream vì không cần giữ encounter order.
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -190,16 +88,6 @@ Sử dụng khái niệm này để dự đoán chính xác quy tắc Java, dạ
 Optional<String> any = Stream.of("banana", "apple", "cherry")
                              .findAny(); // Returns any elements
 ```
-
-Kiểm tra thực tế:
-
-- Định nghĩa `findAny` trong một câu.
-- Nhận biết `findAny` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến `findAny`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `findAny` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ---
 
@@ -228,9 +116,3 @@ Optional<Integer> any = List.of(1, 2, 3, 4, 5).parallelStream()
                              .filter(n -> n > 3)
                              .findAny();
 ```
-
-## Các Câu Hỏi Ôn Tập Thường Gặp
-
-- Những khái niệm nào ở đây là quy tắc trong thời gian biên dịch (compile-time)?
-- Những khái niệm nào ở đây ảnh hưởng đến hành vi khi chạy ứng dụng (runtime)?
-- Những khái niệm nào ở đây có khả năng là bẫy phỏng vấn?

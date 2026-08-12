@@ -1,27 +1,10 @@
 # Stream API - Phần 2
 
-## Mục Tiêu Học Tập
-
-Tài liệu này trình bày một phần trọng tâm của **Stream API**. Hãy nghiên cứu từng khái niệm dưới dạng một quy tắc Java thực tế, thay vì chỉ học từ vựng riêng lẻ.
-
-## Nội Dung Khái Quát
-
-- **`LongStream`** — LongStream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`DoubleStream`** — DoubleStream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Intermediate operations:`** — Intermediate operations:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`filter`** — filter: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`map`** — map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`flatMap`** — flatMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`distinct`** — distinct: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`sorted`** — sorted: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### LongStream
 
-Luồng là một đường ống để xử lý các phần tử thông qua các thao tác trì hoãn.
-
-Điều này rất quan trọng vì các API Java hiện đại sử dụng rất nhiều đường ống kiểu hàm (function-style pipelines). Một sự nhầm lẫn phổ biến là quên mất thao tác nào là trì hoãn và thao tác nào thực sự kích hoạt việc thực thi.
+LongStream là một phiên bản stream chuyên biệt cho kiểu nguyên thủy `long`, giúp tránh chi phí boxing/unboxing khi làm việc với dữ liệu số nguyên lớn.
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -30,21 +13,9 @@ LongStream longStream = LongStream.of(100L, 200L, 300L);
 LongStream range = LongStream.rangeClosed(1, 100); // 1 to 100 inclusive
 ```
 
-Kiểm tra thực tế:
-
-- Định nghĩa `LongStream` trong một câu.
-- Nhận biết `LongStream` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `LongStream`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `LongStream` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### DoubleStream
 
-Luồng là một đường ống để xử lý các phần tử thông qua các thao tác trì hoãn.
-
-Điều này rất quan trọng vì các API Java hiện đại sử dụng rất nhiều đường ống kiểu hàm. Một sự nhầm lẫn phổ biến là quên mất thao tác nào là trì hoãn và thao tác nào thực sự kích hoạt việc thực thi.
+DoubleStream là phiên bản stream chuyên biệt dành cho kiểu nguyên thủy `double`. Tương tự như LongStream, nó giúp cải thiện hiệu suất bằng cách loại bỏ chi phí boxing/unboxing.
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -54,21 +25,9 @@ DoubleSummaryStatistics stats = doubleStream.summaryStatistics();
 System.out.println("Average: " + stats.getAverage());
 ```
 
-Kiểm tra thực tế:
-
-- Định nghĩa `DoubleStream` trong một câu.
-- Nhận biết `DoubleStream` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `DoubleStream`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `DoubleStream` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### Các thao tác trung gian (Intermediate operations)
 
-Các thao tác trung gian là một nhóm các quy tắc liên quan trong Stream API nhằm gom nhóm một số chi tiết liên quan.
-
-Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được phép và trạng thái lỗi. Hãy ôn tập nó bằng một ví dụ nhỏ thay vì chỉ ghi nhớ mỗi nhãn tên.
+Các thao tác trung gian (như filter, map) luôn trả về một stream mới và được thực thi theo cơ chế lười biếng (lazy evaluation). Chúng chỉ thực sự chạy khi có một thao tác kết thúc (terminal operation) được gọi.
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -78,21 +37,9 @@ Stream.of("a", "b", "c")
       .map(String::toUpperCase); // Returns a new Stream (not executed yet)
 ```
 
-Kiểm tra thực tế:
-
-- Định nghĩa `Intermediate operations:` trong một câu.
-- Nhận biết `Intermediate operations:` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `Intermediate operations:`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `Intermediate operations:` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### Bộ lọc (filter)
 
-**`filter`** — filter: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
-Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được phép và trạng thái lỗi. Hãy ôn tập nó bằng một ví dụ nhỏ thay vì chỉ ghi nhớ mỗi nhãn tên.
+Thao tác `filter` nhận vào một Predicate (điều kiện) và trả về một stream mới chỉ chứa các phần tử thỏa mãn điều kiện đó.
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -102,21 +49,9 @@ Stream.of("apple", "banana", "kiwi")
       .forEach(System.out::println); // Prints: apple, banana
 ```
 
-Kiểm tra thực tế:
-
-- Định nghĩa `filter` trong một câu.
-- Nhận biết `filter` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `filter`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `filter` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### Ánh xạ (map)
 
-Bản đồ lưu trữ các cặp khóa - giá trị và truy xuất các giá trị theo khóa.
-
-Điều này rất quan trọng vì việc chọn sai cấu trúc dữ liệu (data structure) sẽ làm thay đổi tính đúng đắn, hiệu năng và hành vi xử lý trùng lặp. Một sự nhầm lẫn phổ biến là ghi nhớ tên các lớp (class names) mà không biết thứ tự tra cứu (lookup order), quy tắc so sánh bằng (equality rules) hoặc hành vi duyệt (iteration behavior).
+Thao tác `map` biến đổi từng phần tử của stream bằng cách áp dụng một Function, chuyển đổi phần tử từ kiểu này sang kiểu khác một cách độc lập.
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -126,21 +61,9 @@ Stream.of("apple", "banana")
       .forEach(System.out::println); // Prints: APPLE, BANANA
 ```
 
-Kiểm tra thực tế:
-
-- Định nghĩa `map` trong một câu.
-- Nhận biết `map` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `map`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- `Map<String, Integer> scores = new HashMap<>();` ánh xạ các khóa sang các giá trị.
-
 ### Ánh xạ phẳng (flatMap)
 
-Bản đồ lưu trữ các cặp khóa - giá trị và truy xuất các giá trị theo khóa.
-
-Điều này rất quan trọng vì việc chọn sai cấu trúc dữ liệu sẽ làm thay đổi tính đúng đắn, hiệu năng và hành vi xử lý trùng lặp. Một sự nhầm lẫn phổ biến là ghi nhớ tên các lớp mà không biết thứ tự tra cứu, quy tắc so sánh bằng hoặc hành vi duyệt.
+Thao tác `flatMap` được sử dụng để 'làm phẳng' (flatten) các cấu trúc lồng nhau, chẳng hạn như chuyển đổi một luồng chứa các danh sách thành một luồng chứa tất cả các phần tử của các danh sách đó.
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -154,37 +77,9 @@ nestedList.stream()
           .forEach(System.out::print); // Prints: abcd
 ```
 
-### Ví Dụ Thực Tế: So sánh chi tiết flatMap và map
-
-#### Sự khác biệt về chữ ký phương thức (signatures) và kiểu trả về (return types)
-- **`map`** — map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`flatMap`** — flatMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
-#### Khi nào nên sử dụng phương thức nào?
-- **`map`** — map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`flatMap`** — flatMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
-#### Trực quan hóa việc làm phẳng
-Nếu chúng ta có một luồng của các luồng:
-Stream.of( Stream.of(1, 2), Stream.of(3, 4) )
-- Áp dụng `map(s -> s)` sẽ giữ nguyên dưới dạng `Stream<Stream<Integer>>` (lồng nhau).
-- Áp dụng `flatMap(s -> s)` sẽ hợp nhất chúng thành một `Stream<Integer>` duy nhất chứa `[1, 2, 3, 4]`.
-
-Kiểm tra thực tế:
-
-- Định nghĩa `flatMap` trong một câu.
-- Nhận biết `flatMap` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `flatMap`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- `Map<String, Integer> scores = new HashMap<>();` ánh xạ các khóa sang các giá trị.
-
 ### Loại bỏ trùng lặp (distinct)
 
-**`distinct`** — distinct: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
-Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được phép và trạng thái lỗi. Hãy ôn tập nó bằng một ví dụ nhỏ thay vì chỉ ghi nhớ mỗi nhãn tên.
+Thao tác `distinct` loại bỏ các phần tử trùng lặp trong stream. Cơ chế so sánh dựa vào phương thức `equals()` của các đối tượng.
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -194,21 +89,9 @@ Stream.of(1, 2, 2, 3, 1)
       .forEach(System.out::print); // Prints: 123
 ```
 
-Kiểm tra thực tế:
-
-- Định nghĩa `distinct` trong một câu.
-- Nhận biết `distinct` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `distinct`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `distinct` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
 ### Sắp xếp (sorted)
 
-**`sorted`** — sorted: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
-Hãy sử dụng nó để dự đoán chính xác quy tắc Java, dạng thức được phép và trạng thái lỗi. Hãy ôn tập nó bằng một ví dụ nhỏ thay vì chỉ ghi nhớ mỗi nhãn tên.
+Thao tác `sorted` sắp xếp các phần tử trong stream theo thứ tự tự nhiên (natural order) hoặc theo một Comparator được cung cấp.
 
 #### Ví Dụ Mã Nguồn
 ```java
@@ -243,22 +126,6 @@ Stream.of(1, 2, 3)
       })
       .count();
 ```
-
-Kiểm tra thực tế:
-
-- Định nghĩa `sorted` trong một câu.
-- Nhận biết `sorted` trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi phỏng vấn.
-- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `sorted`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy hỏi: `sorted` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
-
-## Các Câu Hỏi Ôn Tập Thường Gặp
-
-- Khái niệm nào ở đây là quy tắc tại thời điểm biên dịch (compile-time rules)?
-- Khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm thực thi (runtime behavior)?
-- Khái niệm nào ở đây có khả năng là bẫy phỏng vấn?
 
 ## Tại sao flatMap() khác với map()
 

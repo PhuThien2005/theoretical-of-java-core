@@ -2,51 +2,52 @@
 
 ## Mục Tiêu Học Tập
 
-File này đề cập đến một phần trọng tâm của **JDBC**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải là những từ vựng rời rạc.
+Tài liệu này giải thích các khái niệm JDBC nâng cao: quản lý giao dịch với rollback và savepoint, tối ưu hiệu suất qua batch processing và connection pooling, phòng chống SQL Injection, và các thao tác CRUD cơ bản. Mỗi khái niệm được trình bày kèm cơ chế hoạt động bên trong, lỗi thường gặp, và ví dụ mã nguồn cụ thể.
 
 ## Đề Cương Khái Niệm
 
-- **`rollback`** — rollback: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`setAutoCommit`** — setAutoCommit: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Xử lý theo lô (Batch processing)`** — Xử lý theo lô (Batch processing): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Tấn công chèn mã SQL (SQL Injection)`** — Tấn công chèn mã SQL (SQL Injection): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Nhóm kết nối cơ bản (Basic Connection Pool)`** — Nhóm kết nối cơ bản (Basic Connection Pool): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`DataSource`** — DataSource: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`CRUD sử dụng JDBC`** — CRUD sử dụng JDBC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
+- **`rollback`** — Hủy bỏ tất cả thay đổi kể từ lần `commit()` gần nhất, giải phóng các database lock mà giao dịch đang nắm giữ.
+- **`setAutoCommit`** — Chuyển đổi giữa chế độ tự động commit (mỗi SQL tự commit ngay) và chế độ giao dịch thủ công (nhóm nhiều SQL vào một transaction).
+- **`Xử lý theo lô (Batch processing)`** — Gom nhiều câu lệnh SQL vào một lần gửi qua `addBatch()`/`executeBatch()`, giảm số lần round-trip mạng.
+- **`Tấn công chèn mã SQL (SQL Injection)`** — Lỗ hổng bảo mật khi đầu vào người dùng thoát khỏi ngữ cảnh string literal và trở thành cú pháp SQL thực thi được.
+- **`Nhóm kết nối cơ bản (Basic Connection Pool)`** — Tái sử dụng các kết nối TCP đã thiết lập sẵn thay vì tạo mới mỗi lần, tránh chi phí TCP handshake + xác thực.
+- **`DataSource`** — Interface trong `javax.sql` thay thế `DriverManager`, hỗ trợ connection pooling và distributed transactions trong production.
+- **`CRUD sử dụng JDBC`** — Bốn thao tác cơ bản: CREATE (INSERT), READ (SELECT), UPDATE, DELETE — thực hiện qua `executeUpdate()` và `executeQuery()`.
 
 ## Ghi Chú Chi Tiết
 
 ### rollback
 
-rollback hủy bỏ các thay đổi của giao dịch hiện tại kể từ lần commit gần nhất.
+`conn.rollback()` ra lệnh cho database **hủy bỏ tất cả thay đổi** đã thực hiện kể từ lần `setAutoCommit(false)` hoặc lần `commit()` gần nhất. Cơ sở dữ liệu sử dụng nhật ký undo (undo log) để khôi phục các hàng đã bị thay đổi về trạng thái trước đó.
 
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+**Các quy tắc quan trọng:**
+- Rollback chỉ có ý nghĩa khi auto-commit đã bị tắt. Ở chế độ auto-commit (mặc định), mỗi câu lệnh tự commit ngay — không có gì để rollback.
+- Sau khi rollback, tất cả database lock (row lock, table lock) mà giao dịch đang nắm giữ sẽ được **giải phóng**, cho phép các phiên làm việc khác truy cập các hàng bị khóa.
+- `rollback()` bản thân nó có thể ném `SQLException` nếu Connection đã bị đóng hoặc gặp lỗi mạng. Phải bọc trong try-catch riêng.
+- Rollback **không hoàn tác** các thay đổi DDL (`CREATE TABLE`, `ALTER TABLE`) trên hầu hết database (MySQL, Oracle tự động commit DDL).
 
-Kiểm tra thực tế:
-
-- Định nghĩa `rollback` trong một câu.
-- Nhận diện `rollback` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến `rollback`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy tự hỏi: `rollback` thay đổi, cho phép, từ chối hay làm rõ điều gì?
+```java
+try {
+    conn.setAutoCommit(false);
+    // ... thực thi SQL ...
+    conn.commit();
+} catch (SQLException e) {
+    try {
+        conn.rollback(); // rollback() cũng có thể ném exception
+    } catch (SQLException rollbackEx) {
+        rollbackEx.printStackTrace(); // Log lỗi rollback riêng
+    }
+}
+```
 
 ### setAutoCommit
 
-setAutoCommit xác định xem các câu lệnh được thực thi ở chế độ tự động commit (tự động commit mỗi câu lệnh SQL ngay lập tức) hay chế độ commit thủ công (nhóm các câu lệnh vào các giao dịch).
+`conn.setAutoCommit(boolean)` chuyển đổi Connection giữa hai chế độ:
 
-Nó quan trọng vì đối với các hoạt động giao dịch nhiều bước (ví dụ: chuyển khoản ngân hàng), chế độ tự động commit phải được vô hiệu hóa (`setAutoCommit(false)`) để đảm bảo việc thực thi nguyên tử.
+- **`setAutoCommit(true)`** (mặc định khi mới tạo Connection): Mỗi câu lệnh SQL được coi là một giao dịch riêng và commit ngay lập tức sau khi thực thi. Tiện lợi cho các truy vấn đơn lẻ, nhưng **không thể đảm bảo tính nguyên tử** cho nhiều cập nhật liên quan.
+- **`setAutoCommit(false)`**: Tất cả các câu lệnh SQL tiếp theo được nhóm vào một giao dịch duy nhất. Bạn phải gọi `commit()` để lưu hoặc `rollback()` để hủy.
 
-Kiểm tra thực tế:
-
-- Định nghĩa `setAutoCommit` trong một câu.
-- Nhận diện `setAutoCommit` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `setAutoCommit`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy tự hỏi: `setAutoCommit` thay đổi, cho phép, từ chối hay làm rõ điều gì?
+**Quy tắc thực hành:** Luôn khôi phục `setAutoCommit(true)` trong khối `finally` sau khi hoàn tất giao dịch, đặc biệt khi dùng connection pool — nếu không, connection trả về pool vẫn ở chế độ manual commit, gây lỗi cho lần sử dụng tiếp theo.
 
 ## Tại Sao Việc Vô Hiệu Hóa Tự Động Commit Thiết Lập Các Ranh Giới Giao Dịch ACID
 
@@ -109,7 +110,9 @@ public void transferMoney(Connection conn, int fromId, int toId, double amount) 
 
 ## Tại Sao Savepoint Cho Phép Quay Lui Một Phần Và Cơ Chế Cô Lập Của Chúng
 
-Một `Savepoint` (điểm lưu trữ) cho phép một giao dịch được chia thành các bước logic, cho phép ứng dụng quay lui (roll back) một tập hợp con các cập nhật mà không cần hủy bỏ toàn bộ giao dịch. Điều này cực kỳ hữu ích trong các quy trình phức tạp nơi các tác vụ phụ tùy chọn có thể thất bại nhưng giao dịch chính vẫn phải commit (ví dụ: in nhãn vận chuyển có thể thất bại, nhưng việc thanh toán đơn hàng vẫn phải được ghi nhận). Khi một `Savepoint` được thiết lập, cơ sở dữ liệu sẽ đánh dấu một trạng thái cụ thể trong nhật ký undo/redo của giao dịch. Nếu một hoạt động quay lui một phần được thực thi (`conn.rollback(savepoint)`), cơ sở dữ liệu chỉ hoàn tác các sửa đổi được thực hiện *sau* điểm lưu trữ đó, trong khi vẫn giữ nguyên các khóa và sửa đổi được thực hiện *trước* điểm lưu trữ. Giao dịch vẫn duy trì trạng thái hoạt động, và cơ sở dữ liệu duy trì mức độ cô lập giao dịch hiện tại (ví dụ: Read Committed hoặc Repeatable Read), đảm bảo các thay đổi chưa được commit trước điểm lưu trữ vẫn vô hình đối với các phiên làm việc cơ sở dữ liệu đồng thời khác.
+Một `Savepoint` (điểm lưu trữ) cho phép một giao dịch được chia thành các bước logic, cho phép ứng dụng quay lui (roll back) một tập hợp con các cập nhật mà không cần hủy bỏ toàn bộ giao dịch. Điều này cực kỳ hữu ích trong các quy trình phức tạp nơi các tác vụ phụ tùy chọn có thể thất bại nhưng giao dịch chính vẫn phải commit (ví dụ: in nhãn vận chuyển có thể thất bại, nhưng việc thanh toán đơn hàng vẫn phải được ghi nhận).
+
+Khi một `Savepoint` được thiết lập, cơ sở dữ liệu sẽ đánh dấu một trạng thái cụ thể trong nhật ký undo/redo của giao dịch. Nếu một hoạt động quay lui một phần được thực thi (`conn.rollback(savepoint)`), cơ sở dữ liệu chỉ hoàn tác các sửa đổi được thực hiện *sau* điểm lưu trữ đó, trong khi vẫn giữ nguyên các khóa và sửa đổi được thực hiện *trước* điểm lưu trữ. Giao dịch vẫn duy trì trạng thái hoạt động, đảm bảo các thay đổi chưa được commit trước điểm lưu trữ vẫn an toàn.
 
 ### Quay lui một phần qua Savepoint (Mental Model)
 ```text
@@ -173,71 +176,77 @@ public class SavepointDemo {
 
 ### Xử lý theo lô (Batch Processing)
 
-**`Xử lý theo lô (batch processing)`** — Xử lý theo lô (batch processing): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
+Batch processing gom nhiều câu lệnh SQL vào **một lần gửi** tới database, thay vì gửi từng câu riêng lẻ. Điều này giảm đáng kể số lần round-trip mạng giữa JVM và database server.
 
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+**Cơ chế hoạt động:**
+1. Gọi `stmt.addBatch()` để thêm câu lệnh hiện tại (với các tham số đã set) vào hàng đợi nội bộ.
+2. Khi hàng đợi đủ lớn, gọi `stmt.executeBatch()` để gửi toàn bộ batch trong một lần network call.
+3. `executeBatch()` trả về `int[]` — mỗi phần tử là số hàng bị ảnh hưởng bởi câu lệnh tương ứng trong batch.
 
-Kiểm tra thực tế:
+**Quy tắc thực hành:**
+- Gọi `executeBatch()` sau mỗi 500–1000 hàng để tránh `OutOfMemoryError` (hàng đợi giữ tất cả tham số trong bộ nhớ JVM).
+- Luôn kết hợp batch processing với `setAutoCommit(false)` — nếu để auto-commit, mỗi câu lệnh trong batch vẫn commit riêng lẻ, mất tính nguyên tử.
+- Gọi `executeBatch()` lần cuối **sau** vòng lặp để xử lý các phần tử còn lại không đủ batch size.
 
-- Định nghĩa `Xử lý theo lô` trong một câu.
-- Nhận diện `Xử lý theo lô` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `Xử lý theo lô`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy tự hỏi: `Xử lý theo lô` thay đổi, cho phép, từ chối hay làm rõ điều gì?
+**Lỗi thường gặp:** Nếu một câu lệnh trong batch thất bại, driver ném `BatchUpdateException`. Mảng `getUpdateCounts()` của exception này cho biết câu nào đã thực thi thành công và câu nào thất bại. Các câu lệnh **đã thực thi trước đó** không tự động rollback trừ khi bạn tường minh gọi `conn.rollback()`.
 
 ### Tấn Công Chèn Mã SQL (SQL Injection)
 
-Tấn công chèn mã SQL xảy ra khi đầu vào không đáng tin cậy làm thay đổi ý nghĩa của một lệnh SQL.
+SQL Injection xảy ra khi đầu vào từ người dùng **thoát ra khỏi ngữ cảnh string literal** trong câu SQL và trở thành cú pháp SQL thực thi được. Cơ chế cụ thể:
 
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+1. Ứng dụng ghép chuỗi: `"SELECT * FROM users WHERE name = '" + userInput + "'"`
+2. Người dùng nhập: `' OR '1'='1`
+3. SQL hoàn chỉnh trở thành: `SELECT * FROM users WHERE name = '' OR '1'='1'`
+4. Điều kiện `'1'='1'` luôn đúng → trả về **toàn bộ bảng**.
 
-Kiểm tra thực tế:
+Kẻ tấn công có thể leo thang: `'; DROP TABLE users; --` để xóa bảng, hoặc `' UNION SELECT credit_card FROM payments --` để đánh cắp dữ liệu.
 
-- Định nghĩa `SQL Injection` trong một câu.
-- Nhận diện `SQL Injection` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `SQL Injection`.
+**Cách phòng chống trong JDBC:** Dùng `PreparedStatement` với placeholder `?`. `PreparedStatement` không ngăn injection bằng cách escape ký tự — nó **tách biệt hoàn toàn cấu trúc SQL và dữ liệu tham số ở cấp giao thức binary**. Database nhận cấu trúc SQL và dữ liệu trong hai gói riêng biệt, nên dữ liệu không bao giờ có thể trở thành cú pháp SQL.
 
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy tự hỏi: `SQL Injection` thay đổi, cho phép, từ chối hay làm rõ điều gì?
+> Xem thêm: Phần "Tại sao PreparedStatement ngăn chặn SQL Injection" trong [01-what-is-jdbc-concepts.md](./01-what-is-jdbc-concepts.md) với sơ đồ mermaid chi tiết.
 
 ### Nhóm Kết Nối Cơ Bản (Basic Connection Pool)
 
-**`Nhóm kết nối cơ bản (basic connection pool)`** — Nhóm kết nối cơ bản (basic connection pool): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
+Tạo một kết nối vật lý mới tới database là hoạt động **rất tốn kém**: TCP three-way handshake (~1 RTT), trao đổi xác thực và ủy quyền (~1-2 RTT), cấp phát bộ nhớ và tiến trình phía server. Một kết nối MySQL mới mất khoảng 20-50ms — trong ứng dụng web xử lý 1000 request/giây, điều này là thảm họa.
 
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+**Cơ chế Connection Pool:**
+1. **Khởi động ứng dụng:** Pool tạo sẵn N kết nối vật lý (ví dụ: `minimumIdle=5`) và giữ chúng mở.
+2. **Khi cần kết nối:** `dataSource.getConnection()` trả về một kết nối rảnh rỗi từ pool — tức thì, không có TCP handshake.
+3. **Khi trả kết nối:** `connection.close()` **KHÔNG đóng socket TCP**. Thay vào đó, pool chặn lời gọi close, reset trạng thái kết nối (xóa transaction, bảng tạm), và trả nó về pool.
+4. **Health check:** Pool định kỳ kiểm tra kết nối còn sống không (ví dụ: gửi `SELECT 1`) và thay thế kết nối đã chết.
 
-Kiểm tra thực tế:
-
-- Định nghĩa `Nhóm kết nối cơ bản` trong một câu.
-- Nhận diện `Nhóm kết nối cơ bản` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `Nhóm kết nối cơ bản`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy tự hỏi: `Nhóm kết nối cơ bản` thay đổi, cho phép, từ chối hay làm rõ điều gì?
+**Framework phổ biến:** HikariCP (mặc định trong Spring Boot) — nhẹ, nhanh, cấu hình tối thiểu. Cấu hình quan trọng nhất: `maximumPoolSize` (giới hạn số kết nối đồng thời).
 
 ### DataSource
 
-DataSource là một factory có thể cấu hình cho các kết nối cơ sở dữ liệu, thường được hỗ trợ bởi một nhóm kết nối.
+`DataSource` là interface trong package `javax.sql`, được thiết kế để thay thế `DriverManager` trong production. Thay vì gọi `DriverManager.getConnection(url, user, pass)` trực tiếp, bạn cấu hình một đối tượng `DataSource` (thường thông qua HikariCP, Tomcat JDBC Pool, hoặc container JNDI) và gọi `dataSource.getConnection()`.
 
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+**Tại sao DataSource ưu việt hơn DriverManager:**
+- **Connection Pooling:** `DataSource` hỗ trợ pool tích hợp — `DriverManager` luôn tạo kết nối mới.
+- **Cấu hình tập trung:** URL, user, password, pool size được cấu hình ở một chỗ, không rải rác trong code.
+- **Distributed Transactions:** `XADataSource` (mở rộng của `DataSource`) hỗ trợ giao dịch phân tán qua nhiều database.
+- **JNDI Lookup:** Trong application server (Tomcat, WildFly), `DataSource` được đăng ký qua JNDI và tra cứu bằng tên logic.
 
-Kiểm tra thực tế:
+```java
+// Cấu hình DataSource với HikariCP
+HikariConfig config = new HikariConfig();
+config.setJdbcUrl("jdbc:mysql://localhost:3306/mydb");
+config.setUsername("root");
+config.setPassword("secret");
+config.setMaximumPoolSize(10);
+DataSource dataSource = new HikariDataSource(config);
 
-- Định nghĩa `DataSource` trong một câu.
-- Nhận diện `DataSource` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `DataSource`.
-
-Ví dụ nhỏ hoặc mô hình tư duy:
-
-- Khi đọc mã nguồn, hãy tự hỏi: `DataSource` thay đổi, cho phép, từ chối hay làm rõ điều gì?
+// Sử dụng — giống hệt DriverManager nhưng có pool
+try (Connection conn = dataSource.getConnection()) {
+    // ...
+}
+```
 
 ## Tại Sao Nhóm Kết Nối Cơ Sở Dữ Liệu Lại Mang Lại Hiệu Năng Vượt Trội
 
-Thiết lập một kết nối vật lý mới tới cơ sở dữ liệu là một hoạt động cực kỳ tốn kém vì nó yêu cầu thực hiện bắt tay ba bước TCP (TCP three-way handshake), trao đổi thông tin xác thực và ủy quyền cơ sở dữ liệu, cũng như cấp phát bộ nhớ và tài nguyên tiến trình phía máy chủ. Trong các ứng dụng web có lưu lượng truy cập cao, việc khởi tạo một kết nối mới cho mỗi yêu cầu HTTP đến sẽ tạo ra một nút thắt hiệu năng khổng lồ và nhanh chóng làm cạn kiệt tài nguyên cơ sở dữ liệu. Các framework nhóm kết nối (chẳng hạn như HikariCP hoặc Apache Commons DBCP) giải quyết vấn đề này bằng cách thiết lập một nhóm (pool) các kết nối cơ sở dữ liệu vật lý đang hoạt động khi khởi động ứng dụng. Khi ứng dụng yêu cầu một kết nối thông qua `dataSource.getConnection()`, trình quản lý pool sẽ ngay lập tức bàn giao một kết nối rảnh rỗi (idle) đã được thiết lập sẵn từ pool. Khi gọi `connection.close()`, kết nối không thực sự bị đóng vật lý; thay vào đó, trình quản lý pool chặn cuộc gọi đóng đó, đặt lại trạng thái kết nối (xóa các bảng tạm và giao dịch), và trả nó về pool để tái sử dụng, bỏ qua hoàn toàn việc bắt tay socket và chi phí xác thực.
+Thiết lập một kết nối vật lý mới tới cơ sở dữ liệu là một hoạt động cực kỳ tốn kém vì nó yêu cầu thực hiện bắt tay ba bước TCP (TCP three-way handshake), trao đổi thông tin xác thực và ủy quyền cơ sở dữ liệu, cũng như cấp phát bộ nhớ và tài nguyên tiến trình phía máy chủ. Trong các ứng dụng web có lưu lượng truy cập cao, việc khởi tạo một kết nối mới cho mỗi yêu cầu HTTP đến sẽ tạo ra một nút thắt hiệu năng khổng lồ và nhanh chóng làm cạn kiệt tài nguyên cơ sở dữ liệu.
+
+Các framework nhóm kết nối (chẳng hạn như HikariCP hoặc Apache Commons DBCP) giải quyết vấn đề này bằng cách thiết lập một nhóm (pool) các kết nối cơ sở dữ liệu vật lý đang hoạt động khi khởi động ứng dụng. Khi ứng dụng yêu cầu một kết nối thông qua `dataSource.getConnection()`, trình quản lý pool sẽ ngay lập tức bàn giao một kết nối rảnh rỗi (idle) đã được thiết lập sẵn từ pool. Khi gọi `connection.close()`, kết nối không thực sự bị đóng vật lý; thay vào đó, trình quản lý pool chặn cuộc gọi đóng đó, đặt lại trạng thái kết nối và trả nó về pool để tái sử dụng.
 
 ### Pre-allocated Connections vs. Manual Handshakes (Mental Model)
 ```mermaid
@@ -300,25 +309,43 @@ Pool được thiết lập khi khởi động &rarr; Các socket vật lý đan
 
 ### CRUD sử dụng JDBC
 
-JDBC là API Java để kết nối với các cơ sở dữ liệu quan hệ.
+CRUD là bốn thao tác cơ bản khi làm việc với cơ sở dữ liệu qua JDBC:
 
-Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
+- **CREATE** → `INSERT INTO table (...) VALUES (...)` → dùng `executeUpdate()`, trả về số hàng được thêm (thường là 1).
+- **READ** → `SELECT ... FROM table WHERE ...` → dùng `executeQuery()`, trả về `ResultSet` chứa các hàng kết quả.
+- **UPDATE** → `UPDATE table SET ... WHERE ...` → dùng `executeUpdate()`, trả về số hàng bị thay đổi.
+- **DELETE** → `DELETE FROM table WHERE ...` → dùng `executeUpdate()`, trả về số hàng bị xóa.
 
-Kiểm tra thực tế:
+**Quy tắc quan trọng:**
+- Luôn dùng `PreparedStatement` với placeholder `?` cho mọi thao tác CRUD — không bao giờ ghép chuỗi.
+- Kiểm tra giá trị trả về của `executeUpdate()`: nếu trả về 0, có nghĩa là không có hàng nào bị ảnh hưởng (ví dụ: WHERE clause không khớp hàng nào).
+- Để lấy auto-generated key sau INSERT: dùng `conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)` rồi `stmt.getGeneratedKeys()`.
 
-- Định nghĩa `CRUD sử dụng JDBC` trong một câu.
-- Nhận diện `CRUD sử dụng JDBC` trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn.
-- Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến `CRUD sử dụng JDBC`.
+```java
+// INSERT và lấy auto-generated ID
+String sql = "INSERT INTO users (name, email) VALUES (?, ?)";
+try (PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+    stmt.setString(1, "Alice");
+    stmt.setString(2, "alice@example.com");
+    int rowsInserted = stmt.executeUpdate(); // returns 1
+    
+    try (ResultSet keys = stmt.getGeneratedKeys()) {
+        if (keys.next()) {
+            long newId = keys.getLong(1);
+            System.out.println("New user ID: " + newId);
+        }
+    }
+}
+```
 
-Ví dụ nhỏ hoặc mô hình tư duy:
+## Câu Hỏi Ôn Tập
 
-- `PreparedStatement` liên kết các giá trị an toàn bằng các trình giữ chỗ (placeholder).
-
-## Các Câu Hỏi Ôn Tập Thường Gặp
-
-- Những khái niệm nào ở đây là quy tắc tại thời điểm biên dịch?
-- Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy?
-- Những khái niệm nào ở đây có khả năng là bẫy phỏng vấn?
+- Nếu quên gọi `conn.commit()` sau khi `setAutoCommit(false)`, điều gì xảy ra với dữ liệu khi connection bị đóng?
+- Savepoint hữu ích trong tình huống nào? Cho một ví dụ thực tế ngoài ví dụ chuyển khoản.
+- Tại sao `connection.close()` trong connection pool không thực sự đóng kết nối TCP? Điều gì xảy ra nếu pool không reset trạng thái connection trước khi tái sử dụng?
+- Khi `executeBatch()` thất bại ở giữa batch, các câu lệnh đã thực thi trước đó có bị rollback không? Cần làm gì để đảm bảo tính nguyên tử?
+- `DataSource` khác `DriverManager` ở những điểm nào? Tại sao production code nên dùng `DataSource`?
+- `executeUpdate()` trả về `0` có nghĩa là lỗi không? Khi nào trả về `0` là hành vi bình thường?
 
 ## Các Ví Dụ Mã Nguồn
 

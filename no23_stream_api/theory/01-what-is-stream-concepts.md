@@ -1,29 +1,10 @@
 # Stream API - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **Stream API**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
-| Concept | What to know |
-| --- | --- |
-| `What is Stream?` | A Stream is a pipeline for processing elements through lazy operations. |
-| `Stream vs Collection` | A collection is an object that groups multiple elements under a common API. |
-| `Create Stream:` | A Stream is a pipeline for processing elements through lazy operations. |
-| `from List` | A List is an ordered collection that can contain duplicates and supports positional access. |
-| `from Array` |`from Array` — from Array provides specific functionality and rules in Java development. |
-| `from Map` | A Map stores key-value pairs and retrieves values by key. |
-| `Stream.of` | A Stream is a pipeline for processing elements through lazy operations. |
-| `IntStream` | A Stream is a pipeline for processing elements through lazy operations. |
-
 ## Detailed Notes
 
 ### What is Stream?
 
-A Stream is a pipeline for processing elements through lazy operations.
-
-It matters because modern Java APIs use function-style pipelines heavily. A common confusion is forgetting which operations are lazy and which operation actually triggers execution.
+The static factory method `Stream.of()` allows you to quickly create a Stream from directly supplied values (varargs).
 
 #### Code Example
 ```java
@@ -35,15 +16,7 @@ long count = list.stream()
 System.out.println(count); // Output: 1
 ```
 
-Practical check:
 
-- Define `What is Stream?` in one sentence.
-- Recognize `What is Stream?` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `What is Stream?`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `What is Stream?` change, allow, reject, or clarify?
 
 ### Stream vs Collection
 
@@ -65,21 +38,11 @@ stream.forEach(System.out::print);
 // stream.forEach(System.out::print); // Throws IllegalStateException!
 ```
 
-Practical check:
 
-- Define `Stream vs Collection` in one sentence.
-- Recognize `Stream vs Collection` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Stream vs Collection`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Stream vs Collection` change, allow, reject, or clarify?
 
 ### Create Stream:
 
-A Stream is a pipeline for processing elements through lazy operations.
-
-It matters because modern Java APIs use function-style pipelines heavily. A common confusion is forgetting which operations are lazy and which operation actually triggers execution.
+The static factory method `Stream.of()` allows you to quickly create a Stream from directly supplied values (varargs).
 
 #### Code Example
 ```java
@@ -88,21 +51,11 @@ Stream<String> emptyStream = Stream.empty();
 Stream<Integer> streamOf = Stream.of(1, 2, 3);
 ```
 
-Practical check:
 
-- Define `Create Stream:` in one sentence.
-- Recognize `Create Stream:` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Create Stream:`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Create Stream:` change, allow, reject, or clarify?
 
 ### from List
 
-A List is an ordered collection that can contain duplicates and supports positional access.
-
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
+You can easily create a Stream from a List (or any Collection) by calling the default `.stream()` method provided on the Collection interface.
 
 #### Code Example
 ```java
@@ -110,15 +63,7 @@ List<String> list = List.of("Java", "Stream", "API");
 Stream<String> stream = list.stream(); // Returns Stream<String>
 ```
 
-Practical check:
 
-- Define `from List` in one sentence.
-- Recognize `from List` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `from List`.
-
-Tiny example or mental model:
-
-- `List<String> names = new ArrayList<>();` stores ordered elements.
 
 ### from Array
 
@@ -136,21 +81,11 @@ int[] intArr = {1, 2, 3};
 IntStream intStream = Arrays.stream(intArr);
 ```
 
-Practical check:
 
-- Define `from Array` in one sentence.
-- Recognize `from Array` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `from Array`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `from Array` change, allow, reject, or clarify?
 
 ### from Map
 
-A Map stores key-value pairs and retrieves values by key.
-
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
+Map does not inherit from Collection, so it does not have a direct `.stream()` method. However, you can create a Stream from a Map indirectly via `.keySet().stream()`, `.values().stream()`, or `.entrySet().stream()`.
 
 #### Code Example
 ```java
@@ -161,21 +96,11 @@ Stream<Integer> valueStream = map.values().stream();
 Stream<Map.Entry<String, Integer>> entryStream = map.entrySet().stream();
 ```
 
-Practical check:
 
-- Define `from Map` in one sentence.
-- Recognize `from Map` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `from Map`.
-
-Tiny example or mental model:
-
-- `Map<String, Integer> scores = new HashMap<>();` maps keys to values.
 
 ### Stream.of
 
-A Stream is a pipeline for processing elements through lazy operations.
-
-It matters because modern Java APIs use function-style pipelines heavily. A common confusion is forgetting which operations are lazy and which operation actually triggers execution.
+The static factory method `Stream.of()` allows you to quickly create a Stream from directly supplied values (varargs).
 
 #### Code Example
 ```java
@@ -197,21 +122,11 @@ try (Stream<String> lines = Files.lines(Paths.get("example.txt"))) {
 }
 ```
 
-Practical check:
 
-- Define `Stream.of` in one sentence.
-- Recognize `Stream.of` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Stream.of`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Stream.of` change, allow, reject, or clarify?
 
 ### IntStream
 
-A Stream is a pipeline for processing elements through lazy operations.
-
-It matters because modern Java APIs use function-style pipelines heavily. A common confusion is forgetting which operations are lazy and which operation actually triggers execution.
+The static factory method `Stream.of()` allows you to quickly create a Stream from directly supplied values (varargs).
 
 #### Code Example
 ```java
@@ -242,15 +157,7 @@ IntStream goodStream = Arrays.stream(numbers);
 System.out.println(goodStream.count()); // Prints 3
 ```
 
-Practical check:
 
-- Define `IntStream` in one sentence.
-- Recognize `IntStream` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `IntStream`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `IntStream` change, allow, reject, or clarify?
 
 ## Common Review Prompts
 

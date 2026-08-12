@@ -1,21 +1,5 @@
 # JDBC - Part 2
 
-## Learning Goal
-
-This file covers a focused slice of **JDBC**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
-| Concept | What to know |
-| --- | --- |
-| `rollback` |rollback cancels current transaction changes since the last commit. |
-| `setAutoCommit` | setAutoCommit configures whether SQL statements are committed automatically or grouped into transactions. |
-| `Batch processing` |`Batch processing` — Batch processing provides specific functionality and rules in Java development. |
-| `SQL Injection` | SQL injection happens when untrusted input changes the meaning of a SQL command. |
-| `Basic Connection Pool` |`Basic Connection Pool` — Basic Connection Pool provides specific functionality and rules in Java development. |
-| `DataSource` |DataSource is a configurable factory for database connections, often backed by a pool. |
-| `CRUD using JDBC` | JDBC is the Java API for connecting to relational databases. |
-
 ## Detailed Notes
 
 ### rollback
@@ -28,15 +12,7 @@ setAutoCommit determines whether statements are executed in auto-commit mode (wh
 
 It matters because for multi-step transactional operations (e.g., bank transfer), auto-commit must be disabled (`setAutoCommit(false)`) to ensure atomic execution.
 
-Practical check:
 
-- Define `setAutoCommit` in one sentence.
-- Recognize `setAutoCommit` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `setAutoCommit`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `setAutoCommit` change, allow, reject, or clarify?
 
 ## Why Disabling Auto-Commit Establishes Transactional ACID Boundaries
 
@@ -242,15 +218,7 @@ JDBC is the Java API for connecting to relational databases.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
-Practical check:
 
-- Define `CRUD using JDBC` in one sentence.
-- Recognize `CRUD using JDBC` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `CRUD using JDBC`.
-
-Tiny example or mental model:
-
-- `PreparedStatement` binds values safely with placeholders.
 
 ## Common Review Prompts
 

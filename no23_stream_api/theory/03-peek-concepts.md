@@ -1,22 +1,5 @@
 # Stream API - Part 3
 
-## Learning Goal
-
-This file covers a focused slice of **Stream API**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
-| Concept | What to know |
-| --- | --- |
-| `peek` |`peek` — Performs an action on each element as elements are consumed from the stream, mainly for debugging. |
-| `limit` |`limit` — limit provides specific functionality and rules in Java development. |
-| `skip` |`skip` — skip provides specific functionality and rules in Java development. |
-| `Terminal operations:` | Terminal operations is a group of related rules in Stream API that groups several related details. |
-| `forEach` |`forEach` — forEach provides specific functionality and rules in Java development. |
-| `collect` |`collect` — collect provides specific functionality and rules in Java development. |
-| `toList` | A List is an ordered collection that can contain duplicates and supports positional access. |
-| `count` |`count` — count provides specific functionality and rules in Java development. |
-
 ## Detailed Notes
 
 ### peek
@@ -36,15 +19,7 @@ List<String> result = Stream.of("one", "two", "three")
                             .collect(Collectors.toList());
 ```
 
-Practical check:
 
-- Define `peek` in one sentence.
-- Recognize `peek` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `peek`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `peek` change, allow, reject, or clarify?
 
 ### limit
 
@@ -60,15 +35,7 @@ Stream.of(1, 2, 3, 4, 5)
       .forEach(System.out::print); // Prints: 123
 ```
 
-Practical check:
 
-- Define `limit` in one sentence.
-- Recognize `limit` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `limit`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `limit` change, allow, reject, or clarify?
 
 ### skip
 
@@ -84,15 +51,7 @@ Stream.of(1, 2, 3, 4, 5)
       .forEach(System.out::print); // Prints: 345
 ```
 
-Practical check:
 
-- Define `skip` in one sentence.
-- Recognize `skip` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `skip`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `skip` change, allow, reject, or clarify?
 
 ### Terminal operations:
 
@@ -106,15 +65,7 @@ Use it to predict the exact Java rule, the allowed form, and the failure mode. R
 long count = Stream.of(1, 2, 3).count();
 ```
 
-Practical check:
 
-- Define `Terminal operations:` in one sentence.
-- Recognize `Terminal operations:` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `Terminal operations:`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `Terminal operations:` change, allow, reject, or clarify?
 
 ### forEach
 
@@ -128,15 +79,7 @@ Use it to predict the exact Java rule, the allowed form, and the failure mode. R
 Stream.of("a", "b").forEach(System.out::print); // Output: ab
 ```
 
-Practical check:
 
-- Define `forEach` in one sentence.
-- Recognize `forEach` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `forEach`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `forEach` change, allow, reject, or clarify?
 
 ### collect
 
@@ -150,21 +93,11 @@ Use it to predict the exact Java rule, the allowed form, and the failure mode. R
 List<String> list = Stream.of("a", "b").collect(Collectors.toList());
 ```
 
-Practical check:
 
-- Define `collect` in one sentence.
-- Recognize `collect` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `collect`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `collect` change, allow, reject, or clarify?
 
 ### toList
 
-A List is an ordered collection that can contain duplicates and supports positional access.
-
-It matters because choosing the wrong data structure changes correctness, performance, and duplicate-handling behavior. A common confusion is memorizing class names without knowing lookup order, equality rules, or iteration behavior.
+You can easily create a Stream from a List (or any Collection) by calling the default `.stream()` method provided on the Collection interface.
 
 #### Code Example
 ```java
@@ -172,15 +105,7 @@ It matters because choosing the wrong data structure changes correctness, perfor
 List<String> unmodifiableList = Stream.of("a", "b").toList();
 ```
 
-Practical check:
 
-- Define `toList` in one sentence.
-- Recognize `toList` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `toList`.
-
-Tiny example or mental model:
-
-- `List<String> names = new ArrayList<>();` stores ordered elements.
 
 ### count
 
@@ -215,15 +140,7 @@ List<Integer> list = new ArrayList<>(); // Non-thread-safe
 List.of(1, 2, 3, 4).parallelStream().forEach(list::add); // Race condition!
 ```
 
-Practical check:
 
-- Define `count` in one sentence.
-- Recognize `count` in code, commands, documentation, or interview prompts.
-- Explain one bug, limitation, or tradeoff related to `count`.
-
-Tiny example or mental model:
-
-- When reading code, ask: what does `count` change, allow, reject, or clarify?
 
 ## Common Review Prompts
 

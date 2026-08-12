@@ -6,7 +6,7 @@ import edge_tts
 
 VOICE = "vi-VN-HoaiMyNeural"
 PROJECT_DIR = "/home/fhu_thjen/projects/learning-java"
-SEMAPHORE_LIMIT = 2  # Keep it low to prevent rate limits from edge-tts
+SEMAPHORE_LIMIT = 5
 
 async def get_marked_blocks(md_path):
     cmd = ["node", "scratch_extract_blocks.js", md_path]
@@ -33,30 +33,33 @@ async def process_chunk_parallel(chunk_idx, chunk, sem):
     cues = []
     chunk_audio_bytes = bytearray()
     
-    # Retry up to 5 times for resilience
-    for attempt in range(5):
+    # Retry up to 10 times for resilience
+    for attempt in range(10):
         async with sem:
             cues = []
             chunk_audio_bytes = bytearray()
             try:
                 communicate = edge_tts.Communicate(full_chunk_text, VOICE)
-                async for item in communicate.stream():
-                    if item["type"] == "audio":
-                        chunk_audio_bytes.extend(item["data"])
-                    elif item["type"] == "SentenceBoundary":
-                        cues.append({
-                            "start": item["offset"] / 10000000.0,
-                            "duration": item["duration"] / 10000000.0,
-                            "text": item["text"]
-                        })
+                async def fetch_stream():
+                    async for item in communicate.stream():
+                        if item["type"] == "audio":
+                            chunk_audio_bytes.extend(item["data"])
+                        elif item["type"] == "SentenceBoundary":
+                            cues.append({
+                                "start": item["offset"] / 10000000.0,
+                                "duration": item["duration"] / 10000000.0,
+                                "text": item["text"]
+                            })
+                await asyncio.wait_for(fetch_stream(), timeout=30.0)
                 if len(chunk_audio_bytes) > 0:
                     break
             except Exception as e:
-                print(f"   [Chunk {chunk_idx}] Attempt {attempt+1} failed: {e}. Retrying...", flush=True)
-                await asyncio.sleep(2)
+                sleep_time = min(15, 2 * (attempt + 1))
+                print(f"   [Chunk {chunk_idx}] Attempt {attempt+1} failed: {e}. Retrying in {sleep_time}s...", flush=True)
+                await asyncio.sleep(sleep_time)
                 
     if len(chunk_audio_bytes) == 0:
-        raise RuntimeError(f"Failed to generate audio for chunk {chunk_idx} after 5 attempts.")
+        raise RuntimeError(f"Failed to generate audio for chunk {chunk_idx} after 15 attempts.")
         
     return chunk_idx, cues, chunk_audio_bytes
 
