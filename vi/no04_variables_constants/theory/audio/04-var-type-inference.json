@@ -1,6 +1,6 @@
 {
   "lesson": "04-var-type-inference",
-  "total_duration_seconds": 301.31,
+  "total_duration_seconds": 231.76,
   "total_paragraphs": 49,
   "timestamps": [
     {
@@ -13,337 +13,337 @@
     {
       "paragraph_id": 2,
       "start": 4.05,
-      "end": 10.94,
-      "duration": 6.89,
+      "end": 10.97,
+      "duration": 6.92,
       "text_snippet": "var được giới thiệu trong Java 10 cho việc suy luận kiểu biến cục bộ (local vari"
     },
     {
       "paragraph_id": 3,
-      "start": 10.94,
-      "end": 17.48,
+      "start": 10.97,
+      "end": 17.51,
       "duration": 6.54,
       "text_snippet": "Nó cho phép trình biên dịch (compiler) suy luận kiểu biến từ giá trị khởi tạo (i"
     },
     {
       "paragraph_id": 4,
-      "start": 17.48,
-      "end": 19.86,
-      "duration": 2.38,
+      "start": 17.51,
+      "end": 19.71,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 5,
-      "start": 19.85,
-      "end": 29.77,
-      "duration": 9.92,
+      "start": 19.81,
+      "end": 29.69,
+      "duration": 9.88,
       "text_snippet": "var không làm cho Java trở thành ngôn ngữ định kiểu động (dynamically typed). Ki"
     },
     {
       "paragraph_id": 6,
-      "start": 29.88,
-      "end": 32.26,
+      "start": 29.69,
+      "end": 32.07,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 7,
-      "start": 32.2,
-      "end": 40.19,
-      "duration": 7.99,
+      "start": 32.06,
+      "end": 40.02,
+      "duration": 7.96,
       "text_snippet": "Nơi Có Thể Sử Dụng var (Where var Can Be Used)"
     },
     {
       "paragraph_id": 8,
-      "start": 40.19,
-      "end": 44.04,
+      "start": 40.02,
+      "end": 43.87,
       "duration": 3.85,
       "text_snippet": "var có thể được sử dụng cho các biến cục bộ."
     },
     {
       "paragraph_id": 9,
-      "start": 40.19,
-      "end": 42.57,
+      "start": 40.12,
+      "end": 42.5,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 10,
-      "start": 42.56,
-      "end": 46.27,
+      "start": 42.45,
+      "end": 46.16,
       "duration": 3.71,
       "text_snippet": "Nó không thể được sử dụng cho các trường (fields)."
     },
     {
       "paragraph_id": 11,
-      "start": 46.38,
-      "end": 48.76,
-      "duration": 2.38,
+      "start": 46.16,
+      "end": 48.53,
+      "duration": 2.37,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 12,
-      "start": 48.7,
-      "end": 52.58,
-      "duration": 3.88,
+      "start": 48.54,
+      "end": 52.43,
+      "duration": 3.89,
       "text_snippet": "Nó không thể được sử dụng nếu không có giá trị khởi tạo."
     },
     {
       "paragraph_id": 13,
-      "start": 52.57,
-      "end": 54.95,
+      "start": 52.52,
+      "end": 54.9,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 14,
-      "start": 54.95,
-      "end": 62.07,
-      "duration": 7.12,
+      "start": 54.9,
+      "end": 61.55,
+      "duration": 6.65,
       "text_snippet": "Tại Sao Suy Luận Kiểu Với var Chỉ Hoạt Động Cục Bộ (Why var Type Inference Only "
     },
     {
       "paragraph_id": 15,
-      "start": 62.08,
-      "end": 120.52,
-      "duration": 58.44,
+      "start": 61.55,
+      "end": 137.5,
+      "duration": 75.95,
       "text_snippet": "Trong Java, suy luận kiểu sử dụng var bị giới hạn nghiêm ngặt trong các biến cục"
     },
     {
       "paragraph_id": 16,
-      "start": 120.61,
-      "end": 128.6,
-      "duration": 7.99,
+      "start": 137.5,
+      "end": 142.4,
+      "duration": 4.9,
       "text_snippet": "Hợp Đồng API Đối Với Triển Khai Nội Bộ (API Contract vs. Internal Implementation"
     },
     {
       "paragraph_id": 17,
-      "start": 128.6,
-      "end": 130.98,
+      "start": 55.0,
+      "end": 57.38,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 18,
-      "start": 130.97,
-      "end": 136.56,
+      "start": 57.32,
+      "end": 62.91,
       "duration": 5.59,
       "text_snippet": "Minh Họa Code Về Ranh Giới Suy Luận Kiểu (Type Inference Boundary Code Demo)"
     },
     {
       "paragraph_id": 19,
-      "start": 136.56,
-      "end": 138.94,
+      "start": 62.91,
+      "end": 65.29,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 20,
-      "start": 138.94,
-      "end": 144.66,
+      "start": 65.29,
+      "end": 71.01,
       "duration": 5.72,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả Của Hợp Đồng API (API Contract Cause-Effect Chain)"
     },
     {
       "paragraph_id": 21,
-      "start": 144.76,
-      "end": 166.62,
+      "start": 71.11,
+      "end": 92.97,
       "duration": 21.86,
       "text_snippet": "var được cho phép trên các trường/phương thức $\\rightarrow$ Trình biên dịch phải"
     },
     {
       "paragraph_id": 22,
-      "start": 166.57,
-      "end": 175.19,
-      "duration": 8.62,
+      "start": 92.92,
+      "end": 101.53,
+      "duration": 8.61,
       "text_snippet": "Khi Nào var Có Ích (When var Helps)"
     },
     {
       "paragraph_id": 23,
-      "start": 175.2,
-      "end": 180.8,
+      "start": 101.54,
+      "end": 107.14,
       "duration": 5.6,
       "text_snippet": "var có thể giảm bớt sự rườm rà khi kiểu dữ liệu đã quá rõ ràng."
     },
     {
       "paragraph_id": 24,
-      "start": 175.2,
-      "end": 177.58,
-      "duration": 2.38,
+      "start": 101.54,
+      "end": 103.74,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 25,
-      "start": 177.57,
-      "end": 181.22,
-      "duration": 3.65,
+      "start": 103.84,
+      "end": 107.67,
+      "duration": 3.83,
       "text_snippet": "Khi Nào var Gây Hại (When var Hurts)"
     },
     {
       "paragraph_id": 26,
-      "start": 181.22,
-      "end": 187.17,
-      "duration": 5.95,
+      "start": 107.61,
+      "end": 112.46,
+      "duration": 4.85,
       "text_snippet": "var có thể làm cho mã nguồn khó đọc hơn khi kiểu dữ liệu không rõ ràng."
     },
     {
       "paragraph_id": 27,
-      "start": 187.17,
-      "end": 188.22,
-      "duration": 1.05,
+      "start": 112.46,
+      "end": 114.45,
+      "duration": 1.99,
       "text_snippet": "Kém hiệu quả:"
     },
     {
       "paragraph_id": 28,
-      "start": 188.22,
-      "end": 189.62,
-      "duration": 1.4,
+      "start": 114.45,
+      "end": 116.65,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 29,
-      "start": 189.62,
-      "end": 195.92,
-      "duration": 6.3,
+      "start": 116.75,
+      "end": 122.19,
+      "duration": 5.44,
       "text_snippet": "Nếu process không làm rõ kiểu trả về, việc định kiểu tường minh có thể sẽ tốt hơ"
     },
     {
       "paragraph_id": 30,
-      "start": 195.92,
-      "end": 199.07,
-      "duration": 3.15,
+      "start": 122.14,
+      "end": 126.19,
+      "duration": 4.05,
       "text_snippet": "var Trong Vòng Lặp For-Each (var in For-Each Loops)"
     },
     {
       "paragraph_id": 31,
-      "start": 199.07,
-      "end": 204.67,
-      "duration": 5.6,
+      "start": 126.19,
+      "end": 132.5,
+      "duration": 6.31,
       "text_snippet": "var cũng hoạt động trong các vòng lặp for-each cải tiến (enhanced for-each loops"
     },
     {
       "paragraph_id": 32,
-      "start": 204.67,
-      "end": 206.07,
-      "duration": 1.4,
+      "start": 132.5,
+      "end": 134.7,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 33,
-      "start": 206.07,
-      "end": 214.12,
-      "duration": 8.05,
+      "start": 134.8,
+      "end": 143.91,
+      "duration": 9.11,
       "text_snippet": "Ví Dụ Thực Tế: Khi Nào var Có Ích và Khi Nào Gây Hại (Case Study: When var Helps"
     },
     {
       "paragraph_id": 34,
-      "start": 214.12,
-      "end": 220.07,
-      "duration": 5.95,
+      "start": 143.91,
+      "end": 149.57,
+      "duration": 5.66,
       "text_snippet": "✅ var cải thiện khả năng đọc — kiểu dữ liệu đã rõ ràng từ vế phải:"
     },
     {
       "paragraph_id": 35,
-      "start": 220.07,
-      "end": 221.47,
-      "duration": 1.4,
+      "start": 149.57,
+      "end": 151.95,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 36,
-      "start": 221.57,
-      "end": 226.74,
-      "duration": 5.17,
+      "start": 151.95,
+      "end": 156.95,
+      "duration": 5.0,
       "text_snippet": "❌ var làm giảm khả năng đọc — kiểu trả về bị ẩn sau tên phương thức:"
     },
     {
       "paragraph_id": 37,
-      "start": 226.7,
-      "end": 229.08,
+      "start": 157.05,
+      "end": 159.43,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 38,
-      "start": 229.07,
-      "end": 253.45,
-      "duration": 24.38,
+      "start": 159.38,
+      "end": 183.77,
+      "duration": 24.39,
       "text_snippet": "Quy tắc bất di bất dịch: sử dụng var khi biểu thức ở vế phải thể hiện rõ kiểu dữ"
     },
     {
       "paragraph_id": 39,
-      "start": 253.45,
-      "end": 257.65,
+      "start": 183.76,
+      "end": 187.96,
       "duration": 4.2,
       "text_snippet": "var Không Thể Được Sử Dụng Cho (var Cannot Be Used For)"
     },
     {
       "paragraph_id": 40,
-      "start": 253.45,
-      "end": 255.65,
+      "start": 183.76,
+      "end": 185.96,
       "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 41,
-      "start": 255.75,
-      "end": 259.2,
+      "start": 186.06,
+      "end": 189.51,
       "duration": 3.45,
       "text_snippet": "Các Sai Lầm Thường Gặp (Common Mistakes)"
     },
     {
       "paragraph_id": 42,
-      "start": 259.15,
-      "end": 264.87,
+      "start": 189.46,
+      "end": 195.18,
       "duration": 5.72,
       "text_snippet": "Nghĩ rằng var nghĩa là định kiểu động — kiểu dữ liệu thực chất được cố định tại "
     },
     {
       "paragraph_id": 43,
-      "start": 264.88,
-      "end": 283.47,
-      "duration": 18.59,
+      "start": 195.19,
+      "end": 206.95,
+      "duration": 11.76,
       "text_snippet": "Cố gắng sử dụng var cho các trường — nó chỉ được phép dùng cho các biến cục bộ."
     },
     {
       "paragraph_id": 44,
-      "start": 283.46,
-      "end": 292.21,
+      "start": 206.95,
+      "end": 215.7,
       "duration": 8.75,
       "text_snippet": "Sử dụng var không có giá trị khởi tạo — trình biên dịch cần có giá trị khởi tạo "
     },
     {
       "paragraph_id": 45,
-      "start": 292.21,
-      "end": 301.31,
-      "duration": 9.1,
+      "start": 207.05,
+      "end": 213.93,
+      "duration": 6.88,
       "text_snippet": "Sử dụng var khi nó che giấu thông tin kiểu dữ liệu quan trọng, đặc biệt là với c"
     },
     {
       "paragraph_id": 46,
-      "start": 283.56,
-      "end": 289.77,
+      "start": 213.88,
+      "end": 220.09,
       "duration": 6.21,
       "text_snippet": "Khởi tạo var với null — trình biên dịch không thể suy luận kiểu dữ liệu chỉ từ d"
     },
     {
       "paragraph_id": 47,
-      "start": 289.72,
-      "end": 293.21,
+      "start": 220.09,
+      "end": 223.58,
       "duration": 3.49,
       "text_snippet": "Các Liên Kết Tham Khảo (Reference Links)"
     },
     {
       "paragraph_id": 48,
-      "start": 293.21,
-      "end": 297.24,
-      "duration": 4.03,
+      "start": 223.57,
+      "end": 227.59,
+      "duration": 4.02,
       "text_snippet": "Đặc tả Ngôn ngữ Java: Suy luận Kiểu Biến Cục bộ"
     },
     {
       "paragraph_id": 49,
-      "start": 297.24,
-      "end": 301.32,
-      "duration": 4.08,
+      "start": 227.7,
+      "end": 231.76,
+      "duration": 4.06,
       "text_snippet": "OpenJDK FAQ: Suy luận Kiểu Biến Cục bộ"
     }
   ]

@@ -1,11 +1,5 @@
 # Synchronization and Concurrency - Part 3
 
-## Learning Goal
-
-This file covers Java's explicit Lock API (`Lock`, `ReentrantLock`, `ReadWriteLock`, `StampedLock`) and high-level synchronizers (`Semaphore`, `CountDownLatch`). Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `AtomicReference` | Provides lock-free, atomic operations on object references using Compare-And-Swap. |

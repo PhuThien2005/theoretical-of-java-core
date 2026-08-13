@@ -33,4 +33,3 @@ BigDecimal represents decimal numbers precisely and is commonly used for money.
 ## Locale
 
 `Locale` — Locale provides specific functionality and rules in Java development.
-

@@ -16,8 +16,6 @@ Map<Boolean, List<String>> partitioned = Stream.of("a", "bb", "c", "ddd")
 // Result: {false=["a", "c"], true=["bb", "ddd"]}
 ```
 
-
-
 ### counting
 
 `counting` — counting provides specific functionality and rules in Java development.
@@ -35,8 +33,6 @@ Map<Boolean, Long> counts = Stream.of("a", "bb", "c", "ddd")
 // Result: {false=2, true=2}
 ```
 
-
-
 ### summarizingInt
 
 `summarizingInt` — summarizingInt provides specific functionality and rules in Java development.
@@ -50,8 +46,6 @@ IntSummaryStatistics stats = Stream.of("a", "bb", "ccc")
                                    .collect(Collectors.summarizingInt(String::length));
 System.out.println("Max: " + stats.getMax() + ", Average: " + stats.getAverage());
 ```
-
-
 
 ### mapping
 
@@ -67,8 +61,6 @@ Map<Integer, Set<String>> map = Stream.of("apple", "banana", "apricot")
                                       ));
 // Result: {5=["a"], 6=["b", "a"]}
 ```
-
-
 
 ### reducing
 
@@ -95,14 +87,6 @@ Map<Boolean, List<String>> result = Stream.of("a", "b")
     .collect(Collectors.partitioningBy(s -> s.length() > 5));
 System.out.println(result.get(true)); // Prints [] (empty list, not null or missing key)
 ```
-
-
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
 
 ## Why groupingBy and partitioningBy Serve Different Purposes
 

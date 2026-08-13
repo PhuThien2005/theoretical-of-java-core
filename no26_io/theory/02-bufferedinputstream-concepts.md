@@ -1,11 +1,5 @@
 # IO in Java - Part 2
 
-## Learning Goal
-
-This file covers a focused slice of **IO in Java**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `BufferedInputStream` | A filter input stream that buffers input by reading large blocks of bytes into an internal buffer (default 8KB) to minimize direct OS disk access. |

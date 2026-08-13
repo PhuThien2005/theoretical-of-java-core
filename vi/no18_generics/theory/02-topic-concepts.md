@@ -85,9 +85,6 @@ Object o  = list.get(0);   // OK – Object is always a safe assignment
 
 **Mẹo ghi nhớ (Mnemonic):** _PECS — Producer Extends, Consumer Super_
 
-- **`<? extends T>`** — <? extends T>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`<? super T>`** — <? super T>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 **Quy tắc quyết định:**
 - Nếu một tham số **sản xuất** (bạn đọc các giá trị `T` từ nó) &rarr; `<? extends T>`.
 - Nếu một tham số **tiêu thụ** (bạn ghi các giá trị `T` vào nó) &rarr; `<? super T>`.
@@ -120,13 +117,6 @@ nums.add(1);   // COMPILE ERROR — cannot add to upper-bounded wildcard
 ## 3. Generics với Collections
 
 Mọi giao diện (interface) trong Cấu trúc tập hợp (Collections Framework) của Java đều sử dụng generic. Việc hiểu rõ tham số kiểu sẽ giúp bạn làm chủ toàn bộ hợp đồng (contract) của chúng.
-
-- **`List<E>`** — List<E>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Set<E>`** — Set<E>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Map<K,V>`** — Map<K,V>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Queue<E>`** — Queue<E>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Deque<E>`** — Deque<E>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Optional<T>`** — Optional<T>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 **Sử dụng ký tự đại diện với collections:**
 ```java
@@ -178,12 +168,6 @@ String first = (String) names.get(0);   // cast inserted by compiler
 ```
 
 **Hệ quả của xóa bỏ kiểu:**
-
-- **`if (obj instanceof List<String>)`** — if (obj instanceof List<String>): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`new T[10]`** — new T[10]: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`new T()`** — new T(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Nạp chồng các phương thức chỉ khác nhau ở kiểu generic`** — Nạp chồng các phương thức chỉ khác nhau ở kiểu generic: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`catch (SomeException<T> e)`** — catch (SomeException<T> e): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 **Giải pháp thay thế (Work-arounds):**
 - Truyền `Class<T> clazz` như một token để tạo các thực thể thông qua `clazz.getDeclaredConstructor().newInstance()`.

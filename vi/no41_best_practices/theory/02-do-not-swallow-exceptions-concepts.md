@@ -1,19 +1,6 @@
 # Thực hành tốt nhất trong Java - Phần 2 (Best Practices in Java - Part 2)
 
-## Mục tiêu học tập
-
-Tài liệu này tập trung vào các **Thực hành tốt nhất (Best Practices)** nâng cao trong Java bao gồm các quy tắc xử lý ngoại lệ, an toàn kiểu dữ liệu, tránh null, viết mã nguồn phục vụ kiểm thử, và các mẫu thiết kế lớp bất biến. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc Java thực tế.
-
 ## Đề cương chi tiết
-
-- **`Do not swallow exceptions`** — Do not swallow exceptions: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Use interface type when declaring Collection`** — Use interface type when declaring Collection: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`List<String> list = new ArrayList<>();`** — List<String> list = new ArrayList<>();: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Avoid raw type`** — Avoid raw type: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Avoid null when possible`** — Avoid null when possible: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Write testable code`** — Write testable code: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Separate class/method responsibilities`** — Separate class/method responsibilities: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Immutability when appropriate`** — Immutability when appropriate: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

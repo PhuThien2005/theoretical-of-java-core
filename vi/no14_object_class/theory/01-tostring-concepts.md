@@ -1,22 +1,5 @@
 # Lớp Object - Phần 1
 
-## Mục Tiêu Học Tập
-
-Tài liệu này bao gồm một phần trọng tâm về **lớp Object (Object class)**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc thực tế trong Java, không chỉ đơn thuần là lý thuyết từ vựng.
-
-## Tóm Tắt Nội Dung (Outline Coverage)
-
-- **`toString()`** — toString(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`equals()`** — equals(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`hashCode()`** — hashCode(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`getClass()`** — getClass(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`clone()`** — clone(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`finalize() (đã bị loại bỏ)`** — finalize() (đã bị loại bỏ): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`wait()`** — wait(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`notify()`** — notify(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`notifyAll()`** — notifyAll(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Tại sao ghi đè equals() đồng nghĩa với việc bạn cũng phải ghi đè hashCode()`** — Tại sao ghi đè equals() đồng nghĩa với việc bạn cũng phải ghi đè hashCode(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### toString()

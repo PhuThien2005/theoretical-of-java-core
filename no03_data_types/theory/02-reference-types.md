@@ -51,9 +51,6 @@ The **Stack** stores method call frames. Each time a method is called, a new fra
 
 Key properties of the Stack:
 
-- **`Fixed-size frames`** — Fixed-size frames: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Fast allocation`** — Fast allocation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Automatic cleanup`** — Automatic cleanup: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **Stores**: primitive values (`int`, `double`, `boolean`, etc.) and reference addresses (pointers to Heap objects).
 
 ### Heap Memory
@@ -62,9 +59,6 @@ The **Heap** stores objects and arrays. When you write `new Student()` or `new S
 
 Key properties of the Heap:
 
-- **`Dynamic allocation`** — Dynamic allocation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Slower allocation`** — Slower allocation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Garbage collected`** — Garbage collected: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **Stores**: all objects (`String`, arrays, `Student`, wrapper classes, etc.).
 
 ### Why Primitives Go On The Stack And Objects Go On The Heap
@@ -290,10 +284,6 @@ System.out.println(greeting.toUpperCase()); // NullPointerException at runtime!
 ### Why NullPointerException Is The Most Common Java Exception
 
 `NullPointerException` (NPE) is the single most common runtime exception in Java because:
-
-- **`null`** — null: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`null`** — null: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`null`** — null: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ```java
 public static String findUser(int id) {

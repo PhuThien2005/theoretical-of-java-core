@@ -99,4 +99,3 @@ A local variable slot is a memory location allocated within a JVM stack frame to
 ## Pattern Variable
 
 A pattern variable is a local variable declared inside a pattern check (such as `instanceof String text`). The variable is automatically typed, cast, and bound if the type check succeeds, with its scope restricted to where the type check is guaranteed to be true.
-

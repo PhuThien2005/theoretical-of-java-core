@@ -1,370 +1,300 @@
 {
   "lesson": "05-executor-concepts",
-  "total_duration_seconds": 380.15,
-  "total_paragraphs": 52,
+  "total_duration_seconds": 300.33,
+  "total_paragraphs": 42,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 5.25,
-      "duration": 5.25,
+      "start": 0.1,
+      "end": 6.52,
+      "duration": 6.42,
       "text_snippet": "Đồng Bộ Hóa và Đồng Thời - Phần 5 (Synchronization and Concurrency - Part 5)"
     },
     {
       "paragraph_id": 2,
-      "start": 5.25,
-      "end": 7.35,
-      "duration": 2.1,
-      "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 7.35,
-      "end": 25.55,
-      "duration": 18.2,
-      "text_snippet": "Tài liệu này tập trung vào Framework Executor của Java (Executor, ExecutorServic"
-    },
-    {
-      "paragraph_id": 4,
-      "start": 25.55,
-      "end": 27.3,
-      "duration": 1.75,
+      "start": 6.47,
+      "end": 9.73,
+      "duration": 3.26,
       "text_snippet": "Khung Nội Dung (Outline Coverage)"
     },
     {
-      "paragraph_id": 5,
-      "start": 27.3,
-      "end": 33.25,
-      "duration": 5.95,
-      "text_snippet": "Executor — Executor: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 6,
-      "start": 33.35,
-      "end": 39.61,
-      "duration": 6.26,
-      "text_snippet": "ExecutorService — ExecutorService: Cung cấp các quy tắc và cơ chế hoạt động cụ t"
-    },
-    {
-      "paragraph_id": 7,
-      "start": 39.56,
-      "end": 45.15,
-      "duration": 5.59,
-      "text_snippet": "ScheduledExecutorService — ScheduledExecutorService: Cung cấp các quy tắc và cơ "
-    },
-    {
-      "paragraph_id": 8,
-      "start": 45.15,
-      "end": 57.36,
-      "duration": 12.21,
-      "text_snippet": "ThreadPoolExecutor — ThreadPoolExecutor: Cung cấp các quy tắc và cơ chế hoạt độn"
-    },
-    {
-      "paragraph_id": 9,
-      "start": 57.36,
-      "end": 63.31,
-      "duration": 5.95,
-      "text_snippet": "Executors — Executors: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Jav"
-    },
-    {
-      "paragraph_id": 10,
-      "start": 57.36,
-      "end": 63.2,
-      "duration": 5.84,
-      "text_snippet": "Future — Future: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 11,
-      "start": 63.2,
-      "end": 69.15,
-      "duration": 5.95,
-      "text_snippet": "Callable — Callable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 12,
-      "start": 69.15,
-      "end": 75.1,
-      "duration": 5.95,
-      "text_snippet": "CompletableFuture — CompletableFuture: Cung cấp các quy tắc và cơ chế hoạt động "
-    },
-    {
-      "paragraph_id": 13,
-      "start": 75.1,
-      "end": 77.2,
-      "duration": 2.1,
+      "paragraph_id": 3,
+      "start": 9.74,
+      "end": 12.75,
+      "duration": 3.01,
       "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
     },
     {
-      "paragraph_id": 14,
-      "start": 77.2,
-      "end": 78.95,
-      "duration": 1.75,
+      "paragraph_id": 4,
+      "start": 12.75,
+      "end": 15.4,
+      "duration": 2.65,
       "text_snippet": "Các Tham Số Của ThreadPoolExecutor"
     },
     {
-      "paragraph_id": 15,
-      "start": 78.95,
-      "end": 86.65,
-      "duration": 7.7,
+      "paragraph_id": 5,
+      "start": 15.5,
+      "end": 21.54,
+      "duration": 6.04,
       "text_snippet": "Để cấu hình một nhóm luồng tùy chỉnh an toàn, bạn bắt buộc phải hiểu rõ các tham"
     },
     {
-      "paragraph_id": 16,
-      "start": 86.75,
-      "end": 94.33,
+      "paragraph_id": 6,
+      "start": 21.49,
+      "end": 29.07,
       "duration": 7.58,
       "text_snippet": "Core Pool Size (Kích thước luồng cốt lõi): Số lượng luồng tối thiểu được duy trì"
     },
     {
-      "paragraph_id": 17,
-      "start": 94.28,
-      "end": 100.29,
-      "duration": 6.01,
+      "paragraph_id": 7,
+      "start": 29.06,
+      "end": 35.09,
+      "duration": 6.03,
       "text_snippet": "Maximum Pool Size (Kích thước luồng tối đa): Số lượng luồng tối đa được phép hoạ"
     },
     {
-      "paragraph_id": 18,
-      "start": 100.29,
-      "end": 108.05,
-      "duration": 7.76,
+      "paragraph_id": 8,
+      "start": 35.09,
+      "end": 42.69,
+      "duration": 7.6,
       "text_snippet": "Keep Alive Time (Thời gian duy trì hoạt động): Khoảng thời gian các luồng nhàn r"
     },
     {
-      "paragraph_id": 19,
-      "start": 108.05,
-      "end": 114.64,
+      "paragraph_id": 9,
+      "start": 42.79,
+      "end": 49.38,
       "duration": 6.59,
       "text_snippet": "Work Queue (Hàng đợi công việc): Hàng đợi chặn BlockingQueue được dùng để chứa c"
     },
     {
-      "paragraph_id": 20,
-      "start": 114.64,
-      "end": 128.76,
-      "duration": 14.12,
+      "paragraph_id": 10,
+      "start": 49.33,
+      "end": 63.52,
+      "duration": 14.19,
       "text_snippet": "Rejection Policy (Chính sách từ chối): Bộ xử lý được gọi khi nhóm luồng và hàng "
     },
     {
-      "paragraph_id": 21,
-      "start": 128.76,
-      "end": 130.16,
-      "duration": 1.4,
+      "paragraph_id": 11,
+      "start": 63.51,
+      "end": 65.89,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 22,
-      "start": 130.16,
-      "end": 138.91,
-      "duration": 8.75,
+      "paragraph_id": 12,
+      "start": 65.89,
+      "end": 76.25,
+      "duration": 10.36,
       "text_snippet": "Xem thêm: Cơ chế đa luồng cơ bản (Process vs Thread, Runnable) mà Executor quản "
     },
     {
-      "paragraph_id": 23,
-      "start": 138.91,
-      "end": 139.31,
-      "duration": 0.4,
+      "paragraph_id": 13,
+      "start": 76.35,
+      "end": 77.75,
+      "duration": 1.4,
       "text_snippet": "ScheduledExecutorService"
     },
     {
-      "paragraph_id": 24,
-      "start": 139.26,
-      "end": 146.61,
-      "duration": 7.35,
+      "paragraph_id": 14,
+      "start": 77.7,
+      "end": 84.41,
+      "duration": 6.71,
       "text_snippet": "Được sử dụng để chạy các tác vụ định kỳ hoặc các tác vụ có độ trễ. Cần phân biệt"
     },
     {
-      "paragraph_id": 25,
-      "start": 146.61,
-      "end": 171.46,
-      "duration": 24.85,
+      "paragraph_id": 15,
+      "start": 84.41,
+      "end": 114.26,
+      "duration": 29.85,
       "text_snippet": "scheduleAtFixedRate(task, init, period, unit): Chạy tác vụ theo các khoảng thời "
     },
     {
-      "paragraph_id": 26,
-      "start": 171.46,
-      "end": 183.01,
+      "paragraph_id": 16,
+      "start": 114.26,
+      "end": 125.81,
       "duration": 11.55,
       "text_snippet": "scheduleWithFixedDelay(task, init, delay, unit): Chờ một khoảng thời gian trễ đư"
     },
     {
-      "paragraph_id": 27,
-      "start": 183.01,
-      "end": 184.41,
-      "duration": 1.4,
+      "paragraph_id": 17,
+      "start": 114.36,
+      "end": 116.74,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 28,
-      "start": 184.41,
-      "end": 186.16,
-      "duration": 1.75,
+      "paragraph_id": 18,
+      "start": 116.69,
+      "end": 125.03,
+      "duration": 8.34,
       "text_snippet": "Đường Dẫn CompletableFuture (CompletableFuture Pipelines)"
     },
     {
-      "paragraph_id": 29,
-      "start": 186.16,
-      "end": 190.71,
+      "paragraph_id": 19,
+      "start": 125.03,
+      "end": 129.58,
       "duration": 4.55,
       "text_snippet": "CompletableFuture hỗ trợ xây dựng các chuỗi gọi lại không gây nghẽn luồng."
     },
     {
-      "paragraph_id": 30,
-      "start": 190.71,
-      "end": 192.11,
-      "duration": 1.4,
+      "paragraph_id": 20,
+      "start": 125.03,
+      "end": 127.24,
+      "duration": 2.21,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 31,
-      "start": 192.11,
-      "end": 197.36,
-      "duration": 5.25,
+      "paragraph_id": 21,
+      "start": 127.34,
+      "end": 131.98,
+      "duration": 4.64,
       "text_snippet": "Ví Dụ Thực Tế: Đường Dẫn Thanh Toán Thương Mại Điện Tử Bất Đồng Bộ"
     },
     {
-      "paragraph_id": 32,
-      "start": 197.36,
-      "end": 198.06,
-      "duration": 0.7,
+      "paragraph_id": 22,
+      "start": 131.93,
+      "end": 133.39,
+      "duration": 1.46,
       "text_snippet": "Bài toán"
     },
     {
-      "paragraph_id": 33,
-      "start": 198.06,
-      "end": 213.81,
-      "duration": 15.75,
+      "paragraph_id": 23,
+      "start": 133.39,
+      "end": 145.14,
+      "duration": 11.75,
       "text_snippet": "Một hệ thống thanh toán trực tuyến cần thực hiện xử lý thanh toán, cập nhật kho "
     },
     {
-      "paragraph_id": 34,
-      "start": 213.81,
-      "end": 214.51,
-      "duration": 0.7,
+      "paragraph_id": 24,
+      "start": 145.14,
+      "end": 146.55,
+      "duration": 1.41,
       "text_snippet": "Giải pháp"
     },
     {
-      "paragraph_id": 35,
-      "start": 214.51,
-      "end": 218.71,
-      "duration": 4.2,
+      "paragraph_id": 25,
+      "start": 146.65,
+      "end": 150.76,
+      "duration": 4.11,
       "text_snippet": "Sử dụng CompletableFuture để điều phối chạy song song các tác vụ."
     },
     {
-      "paragraph_id": 36,
-      "start": 218.81,
-      "end": 221.19,
+      "paragraph_id": 26,
+      "start": 150.71,
+      "end": 153.09,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 37,
-      "start": 221.14,
-      "end": 224.59,
-      "duration": 3.45,
+      "paragraph_id": 27,
+      "start": 153.09,
+      "end": 156.53,
+      "duration": 3.44,
       "text_snippet": "Các Sai Lầm Thường Gặp (Common Mistakes)"
     },
     {
-      "paragraph_id": 38,
-      "start": 224.59,
-      "end": 228.62,
-      "duration": 4.03,
+      "paragraph_id": 28,
+      "start": 156.53,
+      "end": 160.59,
+      "duration": 4.06,
       "text_snippet": "1. Sử dụng Hàng Đợi Không Giới Hạn trong môi trường Production"
     },
     {
-      "paragraph_id": 39,
-      "start": 228.61,
-      "end": 244.73,
-      "duration": 16.12,
+      "paragraph_id": 29,
+      "start": 160.69,
+      "end": 176.78,
+      "duration": 16.09,
       "text_snippet": "Phương thức Executors.newFixedThreadPool(n) sử dụng một hàng đợi không giới hạn "
     },
     {
-      "paragraph_id": 40,
-      "start": 244.74,
-      "end": 253.54,
-      "duration": 8.8,
+      "paragraph_id": 30,
+      "start": 176.78,
+      "end": 185.54,
+      "duration": 8.76,
       "text_snippet": "Khắc phục: Luôn cấu hình cụ thể một hàng đợi giới hạn dung lượng (như ArrayBlock"
     },
     {
-      "paragraph_id": 41,
-      "start": 253.64,
-      "end": 257.83,
-      "duration": 4.19,
+      "paragraph_id": 31,
+      "start": 185.54,
+      "end": 189.74,
+      "duration": 4.2,
       "text_snippet": "2. Gọi chặn Future.get() bên trong vòng lặp"
     },
     {
-      "paragraph_id": 42,
-      "start": 257.77,
-      "end": 264.69,
-      "duration": 6.92,
+      "paragraph_id": 32,
+      "start": 189.74,
+      "end": 196.68,
+      "duration": 6.94,
       "text_snippet": "Việc gọi phương thức .get() ngay lập tức chặn luồng hiện tại, biến quá trình xử "
     },
     {
-      "paragraph_id": 43,
-      "start": 264.7,
-      "end": 267.08,
+      "paragraph_id": 33,
+      "start": 196.78,
+      "end": 199.16,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 44,
-      "start": 267.07,
-      "end": 275.95,
-      "duration": 8.88,
+      "paragraph_id": 34,
+      "start": 199.1,
+      "end": 207.99,
+      "duration": 8.89,
       "text_snippet": "Khắc phục: Gửi toàn bộ các tác vụ để thu thập danh sách các đối tượng Future trư"
     },
     {
-      "paragraph_id": 45,
-      "start": 275.95,
-      "end": 280.64,
-      "duration": 4.69,
+      "paragraph_id": 35,
+      "start": 207.99,
+      "end": 212.87,
+      "duration": 4.88,
       "text_snippet": "Tại Sao Phải Sử Dụng ExecutorService và Nhóm Luồng (Thread Pools)"
     },
     {
-      "paragraph_id": 46,
-      "start": 280.64,
-      "end": 347.84,
-      "duration": 67.2,
+      "paragraph_id": 36,
+      "start": 212.86,
+      "end": 264.91,
+      "duration": 52.05,
       "text_snippet": "Việc khởi tạo thủ công các luồng mới cho mỗi tác vụ là cực kỳ kém hiệu quả và ng"
     },
     {
-      "paragraph_id": 47,
-      "start": 347.84,
-      "end": 352.39,
-      "duration": 4.55,
+      "paragraph_id": 37,
+      "start": 265.01,
+      "end": 269.17,
+      "duration": 4.16,
       "text_snippet": "Mô Hình Tư Duy: Nhóm luồng với Hàng đợi giới hạn dung lượng"
     },
     {
-      "paragraph_id": 48,
-      "start": 352.39,
-      "end": 353.79,
-      "duration": 1.4,
+      "paragraph_id": 38,
+      "start": 269.12,
+      "end": 271.5,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 49,
-      "start": 353.79,
-      "end": 355.19,
-      "duration": 1.4,
+      "paragraph_id": 39,
+      "start": 271.5,
+      "end": 273.44,
+      "duration": 1.94,
       "text_snippet": "Ví Dụ Mã Nguồn"
     },
     {
-      "paragraph_id": 50,
-      "start": 355.19,
-      "end": 356.59,
-      "duration": 1.4,
+      "paragraph_id": 40,
+      "start": 273.44,
+      "end": 275.64,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 51,
-      "start": 356.69,
-      "end": 360.59,
-      "duration": 3.9,
+      "paragraph_id": 41,
+      "start": 275.74,
+      "end": 279.63,
+      "duration": 3.89,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)"
     },
     {
-      "paragraph_id": 52,
-      "start": 360.54,
-      "end": 380.15,
-      "duration": 19.61,
+      "paragraph_id": 42,
+      "start": 279.58,
+      "end": 300.33,
+      "duration": 20.75,
       "text_snippet": "Khởi tạo thủ công luồng mới cho mỗi yêu cầu → Chi phí cấp phát luồng hệ điều hàn"
     }
   ]

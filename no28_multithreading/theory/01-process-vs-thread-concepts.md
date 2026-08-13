@@ -1,11 +1,5 @@
 # Multithreading - Part 1
 
-## Learning Goal
-
-This file covers the fundamentals of thread creation, lifecycle states, and thread management. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Process vs Thread` | A process is an isolated execution environment with its own memory space; a thread is a lightweight path of execution within a process that shares memory with other threads of the same process. |
@@ -210,4 +204,3 @@ Shared Counter: 1984
 2. JVM spawns Java threads &rarr; Threads share the JVM Heap/Metaspace but get private Stack/PC registers.
 3. Multiple threads access Heap objects &rarr; Thread communication is extremely fast without IPC overhead.
 4. Unsynchronized parallel writes occur &rarr; Interleaved CPU instructions corrupt shared state (Race Condition).
-

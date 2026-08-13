@@ -1,7 +1,7 @@
 {
   "lesson": "02-reference-types",
-  "total_duration_seconds": 855.19,
-  "total_paragraphs": 128,
+  "total_duration_seconds": 587.89,
+  "total_paragraphs": 114,
   "timestamps": [
     {
       "paragraph_id": 1,
@@ -20,28 +20,28 @@
     {
       "paragraph_id": 3,
       "start": 18.94,
-      "end": 27.1,
-      "duration": 8.16,
+      "end": 24.24,
+      "duration": 5.3,
       "text_snippet": "Ví dụ về các kiểu tham chiếu:"
     },
     {
       "paragraph_id": 4,
-      "start": 27.1,
-      "end": 28.5,
+      "start": 24.24,
+      "end": 25.64,
       "duration": 1.4,
       "text_snippet": "Kiểu lớp (Class Types)."
     },
     {
       "paragraph_id": 5,
-      "start": 28.5,
-      "end": 30.25,
-      "duration": 1.75,
+      "start": 24.34,
+      "end": 27.2,
+      "duration": 2.86,
       "text_snippet": "Kiểu đối tượng (Object Types)."
     },
     {
       "paragraph_id": 6,
-      "start": 27.2,
-      "end": 29.39,
+      "start": 27.15,
+      "end": 29.34,
       "duration": 2.19,
       "text_snippet": "Mảng (Arrays)."
     },
@@ -55,848 +55,750 @@
     {
       "paragraph_id": 8,
       "start": 30.54,
-      "end": 33.09,
-      "duration": 2.55,
+      "end": 33.08,
+      "duration": 2.54,
       "text_snippet": "Giao diện (Interfaces)."
     },
     {
       "paragraph_id": 9,
-      "start": 33.09,
-      "end": 35.67,
+      "start": 33.18,
+      "end": 35.76,
       "duration": 2.58,
       "text_snippet": "Kiểu liệt kê (Enums)."
     },
     {
       "paragraph_id": 10,
-      "start": 35.66,
-      "end": 39.72,
+      "start": 35.7,
+      "end": 39.76,
       "duration": 4.06,
       "text_snippet": "Các lớp bao bọc (Wrapper Classes) như Integer."
     },
     {
       "paragraph_id": 11,
-      "start": 39.83,
-      "end": 43.43,
-      "duration": 3.6,
+      "start": 39.76,
+      "end": 43.35,
+      "duration": 3.59,
       "text_snippet": "Ví Dụ Cơ Bản (Basic Example)"
     },
     {
       "paragraph_id": 12,
-      "start": 43.38,
-      "end": 45.76,
-      "duration": 2.38,
+      "start": 43.35,
+      "end": 45.55,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 13,
-      "start": 45.75,
-      "end": 53.87,
-      "duration": 8.12,
+      "start": 45.65,
+      "end": 53.71,
+      "duration": 8.06,
       "text_snippet": "name, scores và student là các biến tham chiếu (Reference Variables). Chúng trỏ "
     },
     {
       "paragraph_id": 14,
-      "start": 53.88,
-      "end": 59.02,
+      "start": 53.71,
+      "end": 58.85,
       "duration": 5.14,
       "text_snippet": "Kiểu Nguyên Thủy (Primitive) Với Kiểu Tham Chiếu (Reference)"
     },
     {
       "paragraph_id": 15,
-      "start": 59.01,
+      "start": 58.85,
       "end": 61.21,
-      "duration": 2.2,
+      "duration": 2.36,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 16,
-      "start": 61.31,
-      "end": 63.41,
-      "duration": 2.1,
+      "start": 61.21,
+      "end": 63.13,
+      "duration": 1.92,
       "text_snippet": "Về mặt khái niệm:"
     },
     {
       "paragraph_id": 17,
-      "start": 63.36,
-      "end": 65.74,
+      "start": 63.24,
+      "end": 65.62,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 18,
-      "start": 65.74,
-      "end": 73.93,
+      "start": 65.56,
+      "end": 73.75,
       "duration": 8.19,
       "text_snippet": "age lưu trữ trực tiếp một giá trị nguyên thủy (Primitive Value). name lưu trữ mộ"
     },
     {
       "paragraph_id": 19,
-      "start": 73.93,
-      "end": 78.78,
+      "start": 73.75,
+      "end": 78.6,
       "duration": 4.85,
       "text_snippet": "Mô Hình Bộ Nhớ Stack Và Heap (Stack And Heap Memory Model)"
     },
     {
       "paragraph_id": 20,
-      "start": 78.78,
-      "end": 94.44,
+      "start": 78.6,
+      "end": 94.26,
       "duration": 15.66,
       "text_snippet": "Để hiểu tại sao kiểu nguyên thủy và kiểu tham chiếu lại hoạt động khác nhau, bạn"
     },
     {
       "paragraph_id": 21,
-      "start": 94.44,
-      "end": 111.94,
-      "duration": 17.5,
+      "start": 94.36,
+      "end": 97.85,
+      "duration": 3.49,
       "text_snippet": "Lưu ý: Đây là một mô hình đơn giản hóa. Đặc tả ngôn ngữ Java (JLS) không bắt buộ"
     },
     {
       "paragraph_id": 22,
-      "start": 111.94,
-      "end": 113.69,
+      "start": 97.85,
+      "end": 99.6,
       "duration": 1.75,
       "text_snippet": "Bộ Nhớ Stack (Stack Memory)"
     },
     {
       "paragraph_id": 23,
-      "start": 113.69,
-      "end": 128.39,
+      "start": 99.6,
+      "end": 114.3,
       "duration": 14.7,
       "text_snippet": "Stack lưu trữ các khung gọi phương thức (Method Call Frames). Mỗi khi một phương"
     },
     {
       "paragraph_id": 24,
-      "start": 128.39,
-      "end": 130.49,
+      "start": 114.3,
+      "end": 116.4,
       "duration": 2.1,
       "text_snippet": "Các đặc tính chính của Stack:"
     },
     {
       "paragraph_id": 25,
-      "start": 130.49,
-      "end": 139.94,
-      "duration": 9.45,
-      "text_snippet": "Khung có kích thước cố định — Khung có kích thước cố định: Cung cấp các quy tắc "
-    },
-    {
-      "paragraph_id": 26,
-      "start": 139.94,
-      "end": 147.29,
-      "duration": 7.35,
-      "text_snippet": "Cấp phát nhanh — Cấp phát nhanh: Cung cấp các quy tắc và cơ chế hoạt động cụ thể"
-    },
-    {
-      "paragraph_id": 27,
-      "start": 147.29,
-      "end": 155.34,
-      "duration": 8.05,
-      "text_snippet": "Tự động dọn dẹp — Tự động dọn dẹp: Cung cấp các quy tắc và cơ chế hoạt động cụ t"
-    },
-    {
-      "paragraph_id": 28,
-      "start": 155.34,
-      "end": 164.79,
-      "duration": 9.45,
+      "start": 97.95,
+      "end": 107.75,
+      "duration": 9.8,
       "text_snippet": "Lưu trữ: các giá trị nguyên thủy (int, double, boolean, v.v.) và các địa chỉ tha"
     },
     {
-      "paragraph_id": 29,
-      "start": 164.79,
-      "end": 166.54,
-      "duration": 1.75,
+      "paragraph_id": 26,
+      "start": 107.7,
+      "end": 113.56,
+      "duration": 5.86,
       "text_snippet": "Bộ Nhớ Heap (Heap Memory)"
     },
     {
-      "paragraph_id": 30,
-      "start": 166.54,
-      "end": 174.59,
-      "duration": 8.05,
+      "paragraph_id": 27,
+      "start": 113.56,
+      "end": 121.7,
+      "duration": 8.14,
       "text_snippet": "Heap lưu trữ các đối tượng và mảng. Khi bạn viết new Student() hoặc new String(\""
     },
     {
-      "paragraph_id": 31,
-      "start": 174.59,
-      "end": 176.69,
+      "paragraph_id": 28,
+      "start": 121.7,
+      "end": 123.8,
       "duration": 2.1,
       "text_snippet": "Các đặc tính chính của Heap:"
     },
     {
-      "paragraph_id": 32,
-      "start": 176.69,
-      "end": 184.04,
-      "duration": 7.35,
-      "text_snippet": "Cấp phát động — Cấp phát động: Cung cấp các quy tắc và cơ chế hoạt động cụ thể t"
-    },
-    {
-      "paragraph_id": 33,
-      "start": 184.04,
-      "end": 192.09,
-      "duration": 8.05,
-      "text_snippet": "Cấp phát chậm hơn — Cấp phát chậm hơn: Cung cấp các quy tắc và cơ chế hoạt động "
-    },
-    {
-      "paragraph_id": 34,
-      "start": 192.09,
-      "end": 199.44,
-      "duration": 7.35,
-      "text_snippet": "Được dọn rác — Được dọn rác: Cung cấp các quy tắc và cơ chế hoạt động cụ thể tro"
-    },
-    {
-      "paragraph_id": 35,
-      "start": 199.44,
-      "end": 204.69,
-      "duration": 5.25,
+      "paragraph_id": 29,
+      "start": 121.8,
+      "end": 128.72,
+      "duration": 6.92,
       "text_snippet": "Lưu trữ: tất cả các đối tượng (String, mảng, Student, các lớp bao bọc, v.v.)."
     },
     {
-      "paragraph_id": 36,
-      "start": 204.79,
-      "end": 212.37,
-      "duration": 7.58,
+      "paragraph_id": 30,
+      "start": 128.68,
+      "end": 136.23,
+      "duration": 7.55,
       "text_snippet": "Tại Sao Kiểu Nguyên Thủy Nằm Trên Stack Và Đối Tượng Nằm Trên Heap (Why Primitiv"
     },
     {
-      "paragraph_id": 37,
-      "start": 212.31,
-      "end": 215.09,
-      "duration": 2.78,
+      "paragraph_id": 31,
+      "start": 136.22,
+      "end": 139.01,
+      "duration": 2.79,
       "text_snippet": "Chuỗi nguyên nhân - kết quả là:"
     },
     {
-      "paragraph_id": 38,
-      "start": 215.09,
-      "end": 222.73,
-      "duration": 7.64,
+      "paragraph_id": 32,
+      "start": 139.01,
+      "end": 146.63,
+      "duration": 7.62,
       "text_snippet": "Stack yêu cầu kích thước cố định và đã biết trước → int luôn là 32 bit, double l"
     },
     {
-      "paragraph_id": 39,
-      "start": 222.72,
-      "end": 231.81,
-      "duration": 9.09,
+      "paragraph_id": 33,
+      "start": 146.74,
+      "end": 155.85,
+      "duration": 9.11,
       "text_snippet": "Các đối tượng có kích thước thay đổi và không thể dự đoán trước → một String có "
     },
     {
-      "paragraph_id": 40,
-      "start": 231.81,
-      "end": 239.92,
+      "paragraph_id": 34,
+      "start": 155.8,
+      "end": 163.91,
       "duration": 8.11,
       "text_snippet": "Giải pháp → đưa đối tượng lên Heap (cho phép kích thước thay đổi) và đặt một tha"
     },
     {
-      "paragraph_id": 41,
-      "start": 239.93,
-      "end": 243.08,
-      "duration": 3.15,
+      "paragraph_id": 35,
+      "start": 163.91,
+      "end": 168.6,
+      "duration": 4.69,
       "text_snippet": "Sơ Đồ Cấu Trúc Bộ Nhớ (Memory Layout Diagram)"
     },
     {
-      "paragraph_id": 42,
-      "start": 243.08,
-      "end": 244.48,
-      "duration": 1.4,
+      "paragraph_id": 36,
+      "start": 168.6,
+      "end": 170.8,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 43,
-      "start": 244.48,
-      "end": 256.73,
-      "duration": 12.25,
+      "paragraph_id": 37,
+      "start": 170.9,
+      "end": 175.34,
+      "duration": 4.44,
       "text_snippet": "Hãy chú ý rằng age chứa giá trị thực tế 18 trực tiếp trên Stack. Nhưng name chứa"
     },
     {
-      "paragraph_id": 44,
-      "start": 256.73,
-      "end": 261.28,
+      "paragraph_id": 38,
+      "start": 175.34,
+      "end": 179.89,
       "duration": 4.55,
       "text_snippet": "Phép So Sánh: Hộp Thư Và Nhà Kho (Analogy: Mailboxes And A Warehouse)"
     },
     {
-      "paragraph_id": 45,
-      "start": 261.28,
-      "end": 277.73,
+      "paragraph_id": 39,
+      "start": 179.89,
+      "end": 196.34,
       "duration": 16.45,
       "text_snippet": "Hãy hình dung Stack giống như một dãy hộp thư được đánh số tại bưu điện. Mỗi hộp"
     },
     {
-      "paragraph_id": 46,
-      "start": 277.73,
-      "end": 305.38,
+      "paragraph_id": 40,
+      "start": 196.34,
+      "end": 223.99,
       "duration": 27.65,
       "text_snippet": "Nhưng chuyện gì sẽ xảy ra nếu bạn nhận được một gói hàng lớn và nặng (một đối tư"
     },
     {
-      "paragraph_id": 47,
-      "start": 305.38,
-      "end": 309.58,
-      "duration": 4.2,
+      "paragraph_id": 41,
+      "start": 175.44,
+      "end": 179.73,
+      "duration": 4.29,
       "text_snippet": "Hộp thư (ngăn Stack) = kích thước cố định, truy cập nhanh."
     },
     {
-      "paragraph_id": 48,
-      "start": 309.58,
-      "end": 314.48,
-      "duration": 4.9,
+      "paragraph_id": 42,
+      "start": 179.67,
+      "end": 184.38,
+      "duration": 4.71,
       "text_snippet": "Nhà kho (Heap) = kích thước thay đổi, lưu trữ các vật phẩm lớn."
     },
     {
-      "paragraph_id": 49,
-      "start": 314.48,
-      "end": 321.13,
-      "duration": 6.65,
+      "paragraph_id": 43,
+      "start": 184.39,
+      "end": 190.61,
+      "duration": 6.22,
       "text_snippet": "Phiếu theo dõi (tham chiếu) = nhỏ, kích thước cố định, cho bạn biết nơi tìm thấy"
     },
     {
+      "paragraph_id": 44,
+      "start": 190.61,
+      "end": 192.81,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 192.91,
+      "end": 201.12,
+      "duration": 8.21,
+      "text_snippet": "Xem thêm: Cơ chế quản lý bộ nhớ của JVM, được trình bày chi tiết trong Ch.13 - M"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 201.07,
+      "end": 206.61,
+      "duration": 5.54,
+      "text_snippet": "Tại Sao String Không Phải Là Kiểu Nguyên Thủy (Why String Is Not A Primitive)"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 206.61,
+      "end": 212.01,
+      "duration": 5.4,
+      "text_snippet": "Phần trước đã nêu rằng String không phải là kiểu nguyên thủy — nhưng tại sao lại"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 212.01,
+      "end": 224.3,
+      "duration": 12.29,
+      "text_snippet": "Câu trả lời xuất phát trực tiếp từ cách hoạt động của Stack: các kiểu nguyên thủ"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 224.4,
+      "end": 233.04,
+      "duration": 8.64,
+      "text_snippet": "Một String có thể dài 1 ký tự hoặc 1 triệu ký tự. Kích thước của nó là thay đổi "
+    },
+    {
       "paragraph_id": 50,
-      "start": 321.12,
-      "end": 322.52,
-      "duration": 1.4,
+      "start": 233.04,
+      "end": 235.42,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 51,
-      "start": 322.53,
-      "end": 329.53,
-      "duration": 7.0,
-      "text_snippet": "Xem thêm: Cơ chế quản lý bộ nhớ của JVM, được trình bày chi tiết trong Ch.13 - M"
-    },
-    {
-      "paragraph_id": 52,
-      "start": 329.53,
-      "end": 334.78,
-      "duration": 5.25,
-      "text_snippet": "Tại Sao String Không Phải Là Kiểu Nguyên Thủy (Why String Is Not A Primitive)"
-    },
-    {
-      "paragraph_id": 53,
-      "start": 334.78,
-      "end": 341.43,
-      "duration": 6.65,
-      "text_snippet": "Phần trước đã nêu rằng String không phải là kiểu nguyên thủy — nhưng tại sao lại"
-    },
-    {
-      "paragraph_id": 54,
-      "start": 341.43,
-      "end": 357.53,
-      "duration": 16.1,
-      "text_snippet": "Câu trả lời xuất phát trực tiếp từ cách hoạt động của Stack: các kiểu nguyên thủ"
-    },
-    {
-      "paragraph_id": 55,
-      "start": 357.53,
-      "end": 363.48,
-      "duration": 5.95,
-      "text_snippet": "byte — byte: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 56,
-      "start": 363.58,
-      "end": 368.77,
-      "duration": 5.19,
-      "text_snippet": "int — int: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 57,
-      "start": 368.71,
-      "end": 374.41,
-      "duration": 5.7,
-      "text_snippet": "double — double: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 58,
-      "start": 374.41,
-      "end": 380.03,
-      "duration": 5.62,
-      "text_snippet": "boolean — boolean: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 59,
-      "start": 380.04,
-      "end": 385.31,
-      "duration": 5.27,
-      "text_snippet": "String — String: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 60,
-      "start": 385.31,
-      "end": 393.84,
-      "duration": 8.53,
-      "text_snippet": "Một String có thể dài 1 ký tự hoặc 1 triệu ký tự. Kích thước của nó là thay đổi "
-    },
-    {
-      "paragraph_id": 61,
-      "start": 393.84,
-      "end": 395.24,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 62,
-      "start": 395.24,
-      "end": 397.34,
-      "duration": 2.1,
+      "start": 235.41,
+      "end": 238.07,
+      "duration": 2.66,
       "text_snippet": "Chuỗi nguyên nhân - kết quả:"
     },
     {
-      "paragraph_id": 63,
-      "start": 397.34,
-      "end": 405.04,
-      "duration": 7.7,
+      "paragraph_id": 52,
+      "start": 238.07,
+      "end": 243.48,
+      "duration": 5.41,
       "text_snippet": "Kiểu nguyên thủy cần kích thước cố định → int luôn chính xác là 32 bit → có thể "
     },
     {
-      "paragraph_id": 64,
-      "start": 405.04,
-      "end": 412.04,
-      "duration": 7.0,
+      "paragraph_id": 53,
+      "start": 243.59,
+      "end": 251.3,
+      "duration": 7.71,
       "text_snippet": "Kích thước của String là không thể dự đoán → \"Hi\" và \"A\".repeat(1_000_000) có kí"
     },
     {
-      "paragraph_id": 65,
-      "start": 412.04,
-      "end": 421.14,
-      "duration": 9.1,
+      "paragraph_id": 54,
+      "start": 251.25,
+      "end": 257.31,
+      "duration": 6.06,
       "text_snippet": "Dữ liệu có kích thước thay đổi không thể là kiểu nguyên thủy → nó phải là một đố"
     },
     {
-      "paragraph_id": 66,
-      "start": 421.14,
-      "end": 426.39,
-      "duration": 5.25,
+      "paragraph_id": 55,
+      "start": 257.31,
+      "end": 262.81,
+      "duration": 5.5,
       "text_snippet": "Do đó → String là một lớp (java.lang.String), chứ không phải là kiểu nguyên thủy"
     },
     {
-      "paragraph_id": 67,
-      "start": 426.39,
-      "end": 441.79,
-      "duration": 15.4,
+      "paragraph_id": 56,
+      "start": 262.81,
+      "end": 276.24,
+      "duration": 13.43,
       "text_snippet": "Ngoài ra, String có các phương thức như .length(), .charAt(), .substring() — các"
     },
     {
-      "paragraph_id": 68,
-      "start": 441.79,
-      "end": 469.79,
-      "duration": 28.0,
+      "paragraph_id": 57,
+      "start": 276.34,
+      "end": 296.15,
+      "duration": 19.81,
       "text_snippet": "Phép so sánh: Hãy nghĩ về các kiểu nguyên thủy như những đồng xu — mọi đồng xu c"
     },
     {
-      "paragraph_id": 69,
-      "start": 469.79,
-      "end": 478.54,
-      "duration": 8.75,
+      "paragraph_id": 58,
+      "start": 296.15,
+      "end": 304.71,
+      "duration": 8.56,
       "text_snippet": "Tại Sao Kiểu Nguyên Thủy Được Lưu Trực Tiếp Còn Đối Tượng Sử Dụng Tham Chiếu (Wh"
     },
     {
-      "paragraph_id": 70,
-      "start": 478.54,
-      "end": 491.84,
-      "duration": 13.3,
+      "paragraph_id": 59,
+      "start": 304.71,
+      "end": 314.16,
+      "duration": 9.45,
       "text_snippet": "Sau khi đã hiểu về Stack so với Heap, câu hỏi đặt ra là: tại sao int có thể được"
     },
     {
-      "paragraph_id": 71,
-      "start": 491.84,
-      "end": 493.24,
-      "duration": 1.4,
+      "paragraph_id": 60,
+      "start": 314.16,
+      "end": 316.15,
+      "duration": 1.99,
       "text_snippet": "Cơ chế cốt lõi:"
     },
     {
-      "paragraph_id": 72,
-      "start": 493.24,
-      "end": 506.19,
+      "paragraph_id": 61,
+      "start": 316.15,
+      "end": 329.1,
       "duration": 12.95,
       "text_snippet": "Stack yêu cầu kích thước đã biết tại thời điểm biên dịch → int luôn là 32 bit → "
     },
     {
-      "paragraph_id": 73,
-      "start": 506.19,
-      "end": 521.94,
+      "paragraph_id": 62,
+      "start": 329.1,
+      "end": 344.85,
       "duration": 15.75,
       "text_snippet": "Các đối tượng có kích thước thay đổi → một đối tượng Student có thể là 48 byte, "
     },
     {
-      "paragraph_id": 74,
-      "start": 521.94,
-      "end": 534.89,
+      "paragraph_id": 63,
+      "start": 344.85,
+      "end": 357.8,
       "duration": 12.95,
       "text_snippet": "Giải pháp: gián tiếp → đặt đối tượng thực tế trên Heap (nơi xử lý các kích thước"
     },
     {
-      "paragraph_id": 75,
-      "start": 534.89,
-      "end": 555.54,
+      "paragraph_id": 64,
+      "start": 357.8,
+      "end": 378.45,
       "duration": 20.65,
       "text_snippet": "Một tham chiếu giống như một chiếc điều khiển từ xa — nó nhỏ gọn, vừa vặn trong "
     },
     {
-      "paragraph_id": 76,
-      "start": 555.54,
-      "end": 561.14,
-      "duration": 5.6,
+      "paragraph_id": 65,
+      "start": 378.55,
+      "end": 385.84,
+      "duration": 7.29,
       "text_snippet": "Ví Dụ Mã Nguồn: Hai Tham Chiếu, Một Đối Tượng (Code Example: Two References, One"
     },
     {
-      "paragraph_id": 77,
-      "start": 561.14,
-      "end": 562.54,
-      "duration": 1.4,
+      "paragraph_id": 66,
+      "start": 385.79,
+      "end": 388.17,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 78,
-      "start": 562.54,
-      "end": 565.69,
-      "duration": 3.15,
+      "paragraph_id": 67,
+      "start": 388.16,
+      "end": 391.3,
+      "duration": 3.14,
       "text_snippet": "Tại sao lại có hành vi khác nhau này?"
     },
     {
-      "paragraph_id": 79,
-      "start": 565.69,
-      "end": 573.04,
-      "duration": 7.35,
+      "paragraph_id": 68,
+      "start": 391.3,
+      "end": 397.7,
+      "duration": 6.4,
       "text_snippet": "int x = 10; int y = x; → giá trị 10 được sao chép. x và y là độc lập."
     },
     {
-      "paragraph_id": 80,
-      "start": 573.04,
-      "end": 583.54,
-      "duration": 10.5,
+      "paragraph_id": 69,
+      "start": 397.8,
+      "end": 403.39,
+      "duration": 5.59,
       "text_snippet": "int[] arrA = ...; int[] arrB = arrA; → tham chiếu (địa chỉ) được sao chép. Cả ar"
     },
     {
-      "paragraph_id": 81,
-      "start": 583.54,
-      "end": 584.94,
+      "paragraph_id": 70,
+      "start": 403.39,
+      "end": 404.79,
       "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 82,
-      "start": 584.94,
-      "end": 601.39,
+      "paragraph_id": 71,
+      "start": 404.79,
+      "end": 421.24,
       "duration": 16.45,
       "text_snippet": "Lưu ý: x và y giữ các giá trị độc lập (10 và 20). Nhưng arrA and arrB giữ cùng m"
     },
     {
-      "paragraph_id": 83,
-      "start": 601.39,
-      "end": 619.59,
+      "paragraph_id": 72,
+      "start": 421.24,
+      "end": 439.44,
       "duration": 18.2,
       "text_snippet": "Nguyên nhân - kết quả: Sao chép kiểu nguyên thủy → sao chép giá trị → độc lập. S"
     },
     {
-      "paragraph_id": 84,
-      "start": 619.59,
-      "end": 621.69,
-      "duration": 2.1,
+      "paragraph_id": 73,
+      "start": 403.49,
+      "end": 407.26,
+      "duration": 3.77,
       "text_snippet": "Định Danh Đối Tượng (Object Identity)"
     },
     {
-      "paragraph_id": 85,
-      "start": 621.69,
-      "end": 625.89,
-      "duration": 4.2,
+      "paragraph_id": 74,
+      "start": 407.21,
+      "end": 410.82,
+      "duration": 3.61,
       "text_snippet": "Hai biến tham chiếu có thể trỏ đến cùng một đối tượng."
     },
     {
-      "paragraph_id": 86,
-      "start": 625.99,
-      "end": 628.37,
+      "paragraph_id": 75,
+      "start": 410.82,
+      "end": 413.2,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 87,
-      "start": 628.31,
-      "end": 630.4,
-      "duration": 2.09,
+      "paragraph_id": 76,
+      "start": 413.2,
+      "end": 415.13,
+      "duration": 1.93,
       "text_snippet": "Về mặt khái niệm:"
     },
     {
-      "paragraph_id": 88,
-      "start": 630.4,
-      "end": 632.78,
+      "paragraph_id": 77,
+      "start": 415.23,
+      "end": 417.61,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 89,
-      "start": 632.78,
-      "end": 643.01,
-      "duration": 10.23,
+      "paragraph_id": 78,
+      "start": 417.55,
+      "end": 427.77,
+      "duration": 10.22,
       "text_snippet": "Nếu đối tượng có thể thay đổi (Mutable) và bạn thay đổi nó thông qua a, thay đổi"
     },
     {
-      "paragraph_id": 90,
-      "start": 643.0,
-      "end": 647.29,
-      "duration": 4.29,
+      "paragraph_id": 79,
+      "start": 427.77,
+      "end": 435.1,
+      "duration": 7.33,
       "text_snippet": "Mảng Là Kiểu Tham Chiếu (Arrays Are Reference Types)"
     },
     {
-      "paragraph_id": 91,
-      "start": 647.29,
-      "end": 649.74,
+      "paragraph_id": 80,
+      "start": 435.1,
+      "end": 437.55,
       "duration": 2.45,
       "text_snippet": "Mảng là các đối tượng trong Java."
     },
     {
-      "paragraph_id": 92,
-      "start": 649.74,
-      "end": 651.14,
-      "duration": 1.4,
+      "paragraph_id": 81,
+      "start": 435.2,
+      "end": 437.58,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 93,
-      "start": 651.14,
-      "end": 654.64,
-      "duration": 3.5,
+      "paragraph_id": 82,
+      "start": 437.53,
+      "end": 440.97,
+      "duration": 3.44,
       "text_snippet": "numbers là một tham chiếu đến một đối tượng mảng."
     },
     {
-      "paragraph_id": 94,
-      "start": 654.64,
-      "end": 659.19,
-      "duration": 4.55,
+      "paragraph_id": 83,
+      "start": 440.96,
+      "end": 444.87,
+      "duration": 3.91,
       "text_snippet": "Đây là lý do tại sao các mảng có các thuộc tính như:"
     },
     {
-      "paragraph_id": 95,
-      "start": 659.19,
-      "end": 660.59,
-      "duration": 1.4,
+      "paragraph_id": 84,
+      "start": 444.88,
+      "end": 447.08,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 96,
-      "start": 660.59,
-      "end": 664.09,
-      "duration": 3.5,
+      "paragraph_id": 85,
+      "start": 447.18,
+      "end": 454.38,
+      "duration": 7.2,
       "text_snippet": "String Là Kiểu Tham Chiếu (String Is A Reference Type)"
     },
     {
-      "paragraph_id": 97,
-      "start": 664.09,
-      "end": 666.54,
+      "paragraph_id": 86,
+      "start": 454.38,
+      "end": 456.83,
       "duration": 2.45,
       "text_snippet": "String không phải là kiểu nguyên thủy."
     },
     {
-      "paragraph_id": 98,
-      "start": 666.54,
-      "end": 667.94,
-      "duration": 1.4,
+      "paragraph_id": 87,
+      "start": 454.38,
+      "end": 456.76,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 99,
-      "start": 667.94,
-      "end": 672.84,
-      "duration": 4.9,
+      "paragraph_id": 88,
+      "start": 456.75,
+      "end": 462.09,
+      "duration": 5.34,
       "text_snippet": "text là một biến tham chiếu. Nó tham chiếu đến một đối tượng String."
     },
     {
-      "paragraph_id": 100,
-      "start": 672.84,
-      "end": 684.39,
-      "duration": 11.55,
+      "paragraph_id": 89,
+      "start": 462.19,
+      "end": 473.3,
+      "duration": 11.11,
       "text_snippet": "Tuy nhiên, String rất đặc biệt vì Java có các chuỗi ký tự (String Literals) và v"
     },
     {
-      "paragraph_id": 101,
-      "start": 684.39,
-      "end": 685.79,
-      "duration": 1.4,
+      "paragraph_id": 90,
+      "start": 473.3,
+      "end": 475.75,
+      "duration": 2.45,
       "text_snippet": "Giá Trị Rỗng (null)"
     },
     {
-      "paragraph_id": 102,
-      "start": 685.79,
-      "end": 689.29,
-      "duration": 3.5,
+      "paragraph_id": 91,
+      "start": 475.75,
+      "end": 478.96,
+      "duration": 3.21,
       "text_snippet": "Một biến tham chiếu có thể chứa giá trị null."
     },
     {
-      "paragraph_id": 103,
-      "start": 689.29,
-      "end": 690.69,
-      "duration": 1.4,
+      "paragraph_id": 92,
+      "start": 478.96,
+      "end": 481.16,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 104,
-      "start": 690.69,
-      "end": 696.64,
-      "duration": 5.95,
+      "paragraph_id": 93,
+      "start": 481.26,
+      "end": 485.93,
+      "duration": 4.67,
       "text_snippet": "Điều này có nghĩa là biến hiện tại không tham chiếu đến bất kỳ đối tượng nào."
     },
     {
-      "paragraph_id": 105,
-      "start": 696.64,
-      "end": 702.24,
-      "duration": 5.6,
+      "paragraph_id": 94,
+      "start": 485.89,
+      "end": 490.86,
+      "duration": 4.97,
       "text_snippet": "Gọi một phương thức trên một biến có giá trị null sẽ gây ra lỗi NullPointerExcep"
     },
     {
-      "paragraph_id": 106,
-      "start": 702.24,
-      "end": 703.64,
-      "duration": 1.4,
+      "paragraph_id": 95,
+      "start": 490.86,
+      "end": 493.24,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 107,
-      "start": 703.64,
-      "end": 707.49,
-      "duration": 3.85,
+      "paragraph_id": 96,
+      "start": 493.24,
+      "end": 498.4,
+      "duration": 5.16,
       "text_snippet": "Tại Sao null Gây Ra Lỗi NullPointerException (Why null Causes NullPointerExcepti"
     },
     {
-      "paragraph_id": 108,
-      "start": 707.49,
-      "end": 732.34,
-      "duration": 24.85,
+      "paragraph_id": 97,
+      "start": 498.5,
+      "end": 502.38,
+      "duration": 3.88,
       "text_snippet": "Bạn còn nhớ phép so sánh với chiếc điều khiển từ xa chứ? Một tham chiếu giống nh"
     },
     {
-      "paragraph_id": 109,
-      "start": 732.34,
-      "end": 738.29,
+      "paragraph_id": 98,
+      "start": 502.38,
+      "end": 508.33,
       "duration": 5.95,
       "text_snippet": "Điều gì xảy ra khi bạn nhấn các nút trên một chiếc điều khiển không có TV?"
     },
     {
-      "paragraph_id": 110,
-      "start": 738.29,
-      "end": 745.99,
+      "paragraph_id": 99,
+      "start": 508.33,
+      "end": 516.03,
       "duration": 7.7,
       "text_snippet": "Không có gì hoạt động. Bạn không thể chuyển kênh, điều chỉnh âm lượng hay làm bấ"
     },
     {
-      "paragraph_id": 111,
-      "start": 745.99,
-      "end": 754.04,
+      "paragraph_id": 100,
+      "start": 516.03,
+      "end": 524.08,
       "duration": 8.05,
       "text_snippet": "Trong Java, JVM ném ra lỗi NullPointerException vì bạn đã cố gắng sử dụng một th"
     },
     {
-      "paragraph_id": 112,
-      "start": 754.04,
-      "end": 756.14,
-      "duration": 2.1,
+      "paragraph_id": 101,
+      "start": 502.48,
+      "end": 505.15,
+      "duration": 2.67,
       "text_snippet": "Chuỗi nguyên nhân - kết quả:"
     },
     {
-      "paragraph_id": 113,
-      "start": 756.14,
-      "end": 764.54,
-      "duration": 8.4,
+      "paragraph_id": 102,
+      "start": 505.1,
+      "end": 510.85,
+      "duration": 5.75,
       "text_snippet": "String name = null; → tham chiếu name được thiết lập thành null → không có đối t"
     },
     {
-      "paragraph_id": 114,
-      "start": 764.54,
-      "end": 769.44,
-      "duration": 4.9,
+      "paragraph_id": 103,
+      "start": 510.85,
+      "end": 521.85,
+      "duration": 11.0,
       "text_snippet": "name.length() → JVM cố gắng lần theo tham chiếu để tìm đối tượng String."
     },
     {
-      "paragraph_id": 115,
-      "start": 769.44,
-      "end": 776.79,
+      "paragraph_id": 104,
+      "start": 521.85,
+      "end": 529.2,
       "duration": 7.35,
       "text_snippet": "Tham chiếu là null → không tìm thấy đối tượng nào → lỗi NullPointerException đượ"
     },
     {
-      "paragraph_id": 116,
-      "start": 776.79,
-      "end": 778.19,
-      "duration": 1.4,
+      "paragraph_id": 105,
+      "start": 521.95,
+      "end": 524.33,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 117,
-      "start": 778.19,
-      "end": 784.84,
-      "duration": 6.65,
+      "paragraph_id": 106,
+      "start": 524.27,
+      "end": 540.49,
+      "duration": 16.22,
       "text_snippet": "Tại Sao NullPointerException Là Ngoại Lệ Phổ Biến Nhất Trong Java (Why NullPoint"
     },
     {
-      "paragraph_id": 118,
-      "start": 784.84,
-      "end": 790.44,
+      "paragraph_id": 107,
+      "start": 540.5,
+      "end": 546.1,
       "duration": 5.6,
       "text_snippet": "NullPointerException (NPE) là ngoại lệ thời điểm chạy (Runtime Exception) phổ bi"
     },
     {
-      "paragraph_id": 119,
-      "start": 790.44,
-      "end": 796.39,
-      "duration": 5.95,
-      "text_snippet": "null — null: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 120,
-      "start": 796.39,
-      "end": 802.34,
-      "duration": 5.95,
-      "text_snippet": "null — null: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 121,
-      "start": 802.34,
-      "end": 808.29,
-      "duration": 5.95,
-      "text_snippet": "null — null: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 122,
-      "start": 808.29,
-      "end": 809.69,
-      "duration": 1.4,
+      "paragraph_id": 108,
+      "start": 540.5,
+      "end": 542.7,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 123,
-      "start": 809.69,
-      "end": 836.29,
-      "duration": 26.6,
+      "paragraph_id": 109,
+      "start": 542.8,
+      "end": 569.7,
+      "duration": 26.9,
       "text_snippet": "Liên kết với các kiểu bao bọc (Wrapper Types): Điều này liên quan trực tiếp đến "
     },
     {
-      "paragraph_id": 124,
-      "start": 836.29,
-      "end": 838.04,
-      "duration": 1.75,
+      "paragraph_id": 110,
+      "start": 569.7,
+      "end": 572.77,
+      "duration": 3.07,
       "text_snippet": "Lỗi Thường Gặp (Common Mistakes)"
     },
     {
-      "paragraph_id": 125,
-      "start": 838.04,
-      "end": 842.94,
-      "duration": 4.9,
+      "paragraph_id": 111,
+      "start": 572.78,
+      "end": 577.16,
+      "duration": 4.38,
       "text_snippet": "Nghĩ rằng String là kiểu nguyên thủy vì nó phổ biến và dễ viết."
     },
     {
-      "paragraph_id": 126,
-      "start": 842.94,
-      "end": 845.39,
-      "duration": 2.45,
+      "paragraph_id": 112,
+      "start": 577.15,
+      "end": 579.82,
+      "duration": 2.67,
       "text_snippet": "Quên rằng mảng là các đối tượng."
     },
     {
-      "paragraph_id": 127,
-      "start": 845.39,
-      "end": 850.64,
-      "duration": 5.25,
+      "paragraph_id": 113,
+      "start": 579.93,
+      "end": 584.15,
+      "duration": 4.22,
       "text_snippet": "Giả định rằng hai tham chiếu luôn đại diện cho hai đối tượng khác nhau."
     },
     {
-      "paragraph_id": 128,
-      "start": 850.64,
-      "end": 855.19,
-      "duration": 4.55,
+      "paragraph_id": 114,
+      "start": 584.1,
+      "end": 587.89,
+      "duration": 3.79,
       "text_snippet": "Gọi các phương thức trên các biến có thể mang giá trị null."
     }
   ]

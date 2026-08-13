@@ -1,22 +1,5 @@
 # Các Mẫu Thiết Kế Cơ Bản Thường Gặp Trong Java - Phần 2
 
-## Mục Tiêu Học Tập
-
-File này đề cập đến các mẫu thiết kế hành vi (behavioral pattern) thuộc nhóm GoF và các mẫu kiến trúc (architectural pattern - MVC, DAO, DTO, Repository, Service Layer) tiêu chuẩn trong mã nguồn doanh nghiệp Java. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế.
-
-## Đề Cương Khái Niệm
-
-- **`Observer`** — Observer: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Template Method`** — Template Method: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Command`** — Command: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Iterator`** — Iterator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`State`** — State: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`MVC`** — MVC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`DAO`** — DAO: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`DTO`** — DTO: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Repository`** — Repository: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Service Layer`** — Service Layer: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ---
 
 ## Ghi Chú Chi Tiết

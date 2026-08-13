@@ -25,4 +25,3 @@ Comparator defines external custom ordering for objects.
 ## null handling
 
 `null handling` — null handling provides specific functionality and rules in Java development.
-

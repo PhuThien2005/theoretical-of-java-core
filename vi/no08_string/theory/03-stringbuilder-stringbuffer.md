@@ -86,10 +86,8 @@ Nếu dung lượng mới này vẫn không đủ, JVM sẽ thiết lập dung l
 
 ## An Toàn Đa Luồng và Tranh Chấp Khóa (Thread Safety and Lock Contention)
 
-- **`StringBuffer`** — StringBuffer: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - Ngay cả trong chương trình đơn luồng, việc yêu cầu và giải phóng các khóa giám sát (monitor lock) vẫn tạo ra chi phí đồng bộ hóa luồng.
   - Trong môi trường đa luồng, nếu nhiều luồng cố gắng ghi vào cùng một đối tượng `StringBuffer` đồng thời, nó sẽ gây ra hiện tượng **tranh chấp khóa (lock contention)**, chặn đứng các luồng và làm giảm hiệu năng.
-- **`StringBuilder`** — StringBuilder: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ### Đi Sâu: Chi Phí Đồng Bộ Hóa và Cơ Chế Tranh Chấp Khóa
 

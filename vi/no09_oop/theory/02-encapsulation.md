@@ -10,17 +10,8 @@ Java cung cấp các từ khóa đặc tả truy cập (access modifier) để g
 1. **Cấp độ lớp (Class-level):** Một lớp cấp cao nhất (top-level class) chỉ có thể được khai báo là `public` hoặc mặc định (package-private). Nó không thể được khai báo là `private` hoặc `protected` (ngoại trừ các lớp lồng nhau/lớp nội bộ).
 2. **Cấp độ thành viên (Member-level):** Các trường, phương thức và hàm khởi dựng (constructor) có thể sử dụng cả bốn cấp độ hiển thị.
 
-- **`private`** — private: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`default`** — default: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`protected`** — protected: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`public`** — public: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ### Giải Thích Các Phạm Vi Chính:
-- **`private`** — private: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`default`** — default: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`protected`** — protected: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   *Lưu ý:* Một lớp con ở package khác chỉ có thể truy cập thành viên `protected` của lớp cha thông qua cơ chế kế thừa (sử dụng biến tham chiếu thuộc kiểu lớp con), chứ không thể thông qua biến tham chiếu thuộc kiểu lớp cha.
-- **`public`** — public: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

@@ -86,10 +86,8 @@ If this new capacity is still insufficient, the JVM sets the capacity to the exa
 
 ## Thread Safety and Lock Contention
 
-- **`StringBuffer`** — StringBuffer: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - Even in a single-threaded program, acquiring and releasing monitor locks introduces thread synchronization overhead.
   - In multi-threaded environments, if multiple threads attempt to write to the same `StringBuffer` concurrently, it causes **lock contention**, blocking threads and degrading performance.
-- **`StringBuilder`** — StringBuilder: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ### Deep-Dive: Synchronization Overhead and Lock Contention Mechanics
 

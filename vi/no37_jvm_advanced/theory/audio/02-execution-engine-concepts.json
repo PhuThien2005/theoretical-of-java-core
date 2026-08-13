@@ -1,7 +1,7 @@
 {
   "lesson": "02-execution-engine-concepts",
-  "total_duration_seconds": 407.79,
-  "total_paragraphs": 58,
+  "total_duration_seconds": 357.04,
+  "total_paragraphs": 51,
   "timestamps": [
     {
       "paragraph_id": 1,
@@ -13,400 +13,351 @@
     {
       "paragraph_id": 2,
       "start": 6.35,
-      "end": 9.35,
-      "duration": 3.0,
-      "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 9.35,
-      "end": 22.09,
-      "duration": 12.74,
-      "text_snippet": "Tài liệu này trình bày một phần trọng tâm của JVM Nâng Cao (Advanced JVM). Hãy n"
-    },
-    {
-      "paragraph_id": 4,
-      "start": 22.09,
-      "end": 25.35,
+      "end": 9.61,
       "duration": 3.26,
       "text_snippet": "Khung Nội Dung (Outline Coverage)"
     },
     {
-      "paragraph_id": 5,
-      "start": 25.35,
-      "end": 33.7,
-      "duration": 8.35,
+      "paragraph_id": 3,
+      "start": 9.61,
+      "end": 22.99,
+      "duration": 13.38,
       "text_snippet": "Execution Engine — Bộ thực thi bytecode của JVM bao gồm Interpreter, JIT Compile"
     },
     {
-      "paragraph_id": 6,
-      "start": 33.8,
-      "end": 38.86,
-      "duration": 5.06,
+      "paragraph_id": 4,
+      "start": 22.99,
+      "end": 28.59,
+      "duration": 5.6,
       "text_snippet": "Interpreter — Bộ thông dịch đọc và thực thi từng câu lệnh bytecode theo thứ tự."
     },
     {
-      "paragraph_id": 7,
-      "start": 38.81,
-      "end": 45.76,
-      "duration": 6.95,
-      "text_snippet": "JIT Compiler — JIT Compiler: Cung cấp các quy tắc và cơ chế hoạt động cụ thể tro"
-    },
-    {
-      "paragraph_id": 8,
-      "start": 45.76,
-      "end": 51.81,
+      "paragraph_id": 5,
+      "start": 23.09,
+      "end": 29.14,
       "duration": 6.05,
       "text_snippet": "Garbage Collector — Tiến trình dọn dẹp bộ nhớ tự động thu hồi các đối tượng khôn"
     },
     {
-      "paragraph_id": 9,
-      "start": 51.81,
-      "end": 58.47,
-      "duration": 6.66,
-      "text_snippet": "Native Interface — Native Interface: Cung cấp các quy tắc và cơ chế hoạt động cụ"
-    },
-    {
-      "paragraph_id": 10,
-      "start": 58.48,
-      "end": 65.33,
-      "duration": 6.85,
-      "text_snippet": "Heap generation: — Heap generation:: Cung cấp các quy tắc và cơ chế hoạt động cụ"
-    },
-    {
-      "paragraph_id": 11,
-      "start": 65.42,
-      "end": 72.3,
-      "duration": 6.88,
-      "text_snippet": "Young Generation — Young Generation: Cung cấp các quy tắc và cơ chế hoạt động cụ"
-    },
-    {
-      "paragraph_id": 12,
-      "start": 72.25,
-      "end": 77.83,
-      "duration": 5.58,
-      "text_snippet": "Eden — Eden: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 13,
-      "start": 77.83,
-      "end": 80.84,
+      "paragraph_id": 6,
+      "start": 29.09,
+      "end": 32.1,
       "duration": 3.01,
       "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
     },
     {
-      "paragraph_id": 14,
-      "start": 80.84,
-      "end": 87.04,
+      "paragraph_id": 7,
+      "start": 32.1,
+      "end": 38.3,
       "duration": 6.2,
       "text_snippet": "Bộ thực thi (Execution Engine)"
     },
     {
-      "paragraph_id": 15,
-      "start": 87.04,
-      "end": 88.44,
+      "paragraph_id": 8,
+      "start": 38.3,
+      "end": 39.7,
       "duration": 1.4,
       "text_snippet": "Bộ thông dịch (Interpreter)"
     },
     {
-      "paragraph_id": 16,
-      "start": 87.14,
-      "end": 97.24,
+      "paragraph_id": 9,
+      "start": 38.4,
+      "end": 48.5,
       "duration": 10.1,
       "text_snippet": "Trình biên dịch JIT (JIT Compiler)"
     },
     {
-      "paragraph_id": 17,
-      "start": 97.24,
-      "end": 105.29,
+      "paragraph_id": 10,
+      "start": 48.5,
+      "end": 56.55,
       "duration": 8.05,
       "text_snippet": "Trình biên dịch JIT chuyển đổi mã byte thực thi thường xuyên thành mã máy đã tối"
     },
     {
-      "paragraph_id": 18,
-      "start": 97.24,
-      "end": 114.67,
-      "duration": 17.43,
+      "paragraph_id": 11,
+      "start": 48.5,
+      "end": 65.96,
+      "duration": 17.46,
       "text_snippet": "Khái niệm này quan trọng vì hành vi tại thời điểm chạy giải thích cho hiệu năng,"
     },
     {
-      "paragraph_id": 19,
-      "start": 114.66,
-      "end": 116.76,
-      "duration": 2.1,
+      "paragraph_id": 12,
+      "start": 65.96,
+      "end": 67.91,
+      "duration": 1.95,
       "text_snippet": "Kiểm tra thực tế:"
     },
     {
-      "paragraph_id": 20,
-      "start": 116.76,
-      "end": 120.11,
+      "paragraph_id": 13,
+      "start": 68.01,
+      "end": 71.36,
       "duration": 3.35,
       "text_snippet": "Định nghĩa JIT Compiler trong một câu."
     },
     {
-      "paragraph_id": 21,
-      "start": 120.21,
-      "end": 126.02,
-      "duration": 5.81,
+      "paragraph_id": 14,
+      "start": 71.31,
+      "end": 77.13,
+      "duration": 5.82,
       "text_snippet": "Nhận diện JIT Compiler trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng vấn"
     },
     {
-      "paragraph_id": 22,
-      "start": 125.98,
-      "end": 131.29,
+      "paragraph_id": 15,
+      "start": 77.14,
+      "end": 82.45,
       "duration": 5.31,
       "text_snippet": "Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến JIT Compiler."
     },
     {
-      "paragraph_id": 23,
-      "start": 131.29,
-      "end": 134.25,
-      "duration": 2.96,
+      "paragraph_id": 16,
+      "start": 82.45,
+      "end": 85.26,
+      "duration": 2.81,
       "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
     },
     {
-      "paragraph_id": 24,
-      "start": 134.25,
-      "end": 141.44,
+      "paragraph_id": 17,
+      "start": 85.36,
+      "end": 92.55,
       "duration": 7.19,
       "text_snippet": "Khi đọc mã nguồn, hãy hỏi: JIT Compiler thay đổi, cho phép, từ chối hoặc làm rõ "
     },
     {
-      "paragraph_id": 25,
-      "start": 141.44,
-      "end": 144.84,
-      "duration": 3.4,
+      "paragraph_id": 18,
+      "start": 92.5,
+      "end": 96.11,
+      "duration": 3.61,
       "text_snippet": "Bộ thu gom rác (Garbage Collector)"
     },
     {
-      "paragraph_id": 26,
-      "start": 144.94,
-      "end": 148.44,
+      "paragraph_id": 19,
+      "start": 96.11,
+      "end": 99.61,
       "duration": 3.5,
       "text_snippet": "Giao diện bản địa (Native Interface)"
     },
     {
-      "paragraph_id": 27,
-      "start": 148.39,
-      "end": 164.99,
-      "duration": 16.6,
+      "paragraph_id": 20,
+      "start": 99.61,
+      "end": 103.3,
+      "duration": 3.69,
       "text_snippet": "Phân thế hệ vùng nhớ Heap (Heap generation)"
     },
     {
-      "paragraph_id": 28,
-      "start": 164.99,
-      "end": 180.04,
-      "duration": 15.05,
+      "paragraph_id": 21,
+      "start": 103.4,
+      "end": 116.15,
+      "duration": 12.75,
       "text_snippet": "Phân thế hệ vùng nhớ Heap chia các đối tượng theo độ tuổi (Thế hệ Trẻ và Thế hệ "
     },
     {
-      "paragraph_id": 29,
-      "start": 164.99,
-      "end": 178.83,
-      "duration": 13.84,
+      "paragraph_id": 22,
+      "start": 116.1,
+      "end": 129.92,
+      "duration": 13.82,
       "text_snippet": "Điều này quan trọng vì việc thu gom rác trên toàn bộ vùng nhớ heap là rất chậm. "
     },
     {
-      "paragraph_id": 30,
-      "start": 178.82,
-      "end": 180.74,
-      "duration": 1.92,
+      "paragraph_id": 23,
+      "start": 129.92,
+      "end": 132.02,
+      "duration": 2.1,
       "text_snippet": "Kiểm tra thực tế:"
     },
     {
-      "paragraph_id": 31,
-      "start": 180.85,
-      "end": 184.26,
-      "duration": 3.41,
+      "paragraph_id": 24,
+      "start": 132.02,
+      "end": 135.42,
+      "duration": 3.4,
       "text_snippet": "Định nghĩa Heap generation: trong một câu."
     },
     {
-      "paragraph_id": 32,
-      "start": 184.21,
-      "end": 190.22,
-      "duration": 6.01,
+      "paragraph_id": 25,
+      "start": 135.52,
+      "end": 141.55,
+      "duration": 6.03,
       "text_snippet": "Nhận diện Heap generation: trong mã nguồn, câu lệnh, tài liệu hoặc câu hỏi phỏng"
     },
     {
-      "paragraph_id": 33,
-      "start": 190.22,
-      "end": 195.53,
+      "paragraph_id": 26,
+      "start": 141.5,
+      "end": 146.81,
       "duration": 5.31,
       "text_snippet": "Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến Heap generation:."
     },
     {
-      "paragraph_id": 34,
-      "start": 195.54,
-      "end": 198.49,
+      "paragraph_id": 27,
+      "start": 146.81,
+      "end": 149.76,
       "duration": 2.95,
       "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
     },
     {
-      "paragraph_id": 35,
-      "start": 198.49,
-      "end": 205.67,
-      "duration": 7.18,
+      "paragraph_id": 28,
+      "start": 149.76,
+      "end": 156.93,
+      "duration": 7.17,
       "text_snippet": "Khi đọc mã nguồn, hãy hỏi: Heap generation: thay đổi, cho phép, từ chối hoặc làm"
     },
     {
-      "paragraph_id": 36,
-      "start": 205.76,
-      "end": 209.22,
+      "paragraph_id": 29,
+      "start": 157.04,
+      "end": 160.5,
       "duration": 3.46,
       "text_snippet": "Thế hệ Trẻ (Young Generation)"
     },
     {
-      "paragraph_id": 37,
-      "start": 209.17,
-      "end": 211.86,
+      "paragraph_id": 30,
+      "start": 160.45,
+      "end": 163.14,
       "duration": 2.69,
       "text_snippet": "Vùng Eden (Eden)"
     },
     {
-      "paragraph_id": 38,
-      "start": 211.86,
-      "end": 215.22,
+      "paragraph_id": 31,
+      "start": 163.14,
+      "end": 166.5,
       "duration": 3.36,
       "text_snippet": "Ví Dụ Mã Nguồn (Code Examples)"
     },
     {
-      "paragraph_id": 39,
-      "start": 215.22,
-      "end": 222.43,
-      "duration": 7.21,
+      "paragraph_id": 32,
+      "start": 166.5,
+      "end": 173.76,
+      "duration": 7.26,
       "text_snippet": "Lời Gọi GC Tường Minh (Tránh dùng trong môi trường sản xuất) (Explicit GC Call ("
     },
     {
-      "paragraph_id": 40,
-      "start": 222.44,
-      "end": 224.64,
-      "duration": 2.2,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 41,
-      "start": 224.74,
-      "end": 228.26,
-      "duration": 3.52,
-      "text_snippet": "Các Sai Lầm Phổ Biến (Common Mistakes)"
-    },
-    {
-      "paragraph_id": 42,
-      "start": 228.21,
-      "end": 248.32,
-      "duration": 20.11,
-      "text_snippet": "Phụ thuộc vào System.gc(): Việc gọi System.gc() là một thực hành tồi. Nó chỉ gợi"
-    },
-    {
-      "paragraph_id": 43,
-      "start": 248.32,
-      "end": 262.05,
-      "duration": 13.73,
-      "text_snippet": "Cấu hình sai kích thước vùng Eden: Đặt kích thước Eden quá nhỏ sẽ dẫn đến các đợ"
-    },
-    {
-      "paragraph_id": 44,
-      "start": 262.05,
-      "end": 266.11,
-      "duration": 4.06,
-      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)"
-    },
-    {
-      "paragraph_id": 45,
-      "start": 266.11,
-      "end": 270.99,
-      "duration": 4.88,
-      "text_snippet": "Khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch (compile-time)?"
-    },
-    {
-      "paragraph_id": 46,
-      "start": 271.09,
-      "end": 280.18,
-      "duration": 9.09,
-      "text_snippet": "Khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy (runtime)?"
-    },
-    {
-      "paragraph_id": 47,
-      "start": 280.18,
-      "end": 284.73,
-      "duration": 4.55,
-      "text_snippet": "Khái niệm nào ở đây dễ là \"bẫy\" trong các buổi phỏng vấn?"
-    },
-    {
-      "paragraph_id": 48,
-      "start": 280.18,
-      "end": 287.91,
-      "duration": 7.73,
-      "text_snippet": "Tại Sao Biên Dịch JIT và Thông Dịch Được Kết Hợp (Why JIT Compilation and Interp"
-    },
-    {
-      "paragraph_id": 49,
-      "start": 287.9,
-      "end": 348.76,
-      "duration": 60.86,
-      "text_snippet": "Bộ thực thi của JVM kết hợp kỹ thuật thông dịch (interpretation) và biên dịch độ"
-    },
-    {
-      "paragraph_id": 50,
-      "start": 348.76,
-      "end": 355.47,
-      "duration": 6.71,
-      "text_snippet": "Mô hình Tư duy: Đường Ống Biên Dịch Phân Tầng (Mental Model: Tiered Compilation "
-    },
-    {
-      "paragraph_id": 51,
-      "start": 355.58,
-      "end": 357.96,
+      "paragraph_id": 33,
+      "start": 173.86,
+      "end": 176.24,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 52,
-      "start": 357.9,
-      "end": 361.28,
-      "duration": 3.38,
+      "paragraph_id": 34,
+      "start": 176.19,
+      "end": 179.71,
+      "duration": 3.52,
+      "text_snippet": "Các Sai Lầm Phổ Biến (Common Mistakes)"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 179.71,
+      "end": 199.42,
+      "duration": 19.71,
+      "text_snippet": "Phụ thuộc vào System.gc(): Việc gọi System.gc() là một thực hành tồi. Nó chỉ gợi"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 199.42,
+      "end": 212.93,
+      "duration": 13.51,
+      "text_snippet": "Cấu hình sai kích thước vùng Eden: Đặt kích thước Eden quá nhỏ sẽ dẫn đến các đợ"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 213.04,
+      "end": 217.07,
+      "duration": 4.03,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 217.01,
+      "end": 230.83,
+      "duration": 13.82,
+      "text_snippet": "Khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch (compile-time)?"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 230.84,
+      "end": 236.09,
+      "duration": 5.25,
+      "text_snippet": "Khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy (runtime)?"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 236.09,
+      "end": 240.64,
+      "duration": 4.55,
+      "text_snippet": "Khái niệm nào ở đây dễ là \"bẫy\" trong các buổi phỏng vấn?"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 230.94,
+      "end": 238.66,
+      "duration": 7.72,
+      "text_snippet": "Tại Sao Biên Dịch JIT và Thông Dịch Được Kết Hợp (Why JIT Compilation and Interp"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 238.61,
+      "end": 299.46,
+      "duration": 60.85,
+      "text_snippet": "Bộ thực thi của JVM kết hợp kỹ thuật thông dịch (interpretation) và biên dịch độ"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 299.46,
+      "end": 306.34,
+      "duration": 6.88,
+      "text_snippet": "Mô hình Tư duy: Đường Ống Biên Dịch Phân Tầng (Mental Model: Tiered Compilation "
+    },
+    {
+      "paragraph_id": 44,
+      "start": 306.34,
+      "end": 308.54,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 308.64,
+      "end": 312.0,
+      "duration": 3.36,
       "text_snippet": "Ví Dụ Mã Nguồn (Code Example)"
     },
     {
-      "paragraph_id": 53,
-      "start": 361.28,
-      "end": 374.33,
-      "duration": 13.05,
+      "paragraph_id": 46,
+      "start": 311.95,
+      "end": 325.01,
+      "duration": 13.06,
       "text_snippet": "Dưới đây là một đoạn mã minh họa việc giả lập cơ chế phân tích vùng nóng. Trong "
     },
     {
-      "paragraph_id": 54,
-      "start": 374.33,
-      "end": 375.73,
+      "paragraph_id": 47,
+      "start": 325.01,
+      "end": 326.41,
       "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 55,
-      "start": 374.33,
-      "end": 377.4,
+      "paragraph_id": 48,
+      "start": 325.01,
+      "end": 328.08,
       "duration": 3.07,
       "text_snippet": "Chuỗi Nhân Quả (Cause-Effect Chain)"
     },
     {
-      "paragraph_id": 56,
-      "start": 377.5,
-      "end": 393.32,
-      "duration": 15.82,
+      "paragraph_id": 49,
+      "start": 328.19,
+      "end": 345.23,
+      "duration": 17.04,
       "text_snippet": "Bộ thông dịch bắt đầu chạy ứng dụng ngay lập tức → Bộ đếm phân tích theo dõi các"
     },
     {
-      "paragraph_id": 57,
-      "start": 393.28,
-      "end": 396.66,
-      "duration": 3.38,
+      "paragraph_id": 50,
+      "start": 345.17,
+      "end": 348.56,
+      "duration": 3.39,
       "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
     },
     {
-      "paragraph_id": 58,
-      "start": 396.65,
-      "end": 407.79,
-      "duration": 11.14,
+      "paragraph_id": 51,
+      "start": 348.56,
+      "end": 357.04,
+      "duration": 8.48,
       "text_snippet": "https://docs.oracle.com/en/java/javase/21/gctuning/ (Hướng dẫn điều chỉnh bộ thu"
     }
   ]

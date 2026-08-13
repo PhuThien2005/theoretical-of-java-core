@@ -25,4 +25,3 @@ An annotation attaches metadata to program elements such as classes, methods, or
 ## annotation processing
 
 An annotation attaches metadata to program elements such as classes, methods, or fields.
-

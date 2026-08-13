@@ -1,11 +1,5 @@
 # Basic Security - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **Basic Security**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Basic secure coding` |`Basic secure coding` — Practices ensuring software resilience against security exploits and vulnerabilities. |
@@ -56,12 +50,6 @@ Tiny example or mental model:
 ### Avoid SQL Injection
 
 SQL injection happens when untrusted input changes the meaning of a SQL command.
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
 
 ## Code Examples
 
@@ -345,4 +333,3 @@ Password stored in `String` field &rarr; String immutable and retained in JVM he
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/security/MessageDigest.html (MessageDigest JavaDoc)
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/security/SecureRandom.html (SecureRandom JavaDoc)
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Base64.html (Base64 JavaDoc)
-

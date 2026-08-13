@@ -98,13 +98,6 @@ broken.compareTo(42);   // no compile error even for wrong type
 **Định nghĩa:** Một tên trình giữ chỗ được khai báo trong `<>` đại diện cho một kiểu dữ liệu chưa xác định trong một khai báo tổng quát.
 
 **Các quy ước ký tự đơn tiêu chuẩn:**
-- **`T`** — T: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`E`** — E: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`K`** — K: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`V`** — V: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`N`** — N: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`R`** — R: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`S`** — S: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 **Phạm vi (Scope):** Tham số kiểu chỉ có hiệu lực bên trong lớp/phương thức/giao diện tổng quát nơi nó được khai báo.
 

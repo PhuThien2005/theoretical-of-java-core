@@ -1,19 +1,6 @@
 # Đồng Bộ Hóa và Đồng Thời - Phần 5 (Synchronization and Concurrency - Part 5)
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này tập trung vào Framework Executor của Java (`Executor`, `ExecutorService`, `ThreadPoolExecutor`, `ScheduledExecutorService`), các kết quả tác vụ bất đồng bộ (`Future`), và chuỗi lời hứa nâng cao (`CompletableFuture`). Hãy học từng khái niệm như một quy tắc Java thực tế, tránh việc ghi nhớ từ vựng một cách máy móc.
-
 ## Khung Nội Dung (Outline Coverage)
-
-- **`Executor`** — Executor: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ExecutorService`** — ExecutorService: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ScheduledExecutorService`** — ScheduledExecutorService: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ThreadPoolExecutor`** — ThreadPoolExecutor: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Executors`** — Executors: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Future`** — Future: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Callable`** — Callable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`CompletableFuture`** — CompletableFuture: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

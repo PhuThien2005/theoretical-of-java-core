@@ -1,19 +1,6 @@
 # JVM Nâng Cao - Phần 3 (Advanced JVM - Part 3)
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này trình bày một phần trọng tâm về **JVM Nâng Cao (Advanced JVM)**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, tránh việc ghi nhớ từ vựng một cách máy móc.
-
 ## Khung Nội Dung (Outline Coverage)
-
-- **`Survivor`** — Survivor: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Old Generation`** — Old Generation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`GC algorithms:`** — GC algorithms:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Serial GC`** — Serial GC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Parallel GC`** — Parallel GC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`old CMS`** — old CMS: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`G1 GC`** — G1 GC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ZGC`** — ZGC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

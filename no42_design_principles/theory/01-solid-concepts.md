@@ -1,11 +1,5 @@
 # Basic Design Principles Often Paired With Java Core - Part 1
 
-## Learning Goal
-
-This file covers the fundamental **Design Principles** paired with Java Core development (SOLID, DRY, KISS, YAGNI, coupling, cohesion, and Clean Code). Study each concept as a practical Java rule.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `SOLID` | Five core object-oriented design principles to build maintainable, extensible software. |

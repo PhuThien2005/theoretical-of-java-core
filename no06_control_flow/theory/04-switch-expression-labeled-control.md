@@ -301,4 +301,3 @@ String movement = switch (dir) {
 - https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.11 (The switch Statement in the Java Language Specification)
 - https://docs.oracle.com/javase/specs/jls/se21/html/jls-15.html#jls-15.28 (Switch Expressions in the Java Language Specification)
 - https://docs.oracle.com/en/java/javase/21/language/switch-expressions.html (Java Language Updates: Switch Expressions)
-

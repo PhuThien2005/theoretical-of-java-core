@@ -1,11 +1,5 @@
 # Enum - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **Enum**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `What is an enum?` | Defines a fixed set of named constants as a type-safe class extending `java.lang.Enum`. |

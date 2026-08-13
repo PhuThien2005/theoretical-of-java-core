@@ -1,21 +1,5 @@
 # Vào/Ra (IO) trong Java - Phần 3
 
-## Mục Tiêu Học Tập
-
-Tài liệu này tập trung vào một phần chuyên sâu của **Vào/Ra (IO) trong Java**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc thực tế trong Java, không chỉ đơn thuần là lý thuyết từ vựng.
-
-## Tóm Tắt Nội Dung (Outline Coverage)
-
-- **`Serialization`** — Serialization: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Deserialization`** — Deserialization: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Serializable`** — Serializable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`serialVersionUID`** — serialVersionUID: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`transient`** — transient: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Scanner`** — Scanner: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`System.in`** — System.in: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`System.out`** — System.out: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`System.err`** — System.err: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### Tuần tự hóa & Giải tuần tự hóa (Serialization & Deserialization)

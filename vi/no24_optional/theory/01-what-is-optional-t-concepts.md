@@ -1,21 +1,8 @@
 # Optional - Phần 1
 
-## Mục Tiêu Học Tập
-
 File này bao quát một phần tập trung của **Optional** (lớp tùy chọn). Hãy học từng khái niệm như một quy tắc Java thực tế, không phải từ vựng đơn độc.
 
 ## Phạm Vi Đề Cương
-
-- **`What is Optional<T>?`** — What is Optional<T>?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Avoid NullPointerException`** — Avoid NullPointerException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Optional.of`** — Optional.of: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Optional.ofNullable`** — Optional.ofNullable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Optional.empty`** — Optional.empty: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`isPresent`** — isPresent: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ifPresent`** — ifPresent: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`orElse`** — orElse: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`orElseGet`** — orElseGet: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`orElseThrow`** — orElseThrow: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

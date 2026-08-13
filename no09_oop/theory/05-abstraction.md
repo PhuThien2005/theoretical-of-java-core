@@ -34,8 +34,6 @@ An **Interface** is a reference type that specifies a contract of behaviors. It 
 
 ### Characteristics:
 - **Implicit Modifiers:**
-- **`public static final`** — public static final: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`public abstract`** — public abstract: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **No Instance State:** Cannot declare instance fields or constructors.
 - **Multiple Implementation:** A class can implement multiple interfaces (`class Car implements Drivable, Flyable`), enabling multiple inheritance of behavior.
 

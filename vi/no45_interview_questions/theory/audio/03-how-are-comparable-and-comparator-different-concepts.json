@@ -1,608 +1,468 @@
 {
   "lesson": "03-how-are-comparable-and-comparator-different-concepts",
-  "total_duration_seconds": 760.94,
-  "total_paragraphs": 86,
+  "total_duration_seconds": 466.37,
+  "total_paragraphs": 66,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 7.0,
-      "duration": 7.0,
+      "start": 0.1,
+      "end": 7.02,
+      "duration": 6.92,
       "text_snippet": "Các Câu Hỏi Phỏng Vấn Java Core Thường Gặp - Phần 3 (Common Java Core Interview "
     },
     {
       "paragraph_id": 2,
-      "start": 7.0,
-      "end": 9.1,
-      "duration": 2.1,
-      "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 9.1,
-      "end": 24.15,
-      "duration": 15.05,
-      "text_snippet": "Tài liệu này trình bày các câu hỏi phỏng vấn Java Core từ trung cấp đến nâng cao"
-    },
-    {
-      "paragraph_id": 4,
-      "start": 24.15,
-      "end": 25.9,
-      "duration": 1.75,
+      "start": 6.97,
+      "end": 10.23,
+      "duration": 3.26,
       "text_snippet": "Khung Nội Dung (Outline Coverage)"
     },
     {
-      "paragraph_id": 5,
-      "start": 25.9,
-      "end": 35.35,
-      "duration": 9.45,
-      "text_snippet": "How are Comparable and Comparator different? — How are Comparable and Comparator"
-    },
-    {
-      "paragraph_id": 6,
-      "start": 35.45,
-      "end": 56.9,
-      "duration": 21.45,
-      "text_snippet": "How are fail-fast and fail-safe iterators different? — How are fail-fast and fai"
-    },
-    {
-      "paragraph_id": 7,
-      "start": 56.9,
-      "end": 66.35,
-      "duration": 9.45,
-      "text_snippet": "How are volatile and synchronized different? — How are volatile and synchronized"
-    },
-    {
-      "paragraph_id": 8,
-      "start": 56.9,
-      "end": 64.45,
-      "duration": 7.55,
-      "text_snippet": "What is deadlock? — What is deadlock?: Cung cấp các quy tắc và cơ chế hoạt động "
-    },
-    {
-      "paragraph_id": 9,
-      "start": 64.45,
-      "end": 85.61,
-      "duration": 21.16,
-      "text_snippet": "How are Thread start() and run() different? — How are Thread start() and run() d"
-    },
-    {
-      "paragraph_id": 10,
-      "start": 85.61,
-      "end": 95.06,
-      "duration": 9.45,
-      "text_snippet": "How are sleep() and wait() different? — How are sleep() and wait() different?: C"
-    },
-    {
-      "paragraph_id": 11,
-      "start": 85.61,
-      "end": 95.06,
-      "duration": 9.45,
-      "text_snippet": "How are notify() and notifyAll() different? — How are notify() and notifyAll() d"
-    },
-    {
-      "paragraph_id": 12,
-      "start": 95.06,
-      "end": 103.11,
-      "duration": 8.05,
-      "text_snippet": "Is Stream API lazy? — Is Stream API lazy?: Cung cấp các quy tắc và cơ chế hoạt đ"
-    },
-    {
-      "paragraph_id": 13,
-      "start": 103.11,
-      "end": 105.21,
-      "duration": 2.1,
+      "paragraph_id": 3,
+      "start": 10.24,
+      "end": 13.24,
+      "duration": 3.0,
       "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
     },
     {
-      "paragraph_id": 14,
-      "start": 105.21,
-      "end": 106.26,
-      "duration": 1.05,
+      "paragraph_id": 4,
+      "start": 13.24,
+      "end": 17.58,
+      "duration": 4.34,
       "text_snippet": "Comparable vs. Comparator"
     },
     {
-      "paragraph_id": 15,
-      "start": 106.26,
-      "end": 131.11,
-      "duration": 24.85,
-      "text_snippet": "Comparable — Comparable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong J"
-    },
-    {
-      "paragraph_id": 16,
-      "start": 131.11,
-      "end": 132.51,
-      "duration": 1.4,
+      "paragraph_id": 5,
+      "start": 17.68,
+      "end": 21.58,
+      "duration": 3.9,
       "text_snippet": "Nằm trong gói java.lang."
     },
     {
-      "paragraph_id": 17,
-      "start": 132.51,
-      "end": 144.76,
-      "duration": 12.25,
+      "paragraph_id": 6,
+      "start": 21.52,
+      "end": 32.31,
+      "duration": 10.79,
       "text_snippet": "Được sử dụng để định nghĩa thứ tự sắp xếp tự nhiên (natural ordering) của các ph"
     },
     {
-      "paragraph_id": 18,
-      "start": 144.76,
-      "end": 150.01,
-      "duration": 5.25,
+      "paragraph_id": 7,
+      "start": 32.31,
+      "end": 38.46,
+      "duration": 6.15,
       "text_snippet": "Bản thân lớp triển khai giao diện Comparable<T> và ghi đè phương thức compareTo("
     },
     {
-      "paragraph_id": 19,
-      "start": 150.01,
-      "end": 174.86,
-      "duration": 24.85,
-      "text_snippet": "Comparator — Comparator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong J"
-    },
-    {
-      "paragraph_id": 20,
-      "start": 174.86,
-      "end": 176.26,
-      "duration": 1.4,
+      "paragraph_id": 8,
+      "start": 38.46,
+      "end": 41.97,
+      "duration": 3.51,
       "text_snippet": "Nằm trong gói java.util."
     },
     {
-      "paragraph_id": 21,
-      "start": 176.26,
-      "end": 186.41,
-      "duration": 10.15,
+      "paragraph_id": 9,
+      "start": 42.07,
+      "end": 59.78,
+      "duration": 17.71,
       "text_snippet": "Được sử dụng để định nghĩa thứ tự sắp xếp tùy chỉnh/thay thế (custom ordering) ("
     },
     {
-      "paragraph_id": 22,
-      "start": 186.41,
-      "end": 193.76,
+      "paragraph_id": 10,
+      "start": 59.79,
+      "end": 67.14,
       "duration": 7.35,
       "text_snippet": "Được triển khai ở một lớp riêng biệt hoặc dưới dạng biểu thức lambda truyền trực"
     },
     {
-      "paragraph_id": 23,
-      "start": 193.76,
-      "end": 195.16,
-      "duration": 1.4,
+      "paragraph_id": 11,
+      "start": 59.79,
+      "end": 62.17,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 24,
-      "start": 195.16,
-      "end": 197.61,
-      "duration": 2.45,
+      "paragraph_id": 12,
+      "start": 62.16,
+      "end": 68.27,
+      "duration": 6.11,
       "text_snippet": "Bộ Lặp Fail-Fast vs. Fail-Safe (Non-Fail-Fast Iterators)"
     },
     {
-      "paragraph_id": 25,
-      "start": 197.61,
-      "end": 220.36,
-      "duration": 22.75,
+      "paragraph_id": 13,
+      "start": 68.37,
+      "end": 107.95,
+      "duration": 39.58,
       "text_snippet": "Bộ lặp Fail-Fast (Lỗi nhanh): Duyệt trực tiếp trên cấu trúc dữ liệu nội bộ của b"
     },
     {
-      "paragraph_id": 26,
-      "start": 220.36,
-      "end": 225.26,
+      "paragraph_id": 14,
+      "start": 107.95,
+      "end": 112.85,
       "duration": 4.9,
       "text_snippet": "Duyệt trực tiếp trên cấu trúc dữ liệu nội bộ của bộ sưu tập."
     },
     {
-      "paragraph_id": 27,
-      "start": 225.26,
-      "end": 237.51,
+      "paragraph_id": 15,
+      "start": 112.85,
+      "end": 125.1,
       "duration": 12.25,
       "text_snippet": "Sẽ ném ngay ngoại lệ ConcurrentModificationException nếu bộ sưu tập bị thay đổi "
     },
     {
-      "paragraph_id": 28,
-      "start": 237.51,
-      "end": 241.36,
+      "paragraph_id": 16,
+      "start": 125.1,
+      "end": 128.95,
       "duration": 3.85,
       "text_snippet": "Ví dụ: bộ lặp của ArrayList, bộ lặp keyset của HashMap."
     },
     {
-      "paragraph_id": 29,
-      "start": 241.36,
-      "end": 267.26,
-      "duration": 25.9,
+      "paragraph_id": 17,
+      "start": 108.05,
+      "end": 148.69,
+      "duration": 40.64,
       "text_snippet": "Bộ lặp Fail-Safe (An toàn lỗi - Weakly Consistent): Duyệt trên một bản sao của b"
     },
     {
-      "paragraph_id": 30,
-      "start": 267.26,
-      "end": 275.66,
+      "paragraph_id": 18,
+      "start": 148.69,
+      "end": 157.09,
       "duration": 8.4,
       "text_snippet": "Duyệt trên một bản sao của bộ sưu tập, hoặc xử lý đồng thời thông qua các cấu tr"
     },
     {
-      "paragraph_id": 31,
-      "start": 275.66,
-      "end": 286.51,
+      "paragraph_id": 19,
+      "start": 157.09,
+      "end": 167.94,
       "duration": 10.85,
       "text_snippet": "Không ném ra ngoại lệ khi bộ sưu tập bị sửa đổi, nhưng các thay đổi được thực hi"
     },
     {
-      "paragraph_id": 32,
-      "start": 286.51,
-      "end": 290.01,
+      "paragraph_id": 20,
+      "start": 167.94,
+      "end": 171.44,
       "duration": 3.5,
       "text_snippet": "Ví dụ: bộ lặp của CopyOnWriteArrayList, bộ lặp của ConcurrentHashMap."
     },
     {
-      "paragraph_id": 33,
-      "start": 290.01,
-      "end": 291.06,
-      "duration": 1.05,
+      "paragraph_id": 21,
+      "start": 148.79,
+      "end": 152.78,
+      "duration": 3.99,
       "text_snippet": "volatile vs. synchronized"
     },
     {
-      "paragraph_id": 34,
-      "start": 291.06,
-      "end": 320.11,
-      "duration": 29.05,
-      "text_snippet": "volatile — volatile: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 35,
-      "start": 320.11,
-      "end": 321.86,
-      "duration": 1.75,
+      "paragraph_id": 22,
+      "start": 152.78,
+      "end": 154.94,
+      "duration": 2.16,
       "text_snippet": "Là bổ từ cho biến."
     },
     {
-      "paragraph_id": 36,
-      "start": 321.86,
-      "end": 335.16,
-      "duration": 13.3,
+      "paragraph_id": 23,
+      "start": 154.94,
+      "end": 166.99,
+      "duration": 12.05,
       "text_snippet": "Đảm bảo tính hiển thị (visibility) (các thao tác đọc/ghi được thực hiện trực tiế"
     },
     {
-      "paragraph_id": 37,
-      "start": 335.16,
-      "end": 343.21,
-      "duration": 8.05,
+      "paragraph_id": 24,
+      "start": 166.99,
+      "end": 174.35,
+      "duration": 7.36,
       "text_snippet": "Không đảm bảo tính nguyên tố (atomicity) (ví dụ: phép toán count++ không phải là"
     },
     {
-      "paragraph_id": 38,
-      "start": 343.21,
-      "end": 364.91,
-      "duration": 21.7,
-      "text_snippet": "synchronized — synchronized: Cung cấp các quy tắc và cơ chế hoạt động cụ thể tro"
-    },
-    {
-      "paragraph_id": 39,
-      "start": 364.91,
-      "end": 367.71,
-      "duration": 2.8,
+      "paragraph_id": 25,
+      "start": 174.45,
+      "end": 177.22,
+      "duration": 2.77,
       "text_snippet": "Bổ từ cho phương thức hoặc khối lệnh."
     },
     {
-      "paragraph_id": 40,
-      "start": 367.71,
-      "end": 380.66,
-      "duration": 12.95,
+      "paragraph_id": 26,
+      "start": 177.17,
+      "end": 187.57,
+      "duration": 10.4,
       "text_snippet": "Đảm bảo tính hiển thị, thứ tự lệnh, và tính nguyên tố bằng cách chiếm giữ khóa g"
     },
     {
-      "paragraph_id": 41,
-      "start": 380.66,
-      "end": 383.11,
-      "duration": 2.45,
+      "paragraph_id": 27,
+      "start": 187.57,
+      "end": 200.61,
+      "duration": 13.04,
       "text_snippet": "Hiện tượng Bế tắc (What is Deadlock?)"
     },
     {
-      "paragraph_id": 42,
-      "start": 383.11,
-      "end": 395.71,
+      "paragraph_id": 28,
+      "start": 200.61,
+      "end": 213.21,
       "duration": 12.6,
       "text_snippet": "Bế tắc (Deadlock) xảy ra khi Luồng 1 giữ Khóa A và chờ Khóa B, trong khi Luồng 2"
     },
     {
-      "paragraph_id": 43,
-      "start": 395.71,
-      "end": 409.36,
-      "duration": 13.65,
+      "paragraph_id": 29,
+      "start": 200.71,
+      "end": 226.85,
+      "duration": 26.14,
       "text_snippet": "Cách phòng tránh bế tắc: Chiếm giữ các khóa theo một thứ tự toàn cục nghiêm ngặt"
     },
     {
-      "paragraph_id": 44,
-      "start": 409.36,
-      "end": 413.56,
+      "paragraph_id": 30,
+      "start": 226.85,
+      "end": 231.05,
       "duration": 4.2,
       "text_snippet": "Chiếm giữ các khóa theo một thứ tự toàn cục nghiêm ngặt."
     },
     {
-      "paragraph_id": 45,
-      "start": 413.56,
-      "end": 417.41,
+      "paragraph_id": 31,
+      "start": 231.05,
+      "end": 234.9,
       "duration": 3.85,
       "text_snippet": "Sử dụng các khóa có thời gian chờ (ví dụ: ReentrantLock.tryLock())."
     },
     {
-      "paragraph_id": 46,
-      "start": 417.41,
-      "end": 421.26,
+      "paragraph_id": 32,
+      "start": 234.9,
+      "end": 238.75,
       "duration": 3.85,
       "text_snippet": "Giữ cho các khối đồng bộ synchronized càng nhỏ càng tốt."
     },
     {
-      "paragraph_id": 47,
-      "start": 421.26,
-      "end": 424.06,
-      "duration": 2.8,
+      "paragraph_id": 33,
+      "start": 226.95,
+      "end": 233.94,
+      "duration": 6.99,
       "text_snippet": "Luồng start() vs. run() (Thread start() vs. run())"
     },
     {
-      "paragraph_id": 48,
-      "start": 424.06,
-      "end": 443.66,
-      "duration": 19.6,
-      "text_snippet": "thread.start() — thread.start(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể"
-    },
-    {
-      "paragraph_id": 49,
-      "start": 443.66,
-      "end": 450.66,
-      "duration": 7.0,
+      "paragraph_id": 34,
+      "start": 233.94,
+      "end": 239.86,
+      "duration": 5.92,
       "text_snippet": "Cấp phát tài nguyên hệ thống, tạo một luồng thực thi mới trong JVM và lên lịch c"
     },
     {
-      "paragraph_id": 50,
-      "start": 450.66,
-      "end": 457.31,
-      "duration": 6.65,
+      "paragraph_id": 35,
+      "start": 239.86,
+      "end": 245.7,
+      "duration": 5.84,
       "text_snippet": "JVM sẽ gọi phương thức run() của luồng đó một cách bất đồng bộ trong ngữ cảnh lu"
     },
     {
-      "paragraph_id": 51,
-      "start": 457.41,
-      "end": 486.35,
-      "duration": 28.94,
-      "text_snippet": "thread.run() — thread.run(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể tro"
-    },
-    {
-      "paragraph_id": 52,
-      "start": 486.35,
-      "end": 492.3,
-      "duration": 5.95,
+      "paragraph_id": 36,
+      "start": 245.7,
+      "end": 251.5,
+      "duration": 5.8,
       "text_snippet": "Chỉ là một lời gọi phương thức thông thường. Không có luồng mới nào được tạo ra."
     },
     {
-      "paragraph_id": 53,
-      "start": 492.3,
-      "end": 497.2,
-      "duration": 4.9,
+      "paragraph_id": 37,
+      "start": 251.6,
+      "end": 256.09,
+      "duration": 4.49,
       "text_snippet": "Thực thi đồng bộ bên trong ngăn xếp (stack) của luồng gọi hiện tại."
     },
     {
-      "paragraph_id": 54,
-      "start": 486.35,
-      "end": 489.91,
+      "paragraph_id": 38,
+      "start": 256.04,
+      "end": 259.6,
       "duration": 3.56,
       "text_snippet": "sleep() vs. wait()"
     },
     {
-      "paragraph_id": 55,
-      "start": 489.91,
-      "end": 511.17,
-      "duration": 21.26,
-      "text_snippet": "Thread.sleep(millis) — Thread.sleep(millis): Cung cấp các quy tắc và cơ chế hoạt"
-    },
-    {
-      "paragraph_id": 56,
-      "start": 511.17,
-      "end": 513.97,
-      "duration": 2.8,
+      "paragraph_id": 39,
+      "start": 259.6,
+      "end": 263.24,
+      "duration": 3.64,
       "text_snippet": "Là phương thức tĩnh (static) của lớp Thread."
     },
     {
-      "paragraph_id": 57,
-      "start": 513.97,
-      "end": 521.32,
-      "duration": 7.35,
+      "paragraph_id": 40,
+      "start": 263.24,
+      "end": 268.67,
+      "duration": 5.43,
       "text_snippet": "Luồng sẽ tạm dừng trong một khoảng thời gian nhưng vẫn giữ tất cả các khóa mà nó"
     },
     {
-      "paragraph_id": 58,
-      "start": 521.32,
-      "end": 525.17,
-      "duration": 3.85,
+      "paragraph_id": 41,
+      "start": 268.76,
+      "end": 272.02,
+      "duration": 3.26,
       "text_snippet": "Có thể được gọi ở bất cứ đâu trong mã nguồn."
     },
     {
-      "paragraph_id": 59,
-      "start": 525.17,
-      "end": 549.32,
-      "duration": 24.15,
-      "text_snippet": "object.wait() — object.wait(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể t"
-    },
-    {
-      "paragraph_id": 60,
-      "start": 549.32,
-      "end": 552.82,
-      "duration": 3.5,
+      "paragraph_id": 42,
+      "start": 271.98,
+      "end": 277.07,
+      "duration": 5.09,
       "text_snippet": "Là phương thức thực thể (instance method) của lớp java.lang.Object."
     },
     {
-      "paragraph_id": 61,
-      "start": 552.82,
-      "end": 561.92,
-      "duration": 9.1,
+      "paragraph_id": 43,
+      "start": 277.06,
+      "end": 283.66,
+      "duration": 6.6,
       "text_snippet": "Luồng sẽ nhường quyền thực thi và giải phóng khóa trên màn hình giám sát đối tượ"
     },
     {
-      "paragraph_id": 62,
-      "start": 561.92,
-      "end": 567.52,
-      "duration": 5.6,
+      "paragraph_id": 44,
+      "start": 283.66,
+      "end": 288.23,
+      "duration": 4.57,
       "text_snippet": "Bắt buộc phải được gọi bên trong một khối đồng bộ synchronized của đối tượng đó."
     },
     {
-      "paragraph_id": 63,
-      "start": 567.52,
-      "end": 568.57,
-      "duration": 1.05,
+      "paragraph_id": 45,
+      "start": 288.34,
+      "end": 292.99,
+      "duration": 4.65,
       "text_snippet": "notify() vs. notifyAll()"
     },
     {
-      "paragraph_id": 64,
-      "start": 568.57,
-      "end": 574.52,
-      "duration": 5.95,
-      "text_snippet": "notify() — notify(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 65,
-      "start": 574.52,
-      "end": 580.47,
-      "duration": 5.95,
-      "text_snippet": "notifyAll() — notifyAll(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong"
-    },
-    {
-      "paragraph_id": 66,
-      "start": 580.47,
-      "end": 585.02,
-      "duration": 4.55,
+      "paragraph_id": 46,
+      "start": 292.99,
+      "end": 300.01,
+      "duration": 7.02,
       "text_snippet": "Stream API Có Trì Hoãn Thực Thi (Lazy) Không? (Is Stream API Lazy?)"
     },
     {
-      "paragraph_id": 67,
-      "start": 585.02,
-      "end": 589.57,
-      "duration": 4.55,
+      "paragraph_id": 47,
+      "start": 300.01,
+      "end": 314.48,
+      "duration": 14.47,
       "text_snippet": "Có, các hoạt động của Java Stream API được chia thành hai nhóm:"
     },
     {
-      "paragraph_id": 68,
-      "start": 589.57,
-      "end": 601.47,
-      "duration": 11.9,
+      "paragraph_id": 48,
+      "start": 314.49,
+      "end": 317.39,
+      "duration": 2.9,
       "text_snippet": "Các Hoạt Động Trung Gian (Intermediate Operations) (ví dụ: filter(), map(), sort"
     },
     {
-      "paragraph_id": 69,
-      "start": 601.47,
-      "end": 609.87,
-      "duration": 8.4,
+      "paragraph_id": 49,
+      "start": 317.49,
+      "end": 326.8,
+      "duration": 9.31,
       "text_snippet": "Các Hoạt Động Kết Thúc (Terminal Operations) (ví dụ: collect(), forEach(), reduc"
     },
     {
-      "paragraph_id": 70,
-      "start": 609.87,
-      "end": 613.02,
-      "duration": 3.15,
+      "paragraph_id": 50,
+      "start": 326.75,
+      "end": 330.37,
+      "duration": 3.62,
       "text_snippet": "Bằng chứng về tính trì hoãn (Proof of Laziness):"
     },
     {
-      "paragraph_id": 71,
-      "start": 613.02,
-      "end": 614.42,
-      "duration": 1.4,
+      "paragraph_id": 51,
+      "start": 330.38,
+      "end": 332.76,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 72,
-      "start": 614.42,
-      "end": 618.62,
-      "duration": 4.2,
+      "paragraph_id": 52,
+      "start": 332.75,
+      "end": 337.24,
+      "duration": 4.49,
       "text_snippet": "Các Sai Lầm Phổ Biến & Cạm Bẫy (Common Mistakes & Traps)"
     },
     {
-      "paragraph_id": 73,
-      "start": 618.62,
-      "end": 622.47,
-      "duration": 3.85,
+      "paragraph_id": 53,
+      "start": 337.34,
+      "end": 341.17,
+      "duration": 3.83,
       "text_snippet": "1. volatile không làm cho count++ trở nên an toàn luồng"
     },
     {
-      "paragraph_id": 74,
-      "start": 622.47,
-      "end": 642.42,
-      "duration": 19.95,
+      "paragraph_id": 54,
+      "start": 341.11,
+      "end": 358.32,
+      "duration": 17.21,
       "text_snippet": "Phép toán count++ thực chất gồm ba bước: đọc giá trị, sửa đổi và ghi lại. Từ khó"
     },
     {
-      "paragraph_id": 75,
-      "start": 642.42,
-      "end": 646.27,
-      "duration": 3.85,
+      "paragraph_id": 55,
+      "start": 358.32,
+      "end": 362.92,
+      "duration": 4.6,
       "text_snippet": "2. Quên đồng bộ hóa trước khi gọi wait() hoặc notify()"
     },
     {
-      "paragraph_id": 76,
-      "start": 646.27,
-      "end": 656.42,
-      "duration": 10.15,
+      "paragraph_id": 56,
+      "start": 362.93,
+      "end": 373.58,
+      "duration": 10.65,
       "text_snippet": "Việc gọi wait(), notify(), hoặc notifyAll() mà không sở hữu khóa giám sát đối tư"
     },
     {
-      "paragraph_id": 77,
-      "start": 656.42,
-      "end": 657.82,
-      "duration": 1.4,
+      "paragraph_id": 57,
+      "start": 373.68,
+      "end": 376.06,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 78,
-      "start": 657.82,
-      "end": 664.82,
-      "duration": 7.0,
+      "paragraph_id": 58,
+      "start": 376.0,
+      "end": 384.44,
+      "duration": 8.44,
       "text_snippet": "Tại sao Comparable và Comparator Khác Biệt Trong Thiết Kế Sắp Xếp (Why Comparabl"
     },
     {
-      "paragraph_id": 79,
-      "start": 664.82,
-      "end": 740.07,
-      "duration": 75.25,
+      "paragraph_id": 59,
+      "start": 384.44,
+      "end": 442.06,
+      "duration": 57.62,
       "text_snippet": "Java phân chia logic sắp xếp thành Comparable và Comparator để phân biệt rõ ràng"
     },
     {
-      "paragraph_id": 80,
-      "start": 740.07,
-      "end": 742.17,
-      "duration": 2.1,
+      "paragraph_id": 60,
+      "start": 442.06,
+      "end": 445.2,
+      "duration": 3.14,
       "text_snippet": "Mô hình Tư duy (Mental Model)"
     },
     {
-      "paragraph_id": 81,
-      "start": 742.17,
-      "end": 743.57,
-      "duration": 1.4,
+      "paragraph_id": 61,
+      "start": 445.3,
+      "end": 447.68,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 82,
-      "start": 743.57,
-      "end": 745.67,
-      "duration": 2.1,
+      "paragraph_id": 62,
+      "start": 447.62,
+      "end": 451.0,
+      "duration": 3.38,
       "text_snippet": "Ví Dụ Mã Nguồn (Code Example)"
     },
     {
-      "paragraph_id": 83,
-      "start": 745.67,
-      "end": 755.47,
-      "duration": 9.8,
+      "paragraph_id": 63,
+      "start": 451.0,
+      "end": 460.91,
+      "duration": 9.91,
       "text_snippet": "Đoạn mã dưới đây minh họa cách thứ tự tự nhiên thông qua Comparable và sắp xếp t"
     },
     {
-      "paragraph_id": 84,
-      "start": 755.47,
-      "end": 756.87,
+      "paragraph_id": 64,
+      "start": 460.91,
+      "end": 462.31,
       "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 85,
-      "start": 756.87,
-      "end": 758.62,
-      "duration": 1.75,
+      "paragraph_id": 65,
+      "start": 461.01,
+      "end": 464.22,
+      "duration": 3.21,
       "text_snippet": "Chuỗi Nhân Quả (Cause-Effect Chain)"
     },
     {
-      "paragraph_id": 86,
-      "start": 758.72,
-      "end": 760.93,
-      "duration": 2.21,
+      "paragraph_id": 66,
+      "start": 464.17,
+      "end": 466.37,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     }
   ]

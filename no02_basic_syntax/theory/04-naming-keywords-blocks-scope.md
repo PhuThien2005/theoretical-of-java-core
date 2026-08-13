@@ -238,4 +238,3 @@ Every identifier here signals its type at a glance: class, constant, variable, m
 
 - https://docs.oracle.com/javase/specs/jls/se21/html/jls-6.html#jls-6.3 (JLS Declarations - Scope of a Declaration)
 - https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.2 (JLS Blocks, Statements, and Patterns)
-

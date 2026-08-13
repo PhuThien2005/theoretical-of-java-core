@@ -1,11 +1,5 @@
 # Multithreading - Part 2
 
-## Learning Goal
-
-This file covers thread execution states, scheduling, and basic operations like starting, running, and sleeping. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Runnable` (Thread State) | The state where a thread is either executing or ready/eligible to execute, waiting for the OS thread scheduler to allocate CPU time. |
@@ -233,4 +227,3 @@ Executing inside: Thread-0
 2. JVM calls native method start0() &rarr; OS thread scheduler allocates platform thread structure.
 3. OS configures a new private call stack &rarr; Thread state transitions from NEW to RUNNABLE.
 4. OS schedules thread for CPU time &rarr; JVM run() method executes asynchronously on the new stack.
-

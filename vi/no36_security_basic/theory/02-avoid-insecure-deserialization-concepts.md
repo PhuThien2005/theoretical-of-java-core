@@ -1,13 +1,5 @@
 # Bảo mật cơ bản (Basic Security) - Phần 2
 
-## Mục Tiêu Học Tập
-
-Tài liệu này trình bày một phần trọng tâm của **Bảo mật cơ bản (Basic Security)**. Hãy nghiên cứu từng khái niệm dưới dạng một quy tắc Java thực tế, thay vì chỉ học từ vựng riêng lẻ.
-
-## Nội Dung Tổng Quan
-
-- **`Avoid insecure deserialization`** — Avoid insecure deserialization: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### Tránh giải tuần tự hóa không an toàn (Avoid insecure deserialization)
@@ -78,7 +70,6 @@ ObjectInputStream.readObject() khởi tạo tất cả các lớp               
     → GadgetClass2.hashCode() gọi compare() trên GadgetClass3                |
     → GadgetClass3.compare() gọi Runtime.exec("rm -rf /")  ←----------------+
          ↑ Lệnh OS tùy ý được thực thi!
-
 
 Khi có ObjectInputFilter:
 [SerializedPayload] → Filter kiểm tra: GadgetClass1 có trong whitelist không? KHÔNG → TỪ CHỐI

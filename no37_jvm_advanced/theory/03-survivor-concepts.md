@@ -1,11 +1,5 @@
 # Advanced JVM - Part 3
 
-## Learning Goal
-
-This file covers a focused slice of **Advanced JVM**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Survivor` |`Survivor` — Survivor provides specific functionality and rules in Java development. |
@@ -121,12 +115,6 @@ java -XX:+UseZGC -jar app.jar
 - **Using Serial GC on multi-core servers**: Serial GC uses a single thread for garbage collection. It is fine for tiny CLI tools or single-core containers, but causes terrible pauses on multi-threaded servers.
 - **Assuming G1 has contiguous generations**: Unlike Parallel GC, G1 partitions the heap into equal-sized virtual regions. A region can act as Eden, Survivor, or Old dynamically.
 
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
-
 ## Why Survivor Spaces Prevent Heap Fragmentation
 
 The generational garbage collection model uses Survivor spaces (S0 and S1) alongside Eden to prevent heap memory fragmentation and avoid expensive full-heap compactions. According to the weak generational hypothesis, the vast majority of allocated objects die shortly after creation. Instead of allocating and freeing memory in place, the JVM allocates new objects in the **Eden** space. During a minor garbage collection, active (surviving) objects in Eden are copied to one of the empty Survivor spaces (e.g., S0), leaving the Eden space completely contiguous and free of gaps. In subsequent minor GCs, the JVM copies surviving objects from both Eden and the active Survivor space (S0) to the second Survivor space (S1), swapping their roles. By copying survivors to a clean, contiguous destination space and clearing the origin spaces entirely, the JVM avoids memory fragmentation without requiring complex and slow compaction algorithms.
@@ -200,4 +188,3 @@ New objects allocated in Eden &rarr; Minor GC triggers &rarr; Live objects copie
 ## Reference Links
 
 - https://docs.oracle.com/en/java/javase/21/gctuning/factors-affecting-garbage-collection-performance.html (Generational GC & Aging)
-

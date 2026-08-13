@@ -25,4 +25,3 @@ Use this file when a word in the theory feels too compressed. Each term has mean
 ## asynchronous IO
 
 `asynchronous IO` — asynchronous IO provides specific functionality and rules in Java development.
-

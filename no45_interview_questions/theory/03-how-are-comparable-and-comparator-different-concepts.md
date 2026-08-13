@@ -1,11 +1,5 @@
 # Common Java Core Interview Questions - Part 3
 
-## Learning Goal
-
-This file covers intermediate to advanced Java Core interview questions regarding object sorting, iterator semantics, multithreading synchronization, and Stream API execution logic.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `How are Comparable and Comparator different?` | `Comparable` defines a class's natural ordering via `compareTo()`; `Comparator` defines custom external ordering via `compare()`. |
@@ -23,11 +17,9 @@ This file covers intermediate to advanced Java Core interview questions regardin
 
 ### Comparable vs. Comparator
 
-- **`Comparable`** — Comparable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - Located in `java.lang`.
   - Used for **natural ordering** of elements (e.g. alphabetical for Strings, ascending for Integers).
   - The class itself implements `Comparable<T>` and overrides `compareTo(T o)`.
-- **`Comparator`** — Comparator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - Located in `java.util`.
   - Used for **custom/alternative ordering** (e.g. sorting strings by length or custom fields).
   - Implemented in a separate class or as a lambda passed directly to `Collections.sort()` or `list.sort()`.
@@ -60,11 +52,9 @@ Comparator<Person> nameComparator = (p1, p2) -> p1.name.compareTo(p2.name);
 
 ### volatile vs. synchronized
 
-- **`volatile`** — volatile: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - Variable modifier.
   - Guarantees **visibility** (reads/writes go directly to main memory, bypassing CPU caches) and prevents compiler instruction **reordering**.
   - Does *not* guarantee **atomicity** (e.g. `count++` is not atomic and still needs sync).
-- **`synchronized`** — synchronized: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - Method or block modifier.
   - Guarantees **visibility**, **ordering**, and **atomicity** by obtaining a monitor lock. Only one thread can execute the block at a time.
 
@@ -83,10 +73,8 @@ Deadlock occurs when Thread 1 holds Lock A and waits for Lock B, while Thread 2 
 
 ### Thread `start()` vs. `run()`
 
-- **`thread.start()`** — thread.start(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - Allocates system resources, creates a new execution thread in the JVM, and schedules it to run.
   - The JVM calls the thread's `run()` method asynchronously in the new thread context.
-- **`thread.run()`** — thread.run(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - Just a regular method call. No new thread is spawned.
   - Executes synchronously inside the *calling* thread's stack.
 
@@ -94,11 +82,9 @@ Deadlock occurs when Thread 1 holds Lock A and waits for Lock B, while Thread 2 
 
 ### sleep() vs. wait()
 
-- **`Thread.sleep(millis)`** — Thread.sleep(millis): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - Static method of `Thread` class.
   - The thread pauses for a duration but **keeps any locks it currently holds**.
   - Can be called anywhere.
-- **`object.wait()`** — object.wait(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - Instance method of `java.lang.Object`.
   - The thread yields execution and **releases the lock** on the object monitor, allowing other threads to enter.
   - Must be called inside a synchronized block on that specific object.
@@ -106,9 +92,6 @@ Deadlock occurs when Thread 1 holds Lock A and waits for Lock B, while Thread 2 
 ---
 
 ### notify() vs. notifyAll()
-
-- **`notify()`** — notify(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`notifyAll()`** — notifyAll(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

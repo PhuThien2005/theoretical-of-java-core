@@ -1,11 +1,5 @@
 # Modifiers in Java - Part 3
 
-## Learning Goal
-
-This file covers a focused slice of **Modifiers in Java**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Static block` | Static means the member belongs to the class rather than to one particular object. |
@@ -322,9 +316,3 @@ Practical check:
 Tiny example or mental model:
 
 - `final int limit = 10;` cannot be reassigned.
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?

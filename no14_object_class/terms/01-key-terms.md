@@ -31,4 +31,3 @@ Small example: When reading code, ask: what does `hashCode contract` change, all
 ## monitor methods
 
 `monitor methods` — Methods in Object (wait, notify, notifyAll) used for thread synchronization on object monitors.
-

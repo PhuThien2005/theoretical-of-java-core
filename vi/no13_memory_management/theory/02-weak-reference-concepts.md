@@ -1,18 +1,12 @@
 # Quản Lý Bộ Nhớ Java - Phần 2 (Java Memory Management - Part 2)
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này tập trung vào một phần chuyên sâu của **Quản Lý Bộ Nhớ Java**. Hãy học từng khái niệm dưới dạng một quy tắc thực tế trong Java, chứ không chỉ ghi nhớ thuật ngữ lý thuyết.
-
 ## Đề Cương Bao Phủ (Outline Coverage)
 
 - **`Weak reference`** — JVM sẽ thu hồi ngay trong lượt GC tiếp theo nếu đối tượng không còn tham chiếu mạnh nào trỏ tới.
 - **`Soft reference`** — JVM chỉ thu hồi khi bộ nhớ heap sắp cạn kiệt, phù hợp cho bộ nhớ đệm.
 - **`Phantom reference`** — Sử dụng cùng ReferenceQueue để dọn dẹp tài nguyên sau khi đối tượng bị giải phóng.
-- **`Garbage Collection`** — Garbage Collection: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **`Conditions for an object to be GC'd`** — Đối tượng đủ điều kiện bị GC khi không còn đường dẫn tham chiếu mạnh nào từ GC Roots.
 - **`System.gc()`** — Yêu cầu JVM chạy GC nhưng không đảm bảo thực thi ngay lập tức.
-- **`Finalization, finalize() deprecated`** — Finalization, finalize() deprecated: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **`Memory leak in Java`** — Xảy ra khi các đối tượng không còn dùng đến vẫn bị giữ lại bởi tham chiếu mạnh.
 
 ## Ghi Chú Chi Tiết

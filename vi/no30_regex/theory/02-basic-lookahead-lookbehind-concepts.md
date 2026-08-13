@@ -1,16 +1,5 @@
 # Biểu Thức Chính Quy (Regular Expression) - Phần 2
 
-## Mục Tiêu Học Tập
-
-Tài liệu này tập trung vào một phần chuyên sâu của **Biểu Thức Chính Quy (Regular Expression)**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc thực tế trong Java, không chỉ đơn thuần là lý thuyết từ vựng.
-
-## Tóm Tắt Nội Dung (Outline Coverage)
-
-- **`Basic lookahead / lookbehind`** — Basic lookahead / lookbehind: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Validate email, phone, password`** — Validate email, phone, password: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Replace using regex`** — Replace using regex: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Split using regex`** — Split using regex: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ---
 
 ## Ghi Chú Chi Tiết
@@ -180,8 +169,6 @@ public class PasswordValidator {
 
 Java hỗ trợ thay thế các chuỗi con khớp với một regex thông qua các phương thức của String và Matcher.
 
-- **`String.replaceAll(regex, replacement)`** — String.replaceAll(regex, replacement): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`String.replace(target, replacement)`** — String.replace(target, replacement): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **Tham chiếu ngược trong Thay thế**: Bạn có thể tham chiếu các nhóm đã chụp trong chuỗi thay thế bằng ký tự `$groupNumber` (ví dụ: `$1`).
 - **Thay thế Nâng cao (`appendReplacement`/`appendTail`)**: Lớp `Matcher` cung cấp cơ chế thay thế dựa trên vòng lặp để tính toán động các chuỗi thay thế (ví dụ: chuyển văn bản thành chữ hoa, tính toán các biểu thức toán học).
 

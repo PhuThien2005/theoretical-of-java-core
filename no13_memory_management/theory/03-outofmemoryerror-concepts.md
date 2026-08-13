@@ -1,11 +1,5 @@
 # Java Memory Management - Part 3
 
-## Learning Goal
-
-This file covers a focused slice of **Java Memory Management**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `OutOfMemoryError` |`OutOfMemoryError` — Thrown when the JVM cannot allocate an object due to insufficient heap or native memory. |
@@ -20,9 +14,6 @@ This file covers a focused slice of **Java Memory Management**. Study each conce
 #### JVM Rule
 - OOM is an **Error** (extends `java.lang.VirtualMachineError`), indicating a fatal system failure that standard applications should not catch or attempt to recover from.
 - It can occur in different memory regions, signaled by the error message:
-- **`java.lang.OutOfMemoryError: Java heap space`** — java.lang.OutOfMemoryError: Java heap space: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`java.lang.OutOfMemoryError: GC OverLimit exceeded`** — java.lang.OutOfMemoryError: GC OverLimit exceeded: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`java.lang.OutOfMemoryError: Metaspace`** — java.lang.OutOfMemoryError: Metaspace: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **Diagnostics**: Use `-XX:+HeapDumpOnOutOfMemoryError` and `-XX:HeapDumpPath` to generate a `.hprof` binary file for heap analysis when OOM occurs.
 
 #### Code Example: OutOfMemoryError Scenario
@@ -83,12 +74,6 @@ Many developers write `try-catch (Throwable t)` or `try-catch (OutOfMemoryError 
 
 ### 3. Assuming GC Overhead Limit Exceeded is a Heap space error
 While related, `GC Overhead Limit exceeded` occurs *before* physical heap space is fully exhausted. The JVM throws this preemptively to prevent the application from freezing completely while doing nothing but garbage collection. Raising heap size helps, but fixing memory leaks is the real solution.
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
 
 ## Why Heap and Stack Errors Differ
 

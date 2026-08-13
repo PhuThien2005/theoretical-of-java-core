@@ -1,11 +1,5 @@
 # Date and Time API - Part 2
 
-## Learning Goal
-
-This file covers a focused slice of **Date and Time API**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Period` | Immutable, thread-safe representation of a date-based amount of time in years, months, and days. |
@@ -297,12 +291,6 @@ DateTimeFormatter badFormatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
 // Output might look like "2026-30-12" where 30 is the minute!
 ```
 
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
-
 ## Reference Links
 
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Period.html (Period JavaDoc)
@@ -310,4 +298,3 @@ DateTimeFormatter badFormatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZoneId.html (ZoneId JavaDoc)
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/format/DateTimeFormatter.html (DateTimeFormatter JavaDoc)
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZonedDateTime.html (ZonedDateTime JavaDoc)
-

@@ -1,11 +1,5 @@
 # Synchronization and Concurrency - Part 6
 
-## Learning Goal
-
-This file covers the Fork/Join framework (`ForkJoinPool`, `RecursiveTask`, `RecursiveAction`) and the execution details of Parallel Streams. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `ForkJoinPool` | A specialized executor pool designed for divide-and-conquer tasks using a work-stealing algorithm. |

@@ -18,11 +18,7 @@ Java provides access modifiers to restrict visibility at two levels:
 | **`public`** | Yes | Yes | Yes | Yes |
 
 ### Key Scopes Explained:
-- **`private`** — private: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`default`** — default: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`protected`** — protected: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   *Note:* A subclass in a different package can access a `protected` member of a parent class only through inheritance (using reference variables of the subclass type), not via reference variables of the parent class type.
-- **`public`** — public: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

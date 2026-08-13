@@ -1,1007 +1,923 @@
 {
   "lesson": "01-what-is-regex-concepts",
-  "total_duration_seconds": 1195.29,
-  "total_paragraphs": 143,
+  "total_duration_seconds": 1046.29,
+  "total_paragraphs": 131,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 4.2,
-      "duration": 4.2,
+      "start": 0.1,
+      "end": 5.18,
+      "duration": 5.08,
       "text_snippet": "Biểu Thức Chính Quy - Phần 1 (Regular Expression - Part 1)"
     },
     {
       "paragraph_id": 2,
-      "start": 4.2,
-      "end": 6.3,
-      "duration": 2.1,
-      "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 6.3,
-      "end": 21.0,
-      "duration": 14.7,
-      "text_snippet": "Tài liệu này trình bày một phần trọng tâm về Biểu Thức Chính Quy (Regular Expres"
-    },
-    {
-      "paragraph_id": 4,
-      "start": 21.0,
-      "end": 22.75,
-      "duration": 1.75,
+      "start": 5.12,
+      "end": 8.38,
+      "duration": 3.26,
       "text_snippet": "Khung Nội Dung (Outline Coverage)"
     },
     {
-      "paragraph_id": 5,
-      "start": 22.75,
-      "end": 30.1,
-      "duration": 7.35,
-      "text_snippet": "What is Regex? — What is Regex?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể"
-    },
-    {
-      "paragraph_id": 6,
-      "start": 30.1,
-      "end": 36.05,
-      "duration": 5.95,
-      "text_snippet": "Pattern — Pattern: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 7,
-      "start": 36.05,
-      "end": 42.0,
-      "duration": 5.95,
-      "text_snippet": "Matcher — Matcher: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 8,
-      "start": 42.0,
-      "end": 47.95,
-      "duration": 5.95,
-      "text_snippet": "matches — matches: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 9,
-      "start": 47.95,
-      "end": 53.9,
-      "duration": 5.95,
-      "text_snippet": "find — find: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 10,
-      "start": 53.9,
-      "end": 59.85,
-      "duration": 5.95,
-      "text_snippet": "group — group: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 11,
-      "start": 59.85,
-      "end": 66.5,
-      "duration": 6.65,
-      "text_snippet": "Character classes — Character classes: Cung cấp các quy tắc và cơ chế hoạt động "
-    },
-    {
-      "paragraph_id": 12,
-      "start": 66.5,
-      "end": 72.45,
-      "duration": 5.95,
-      "text_snippet": "Quantifiers — Quantifiers: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong"
-    },
-    {
-      "paragraph_id": 13,
-      "start": 72.45,
-      "end": 79.1,
-      "duration": 6.65,
-      "text_snippet": "Capturing group — Capturing group: Cung cấp các quy tắc và cơ chế hoạt động cụ t"
-    },
-    {
-      "paragraph_id": 14,
-      "start": 79.1,
-      "end": 85.75,
-      "duration": 6.65,
-      "text_snippet": "Non-capturing group — Non-capturing group: Cung cấp các quy tắc và cơ chế hoạt đ"
-    },
-    {
-      "paragraph_id": 15,
-      "start": 85.75,
-      "end": 87.85,
-      "duration": 2.1,
+      "paragraph_id": 3,
+      "start": 8.39,
+      "end": 11.39,
+      "duration": 3.0,
       "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
     },
     {
-      "paragraph_id": 16,
-      "start": 87.95,
-      "end": 99.53,
-      "duration": 11.58,
+      "paragraph_id": 4,
+      "start": 11.39,
+      "end": 14.75,
+      "duration": 3.36,
       "text_snippet": "Biểu thức chính quy (Regex) là gì?"
     },
     {
-      "paragraph_id": 17,
-      "start": 99.52,
-      "end": 114.24,
-      "duration": 14.72,
+      "paragraph_id": 5,
+      "start": 14.85,
+      "end": 37.61,
+      "duration": 22.76,
       "text_snippet": "Biểu thức chính quy (regular expression - regex) là một ngôn ngữ mẫu dùng để so "
     },
     {
-      "paragraph_id": 18,
-      "start": 114.25,
-      "end": 117.75,
+      "paragraph_id": 6,
+      "start": 37.61,
+      "end": 41.11,
       "duration": 3.5,
       "text_snippet": "Ví Dụ Mã Nguồn: Xác minh Regex cơ bản"
     },
     {
-      "paragraph_id": 19,
-      "start": 117.75,
-      "end": 120.13,
+      "paragraph_id": 7,
+      "start": 41.11,
+      "end": 43.49,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 20,
-      "start": 120.12,
-      "end": 122.63,
+      "paragraph_id": 8,
+      "start": 43.49,
+      "end": 46.0,
       "duration": 2.51,
       "text_snippet": "Pattern (Đối tượng Mẫu)"
     },
     {
-      "paragraph_id": 21,
-      "start": 122.74,
-      "end": 136.98,
+      "paragraph_id": 9,
+      "start": 46.1,
+      "end": 60.34,
       "duration": 14.24,
       "text_snippet": "java.util.regex.Pattern là biểu diễn đã được biên dịch của một biểu thức chính q"
     },
     {
-      "paragraph_id": 22,
-      "start": 136.97,
-      "end": 151.8,
+      "paragraph_id": 10,
+      "start": 60.34,
+      "end": 75.17,
       "duration": 14.83,
       "text_snippet": "Tính Bất Biến và An Toàn Đa Luồng: Các thực thể Pattern hoàn toàn bất biến (immu"
     },
     {
-      "paragraph_id": 23,
-      "start": 151.8,
-      "end": 174.75,
-      "duration": 22.95,
+      "paragraph_id": 11,
+      "start": 75.16,
+      "end": 97.7,
+      "duration": 22.54,
       "text_snippet": "Cờ Biên Dịch (Compilation Flags): Bạn có thể truyền các cờ cấu hình vào phương t"
     },
     {
-      "paragraph_id": 24,
-      "start": 174.75,
-      "end": 179.3,
+      "paragraph_id": 12,
+      "start": 97.7,
+      "end": 102.25,
       "duration": 4.55,
       "text_snippet": "Ví Dụ Mã Nguồn: Mẫu Pattern được lưu vào Bộ nhớ đệm (Cache)"
     },
     {
-      "paragraph_id": 25,
-      "start": 174.75,
-      "end": 176.95,
+      "paragraph_id": 13,
+      "start": 97.8,
+      "end": 100.18,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 100.12,
+      "end": 102.03,
+      "duration": 1.91,
+      "text_snippet": "Sai lầm thường gặp"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 102.04,
+      "end": 115.94,
+      "duration": 13.9,
+      "text_snippet": "Biên dịch lại Pattern bên trong một phương thức được gọi thường xuyên (ví dụ: bê"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 115.94,
+      "end": 118.14,
       "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 26,
-      "start": 176.95,
-      "end": 178.35,
-      "duration": 1.4,
-      "text_snippet": "Sai lầm thường gặp"
-    },
-    {
-      "paragraph_id": 27,
-      "start": 178.35,
-      "end": 196.2,
-      "duration": 17.85,
-      "text_snippet": "Biên dịch lại Pattern bên trong một phương thức được gọi thường xuyên (ví dụ: bê"
-    },
-    {
-      "paragraph_id": 28,
-      "start": 196.2,
-      "end": 197.6,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 29,
-      "start": 197.6,
-      "end": 201.45,
-      "duration": 3.85,
+      "paragraph_id": 17,
+      "start": 118.24,
+      "end": 126.48,
+      "duration": 8.24,
       "text_snippet": "Tại Sao Việc Biên Dịch Pattern Lại Tốn Kém Hiệu Năng"
     },
     {
-      "paragraph_id": 30,
-      "start": 201.45,
-      "end": 263.4,
-      "duration": 61.95,
+      "paragraph_id": 18,
+      "start": 126.48,
+      "end": 171.54,
+      "duration": 45.06,
       "text_snippet": "Biên dịch một biểu thức chính quy không đơn giản là kiểm tra từng ký tự một. Bên"
     },
     {
-      "paragraph_id": 31,
-      "start": 263.4,
-      "end": 266.9,
-      "duration": 3.5,
+      "paragraph_id": 19,
+      "start": 171.54,
+      "end": 176.62,
+      "duration": 5.08,
       "text_snippet": "Mô hình Tư duy: Biên dịch Regex vs. Thực thi"
     },
     {
-      "paragraph_id": 32,
-      "start": 266.9,
-      "end": 268.3,
-      "duration": 1.4,
+      "paragraph_id": 20,
+      "start": 176.61,
+      "end": 178.81,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 33,
-      "start": 268.3,
-      "end": 272.85,
-      "duration": 4.55,
+      "paragraph_id": 21,
+      "start": 178.91,
+      "end": 183.17,
+      "duration": 4.26,
       "text_snippet": "Ví Dụ Mã Nguồn: Lưu trữ mẫu so với biên dịch tức thời"
     },
     {
-      "paragraph_id": 34,
-      "start": 272.85,
-      "end": 274.25,
-      "duration": 1.4,
+      "paragraph_id": 22,
+      "start": 183.12,
+      "end": 185.5,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 35,
-      "start": 274.25,
-      "end": 277.05,
-      "duration": 2.8,
+      "paragraph_id": 23,
+      "start": 185.5,
+      "end": 189.41,
+      "duration": 3.91,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)"
     },
     {
-      "paragraph_id": 36,
-      "start": 277.05,
-      "end": 305.4,
-      "duration": 28.35,
+      "paragraph_id": 24,
+      "start": 189.41,
+      "end": 212.43,
+      "duration": 23.02,
       "text_snippet": "Gọi String.matches(\"regex\") hoặc gọi Pattern.compile(\"regex\") trong vòng lặp $\\r"
     },
     {
-      "paragraph_id": 37,
-      "start": 305.4,
-      "end": 306.8,
-      "duration": 1.4,
+      "paragraph_id": 25,
+      "start": 212.54,
+      "end": 215.18,
+      "duration": 2.64,
       "text_snippet": "Matcher (Đối tượng Khớp)"
     },
     {
-      "paragraph_id": 38,
-      "start": 306.8,
-      "end": 317.65,
-      "duration": 10.85,
+      "paragraph_id": 26,
+      "start": 215.12,
+      "end": 224.05,
+      "duration": 8.93,
       "text_snippet": "java.util.regex.Matcher là công cụ lưu trữ trạng thái thực hiện các thao tác so "
     },
     {
-      "paragraph_id": 39,
-      "start": 317.65,
-      "end": 328.15,
-      "duration": 10.5,
+      "paragraph_id": 27,
+      "start": 224.05,
+      "end": 233.61,
+      "duration": 9.56,
       "text_snippet": "Tính Lưu Trạng Thái (Statefulness): Khác với Pattern, Matcher lưu trữ trạng thái"
     },
     {
-      "paragraph_id": 40,
-      "start": 328.15,
-      "end": 336.9,
-      "duration": 8.75,
+      "paragraph_id": 28,
+      "start": 233.61,
+      "end": 241.71,
+      "duration": 8.1,
       "text_snippet": "An Toàn Đa Luồng: Các thực thể Matcher không an toàn đa luồng. Không chia sẻ một"
     },
     {
-      "paragraph_id": 41,
-      "start": 336.9,
-      "end": 339.7,
-      "duration": 2.8,
+      "paragraph_id": 29,
+      "start": 241.81,
+      "end": 245.23,
+      "duration": 3.42,
       "text_snippet": "Ví Dụ Mã Nguồn: Khởi tạo một Matcher"
     },
     {
-      "paragraph_id": 42,
-      "start": 339.7,
-      "end": 341.1,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 43,
-      "start": 341.1,
-      "end": 341.5,
-      "duration": 0.4,
-      "text_snippet": "matches"
-    },
-    {
-      "paragraph_id": 44,
-      "start": 341.45,
-      "end": 346.7,
-      "duration": 5.25,
-      "text_snippet": "Phương thức Matcher.matches() cố gắng so khớp toàn bộ chuỗi đầu vào với mẫu rege"
-    },
-    {
-      "paragraph_id": 45,
-      "start": 346.7,
-      "end": 354.75,
-      "duration": 8.05,
-      "text_snippet": "So Khớp Toàn Bộ Nghiêm Ngặt: Nó chỉ trả về true khi và chỉ khi toàn bộ chuỗi khớ"
-    },
-    {
-      "paragraph_id": 46,
-      "start": 354.85,
-      "end": 379.66,
-      "duration": 24.81,
-      "text_snippet": "So sánh với String.matches(): Lệnh gọi String.matches(regex) thực chất gọi Patte"
-    },
-    {
-      "paragraph_id": 47,
-      "start": 379.66,
-      "end": 392.96,
-      "duration": 13.3,
-      "text_snippet": "So sánh với lookingAt(): Phương thức Matcher.lookingAt() chỉ kiểm tra xem mẫu có"
-    },
-    {
-      "paragraph_id": 48,
-      "start": 379.66,
-      "end": 384.86,
-      "duration": 5.2,
-      "text_snippet": "Ví Dụ Mã Nguồn: so sánh matches vs lookingAt vs find"
-    },
-    {
-      "paragraph_id": 49,
-      "start": 384.86,
-      "end": 387.23,
+      "paragraph_id": 30,
+      "start": 245.19,
+      "end": 247.56,
       "duration": 2.37,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 50,
-      "start": 387.24,
-      "end": 388.44,
-      "duration": 1.2,
+      "paragraph_id": 31,
+      "start": 247.56,
+      "end": 254.39,
+      "duration": 6.83,
+      "text_snippet": "matches"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 254.39,
+      "end": 259.64,
+      "duration": 5.25,
+      "text_snippet": "Phương thức Matcher.matches() cố gắng so khớp toàn bộ chuỗi đầu vào với mẫu rege"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 254.49,
+      "end": 260.84,
+      "duration": 6.35,
+      "text_snippet": "So Khớp Toàn Bộ Nghiêm Ngặt: Nó chỉ trả về true khi và chỉ khi toàn bộ chuỗi khớ"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 260.79,
+      "end": 285.62,
+      "duration": 24.83,
+      "text_snippet": "So sánh với String.matches(): Lệnh gọi String.matches(regex) thực chất gọi Patte"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 285.61,
+      "end": 298.91,
+      "duration": 13.3,
+      "text_snippet": "So sánh với lookingAt(): Phương thức Matcher.lookingAt() chỉ kiểm tra xem mẫu có"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 285.61,
+      "end": 290.8,
+      "duration": 5.19,
+      "text_snippet": "Ví Dụ Mã Nguồn: so sánh matches vs lookingAt vs find"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 290.9,
+      "end": 293.28,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 293.23,
+      "end": 300.68,
+      "duration": 7.45,
       "text_snippet": "find"
     },
     {
-      "paragraph_id": 51,
-      "start": 388.44,
-      "end": 394.39,
+      "paragraph_id": 39,
+      "start": 300.68,
+      "end": 306.63,
       "duration": 5.95,
       "text_snippet": "Phương thức Matcher.find() quét chuỗi đầu vào để tìm kiếm chuỗi con tiếp theo kh"
     },
     {
-      "paragraph_id": 52,
-      "start": 394.39,
-      "end": 411.19,
-      "duration": 16.8,
+      "paragraph_id": 40,
+      "start": 300.68,
+      "end": 314.91,
+      "duration": 14.23,
       "text_snippet": "Lặp lại: Nó trả về true nếu tìm thấy một kết quả khớp và di chuyển con trỏ tìm k"
     },
     {
-      "paragraph_id": 53,
-      "start": 411.19,
-      "end": 418.19,
-      "duration": 7.0,
+      "paragraph_id": 41,
+      "start": 315.0,
+      "end": 322.74,
+      "duration": 7.74,
       "text_snippet": "Đặt lại: Gọi matcher.reset() sẽ đưa con trỏ tìm kiếm quay lại vị trí bắt đầu của"
     },
     {
-      "paragraph_id": 54,
-      "start": 418.19,
-      "end": 427.29,
-      "duration": 9.1,
+      "paragraph_id": 42,
+      "start": 322.69,
+      "end": 331.63,
+      "duration": 8.94,
       "text_snippet": "Phương thức find có tham số: Gọi matcher.find(int start) sẽ đặt lại matcher và b"
     },
     {
-      "paragraph_id": 55,
-      "start": 427.29,
-      "end": 431.84,
-      "duration": 4.55,
+      "paragraph_id": 43,
+      "start": 331.63,
+      "end": 335.72,
+      "duration": 4.09,
       "text_snippet": "Ví Dụ Mã Nguồn: Tìm kiếm tất cả các kết quả xuất hiện"
     },
     {
-      "paragraph_id": 56,
-      "start": 431.84,
-      "end": 433.24,
-      "duration": 1.4,
+      "paragraph_id": 44,
+      "start": 335.71,
+      "end": 337.91,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 57,
-      "start": 433.24,
-      "end": 433.94,
-      "duration": 0.7,
+      "paragraph_id": 45,
+      "start": 338.01,
+      "end": 340.05,
+      "duration": 2.04,
       "text_snippet": "group (Nhóm)"
     },
     {
-      "paragraph_id": 58,
-      "start": 433.94,
-      "end": 440.24,
-      "duration": 6.3,
+      "paragraph_id": 46,
+      "start": 340.0,
+      "end": 346.65,
+      "duration": 6.65,
       "text_snippet": "Phương thức Matcher.group() trả về chuỗi con đầu vào đã khớp bởi thao tác so khớ"
     },
     {
-      "paragraph_id": 59,
-      "start": 440.24,
-      "end": 445.84,
-      "duration": 5.6,
+      "paragraph_id": 47,
+      "start": 346.65,
+      "end": 355.72,
+      "duration": 9.07,
       "text_snippet": "Chỉ mục 0: Gọi matcher.group(0) hoặc matcher.group() trả về toàn bộ đoạn văn bản"
     },
     {
-      "paragraph_id": 60,
-      "start": 445.84,
-      "end": 457.04,
-      "duration": 11.2,
+      "paragraph_id": 48,
+      "start": 355.73,
+      "end": 366.61,
+      "duration": 10.88,
       "text_snippet": "Nhóm con: Gọi matcher.group(i) trả về văn bản được bắt giữ bởi nhóm bắt giữ thứ "
     },
     {
-      "paragraph_id": 61,
-      "start": 457.04,
-      "end": 465.44,
-      "duration": 8.4,
+      "paragraph_id": 49,
+      "start": 366.7,
+      "end": 374.82,
+      "duration": 8.12,
       "text_snippet": "Tổng số nhóm: Gọi matcher.groupCount() trả về số lượng nhóm bắt giữ được định ng"
     },
     {
-      "paragraph_id": 62,
-      "start": 465.44,
-      "end": 468.94,
-      "duration": 3.5,
+      "paragraph_id": 50,
+      "start": 374.78,
+      "end": 378.27,
+      "duration": 3.49,
       "text_snippet": "Ví Dụ Mã Nguồn: Trích xuất các nhóm bắt giữ"
     },
     {
-      "paragraph_id": 63,
-      "start": 468.94,
-      "end": 470.34,
-      "duration": 1.4,
+      "paragraph_id": 51,
+      "start": 378.26,
+      "end": 380.62,
+      "duration": 2.36,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 64,
-      "start": 470.34,
-      "end": 471.74,
-      "duration": 1.4,
+      "paragraph_id": 52,
+      "start": 380.62,
+      "end": 382.53,
+      "duration": 1.91,
       "text_snippet": "Sai lầm thường gặp"
     },
     {
-      "paragraph_id": 65,
-      "start": 471.74,
-      "end": 486.09,
-      "duration": 14.35,
+      "paragraph_id": 53,
+      "start": 382.64,
+      "end": 397.22,
+      "duration": 14.58,
       "text_snippet": "Gọi phương thức matcher.group() trước khi gọi find(), matches(), hoặc lookingAt("
     },
     {
+      "paragraph_id": 54,
+      "start": 397.21,
+      "end": 399.59,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 399.59,
+      "end": 403.1,
+      "duration": 3.51,
+      "text_snippet": "Lớp ký tự (Character classes)"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 403.1,
+      "end": 408.87,
+      "duration": 5.77,
+      "text_snippet": "Các lớp ký tự chỉ định tập hợp các ký tự có thể khớp tại một vị trí duy nhất tro"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 408.98,
+      "end": 431.14,
+      "duration": 22.16,
+      "text_snippet": "Các lớp ký tự tùy chỉnh: [abc] khớp với a, b, hoặc c. [^abc] khớp với bất kỳ ký "
+    },
+    {
+      "paragraph_id": 58,
+      "start": 431.14,
+      "end": 444.11,
+      "duration": 12.97,
+      "text_snippet": "Các lớp ký tự được định nghĩa sẵn: . khớp với bất kỳ ký tự nào (ngoại trừ ký tự "
+    },
+    {
+      "paragraph_id": 59,
+      "start": 444.11,
+      "end": 455.5,
+      "duration": 11.39,
+      "text_snippet": ". khớp với bất kỳ ký tự nào (ngoại trừ ký tự xuống dòng, trừ khi cờ Pattern.DOTA"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 455.5,
+      "end": 458.6,
+      "duration": 3.1,
+      "text_snippet": "\\d khớp với một chữ số [0-9]."
+    },
+    {
+      "paragraph_id": 61,
+      "start": 458.7,
+      "end": 463.39,
+      "duration": 4.69,
+      "text_snippet": "\\w khớp với một ký tự chữ-số-gạch-dưới [a-zA-Z_0-9]."
+    },
+    {
+      "paragraph_id": 62,
+      "start": 463.34,
+      "end": 468.35,
+      "duration": 5.01,
+      "text_snippet": "\\s khớp với một ký tự khoảng trắng [ \\t\\n\\x0B\\f\\r]."
+    },
+    {
+      "paragraph_id": 63,
+      "start": 468.35,
+      "end": 472.9,
+      "duration": 4.55,
+      "text_snippet": "\\D, \\W, \\S là các phủ định tương ứng của \\d, \\w, \\s."
+    },
+    {
+      "paragraph_id": 64,
+      "start": 472.9,
+      "end": 491.45,
+      "duration": 18.55,
+      "text_snippet": "Thoát chuỗi kép (Double Escaping): Vì ký tự dấu gạch chéo ngược (\\) có ý nghĩa đ"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 488.08,
+      "end": 491.48,
+      "duration": 3.4,
+      "text_snippet": "Ví Dụ Mã Nguồn: Lớp ký tự tùy chỉnh"
+    },
+    {
       "paragraph_id": 66,
-      "start": 486.19,
-      "end": 488.57,
+      "start": 491.43,
+      "end": 493.81,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 67,
-      "start": 488.51,
-      "end": 492.02,
-      "duration": 3.51,
-      "text_snippet": "Lớp ký tự (Character classes)"
-    },
-    {
-      "paragraph_id": 68,
-      "start": 492.02,
-      "end": 520.01,
-      "duration": 27.99,
-      "text_snippet": "Các lớp ký tự chỉ định tập hợp các ký tự có thể khớp tại một vị trí duy nhất tro"
-    },
-    {
-      "paragraph_id": 69,
-      "start": 520.01,
-      "end": 533.66,
-      "duration": 13.65,
-      "text_snippet": "Các lớp ký tự tùy chỉnh: [abc] khớp với a, b, hoặc c. [^abc] khớp với bất kỳ ký "
-    },
-    {
-      "paragraph_id": 70,
-      "start": 520.01,
-      "end": 538.37,
-      "duration": 18.36,
-      "text_snippet": "Các lớp ký tự được định nghĩa sẵn: . khớp với bất kỳ ký tự nào (ngoại trừ ký tự "
-    },
-    {
-      "paragraph_id": 71,
-      "start": 538.48,
-      "end": 545.88,
-      "duration": 7.4,
-      "text_snippet": ". khớp với bất kỳ ký tự nào (ngoại trừ ký tự xuống dòng, trừ khi cờ Pattern.DOTA"
-    },
-    {
-      "paragraph_id": 72,
-      "start": 545.83,
-      "end": 549.08,
-      "duration": 3.25,
-      "text_snippet": "\\d khớp với một chữ số [0-9]."
-    },
-    {
-      "paragraph_id": 73,
-      "start": 549.08,
-      "end": 554.01,
-      "duration": 4.93,
-      "text_snippet": "\\w khớp với một ký tự chữ-số-gạch-dưới [a-zA-Z_0-9]."
-    },
-    {
-      "paragraph_id": 74,
-      "start": 554.0,
-      "end": 559.0,
-      "duration": 5.0,
-      "text_snippet": "\\s khớp với một ký tự khoảng trắng [ \\t\\n\\x0B\\f\\r]."
-    },
-    {
-      "paragraph_id": 75,
-      "start": 559.0,
-      "end": 564.19,
-      "duration": 5.19,
-      "text_snippet": "\\D, \\W, \\S là các phủ định tương ứng của \\d, \\w, \\s."
-    },
-    {
-      "paragraph_id": 76,
-      "start": 564.29,
-      "end": 582.65,
-      "duration": 18.36,
-      "text_snippet": "Thoát chuỗi kép (Double Escaping): Vì ký tự dấu gạch chéo ngược (\\) có ý nghĩa đ"
-    },
-    {
-      "paragraph_id": 77,
-      "start": 582.65,
-      "end": 585.8,
-      "duration": 3.15,
-      "text_snippet": "Ví Dụ Mã Nguồn: Lớp ký tự tùy chỉnh"
-    },
-    {
-      "paragraph_id": 78,
-      "start": 582.65,
-      "end": 585.03,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 79,
-      "start": 585.02,
-      "end": 587.96,
+      "start": 493.8,
+      "end": 496.74,
       "duration": 2.94,
       "text_snippet": "Bộ định lượng (Quantifiers)"
     },
     {
-      "paragraph_id": 80,
-      "start": 587.96,
-      "end": 592.48,
-      "duration": 4.52,
+      "paragraph_id": 68,
+      "start": 496.74,
+      "end": 501.27,
+      "duration": 4.53,
       "text_snippet": "Các bộ định lượng xác định số lần phần tử phía trước nó được phép so khớp."
     },
     {
-      "paragraph_id": 81,
-      "start": 592.59,
-      "end": 621.29,
-      "duration": 28.7,
+      "paragraph_id": 69,
+      "start": 501.36,
+      "end": 527.77,
+      "duration": 26.41,
       "text_snippet": "Các kiểu bộ định lượng: ?: Xuất hiện 0 hoặc 1 lần. *: Xuất hiện 0 hoặc nhiều lần"
     },
     {
-      "paragraph_id": 82,
-      "start": 621.29,
-      "end": 623.74,
+      "paragraph_id": 70,
+      "start": 527.78,
+      "end": 530.23,
       "duration": 2.45,
       "text_snippet": "?: Xuất hiện 0 hoặc 1 lần."
     },
     {
-      "paragraph_id": 83,
-      "start": 623.74,
-      "end": 626.19,
+      "paragraph_id": 71,
+      "start": 530.23,
+      "end": 532.68,
       "duration": 2.45,
       "text_snippet": "*: Xuất hiện 0 hoặc nhiều lần."
     },
     {
-      "paragraph_id": 84,
-      "start": 626.19,
-      "end": 628.64,
+      "paragraph_id": 72,
+      "start": 532.68,
+      "end": 535.13,
       "duration": 2.45,
       "text_snippet": "+: Xuất hiện 1 hoặc nhiều lần."
     },
     {
-      "paragraph_id": 85,
-      "start": 628.64,
-      "end": 631.09,
-      "duration": 2.45,
+      "paragraph_id": 73,
+      "start": 527.88,
+      "end": 531.24,
+      "duration": 3.36,
       "text_snippet": "{n}: Xuất hiện chính xác $n$ lần."
     },
     {
-      "paragraph_id": 86,
-      "start": 621.29,
-      "end": 623.74,
-      "duration": 2.45,
+      "paragraph_id": 74,
+      "start": 531.19,
+      "end": 534.54,
+      "duration": 3.35,
       "text_snippet": "{n,}: Xuất hiện ít nhất $n$ lần."
     },
     {
-      "paragraph_id": 87,
-      "start": 623.74,
-      "end": 626.54,
-      "duration": 2.8,
+      "paragraph_id": 75,
+      "start": 534.54,
+      "end": 539.1,
+      "duration": 4.56,
       "text_snippet": "{n,m}: Xuất hiện từ $n$ đến $m$ lần."
     },
     {
-      "paragraph_id": 88,
-      "start": 626.54,
-      "end": 661.89,
-      "duration": 35.35,
+      "paragraph_id": 76,
+      "start": 539.1,
+      "end": 570.4,
+      "duration": 31.3,
       "text_snippet": "Chiến lược so khớp: Tham lam (Greedy - mặc định): Thử so khớp nhiều ký tự nhất c"
     },
     {
-      "paragraph_id": 89,
-      "start": 661.89,
-      "end": 675.19,
-      "duration": 13.3,
+      "paragraph_id": 77,
+      "start": 570.5,
+      "end": 581.21,
+      "duration": 10.71,
       "text_snippet": "Tham lam (Greedy - mặc định): Thử so khớp nhiều ký tự nhất có thể trước, sau đó "
     },
     {
-      "paragraph_id": 90,
-      "start": 675.19,
-      "end": 686.74,
+      "paragraph_id": 78,
+      "start": 581.21,
+      "end": 592.76,
       "duration": 11.55,
       "text_snippet": "Trì hoãn/Lười (Reluctant/Lazy - thêm ký tự ?): Thử so khớp ít ký tự nhất có thể "
     },
     {
-      "paragraph_id": 91,
-      "start": 686.84,
-      "end": 698.95,
-      "duration": 12.11,
+      "paragraph_id": 79,
+      "start": 592.76,
+      "end": 601.86,
+      "duration": 9.1,
       "text_snippet": "Chiếm hữu (Possessive - thêm ký tự +): Khớp nhiều ký tự nhất có thể và không bao"
     },
     {
-      "paragraph_id": 92,
-      "start": 698.95,
-      "end": 702.8,
+      "paragraph_id": 80,
+      "start": 601.86,
+      "end": 605.71,
       "duration": 3.85,
       "text_snippet": "Ví Dụ Mã Nguồn: Hành vi của các bộ định lượng"
     },
     {
-      "paragraph_id": 93,
-      "start": 698.95,
-      "end": 701.33,
+      "paragraph_id": 81,
+      "start": 605.64,
+      "end": 608.02,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 94,
-      "start": 701.32,
-      "end": 704.32,
+      "paragraph_id": 82,
+      "start": 607.96,
+      "end": 610.96,
       "duration": 3.0,
       "text_snippet": "Nhóm bắt giữ (Capturing group)"
     },
     {
-      "paragraph_id": 95,
-      "start": 704.32,
-      "end": 715.55,
-      "duration": 11.23,
+      "paragraph_id": 83,
+      "start": 610.96,
+      "end": 622.16,
+      "duration": 11.2,
       "text_snippet": "Một nhóm bắt giữ được tạo ra bằng cách đặt một biểu thức con bên trong dấu ngoặc"
     },
     {
-      "paragraph_id": 96,
-      "start": 715.65,
-      "end": 722.3,
-      "duration": 6.65,
+      "paragraph_id": 84,
+      "start": 622.16,
+      "end": 628.62,
+      "duration": 6.46,
       "text_snippet": "Gom nhóm: Cho phép các bộ định lượng áp dụng lên toàn bộ một mẫu con (ví dụ: (ab"
     },
     {
-      "paragraph_id": 97,
-      "start": 722.25,
-      "end": 729.36,
+      "paragraph_id": 85,
+      "start": 628.73,
+      "end": 635.84,
       "duration": 7.11,
       "text_snippet": "Trích xuất: Cho phép trích xuất các phần của chuỗi khớp thông qua phương thức ma"
     },
     {
-      "paragraph_id": 98,
-      "start": 729.36,
-      "end": 744.98,
-      "duration": 15.62,
+      "paragraph_id": 86,
+      "start": 635.79,
+      "end": 650.76,
+      "duration": 14.97,
       "text_snippet": "Tham chiếu ngược (Backreferences): Bạn có thể tham chiếu ngược lại một nhóm đã k"
     },
     {
-      "paragraph_id": 99,
-      "start": 744.99,
-      "end": 747.44,
+      "paragraph_id": 87,
+      "start": 650.76,
+      "end": 653.21,
       "duration": 2.45,
       "text_snippet": "Ví Dụ Mã Nguồn: Tham chiếu ngược"
     },
     {
+      "paragraph_id": 88,
+      "start": 650.76,
+      "end": 652.96,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 89,
+      "start": 653.06,
+      "end": 656.61,
+      "duration": 3.55,
+      "text_snippet": "Nhóm không bắt giữ (Non-capturing group)"
+    },
+    {
+      "paragraph_id": 90,
+      "start": 656.56,
+      "end": 669.84,
+      "duration": 13.28,
+      "text_snippet": "Một nhóm không bắt giữ được định nghĩa bằng cú pháp (?:pattern). Nó gom nhóm các"
+    },
+    {
+      "paragraph_id": 91,
+      "start": 669.84,
+      "end": 675.61,
+      "duration": 5.77,
+      "text_snippet": "Hiệu năng: Tiết kiệm bộ nhớ và thời gian xử lý bằng cách tránh lưu trữ các chuỗi"
+    },
+    {
+      "paragraph_id": 92,
+      "start": 675.61,
+      "end": 681.46,
+      "duration": 5.85,
+      "text_snippet": "Giữ nguyên chỉ mục nhóm: Tránh làm xáo trộn việc đánh số chỉ mục của các nhóm bắ"
+    },
+    {
+      "paragraph_id": 93,
+      "start": 681.56,
+      "end": 684.77,
+      "duration": 3.21,
+      "text_snippet": "Ví Dụ Mã Nguồn: Nhóm không bắt giữ"
+    },
+    {
+      "paragraph_id": 94,
+      "start": 684.73,
+      "end": 687.09,
+      "duration": 2.36,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 95,
+      "start": 687.09,
+      "end": 691.05,
+      "duration": 3.96,
+      "text_snippet": "Tại Sao Nhóm Không Bắt Giữ Giúp Tiết Kiệm Cấp Phát Bộ Nhớ Heap"
+    },
+    {
+      "paragraph_id": 96,
+      "start": 691.05,
+      "end": 730.44,
+      "duration": 39.39,
+      "text_snippet": "Trong biểu thức chính quy, nhóm bắt giữ (group) thực hiện hai nhiệm vụ song song"
+    },
+    {
+      "paragraph_id": 97,
+      "start": 730.54,
+      "end": 736.2,
+      "duration": 5.66,
+      "text_snippet": "Mô hình Tư duy: Bộ đệm bắt giữ vs. Gom nhóm logic"
+    },
+    {
+      "paragraph_id": 98,
+      "start": 736.2,
+      "end": 738.57,
+      "duration": 2.37,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 99,
+      "start": 738.58,
+      "end": 742.59,
+      "duration": 4.01,
+      "text_snippet": "Ví Dụ Mã Nguồn: Sự khác biệt hiệu năng của các nhóm"
+    },
+    {
       "paragraph_id": 100,
-      "start": 744.99,
-      "end": 747.19,
+      "start": 742.59,
+      "end": 744.79,
       "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 101,
-      "start": 747.19,
-      "end": 749.29,
-      "duration": 2.1,
-      "text_snippet": "Nhóm không bắt giữ (Non-capturing group)"
-    },
-    {
-      "paragraph_id": 102,
-      "start": 749.29,
-      "end": 765.39,
-      "duration": 16.1,
-      "text_snippet": "Một nhóm không bắt giữ được định nghĩa bằng cú pháp (?:pattern). Nó gom nhóm các"
-    },
-    {
-      "paragraph_id": 103,
-      "start": 765.39,
-      "end": 772.74,
-      "duration": 7.35,
-      "text_snippet": "Hiệu năng: Tiết kiệm bộ nhớ và thời gian xử lý bằng cách tránh lưu trữ các chuỗi"
-    },
-    {
-      "paragraph_id": 104,
-      "start": 772.74,
-      "end": 780.44,
-      "duration": 7.7,
-      "text_snippet": "Giữ nguyên chỉ mục nhóm: Tránh làm xáo trộn việc đánh số chỉ mục của các nhóm bắ"
-    },
-    {
-      "paragraph_id": 105,
-      "start": 780.44,
-      "end": 783.24,
-      "duration": 2.8,
-      "text_snippet": "Ví Dụ Mã Nguồn: Nhóm không bắt giữ"
-    },
-    {
-      "paragraph_id": 106,
-      "start": 783.24,
-      "end": 784.64,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 107,
-      "start": 784.64,
-      "end": 789.54,
-      "duration": 4.9,
-      "text_snippet": "Tại Sao Nhóm Không Bắt Giữ Giúp Tiết Kiệm Cấp Phát Bộ Nhớ Heap"
-    },
-    {
-      "paragraph_id": 108,
-      "start": 789.54,
-      "end": 843.79,
-      "duration": 54.25,
-      "text_snippet": "Trong biểu thức chính quy, nhóm bắt giữ (group) thực hiện hai nhiệm vụ song song"
-    },
-    {
-      "paragraph_id": 109,
-      "start": 843.79,
-      "end": 847.99,
-      "duration": 4.2,
-      "text_snippet": "Mô hình Tư duy: Bộ đệm bắt giữ vs. Gom nhóm logic"
-    },
-    {
-      "paragraph_id": 110,
-      "start": 847.99,
-      "end": 849.39,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 111,
-      "start": 849.49,
-      "end": 853.49,
-      "duration": 4.0,
-      "text_snippet": "Ví Dụ Mã Nguồn: Sự khác biệt hiệu năng của các nhóm"
-    },
-    {
-      "paragraph_id": 112,
-      "start": 853.44,
-      "end": 855.82,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 113,
-      "start": 855.81,
-      "end": 859.7,
+      "start": 744.89,
+      "end": 748.78,
       "duration": 3.89,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)"
     },
     {
-      "paragraph_id": 114,
-      "start": 859.7,
-      "end": 883.0,
-      "duration": 23.3,
+      "paragraph_id": 102,
+      "start": 748.73,
+      "end": 769.24,
+      "duration": 20.51,
       "text_snippet": "Sử dụng (pattern) $\\rightarrow$ Công cụ dự phòng khe bắt giữ $\\rightarrow$ Ghi l"
     },
     {
-      "paragraph_id": 115,
-      "start": 883.0,
-      "end": 895.6,
+      "paragraph_id": 103,
+      "start": 769.24,
+      "end": 781.84,
       "duration": 12.6,
       "text_snippet": "Sử dụng (?:pattern) $\\rightarrow$ Công cụ gộp nhóm logic không dự phòng khe $\\ri"
     },
     {
-      "paragraph_id": 116,
-      "start": 883.0,
-      "end": 889.3,
-      "duration": 6.3,
+      "paragraph_id": 104,
+      "start": 769.24,
+      "end": 776.23,
+      "duration": 6.99,
       "text_snippet": "Ví Dụ Thực Tế: Quay Lui Regex và Phòng Tránh Tấn Công ReDoS (Regex Backtracking "
     },
     {
-      "paragraph_id": 117,
-      "start": 889.3,
-      "end": 915.9,
-      "duration": 26.6,
+      "paragraph_id": 105,
+      "start": 776.33,
+      "end": 795.23,
+      "duration": 18.9,
       "text_snippet": "Tấn công từ chối dịch vụ bằng biểu thức chính quy (Regular Expression Denial of "
     },
     {
-      "paragraph_id": 118,
-      "start": 915.9,
-      "end": 919.05,
-      "duration": 3.15,
+      "paragraph_id": 106,
+      "start": 795.18,
+      "end": 799.68,
+      "duration": 4.5,
       "text_snippet": "Mẫu Regex Dễ Bị Tấn Công (The Vulnerable Pattern)"
     },
     {
-      "paragraph_id": 119,
-      "start": 919.05,
-      "end": 943.55,
-      "duration": 24.5,
+      "paragraph_id": 107,
+      "start": 799.68,
+      "end": 819.34,
+      "duration": 19.66,
       "text_snippet": "Hãy xem xét mẫu: (a+)+b Khi so khớp với chuỗi đầu vào aaaaaaaaaaaaaaaaaaaaaaaaaa"
     },
     {
-      "paragraph_id": 120,
-      "start": 943.55,
-      "end": 944.95,
-      "duration": 1.4,
+      "paragraph_id": 108,
+      "start": 819.34,
+      "end": 821.54,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 121,
-      "start": 945.05,
-      "end": 948.84,
+      "paragraph_id": 109,
+      "start": 821.64,
+      "end": 825.43,
       "duration": 3.79,
       "text_snippet": "Các Chiến Lược Giảm Thiểu (Mitigation Strategies)"
     },
     {
-      "paragraph_id": 122,
-      "start": 948.79,
-      "end": 959.84,
-      "duration": 11.05,
+      "paragraph_id": 110,
+      "start": 825.38,
+      "end": 836.16,
+      "duration": 10.78,
       "text_snippet": "Tránh các bộ định lượng lồng nhau chồng chéo: Không lồng các bộ định lượng khi c"
     },
     {
-      "paragraph_id": 123,
-      "start": 959.84,
-      "end": 988.82,
-      "duration": 28.98,
+      "paragraph_id": 111,
+      "start": 836.15,
+      "end": 864.22,
+      "duration": 28.07,
       "text_snippet": "Sử dụng bộ định lượng chiếm hữu: Sử dụng các bộ định lượng chiếm hữu (possessive"
     },
     {
-      "paragraph_id": 124,
-      "start": 988.81,
-      "end": 1003.86,
+      "paragraph_id": 112,
+      "start": 864.23,
+      "end": 879.28,
       "duration": 15.05,
       "text_snippet": "Sử dụng các phương thức String hoặc Quét ký tự: Nếu biểu thức chính quy trở nên "
     },
     {
-      "paragraph_id": 125,
-      "start": 988.81,
-      "end": 993.62,
-      "duration": 4.81,
+      "paragraph_id": 113,
+      "start": 864.33,
+      "end": 904.19,
+      "duration": 39.86,
       "text_snippet": "Tại Sao Quá Trình Quay Lui Xảy Ra và Cách Các Bộ Định Lượng Ngăn Chặn ReDoS"
     },
     {
-      "paragraph_id": 126,
-      "start": 993.62,
-      "end": 1059.07,
-      "duration": 65.45,
+      "paragraph_id": 114,
+      "start": 904.19,
+      "end": 919.67,
+      "duration": 15.48,
       "text_snippet": "Quá trình quay lui xảy ra khi công cụ regex sử dụng mô hình Máy trạng thái hữu h"
     },
     {
-      "paragraph_id": 127,
-      "start": 1059.07,
-      "end": 1062.57,
+      "paragraph_id": 115,
+      "start": 919.66,
+      "end": 923.16,
       "duration": 3.5,
       "text_snippet": "Mô hình Tư duy: Luồng thực thi quay lui (Backtracking)"
     },
     {
-      "paragraph_id": 128,
-      "start": 1062.57,
-      "end": 1063.97,
-      "duration": 1.4,
+      "paragraph_id": 116,
+      "start": 919.66,
+      "end": 921.86,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 129,
-      "start": 1063.97,
-      "end": 1068.52,
-      "duration": 4.55,
+      "paragraph_id": 117,
+      "start": 921.96,
+      "end": 926.12,
+      "duration": 4.16,
       "text_snippet": "Ví Dụ Mã Nguồn: Hành vi quay lui của các bộ định lượng"
     },
     {
-      "paragraph_id": 130,
-      "start": 1068.52,
-      "end": 1069.92,
-      "duration": 1.4,
+      "paragraph_id": 118,
+      "start": 926.08,
+      "end": 928.46,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 131,
-      "start": 1070.02,
-      "end": 1073.92,
+      "paragraph_id": 119,
+      "start": 928.45,
+      "end": 932.35,
       "duration": 3.9,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)"
     },
     {
-      "paragraph_id": 132,
-      "start": 1073.88,
-      "end": 1091.17,
-      "duration": 17.29,
+      "paragraph_id": 120,
+      "start": 932.35,
+      "end": 947.49,
+      "duration": 15.14,
       "text_snippet": "Bộ định lượng lồng nhau/chồng chéo $\\rightarrow$ Chuỗi đầu vào chứa chuỗi gần kh"
     },
     {
-      "paragraph_id": 133,
-      "start": 1091.16,
-      "end": 1094.54,
-      "duration": 3.38,
+      "paragraph_id": 121,
+      "start": 947.59,
+      "end": 950.94,
+      "duration": 3.35,
       "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
     },
     {
-      "paragraph_id": 134,
-      "start": 1094.54,
-      "end": 1120.69,
-      "duration": 26.15,
+      "paragraph_id": 122,
+      "start": 950.89,
+      "end": 971.49,
+      "duration": 20.6,
       "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/regex/Pat"
     },
     {
-      "paragraph_id": 135,
-      "start": 1120.69,
-      "end": 1123.14,
+      "paragraph_id": 123,
+      "start": 971.49,
+      "end": 973.94,
       "duration": 2.45,
       "text_snippet": "https://docs.oracle.com/javase/tutorial/essential/regex/ (Hướng dẫn Regex của Or"
     },
     {
-      "paragraph_id": 136,
-      "start": 1120.69,
-      "end": 1124.19,
-      "duration": 3.5,
+      "paragraph_id": 124,
+      "start": 971.49,
+      "end": 975.42,
+      "duration": 3.93,
       "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)"
     },
     {
-      "paragraph_id": 137,
-      "start": 1124.19,
-      "end": 1140.29,
-      "duration": 16.1,
+      "paragraph_id": 125,
+      "start": 975.51,
+      "end": 993.22,
+      "duration": 17.71,
       "text_snippet": "Những khái niệm nào ở đây là quy tắc tại thời điểm biên dịch? Việc kiểm tra cú p"
     },
     {
-      "paragraph_id": 138,
-      "start": 1140.29,
-      "end": 1155.69,
-      "duration": 15.4,
+      "paragraph_id": 126,
+      "start": 993.23,
+      "end": 1006.77,
+      "duration": 13.54,
       "text_snippet": "Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy? Các trạng th"
     },
     {
-      "paragraph_id": 139,
-      "start": 1155.69,
-      "end": 1178.09,
-      "duration": 22.4,
+      "paragraph_id": 127,
+      "start": 1006.76,
+      "end": 1033.62,
+      "duration": 26.86,
       "text_snippet": "Những khái niệm nào ở đây dễ là cạm bẫy phỏng vấn? Nhầm lẫn giữa Matcher.matches"
     },
     {
-      "paragraph_id": 140,
-      "start": 1178.09,
-      "end": 1182.64,
+      "paragraph_id": 128,
+      "start": 1033.63,
+      "end": 1038.18,
       "duration": 4.55,
       "text_snippet": "Nhầm lẫn giữa Matcher.matches() (khớp toàn bộ chuỗi) và Matcher.find() (khớp chu"
     },
     {
-      "paragraph_id": 141,
-      "start": 1182.74,
-      "end": 1186.18,
+      "paragraph_id": 129,
+      "start": 1033.73,
+      "end": 1037.17,
       "duration": 3.44,
       "text_snippet": "Chi phí biên dịch lại mẫu liên tục trong các vòng lặp."
     },
     {
-      "paragraph_id": 142,
-      "start": 1186.12,
-      "end": 1190.88,
+      "paragraph_id": 130,
+      "start": 1037.11,
+      "end": 1041.87,
       "duration": 4.76,
       "text_snippet": "An toàn đa luồng: chia sẻ đối tượng Matcher có trạng thái giữa nhiều luồng."
     },
     {
-      "paragraph_id": 143,
-      "start": 1190.89,
-      "end": 1195.29,
-      "duration": 4.4,
+      "paragraph_id": 131,
+      "start": 1041.88,
+      "end": 1046.29,
+      "duration": 4.41,
       "text_snippet": "Ném lỗi IllegalStateException khi truy vấn các nhóm trước khi gọi find()."
     }
   ]

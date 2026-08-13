@@ -1,19 +1,6 @@
 # Đồng Bộ Hóa và Đồng Thời - Phần 1 (Synchronization and Concurrency - Part 1)
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này tập trung vào các nguyên ngữ khóa nội tại (intrinsic locking primitives) của Java, các bộ giám sát (monitors) và cơ chế truyền tín hiệu wait/notify. Hãy học từng khái niệm như một quy tắc Java thực tế, tránh việc ghi nhớ từ vựng một cách máy móc.
-
 ## Khung Nội Dung (Outline Coverage)
-
-- **`synchronized method`** — synchronized method: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`synchronized block`** — synchronized block: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Object lock`** — Object lock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Class lock`** — Class lock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Monitor`** — Monitor: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`wait`** — wait: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`notify`** — notify: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`notifyAll`** — notifyAll: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

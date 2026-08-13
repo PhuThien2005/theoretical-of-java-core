@@ -1,11 +1,5 @@
 # Exception Handling - Part 4
 
-## Learning Goal
-
-This file covers a focused slice of **Exception Handling**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `FileNotFoundException` | Subclass of IOException thrown when opening a file fails due to absence or access issues. |
@@ -162,9 +156,3 @@ try {
     throw e; // Logged again by the caller!
 }
 ```
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?

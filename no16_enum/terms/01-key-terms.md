@@ -21,4 +21,3 @@ An enum defines a fixed set of named constants as a type-safe class-like constru
 ## enum singleton
 
 An enum defines a fixed set of named constants as a type-safe class-like construct.
-

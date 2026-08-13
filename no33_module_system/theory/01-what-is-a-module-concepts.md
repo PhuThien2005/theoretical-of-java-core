@@ -1,11 +1,5 @@
 # Java Module System - Part 1
 
-## Learning Goal
-
-This file covers the **Java Module System** (introduced in Java 9 as Project Jigsaw). Study how modules enforce strong encapsulation, resolve "classpath hell", and change how the JVM loads and secures classes.
-
-## Outline Coverage
-
 | Concept | Description |
 | --- | --- |
 | `What is a module?` | A self-describing collection of code (packages) and data (resources) with a module descriptor. |

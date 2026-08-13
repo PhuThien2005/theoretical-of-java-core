@@ -1,11 +1,5 @@
 # Common Java Core Interview Questions - Part 2
 
-## Learning Goal
-
-This file covers intermediate Java Core interview questions regarding Set operations, modifiers (final, static), exception inheritance, OOP relationships, and instance context.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `How does HashSet remove duplicates?` | Uses an internal `HashMap` to store elements as keys; duplicate checks rely on `hashCode()` and `equals()`. |
@@ -40,12 +34,9 @@ public class HashSet<E> {
 
 ### final vs. finally vs. finalize()
 
-- **`final`** — final: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - **Variable**: Reassignment is prohibited (constant).
   - **Method**: Cannot be overridden by subclasses.
   - **Class**: Cannot be extended (e.g., `String`, `Integer`).
-- **`finally`** — finally: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`finalize()`** — finalize(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 
@@ -112,9 +103,6 @@ No, constructors are not inherited by subclasses.
 ---
 
 ### this vs. super
-
-- **`this`** — this: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`super`** — super: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

@@ -1,11 +1,5 @@
 # Common Java Core Interview Questions - Part 4
 
-## Learning Goal
-
-This file covers advanced Java Core interview questions regarding Stream transformations, Optional behaviors, thread-safe Maps, hash consistency, Garbage Collection mechanics, and JVM memory organization.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `How are map and flatMap different?` | `map` transforms each element into a single value (1-to-1); `flatMap` transforms each element into a Stream and flattens them (1-to-many). |
@@ -22,8 +16,6 @@ This file covers advanced Java Core interview questions regarding Stream transfo
 ### map() vs. flatMap()
 
 Both are Stream/Optional intermediate operations, but they differ in mapping style:
-- **`map`** — map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`flatMap`** — flatMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ```java
 // map: [ ["a", "b"], ["c"] ] -> [ 2, 1 ] (lengths)
@@ -37,9 +29,6 @@ Stream<String> flat = list.stream().flatMap(Collection::stream);
 ---
 
 ### Optional: `orElse` vs. `orElseGet`
-
-- **`orElse(T other)`** — orElse(T other): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`orElseGet(Supplier<? extends T> other)`** — orElseGet(Supplier<? extends T> other): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ```java
 public String getDatabaseValue() {
@@ -55,10 +44,6 @@ optional.orElseGet(() -> getDatabaseValue()); // DOES NOT PRINT (lazy evaluation
 ---
 
 ### HashMap vs. Hashtable vs. ConcurrentHashMap
-
-- **`HashMap`** — HashMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Hashtable`** — Hashtable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ConcurrentHashMap`** — ConcurrentHashMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

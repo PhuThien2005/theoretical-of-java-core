@@ -4,27 +4,9 @@ Kiểu dữ liệu nguyên thủy (Primitive Types) là các kiểu dữ liệu 
 
 Java có 8 kiểu nguyên thủy:
 
-- **`byte`** — byte: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`short`** — short: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`int`** — int: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`long`** — long: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`float`** — float: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`double`** — double: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`char`** — char: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`boolean`** — boolean: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Kích Thước Trong Bộ Nhớ (Size In Memory)
 
 Mỗi kiểu nguyên thủy đều có một **kích thước cố định, được đảm bảo** trong bộ nhớ. Đây là đặc tính định nghĩa của các kiểu nguyên thủy — JVM luôn biết chính xác cần cấp phát bao nhiêu bit trước khi chương trình chạy.
-
-- **`byte`** — byte: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`short`** — short: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`int`** — int: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`long`** — long: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`float`** — float: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`double`** — double: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`char`** — char: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`boolean`** — boolean: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 Kích thước cố định này là lý do tại sao các kiểu nguyên thủy có thể được lưu trữ trực tiếp trên Stack — xem [Kiểu Tham Chiếu và Mô Hình Bộ Nhớ (Reference Types and Memory Model)](02-reference-types.md) để biết chi tiết về việc lưu trữ trên Stack so với Heap.
 
@@ -125,11 +107,6 @@ Biến cục bộ (local variable) không tự động nhận giá trị mặc �
 Các trường (field) có giá trị mặc định.
 
 Các giá trị mặc định phổ biến:
-
-- **`0`** — 0: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`char`** — char: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`boolean`** — boolean: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`null`** — null: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Các Sai Lầm Thường Gặp (Common Mistakes)
 

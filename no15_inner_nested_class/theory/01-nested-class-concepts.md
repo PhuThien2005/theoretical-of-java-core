@@ -1,11 +1,5 @@
 # Inner Class and Nested Class - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **Inner Class and Nested Class**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Nested class` | A class defined within another class. Divided into static nested classes and non-static nested classes (inner classes). |
@@ -581,4 +575,3 @@ Anonymous inner class compiled -> compiler writes separate physical `Outer$1.cla
 - [JLS §15.9.5.1: Anonymous Constructors](https://docs.oracle.com/javase/specs/jls/se21/html/jls-15.html#jls-15.9.5.1)
 - [JVMS §4.7.6: The InnerClasses Attribute](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-4.html#jvms-4.7.6)
 - [JVMS §6.5.invokedynamic: Instruction Reference](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-6.html#jvms-6.5.invokedynamic)
-

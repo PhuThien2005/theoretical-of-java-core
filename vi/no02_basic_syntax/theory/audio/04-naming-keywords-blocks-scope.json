@@ -1,7 +1,7 @@
 {
   "lesson": "04-naming-keywords-blocks-scope",
-  "total_duration_seconds": 330.09,
-  "total_paragraphs": 69,
+  "total_duration_seconds": 269.36,
+  "total_paragraphs": 63,
   "timestamps": [
     {
       "paragraph_id": 1,
@@ -33,456 +33,414 @@
     },
     {
       "paragraph_id": 5,
-      "start": 19.96,
-      "end": 26.22,
-      "duration": 6.26,
-      "text_snippet": "StudentService — StudentService: Cung cấp các quy tắc và cơ chế hoạt động cụ thể"
-    },
-    {
-      "paragraph_id": 6,
-      "start": 26.32,
-      "end": 32.21,
-      "duration": 5.89,
-      "text_snippet": "Runnable — Runnable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 7,
-      "start": 32.16,
-      "end": 37.87,
-      "duration": 5.71,
-      "text_snippet": "calculateTotal — calculateTotal: Cung cấp các quy tắc và cơ chế hoạt động cụ thể"
-    },
-    {
-      "paragraph_id": 8,
-      "start": 37.88,
-      "end": 43.69,
-      "duration": 5.81,
-      "text_snippet": "studentName — studentName: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong"
-    },
-    {
-      "paragraph_id": 9,
-      "start": 43.69,
-      "end": 52.84,
-      "duration": 9.15,
-      "text_snippet": "MAX_RETRY_COUNT — MAX_RETRY_COUNT: Cung cấp các quy tắc và cơ chế hoạt động cụ t"
-    },
-    {
-      "paragraph_id": 10,
-      "start": 52.84,
-      "end": 60.38,
-      "duration": 7.54,
-      "text_snippet": "com.example.learning — com.example.learning: Cung cấp các quy tắc và cơ chế hoạt"
-    },
-    {
-      "paragraph_id": 11,
-      "start": 60.48,
-      "end": 62.17,
+      "start": 20.06,
+      "end": 21.75,
       "duration": 1.69,
       "text_snippet": "Tên Biến Tốt"
     },
     {
-      "paragraph_id": 12,
-      "start": 62.11,
-      "end": 65.92,
+      "paragraph_id": 6,
+      "start": 21.7,
+      "end": 25.51,
       "duration": 3.81,
       "text_snippet": "Tên tốt mô tả ý nghĩa, không chỉ kiểu dữ liệu."
     },
     {
-      "paragraph_id": 13,
-      "start": 65.92,
-      "end": 67.19,
+      "paragraph_id": 7,
+      "start": 25.51,
+      "end": 26.78,
       "duration": 1.27,
       "text_snippet": "Yếu:"
     },
     {
-      "paragraph_id": 14,
-      "start": 67.2,
-      "end": 69.53,
-      "duration": 2.33,
+      "paragraph_id": 8,
+      "start": 26.79,
+      "end": 28.94,
+      "duration": 2.15,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 15,
-      "start": 69.53,
-      "end": 70.96,
-      "duration": 1.43,
-      "text_snippet": "Tốt hơn:"
-    },
-    {
-      "paragraph_id": 16,
-      "start": 71.05,
-      "end": 73.43,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 17,
-      "start": 73.38,
-      "end": 74.65,
-      "duration": 1.27,
-      "text_snippet": "Yếu:"
-    },
-    {
-      "paragraph_id": 18,
-      "start": 74.65,
-      "end": 76.98,
-      "duration": 2.33,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 19,
-      "start": 76.98,
-      "end": 78.6,
+      "paragraph_id": 9,
+      "start": 29.04,
+      "end": 30.66,
       "duration": 1.62,
       "text_snippet": "Tốt hơn:"
     },
     {
+      "paragraph_id": 10,
+      "start": 30.61,
+      "end": 32.99,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 32.99,
+      "end": 34.26,
+      "duration": 1.27,
+      "text_snippet": "Yếu:"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 34.26,
+      "end": 36.41,
+      "duration": 2.15,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 36.51,
+      "end": 38.13,
+      "duration": 1.62,
+      "text_snippet": "Tốt hơn:"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 38.09,
+      "end": 40.47,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 40.46,
+      "end": 45.32,
+      "duration": 4.86,
+      "text_snippet": "Tên ngắn vẫn chấp nhận được trong phạm vi hẹp, chẳng hạn như biến đếm vòng lặp:"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 45.33,
+      "end": 47.53,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 47.63,
+      "end": 53.09,
+      "duration": 5.46,
+      "text_snippet": "Từ Khóa (Keywords)"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 53.09,
+      "end": 57.08,
+      "duration": 3.99,
+      "text_snippet": "Từ khóa là các từ được Java dành riêng. Bạn không thể dùng chúng làm tên biến, p"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 57.08,
+      "end": 58.68,
+      "duration": 1.6,
+      "text_snippet": "Ví dụ:"
+    },
+    {
       "paragraph_id": 20,
-      "start": 78.6,
-      "end": 80.8,
+      "start": 58.68,
+      "end": 60.88,
       "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 21,
-      "start": 80.9,
-      "end": 85.75,
-      "duration": 4.85,
-      "text_snippet": "Tên ngắn vẫn chấp nhận được trong phạm vi hẹp, chẳng hạn như biến đếm vòng lặp:"
+      "start": 60.98,
+      "end": 62.87,
+      "duration": 1.89,
+      "text_snippet": "Không hợp lệ:"
     },
     {
       "paragraph_id": 22,
-      "start": 85.7,
-      "end": 88.08,
+      "start": 62.81,
+      "end": 65.19,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 23,
-      "start": 88.08,
-      "end": 93.6,
-      "duration": 5.52,
-      "text_snippet": "Từ Khóa (Keywords)"
+      "start": 65.19,
+      "end": 71.23,
+      "duration": 6.04,
+      "text_snippet": "Phạm Vi (Scope)"
     },
     {
       "paragraph_id": 24,
-      "start": 93.6,
-      "end": 97.58,
-      "duration": 3.98,
-      "text_snippet": "Từ khóa là các từ được Java dành riêng. Bạn không thể dùng chúng làm tên biến, p"
+      "start": 71.23,
+      "end": 76.13,
+      "duration": 4.9,
+      "text_snippet": "Phạm vi xác định nơi một biến hoặc tên có thể được truy cập."
     },
     {
       "paragraph_id": 25,
-      "start": 97.58,
-      "end": 98.98,
-      "duration": 1.4,
+      "start": 71.33,
+      "end": 72.93,
+      "duration": 1.6,
       "text_snippet": "Ví dụ:"
     },
     {
       "paragraph_id": 26,
-      "start": 99.08,
-      "end": 101.46,
+      "start": 72.88,
+      "end": 75.26,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 27,
-      "start": 101.4,
-      "end": 103.29,
-      "duration": 1.89,
-      "text_snippet": "Không hợp lệ:"
-    },
-    {
-      "paragraph_id": 28,
-      "start": 103.29,
-      "end": 105.67,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 29,
-      "start": 105.66,
-      "end": 111.7,
-      "duration": 6.04,
-      "text_snippet": "Phạm Vi (Scope)"
-    },
-    {
-      "paragraph_id": 30,
-      "start": 111.7,
-      "end": 116.6,
-      "duration": 4.9,
-      "text_snippet": "Phạm vi xác định nơi một biến hoặc tên có thể được truy cập."
-    },
-    {
-      "paragraph_id": 31,
-      "start": 111.8,
-      "end": 113.4,
-      "duration": 1.6,
-      "text_snippet": "Ví dụ:"
-    },
-    {
-      "paragraph_id": 32,
-      "start": 113.35,
-      "end": 115.73,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 33,
-      "start": 115.73,
-      "end": 118.68,
+      "start": 75.25,
+      "end": 78.2,
       "duration": 2.95,
       "text_snippet": "inner chỉ tồn tại bên trong khối if."
     },
     {
-      "paragraph_id": 34,
-      "start": 118.67,
-      "end": 120.66,
+      "paragraph_id": 28,
+      "start": 78.2,
+      "end": 80.19,
       "duration": 1.99,
       "text_snippet": "Sơ Đồ Phạm Vi"
     },
     {
-      "paragraph_id": 35,
-      "start": 120.66,
-      "end": 122.87,
-      "duration": 2.21,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 36,
-      "start": 122.88,
-      "end": 126.38,
-      "duration": 3.5,
-      "text_snippet": "Tại Sao Phạm Vi Biến Bị Giới Hạn Trong Khối"
-    },
-    {
-      "paragraph_id": 37,
-      "start": 126.38,
-      "end": 137.93,
-      "duration": 11.55,
-      "text_snippet": "Giới hạn phạm vi biến cục bộ trong các khối code {} cụ thể là một lựa chọn thiết"
-    },
-    {
-      "paragraph_id": 38,
-      "start": 137.93,
-      "end": 166.28,
-      "duration": 28.35,
-      "text_snippet": "Quản lý bộ nhớ (Stack Allocation - Cấp phát Stack): Biến cục bộ được lưu trên St"
-    },
-    {
-      "paragraph_id": 39,
-      "start": 166.28,
-      "end": 181.33,
-      "duration": 15.05,
-      "text_snippet": "An toàn và tái cấu trúc: Giới hạn tầm nhìn của biến đảm bảo rằng biến không thể "
-    },
-    {
-      "paragraph_id": 40,
-      "start": 181.32,
-      "end": 197.77,
-      "duration": 16.45,
-      "text_snippet": "Ngăn che khuất biến (Variable Shadowing): Nếu một biến hiển thị ở khắp nơi, việc"
-    },
-    {
-      "paragraph_id": 41,
-      "start": 197.87,
-      "end": 201.26,
-      "duration": 3.39,
-      "text_snippet": "Mô Hình Tư Duy: Vòng Đời Bộ Nhớ Stack"
-    },
-    {
-      "paragraph_id": 42,
-      "start": 201.21,
-      "end": 211.72,
-      "duration": 10.51,
-      "text_snippet": "Hãy nghĩ phạm vi khối như viết ghi chú trên bảng trắng trong cuộc họp: khi cuộc "
-    },
-    {
-      "paragraph_id": 43,
-      "start": 211.72,
-      "end": 214.1,
+      "paragraph_id": 29,
+      "start": 80.29,
+      "end": 82.67,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 44,
-      "start": 214.1,
-      "end": 215.72,
-      "duration": 1.62,
-      "text_snippet": "Ví Dụ Code"
+      "paragraph_id": 30,
+      "start": 82.61,
+      "end": 94.01,
+      "duration": 11.4,
+      "text_snippet": "Tại Sao Phạm Vi Biến Bị Giới Hạn Trong Khối"
     },
     {
-      "paragraph_id": 45,
-      "start": 215.72,
-      "end": 217.92,
-      "duration": 2.2,
+      "paragraph_id": 31,
+      "start": 94.01,
+      "end": 105.56,
+      "duration": 11.55,
+      "text_snippet": "Giới hạn phạm vi biến cục bộ trong các khối code {} cụ thể là một lựa chọn thiết"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 94.01,
+      "end": 118.25,
+      "duration": 24.24,
+      "text_snippet": "Quản lý bộ nhớ (Stack Allocation - Cấp phát Stack): Biến cục bộ được lưu trên St"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 118.35,
+      "end": 138.87,
+      "duration": 20.52,
+      "text_snippet": "An toàn và tái cấu trúc: Giới hạn tầm nhìn của biến đảm bảo rằng biến không thể "
+    },
+    {
+      "paragraph_id": 34,
+      "start": 138.88,
+      "end": 142.84,
+      "duration": 3.96,
+      "text_snippet": "Ngăn che khuất biến (Variable Shadowing): Nếu một biến hiển thị ở khắp nơi, việc"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 142.84,
+      "end": 146.25,
+      "duration": 3.41,
+      "text_snippet": "Mô Hình Tư Duy: Vòng Đời Bộ Nhớ Stack"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 146.25,
+      "end": 156.79,
+      "duration": 10.54,
+      "text_snippet": "Hãy nghĩ phạm vi khối như viết ghi chú trên bảng trắng trong cuộc họp: khi cuộc "
+    },
+    {
+      "paragraph_id": 37,
+      "start": 156.89,
+      "end": 159.27,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 46,
-      "start": 217.92,
-      "end": 220.02,
-      "duration": 2.1,
+      "paragraph_id": 38,
+      "start": 159.21,
+      "end": 160.82,
+      "duration": 1.61,
+      "text_snippet": "Ví Dụ Code"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 160.83,
+      "end": 163.19,
+      "duration": 2.36,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 163.19,
+      "end": 165.69,
+      "duration": 2.5,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
     },
     {
-      "paragraph_id": 47,
-      "start": 220.02,
-      "end": 237.87,
-      "duration": 17.85,
+      "paragraph_id": 41,
+      "start": 165.79,
+      "end": 178.48,
+      "duration": 12.69,
       "text_snippet": "Biến được khai báo trong khối → Trình biên dịch giới hạn truy cập trong phạm vi "
     },
     {
-      "paragraph_id": 48,
-      "start": 237.87,
-      "end": 238.92,
+      "paragraph_id": 42,
+      "start": 178.48,
+      "end": 179.53,
       "duration": 1.05,
       "text_snippet": "Lỗi Thường Gặp"
     },
     {
-      "paragraph_id": 49,
-      "start": 238.92,
-      "end": 243.82,
-      "duration": 4.9,
+      "paragraph_id": 43,
+      "start": 178.48,
+      "end": 183.51,
+      "duration": 5.03,
       "text_snippet": "Tái sử dụng tên mơ hồ như data, temp, hay value ở khắp nơi."
     },
     {
-      "paragraph_id": 50,
-      "start": 243.82,
-      "end": 247.67,
-      "duration": 3.85,
+      "paragraph_id": 44,
+      "start": 183.5,
+      "end": 186.96,
+      "duration": 3.46,
       "text_snippet": "Khai báo biến trong khối rồi cố dùng nó bên ngoài."
     },
     {
-      "paragraph_id": 51,
-      "start": 247.77,
-      "end": 253.77,
+      "paragraph_id": 45,
+      "start": 187.06,
+      "end": 193.06,
       "duration": 6.0,
       "text_snippet": "Dùng từ khóa Java làm tên."
     },
     {
-      "paragraph_id": 52,
-      "start": 253.77,
-      "end": 257.27,
+      "paragraph_id": 46,
+      "start": 193.06,
+      "end": 196.56,
       "duration": 3.5,
       "text_snippet": "Dùng kiểu đặt tên hằng số cho biến thông thường."
     },
     {
-      "paragraph_id": 53,
-      "start": 253.77,
-      "end": 256.69,
+      "paragraph_id": 47,
+      "start": 193.06,
+      "end": 195.98,
       "duration": 2.92,
       "text_snippet": "Lỗi Thường Gặp: Tên Biến Mơ Hồ"
     },
     {
-      "paragraph_id": 54,
-      "start": 256.7,
-      "end": 261.28,
-      "duration": 4.58,
+      "paragraph_id": 48,
+      "start": 195.99,
+      "end": 198.19,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 55,
-      "start": 261.27,
-      "end": 262.67,
-      "duration": 1.4,
+      "paragraph_id": 49,
+      "start": 198.29,
+      "end": 200.67,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 56,
-      "start": 261.38,
-      "end": 264.8,
+      "paragraph_id": 50,
+      "start": 200.61,
+      "end": 204.03,
       "duration": 3.42,
       "text_snippet": "Lỗi Thường Gặp: Dùng Biến Ngoài Khối Của Nó"
     },
     {
+      "paragraph_id": 51,
+      "start": 204.04,
+      "end": 206.42,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 206.41,
+      "end": 209.72,
+      "duration": 3.31,
+      "text_snippet": "Cách sửa: khai báo result trước khối if:"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 209.83,
+      "end": 212.21,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 212.15,
+      "end": 216.16,
+      "duration": 4.01,
+      "text_snippet": "Lỗi Thường Gặp: Dùng Kiểu Đặt Tên Hằng Số Cho Biến Thường"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 216.16,
+      "end": 218.52,
+      "duration": 2.36,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 218.53,
+      "end": 222.15,
+      "duration": 3.62,
+      "text_snippet": "Lỗi Thường Gặp: Ba Vi Phạm Quy Ước Trong Một Class"
+    },
+    {
       "paragraph_id": 57,
-      "start": 264.75,
-      "end": 267.12,
-      "duration": 2.37,
+      "start": 222.25,
+      "end": 224.63,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 58,
-      "start": 267.12,
-      "end": 270.61,
-      "duration": 3.49,
-      "text_snippet": "Cách sửa: khai báo result trước khối if:"
+      "start": 224.58,
+      "end": 227.77,
+      "duration": 3.19,
+      "text_snippet": "Ví Dụ Thực Tế: Class Đặt Tên Đúng"
     },
     {
       "paragraph_id": 59,
-      "start": 270.61,
-      "end": 272.99,
+      "start": 227.76,
+      "end": 230.14,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 60,
-      "start": 272.99,
-      "end": 277.0,
-      "duration": 4.01,
-      "text_snippet": "Lỗi Thường Gặp: Dùng Kiểu Đặt Tên Hằng Số Cho Biến Thường"
-    },
-    {
-      "paragraph_id": 61,
-      "start": 277.1,
-      "end": 279.48,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 62,
-      "start": 279.43,
-      "end": 283.07,
-      "duration": 3.64,
-      "text_snippet": "Lỗi Thường Gặp: Ba Vi Phạm Quy Ước Trong Một Class"
-    },
-    {
-      "paragraph_id": 63,
-      "start": 283.06,
-      "end": 285.44,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 64,
-      "start": 285.44,
-      "end": 288.63,
-      "duration": 3.19,
-      "text_snippet": "Ví Dụ Thực Tế: Class Đặt Tên Đúng"
-    },
-    {
-      "paragraph_id": 65,
-      "start": 288.62,
-      "end": 290.82,
-      "duration": 2.2,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 66,
-      "start": 290.93,
-      "end": 297.38,
-      "duration": 6.45,
+      "start": 230.14,
+      "end": 236.6,
+      "duration": 6.46,
       "text_snippet": "Mỗi định danh ở đây thể hiện ngay kiểu của nó khi nhìn lướt: class, hằng số, biế"
     },
     {
-      "paragraph_id": 67,
-      "start": 297.32,
-      "end": 299.33,
+      "paragraph_id": 61,
+      "start": 236.7,
+      "end": 238.71,
       "duration": 2.01,
       "text_snippet": "Liên Kết Tham Khảo"
     },
     {
-      "paragraph_id": 68,
-      "start": 299.34,
-      "end": 330.09,
-      "duration": 30.75,
+      "paragraph_id": 62,
+      "start": 238.66,
+      "end": 269.36,
+      "duration": 30.7,
       "text_snippet": "https://docs.oracle.com/javase/specs/jls/se21/html/jls-6.html#jls-6.3 (JLS Khai "
     },
     {
-      "paragraph_id": 69,
-      "start": 330.09,
-      "end": 332.54,
+      "paragraph_id": 63,
+      "start": 269.36,
+      "end": 271.81,
       "duration": 2.45,
       "text_snippet": "https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.2 (JLS Khố"
     }

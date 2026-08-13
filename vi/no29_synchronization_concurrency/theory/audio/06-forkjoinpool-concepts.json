@@ -1,314 +1,279 @@
 {
   "lesson": "06-forkjoinpool-concepts",
-  "total_duration_seconds": 353.15,
-  "total_paragraphs": 44,
+  "total_duration_seconds": 297.29,
+  "total_paragraphs": 39,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 3.15,
-      "duration": 3.15,
+      "start": 0.1,
+      "end": 3.41,
+      "duration": 3.31,
       "text_snippet": "Đồng bộ hóa và Đồng thời - Phần 6"
     },
     {
       "paragraph_id": 2,
-      "start": 3.15,
-      "end": 4.55,
-      "duration": 1.4,
-      "text_snippet": "Mục Tiêu Học Tập"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 4.55,
-      "end": 20.3,
-      "duration": 15.75,
-      "text_snippet": "Tài liệu này trình bày về khung Fork/Join (ForkJoinPool, RecursiveTask, Recursiv"
-    },
-    {
-      "paragraph_id": 4,
-      "start": 20.3,
-      "end": 21.7,
-      "duration": 1.4,
-      "text_snippet": "Nội Dung Tổng Quan"
-    },
-    {
-      "paragraph_id": 5,
-      "start": 21.7,
-      "end": 27.65,
-      "duration": 5.95,
-      "text_snippet": "ForkJoinPool — ForkJoinPool: Cung cấp các quy tắc và cơ chế hoạt động cụ thể tro"
-    },
-    {
-      "paragraph_id": 6,
-      "start": 27.65,
-      "end": 34.3,
-      "duration": 6.65,
-      "text_snippet": "Parallel Stream — Parallel Stream: Cung cấp các quy tắc và cơ chế hoạt động cụ t"
-    },
-    {
-      "paragraph_id": 7,
-      "start": 34.3,
-      "end": 35.7,
-      "duration": 1.4,
+      "start": 3.36,
+      "end": 5.19,
+      "duration": 1.83,
       "text_snippet": "Ghi Chú Chi Tiết"
     },
     {
-      "paragraph_id": 8,
-      "start": 35.7,
-      "end": 37.8,
-      "duration": 2.1,
+      "paragraph_id": 3,
+      "start": 5.19,
+      "end": 13.83,
+      "duration": 8.64,
       "text_snippet": "ForkJoinPool và Trộm công việc (Work-Stealing)"
     },
     {
-      "paragraph_id": 9,
-      "start": 37.8,
-      "end": 41.65,
+      "paragraph_id": 4,
+      "start": 13.82,
+      "end": 17.67,
       "duration": 3.85,
       "text_snippet": "ForkJoinPool triển khai một thuật toán trộm công việc (work-stealing algorithm)."
     },
     {
-      "paragraph_id": 10,
-      "start": 41.65,
-      "end": 48.3,
-      "duration": 6.65,
+      "paragraph_id": 5,
+      "start": 13.92,
+      "end": 20.58,
+      "duration": 6.66,
       "text_snippet": "Mỗi luồng công việc (worker thread) duy trì hàng đợi hai đầu (deque) các tác vụ "
     },
     {
-      "paragraph_id": 11,
-      "start": 48.3,
-      "end": 65.45,
-      "duration": 17.15,
+      "paragraph_id": 6,
+      "start": 20.54,
+      "end": 41.87,
+      "duration": 21.33,
       "text_snippet": "Khi một luồng công việc hết tác vụ, nó sẽ trộm các tác vụ con đang chờ từ phía s"
     },
     {
-      "paragraph_id": 12,
-      "start": 65.45,
-      "end": 77.7,
-      "duration": 12.25,
+      "paragraph_id": 7,
+      "start": 41.86,
+      "end": 51.96,
+      "duration": 10.1,
       "text_snippet": "Các tác vụ con được định nghĩa bằng cách sử dụng: RecursiveAction: dành cho các "
     },
     {
-      "paragraph_id": 13,
-      "start": 77.7,
-      "end": 81.9,
+      "paragraph_id": 8,
+      "start": 51.96,
+      "end": 56.16,
       "duration": 4.2,
       "text_snippet": "RecursiveAction: dành cho các tác vụ không trả về kết quả (void)."
     },
     {
-      "paragraph_id": 14,
-      "start": 81.9,
-      "end": 86.1,
-      "duration": 4.2,
+      "paragraph_id": 9,
+      "start": 52.06,
+      "end": 57.01,
+      "duration": 4.95,
       "text_snippet": "RecursiveTask<V>: dành cho các tác vụ trả về kết quả kiểu V."
     },
     {
-      "paragraph_id": 15,
-      "start": 86.1,
-      "end": 87.5,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 16,
-      "start": 87.5,
-      "end": 90.65,
-      "duration": 3.15,
-      "text_snippet": "Luồng song song và Bể chứa chung (Common Pool)"
-    },
-    {
-      "paragraph_id": 17,
-      "start": 90.65,
-      "end": 102.9,
-      "duration": 12.25,
-      "text_snippet": "Gọi .parallelStream() hoặc .parallel() trên một luồng hiện có sẽ chia nhỏ các ph"
-    },
-    {
-      "paragraph_id": 18,
-      "start": 102.9,
-      "end": 109.9,
-      "duration": 7.0,
-      "text_snippet": "Dưới nền tảng: Tất cả các luồng song song chạy trên một bể chứa chung trong toàn"
-    },
-    {
-      "paragraph_id": 19,
-      "start": 109.9,
-      "end": 126.0,
-      "duration": 16.1,
-      "text_snippet": "Quan trọng: Vì bể chứa này được chia sẻ trên toàn bộ JVM, bất kỳ hoạt động chặn "
-    },
-    {
-      "paragraph_id": 20,
-      "start": 126.0,
-      "end": 134.4,
-      "duration": 8.4,
-      "text_snippet": "Xem thêm: Cách Parallel Stream hoạt động và các nguy cơ về hiệu năng, được trình"
-    },
-    {
-      "paragraph_id": 21,
-      "start": 134.5,
-      "end": 138.09,
-      "duration": 3.59,
-      "text_snippet": "Ví Dụ Thực Tế: Tính Tổng Mảng Lớn Song Song"
-    },
-    {
-      "paragraph_id": 22,
-      "start": 138.04,
-      "end": 139.48,
-      "duration": 1.44,
-      "text_snippet": "Vấn đề"
-    },
-    {
-      "paragraph_id": 23,
-      "start": 139.47,
-      "end": 149.45,
-      "duration": 9.98,
-      "text_snippet": "Tính tổng một mảng gồm 100 triệu số nguyên. Một vòng lặp đơn luồng tốn quá nhiều"
-    },
-    {
-      "paragraph_id": 24,
-      "start": 149.45,
-      "end": 150.86,
-      "duration": 1.41,
-      "text_snippet": "Giải pháp"
-    },
-    {
-      "paragraph_id": 25,
-      "start": 150.86,
-      "end": 156.47,
-      "duration": 5.61,
-      "text_snippet": "Sử dụng ForkJoinPool với RecursiveTask để chia nhỏ và tính tổng mảng một cách so"
-    },
-    {
-      "paragraph_id": 26,
-      "start": 156.57,
-      "end": 158.95,
+      "paragraph_id": 10,
+      "start": 56.96,
+      "end": 59.34,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 27,
-      "start": 158.9,
-      "end": 160.82,
+      "paragraph_id": 11,
+      "start": 59.34,
+      "end": 63.09,
+      "duration": 3.75,
+      "text_snippet": "Luồng song song và Bể chứa chung (Common Pool)"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 63.09,
+      "end": 73.65,
+      "duration": 10.56,
+      "text_snippet": "Gọi .parallelStream() hoặc .parallel() trên một luồng hiện có sẽ chia nhỏ các ph"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 73.75,
+      "end": 81.36,
+      "duration": 7.61,
+      "text_snippet": "Dưới nền tảng: Tất cả các luồng song song chạy trên một bể chứa chung trong toàn"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 81.31,
+      "end": 94.23,
+      "duration": 12.92,
+      "text_snippet": "Quan trọng: Vì bể chứa này được chia sẻ trên toàn bộ JVM, bất kỳ hoạt động chặn "
+    },
+    {
+      "paragraph_id": 15,
+      "start": 94.24,
+      "end": 102.56,
+      "duration": 8.32,
+      "text_snippet": "Xem thêm: Cách Parallel Stream hoạt động và các nguy cơ về hiệu năng, được trình"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 102.56,
+      "end": 106.16,
+      "duration": 3.6,
+      "text_snippet": "Ví Dụ Thực Tế: Tính Tổng Mảng Lớn Song Song"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 106.26,
+      "end": 107.7,
+      "duration": 1.44,
+      "text_snippet": "Vấn đề"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 107.65,
+      "end": 117.62,
+      "duration": 9.97,
+      "text_snippet": "Tính tổng một mảng gồm 100 triệu số nguyên. Một vòng lặp đơn luồng tốn quá nhiều"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 117.62,
+      "end": 119.03,
+      "duration": 1.41,
+      "text_snippet": "Giải pháp"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 119.04,
+      "end": 124.65,
+      "duration": 5.61,
+      "text_snippet": "Sử dụng ForkJoinPool với RecursiveTask để chia nhỏ và tính tổng mảng một cách so"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 124.75,
+      "end": 127.13,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 127.07,
+      "end": 128.99,
       "duration": 1.92,
       "text_snippet": "Sai Lầm Thường Gặp"
     },
     {
-      "paragraph_id": 28,
-      "start": 160.82,
-      "end": 163.87,
-      "duration": 3.05,
+      "paragraph_id": 23,
+      "start": 129.0,
+      "end": 132.08,
+      "duration": 3.08,
       "text_snippet": "1. Chặn Bể Chứa ForkJoinPool Chung"
     },
     {
-      "paragraph_id": 29,
-      "start": 163.88,
-      "end": 170.71,
-      "duration": 6.83,
+      "paragraph_id": 24,
+      "start": 132.07,
+      "end": 138.88,
+      "duration": 6.81,
       "text_snippet": "Chạy các truy vấn cơ sở dữ liệu chặn, các cuộc gọi HTTP, hoặc đọc tệp chặn bên t"
     },
     {
-      "paragraph_id": 30,
-      "start": 170.7,
-      "end": 172.9,
-      "duration": 2.2,
+      "paragraph_id": 25,
+      "start": 138.99,
+      "end": 141.37,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 31,
-      "start": 172.9,
-      "end": 186.2,
-      "duration": 13.3,
+      "paragraph_id": 26,
+      "start": 141.31,
+      "end": 153.2,
+      "duration": 11.89,
       "text_snippet": "Cách khắc phục: Sử dụng một bể chứa luồng chuyên dụng (thông qua một ExecutorSer"
     },
     {
-      "paragraph_id": 32,
-      "start": 186.2,
-      "end": 189.7,
-      "duration": 3.5,
+      "paragraph_id": 27,
+      "start": 153.2,
+      "end": 163.74,
+      "duration": 10.54,
       "text_snippet": "2. Giả định rằng Luồng Song Song Luôn Nhanh Hơn"
     },
     {
-      "paragraph_id": 33,
-      "start": 189.7,
-      "end": 211.75,
-      "duration": 22.05,
+      "paragraph_id": 28,
+      "start": 163.74,
+      "end": 174.15,
+      "duration": 10.41,
       "text_snippet": "Luồng song song phát sinh thêm chi phí (chia tách nguồn dữ liệu, quản lý các deq"
     },
     {
-      "paragraph_id": 34,
-      "start": 211.75,
-      "end": 229.25,
-      "duration": 17.5,
+      "paragraph_id": 29,
+      "start": 174.25,
+      "end": 208.2,
+      "duration": 33.95,
       "text_snippet": "Quy tắc: Chỉ sử dụng luồng song song khi: Kích thước dữ liệu lớn (N) và tính toá"
     },
     {
-      "paragraph_id": 35,
-      "start": 229.25,
-      "end": 237.65,
+      "paragraph_id": 30,
+      "start": 208.2,
+      "end": 216.6,
       "duration": 8.4,
       "text_snippet": "Kích thước dữ liệu lớn (N) và tính toán trên mỗi phần tử tốn kém (Q), sao cho tí"
     },
     {
-      "paragraph_id": 36,
-      "start": 237.65,
-      "end": 243.6,
+      "paragraph_id": 31,
+      "start": 216.6,
+      "end": 222.55,
       "duration": 5.95,
       "text_snippet": "Bộ sưu tập dễ dàng chia nhỏ (như ArrayList hoặc mảng, trái ngược với LinkedList "
     },
     {
-      "paragraph_id": 37,
-      "start": 243.6,
-      "end": 246.75,
-      "duration": 3.15,
+      "paragraph_id": 32,
+      "start": 208.2,
+      "end": 212.43,
+      "duration": 4.23,
       "text_snippet": "Tại Sao ForkJoinPool Sử Dụng Trộm Công Việc (Work-Stealing)"
     },
     {
-      "paragraph_id": 38,
-      "start": 246.75,
-      "end": 311.5,
-      "duration": 64.75,
+      "paragraph_id": 33,
+      "start": 212.52,
+      "end": 263.72,
+      "duration": 51.2,
       "text_snippet": "ForkJoinPool được tối ưu hóa cho xử lý chia để trị bằng cách sử dụng thuật toán "
     },
     {
-      "paragraph_id": 39,
-      "start": 311.5,
-      "end": 315.35,
-      "duration": 3.85,
+      "paragraph_id": 34,
+      "start": 263.72,
+      "end": 267.43,
+      "duration": 3.71,
       "text_snippet": "Mô Hình Tư Duy: Hàng Đợi Hai Đầu Trộm Công Việc"
     },
     {
-      "paragraph_id": 40,
-      "start": 315.35,
-      "end": 316.75,
-      "duration": 1.4,
+      "paragraph_id": 35,
+      "start": 267.44,
+      "end": 269.79,
+      "duration": 2.35,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 41,
-      "start": 316.75,
-      "end": 318.15,
-      "duration": 1.4,
+      "paragraph_id": 36,
+      "start": 269.79,
+      "end": 271.73,
+      "duration": 1.94,
       "text_snippet": "Ví Dụ Mã Nguồn"
     },
     {
-      "paragraph_id": 42,
-      "start": 318.15,
-      "end": 319.55,
-      "duration": 1.4,
+      "paragraph_id": 37,
+      "start": 271.82,
+      "end": 274.2,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 43,
-      "start": 319.55,
-      "end": 321.65,
-      "duration": 2.1,
+      "paragraph_id": 38,
+      "start": 274.15,
+      "end": 276.63,
+      "duration": 2.48,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
     },
     {
-      "paragraph_id": 44,
-      "start": 321.65,
-      "end": 353.15,
-      "duration": 31.5,
+      "paragraph_id": 39,
+      "start": 276.62,
+      "end": 297.28,
+      "duration": 20.66,
       "text_snippet": "Tác vụ con được phân nhánh (fork) → Được đẩy vào đầu deque của luồng → Luồng thự"
     }
   ]

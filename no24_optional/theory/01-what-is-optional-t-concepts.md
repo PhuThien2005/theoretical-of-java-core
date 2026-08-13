@@ -1,11 +1,5 @@
 # Optional - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **Optional**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `What is Optional<T>?` | Optional is a container that may or may not hold a non-null value. |
@@ -460,9 +454,3 @@ Using `.get()` instead of `.orElseThrow()`. While they behave identically in thr
 
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html#orElse(T) (Optional.orElse API Documentation)
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html#orElseGet(java.util.function.Supplier) (Optional.orElseGet API Documentation)
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?

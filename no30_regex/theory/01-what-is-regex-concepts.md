@@ -1,11 +1,5 @@
 # Regular Expression - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **Regular Expression**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `What is Regex?` | A regular expression is a pattern language for matching text. |
@@ -502,9 +496,6 @@ Nested/overlapping quantifiers → Input contains almost-matching sequence follo
 
 ---
 
-## Common Review Prompts
-
-- **Which concepts here are compile-time rules?**
   Pattern compilation syntax checks (e.g., unmatched brackets throw `PatternSyntaxException` at compile-time when calling `Pattern.compile()`).
 - **Which concepts here affect runtime behavior?**
   Matcher states, greedy vs reluctant backtracks, ReDoS freezing, and grouping boundaries.

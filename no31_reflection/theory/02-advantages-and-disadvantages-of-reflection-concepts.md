@@ -1,11 +1,5 @@
 # Reflection - Part 2
 
-## Learning Goal
-
-This file covers a focused slice of **Reflection**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Advantages and disadvantages of reflection` | The critical tradeoffs of reflection regarding performance, design encapsulation, and extensibility. |
@@ -274,9 +268,6 @@ Framework scans classpath &rarr; Dynamic reflection reads user-defined class str
 
 ---
 
-## Common Review Prompts
-
-- **Why is reflection slower than direct code?**
   Reflection bypasses compile-time optimizations (like method inlining by the JIT compiler). It requires the JVM to perform name lookup, type matching, access check validation, and argument boxing/unboxing at runtime.
 - **How does reflection break the Singleton pattern?**
   A client can obtain the private constructor of a Singleton class via reflection (`getDeclaredConstructor()`), change its accessibility with `setAccessible(true)`, and call `newInstance()` to create a second instance of the class.
@@ -291,4 +282,3 @@ Framework scans classpath &rarr; Dynamic reflection reads user-defined class str
 - https://docs.oracle.com/javase/specs/jls/se21/html/jls-12.html#jls-12.2 (Class Loading)
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/AnnotatedElement.html (AnnotatedElement Annotation Reflection)
 - https://docs.oracle.com/javase/tutorial/reflect/ (Oracle Reflection Tutorial)
-

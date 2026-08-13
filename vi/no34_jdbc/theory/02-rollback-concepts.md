@@ -1,19 +1,5 @@
 # JDBC - Phần 2
 
-## Mục Tiêu Học Tập
-
-Tài liệu này giải thích các khái niệm JDBC nâng cao: quản lý giao dịch với rollback và savepoint, tối ưu hiệu suất qua batch processing và connection pooling, phòng chống SQL Injection, và các thao tác CRUD cơ bản. Mỗi khái niệm được trình bày kèm cơ chế hoạt động bên trong, lỗi thường gặp, và ví dụ mã nguồn cụ thể.
-
-## Đề Cương Khái Niệm
-
-- **`rollback`** — Hủy bỏ tất cả thay đổi kể từ lần `commit()` gần nhất, giải phóng các database lock mà giao dịch đang nắm giữ.
-- **`setAutoCommit`** — Chuyển đổi giữa chế độ tự động commit (mỗi SQL tự commit ngay) và chế độ giao dịch thủ công (nhóm nhiều SQL vào một transaction).
-- **`Xử lý theo lô (Batch processing)`** — Gom nhiều câu lệnh SQL vào một lần gửi qua `addBatch()`/`executeBatch()`, giảm số lần round-trip mạng.
-- **`Tấn công chèn mã SQL (SQL Injection)`** — Lỗ hổng bảo mật khi đầu vào người dùng thoát khỏi ngữ cảnh string literal và trở thành cú pháp SQL thực thi được.
-- **`Nhóm kết nối cơ bản (Basic Connection Pool)`** — Tái sử dụng các kết nối TCP đã thiết lập sẵn thay vì tạo mới mỗi lần, tránh chi phí TCP handshake + xác thực.
-- **`DataSource`** — Interface trong `javax.sql` thay thế `DriverManager`, hỗ trợ connection pooling và distributed transactions trong production.
-- **`CRUD sử dụng JDBC`** — Bốn thao tác cơ bản: CREATE (INSERT), READ (SELECT), UPDATE, DELETE — thực hiện qua `executeUpdate()` và `executeQuery()`.
-
 ## Ghi Chú Chi Tiết
 
 ### rollback

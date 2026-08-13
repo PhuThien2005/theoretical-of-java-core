@@ -1,11 +1,5 @@
 # Comparable and Comparator - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **Comparable and Comparator**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Comparable` | Comparable defines natural ordering inside the class being compared. |
@@ -579,12 +573,6 @@ Collections.sort(names); // Throws NullPointerException!
 ```java
 names.sort(Comparator.nullsFirst(Comparator.naturalOrder())); // [null, Alice, Bob]
 ```
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
 
 ## Reference Links
 

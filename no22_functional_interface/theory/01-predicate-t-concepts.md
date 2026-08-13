@@ -1,11 +1,5 @@
 # Functional Interface - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **Functional Interface**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Predicate<T>` |`Predicate<T>` — Represents a boolean-valued function taking one argument (boolean test(T t)). |
@@ -682,10 +676,3 @@ public interface InvalidInterface {
 Default and static methods are not abstract. An interface can have multiple default and static methods and still be a functional interface, as long as it has exactly one abstract method.
 
 ---
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
-

@@ -1,14 +1,5 @@
 # Các Khái Niệm Java Hiện Đại Cần Biết - Phần 2 (Modern Java Concepts To Know - Part 2)
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này trình bày các khái niệm về Sequenced Collections và String Templates. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế.
-
-## Khái Quát Nội Dung (Outline Coverage)
-
-- **`Sequenced Collections`** — Sequenced Collections: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`String templates were once preview; currently they should not be used as a stable feature`** — String templates were once preview; currently they should not be used as a stable feature: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ---
 
 ## Ghi Chú Chi Tiết (Detailed Notes)

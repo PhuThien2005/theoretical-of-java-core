@@ -1,803 +1,726 @@
 {
   "lesson": "01-what-is-a-package-concepts",
-  "total_duration_seconds": 1134.79,
-  "total_paragraphs": 114,
+  "total_duration_seconds": 926.04,
+  "total_paragraphs": 103,
   "timestamps": [
     {
       "paragraph_id": 1,
       "start": 0.1,
-      "end": 5.65,
-      "duration": 5.55,
+      "end": 5.64,
+      "duration": 5.54,
       "text_snippet": "Gói và Kiểm Soát Truy Cập - Phần 1 (Package and Access Control - Part 1)"
     },
     {
       "paragraph_id": 2,
-      "start": 5.6,
-      "end": 8.6,
-      "duration": 3.0,
-      "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 8.6,
-      "end": 20.82,
-      "duration": 12.22,
-      "text_snippet": "Tài liệu này tập trung vào một phần trọng tâm về Gói và Kiểm Soát Truy Cập (Pack"
-    },
-    {
-      "paragraph_id": 4,
-      "start": 20.82,
-      "end": 24.08,
+      "start": 5.59,
+      "end": 8.85,
       "duration": 3.26,
       "text_snippet": "Khung Nội Dung (Outline Coverage)"
     },
     {
-      "paragraph_id": 5,
-      "start": 24.09,
-      "end": 32.03,
-      "duration": 7.94,
-      "text_snippet": "What is a package? — What is a package?: Cung cấp các quy tắc và cơ chế hoạt độn"
-    },
-    {
-      "paragraph_id": 6,
-      "start": 32.12,
-      "end": 38.07,
-      "duration": 5.95,
-      "text_snippet": "Create package — Create package: Cung cấp các quy tắc và cơ chế hoạt động cụ thể"
-    },
-    {
-      "paragraph_id": 7,
-      "start": 38.02,
-      "end": 50.87,
-      "duration": 12.85,
-      "text_snippet": "Import package — Import package: Cung cấp các quy tắc và cơ chế hoạt động cụ thể"
-    },
-    {
-      "paragraph_id": 8,
-      "start": 50.88,
-      "end": 57.53,
-      "duration": 6.65,
-      "text_snippet": "import static — import static: Cung cấp các quy tắc và cơ chế hoạt động cụ thể t"
-    },
-    {
-      "paragraph_id": 9,
-      "start": 50.88,
-      "end": 64.82,
-      "duration": 13.94,
-      "text_snippet": "Default package — Default package: Cung cấp các quy tắc và cơ chế hoạt động cụ t"
-    },
-    {
-      "paragraph_id": 10,
-      "start": 64.81,
-      "end": 72.16,
-      "duration": 7.35,
-      "text_snippet": "Package naming convention — Package naming convention: Cung cấp các quy tắc và c"
-    },
-    {
-      "paragraph_id": 11,
-      "start": 64.81,
-      "end": 72.16,
-      "duration": 7.35,
-      "text_snippet": "Access between packages — Access between packages: Cung cấp các quy tắc và cơ ch"
-    },
-    {
-      "paragraph_id": 12,
-      "start": 72.16,
-      "end": 78.11,
-      "duration": 5.95,
-      "text_snippet": "Classpath — Classpath: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Jav"
-    },
-    {
-      "paragraph_id": 13,
-      "start": 78.11,
-      "end": 85.46,
-      "duration": 7.35,
-      "text_snippet": "Basic module path — Basic module path: Cung cấp các quy tắc và cơ chế hoạt động "
-    },
-    {
-      "paragraph_id": 14,
-      "start": 85.46,
-      "end": 87.56,
-      "duration": 2.1,
+      "paragraph_id": 3,
+      "start": 8.85,
+      "end": 11.85,
+      "duration": 3.0,
       "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
     },
     {
-      "paragraph_id": 15,
-      "start": 87.56,
-      "end": 88.96,
-      "duration": 1.4,
+      "paragraph_id": 4,
+      "start": 11.85,
+      "end": 14.63,
+      "duration": 2.78,
       "text_snippet": "Gói (package) là gì?"
     },
     {
-      "paragraph_id": 16,
-      "start": 88.96,
-      "end": 96.31,
-      "duration": 7.35,
+      "paragraph_id": 5,
+      "start": 14.72,
+      "end": 22.01,
+      "duration": 7.29,
       "text_snippet": "Gói (package) gom nhóm các lớp liên quan lại với nhau và tạo ra một không gian t"
     },
     {
-      "paragraph_id": 17,
-      "start": 96.31,
-      "end": 99.46,
-      "duration": 3.15,
+      "paragraph_id": 6,
+      "start": 21.96,
+      "end": 24.93,
+      "duration": 2.97,
       "text_snippet": "Chi tiết bổ sung & Ví dụ mã nguồn"
     },
     {
-      "paragraph_id": 18,
-      "start": 99.46,
-      "end": 118.71,
-      "duration": 19.25,
+      "paragraph_id": 7,
+      "start": 24.94,
+      "end": 39.7,
+      "duration": 14.76,
       "text_snippet": "Gói là một tập hợp các kiểu dữ liệu liên quan (các lớp, giao diện, enum, chú thí"
     },
     {
-      "paragraph_id": 19,
-      "start": 118.71,
-      "end": 120.11,
+      "paragraph_id": 8,
+      "start": 39.7,
+      "end": 41.9,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 42.0,
+      "end": 48.54,
+      "duration": 6.54,
+      "text_snippet": "Tại Sao Java Sử Dụng Gói Để Cô Lập Không Gian Tên và Quy Ước Đặt Tên Miền Ngược "
+    },
+    {
+      "paragraph_id": 10,
+      "start": 48.49,
+      "end": 98.69,
+      "duration": 50.2,
+      "text_snippet": "Trong phát triển phần mềm quy mô lớn, việc xung đột đặt tên là không thể tránh k"
+    },
+    {
+      "paragraph_id": 11,
+      "start": 98.69,
+      "end": 103.27,
+      "duration": 4.58,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 12,
+      "start": 103.26,
+      "end": 104.66,
       "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
+      "paragraph_id": 13,
+      "start": 103.36,
+      "end": 122.06,
+      "duration": 18.7,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain): Nhiều tổ chức cùng viết mã ngu"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 122.01,
+      "end": 124.81,
+      "duration": 2.8,
+      "text_snippet": "Tạo gói (Create package)"
+    },
+    {
+      "paragraph_id": 15,
+      "start": 124.81,
+      "end": 130.35,
+      "duration": 5.54,
+      "text_snippet": "Khai báo gói giúp gom nhóm các lớp liên quan lại với nhau và cung cấp không gian"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 130.35,
+      "end": 133.34,
+      "duration": 2.99,
+      "text_snippet": "Chi tiết bổ sung & Ví dụ mã nguồn"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 133.44,
+      "end": 150.38,
+      "duration": 16.94,
+      "text_snippet": "Một gói được khai báo bằng câu lệnh package. Đây bắt buộc phải là câu lệnh thực "
+    },
+    {
+      "paragraph_id": 18,
+      "start": 150.38,
+      "end": 152.76,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 152.75,
+      "end": 164.37,
+      "duration": 11.62,
+      "text_snippet": "Sai lầm thường gặp: Đặt khai báo package sau các câu lệnh import hoặc sau định n"
+    },
+    {
       "paragraph_id": 20,
-      "start": 120.11,
-      "end": 127.46,
-      "duration": 7.35,
-      "text_snippet": "Tại Sao Java Sử Dụng Gói Để Cô Lập Không Gian Tên và Quy Ước Đặt Tên Miền Ngược "
+      "start": 164.38,
+      "end": 168.88,
+      "duration": 4.5,
+      "text_snippet": "Tại Sao Cấu Trúc Thư Mục Vật Lý Bắt Buộc Phải Phản Ánh Đúng Khai Báo Gói"
     },
     {
       "paragraph_id": 21,
-      "start": 127.46,
-      "end": 194.66,
-      "duration": 67.2,
-      "text_snippet": "Trong phát triển phần mềm quy mô lớn, việc xung đột đặt tên là không thể tránh k"
+      "start": 168.97,
+      "end": 219.08,
+      "duration": 50.11,
+      "text_snippet": "Trình biên dịch Java (javac) và Máy ảo Java (JVM) không quét toàn bộ hệ thống tệ"
     },
     {
       "paragraph_id": 22,
-      "start": 194.66,
-      "end": 196.06,
-      "duration": 1.4,
+      "start": 219.09,
+      "end": 223.84,
+      "duration": 4.75,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 23,
-      "start": 196.06,
-      "end": 197.46,
+      "start": 223.84,
+      "end": 225.24,
       "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 24,
-      "start": 197.46,
-      "end": 225.11,
-      "duration": 27.65,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain): Nhiều tổ chức cùng viết mã ngu"
+      "start": 223.84,
+      "end": 242.7,
+      "duration": 18.86,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain): Một lớp được khai báo với pack"
     },
     {
       "paragraph_id": 25,
-      "start": 225.11,
-      "end": 226.51,
-      "duration": 1.4,
-      "text_snippet": "Tạo gói (Create package)"
+      "start": 242.8,
+      "end": 245.8,
+      "duration": 3.0,
+      "text_snippet": "Nhập gói (Import package)"
     },
     {
       "paragraph_id": 26,
-      "start": 226.61,
-      "end": 231.99,
-      "duration": 5.38,
-      "text_snippet": "Khai báo gói giúp gom nhóm các lớp liên quan lại với nhau và cung cấp không gian"
+      "start": 245.75,
+      "end": 252.35,
+      "duration": 6.6,
+      "text_snippet": "Để sử dụng một lớp từ một gói khác mà không cần phải viết tên lớp đầy đủ của nó,"
     },
     {
       "paragraph_id": 27,
-      "start": 231.94,
-      "end": 234.92,
-      "duration": 2.98,
-      "text_snippet": "Chi tiết bổ sung & Ví dụ mã nguồn"
+      "start": 252.35,
+      "end": 262.81,
+      "duration": 10.46,
+      "text_snippet": "Nhập cụ thể (Specific Import): Nhập duy nhất một lớp được chỉ định."
     },
     {
       "paragraph_id": 28,
-      "start": 234.91,
-      "end": 251.91,
-      "duration": 17.0,
-      "text_snippet": "Một gói được khai báo bằng câu lệnh package. Đây bắt buộc phải là câu lệnh thực "
+      "start": 262.81,
+      "end": 268.01,
+      "duration": 5.2,
+      "text_snippet": "Nhập đại diện (Wildcard Import): Nhập toàn bộ các lớp trong một gói bằng ký tự đ"
     },
     {
       "paragraph_id": 29,
-      "start": 251.91,
-      "end": 254.29,
+      "start": 268.11,
+      "end": 279.04,
+      "duration": 10.93,
+      "text_snippet": "Tên lớp đầy đủ (FQCN): Tham chiếu trực tiếp đến một lớp bằng đường dẫn gói tuyệt"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 278.99,
+      "end": 281.37,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 30,
-      "start": 254.29,
-      "end": 265.93,
-      "duration": 11.64,
-      "text_snippet": "Sai lầm thường gặp: Đặt khai báo package sau các câu lệnh import hoặc sau định n"
-    },
-    {
       "paragraph_id": 31,
-      "start": 265.93,
-      "end": 271.88,
-      "duration": 5.95,
-      "text_snippet": "Tại Sao Cấu Trúc Thư Mục Vật Lý Bắt Buộc Phải Phản Ánh Đúng Khai Báo Gói"
-    },
-    {
-      "paragraph_id": 32,
-      "start": 271.88,
-      "end": 332.78,
-      "duration": 60.9,
-      "text_snippet": "Trình biên dịch Java (javac) và Máy ảo Java (JVM) không quét toàn bộ hệ thống tệ"
-    },
-    {
-      "paragraph_id": 33,
-      "start": 332.77,
-      "end": 334.17,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 34,
-      "start": 334.18,
-      "end": 335.58,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 35,
-      "start": 335.58,
-      "end": 360.08,
-      "duration": 24.5,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain): Một lớp được khai báo với pack"
-    },
-    {
-      "paragraph_id": 36,
-      "start": 360.07,
-      "end": 361.47,
-      "duration": 1.4,
-      "text_snippet": "Nhập gói (Import package)"
-    },
-    {
-      "paragraph_id": 37,
-      "start": 361.47,
-      "end": 370.57,
-      "duration": 9.1,
-      "text_snippet": "Để sử dụng một lớp từ một gói khác mà không cần phải viết tên lớp đầy đủ của nó,"
-    },
-    {
-      "paragraph_id": 38,
-      "start": 370.57,
-      "end": 375.12,
-      "duration": 4.55,
-      "text_snippet": "Nhập cụ thể (Specific Import): Nhập duy nhất một lớp được chỉ định."
-    },
-    {
-      "paragraph_id": 39,
-      "start": 375.12,
-      "end": 388.42,
-      "duration": 13.3,
-      "text_snippet": "Nhập đại diện (Wildcard Import): Nhập toàn bộ các lớp trong một gói bằng ký tự đ"
-    },
-    {
-      "paragraph_id": 40,
-      "start": 388.43,
-      "end": 397.88,
-      "duration": 9.45,
-      "text_snippet": "Tên lớp đầy đủ (FQCN): Tham chiếu trực tiếp đến một lớp bằng đường dẫn gói tuyệt"
-    },
-    {
-      "paragraph_id": 41,
-      "start": 397.88,
-      "end": 399.28,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 42,
-      "start": 399.27,
-      "end": 414.67,
-      "duration": 15.4,
+      "start": 281.36,
+      "end": 299.47,
+      "duration": 18.11,
       "text_snippet": "Sai lầm thường gặp: Nghĩ rằng việc sử dụng ký tự đại diện như import java.util.*"
     },
     {
-      "paragraph_id": 43,
-      "start": 414.68,
-      "end": 416.08,
+      "paragraph_id": 32,
+      "start": 299.47,
+      "end": 300.87,
       "duration": 1.4,
       "text_snippet": "import static (Nhập tĩnh)"
     },
     {
-      "paragraph_id": 44,
-      "start": 416.07,
-      "end": 424.47,
-      "duration": 8.4,
+      "paragraph_id": 33,
+      "start": 299.57,
+      "end": 305.72,
+      "duration": 6.15,
       "text_snippet": "Từ khóa static chỉ ra rằng thành viên thuộc về chính lớp chứ không thuộc về một "
     },
     {
-      "paragraph_id": 45,
-      "start": 424.48,
-      "end": 427.63,
-      "duration": 3.15,
+      "paragraph_id": 34,
+      "start": 305.67,
+      "end": 308.65,
+      "duration": 2.98,
       "text_snippet": "Chi tiết bổ sung & Ví dụ mã nguồn"
     },
     {
-      "paragraph_id": 46,
-      "start": 427.62,
-      "end": 440.57,
-      "duration": 12.95,
+      "paragraph_id": 35,
+      "start": 308.65,
+      "end": 317.94,
+      "duration": 9.29,
       "text_snippet": "Câu lệnh import static cho phép truy cập trực tiếp vào các thành viên tĩnh (các "
     },
     {
-      "paragraph_id": 47,
-      "start": 440.57,
-      "end": 441.97,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 48,
-      "start": 441.98,
-      "end": 453.18,
-      "duration": 11.2,
-      "text_snippet": "Sai lầm thường gặp: Viết ngược thứ tự thành static import thay vì viết đúng là i"
-    },
-    {
-      "paragraph_id": 49,
-      "start": 453.18,
-      "end": 459.13,
-      "duration": 5.95,
-      "text_snippet": "Tại Sao Nhập Tĩnh Cân Bằng Giữa Tính Dễ Đọc và Nguy Cơ Xung Đột Đặt Tên"
-    },
-    {
-      "paragraph_id": 50,
-      "start": 459.12,
-      "end": 515.47,
-      "duration": 56.35,
-      "text_snippet": "Nhập tĩnh giúp lập trình viên truy cập các hằng số hoặc phương thức tĩnh của một"
-    },
-    {
-      "paragraph_id": 51,
-      "start": 515.48,
-      "end": 516.88,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 52,
-      "start": 516.88,
-      "end": 518.28,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 53,
-      "start": 518.27,
-      "end": 543.82,
-      "duration": 25.55,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain): Sử dụng nhập tĩnh để loại bỏ t"
-    },
-    {
-      "paragraph_id": 54,
-      "start": 543.83,
-      "end": 545.58,
-      "duration": 1.75,
-      "text_snippet": "Gói mặc định (Default package)"
-    },
-    {
-      "paragraph_id": 55,
-      "start": 545.58,
-      "end": 554.68,
-      "duration": 9.1,
-      "text_snippet": "Nếu một tệp mã nguồn không khai báo câu lệnh package, nó sẽ tự động thuộc về một"
-    },
-    {
-      "paragraph_id": 56,
-      "start": 554.78,
-      "end": 557.16,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 57,
-      "start": 557.1,
-      "end": 572.16,
-      "duration": 15.06,
-      "text_snippet": "Sai lầm thường gặp: Cố gắng nhập một lớp thuộc gói mặc định vào bên trong một lớ"
-    },
-    {
-      "paragraph_id": 58,
-      "start": 572.16,
-      "end": 586.62,
-      "duration": 14.46,
-      "text_snippet": "Tại Sao Nên Tránh Sử Dụng Gói Mặc Định Trong Các Dự Án Thực Tế"
-    },
-    {
-      "paragraph_id": 59,
-      "start": 586.63,
-      "end": 618.69,
-      "duration": 32.06,
-      "text_snippet": "Gói mặc định (không tên) đóng vai trò như một phân vùng nháp nhanh cho người mới"
-    },
-    {
-      "paragraph_id": 60,
-      "start": 618.69,
-      "end": 620.89,
+      "paragraph_id": 36,
+      "start": 317.94,
+      "end": 320.14,
       "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 61,
-      "start": 620.89,
-      "end": 622.29,
+      "paragraph_id": 37,
+      "start": 320.24,
+      "end": 332.23,
+      "duration": 11.99,
+      "text_snippet": "Sai lầm thường gặp: Viết ngược thứ tự thành static import thay vì viết đúng là i"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 332.22,
+      "end": 348.52,
+      "duration": 16.3,
+      "text_snippet": "Tại Sao Nhập Tĩnh Cân Bằng Giữa Tính Dễ Đọc và Nguy Cơ Xung Đột Đặt Tên"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 348.52,
+      "end": 375.21,
+      "duration": 26.69,
+      "text_snippet": "Nhập tĩnh giúp lập trình viên truy cập các hằng số hoặc phương thức tĩnh của một"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 375.21,
+      "end": 377.41,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 377.51,
+      "end": 379.89,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 379.84,
+      "end": 395.91,
+      "duration": 16.07,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain): Sử dụng nhập tĩnh để loại bỏ t"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 395.91,
+      "end": 399.11,
+      "duration": 3.2,
+      "text_snippet": "Gói mặc định (Default package)"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 399.11,
+      "end": 406.87,
+      "duration": 7.76,
+      "text_snippet": "Nếu một tệp mã nguồn không khai báo câu lệnh package, nó sẽ tự động thuộc về một"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 406.98,
+      "end": 409.36,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 409.3,
+      "end": 424.36,
+      "duration": 15.06,
+      "text_snippet": "Sai lầm thường gặp: Cố gắng nhập một lớp thuộc gói mặc định vào bên trong một lớ"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 424.36,
+      "end": 438.82,
+      "duration": 14.46,
+      "text_snippet": "Tại Sao Nên Tránh Sử Dụng Gói Mặc Định Trong Các Dự Án Thực Tế"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 438.82,
+      "end": 470.86,
+      "duration": 32.04,
+      "text_snippet": "Gói mặc định (không tên) đóng vai trò như một phân vùng nháp nhanh cho người mới"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 470.96,
+      "end": 475.66,
+      "duration": 4.7,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 475.66,
+      "end": 477.06,
       "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 62,
-      "start": 622.29,
-      "end": 641.89,
-      "duration": 19.6,
+      "paragraph_id": 51,
+      "start": 475.66,
+      "end": 488.86,
+      "duration": 13.2,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain): Lớp không khai báo câu lệnh pa"
     },
     {
-      "paragraph_id": 63,
-      "start": 641.89,
-      "end": 644.69,
-      "duration": 2.8,
+      "paragraph_id": 52,
+      "start": 488.86,
+      "end": 492.8,
+      "duration": 3.94,
       "text_snippet": "Quy ước đặt tên gói (Package naming convention)"
     },
     {
-      "paragraph_id": 64,
-      "start": 644.69,
-      "end": 661.14,
-      "duration": 16.45,
+      "paragraph_id": 53,
+      "start": 492.9,
+      "end": 506.05,
+      "duration": 13.15,
       "text_snippet": "Tên gói luôn được viết bằng chữ thường (lowercase) để tránh xung đột tên với tên"
     },
     {
-      "paragraph_id": 65,
-      "start": 661.14,
-      "end": 662.54,
-      "duration": 1.4,
+      "paragraph_id": 54,
+      "start": 506.05,
+      "end": 508.43,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 66,
-      "start": 662.54,
-      "end": 665.34,
-      "duration": 2.8,
+      "paragraph_id": 55,
+      "start": 508.43,
+      "end": 512.38,
+      "duration": 3.95,
       "text_snippet": "Truy cập giữa các gói (Access between packages)"
     },
     {
-      "paragraph_id": 67,
-      "start": 665.34,
-      "end": 668.84,
-      "duration": 3.5,
+      "paragraph_id": 56,
+      "start": 512.38,
+      "end": 515.65,
+      "duration": 3.27,
       "text_snippet": "Java cung cấp bốn cấp độ kiểm soát truy cập:"
     },
     {
-      "paragraph_id": 68,
-      "start": 668.84,
-      "end": 671.64,
-      "duration": 2.8,
+      "paragraph_id": 57,
+      "start": 515.75,
+      "end": 518.9,
+      "duration": 3.15,
       "text_snippet": "public: Truy cập được từ bất kỳ đâu."
     },
     {
-      "paragraph_id": 69,
-      "start": 671.64,
-      "end": 678.64,
-      "duration": 7.0,
+      "paragraph_id": 58,
+      "start": 518.85,
+      "end": 524.68,
+      "duration": 5.83,
       "text_snippet": "protected: Truy cập được từ trong cùng gói, và từ các lớp con kế thừa nằm ở các "
     },
     {
-      "paragraph_id": 70,
-      "start": 678.64,
-      "end": 683.54,
-      "duration": 4.9,
+      "paragraph_id": 59,
+      "start": 524.67,
+      "end": 533.17,
+      "duration": 8.5,
       "text_snippet": "Quyền mặc định (package-private): Chỉ truy cập được từ bên trong cùng một gói."
     },
     {
-      "paragraph_id": 71,
-      "start": 683.54,
-      "end": 687.39,
+      "paragraph_id": 60,
+      "start": 533.17,
+      "end": 537.02,
       "duration": 3.85,
       "text_snippet": "private: Chỉ truy cập được từ bên trong cùng một lớp."
     },
     {
-      "paragraph_id": 72,
-      "start": 687.39,
-      "end": 688.79,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 73,
-      "start": 688.79,
-      "end": 709.09,
-      "duration": 20.3,
-      "text_snippet": "Sai lầm thường gặp: Lớp con ở gói khác chỉ có thể truy cập các thành viên protec"
-    },
-    {
-      "paragraph_id": 74,
-      "start": 709.09,
-      "end": 714.34,
-      "duration": 5.25,
-      "text_snippet": "Tại Sao Quyền Mặc Định (Package-Private) Dùng Để Kiểm Soát Truy Cập Nội Bộ Gói"
-    },
-    {
-      "paragraph_id": 75,
-      "start": 714.34,
-      "end": 778.39,
-      "duration": 64.05,
-      "text_snippet": "Cấp độ truy cập mặc định (package-private) của Java không sử dụng bất kỳ từ khóa"
-    },
-    {
-      "paragraph_id": 76,
-      "start": 778.39,
-      "end": 779.79,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 77,
-      "start": 779.79,
-      "end": 781.19,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 78,
-      "start": 781.19,
-      "end": 806.39,
-      "duration": 25.2,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain): Một thành viên được khai báo k"
-    },
-    {
-      "paragraph_id": 79,
-      "start": 806.39,
-      "end": 807.79,
-      "duration": 1.4,
-      "text_snippet": "Đường dẫn lớp (Classpath)"
-    },
-    {
-      "paragraph_id": 80,
-      "start": 807.79,
-      "end": 825.29,
-      "duration": 17.5,
-      "text_snippet": "Đường dẫn lớp (Classpath) hướng dẫn cho trình biên dịch (javac) và JVM (java) bi"
-    },
-    {
-      "paragraph_id": 81,
-      "start": 825.39,
-      "end": 827.77,
+      "paragraph_id": 61,
+      "start": 533.27,
+      "end": 535.65,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 82,
-      "start": 827.71,
-      "end": 831.57,
+      "paragraph_id": 62,
+      "start": 535.6,
+      "end": 550.32,
+      "duration": 14.72,
+      "text_snippet": "Sai lầm thường gặp: Lớp con ở gói khác chỉ có thể truy cập các thành viên protec"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 550.32,
+      "end": 555.67,
+      "duration": 5.35,
+      "text_snippet": "Tại Sao Quyền Mặc Định (Package-Private) Dùng Để Kiểm Soát Truy Cập Nội Bộ Gói"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 555.67,
+      "end": 600.52,
+      "duration": 44.85,
+      "text_snippet": "Cấp độ truy cập mặc định (package-private) của Java không sử dụng bất kỳ từ khóa"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 600.62,
+      "end": 605.32,
+      "duration": 4.7,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 66,
+      "start": 605.32,
+      "end": 606.72,
+      "duration": 1.4,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 67,
+      "start": 605.32,
+      "end": 622.73,
+      "duration": 17.41,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain): Một thành viên được khai báo k"
+    },
+    {
+      "paragraph_id": 68,
+      "start": 622.74,
+      "end": 625.33,
+      "duration": 2.59,
+      "text_snippet": "Đường dẫn lớp (Classpath)"
+    },
+    {
+      "paragraph_id": 69,
+      "start": 625.42,
+      "end": 642.62,
+      "duration": 17.2,
+      "text_snippet": "Đường dẫn lớp (Classpath) hướng dẫn cho trình biên dịch (javac) và JVM (java) bi"
+    },
+    {
+      "paragraph_id": 70,
+      "start": 642.62,
+      "end": 645.0,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 71,
+      "start": 645.0,
+      "end": 648.86,
       "duration": 3.86,
       "text_snippet": "Đường dẫn module cơ bản (Basic module path)"
     },
     {
-      "paragraph_id": 83,
-      "start": 831.58,
-      "end": 851.22,
+      "paragraph_id": 72,
+      "start": 648.86,
+      "end": 668.5,
       "duration": 19.64,
       "text_snippet": "Được giới thiệu từ Java 9, đường dẫn module (--module-path hoặc -p) là cơ chế th"
     },
     {
-      "paragraph_id": 84,
-      "start": 851.21,
-      "end": 853.59,
+      "paragraph_id": 73,
+      "start": 668.6,
+      "end": 670.98,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 85,
-      "start": 853.59,
-      "end": 858.18,
-      "duration": 4.59,
+      "paragraph_id": 74,
+      "start": 670.92,
+      "end": 675.56,
+      "duration": 4.64,
       "text_snippet": "Tại Sao Classpath và Module Path Khác Nhau Trong Ràng Buộc Truy Cập Gói"
     },
     {
-      "paragraph_id": 86,
-      "start": 858.18,
-      "end": 930.98,
-      "duration": 72.8,
+      "paragraph_id": 75,
+      "start": 675.56,
+      "end": 729.34,
+      "duration": 53.78,
       "text_snippet": "Đường dẫn lớp (classpath) truyền thống phân giải các lớp bằng cách tìm kiếm tuần"
     },
     {
-      "paragraph_id": 87,
-      "start": 930.98,
-      "end": 932.38,
-      "duration": 1.4,
+      "paragraph_id": 76,
+      "start": 729.34,
+      "end": 731.54,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 88,
-      "start": 932.38,
-      "end": 933.78,
-      "duration": 1.4,
+      "paragraph_id": 77,
+      "start": 731.64,
+      "end": 734.02,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 89,
-      "start": 933.78,
-      "end": 962.13,
-      "duration": 28.35,
+      "paragraph_id": 78,
+      "start": 733.96,
+      "end": 752.85,
+      "duration": 18.89,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain): Đường dẫn module Java 9+ kiểm "
     },
     {
-      "paragraph_id": 90,
-      "start": 962.13,
-      "end": 966.33,
-      "duration": 4.2,
+      "paragraph_id": 79,
+      "start": 752.85,
+      "end": 757.95,
+      "duration": 5.1,
       "text_snippet": "Ví Dụ Thực Tế: Xử lý Xung Đột Đặt Tên (Naming Collisions)"
     },
     {
-      "paragraph_id": 91,
-      "start": 966.33,
-      "end": 978.58,
-      "duration": 12.25,
+      "paragraph_id": 80,
+      "start": 757.95,
+      "end": 766.31,
+      "duration": 8.36,
       "text_snippet": "Khi hai gói khác nhau cùng định nghĩa các lớp có trùng tên, việc nhập cả hai gói"
     },
     {
-      "paragraph_id": 92,
-      "start": 978.58,
-      "end": 984.18,
-      "duration": 5.6,
+      "paragraph_id": 81,
+      "start": 766.41,
+      "end": 773.49,
+      "duration": 7.08,
       "text_snippet": "Giả sử chúng ta muốn sử dụng lớp Date từ cả hai gói java.util và java.sql."
     },
     {
-      "paragraph_id": 93,
-      "start": 984.18,
-      "end": 985.58,
-      "duration": 1.4,
+      "paragraph_id": 82,
+      "start": 773.44,
+      "end": 775.82,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 94,
-      "start": 985.58,
-      "end": 989.43,
-      "duration": 3.85,
+      "paragraph_id": 83,
+      "start": 775.81,
+      "end": 780.91,
+      "duration": 5.1,
       "text_snippet": "Cách giải quyết 1: Sử dụng Tên Lớp Đầy Đủ (FQCN)"
     },
     {
-      "paragraph_id": 95,
-      "start": 989.43,
-      "end": 996.43,
-      "duration": 7.0,
+      "paragraph_id": 84,
+      "start": 780.91,
+      "end": 786.29,
+      "duration": 5.38,
       "text_snippet": "Thay vì nhập cả hai lớp, hãy viết đầy đủ đường dẫn gói của chúng trực tiếp trong"
     },
     {
-      "paragraph_id": 96,
-      "start": 996.43,
-      "end": 997.83,
-      "duration": 1.4,
+      "paragraph_id": 85,
+      "start": 786.39,
+      "end": 788.77,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 97,
-      "start": 997.83,
-      "end": 1004.13,
-      "duration": 6.3,
+      "paragraph_id": 86,
+      "start": 788.71,
+      "end": 799.92,
+      "duration": 11.21,
       "text_snippet": "Cách giải quyết 2: Nhập cụ thể một lớp, viết đầy đủ tên lớp cho lớp còn lại"
     },
     {
-      "paragraph_id": 98,
-      "start": 1004.13,
-      "end": 1010.08,
+      "paragraph_id": 87,
+      "start": 799.92,
+      "end": 805.87,
       "duration": 5.95,
       "text_snippet": "Nhập lớp được sử dụng thường xuyên nhất, và sử dụng FQCN cho lớp ít dùng hơn:"
     },
     {
-      "paragraph_id": 99,
-      "start": 1010.08,
-      "end": 1011.48,
-      "duration": 1.4,
+      "paragraph_id": 88,
+      "start": 799.92,
+      "end": 802.12,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 100,
-      "start": 1011.48,
-      "end": 1014.98,
-      "duration": 3.5,
+      "paragraph_id": 89,
+      "start": 802.22,
+      "end": 806.6,
+      "duration": 4.38,
       "text_snippet": "Tổng Hợp Các Sai Lầm Thường Gặp (Common Mistakes Summary)"
     },
     {
-      "paragraph_id": 101,
-      "start": 1015.08,
-      "end": 1029.51,
-      "duration": 14.43,
+      "paragraph_id": 90,
+      "start": 806.55,
+      "end": 822.16,
+      "duration": 15.61,
       "text_snippet": "Hiểu lầm về việc nhập gói con: Viết import java.util.*; không tự động nhập lớp j"
     },
     {
-      "paragraph_id": 102,
-      "start": 1029.5,
-      "end": 1043.95,
-      "duration": 14.45,
+      "paragraph_id": 91,
+      "start": 822.16,
+      "end": 835.27,
+      "duration": 13.11,
       "text_snippet": "Cấu trúc thư mục bị sai: Đặt tệp chứa khai báo package com.example; bên trong th"
     },
     {
-      "paragraph_id": 103,
-      "start": 1043.95,
-      "end": 1054.7,
-      "duration": 10.75,
+      "paragraph_id": 92,
+      "start": 835.27,
+      "end": 846.01,
+      "duration": 10.74,
       "text_snippet": "Nhập lớp từ gói mặc định: Cố gắng nhập hoặc sử dụng một lớp từ gói mặc định (khô"
     },
     {
-      "paragraph_id": 104,
-      "start": 1054.7,
-      "end": 1061.55,
+      "paragraph_id": 93,
+      "start": 846.11,
+      "end": 852.96,
       "duration": 6.85,
       "text_snippet": "Sai thứ tự từ khóa import static: Viết ngược thành static import thay vì viết đú"
     },
     {
-      "paragraph_id": 105,
-      "start": 1061.55,
-      "end": 1076.69,
-      "duration": 15.14,
+      "paragraph_id": 94,
+      "start": 852.91,
+      "end": 868.07,
+      "duration": 15.16,
       "text_snippet": "Truy cập thành viên protected của thực thể lớp cha ở gói khác: Một lớp con trong"
     },
     {
-      "paragraph_id": 106,
-      "start": 1076.69,
-      "end": 1080.19,
-      "duration": 3.5,
+      "paragraph_id": 95,
+      "start": 868.07,
+      "end": 872.13,
+      "duration": 4.06,
       "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)"
     },
     {
-      "paragraph_id": 107,
-      "start": 1080.19,
-      "end": 1094.54,
-      "duration": 14.35,
+      "paragraph_id": 96,
+      "start": 872.14,
+      "end": 883.4,
+      "duration": 11.26,
       "text_snippet": "Khái niệm nào ở đây là quy tắc tại thời điểm biên dịch? (Kiểm tra lỗi trùng tên "
     },
     {
-      "paragraph_id": 108,
-      "start": 1094.54,
-      "end": 1115.19,
-      "duration": 20.65,
+      "paragraph_id": 97,
+      "start": 883.5,
+      "end": 900.34,
+      "duration": 16.84,
       "text_snippet": "Sự khác biệt lớn nhất giữa Classpath và Module path là gì? (Classpath tìm kiếm p"
     },
     {
-      "paragraph_id": 109,
-      "start": 1115.19,
-      "end": 1117.29,
-      "duration": 2.1,
+      "paragraph_id": 98,
+      "start": 900.34,
+      "end": 903.7,
+      "duration": 3.36,
       "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
     },
     {
-      "paragraph_id": 110,
-      "start": 1117.29,
-      "end": 1119.74,
-      "duration": 2.45,
+      "paragraph_id": 99,
+      "start": 903.7,
+      "end": 907.61,
+      "duration": 3.91,
       "text_snippet": "JLS Chương 7 - Các Gói (Packages)"
     },
     {
-      "paragraph_id": 111,
-      "start": 1119.74,
-      "end": 1123.24,
-      "duration": 3.5,
+      "paragraph_id": 100,
+      "start": 907.61,
+      "end": 912.32,
+      "duration": 4.71,
       "text_snippet": "JLS Mục 6.6 - Kiểm Soát Truy Cập (Access Control)"
     },
     {
-      "paragraph_id": 112,
-      "start": 1123.24,
-      "end": 1126.74,
-      "duration": 3.5,
+      "paragraph_id": 101,
+      "start": 912.42,
+      "end": 917.75,
+      "duration": 5.33,
       "text_snippet": "JLS Mục 7.5 - Các Khai Báo Nhập (Import Declarations)"
     },
     {
-      "paragraph_id": 113,
-      "start": 1126.74,
-      "end": 1130.59,
-      "duration": 3.85,
+      "paragraph_id": 102,
+      "start": 917.7,
+      "end": 926.04,
+      "duration": 8.34,
       "text_snippet": "Hướng dẫn của Oracle - Tạo và Sử dụng các Gói"
     },
     {
-      "paragraph_id": 114,
-      "start": 1130.59,
-      "end": 1134.79,
+      "paragraph_id": 103,
+      "start": 926.04,
+      "end": 930.24,
       "duration": 4.2,
       "text_snippet": "Hướng dẫn của Oracle - Sử dụng các Thành viên của Gói"
     }

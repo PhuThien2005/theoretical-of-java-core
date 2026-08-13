@@ -1,20 +1,6 @@
 # Trình nạp lớp (ClassLoader) - Phần 1
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này đề cập đến một phần trọng tâm của trình nạp lớp (ClassLoader). Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, thay vì các từ vựng rời rạc.
-
 ## Nội Dung Khái Quát (Outline Coverage)
-
-- **`Class loading process`** — Class loading process: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Bootstrap ClassLoader`** — Bootstrap ClassLoader: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Platform/Extension ClassLoader`** — Platform/Extension ClassLoader: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Application ClassLoader`** — Application ClassLoader: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Parent delegation model`** — Parent delegation model: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Dynamic class loading`** — Dynamic class loading: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Class.forName`** — Class.forName: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Classpath`** — Classpath: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Basic JAR loading`** — Basic JAR loading: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 

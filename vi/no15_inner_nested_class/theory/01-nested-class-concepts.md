@@ -1,19 +1,6 @@
 # Lớp nội bộ và Lớp lồng nhau - Phần 1 (Inner Class and Nested Class - Part 1)
 
-## Mục tiêu học tập
-
-Tài liệu này tập trung vào một phần trọng tâm của **Lớp nội bộ và Lớp lồng nhau (Inner Class and Nested Class)**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc Java thực tế, thay vì chỉ học các từ vựng rời rạc.
-
 ## Đề cương chi tiết
-
-- **`Nested class`** — Nested class: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Static nested class`** — Static nested class: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Inner class`** — Inner class: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Local inner class`** — Local inner class: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Anonymous inner class`** — Anonymous inner class: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Access variables outside the class`** — Access variables outside the class: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Use case of inner class`** — Use case of inner class: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Anonymous class in event handler, thread, comparator`** — Anonymous class in event handler, thread, comparator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

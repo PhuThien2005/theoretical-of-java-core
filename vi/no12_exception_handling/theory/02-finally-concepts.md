@@ -1,19 +1,8 @@
 # Xử Lý Ngoại Lệ - Phần 2
 
-## Mục Tiêu Học Tập
-
 File này bao gồm một phần tập trung của **Xử Lý Ngoại Lệ (Exception Handling)**. Hãy học từng khái niệm như một quy tắc Java thực tế, không phải từ vựng biệt lập.
 
 ## Phạm Vi Đề Cương
-
-- **`finally`** — finally: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`throw`** — throw: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`throws`** — throws: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`try-with-resources`** — try-with-resources: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Custom exception`** — Custom exception: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Exception propagation`** — Exception propagation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Common exceptions:`** — Common exceptions:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`NullPointerException`** — NullPointerException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

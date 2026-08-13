@@ -330,4 +330,3 @@ Whenever you finish making edits to theory or cards:
 1. Run `./r.sh dry` (or `./r.sh dry-topic <topic-folder>`) to check for format, duplicate IDs, or structural issues.
 2. Run `./r.sh` (or `./r.sh topic <topic-folder>`) to immediately synchronize the changes to your local Anki application.
 3. Verify that the changes compile and sync successfully, then commit and push them to remote.
-

@@ -2,15 +2,6 @@
 
 Lớp bao bọc (wrapper class) là phiên bản đối tượng của các kiểu dữ liệu nguyên thủy (primitive type).
 
-- **`byte`** — byte: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`short`** — short: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`int`** — int: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`long`** — long: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`float`** — float: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`double`** — double: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`char`** — char: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`boolean`** — boolean: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Tại Sao Lớp Bao Bọc Tồn Tại (Why Wrappers Exist)
 
 Nhiều API trong Java làm việc với các đối tượng (object) chứ không phải kiểu nguyên thủy.

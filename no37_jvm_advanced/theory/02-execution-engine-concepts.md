@@ -1,11 +1,5 @@
 # Advanced JVM - Part 2
 
-## Learning Goal
-
-This file covers a focused slice of **Advanced JVM**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Execution Engine` |`Execution Engine` — JVM component that executes bytecode via Interpreter and JIT Compiler. |
@@ -76,12 +70,6 @@ System.gc();
 - **Relying on System.gc()**: Calling `System.gc()` is a bad practice. It suggests the garbage collector should run, but the JVM can ignore it, and if it runs, it triggers a major/full stop-the-world GC pause.
 - **Eden Size Misconfiguration**: Setting Eden too small causes frequent Minor GCs; setting it too large increases the duration of Minor GC pauses.
 
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
-
 ## Why JIT Compilation and Interpretation Are Combined
 
 The JVM execution engine combines interpretation and Just-In-Time (JIT) compilation to balance fast application startup times with high peak execution performance. When an application launches, the **Interpreter** starts executing bytecode immediately without waiting for compilation, avoiding any startup latency. However, as the application runs, the JVM profiles the code to identify "hot spots"—methods or loops executed frequently. These hot spots are then compiled into native machine code by JIT compilers, specifically using a tiered compilation architecture. The **C1 compiler (Client)** compiles code quickly with simple optimizations to reduce execution time early on, while the **C2 compiler (Server)** performs highly aggressive optimizations (like method inlining, loop unrolling, and escape analysis) to achieve peak steady-state performance.
@@ -141,4 +129,3 @@ Interpreter starts running immediately &rarr; Profiling counters track method ca
 ## Reference Links
 
 - https://docs.oracle.com/en/java/javase/21/gctuning/ (Garbage Collection Tuning Guide / JIT Overview)
-

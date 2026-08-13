@@ -1,7 +1,5 @@
 # 04 - Biến Và Hằng Số (Variables And Constants)
 
-## Mục Tiêu Học Tập (What You Should Learn)
-
 Sau khi hoàn thành chủ đề này, bạn sẽ có thể:
 
 - Giải thích biến (variable) là gì.

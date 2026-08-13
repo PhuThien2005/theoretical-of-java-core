@@ -49,4 +49,3 @@ Small example: When reading code, ask: what does `Supplier` change, allow, rejec
 ## Bi-interface
 
 `Bi-interface` — Bi-interface provides specific functionality and rules in Java development.
-

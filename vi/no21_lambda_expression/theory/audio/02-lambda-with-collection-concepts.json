@@ -1,7 +1,7 @@
 {
   "lesson": "02-lambda-with-collection-concepts",
-  "total_duration_seconds": 316.49,
-  "total_paragraphs": 53,
+  "total_duration_seconds": 297.61,
+  "total_paragraphs": 49,
   "timestamps": [
     {
       "paragraph_id": 1,
@@ -13,365 +13,337 @@
     {
       "paragraph_id": 2,
       "start": 4.45,
-      "end": 6.24,
-      "duration": 1.79,
-      "text_snippet": "Mục Tiêu Học Tập"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 6.24,
-      "end": 16.46,
-      "duration": 10.22,
+      "end": 14.74,
+      "duration": 10.29,
       "text_snippet": "Tệp (File) này cung cấp một phần trọng tâm về biểu thức Lambda. Hãy học từng khá"
     },
     {
-      "paragraph_id": 4,
-      "start": 16.46,
-      "end": 18.35,
-      "duration": 1.89,
+      "paragraph_id": 3,
+      "start": 14.74,
+      "end": 16.62,
+      "duration": 1.88,
       "text_snippet": "Nội Dung Tóm Tắt"
     },
     {
-      "paragraph_id": 5,
-      "start": 18.35,
-      "end": 25.41,
-      "duration": 7.06,
-      "text_snippet": "Lambda with Collection — Lambda with Collection: Cung cấp các quy tắc và cơ chế "
-    },
-    {
-      "paragraph_id": 6,
-      "start": 25.41,
-      "end": 32.76,
-      "duration": 7.35,
-      "text_snippet": "Lambda with Thread — Lambda with Thread: Cung cấp các quy tắc và cơ chế hoạt độn"
-    },
-    {
-      "paragraph_id": 7,
-      "start": 32.76,
-      "end": 40.11,
-      "duration": 7.35,
-      "text_snippet": "Lambda with Comparator — Lambda with Comparator: Cung cấp các quy tắc và cơ chế "
-    },
-    {
-      "paragraph_id": 8,
-      "start": 40.11,
-      "end": 41.51,
-      "duration": 1.4,
+      "paragraph_id": 4,
+      "start": 16.61,
+      "end": 18.43,
+      "duration": 1.82,
       "text_snippet": "Ghi Chú Chi Tiết"
     },
     {
-      "paragraph_id": 9,
-      "start": 41.51,
-      "end": 43.61,
-      "duration": 2.1,
+      "paragraph_id": 5,
+      "start": 18.54,
+      "end": 22.75,
+      "duration": 4.21,
       "text_snippet": "Lambda với Collection (Lambda with Collection)"
     },
     {
-      "paragraph_id": 10,
-      "start": 43.61,
-      "end": 50.26,
-      "duration": 6.65,
+      "paragraph_id": 6,
+      "start": 22.7,
+      "end": 28.05,
+      "duration": 5.35,
       "text_snippet": "Một bộ sưu tập là một đối tượng nhóm nhiều phần tử lại với nhau dưới một API chu"
     },
     {
-      "paragraph_id": 11,
-      "start": 50.36,
-      "end": 59.17,
+      "paragraph_id": 7,
+      "start": 28.05,
+      "end": 36.86,
       "duration": 8.81,
       "text_snippet": "Xem thêm: Ứng dụng mạnh mẽ của Lambda trong việc thao tác và xử lý Collection, đ"
     },
     {
-      "paragraph_id": 12,
-      "start": 59.12,
-      "end": 81.99,
-      "duration": 22.87,
+      "paragraph_id": 8,
+      "start": 36.86,
+      "end": 59.46,
+      "duration": 22.6,
       "text_snippet": "Điều này quan trọng vì việc lựa chọn sai cấu trúc dữ liệu (Data Structure) sẽ là"
     },
     {
-      "paragraph_id": 13,
-      "start": 82.0,
-      "end": 85.06,
+      "paragraph_id": 9,
+      "start": 59.56,
+      "end": 62.62,
       "duration": 3.06,
       "text_snippet": "Kiểm tra thực tế (Practical Check):"
     },
     {
-      "paragraph_id": 14,
-      "start": 85.06,
-      "end": 88.55,
-      "duration": 3.49,
+      "paragraph_id": 10,
+      "start": 62.58,
+      "end": 66.08,
+      "duration": 3.5,
       "text_snippet": "Định nghĩa Lambda with Collection trong một câu."
     },
     {
-      "paragraph_id": 15,
-      "start": 88.55,
-      "end": 98.67,
-      "duration": 10.12,
+      "paragraph_id": 11,
+      "start": 66.08,
+      "end": 76.18,
+      "duration": 10.1,
       "text_snippet": "Nhận biết Lambda with Collection trong mã nguồn (Code), câu lệnh (Command), tài "
     },
     {
-      "paragraph_id": 16,
-      "start": 98.78,
-      "end": 106.93,
+      "paragraph_id": 12,
+      "start": 76.18,
+      "end": 84.33,
       "duration": 8.15,
       "text_snippet": "Giải thích một lỗi (Bug), hạn chế (Limitation) hoặc sự đánh đổi (Tradeoff) liên "
     },
     {
-      "paragraph_id": 17,
-      "start": 106.88,
-      "end": 110.84,
+      "paragraph_id": 13,
+      "start": 84.42,
+      "end": 88.38,
       "duration": 3.96,
       "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy (Mental Model):"
     },
     {
-      "paragraph_id": 18,
-      "start": 110.84,
-      "end": 116.69,
-      "duration": 5.85,
+      "paragraph_id": 14,
+      "start": 88.39,
+      "end": 94.69,
+      "duration": 6.3,
       "text_snippet": "n -> n > 0 là một biểu thức Lambda được sử dụng làm hàm vị từ (Predicate)."
     },
     {
-      "paragraph_id": 19,
-      "start": 116.69,
-      "end": 122.03,
-      "duration": 5.34,
+      "paragraph_id": 15,
+      "start": 94.69,
+      "end": 99.59,
+      "duration": 4.9,
       "text_snippet": "Ví dụ mã nguồn (Code Example): Các phương thức của Collection chấp nhận Lambda"
     },
     {
-      "paragraph_id": 20,
-      "start": 122.03,
-      "end": 124.23,
-      "duration": 2.2,
+      "paragraph_id": 16,
+      "start": 99.59,
+      "end": 100.99,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 21,
-      "start": 124.33,
-      "end": 133.12,
+      "paragraph_id": 17,
+      "start": 102.09,
+      "end": 110.88,
       "duration": 8.79,
       "text_snippet": "Sai lầm thường gặp (Common Mistake): Sửa đổi các bộ sưu tập không thể sửa đổi (U"
     },
     {
-      "paragraph_id": 22,
-      "start": 133.06,
-      "end": 151.61,
-      "duration": 18.55,
+      "paragraph_id": 18,
+      "start": 110.83,
+      "end": 129.39,
+      "duration": 18.56,
       "text_snippet": "Các phương thức như List.of(), Map.of(), hoặc Collections.unmodifiableList() tạo"
     },
     {
-      "paragraph_id": 23,
-      "start": 151.61,
-      "end": 153.99,
+      "paragraph_id": 19,
+      "start": 129.39,
+      "end": 131.77,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 24,
-      "start": 153.99,
-      "end": 157.31,
-      "duration": 3.32,
+      "paragraph_id": 20,
+      "start": 131.76,
+      "end": 134.91,
+      "duration": 3.15,
       "text_snippet": "Lambda với Thread (Lambda with Thread)"
     },
     {
-      "paragraph_id": 25,
-      "start": 157.31,
-      "end": 163.75,
-      "duration": 6.44,
+      "paragraph_id": 21,
+      "start": 135.01,
+      "end": 141.42,
+      "duration": 6.41,
       "text_snippet": "Một biểu thức Lambda là một khối tương tự như hàm ngắn gọn được sử dụng ở những "
     },
     {
-      "paragraph_id": 26,
-      "start": 163.85,
-      "end": 189.41,
-      "duration": 25.56,
+      "paragraph_id": 22,
+      "start": 141.38,
+      "end": 167.02,
+      "duration": 25.64,
       "text_snippet": "Điều này quan trọng vì mã nguồn đồng thời (Concurrent Code) có thể trông có vẻ c"
     },
     {
-      "paragraph_id": 27,
-      "start": 189.41,
-      "end": 190.81,
+      "paragraph_id": 23,
+      "start": 167.01,
+      "end": 168.41,
       "duration": 1.4,
       "text_snippet": "Kiểm tra thực tế:"
     },
     {
-      "paragraph_id": 28,
-      "start": 190.81,
-      "end": 193.61,
+      "paragraph_id": 24,
+      "start": 168.41,
+      "end": 171.21,
       "duration": 2.8,
       "text_snippet": "Định nghĩa Lambda with Thread trong một câu."
     },
     {
-      "paragraph_id": 29,
-      "start": 189.41,
-      "end": 195.02,
-      "duration": 5.61,
+      "paragraph_id": 25,
+      "start": 167.11,
+      "end": 172.73,
+      "duration": 5.62,
       "text_snippet": "Nhận biết Lambda with Thread trong mã nguồn, câu lệnh, tài liệu hoặc các câu hỏi"
     },
     {
-      "paragraph_id": 30,
-      "start": 195.03,
-      "end": 199.95,
-      "duration": 4.92,
+      "paragraph_id": 26,
+      "start": 172.69,
+      "end": 177.6,
+      "duration": 4.91,
       "text_snippet": "Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến Lambda with Thread."
     },
     {
-      "paragraph_id": 31,
-      "start": 200.05,
-      "end": 203.03,
-      "duration": 2.98,
-      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
-    },
-    {
-      "paragraph_id": 32,
-      "start": 202.97,
-      "end": 207.85,
-      "duration": 4.88,
-      "text_snippet": "n -> n > 0 là một biểu thức Lambda được sử dụng làm hàm vị từ."
-    },
-    {
-      "paragraph_id": 33,
-      "start": 207.85,
-      "end": 212.84,
-      "duration": 4.99,
-      "text_snippet": "Ví dụ mã nguồn: Chạy các tác vụ bất đồng bộ (Asynchronously)"
-    },
-    {
-      "paragraph_id": 34,
-      "start": 212.84,
-      "end": 227.46,
-      "duration": 14.62,
-      "text_snippet": "Bởi vì Runnable là một giao diện chức năng (chỉ có duy nhất phương thức trừu tượ"
-    },
-    {
-      "paragraph_id": 35,
-      "start": 227.46,
-      "end": 229.66,
-      "duration": 2.2,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 36,
-      "start": 229.76,
-      "end": 238.87,
-      "duration": 9.11,
-      "text_snippet": "Lambda với Comparator (Lambda with Comparator)"
-    },
-    {
-      "paragraph_id": 37,
-      "start": 238.88,
-      "end": 243.78,
-      "duration": 4.9,
-      "text_snippet": "Comparator định nghĩa việc sắp xếp tùy chỉnh bên ngoài cho các đối tượng."
-    },
-    {
-      "paragraph_id": 38,
-      "start": 238.88,
-      "end": 254.32,
-      "duration": 15.44,
-      "text_snippet": "Điều này quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống xử "
-    },
-    {
-      "paragraph_id": 39,
-      "start": 254.31,
-      "end": 256.41,
-      "duration": 2.1,
-      "text_snippet": "Kiểm tra thực tế:"
-    },
-    {
-      "paragraph_id": 40,
-      "start": 256.41,
-      "end": 259.96,
-      "duration": 3.55,
-      "text_snippet": "Định nghĩa Lambda with Comparator trong một câu."
-    },
-    {
-      "paragraph_id": 41,
-      "start": 260.06,
-      "end": 266.27,
-      "duration": 6.21,
-      "text_snippet": "Nhận biết Lambda with Comparator trong mã nguồn, câu lệnh, tài liệu hoặc các câu"
-    },
-    {
-      "paragraph_id": 42,
-      "start": 266.22,
-      "end": 271.75,
-      "duration": 5.53,
-      "text_snippet": "Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến Lambda with Comparato"
-    },
-    {
-      "paragraph_id": 43,
-      "start": 271.75,
-      "end": 274.71,
+      "paragraph_id": 27,
+      "start": 177.6,
+      "end": 180.56,
       "duration": 2.96,
       "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
     },
     {
-      "paragraph_id": 44,
-      "start": 274.71,
-      "end": 279.59,
-      "duration": 4.88,
+      "paragraph_id": 28,
+      "start": 180.56,
+      "end": 186.51,
+      "duration": 5.95,
       "text_snippet": "n -> n > 0 là một biểu thức Lambda được sử dụng làm hàm vị từ."
     },
     {
-      "paragraph_id": 45,
-      "start": 279.59,
-      "end": 283.14,
+      "paragraph_id": 29,
+      "start": 185.76,
+      "end": 190.75,
+      "duration": 4.99,
+      "text_snippet": "Ví dụ mã nguồn: Chạy các tác vụ bất đồng bộ (Asynchronously)"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 190.7,
+      "end": 205.34,
+      "duration": 14.64,
+      "text_snippet": "Bởi vì Runnable là một giao diện chức năng (chỉ có duy nhất phương thức trừu tượ"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 205.34,
+      "end": 207.72,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 207.71,
+      "end": 212.17,
+      "duration": 4.46,
+      "text_snippet": "Lambda với Comparator (Lambda with Comparator)"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 212.28,
+      "end": 216.77,
+      "duration": 4.49,
+      "text_snippet": "Comparator định nghĩa việc sắp xếp tùy chỉnh bên ngoài cho các đối tượng."
+    },
+    {
+      "paragraph_id": 34,
+      "start": 216.71,
+      "end": 232.13,
+      "duration": 15.42,
+      "text_snippet": "Điều này quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống xử "
+    },
+    {
+      "paragraph_id": 35,
+      "start": 232.14,
+      "end": 234.24,
+      "duration": 2.1,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 234.24,
+      "end": 237.79,
+      "duration": 3.55,
+      "text_snippet": "Định nghĩa Lambda with Comparator trong một câu."
+    },
+    {
+      "paragraph_id": 37,
+      "start": 237.89,
+      "end": 244.1,
+      "duration": 6.21,
+      "text_snippet": "Nhận biết Lambda with Comparator trong mã nguồn, câu lệnh, tài liệu hoặc các câu"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 244.05,
+      "end": 249.58,
+      "duration": 5.53,
+      "text_snippet": "Giải thích một lỗi, hạn chế hoặc sự đánh đổi liên quan đến Lambda with Comparato"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 249.58,
+      "end": 252.54,
+      "duration": 2.96,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 252.54,
+      "end": 258.49,
+      "duration": 5.95,
+      "text_snippet": "n -> n > 0 là một biểu thức Lambda được sử dụng làm hàm vị từ."
+    },
+    {
+      "paragraph_id": 41,
+      "start": 257.74,
+      "end": 261.29,
       "duration": 3.55,
       "text_snippet": "Ví dụ mã nguồn: Logic sắp xếp tùy chỉnh"
     },
     {
-      "paragraph_id": 46,
-      "start": 283.14,
-      "end": 284.54,
-      "duration": 1.4,
+      "paragraph_id": 42,
+      "start": 261.24,
+      "end": 263.61,
+      "duration": 2.37,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 47,
-      "start": 284.54,
-      "end": 291.19,
-      "duration": 6.65,
+      "paragraph_id": 43,
+      "start": 263.61,
+      "end": 271.75,
+      "duration": 8.14,
       "text_snippet": "Sai lầm thường gặp: Tràn số nguyên (Integer Overflow) trong bộ so sánh sử dụng p"
     },
     {
-      "paragraph_id": 48,
-      "start": 291.19,
-      "end": 298.54,
-      "duration": 7.35,
+      "paragraph_id": 44,
+      "start": 271.75,
+      "end": 278.11,
+      "duration": 6.36,
       "text_snippet": "Một sai lầm kinh điển khi so sánh các giá trị số nguyên là sử dụng phép trừ thay"
     },
     {
-      "paragraph_id": 49,
-      "start": 298.54,
-      "end": 299.94,
-      "duration": 1.4,
+      "paragraph_id": 45,
+      "start": 278.21,
+      "end": 280.59,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 50,
-      "start": 299.94,
-      "end": 303.44,
-      "duration": 3.5,
+      "paragraph_id": 46,
+      "start": 280.54,
+      "end": 284.63,
+      "duration": 4.09,
       "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)"
     },
     {
-      "paragraph_id": 51,
-      "start": 303.54,
-      "end": 316.49,
-      "duration": 12.95,
+      "paragraph_id": 47,
+      "start": 284.63,
+      "end": 294.09,
+      "duration": 9.46,
       "text_snippet": "Những khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch (Compile-time)?"
     },
     {
-      "paragraph_id": 52,
-      "start": 316.49,
-      "end": 321.74,
+      "paragraph_id": 48,
+      "start": 294.09,
+      "end": 299.34,
       "duration": 5.25,
       "text_snippet": "Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy?"
     },
     {
-      "paragraph_id": 53,
-      "start": 321.74,
-      "end": 325.59,
-      "duration": 3.85,
+      "paragraph_id": 49,
+      "start": 294.19,
+      "end": 297.61,
+      "duration": 3.42,
       "text_snippet": "Những khái niệm nào ở đây dễ là bẫy phỏng vấn?"
     }
   ]

@@ -1,11 +1,5 @@
 # Enum - Part 2
 
-## Learning Goal
-
-This file covers a focused slice of **Enum**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Enum implements interface` | Enums cannot extend classes, but they can implement interfaces to support polymorphism. |

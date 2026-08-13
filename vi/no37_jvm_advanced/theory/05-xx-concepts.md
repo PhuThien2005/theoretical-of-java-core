@@ -1,21 +1,14 @@
 # JVM nâng cao - Phần 5 (Advanced JVM - Part 5)
 
-## Mục tiêu học tập
-
-Tài liệu này tập trung vào một phần trọng tâm của **JVM nâng cao (Advanced JVM)**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc Java thực tế, thay vì chỉ học các từ vựng rời rạc.
-
 ## Đề cương chi tiết
 
 - **`-XX`** — Cờ tùy chỉnh dòng lệnh của JVM dùng để thiết lập nâng cao các tham số hệ thống và GC.
 - **`Basic profiling`** — Phân tích đo lường hiệu năng ứng dụng (CPU, bộ nhớ, thread) để tìm điểm nghẽn.
 - **`Memory dump`** — Bản chụp toàn bộ trạng thái bộ nhớ Heap tại một thời điểm phục vụ phân tích rò rỉ bộ nhớ.
-- **`Thread dump`** — Thread dump: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi chú chi tiết
 
 ### -XX
-
-- **`XX`** — XX: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 
@@ -31,8 +24,6 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### Phân tích hiệu năng cơ bản (Basic profiling)
 
-**`Phân tích hiệu năng cơ bản`** — Phân tích hiệu năng cơ bản: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
 Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 
 Kiểm tra thực tế:
@@ -46,8 +37,6 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 - Khi đọc mã nguồn, hãy hỏi: `Basic profiling` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ### Kết xuất bộ nhớ (Memory dump)
-
-**`Kết xuất bộ nhớ`** — Kết xuất bộ nhớ: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được cho phép và trạng thái lỗi. Hãy ôn tập bằng một ví dụ nhỏ thay vì chỉ học vẹt nhãn dán.
 

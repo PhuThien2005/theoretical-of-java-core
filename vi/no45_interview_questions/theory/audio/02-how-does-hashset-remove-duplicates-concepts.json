@@ -1,503 +1,398 @@
 {
   "lesson": "02-how-does-hashset-remove-duplicates-concepts",
-  "total_duration_seconds": 569.76,
-  "total_paragraphs": 71,
+  "total_duration_seconds": 461.15,
+  "total_paragraphs": 56,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 7.0,
-      "duration": 7.0,
+      "start": 0.1,
+      "end": 7.06,
+      "duration": 6.96,
       "text_snippet": "Các Câu Hỏi Phỏng Vấn Java Core Thường Gặp - Phần 2 (Common Java Core Interview "
     },
     {
       "paragraph_id": 2,
-      "start": 7.0,
-      "end": 9.1,
-      "duration": 2.1,
-      "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 9.1,
-      "end": 26.95,
-      "duration": 17.85,
-      "text_snippet": "Tài liệu này trình bày các câu hỏi phỏng vấn Java Core ở mức độ trung cấp liên q"
-    },
-    {
-      "paragraph_id": 4,
-      "start": 26.95,
-      "end": 28.7,
-      "duration": 1.75,
+      "start": 7.01,
+      "end": 10.27,
+      "duration": 3.26,
       "text_snippet": "Khung Nội Dung (Outline Coverage)"
     },
     {
-      "paragraph_id": 5,
-      "start": 28.7,
-      "end": 37.45,
-      "duration": 8.75,
-      "text_snippet": "How does HashSet remove duplicates? — How does HashSet remove duplicates?: Cung "
-    },
-    {
-      "paragraph_id": 6,
-      "start": 37.45,
-      "end": 47.6,
-      "duration": 10.15,
-      "text_snippet": "How are final, finally, and finalize different? — How are final, finally, and fi"
-    },
-    {
-      "paragraph_id": 7,
-      "start": 47.6,
-      "end": 57.75,
-      "duration": 10.15,
-      "text_snippet": "How are checked and unchecked exceptions different? — How are checked and unchec"
-    },
-    {
-      "paragraph_id": 8,
-      "start": 57.75,
-      "end": 67.9,
-      "duration": 10.15,
-      "text_snippet": "How are abstract class and interface different? — How are abstract class and int"
-    },
-    {
-      "paragraph_id": 9,
-      "start": 67.9,
-      "end": 77.35,
-      "duration": 9.45,
-      "text_snippet": "How are overload and override different? — How are overload and override differe"
-    },
-    {
-      "paragraph_id": 10,
-      "start": 77.35,
-      "end": 86.1,
-      "duration": 8.75,
-      "text_snippet": "Can static methods be overridden? — Can static methods be overridden?: Cung cấp "
-    },
-    {
-      "paragraph_id": 11,
-      "start": 86.1,
-      "end": 93.45,
-      "duration": 7.35,
-      "text_snippet": "Are constructors inherited? — Are constructors inherited?: Cung cấp các quy tắc "
-    },
-    {
-      "paragraph_id": 12,
-      "start": 93.45,
-      "end": 102.9,
-      "duration": 9.45,
-      "text_snippet": "How are this and super different? — How are this and super different?: Cung cấp "
-    },
-    {
-      "paragraph_id": 13,
-      "start": 102.9,
-      "end": 105.0,
-      "duration": 2.1,
+      "paragraph_id": 3,
+      "start": 10.28,
+      "end": 13.29,
+      "duration": 3.01,
       "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
     },
     {
-      "paragraph_id": 14,
-      "start": 105.0,
-      "end": 109.9,
-      "duration": 4.9,
+      "paragraph_id": 4,
+      "start": 13.29,
+      "end": 18.55,
+      "duration": 5.26,
       "text_snippet": "Cách HashSet loại bỏ các phần tử trùng lặp (How does HashSet remove duplicates?)"
     },
     {
-      "paragraph_id": 15,
-      "start": 109.9,
-      "end": 115.15,
-      "duration": 5.25,
+      "paragraph_id": 5,
+      "start": 18.65,
+      "end": 23.81,
+      "duration": 5.16,
       "text_snippet": "Bên dưới lớp vỏ, một HashSet được hỗ trợ bởi một thực thể của HashMap:"
     },
     {
-      "paragraph_id": 16,
-      "start": 115.15,
-      "end": 116.55,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 17,
-      "start": 116.55,
-      "end": 138.25,
-      "duration": 21.7,
-      "text_snippet": "Phát hiện Trùng lặp (Duplicate Detection): Khi thêm một phần tử e, HashSet sẽ gọ"
-    },
-    {
-      "paragraph_id": 18,
-      "start": 138.25,
-      "end": 140.7,
-      "duration": 2.45,
-      "text_snippet": "phân biệt final vs. finally vs. finalize()"
-    },
-    {
-      "paragraph_id": 19,
-      "start": 140.7,
-      "end": 158.55,
-      "duration": 17.85,
-      "text_snippet": "final — final: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java. Biến "
-    },
-    {
-      "paragraph_id": 20,
-      "start": 158.55,
-      "end": 162.4,
-      "duration": 3.85,
-      "text_snippet": "Biến (Variable): Cấm gán lại giá trị (trở thành hằng số)."
-    },
-    {
-      "paragraph_id": 21,
-      "start": 162.4,
-      "end": 166.6,
-      "duration": 4.2,
-      "text_snippet": "Phương thức (Method): Cấm các lớp con ghi đè phương thức này."
-    },
-    {
-      "paragraph_id": 22,
-      "start": 166.6,
-      "end": 170.45,
-      "duration": 3.85,
-      "text_snippet": "Lớp (Class): Cấm lớp khác kế thừa (ví dụ: String, Integer)."
-    },
-    {
-      "paragraph_id": 23,
-      "start": 170.45,
-      "end": 176.4,
-      "duration": 5.95,
-      "text_snippet": "finally — finally: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 24,
-      "start": 176.4,
-      "end": 182.35,
-      "duration": 5.95,
-      "text_snippet": "finalize() — finalize(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong J"
-    },
-    {
-      "paragraph_id": 25,
-      "start": 182.35,
-      "end": 185.5,
-      "duration": 3.15,
-      "text_snippet": "Ngoại lệ Checked vs. Unchecked (Checked vs. Unchecked Exceptions)"
-    },
-    {
-      "paragraph_id": 26,
-      "start": 185.5,
-      "end": 203.7,
-      "duration": 18.2,
-      "text_snippet": "Ngoại lệ Checked (Checked Exceptions): Là các lớp con trực tiếp của Exception (n"
-    },
-    {
-      "paragraph_id": 27,
-      "start": 203.7,
-      "end": 207.55,
-      "duration": 3.85,
-      "text_snippet": "Là các lớp con trực tiếp của Exception (ngoại trừ RuntimeException)."
-    },
-    {
-      "paragraph_id": 28,
-      "start": 207.55,
-      "end": 220.15,
-      "duration": 12.6,
-      "text_snippet": "Được kiểm tra bởi trình biên dịch. Chương trình bắt buộc phải xử lý chúng trong "
-    },
-    {
-      "paragraph_id": 29,
-      "start": 220.15,
-      "end": 235.9,
-      "duration": 15.75,
-      "text_snippet": "Ngoại lệ Unchecked (Unchecked Exceptions): Là các lớp con của RuntimeException h"
-    },
-    {
-      "paragraph_id": 30,
-      "start": 235.9,
-      "end": 238.7,
-      "duration": 2.8,
-      "text_snippet": "Là các lớp con của RuntimeException hoặc Error."
-    },
-    {
-      "paragraph_id": 31,
-      "start": 238.7,
-      "end": 249.9,
-      "duration": 11.2,
-      "text_snippet": "Không bị kiểm tra tại thời điểm biên dịch. Chúng đại diện cho các lỗi lập trình "
-    },
-    {
-      "paragraph_id": 32,
-      "start": 249.9,
-      "end": 253.4,
-      "duration": 3.5,
-      "text_snippet": "Lớp Trừu Tượng vs. Giao Diện (Abstract Class vs. Interface)"
-    },
-    {
-      "paragraph_id": 33,
-      "start": 253.4,
-      "end": 268.1,
-      "duration": 14.7,
-      "text_snippet": "Lớp Trừu Tượng (Abstract Class) hỗ trợ đơn kế thừa (extends), có thể chứa các bi"
-    },
-    {
-      "paragraph_id": 34,
-      "start": 268.1,
-      "end": 283.85,
-      "duration": 15.75,
-      "text_snippet": "Giao Diện (Interface) hỗ trợ đa kế thừa (implements), chỉ có thể chứa các hằng s"
-    },
-    {
-      "paragraph_id": 35,
-      "start": 283.85,
-      "end": 286.65,
-      "duration": 2.8,
-      "text_snippet": "Nạp chồng vs. Ghi đè (Overloading vs. Overriding)"
-    },
-    {
-      "paragraph_id": 36,
-      "start": 286.65,
-      "end": 304.5,
-      "duration": 17.85,
-      "text_snippet": "Nạp chồng phương thức (Method Overloading): Xảy ra trong cùng một lớp (hoặc giữa"
-    },
-    {
-      "paragraph_id": 37,
-      "start": 304.5,
-      "end": 308.0,
-      "duration": 3.5,
-      "text_snippet": "Xảy ra trong cùng một lớp (hoặc giữa lớp cha/con)."
-    },
-    {
-      "paragraph_id": 38,
-      "start": 308.0,
-      "end": 315.7,
-      "duration": 7.7,
-      "text_snippet": "Có cùng tên phương thức nhưng khác danh sách tham số (khác kiểu dữ liệu, số lượn"
-    },
-    {
-      "paragraph_id": 39,
-      "start": 315.7,
-      "end": 320.25,
-      "duration": 4.55,
-      "text_snippet": "Là tính đa hình tại thời điểm biên dịch (tĩnh - compile-time/static polymorphism"
-    },
-    {
-      "paragraph_id": 40,
-      "start": 320.25,
-      "end": 337.4,
-      "duration": 17.15,
-      "text_snippet": "Ghi đè phương thức (Method Overriding): Xảy ra giữa lớp cha và lớp con. Có cùng "
-    },
-    {
-      "paragraph_id": 41,
-      "start": 337.4,
-      "end": 340.2,
-      "duration": 2.8,
-      "text_snippet": "Xảy ra giữa lớp cha và lớp con."
-    },
-    {
-      "paragraph_id": 42,
-      "start": 340.2,
-      "end": 348.25,
-      "duration": 8.05,
-      "text_snippet": "Có cùng tên phương thức, cùng danh sách tham số và cùng kiểu trả về (hoặc kiểu đ"
-    },
-    {
-      "paragraph_id": 43,
-      "start": 348.25,
-      "end": 352.45,
-      "duration": 4.2,
-      "text_snippet": "Là tính đa hình tại thời điểm chạy (động - runtime/dynamic polymorphism)."
-    },
-    {
-      "paragraph_id": 44,
-      "start": 352.45,
-      "end": 357.7,
-      "duration": 5.25,
-      "text_snippet": "Các phương thức static có thể bị ghi đè không? (Can static methods be overridden"
-    },
-    {
-      "paragraph_id": 45,
-      "start": 357.7,
-      "end": 375.2,
-      "duration": 17.5,
-      "text_snippet": "Không. Việc ghi đè phương thức phụ thuộc vào liên kết động (dynamic binding) tại"
-    },
-    {
-      "paragraph_id": 46,
-      "start": 375.3,
-      "end": 386.81,
-      "duration": 11.51,
-      "text_snippet": "Nếu một lớp con định nghĩa một phương thức static có cùng chữ ký (signature) với"
-    },
-    {
-      "paragraph_id": 47,
-      "start": 386.76,
-      "end": 389.14,
+      "paragraph_id": 6,
+      "start": 23.76,
+      "end": 26.14,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 48,
-      "start": 389.14,
-      "end": 399.16,
+      "paragraph_id": 7,
+      "start": 26.14,
+      "end": 48.53,
+      "duration": 22.39,
+      "text_snippet": "Phát hiện Trùng lặp (Duplicate Detection): Khi thêm một phần tử e, HashSet sẽ gọ"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 48.53,
+      "end": 55.08,
+      "duration": 6.55,
+      "text_snippet": "phân biệt final vs. finally vs. finalize()"
+    },
+    {
+      "paragraph_id": 9,
+      "start": 55.18,
+      "end": 59.78,
+      "duration": 4.6,
+      "text_snippet": "Biến (Variable): Cấm gán lại giá trị (trở thành hằng số)."
+    },
+    {
+      "paragraph_id": 10,
+      "start": 59.73,
+      "end": 63.92,
+      "duration": 4.19,
+      "text_snippet": "Phương thức (Method): Cấm các lớp con ghi đè phương thức này."
+    },
+    {
+      "paragraph_id": 11,
+      "start": 63.91,
+      "end": 69.24,
+      "duration": 5.33,
+      "text_snippet": "Lớp (Class): Cấm lớp khác kế thừa (ví dụ: String, Integer)."
+    },
+    {
+      "paragraph_id": 12,
+      "start": 69.24,
+      "end": 77.18,
+      "duration": 7.94,
+      "text_snippet": "Ngoại lệ Checked vs. Unchecked (Checked vs. Unchecked Exceptions)"
+    },
+    {
+      "paragraph_id": 13,
+      "start": 77.28,
+      "end": 118.8,
+      "duration": 41.52,
+      "text_snippet": "Ngoại lệ Checked (Checked Exceptions): Là các lớp con trực tiếp của Exception (n"
+    },
+    {
+      "paragraph_id": 14,
+      "start": 118.8,
+      "end": 122.65,
+      "duration": 3.85,
+      "text_snippet": "Là các lớp con trực tiếp của Exception (ngoại trừ RuntimeException)."
+    },
+    {
+      "paragraph_id": 15,
+      "start": 122.65,
+      "end": 135.25,
+      "duration": 12.6,
+      "text_snippet": "Được kiểm tra bởi trình biên dịch. Chương trình bắt buộc phải xử lý chúng trong "
+    },
+    {
+      "paragraph_id": 16,
+      "start": 118.8,
+      "end": 130.19,
+      "duration": 11.39,
+      "text_snippet": "Ngoại lệ Unchecked (Unchecked Exceptions): Là các lớp con của RuntimeException h"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 130.29,
+      "end": 133.75,
+      "duration": 3.46,
+      "text_snippet": "Là các lớp con của RuntimeException hoặc Error."
+    },
+    {
+      "paragraph_id": 18,
+      "start": 133.7,
+      "end": 145.25,
+      "duration": 11.55,
+      "text_snippet": "Không bị kiểm tra tại thời điểm biên dịch. Chúng đại diện cho các lỗi lập trình "
+    },
+    {
+      "paragraph_id": 19,
+      "start": 145.25,
+      "end": 165.81,
+      "duration": 20.56,
+      "text_snippet": "Lớp Trừu Tượng vs. Giao Diện (Abstract Class vs. Interface)"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 165.81,
+      "end": 180.51,
+      "duration": 14.7,
+      "text_snippet": "Lớp Trừu Tượng (Abstract Class) hỗ trợ đơn kế thừa (extends), có thể chứa các bi"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 165.91,
+      "end": 179.73,
+      "duration": 13.82,
+      "text_snippet": "Giao Diện (Interface) hỗ trợ đa kế thừa (implements), chỉ có thể chứa các hằng s"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 179.69,
+      "end": 193.23,
+      "duration": 13.54,
+      "text_snippet": "Nạp chồng vs. Ghi đè (Overloading vs. Overriding)"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 193.22,
+      "end": 209.22,
+      "duration": 16.0,
+      "text_snippet": "Nạp chồng phương thức (Method Overloading): Xảy ra trong cùng một lớp (hoặc giữa"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 209.22,
+      "end": 212.72,
+      "duration": 3.5,
+      "text_snippet": "Xảy ra trong cùng một lớp (hoặc giữa lớp cha/con)."
+    },
+    {
+      "paragraph_id": 25,
+      "start": 209.32,
+      "end": 216.02,
+      "duration": 6.7,
+      "text_snippet": "Có cùng tên phương thức nhưng khác danh sách tham số (khác kiểu dữ liệu, số lượn"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 215.97,
+      "end": 221.54,
+      "duration": 5.57,
+      "text_snippet": "Là tính đa hình tại thời điểm biên dịch (tĩnh - compile-time/static polymorphism"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 221.55,
+      "end": 242.44,
+      "duration": 20.89,
+      "text_snippet": "Ghi đè phương thức (Method Overriding): Xảy ra giữa lớp cha và lớp con. Có cùng "
+    },
+    {
+      "paragraph_id": 28,
+      "start": 242.44,
+      "end": 245.24,
+      "duration": 2.8,
+      "text_snippet": "Xảy ra giữa lớp cha và lớp con."
+    },
+    {
+      "paragraph_id": 29,
+      "start": 242.54,
+      "end": 249.87,
+      "duration": 7.33,
+      "text_snippet": "Có cùng tên phương thức, cùng danh sách tham số và cùng kiểu trả về (hoặc kiểu đ"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 249.81,
+      "end": 255.26,
+      "duration": 5.45,
+      "text_snippet": "Là tính đa hình tại thời điểm chạy (động - runtime/dynamic polymorphism)."
+    },
+    {
+      "paragraph_id": 31,
+      "start": 255.26,
+      "end": 263.02,
+      "duration": 7.76,
+      "text_snippet": "Các phương thức static có thể bị ghi đè không? (Can static methods be overridden"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 263.02,
+      "end": 276.92,
+      "duration": 13.9,
+      "text_snippet": "Không. Việc ghi đè phương thức phụ thuộc vào liên kết động (dynamic binding) tại"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 277.03,
+      "end": 288.54,
+      "duration": 11.51,
+      "text_snippet": "Nếu một lớp con định nghĩa một phương thức static có cùng chữ ký (signature) với"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 288.49,
+      "end": 290.87,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 290.86,
+      "end": 300.88,
       "duration": 10.02,
       "text_snippet": "Các hàm khởi tạo có được kế thừa không? (Are constructors inherited?)"
     },
     {
-      "paragraph_id": 49,
-      "start": 399.16,
-      "end": 402.97,
-      "duration": 3.81,
+      "paragraph_id": 36,
+      "start": 300.89,
+      "end": 305.44,
+      "duration": 4.55,
       "text_snippet": "Không, các hàm khởi tạo không được kế thừa bởi các lớp con."
     },
     {
-      "paragraph_id": 50,
-      "start": 402.97,
-      "end": 415.2,
-      "duration": 12.23,
+      "paragraph_id": 37,
+      "start": 300.99,
+      "end": 316.93,
+      "duration": 15.94,
       "text_snippet": "Lớp con phải tự định nghĩa các hàm khởi tạo của riêng nó. Nếu lớp cha không có h"
     },
     {
-      "paragraph_id": 51,
-      "start": 415.2,
-      "end": 416.95,
-      "duration": 1.75,
+      "paragraph_id": 38,
+      "start": 316.93,
+      "end": 320.74,
+      "duration": 3.81,
       "text_snippet": "phân biệt this vs. super"
     },
     {
-      "paragraph_id": 52,
-      "start": 416.95,
-      "end": 422.9,
-      "duration": 5.95,
-      "text_snippet": "this — this: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 53,
-      "start": 422.9,
-      "end": 428.85,
-      "duration": 5.95,
-      "text_snippet": "super — super: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 54,
-      "start": 428.85,
-      "end": 433.05,
-      "duration": 4.2,
+      "paragraph_id": 39,
+      "start": 320.74,
+      "end": 325.43,
+      "duration": 4.69,
       "text_snippet": "Các Sai Lầm Phổ Biến & Cạm Bẫy (Common Mistakes & Traps)"
     },
     {
-      "paragraph_id": 55,
-      "start": 433.05,
-      "end": 436.9,
-      "duration": 3.85,
+      "paragraph_id": 40,
+      "start": 325.43,
+      "end": 331.18,
+      "duration": 5.75,
       "text_snippet": "1. Vi phạm Ràng buộc giữa HashSet/HashMap (The HashSet/HashMap Contract Violatio"
     },
     {
-      "paragraph_id": 56,
-      "start": 436.9,
-      "end": 443.9,
-      "duration": 7.0,
+      "paragraph_id": 41,
+      "start": 331.28,
+      "end": 337.53,
+      "duration": 6.25,
       "text_snippet": "Thêm một đối tượng vào một HashSet mà không ghi đè đồng thời cả hai phương thức "
     },
     {
-      "paragraph_id": 57,
-      "start": 443.9,
-      "end": 445.3,
-      "duration": 1.4,
+      "paragraph_id": 42,
+      "start": 337.48,
+      "end": 339.86,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 58,
-      "start": 445.3,
-      "end": 449.85,
-      "duration": 4.55,
+      "paragraph_id": 43,
+      "start": 339.85,
+      "end": 350.7,
+      "duration": 10.85,
       "text_snippet": "2. Lầm tưởng khối finally luôn luôn thực thi (Assuming finally always executes)"
     },
     {
-      "paragraph_id": 59,
-      "start": 449.85,
-      "end": 455.1,
+      "paragraph_id": 44,
+      "start": 350.7,
+      "end": 355.95,
       "duration": 5.25,
       "text_snippet": "Khối finally chạy trong hầu hết mọi trường hợp, nhưng nó sẽ KHÔNG chạy nếu:"
     },
     {
-      "paragraph_id": 60,
-      "start": 455.1,
-      "end": 458.6,
-      "duration": 3.5,
+      "paragraph_id": 45,
+      "start": 350.8,
+      "end": 355.99,
+      "duration": 5.19,
       "text_snippet": "Phương thức System.exit(0) được gọi trong khối try hoặc catch."
     },
     {
-      "paragraph_id": 61,
-      "start": 458.6,
-      "end": 463.5,
-      "duration": 4.9,
+      "paragraph_id": 46,
+      "start": 355.94,
+      "end": 360.98,
+      "duration": 5.04,
       "text_snippet": "Hệ điều hành hoặc JVM bị sập (crash) đột ngột hoặc mất nguồn điện."
     },
     {
-      "paragraph_id": 62,
-      "start": 463.5,
-      "end": 468.05,
-      "duration": 4.55,
+      "paragraph_id": 47,
+      "start": 360.97,
+      "end": 365.87,
+      "duration": 4.9,
       "text_snippet": "Luồng (thread) đang chạy khối try-catch bị dừng/ngắt kết nối từ bên ngoài."
     },
     {
-      "paragraph_id": 63,
-      "start": 468.05,
-      "end": 474.35,
-      "duration": 6.3,
+      "paragraph_id": 48,
+      "start": 365.88,
+      "end": 372.87,
+      "duration": 6.99,
       "text_snippet": "Tại sao HashSet Tận Dụng HashMap Để Loại Bỏ Trùng Lặp (Why HashSet Leverages Has"
     },
     {
-      "paragraph_id": 64,
-      "start": 474.35,
-      "end": 550.3,
-      "duration": 75.95,
+      "paragraph_id": 49,
+      "start": 372.96,
+      "end": 437.45,
+      "duration": 64.49,
       "text_snippet": "Một lớp HashSet trong Java không tự triển khai logic xử lý va chạm băm của riêng"
     },
     {
-      "paragraph_id": 65,
-      "start": 550.3,
-      "end": 552.4,
-      "duration": 2.1,
+      "paragraph_id": 50,
+      "start": 437.45,
+      "end": 440.75,
+      "duration": 3.3,
       "text_snippet": "Mô hình Tư duy (Mental Model)"
     },
     {
-      "paragraph_id": 66,
-      "start": 552.4,
-      "end": 553.8,
-      "duration": 1.4,
+      "paragraph_id": 51,
+      "start": 440.75,
+      "end": 443.13,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 67,
-      "start": 553.8,
-      "end": 555.9,
-      "duration": 2.1,
+      "paragraph_id": 52,
+      "start": 443.12,
+      "end": 446.27,
+      "duration": 3.15,
       "text_snippet": "Ví Dụ Mã Nguồn (Code Example)"
     },
     {
-      "paragraph_id": 68,
-      "start": 555.9,
-      "end": 564.3,
-      "duration": 8.4,
+      "paragraph_id": 53,
+      "start": 446.38,
+      "end": 455.74,
+      "duration": 9.36,
       "text_snippet": "Đoạn mã dưới đây minh họa cách HashSet sử dụng phương thức add() và cách nó gọi "
     },
     {
-      "paragraph_id": 69,
-      "start": 564.3,
-      "end": 565.7,
+      "paragraph_id": 54,
+      "start": 455.74,
+      "end": 457.14,
       "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 70,
-      "start": 565.7,
-      "end": 567.45,
-      "duration": 1.75,
+      "paragraph_id": 55,
+      "start": 455.74,
+      "end": 458.95,
+      "duration": 3.21,
       "text_snippet": "Chuỗi Nhân Quả (Cause-Effect Chain)"
     },
     {
-      "paragraph_id": 71,
-      "start": 567.55,
-      "end": 569.76,
-      "duration": 2.21,
+      "paragraph_id": 56,
+      "start": 458.95,
+      "end": 461.15,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     }
   ]

@@ -140,4 +140,3 @@ You should still recognize Java 8 features because many interviews and legacy pr
 - https://www.oracle.com/java/technologies/java-se-support-roadmap.html (Oracle Java SE Support Roadmap)
 - https://openjdk.org/jeps/444 (JEP 444: Virtual Threads)
 - https://openjdk.org/jeps/395 (JEP 395: Records)
-

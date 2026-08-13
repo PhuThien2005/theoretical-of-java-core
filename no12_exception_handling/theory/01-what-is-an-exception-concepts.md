@@ -1,20 +1,5 @@
 # Exception Handling - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **Exception Handling**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
-- **`What is an exception?`** — An abnormal event during program execution that disrupts the normal flow of instructions and can be caught or propagated.
-- **`Error vs Exception`** — Errors represent critical JVM-level failures that applications should not catch, while Exceptions are program-level conditions that are recoverable.
-- **`Checked exception`** — Exceptions checked at compile-time; the compiler forces the developer to handle or declare them using try-catch or throws.
-- **`Unchecked exception`** — Exceptions not checked at compile-time (subclasses of RuntimeException); they represent programming bugs.
-- **`Runtime exception`** — The parent class of all unchecked exceptions, representing bugs or logical failures in code.
-- **`try`** — try marks the block whose exceptions you want to handle, clean up after, or propagate.
-- **`catch`** — catch handles a matching exception type thrown from the try block.
-- **`multiple catch`** — multiple catch lets different exception types be handled by different handlers, ordered from specific to broad.
-
 ## Detailed Notes
 
 ### What is an exception?
@@ -509,12 +494,6 @@ try {
     // e = new ArithmeticException("new message"); // Compile Error!
 }
 ```
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
 
 ---
 

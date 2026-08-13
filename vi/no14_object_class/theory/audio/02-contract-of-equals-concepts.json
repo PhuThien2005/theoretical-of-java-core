@@ -1,7 +1,7 @@
 {
   "lesson": "02-contract-of-equals-concepts",
-  "total_duration_seconds": 724.15,
-  "total_paragraphs": 78,
+  "total_duration_seconds": 607.14,
+  "total_paragraphs": 73,
   "timestamps": [
     {
       "paragraph_id": 1,
@@ -13,540 +13,505 @@
     {
       "paragraph_id": 2,
       "start": 4.4,
-      "end": 7.4,
-      "duration": 3.0,
-      "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 7.4,
-      "end": 17.79,
-      "duration": 10.39,
-      "text_snippet": "Tài liệu này bao gồm một phần nội dung trọng tâm về lớp Object. Hãy nghiên cứu t"
-    },
-    {
-      "paragraph_id": 4,
-      "start": 17.79,
-      "end": 21.38,
-      "duration": 3.59,
+      "end": 8.0,
+      "duration": 3.6,
       "text_snippet": "Đề Cương Nội Dung (Outline Coverage)"
     },
     {
-      "paragraph_id": 5,
-      "start": 21.38,
-      "end": 28.12,
-      "duration": 6.74,
-      "text_snippet": "Quy ước của equals() — Quy ước của equals(): Cung cấp các quy tắc và cơ chế hoạt"
-    },
-    {
-      "paragraph_id": 6,
-      "start": 28.11,
-      "end": 36.16,
-      "duration": 8.05,
-      "text_snippet": "Quy ước của hashCode() — Quy ước của hashCode(): Cung cấp các quy tắc và cơ chế "
-    },
-    {
-      "paragraph_id": 7,
-      "start": 36.16,
-      "end": 49.11,
-      "duration": 12.95,
-      "text_snippet": "So sánh đối tượng bằng tham chiếu và bằng giá trị — So sánh đối tượng bằng tham "
-    },
-    {
-      "paragraph_id": 8,
-      "start": 49.11,
-      "end": 51.21,
-      "duration": 2.1,
+      "paragraph_id": 3,
+      "start": 8.0,
+      "end": 11.01,
+      "duration": 3.01,
       "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
     },
     {
-      "paragraph_id": 9,
-      "start": 51.21,
-      "end": 53.66,
-      "duration": 2.45,
+      "paragraph_id": 4,
+      "start": 11.01,
+      "end": 14.75,
+      "duration": 3.74,
       "text_snippet": "Quy Ước Của equals() (Contract of equals())"
     },
     {
-      "paragraph_id": 10,
-      "start": 53.66,
-      "end": 72.21,
-      "duration": 18.55,
+      "paragraph_id": 5,
+      "start": 14.85,
+      "end": 57.36,
+      "duration": 42.51,
       "text_snippet": "Phương thức equals(Object) định nghĩa tính bằng nhau về mặt logic (logical equal"
     },
     {
-      "paragraph_id": 11,
-      "start": 72.31,
-      "end": 108.74,
-      "duration": 36.43,
+      "paragraph_id": 6,
+      "start": 57.36,
+      "end": 61.21,
+      "duration": 3.85,
       "text_snippet": "Tính Phản Xạ (Reflexive): Biểu thức x.equals(x) phải trả về true."
     },
     {
-      "paragraph_id": 12,
-      "start": 108.74,
-      "end": 115.39,
+      "paragraph_id": 7,
+      "start": 61.21,
+      "end": 67.86,
       "duration": 6.65,
       "text_snippet": "Tính Đối Xứng (Symmetric): Biểu thức x.equals(y) phải trả về true khi và chỉ khi"
     },
     {
-      "paragraph_id": 13,
-      "start": 115.39,
-      "end": 123.09,
+      "paragraph_id": 8,
+      "start": 67.86,
+      "end": 75.56,
       "duration": 7.7,
       "text_snippet": "Tính Bắc Cầu (Transitive): Nếu x.equals(y) trả về true và y.equals(z) trả về tru"
     },
     {
-      "paragraph_id": 14,
-      "start": 108.74,
-      "end": 114.66,
-      "duration": 5.92,
+      "paragraph_id": 9,
+      "start": 57.46,
+      "end": 75.93,
+      "duration": 18.47,
       "text_snippet": "Tính Nhất Quán (Consistent): Lời gọi x.equals(y) nhiều lần phải luôn trả về cùng"
     },
     {
-      "paragraph_id": 15,
-      "start": 114.66,
-      "end": 119.21,
+      "paragraph_id": 10,
+      "start": 75.94,
+      "end": 80.49,
       "duration": 4.55,
       "text_snippet": "Không Chấp Nhận Null (Null-Hostile): Biểu thức x.equals(null) phải luôn trả về f"
     },
     {
-      "paragraph_id": 16,
-      "start": 114.66,
-      "end": 118.86,
-      "duration": 4.2,
+      "paragraph_id": 11,
+      "start": 75.94,
+      "end": 81.5,
+      "duration": 5.56,
       "text_snippet": "Vi Phạm Tính Đối Xứng Trong Kế Thừa (Symmetry Violation in Inheritance)"
     },
     {
-      "paragraph_id": 17,
-      "start": 118.86,
-      "end": 127.61,
-      "duration": 8.75,
+      "paragraph_id": 12,
+      "start": 81.5,
+      "end": 88.47,
+      "duration": 6.97,
       "text_snippet": "Một vấn đề kinh điển phát sinh khi chúng ta cố gắng mở rộng một lớp và thêm một "
     },
     {
-      "paragraph_id": 18,
-      "start": 127.61,
-      "end": 129.01,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 19,
-      "start": 129.01,
-      "end": 160.86,
-      "duration": 31.85,
-      "text_snippet": "Vấn đề: Point p = new Point(1, 2); ColorPoint cp = new ColorPoint(1, 2, \"red\"); "
-    },
-    {
-      "paragraph_id": 20,
-      "start": 160.86,
-      "end": 169.61,
-      "duration": 8.75,
-      "text_snippet": "Tại Sao Việc Thêm Các Trường Giá Trị Vào Lớp Con Lại Phá Vỡ Tính Bắc Cầu (Why Ad"
-    },
-    {
-      "paragraph_id": 21,
-      "start": 169.71,
-      "end": 221.65,
-      "duration": 51.94,
-      "text_snippet": "Trong Java, việc cố gắng kế thừa một lớp có thể khởi tạo (instantiable class) và"
-    },
-    {
-      "paragraph_id": 22,
-      "start": 221.65,
-      "end": 224.03,
+      "paragraph_id": 13,
+      "start": 88.57,
+      "end": 90.95,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 23,
-      "start": 224.02,
-      "end": 230.58,
+      "paragraph_id": 14,
+      "start": 90.9,
+      "end": 124.5,
+      "duration": 33.6,
+      "text_snippet": "Vấn đề: Point p = new Point(1, 2); ColorPoint cp = new ColorPoint(1, 2, \"red\"); "
+    },
+    {
+      "paragraph_id": 15,
+      "start": 124.5,
+      "end": 132.49,
+      "duration": 7.99,
+      "text_snippet": "Tại Sao Việc Thêm Các Trường Giá Trị Vào Lớp Con Lại Phá Vỡ Tính Bắc Cầu (Why Ad"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 132.49,
+      "end": 207.39,
+      "duration": 74.9,
+      "text_snippet": "Trong Java, việc cố gắng kế thừa một lớp có thể khởi tạo (instantiable class) và"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 132.59,
+      "end": 134.97,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 134.91,
+      "end": 141.47,
       "duration": 6.56,
       "text_snippet": "Ví Dụ Minh Họa Code: Vi Phạm Tính Bắc Cầu (Code Example: Transitivity Violation)"
     },
     {
-      "paragraph_id": 24,
-      "start": 230.59,
-      "end": 232.97,
+      "paragraph_id": 19,
+      "start": 141.47,
+      "end": 143.85,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 25,
-      "start": 232.96,
-      "end": 239.26,
+      "paragraph_id": 20,
+      "start": 143.85,
+      "end": 150.15,
       "duration": 6.3,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả Của Việc Phá Vỡ Tính Bắc Cầu (Cause-Effect Chain of "
     },
     {
-      "paragraph_id": 26,
-      "start": 239.36,
-      "end": 241.74,
+      "paragraph_id": 21,
+      "start": 150.25,
+      "end": 152.63,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 27,
-      "start": 241.69,
-      "end": 245.49,
+      "paragraph_id": 22,
+      "start": 152.57,
+      "end": 156.37,
       "duration": 3.8,
       "text_snippet": "Quy Ước Của hashCode() (Contract of hashCode())"
     },
     {
-      "paragraph_id": 28,
-      "start": 245.49,
-      "end": 251.94,
+      "paragraph_id": 23,
+      "start": 156.37,
+      "end": 162.82,
       "duration": 6.45,
       "text_snippet": "Phương thức hashCode() trả về một giá trị băm kiểu số nguyên. Quy ước này quy đị"
     },
     {
-      "paragraph_id": 29,
-      "start": 251.94,
-      "end": 277.34,
-      "duration": 25.4,
+      "paragraph_id": 24,
+      "start": 162.82,
+      "end": 176.43,
+      "duration": 13.61,
       "text_snippet": "Tính Nhất Quán (Consistency): Mỗi khi phương thức này được gọi trên cùng một đối"
     },
     {
-      "paragraph_id": 30,
-      "start": 277.34,
-      "end": 292.74,
-      "duration": 15.4,
+      "paragraph_id": 25,
+      "start": 176.54,
+      "end": 197.71,
+      "duration": 21.17,
       "text_snippet": "Đối Tượng Bằng Nhau → Mã Băm Giống Nhau: Nếu hai đối tượng bằng nhau theo kết qu"
     },
     {
-      "paragraph_id": 31,
-      "start": 277.44,
-      "end": 293.7,
-      "duration": 16.26,
+      "paragraph_id": 26,
+      "start": 197.71,
+      "end": 204.81,
+      "duration": 7.1,
       "text_snippet": "Đối Tượng Khác Nhau → Cho Phép Trùng Mã Băm (Collision): Nếu hai đối tượng khác "
     },
     {
-      "paragraph_id": 32,
-      "start": 293.7,
-      "end": 302.52,
-      "duration": 8.82,
+      "paragraph_id": 27,
+      "start": 204.81,
+      "end": 213.64,
+      "duration": 8.83,
       "text_snippet": "Tại Sao identityHashCode Không Đại Diện Cho Địa Chỉ Bộ Nhớ Vật Lý Thực Tế (Why i"
     },
     {
-      "paragraph_id": 33,
-      "start": 302.52,
-      "end": 353.59,
-      "duration": 51.07,
+      "paragraph_id": 28,
+      "start": 213.64,
+      "end": 264.53,
+      "duration": 50.89,
       "text_snippet": "Một hiểu lầm phổ biến là mã băm định danh mặc định (identity hash code) trả về t"
     },
     {
-      "paragraph_id": 34,
-      "start": 353.6,
-      "end": 355.98,
+      "paragraph_id": 29,
+      "start": 264.62,
+      "end": 267.0,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 35,
-      "start": 355.97,
-      "end": 364.58,
-      "duration": 8.61,
+      "paragraph_id": 30,
+      "start": 266.95,
+      "end": 275.84,
+      "duration": 8.89,
       "text_snippet": "Ví Dụ Minh Họa Code: Tính Ổn Định của identityHashCode Khi Có GC Chạy (Code Exam"
     },
     {
-      "paragraph_id": 36,
-      "start": 364.69,
-      "end": 367.07,
+      "paragraph_id": 31,
+      "start": 275.84,
+      "end": 278.22,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 37,
-      "start": 367.01,
-      "end": 373.03,
-      "duration": 6.02,
+      "paragraph_id": 32,
+      "start": 278.21,
+      "end": 284.03,
+      "duration": 5.82,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả Của Tính Ổn Định Mã Băm (Cause-Effect Chain of Hash "
     },
     {
-      "paragraph_id": 38,
-      "start": 373.04,
-      "end": 375.42,
+      "paragraph_id": 33,
+      "start": 284.14,
+      "end": 286.52,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 39,
-      "start": 375.41,
-      "end": 391.09,
-      "duration": 15.68,
+      "paragraph_id": 34,
+      "start": 286.46,
+      "end": 310.8,
+      "duration": 24.34,
       "text_snippet": "So Sánh Đối Tượng Bằng Tham Chiếu và Bằng Giá Trị (Comparing objects by referenc"
     },
     {
-      "paragraph_id": 40,
-      "start": 391.09,
-      "end": 402.29,
+      "paragraph_id": 35,
+      "start": 310.8,
+      "end": 322.0,
       "duration": 11.2,
       "text_snippet": "So Sánh Bằng Tham Chiếu (==): Kiểm tra xem hai biến tham chiếu có cùng trỏ tới m"
     },
     {
-      "paragraph_id": 41,
-      "start": 391.19,
-      "end": 399.85,
-      "duration": 8.66,
+      "paragraph_id": 36,
+      "start": 322.0,
+      "end": 331.8,
+      "duration": 9.8,
       "text_snippet": "So Sánh Bằng Logic (equals()): Kiểm tra xem hai đối tượng có trạng thái tương đư"
     },
     {
-      "paragraph_id": 42,
-      "start": 399.8,
-      "end": 402.18,
+      "paragraph_id": 37,
+      "start": 310.9,
+      "end": 313.28,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 43,
-      "start": 402.17,
-      "end": 411.88,
-      "duration": 9.71,
+      "paragraph_id": 38,
+      "start": 313.22,
+      "end": 322.97,
+      "duration": 9.75,
       "text_snippet": "Ví Dụ Thực Tế: Làm Hỏng HashMap Khi hashCode Không Nhất Quán Với equals (Case St"
     },
     {
-      "paragraph_id": 44,
-      "start": 411.89,
-      "end": 423.44,
+      "paragraph_id": 39,
+      "start": 322.97,
+      "end": 334.52,
       "duration": 11.55,
       "text_snippet": "Khi một lớp ghi đè phương thức equals() nhưng không ghi đè phương thức hashCode("
     },
     {
-      "paragraph_id": 45,
-      "start": 423.44,
-      "end": 426.27,
-      "duration": 2.83,
+      "paragraph_id": 40,
+      "start": 334.52,
+      "end": 337.34,
+      "duration": 2.82,
       "text_snippet": "Hãy xem xét lớp bị lỗi dưới đây:"
     },
     {
-      "paragraph_id": 46,
-      "start": 426.36,
-      "end": 428.74,
+      "paragraph_id": 41,
+      "start": 337.45,
+      "end": 339.83,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 47,
-      "start": 428.69,
-      "end": 431.96,
+      "paragraph_id": 42,
+      "start": 339.77,
+      "end": 343.04,
       "duration": 3.27,
       "text_snippet": "Bây giờ hãy sử dụng nó trong một HashMap:"
     },
     {
-      "paragraph_id": 48,
-      "start": 431.96,
-      "end": 434.33,
-      "duration": 2.37,
+      "paragraph_id": 43,
+      "start": 343.05,
+      "end": 345.41,
+      "duration": 2.36,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 49,
-      "start": 434.34,
-      "end": 436.88,
-      "duration": 2.54,
+      "paragraph_id": 44,
+      "start": 345.41,
+      "end": 347.75,
+      "duration": 2.34,
       "text_snippet": "Tại Sao Điều Này Xảy Ra?"
     },
     {
-      "paragraph_id": 50,
-      "start": 436.88,
-      "end": 450.76,
-      "duration": 13.88,
+      "paragraph_id": 45,
+      "start": 347.85,
+      "end": 367.06,
+      "duration": 19.21,
       "text_snippet": "Lệnh map.put(e1, \"Developer\") tính toán giá trị e1.hashCode(), vốn được tạo ra t"
     },
     {
-      "paragraph_id": 51,
-      "start": 450.75,
-      "end": 460.2,
-      "duration": 9.45,
+      "paragraph_id": 46,
+      "start": 367.06,
+      "end": 374.94,
+      "duration": 7.88,
       "text_snippet": "Lệnh map.get(e2) tính toán giá trị e2.hashCode(). Vì hashCode() không được ghi đ"
     },
     {
-      "paragraph_id": 52,
-      "start": 460.2,
-      "end": 467.2,
-      "duration": 7.0,
+      "paragraph_id": 47,
+      "start": 374.94,
+      "end": 380.88,
+      "duration": 5.94,
       "text_snippet": "HashMap tìm kiếm e2 ở một ngăn chứa khác và không thấy gì ở đó, dẫn đến trả về n"
     },
     {
-      "paragraph_id": 53,
-      "start": 467.2,
-      "end": 484.7,
-      "duration": 17.5,
+      "paragraph_id": 48,
+      "start": 380.87,
+      "end": 394.97,
+      "duration": 14.1,
       "text_snippet": "Ngay cả khi cả hai khóa vô tình rơi vào cùng một ngăn chứa, HashMap chỉ kiểm tra"
     },
     {
-      "paragraph_id": 54,
-      "start": 484.7,
-      "end": 492.75,
-      "duration": 8.05,
+      "paragraph_id": 49,
+      "start": 395.07,
+      "end": 402.97,
+      "duration": 7.9,
       "text_snippet": "Tại Sao Việc Không Ghi Đè hashCode Lại Làm Hỏng Bộ Sưu Tập Bảng Băm (Why Failing"
     },
     {
-      "paragraph_id": 55,
-      "start": 492.75,
-      "end": 548.75,
-      "duration": 56.0,
+      "paragraph_id": 50,
+      "start": 402.92,
+      "end": 444.83,
+      "duration": 41.91,
       "text_snippet": "Các bộ sưu tập dựa trên bảng băm như HashMap và HashSet sử dụng giá trị hashCode"
     },
     {
-      "paragraph_id": 56,
-      "start": 548.75,
-      "end": 550.15,
-      "duration": 1.4,
+      "paragraph_id": 51,
+      "start": 444.84,
+      "end": 447.22,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 57,
-      "start": 550.15,
-      "end": 556.8,
-      "duration": 6.65,
+      "paragraph_id": 52,
+      "start": 447.21,
+      "end": 454.16,
+      "duration": 6.95,
       "text_snippet": "Ví Dụ Minh Họa Code: Thất Bại Khi Tìm Kiếm Trong Bộ Sưu Tập (Code Example: Colle"
     },
     {
-      "paragraph_id": 58,
-      "start": 556.8,
-      "end": 558.2,
-      "duration": 1.4,
+      "paragraph_id": 53,
+      "start": 454.26,
+      "end": 456.64,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 59,
-      "start": 558.2,
-      "end": 565.2,
-      "duration": 7.0,
+      "paragraph_id": 54,
+      "start": 456.59,
+      "end": 463.17,
+      "duration": 6.58,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả Của Việc Vi Phạm Quy Ước Bảng Băm (Cause-Effect Chai"
     },
     {
+      "paragraph_id": 55,
+      "start": 463.16,
+      "end": 465.54,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 465.54,
+      "end": 473.68,
+      "duration": 8.14,
+      "text_snippet": "Xem thêm: Tại sao HashMap cần hashCode và equals, được trình bày chi tiết trong "
+    },
+    {
+      "paragraph_id": 57,
+      "start": 473.77,
+      "end": 477.02,
+      "duration": 3.25,
+      "text_snippet": "Các Lỗi Thường Gặp (Common Mistakes)"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 476.97,
+      "end": 482.92,
+      "duration": 5.95,
+      "text_snippet": "1. Vi Phạm Tính Bắc Cầu Trong Kế Thừa (Transitivity Violation with inheritance)"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 482.92,
+      "end": 494.43,
+      "duration": 11.51,
+      "text_snippet": "Việc cố gắng làm cho lớp Point và ColorPoint có thể so sánh được bằng cách viết "
+    },
+    {
       "paragraph_id": 60,
-      "start": 565.2,
-      "end": 566.6,
-      "duration": 1.4,
+      "start": 494.44,
+      "end": 496.64,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 61,
-      "start": 566.6,
-      "end": 573.25,
-      "duration": 6.65,
-      "text_snippet": "Xem thêm: Tại sao HashMap cần hashCode và equals, được trình bày chi tiết trong "
+      "start": 496.74,
+      "end": 505.2,
+      "duration": 8.46,
+      "text_snippet": "2. Lầm Tưởng Rằng hashCode() Trả Về Trực Tiếp Địa Chỉ Bộ Nhớ (Assuming hashCode("
     },
     {
       "paragraph_id": 62,
-      "start": 573.25,
-      "end": 575.35,
-      "duration": 2.1,
-      "text_snippet": "Các Lỗi Thường Gặp (Common Mistakes)"
+      "start": 505.15,
+      "end": 524.56,
+      "duration": 19.41,
+      "text_snippet": "Trong các JVM hiện đại, mã băm định danh mặc định không phải là một địa chỉ bộ n"
     },
     {
       "paragraph_id": 63,
-      "start": 575.35,
-      "end": 579.9,
-      "duration": 4.55,
-      "text_snippet": "1. Vi Phạm Tính Bắc Cầu Trong Kế Thừa (Transitivity Violation with inheritance)"
+      "start": 524.56,
+      "end": 530.61,
+      "duration": 6.05,
+      "text_snippet": "3. Ném Ra Lỗi NullPointerException Trong Phương Thức equals() (Throwing NullPoin"
     },
     {
       "paragraph_id": 64,
-      "start": 579.9,
-      "end": 596.35,
-      "duration": 16.45,
-      "text_snippet": "Việc cố gắng làm cho lớp Point và ColorPoint có thể so sánh được bằng cách viết "
+      "start": 530.61,
+      "end": 542.12,
+      "duration": 11.51,
+      "text_snippet": "Khi so sánh các trường kiểu chuỗi ký tự, hãy sử dụng phương thức Objects.equals("
     },
     {
       "paragraph_id": 65,
-      "start": 596.35,
-      "end": 597.75,
-      "duration": 1.4,
+      "start": 542.22,
+      "end": 544.6,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 66,
-      "start": 597.75,
-      "end": 604.75,
-      "duration": 7.0,
-      "text_snippet": "2. Lầm Tưởng Rằng hashCode() Trả Về Trực Tiếp Địa Chỉ Bộ Nhớ (Assuming hashCode("
-    },
-    {
-      "paragraph_id": 67,
-      "start": 604.75,
-      "end": 632.05,
-      "duration": 27.3,
-      "text_snippet": "Trong các JVM hiện đại, mã băm định danh mặc định không phải là một địa chỉ bộ n"
-    },
-    {
-      "paragraph_id": 68,
-      "start": 632.05,
-      "end": 636.6,
-      "duration": 4.55,
-      "text_snippet": "3. Ném Ra Lỗi NullPointerException Trong Phương Thức equals() (Throwing NullPoin"
-    },
-    {
-      "paragraph_id": 69,
-      "start": 636.6,
-      "end": 648.15,
-      "duration": 11.55,
-      "text_snippet": "Khi so sánh các trường kiểu chuỗi ký tự, hãy sử dụng phương thức Objects.equals("
-    },
-    {
-      "paragraph_id": 70,
-      "start": 648.15,
-      "end": 649.55,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 71,
-      "start": 649.65,
-      "end": 653.01,
-      "duration": 3.36,
+      "start": 544.55,
+      "end": 547.94,
+      "duration": 3.39,
       "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
     },
     {
-      "paragraph_id": 72,
-      "start": 652.96,
-      "end": 706.22,
-      "duration": 53.26,
+      "paragraph_id": 67,
+      "start": 547.94,
+      "end": 575.06,
+      "duration": 27.12,
       "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.ht"
     },
     {
-      "paragraph_id": 73,
-      "start": 706.22,
-      "end": 709.02,
+      "paragraph_id": 68,
+      "start": 575.06,
+      "end": 577.86,
       "duration": 2.8,
       "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.ht"
     },
     {
-      "paragraph_id": 74,
-      "start": 709.02,
-      "end": 711.82,
-      "duration": 2.8,
+      "paragraph_id": 69,
+      "start": 575.16,
+      "end": 590.51,
+      "duration": 15.35,
       "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/System.ht"
     },
     {
-      "paragraph_id": 75,
-      "start": 706.22,
-      "end": 710.14,
-      "duration": 3.92,
+      "paragraph_id": 70,
+      "start": 590.46,
+      "end": 594.55,
+      "duration": 4.09,
       "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)"
     },
     {
-      "paragraph_id": 76,
-      "start": 710.15,
-      "end": 715.05,
-      "duration": 4.9,
+      "paragraph_id": 71,
+      "start": 594.55,
+      "end": 603.02,
+      "duration": 8.47,
       "text_snippet": "Khái niệm nào ở đây thuộc về quy tắc thời điểm biên dịch (compile-time)?"
     },
     {
-      "paragraph_id": 77,
-      "start": 715.05,
-      "end": 719.25,
+      "paragraph_id": 72,
+      "start": 603.02,
+      "end": 607.22,
       "duration": 4.2,
       "text_snippet": "Khái niệm nào ở đây ảnh hưởng đến hành vi lúc runtime?"
     },
     {
-      "paragraph_id": 78,
-      "start": 719.25,
-      "end": 724.15,
-      "duration": 4.9,
+      "paragraph_id": 73,
+      "start": 603.12,
+      "end": 607.13,
+      "duration": 4.01,
       "text_snippet": "Khái niệm nào ở đây dễ là cạm bẫy trong các buổi phỏng vấn?"
     }
   ]

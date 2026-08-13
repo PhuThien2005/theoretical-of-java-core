@@ -6,12 +6,6 @@ Các toán tử số học thực hiện các phép toán số học. Các toán
 
 Java có năm toán tử số học phổ biến:
 
-- **`+`** — +: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`-`** — -: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`*`** — *: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`/`** — /: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`%`** — %: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 Một biểu thức số học được đánh giá theo thứ tự ưu tiên của toán tử (operator precedence), sau đó từ trái sang phải đối với các toán tử có cùng mức độ ưu tiên. Phép nhân, phép chia và phép chia lấy dư có độ ưu tiên cao hơn phép cộng và phép trừ.
 
 ```java

@@ -1,7 +1,7 @@
 {
   "lesson": "02-advantages-and-disadvantages-of-reflection-concepts",
-  "total_duration_seconds": 764.41,
-  "total_paragraphs": 65,
+  "total_duration_seconds": 660.71,
+  "total_paragraphs": 60,
   "timestamps": [
     {
       "paragraph_id": 1,
@@ -13,448 +13,413 @@
     {
       "paragraph_id": 2,
       "start": 3.35,
-      "end": 5.14,
-      "duration": 1.79,
-      "text_snippet": "Mục Tiêu Học Tập"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 5.14,
-      "end": 15.68,
-      "duration": 10.54,
-      "text_snippet": "File này đề cập đến một phần trọng tâm của Phản Xạ (Reflection). Hãy nghiên cứu "
-    },
-    {
-      "paragraph_id": 4,
-      "start": 15.68,
-      "end": 17.73,
-      "duration": 2.05,
-      "text_snippet": "Đề Cương Khái Niệm"
-    },
-    {
-      "paragraph_id": 5,
-      "start": 17.73,
-      "end": 25.59,
-      "duration": 7.86,
-      "text_snippet": "Ưu điểm và nhược điểm của phản xạ — Ưu điểm và nhược điểm của phản xạ: Cung cấp "
-    },
-    {
-      "paragraph_id": 6,
-      "start": 25.59,
-      "end": 35.74,
-      "duration": 10.15,
-      "text_snippet": "Phản xạ trong các framework như Spring — Phản xạ trong các framework như Spring:"
-    },
-    {
-      "paragraph_id": 7,
-      "start": 35.74,
-      "end": 37.14,
-      "duration": 1.4,
+      "end": 5.17,
+      "duration": 1.82,
       "text_snippet": "Ghi Chú Chi Tiết"
     },
     {
-      "paragraph_id": 8,
-      "start": 37.14,
-      "end": 39.94,
-      "duration": 2.8,
+      "paragraph_id": 3,
+      "start": 5.17,
+      "end": 10.77,
+      "duration": 5.6,
       "text_snippet": "Ưu Điểm Và Nhược Điểm Của Phản Xạ"
     },
     {
-      "paragraph_id": 9,
-      "start": 39.94,
-      "end": 51.84,
-      "duration": 11.9,
+      "paragraph_id": 4,
+      "start": 10.78,
+      "end": 18.12,
+      "duration": 7.34,
       "text_snippet": "Phản xạ là một con dao hai lưỡi. Mặc dù nó mang lại sự linh hoạt vô song tại thờ"
     },
     {
-      "paragraph_id": 10,
-      "start": 51.84,
-      "end": 52.54,
-      "duration": 0.7,
+      "paragraph_id": 5,
+      "start": 18.21,
+      "end": 19.59,
+      "duration": 1.38,
       "text_snippet": "Ưu điểm"
     },
     {
-      "paragraph_id": 11,
-      "start": 52.64,
-      "end": 61.3,
-      "duration": 8.66,
+      "paragraph_id": 6,
+      "start": 19.54,
+      "end": 28.18,
+      "duration": 8.64,
       "text_snippet": "Khái niệm khả năng mở rộng (Extensibility): Các ứng dụng có thể tải động các plu"
     },
     {
-      "paragraph_id": 12,
-      "start": 61.25,
-      "end": 72.66,
-      "duration": 11.41,
+      "paragraph_id": 7,
+      "start": 28.18,
+      "end": 39.58,
+      "duration": 11.4,
       "text_snippet": "Giảm sự phụ thuộc của Framework (Framework Decoupling): Cho phép viết mã generic"
     },
     {
-      "paragraph_id": 13,
-      "start": 72.66,
-      "end": 85.43,
-      "duration": 12.77,
+      "paragraph_id": 8,
+      "start": 39.58,
+      "end": 52.12,
+      "duration": 12.54,
       "text_snippet": "Công cụ phong phú: Cung cấp năng lượng cho các tính năng của IDE, các trình kiểm"
     },
     {
-      "paragraph_id": 14,
-      "start": 85.44,
-      "end": 86.9,
-      "duration": 1.46,
+      "paragraph_id": 9,
+      "start": 52.21,
+      "end": 53.66,
+      "duration": 1.45,
       "text_snippet": "Nhược điểm"
     },
     {
-      "paragraph_id": 15,
-      "start": 86.9,
-      "end": 114.54,
-      "duration": 27.64,
+      "paragraph_id": 10,
+      "start": 53.61,
+      "end": 98.29,
+      "duration": 44.68,
       "text_snippet": "Chi phí hiệu năng (Performance Overhead): Không có tối ưu hóa trình biên dịch: T"
     },
     {
-      "paragraph_id": 16,
-      "start": 114.54,
-      "end": 127.14,
+      "paragraph_id": 11,
+      "start": 98.29,
+      "end": 110.89,
       "duration": 12.6,
       "text_snippet": "Không có tối ưu hóa trình biên dịch: Trình biên dịch JIT không thể thực hiện inl"
     },
     {
-      "paragraph_id": 17,
-      "start": 127.14,
-      "end": 137.64,
+      "paragraph_id": 12,
+      "start": 110.89,
+      "end": 121.39,
       "duration": 10.5,
       "text_snippet": "Kiểm tra kiểu động: Các đối số phải được kiểm tra kiểu, kiểm tra các ngoại lệ đư"
     },
     {
-      "paragraph_id": 18,
-      "start": 137.64,
-      "end": 147.79,
-      "duration": 10.15,
+      "paragraph_id": 13,
+      "start": 98.39,
+      "end": 106.75,
+      "duration": 8.36,
       "text_snippet": "Bọc đối tượng (Object Wrapping): Các đối số nguyên thủy và giá trị trả về phải đ"
     },
     {
-      "paragraph_id": 19,
-      "start": 147.79,
-      "end": 163.19,
-      "duration": 15.4,
+      "paragraph_id": 14,
+      "start": 106.7,
+      "end": 118.21,
+      "duration": 11.51,
       "text_snippet": "Mất an toàn tại thời điểm biên dịch (Loss of Compile-time Safety): Các lỗi vốn t"
     },
     {
-      "paragraph_id": 20,
-      "start": 163.19,
-      "end": 179.99,
-      "duration": 16.8,
+      "paragraph_id": 15,
+      "start": 118.21,
+      "end": 131.85,
+      "duration": 13.64,
       "text_snippet": "Vượt qua tính đóng gói (Bypassing Encapsulation): Việc truy cập các trường hoặc "
     },
     {
-      "paragraph_id": 21,
-      "start": 180.09,
-      "end": 192.16,
-      "duration": 12.07,
+      "paragraph_id": 16,
+      "start": 131.85,
+      "end": 143.56,
+      "duration": 11.71,
       "text_snippet": "Giới hạn bảo mật/Module: Các quy tắc đóng gói nghiêm ngặt trong hệ thống module "
     },
     {
-      "paragraph_id": 22,
-      "start": 192.11,
-      "end": 195.3,
-      "duration": 3.19,
+      "paragraph_id": 17,
+      "start": 143.66,
+      "end": 146.86,
+      "duration": 3.2,
       "text_snippet": "Ví Dụ Mã Nguồn: So Sánh Hiệu Năng"
     },
     {
-      "paragraph_id": 23,
-      "start": 195.3,
-      "end": 197.68,
+      "paragraph_id": 18,
+      "start": 146.81,
+      "end": 149.19,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 24,
-      "start": 197.67,
-      "end": 202.17,
+      "paragraph_id": 19,
+      "start": 149.19,
+      "end": 153.69,
       "duration": 4.5,
       "text_snippet": "Tại Sao Phản Xạ Gây Ra Suy Giảm Hiệu Năng Và Cách Tối Ưu Hóa Nó"
     },
     {
-      "paragraph_id": 25,
-      "start": 202.17,
-      "end": 272.78,
+      "paragraph_id": 20,
+      "start": 153.69,
+      "end": 224.3,
       "duration": 70.61,
       "text_snippet": "Trong quá trình thực thi Java tiêu chuẩn, trình biên dịch Just-In-Time (JIT) của"
     },
     {
-      "paragraph_id": 26,
-      "start": 272.89,
-      "end": 277.14,
+      "paragraph_id": 21,
+      "start": 224.4,
+      "end": 228.65,
       "duration": 4.25,
       "text_snippet": "Gọi trực tiếp so với Gọi phản xạ (Mental Model)"
     },
     {
-      "paragraph_id": 27,
-      "start": 277.09,
-      "end": 279.47,
+      "paragraph_id": 22,
+      "start": 228.6,
+      "end": 230.98,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 28,
-      "start": 279.46,
-      "end": 283.55,
+      "paragraph_id": 23,
+      "start": 230.98,
+      "end": 235.07,
       "duration": 4.09,
       "text_snippet": "Ví Dụ Mã Nguồn: So Sánh Hiệu Năng và MethodHandles"
     },
     {
-      "paragraph_id": 29,
-      "start": 283.55,
-      "end": 285.91,
-      "duration": 2.36,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 30,
-      "start": 285.91,
-      "end": 288.41,
-      "duration": 2.5,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
-    },
-    {
-      "paragraph_id": 31,
-      "start": 288.41,
-      "end": 319.21,
-      "duration": 30.8,
-      "text_snippet": "Tra cứu phản xạ theo tên → Trình biên dịch JIT không thể xác định chữ ký phương "
-    },
-    {
-      "paragraph_id": 32,
-      "start": 319.21,
-      "end": 327.26,
-      "duration": 8.05,
-      "text_snippet": "Tại Sao Việc Khởi Tạo Đối Tượng Và Tải Lớp Qua Phản Xạ Gây Ra Nguy Cơ Bảo Mật Và"
-    },
-    {
-      "paragraph_id": 33,
-      "start": 327.26,
-      "end": 404.26,
-      "duration": 77.0,
-      "text_snippet": "Tải lớp động (Class.forName()) và khởi tạo hàm khởi tạo bằng phản xạ (Constructo"
-    },
-    {
-      "paragraph_id": 34,
-      "start": 404.26,
-      "end": 408.11,
-      "duration": 3.85,
-      "text_snippet": "Luồng Lỗ Hổng Khởi Tạo Động Không An Toàn (Mental Model)"
-    },
-    {
-      "paragraph_id": 35,
-      "start": 408.11,
-      "end": 409.51,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 36,
-      "start": 409.61,
-      "end": 413.86,
-      "duration": 4.25,
-      "text_snippet": "Ví Dụ Mã Nguồn: Rủi Ro Bảo Mật Khi Khởi Tạo Phản Xạ"
-    },
-    {
-      "paragraph_id": 37,
-      "start": 413.81,
-      "end": 416.17,
-      "duration": 2.36,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 38,
-      "start": 416.18,
-      "end": 418.68,
-      "duration": 2.5,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
-    },
-    {
-      "paragraph_id": 39,
-      "start": 418.68,
-      "end": 437.51,
-      "duration": 18.83,
-      "text_snippet": "Đầu vào không đáng tin cậy chỉ định tên lớp → Class.forName tải lớp từ classpath"
-    },
-    {
-      "paragraph_id": 40,
-      "start": 437.5,
-      "end": 439.95,
-      "duration": 2.45,
-      "text_snippet": "Phản Xạ Trong Các Framework Như Spring"
-    },
-    {
-      "paragraph_id": 41,
-      "start": 437.6,
-      "end": 450.07,
-      "duration": 12.47,
-      "text_snippet": "Các framework Java doanh nghiệp phụ thuộc rất nhiều vào phản xạ để quản lý vòng "
-    },
-    {
-      "paragraph_id": 42,
-      "start": 450.03,
-      "end": 465.98,
-      "duration": 15.95,
-      "text_snippet": "Tiêm phụ thuộc (Dependency Injection - DI): Spring quét các lớp trên classpath, "
-    },
-    {
-      "paragraph_id": 43,
-      "start": 465.98,
-      "end": 488.77,
-      "duration": 22.79,
-      "text_snippet": "Proxy động (Dynamic Proxies): Spring AOP và @Transactional sử dụng java.lang.ref"
-    },
-    {
-      "paragraph_id": 44,
-      "start": 488.76,
-      "end": 493.56,
-      "duration": 4.8,
-      "text_snippet": "Ví Dụ Thực Tế: Container Tiêm Phụ Thuộc (DI) Đơn Giản"
-    },
-    {
-      "paragraph_id": 45,
-      "start": 493.56,
-      "end": 495.76,
+      "paragraph_id": 24,
+      "start": 235.06,
+      "end": 237.26,
       "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 46,
-      "start": 495.76,
-      "end": 500.31,
-      "duration": 4.55,
+      "paragraph_id": 25,
+      "start": 237.36,
+      "end": 239.86,
+      "duration": 2.5,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 239.81,
+      "end": 259.36,
+      "duration": 19.55,
+      "text_snippet": "Tra cứu phản xạ theo tên → Trình biên dịch JIT không thể xác định chữ ký phương "
+    },
+    {
+      "paragraph_id": 27,
+      "start": 259.36,
+      "end": 276.87,
+      "duration": 17.51,
+      "text_snippet": "Tại Sao Việc Khởi Tạo Đối Tượng Và Tải Lớp Qua Phản Xạ Gây Ra Nguy Cơ Bảo Mật Và"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 276.88,
+      "end": 326.09,
+      "duration": 49.21,
+      "text_snippet": "Tải lớp động (Class.forName()) và khởi tạo hàm khởi tạo bằng phản xạ (Constructo"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 326.19,
+      "end": 330.57,
+      "duration": 4.38,
+      "text_snippet": "Luồng Lỗ Hổng Khởi Tạo Động Không An Toàn (Mental Model)"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 330.51,
+      "end": 332.86,
+      "duration": 2.35,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 332.86,
+      "end": 337.12,
+      "duration": 4.26,
+      "text_snippet": "Ví Dụ Mã Nguồn: Rủi Ro Bảo Mật Khi Khởi Tạo Phản Xạ"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 337.13,
+      "end": 339.33,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 339.43,
+      "end": 341.93,
+      "duration": 2.5,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 341.88,
+      "end": 361.68,
+      "duration": 19.8,
+      "text_snippet": "Đầu vào không đáng tin cậy chỉ định tên lớp → Class.forName tải lớp từ classpath"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 361.68,
+      "end": 373.93,
+      "duration": 12.25,
+      "text_snippet": "Phản Xạ Trong Các Framework Như Spring"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 373.93,
+      "end": 389.33,
+      "duration": 15.4,
+      "text_snippet": "Các framework Java doanh nghiệp phụ thuộc rất nhiều vào phản xạ để quản lý vòng "
+    },
+    {
+      "paragraph_id": 37,
+      "start": 374.03,
+      "end": 389.99,
+      "duration": 15.96,
+      "text_snippet": "Tiêm phụ thuộc (Dependency Injection - DI): Spring quét các lớp trên classpath, "
+    },
+    {
+      "paragraph_id": 38,
+      "start": 389.94,
+      "end": 412.45,
+      "duration": 22.51,
+      "text_snippet": "Proxy động (Dynamic Proxies): Spring AOP và @Transactional sử dụng java.lang.ref"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 412.45,
+      "end": 417.25,
+      "duration": 4.8,
+      "text_snippet": "Ví Dụ Thực Tế: Container Tiêm Phụ Thuộc (DI) Đơn Giản"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 417.25,
+      "end": 419.45,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 419.55,
+      "end": 425.63,
+      "duration": 6.08,
       "text_snippet": "Tại Sao Phản Xạ Cho Phép Triển Khai Dependency Injection và ORM Framework"
     },
     {
-      "paragraph_id": 47,
-      "start": 500.31,
-      "end": 581.16,
-      "duration": 80.85,
+      "paragraph_id": 42,
+      "start": 425.58,
+      "end": 494.18,
+      "duration": 68.6,
       "text_snippet": "Các framework doanh nghiệp Java hiện đại, chẳng hạn như Spring và Hibernate, phả"
     },
     {
-      "paragraph_id": 48,
-      "start": 581.16,
-      "end": 585.36,
+      "paragraph_id": 43,
+      "start": 494.18,
+      "end": 498.38,
       "duration": 4.2,
       "text_snippet": "Quét Chú Thích Và Liên Kết Dựa Trên Phản Xạ (Mental Model)"
     },
     {
-      "paragraph_id": 49,
-      "start": 585.36,
-      "end": 586.76,
-      "duration": 1.4,
+      "paragraph_id": 44,
+      "start": 494.18,
+      "end": 496.38,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 50,
-      "start": 586.76,
-      "end": 590.61,
-      "duration": 3.85,
+      "paragraph_id": 45,
+      "start": 496.48,
+      "end": 500.28,
+      "duration": 3.8,
       "text_snippet": "Ví Dụ Mã Nguồn: Ánh Xạ Chú Thích Qua Phản Xạ"
     },
     {
-      "paragraph_id": 51,
-      "start": 590.71,
-      "end": 593.09,
-      "duration": 2.38,
+      "paragraph_id": 46,
+      "start": 500.23,
+      "end": 502.6,
+      "duration": 2.37,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 52,
-      "start": 593.04,
-      "end": 595.53,
-      "duration": 2.49,
+      "paragraph_id": 47,
+      "start": 502.6,
+      "end": 505.07,
+      "duration": 2.47,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
     },
     {
-      "paragraph_id": 53,
-      "start": 595.53,
-      "end": 614.59,
-      "duration": 19.06,
+      "paragraph_id": 48,
+      "start": 505.08,
+      "end": 522.33,
+      "duration": 17.25,
       "text_snippet": "Framework quét classpath → Phản xạ động đọc các cấu trúc lớp và chú thích do ngư"
     },
     {
-      "paragraph_id": 54,
-      "start": 614.59,
-      "end": 617.04,
-      "duration": 2.45,
+      "paragraph_id": 49,
+      "start": 522.43,
+      "end": 524.87,
+      "duration": 2.44,
       "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
     },
     {
-      "paragraph_id": 55,
-      "start": 614.59,
-      "end": 633.0,
-      "duration": 18.41,
+      "paragraph_id": 50,
+      "start": 524.81,
+      "end": 542.93,
+      "duration": 18.12,
       "text_snippet": "Tại sao phản xạ lại chậm hơn mã nguồn trực tiếp? Phản xạ bỏ qua các tối ưu hóa t"
     },
     {
-      "paragraph_id": 56,
-      "start": 633.1,
-      "end": 650.22,
-      "duration": 17.12,
+      "paragraph_id": 51,
+      "start": 542.94,
+      "end": 560.09,
+      "duration": 17.15,
       "text_snippet": "Làm thế nào phản xạ phá vỡ mẫu thiết kế Singleton? Một client có thể lấy hàm khở"
     },
     {
-      "paragraph_id": 57,
-      "start": 650.23,
-      "end": 692.05,
-      "duration": 41.82,
+      "paragraph_id": 52,
+      "start": 560.09,
+      "end": 583.71,
+      "duration": 23.62,
       "text_snippet": "Sự khác biệt giữa JDK Dynamic Proxy và CGLIB là gì? JDK Dynamic Proxies sử dụng "
     },
     {
-      "paragraph_id": 58,
-      "start": 692.05,
-      "end": 700.8,
-      "duration": 8.75,
+      "paragraph_id": 53,
+      "start": 583.81,
+      "end": 594.57,
+      "duration": 10.76,
       "text_snippet": "JDK Dynamic Proxies sử dụng phản xạ tiêu chuẩn (java.lang.reflect.Proxy) để tạo "
     },
     {
-      "paragraph_id": 59,
-      "start": 700.8,
-      "end": 710.25,
-      "duration": 9.45,
+      "paragraph_id": 54,
+      "start": 594.53,
+      "end": 601.99,
+      "duration": 7.46,
       "text_snippet": "CGLIB tạo ra các lớp con tại thời điểm chạy để chặn các lời gọi phương thức cho "
     },
     {
-      "paragraph_id": 60,
-      "start": 692.05,
-      "end": 695.21,
-      "duration": 3.16,
+      "paragraph_id": 55,
+      "start": 601.99,
+      "end": 605.35,
+      "duration": 3.36,
       "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
     },
     {
-      "paragraph_id": 61,
-      "start": 695.31,
-      "end": 764.41,
-      "duration": 69.1,
+      "paragraph_id": 56,
+      "start": 605.35,
+      "end": 617.29,
+      "duration": 11.94,
       "text_snippet": "https://docs.oracle.com/javase/specs/jls/se21/html/jls-15.html#jls-15.12 (Biểu t"
     },
     {
-      "paragraph_id": 62,
-      "start": 764.41,
-      "end": 765.81,
-      "duration": 1.4,
+      "paragraph_id": 57,
+      "start": 617.39,
+      "end": 660.71,
+      "duration": 43.32,
       "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/invoke/Me"
     },
     {
-      "paragraph_id": 63,
-      "start": 765.81,
-      "end": 767.91,
+      "paragraph_id": 58,
+      "start": 660.71,
+      "end": 662.81,
       "duration": 2.1,
       "text_snippet": "https://docs.oracle.com/javase/specs/jls/se21/html/jls-12.html#jls-12.2 (Tải lớp"
     },
     {
-      "paragraph_id": 64,
-      "start": 767.91,
-      "end": 770.01,
+      "paragraph_id": 59,
+      "start": 662.81,
+      "end": 664.91,
       "duration": 2.1,
       "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/A"
     },
     {
-      "paragraph_id": 65,
-      "start": 770.01,
-      "end": 772.46,
+      "paragraph_id": 60,
+      "start": 664.91,
+      "end": 667.36,
       "duration": 2.45,
       "text_snippet": "https://docs.oracle.com/javase/tutorial/reflect/ (Hướng dẫn phản xạ của Oracle)"
     }

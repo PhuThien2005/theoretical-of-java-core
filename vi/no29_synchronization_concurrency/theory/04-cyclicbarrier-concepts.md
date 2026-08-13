@@ -1,20 +1,5 @@
 # Đồng bộ hóa và Tính đồng thời (Synchronization and Concurrency) - Phần 4
 
-## Mục Tiêu Học Tập
-
-Tài liệu này tập trung vào các tập hợp đồng thời cấp cao (`ConcurrentHashMap`, `CopyOnWriteArrayList`, `BlockingQueue`) và các thanh chắn đồng bộ hóa (`CyclicBarrier`, `Phaser`). Hãy nghiên cứu từng khái niệm dưới dạng quy tắc thực tế trong Java, không chỉ đơn thuần là lý thuyết từ vựng.
-
-## Tóm Tắt Nội Dung (Outline Coverage)
-
-- **`CyclicBarrier`** — CyclicBarrier: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Phaser`** — Phaser: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`BlockingQueue`** — BlockingQueue: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Các tập hợp đồng thời:`** — Các tập hợp đồng thời:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ConcurrentHashMap`** — ConcurrentHashMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`CopyOnWriteArrayList`** — CopyOnWriteArrayList: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ConcurrentLinkedQueue`** — ConcurrentLinkedQueue: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Khung công tác Executor:`** — Khung công tác Executor:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### CyclicBarrier so với CountDownLatch (CyclicBarrier vs CountDownLatch)

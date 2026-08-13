@@ -1,20 +1,5 @@
 # Các bổ từ trong Java (Modifiers in Java) - Phần 1
 
-## Mục Tiêu Học Tập
-
-Tài liệu này trình bày một phần trọng tâm của **các bổ từ trong Java (Modifiers in Java)**. Hãy nghiên cứu từng khái niệm dưới dạng một quy tắc Java thực tế, thay vì chỉ học từ vựng riêng lẻ.
-
-## Nội Dung Tổng Quan
-
-- **`Access modifier:`** — Access modifier:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`public`** — public: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`protected`** — protected: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`default`** — default: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`private`** — private: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Non-access modifier:`** — Non-access modifier:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`static`** — static: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`final`** — final: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### Bổ từ truy cập (Access modifier):
@@ -22,10 +7,6 @@ Tài liệu này trình bày một phần trọng tâm của **các bổ từ tr
 Bổ từ truy cập (Access modifier) là một nhóm các quy tắc liên quan đến các bổ từ trong Java dùng để gom nhóm một số chi tiết liên quan.
 
 #### Bảng Phạm Vi Hiển Thị Của Bổ Từ Truy Cập
-- **`public`** — public: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`protected`** — protected: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`default`** — default: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`private`** — private: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 #### Quy Tắc Cốt Lõi: Ghi Đè (Overriding) và Phạm Vi Truy Cập
 Khi một lớp con ghi đè một phương thức của lớp cha, nó **không được phép thu hẹp** phạm vi truy cập của phương thức đó. Quy tắc này đảm bảo nguyên lý thay thế Liskov (Liskov Substitution Principle).

@@ -1,17 +1,8 @@
 # Một Số Utility API Thông Dụng — Phần 2
 
-## Mục Tiêu Học Tập
-
 File này trình bày các API tiện ích về tài nguyên đa ngôn ngữ, cấu hình properties, định dạng chuỗi tùy chỉnh và phân tích đầu vào. Học từng khái niệm như một quy tắc Java thực tiễn.
 
 ## Nội Dung Đề Cương
-
-- **`Properties`** — Properties: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ResourceBundle`** — ResourceBundle: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Locale`** — Locale: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Currency`** — Currency: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Formatter`** — Formatter: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Scanner`** — Scanner: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 
@@ -106,7 +97,6 @@ public class PropertiesLspDemo {
     }
 }
 ```
-
 
 ---
 

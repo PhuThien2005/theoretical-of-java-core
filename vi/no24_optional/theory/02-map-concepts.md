@@ -1,16 +1,8 @@
 # Optional - Phần 2
 
-## Mục Tiêu Học Tập
-
 File này bao quát một phần tập trung của **Optional** (lớp tùy chọn). Hãy học từng khái niệm như một quy tắc Java thực tế, không phải từ vựng đơn độc.
 
 ## Phạm Vi Đề Cương
-
-- **`map`** — map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`flatMap`** — flatMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`filter`** — filter: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Do not overuse Optional`** — Do not overuse Optional: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Optional in return type`** — Optional in return type: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 
@@ -116,9 +108,6 @@ Nhầm lẫn giữa `map` và `flatMap` khi hàm ánh xạ trả về `Optional`
 Sự khác biệt cốt lõi giữa `map()` và `flatMap()` là cách chúng xử lý kiểu trả về của hàm ánh xạ. `map()` được thiết kế cho các hàm ánh xạ trả về giá trị thô; nó tự động bọc bất kỳ giá trị thô nào mapper trả về vào Optional mới. Nếu bạn truyền hàm ánh xạ bản thân trả về `Optional`, `map()` vẫn bọc nó lại, dẫn đến cấu trúc `Optional<Optional<T>>` lồng nhau. Ngược lại, `flatMap()` được thiết kế đặc biệt cho các hàm ánh xạ đã trả về `Optional`; nó trả về `Optional` đó trực tiếp mà không thêm lớp bao bọc. Thêm vào đó, một khác biệt cơ chế quan trọng: nếu hàm ánh xạ trả về `null`, `map()` bắt điều này và trả về `Optional.empty()` an toàn, trong khi `flatMap()` kiểm tra null rõ ràng và ném `NullPointerException` để ngăn optional lồng không hợp lệ.
 
 ### Mô Hình Tư Duy: Phép Ẩn Dụ Hộp Lồng Nhau
-
-- **`map`** — map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`flatMap`** — flatMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ```mermaid
 flowchart LR

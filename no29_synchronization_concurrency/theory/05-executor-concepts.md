@@ -1,11 +1,5 @@
 # Synchronization and Concurrency - Part 5
 
-## Learning Goal
-
-This file covers the Java Executor Framework (`Executor`, `ExecutorService`, `ThreadPoolExecutor`, `ScheduledExecutorService`), asynchronous task results (`Future`), and advanced promise chaining (`CompletableFuture`). Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Executor` | The simplest interface defining task execution via `execute(Runnable)`. |

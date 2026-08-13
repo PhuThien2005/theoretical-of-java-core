@@ -54,10 +54,6 @@ Trong một phương thức không có kiểu trả về void (non-void method),
 
 ## So Sánh Ba Từ Khóa
 
-- **`break`** — break: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`continue`** — continue: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`return`** — return: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Thoát Sớm Và Khả Năng Đọc Mã Nguồn (Early Exit And Readability)
 
 Việc thoát sớm có thể làm cho mã nguồn rõ ràng hơn khi loại bỏ các khối lồng nhau (nesting) không cần thiết.
@@ -289,19 +285,11 @@ for (int i = 1; i <= 3; i++) {
 
 **Từng bước theo dõi thực thi:**
 1. **`i = 1`**: Vòng lặp ngoài bắt đầu.
-- **`j = 1`** — j = 1: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`j = 2`** — j = 2: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`j = 3`** — j = 3: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 2. **`i = 2`**: Vòng lặp ngoài cập nhật lên 2.
-- **`j = 1`** — j = 1: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`j = 2`** — j = 2: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
      - `continue outer` được thực thi.
      - Thực thi nhảy ngay lập tức đến bước cập nhật của vòng lặp ngoài (`i++`).
      - Lần lặp trong cho `j=3` bị bỏ qua hoàn toàn.
 3. **`i = 3`**: Vòng lặp ngoài cập nhật lên 3.
-- **`j = 1`** — j = 1: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`j = 2`** — j = 2: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`j = 3`** — j = 3: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 **Đầu ra:**
 ```text
@@ -332,12 +320,7 @@ for (int i = 1; i <= 3; i++) {
 
 **Từng bước theo dõi thực thi:**
 1. **`i = 1`**: Vòng lặp ngoài bắt đầu.
-- **`j = 1`** — j = 1: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`j = 2`** — j = 2: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`j = 3`** — j = 3: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 2. **`i = 2`**: Vòng lặp ngoài cập nhật lên 2.
-- **`j = 1`** — j = 1: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`j = 2`** — j = 2: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
      - `break outer` được thực thi.
      - Thực thi thoát hoàn toàn ra ngoài vòng lặp có nhãn `outer`.
      - Chương trình tiếp tục tại câu lệnh ngay sau khối vòng lặp ngoài.

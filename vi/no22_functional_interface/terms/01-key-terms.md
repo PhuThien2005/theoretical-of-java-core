@@ -4,8 +4,6 @@ Sử dụng file này khi một từ trong phần lý thuyết có cảm giác q
 
 ## Predicate
 
-**`Predicate` (Hàm điều kiện)`** — Predicate` (Hàm điều kiện): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
 Tại sao điều này quan trọng: Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống (pipeline) kiểu lập trình hàm. Một nhầm lẫn phổ biến là quên mất hoạt động nào là lười (lazy) và hoạt động nào thực sự kích hoạt việc thực thi.
 
 Nhầm lẫn phổ biến: Người học thường ghi nhớ `Predicate` như một từ vựng thuần túy nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.
@@ -13,8 +11,6 @@ Nhầm lẫn phổ biến: Người học thường ghi nhớ `Predicate` như m
 Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `Predicate` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## Function
-
-**`Function` (Hàm chuyển đổi)`** — Function` (Hàm chuyển đổi): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Tại sao điều này quan trọng: Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống kiểu lập trình hàm. Một nhầm lẫn phổ biến là quên mất hoạt động nào là lười (lazy) và hoạt động nào thực sự kích hoạt việc thực thi.
 
@@ -24,8 +20,6 @@ Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `Function` thay đổi,
 
 ## Consumer
 
-**`Consumer` (Hàm tiêu thụ)`** — Consumer` (Hàm tiêu thụ): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
 Tại sao điều này quan trọng: Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống kiểu lập trình hàm. Một nhầm lẫn phổ biến là quên mất hoạt động nào là lười (lazy) và hoạt động nào thực sự kích hoạt việc thực thi.
 
 Nhầm lẫn phổ biến: Người học thường ghi nhớ `Consumer` như một từ vựng nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.
@@ -33,8 +27,6 @@ Nhầm lẫn phổ biến: Người học thường ghi nhớ `Consumer` như m�
 Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `Consumer` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## Supplier
-
-**`Supplier` (Hàm cung cấp)`** — Supplier` (Hàm cung cấp): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Tại sao điều này quan trọng: Nó quan trọng vì các API Java hiện đại sử dụng rất nhiều các đường ống kiểu lập trình hàm. Một nhầm lẫn phổ biến là quên mất hoạt động nào là lười (lazy) và hoạt động nào thực sự kích hoạt việc thực thi.
 
@@ -44,8 +36,6 @@ Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `Supplier` thay đổi,
 
 ## Operator
 
-**`Operator` (Hàm toán tử)`** — Operator` (Hàm toán tử): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
 Tại sao điều này quan trọng: Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 
 Nhầm lẫn phổ biến: Người học thường ghi nhớ `Operator` như một từ vựng nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.
@@ -53,8 +43,6 @@ Nhầm lẫn phổ biến: Người học thường ghi nhớ `Operator` như m�
 Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `Operator` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## Bi-interface
-
-`Bi-**`interface` (Giao diện kép)`** — interface` (Giao diện kép): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Tại sao điều này quan trọng: Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 

@@ -1,853 +1,853 @@
 {
   "lesson": "01-array-basics",
-  "total_duration_seconds": 812.89,
+  "total_duration_seconds": 710.4,
   "total_paragraphs": 121,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 2.8,
-      "duration": 2.8,
+      "start": 0.1,
+      "end": 11.96,
+      "duration": 11.86,
       "text_snippet": "Kiến Thức Cơ Bản Về Mảng (Array Basics)"
     },
     {
       "paragraph_id": 2,
-      "start": 2.8,
-      "end": 20.3,
-      "duration": 17.5,
+      "start": 11.96,
+      "end": 18.58,
+      "duration": 6.62,
       "text_snippet": "Mảng (array) trong Java là một đối tượng chứa (container object) lưu trữ một số "
     },
     {
       "paragraph_id": 3,
-      "start": 20.3,
-      "end": 23.1,
-      "duration": 2.8,
+      "start": 18.59,
+      "end": 23.32,
+      "duration": 4.73,
       "text_snippet": "Khai Báo Và Khởi Tạo (Declaration and Initialization)"
     },
     {
       "paragraph_id": 4,
-      "start": 23.1,
-      "end": 29.75,
-      "duration": 6.65,
+      "start": 23.31,
+      "end": 29.11,
+      "duration": 5.8,
       "text_snippet": "Một mảng phải được khai báo, cấp phát và khởi tạo (tùy chọn) trước khi có thể sử"
     },
     {
       "paragraph_id": 5,
-      "start": 29.75,
-      "end": 31.15,
-      "duration": 1.4,
+      "start": 29.21,
+      "end": 31.09,
+      "duration": 1.88,
       "text_snippet": "Cú Pháp Khai Báo"
     },
     {
       "paragraph_id": 6,
-      "start": 31.15,
-      "end": 34.65,
-      "duration": 3.5,
+      "start": 31.04,
+      "end": 34.4,
+      "duration": 3.36,
       "text_snippet": "Có hai cú pháp để khai báo một biến mảng:"
     },
     {
       "paragraph_id": 7,
-      "start": 34.65,
-      "end": 40.6,
-      "duration": 5.95,
+      "start": 34.4,
+      "end": 40.07,
+      "duration": 5.67,
       "text_snippet": "Kiểu dữ liệu trước (Khuyên dùng): Đặt dấu ngoặc vuông [] ngay sau kiểu dữ liệu.i"
     },
     {
       "paragraph_id": 8,
-      "start": 40.6,
-      "end": 42.0,
-      "duration": 1.4,
+      "start": 40.08,
+      "end": 42.28,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 9,
-      "start": 42.0,
-      "end": 58.8,
-      "duration": 16.8,
+      "start": 42.38,
+      "end": 55.7,
+      "duration": 13.32,
       "text_snippet": "Tên biến trước (Phong cách C/C++): Đặt dấu ngoặc vuông [] sau tên biến.int score"
     },
     {
       "paragraph_id": 10,
-      "start": 58.8,
-      "end": 60.2,
-      "duration": 1.4,
+      "start": 55.65,
+      "end": 58.03,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 11,
-      "start": 60.2,
-      "end": 62.65,
-      "duration": 2.45,
+      "start": 58.03,
+      "end": 60.55,
+      "duration": 2.52,
       "text_snippet": "Cấp Phát Và Giá Trị Mặc Định"
     },
     {
       "paragraph_id": 12,
-      "start": 62.65,
-      "end": 75.6,
-      "duration": 12.95,
+      "start": 60.55,
+      "end": 71.3,
+      "duration": 10.75,
       "text_snippet": "Mảng là đối tượng, điều đó có nghĩa là chúng được tạo ra trong bộ nhớ Heap bằng "
     },
     {
       "paragraph_id": 13,
-      "start": 75.6,
-      "end": 77.0,
-      "duration": 1.4,
+      "start": 71.4,
+      "end": 73.78,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 14,
-      "start": 77.0,
-      "end": 85.4,
-      "duration": 8.4,
+      "start": 73.73,
+      "end": 80.5,
+      "duration": 6.77,
       "text_snippet": "Khi một mảng được cấp phát, JVM sẽ tự động khởi tạo tất cả các phần tử của nó về"
     },
     {
       "paragraph_id": 15,
-      "start": 85.4,
-      "end": 90.65,
-      "duration": 5.25,
+      "start": 80.5,
+      "end": 84.82,
+      "duration": 4.32,
       "text_snippet": "Tại Sao Các Phần Tử Của Mảng Tự Động Khởi Tạo Về Giá Trị 0"
     },
     {
       "paragraph_id": 16,
-      "start": 90.65,
-      "end": 165.55,
-      "duration": 74.9,
+      "start": 84.83,
+      "end": 95.22,
+      "duration": 10.39,
       "text_snippet": "Khác với các biến cục bộ nằm trên stack và bắt buộc phải được khởi tạo rõ ràng, "
     },
     {
       "paragraph_id": 17,
-      "start": 165.55,
-      "end": 166.95,
-      "duration": 1.4,
+      "start": 95.31,
+      "end": 97.69,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 18,
-      "start": 166.95,
-      "end": 169.05,
-      "duration": 2.1,
+      "start": 97.64,
+      "end": 100.2,
+      "duration": 2.56,
       "text_snippet": "Ví Dụ Code Có Thể Chạy:"
     },
     {
       "paragraph_id": 19,
-      "start": 169.05,
-      "end": 170.45,
-      "duration": 1.4,
+      "start": 100.2,
+      "end": 102.58,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 20,
-      "start": 170.45,
-      "end": 196.35,
-      "duration": 25.9,
+      "start": 102.58,
+      "end": 118.82,
+      "duration": 16.24,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả: Cấp phát mảng trên heap → JVM lấp đầy khối bộ nhớ l"
     },
     {
       "paragraph_id": 21,
-      "start": 196.35,
-      "end": 201.25,
-      "duration": 4.9,
+      "start": 118.91,
+      "end": 123.56,
+      "duration": 4.65,
       "text_snippet": "Ví Dụ Có Thể Chạy: Khai Báo, Cấp Phát Và Giá Trị Mặc Định"
     },
     {
       "paragraph_id": 22,
-      "start": 201.25,
-      "end": 202.65,
-      "duration": 1.4,
+      "start": 123.51,
+      "end": 125.87,
+      "duration": 2.36,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 23,
-      "start": 202.65,
-      "end": 204.4,
-      "duration": 1.75,
+      "start": 125.88,
+      "end": 128.04,
+      "duration": 2.16,
       "text_snippet": "Các Tùy Chọn Khởi Tạo"
     },
     {
       "paragraph_id": 24,
-      "start": 204.4,
-      "end": 208.25,
-      "duration": 3.85,
+      "start": 128.04,
+      "end": 131.51,
+      "duration": 3.47,
       "text_snippet": "Bạn có thể khởi tạo mảng bằng ba cách chính sau:"
     },
     {
       "paragraph_id": 25,
-      "start": 208.25,
-      "end": 211.05,
-      "duration": 2.8,
+      "start": 131.61,
+      "end": 134.53,
+      "duration": 2.92,
       "text_snippet": "1. Cấp Phát Với Giá Trị Mặc Định"
     },
     {
       "paragraph_id": 26,
-      "start": 211.05,
-      "end": 212.45,
-      "duration": 1.4,
+      "start": 134.49,
+      "end": 136.85,
+      "duration": 2.36,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 27,
-      "start": 212.45,
-      "end": 215.6,
-      "duration": 3.15,
+      "start": 136.85,
+      "end": 140.47,
+      "duration": 3.62,
       "text_snippet": "2. Trình Khởi Tạo Mảng (Cú Pháp Rút Gọn)"
     },
     {
       "paragraph_id": 28,
-      "start": 215.6,
-      "end": 221.2,
-      "duration": 5.6,
+      "start": 140.47,
+      "end": 144.75,
+      "duration": 4.28,
       "text_snippet": "Được sử dụng khi các giá trị đã được biết trước tại thời điểm khai báo:"
     },
     {
       "paragraph_id": 29,
-      "start": 221.2,
-      "end": 222.6,
-      "duration": 1.4,
+      "start": 144.85,
+      "end": 147.23,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 30,
-      "start": 222.6,
-      "end": 231.7,
-      "duration": 9.1,
+      "start": 147.18,
+      "end": 156.23,
+      "duration": 9.05,
       "text_snippet": "[!WARNING] Cú pháp rút gọn này chỉ hợp lệ trong câu lệnh khai báo biến. Bạn khôn"
     },
     {
       "paragraph_id": 31,
-      "start": 231.7,
-      "end": 233.1,
-      "duration": 1.4,
+      "start": 156.22,
+      "end": 158.6,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 32,
-      "start": 233.1,
-      "end": 235.9,
-      "duration": 2.8,
+      "start": 158.6,
+      "end": 162.7,
+      "duration": 4.1,
       "text_snippet": "3. Cú Pháp Mảng Vô Danh (Anonymous Array)"
     },
     {
       "paragraph_id": 33,
-      "start": 235.9,
-      "end": 245.0,
-      "duration": 9.1,
+      "start": 162.8,
+      "end": 169.6,
+      "duration": 6.8,
       "text_snippet": "Được sử dụng để khai báo, cấp phát và khởi tạo một mảng trực tiếp khi cần (thườn"
     },
     {
       "paragraph_id": 34,
-      "start": 245.0,
-      "end": 246.4,
-      "duration": 1.4,
+      "start": 169.55,
+      "end": 171.93,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 35,
-      "start": 246.4,
-      "end": 249.9,
-      "duration": 3.5,
+      "start": 171.92,
+      "end": 177.04,
+      "duration": 5.12,
       "text_snippet": "Mảng Một Chiều Và Cách Duyệt (One-Dimensional Arrays and Traversing)"
     },
     {
       "paragraph_id": 36,
-      "start": 249.9,
-      "end": 264.6,
-      "duration": 14.7,
+      "start": 177.05,
+      "end": 189.4,
+      "duration": 12.35,
       "text_snippet": "Các phần tử của mảng 1 chiều được truy cập bằng các vị trí chỉ số (index) từ 0 đ"
     },
     {
       "paragraph_id": 37,
-      "start": 264.6,
-      "end": 266.0,
-      "duration": 1.4,
+      "start": 189.5,
+      "end": 191.88,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 38,
-      "start": 266.0,
-      "end": 267.75,
-      "duration": 1.75,
+      "start": 191.82,
+      "end": 193.98,
+      "duration": 2.16,
       "text_snippet": "Các Phương Pháp Duyệt Mảng"
     },
     {
       "paragraph_id": 39,
-      "start": 267.75,
-      "end": 269.85,
-      "duration": 2.1,
+      "start": 193.99,
+      "end": 196.55,
+      "duration": 2.56,
       "text_snippet": "1. Vòng Lặp for Tiêu Chuẩn"
     },
     {
       "paragraph_id": 40,
-      "start": 269.85,
-      "end": 275.45,
-      "duration": 5.6,
+      "start": 196.55,
+      "end": 201.21,
+      "duration": 4.66,
       "text_snippet": "Cho phép sửa đổi các phần tử, duyệt ngược hoặc di chuyển qua các chỉ số."
     },
     {
       "paragraph_id": 41,
-      "start": 275.45,
-      "end": 276.85,
-      "duration": 1.4,
+      "start": 201.31,
+      "end": 203.69,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 42,
-      "start": 276.85,
-      "end": 279.65,
-      "duration": 2.8,
+      "start": 203.64,
+      "end": 207.94,
+      "duration": 4.3,
       "text_snippet": "2. Vòng Lặp for Cải Tiến (Enhanced for/foreach)"
     },
     {
       "paragraph_id": 43,
-      "start": 279.65,
-      "end": 293.65,
-      "duration": 14.0,
+      "start": 207.94,
+      "end": 218.59,
+      "duration": 10.65,
       "text_snippet": "Truy cập tuần tự chỉ đọc từ đầu đến cuối. Bạn không thể sử dụng nó để sửa đổi cá"
     },
     {
       "paragraph_id": 44,
-      "start": 293.65,
-      "end": 295.05,
-      "duration": 1.4,
+      "start": 218.59,
+      "end": 220.79,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 45,
-      "start": 295.05,
-      "end": 296.45,
-      "duration": 1.4,
+      "start": 220.89,
+      "end": 223.27,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 46,
-      "start": 296.55,
-      "end": 300.38,
+      "start": 223.21,
+      "end": 227.04,
       "duration": 3.83,
       "text_snippet": "Lỗi Chỉ Số Mảng Vượt Quá Phạm Vi (ArrayIndexOutOfBoundsException)"
     },
     {
       "paragraph_id": 47,
-      "start": 300.32,
-      "end": 313.75,
-      "duration": 13.43,
+      "start": 227.04,
+      "end": 240.5,
+      "duration": 13.46,
       "text_snippet": "Ngoại lệ ArrayIndexOutOfBoundsException là một ngoại lệ lúc chạy (runtime except"
     },
     {
       "paragraph_id": 48,
-      "start": 313.75,
-      "end": 316.13,
-      "duration": 2.38,
+      "start": 240.5,
+      "end": 242.7,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 49,
-      "start": 316.12,
-      "end": 340.31,
-      "duration": 24.19,
+      "start": 242.8,
+      "end": 270.87,
+      "duration": 28.07,
       "text_snippet": "[!IMPORTANT] Vì các chỉ số mảng trong Java được tính toán bằng số nguyên có dấu "
     },
     {
       "paragraph_id": 50,
-      "start": 340.31,
-      "end": 343.46,
+      "start": 270.87,
+      "end": 274.02,
       "duration": 3.15,
       "text_snippet": "Mảng Đa Chiều (Mảng Của Các Mảng) (Multidimensional Arrays)"
     },
     {
       "paragraph_id": 51,
-      "start": 340.31,
-      "end": 350.46,
-      "duration": 10.15,
+      "start": 270.87,
+      "end": 278.33,
+      "duration": 7.46,
       "text_snippet": "Java không có các mảng đa chiều liên tục thực sự trong bộ nhớ. Thay vào đó, một "
     },
     {
       "paragraph_id": 52,
-      "start": 350.46,
-      "end": 352.21,
+      "start": 278.34,
+      "end": 280.09,
       "duration": 1.75,
       "text_snippet": "Mảng Hai Chiều (2D Array)"
     },
     {
       "paragraph_id": 53,
-      "start": 352.21,
-      "end": 358.16,
-      "duration": 5.95,
+      "start": 278.44,
+      "end": 283.02,
+      "duration": 4.58,
       "text_snippet": "Một mảng 2D có thể được hình dung như một lưới gồm các dòng và các cột."
     },
     {
       "paragraph_id": 54,
-      "start": 358.16,
-      "end": 359.56,
-      "duration": 1.4,
+      "start": 282.96,
+      "end": 285.34,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 55,
-      "start": 359.56,
-      "end": 363.06,
+      "start": 285.34,
+      "end": 288.84,
       "duration": 3.5,
       "text_snippet": "Bạn có thể khởi tạo một mảng 2D trực tiếp:"
     },
     {
       "paragraph_id": 56,
-      "start": 363.06,
-      "end": 364.46,
-      "duration": 1.4,
+      "start": 288.84,
+      "end": 291.04,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 57,
-      "start": 364.46,
-      "end": 366.21,
-      "duration": 1.75,
+      "start": 291.14,
+      "end": 294.73,
+      "duration": 3.59,
       "text_snippet": "Mảng Răng Cưa (Ragged/Jagged Array)"
     },
     {
       "paragraph_id": 58,
-      "start": 366.21,
-      "end": 373.91,
-      "duration": 7.7,
+      "start": 294.67,
+      "end": 300.52,
+      "duration": 5.85,
       "text_snippet": "Vì mảng đa chiều là mảng của các mảng, mỗi dòng có thể trỏ đến một mảng có độ dà"
     },
     {
       "paragraph_id": 59,
-      "start": 373.91,
-      "end": 375.31,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 60,
-      "start": 375.31,
-      "end": 378.81,
-      "duration": 3.5,
-      "text_snippet": "Tại Sao Mảng Đa Chiều Là Mảng Của Các Mảng"
-    },
-    {
-      "paragraph_id": 61,
-      "start": 378.81,
-      "end": 444.26,
-      "duration": 65.45,
-      "text_snippet": "Java không hỗ trợ các mảng liên tục đa chiều thực sự trong bộ nhớ; thay vào đó, "
-    },
-    {
-      "paragraph_id": 62,
-      "start": 444.26,
-      "end": 445.66,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 63,
-      "start": 445.66,
-      "end": 447.76,
-      "duration": 2.1,
-      "text_snippet": "Ví Dụ Code Có Thể Chạy:"
-    },
-    {
-      "paragraph_id": 64,
-      "start": 447.76,
-      "end": 449.16,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 65,
-      "start": 449.16,
-      "end": 472.26,
-      "duration": 23.1,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả: Khai báo mảng đa chiều → Cấp phát mảng tham chiếu c"
-    },
-    {
-      "paragraph_id": 66,
-      "start": 472.26,
-      "end": 473.66,
-      "duration": 1.4,
-      "text_snippet": "Duyệt Mảng 2 Chiều"
-    },
-    {
-      "paragraph_id": 67,
-      "start": 473.66,
-      "end": 475.06,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 68,
-      "start": 475.06,
-      "end": 479.61,
-      "duration": 4.55,
-      "text_snippet": "Ví Dụ Có Thể Chạy: Truy Cập Và Sửa Đổi Mảng Răng Cưa"
-    },
-    {
-      "paragraph_id": 69,
-      "start": 479.61,
-      "end": 481.01,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 70,
-      "start": 481.01,
-      "end": 483.46,
-      "duration": 2.45,
-      "text_snippet": "Mảng Các Đối Tượng (Array of Objects)"
-    },
-    {
-      "paragraph_id": 71,
-      "start": 483.56,
-      "end": 489.53,
-      "duration": 5.97,
-      "text_snippet": "Mảng các đối tượng lưu trữ các tham chiếu trỏ đến đối tượng, chứ không chứa bản "
-    },
-    {
-      "paragraph_id": 72,
-      "start": 489.49,
-      "end": 491.87,
+      "start": 300.52,
+      "end": 302.9,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
+      "paragraph_id": 60,
+      "start": 302.9,
+      "end": 306.19,
+      "duration": 3.29,
+      "text_snippet": "Tại Sao Mảng Đa Chiều Là Mảng Của Các Mảng"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 306.29,
+      "end": 353.85,
+      "duration": 47.56,
+      "text_snippet": "Java không hỗ trợ các mảng liên tục đa chiều thực sự trong bộ nhớ; thay vào đó, "
+    },
+    {
+      "paragraph_id": 62,
+      "start": 353.85,
+      "end": 356.23,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 356.22,
+      "end": 358.78,
+      "duration": 2.56,
+      "text_snippet": "Ví Dụ Code Có Thể Chạy:"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 358.79,
+      "end": 360.99,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 361.09,
+      "end": 375.47,
+      "duration": 14.38,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả: Khai báo mảng đa chiều → Cấp phát mảng tham chiếu c"
+    },
+    {
+      "paragraph_id": 66,
+      "start": 375.41,
+      "end": 377.41,
+      "duration": 2.0,
+      "text_snippet": "Duyệt Mảng 2 Chiều"
+    },
+    {
+      "paragraph_id": 67,
+      "start": 377.41,
+      "end": 379.79,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 68,
+      "start": 379.79,
+      "end": 384.04,
+      "duration": 4.25,
+      "text_snippet": "Ví Dụ Có Thể Chạy: Truy Cập Và Sửa Đổi Mảng Răng Cưa"
+    },
+    {
+      "paragraph_id": 69,
+      "start": 384.14,
+      "end": 386.52,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 70,
+      "start": 386.46,
+      "end": 395.94,
+      "duration": 9.48,
+      "text_snippet": "Mảng Các Đối Tượng (Array of Objects)"
+    },
+    {
+      "paragraph_id": 71,
+      "start": 395.94,
+      "end": 403.64,
+      "duration": 7.7,
+      "text_snippet": "Mảng các đối tượng lưu trữ các tham chiếu trỏ đến đối tượng, chứ không chứa bản "
+    },
+    {
+      "paragraph_id": 72,
+      "start": 395.94,
+      "end": 398.14,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
       "paragraph_id": 73,
-      "start": 491.86,
-      "end": 494.35,
+      "start": 398.24,
+      "end": 400.73,
       "duration": 2.49,
       "text_snippet": "So Sánh Bố Cục Bộ Nhớ"
     },
     {
       "paragraph_id": 74,
-      "start": 494.35,
-      "end": 512.31,
-      "duration": 17.96,
+      "start": 400.68,
+      "end": 418.74,
+      "duration": 18.06,
       "text_snippet": "Mảng kiểu nguyên thủy (int[]): Đối tượng mảng trên heap chứa trực tiếp các giá t"
     },
     {
       "paragraph_id": 75,
-      "start": 512.31,
-      "end": 523.86,
+      "start": 418.74,
+      "end": 430.29,
       "duration": 11.55,
       "text_snippet": "Mảng đối tượng (String[]): Đối tượng mảng trên heap chứa các địa chỉ bộ nhớ (con"
     },
     {
       "paragraph_id": 76,
-      "start": 512.31,
-      "end": 515.81,
-      "duration": 3.5,
+      "start": 418.74,
+      "end": 422.69,
+      "duration": 3.95,
       "text_snippet": "Các Thao Tác Tiện Ích: In Và Nhân Bản (Cloning)"
     },
     {
       "paragraph_id": 77,
-      "start": 515.81,
-      "end": 516.51,
-      "duration": 0.7,
+      "start": 422.79,
+      "end": 424.2,
+      "duration": 1.41,
       "text_snippet": "In Mảng"
     },
     {
       "paragraph_id": 78,
-      "start": 516.51,
-      "end": 526.66,
-      "duration": 10.15,
+      "start": 424.15,
+      "end": 445.23,
+      "duration": 21.08,
       "text_snippet": "Gọi System.out.println(arr) trên một mảng sẽ in ra biểu diễn dưới dạng mã băm tê"
     },
     {
       "paragraph_id": 79,
-      "start": 526.66,
-      "end": 528.76,
+      "start": 445.23,
+      "end": 447.33,
       "duration": 2.1,
       "text_snippet": "Mảng 1 chiều: Sử dụng Arrays.toString(arr)"
     },
     {
       "paragraph_id": 80,
-      "start": 528.76,
-      "end": 530.86,
+      "start": 447.32,
+      "end": 449.42,
       "duration": 2.1,
       "text_snippet": "Mảng 2 chiều: Sử dụng Arrays.deepToString(matrix)"
     },
     {
       "paragraph_id": 81,
-      "start": 530.86,
-      "end": 532.26,
-      "duration": 1.4,
+      "start": 445.33,
+      "end": 447.71,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 82,
-      "start": 532.26,
-      "end": 533.66,
-      "duration": 1.4,
+      "start": 447.65,
+      "end": 450.57,
+      "duration": 2.92,
       "text_snippet": "Nhân Bản Mảng (Cloning)"
     },
     {
       "paragraph_id": 83,
-      "start": 533.66,
-      "end": 539.96,
-      "duration": 6.3,
+      "start": 450.58,
+      "end": 455.94,
+      "duration": 5.36,
       "text_snippet": "Gọi phương thức clone() trên một mảng 1 chiều sẽ tạo ra một bản sao của mảng đó:"
     },
     {
       "paragraph_id": 84,
-      "start": 539.96,
-      "end": 541.36,
-      "duration": 1.4,
+      "start": 455.94,
+      "end": 458.14,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 85,
-      "start": 541.36,
-      "end": 549.06,
-      "duration": 7.7,
+      "start": 458.24,
+      "end": 470.89,
+      "duration": 12.65,
       "text_snippet": "Đối với mảng kiểu nguyên thủy: Thực hiện sao chép sâu (deep copy) các phần tử (c"
     },
     {
       "paragraph_id": 86,
-      "start": 549.16,
-      "end": 562.2,
-      "duration": 13.04,
+      "start": 470.89,
+      "end": 478.1,
+      "duration": 7.21,
       "text_snippet": "Đối với mảng đối tượng/đa chiều: Thực hiện sao chép nông (shallow copy). Nó chỉ "
     },
     {
       "paragraph_id": 87,
-      "start": 562.2,
-      "end": 564.32,
+      "start": 478.1,
+      "end": 480.22,
       "duration": 2.12,
       "text_snippet": "Truyền Mảng Vào Phương Thức"
     },
     {
       "paragraph_id": 88,
-      "start": 564.32,
-      "end": 574.97,
+      "start": 480.23,
+      "end": 490.88,
       "duration": 10.65,
       "text_snippet": "Trong Java, các đối số được truyền dưới dạng tham trị (pass-by-value). Khi truyề"
     },
     {
       "paragraph_id": 89,
-      "start": 574.97,
-      "end": 587.81,
-      "duration": 12.84,
+      "start": 490.98,
+      "end": 503.54,
+      "duration": 12.56,
       "text_snippet": "Việc gán lại (reassign) biến mảng bên trong phương thức không ảnh hưởng đến tham"
     },
     {
       "paragraph_id": 90,
-      "start": 587.81,
-      "end": 597.61,
+      "start": 503.54,
+      "end": 513.34,
       "duration": 9.8,
       "text_snippet": "Việc sửa đổi phần tử bên trong mảng có ảnh hưởng đến mảng của phía gọi vì cả hai"
     },
     {
       "paragraph_id": 91,
-      "start": 587.81,
-      "end": 589.21,
-      "duration": 1.4,
+      "start": 503.54,
+      "end": 505.92,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 92,
-      "start": 589.21,
-      "end": 593.41,
-      "duration": 4.2,
+      "start": 505.91,
+      "end": 509.88,
+      "duration": 3.97,
       "text_snippet": "Ví Dụ Có Thể Chạy: Truyền Tham Chiếu Mảng Vào Phương Thức"
     },
     {
       "paragraph_id": 93,
-      "start": 593.41,
-      "end": 594.81,
-      "duration": 1.4,
+      "start": 509.99,
+      "end": 512.37,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 94,
-      "start": 594.81,
-      "end": 597.26,
-      "duration": 2.45,
+      "start": 512.31,
+      "end": 515.75,
+      "duration": 3.44,
       "text_snippet": "Các Sai Lầm Thường Gặp (Common Mistakes)"
     },
     {
       "paragraph_id": 95,
-      "start": 597.26,
-      "end": 602.16,
-      "duration": 4.9,
+      "start": 515.75,
+      "end": 527.13,
+      "duration": 11.38,
       "text_snippet": "1. Nhầm Lẫn Thuộc Tính length Của Mảng Với Phương Thức length() Của Chuỗi"
     },
     {
       "paragraph_id": 96,
-      "start": 602.16,
-      "end": 611.61,
+      "start": 527.12,
+      "end": 536.57,
       "duration": 9.45,
       "text_snippet": "Mảng cung cấp kích thước thông qua một trường chỉ đọc tên là length, trong khi S"
     },
     {
       "paragraph_id": 97,
-      "start": 611.61,
-      "end": 613.01,
-      "duration": 1.4,
+      "start": 527.23,
+      "end": 529.61,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 98,
-      "start": 613.01,
-      "end": 615.81,
-      "duration": 2.8,
+      "start": 529.55,
+      "end": 533.6,
+      "duration": 4.05,
       "text_snippet": "2. Lỗi Lệch Một Đơn Vị (Off-by-One Error)"
     },
     {
       "paragraph_id": 99,
-      "start": 615.81,
-      "end": 627.36,
-      "duration": 11.55,
+      "start": 533.6,
+      "end": 544.16,
+      "duration": 10.56,
       "text_snippet": "Vì chỉ số mảng bắt đầu từ số 0, phần tử cuối cùng nằm ở vị trí arr.length - 1. S"
     },
     {
       "paragraph_id": 100,
-      "start": 627.36,
-      "end": 628.76,
-      "duration": 1.4,
+      "start": 544.16,
+      "end": 546.36,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 101,
-      "start": 628.86,
-      "end": 633.81,
+      "start": 546.46,
+      "end": 551.41,
       "duration": 4.95,
       "text_snippet": "3. Cố Gắng Sửa Đổi Các Phần Tử Nguyên Thủy Thông Qua Vòng Lặp For Cải Tiến"
     },
     {
       "paragraph_id": 102,
-      "start": 633.76,
-      "end": 642.67,
+      "start": 551.36,
+      "end": 560.27,
       "duration": 8.91,
       "text_snippet": "Việc gán một giá trị mới cho biến lặp trong vòng lặp for cải tiến chỉ sửa đổi mộ"
     },
     {
       "paragraph_id": 103,
-      "start": 642.67,
-      "end": 644.86,
+      "start": 560.27,
+      "end": 562.46,
       "duration": 2.19,
       "text_snippet": "4. In Trực Tiếp Mảng"
     },
     {
       "paragraph_id": 104,
-      "start": 644.86,
-      "end": 658.06,
-      "duration": 13.2,
+      "start": 562.46,
+      "end": 575.76,
+      "duration": 13.3,
       "text_snippet": "Truyền trực tiếp một mảng vào System.out.println(arr) sẽ in ra [I@hashcode (đối "
     },
     {
       "paragraph_id": 105,
-      "start": 658.06,
-      "end": 662.25,
-      "duration": 4.19,
+      "start": 575.86,
+      "end": 580.03,
+      "duration": 4.17,
       "text_snippet": "Tại Sao Mảng Có Kích Thước Cố Định Và Bố Cục Bộ Nhớ Liên Tục"
     },
     {
       "paragraph_id": 106,
-      "start": 662.25,
-      "end": 731.55,
-      "duration": 69.3,
+      "start": 579.99,
+      "end": 628.13,
+      "duration": 48.14,
       "text_snippet": "Trong Java, một mảng được cấp phát dưới dạng một khối bộ nhớ liên tục trên heap,"
     },
     {
       "paragraph_id": 107,
-      "start": 731.55,
-      "end": 732.95,
-      "duration": 1.4,
+      "start": 628.12,
+      "end": 630.5,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 108,
-      "start": 732.95,
-      "end": 735.05,
-      "duration": 2.1,
+      "start": 630.5,
+      "end": 632.88,
+      "duration": 2.38,
       "text_snippet": "Ví Dụ Code Có Thể Chạy:"
     },
     {
       "paragraph_id": 109,
-      "start": 735.05,
-      "end": 736.45,
-      "duration": 1.4,
+      "start": 632.97,
+      "end": 635.35,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 110,
-      "start": 736.45,
-      "end": 755.7,
-      "duration": 19.25,
+      "start": 635.3,
+      "end": 649.05,
+      "duration": 13.75,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả: Yêu cầu cấp phát Heap → Khối bộ nhớ liên tục được d"
     },
     {
       "paragraph_id": 111,
-      "start": 755.7,
-      "end": 758.85,
-      "duration": 3.15,
+      "start": 649.05,
+      "end": 652.39,
+      "duration": 3.34,
       "text_snippet": "Khi Nào Nên Sử Dụng Mảng So Với ArrayList"
     },
     {
       "paragraph_id": 112,
-      "start": 758.85,
-      "end": 769.35,
-      "duration": 10.5,
+      "start": 652.39,
+      "end": 662.0,
+      "duration": 9.61,
       "text_snippet": "Mặc dù mảng có hiệu suất rất cao, ArrayList là một lớp bọc động (dynamic wrapper"
     },
     {
       "paragraph_id": 113,
-      "start": 769.35,
-      "end": 772.5,
-      "duration": 3.15,
+      "start": 662.1,
+      "end": 665.43,
+      "duration": 3.33,
       "text_snippet": "Cơ Chế Thay Đổi Kích Thước Động Của ArrayList"
     },
     {
       "paragraph_id": 114,
-      "start": 772.5,
-      "end": 778.8,
-      "duration": 6.3,
+      "start": 665.37,
+      "end": 670.87,
+      "duration": 5.5,
       "text_snippet": "Khi một ArrayList vượt quá dung lượng của nó, nó sẽ thực hiện các bước nội bộ sa"
     },
     {
       "paragraph_id": 115,
-      "start": 778.8,
-      "end": 784.05,
-      "duration": 5.25,
+      "start": 670.87,
+      "end": 675.31,
+      "duration": 4.44,
       "text_snippet": "Cấp phát một mảng mới có kích thước bằng $1,5$ lần kích thước hiện tại."
     },
     {
       "paragraph_id": 116,
-      "start": 784.15,
-      "end": 789.73,
-      "duration": 5.58,
+      "start": 675.31,
+      "end": 680.92,
+      "duration": 5.61,
       "text_snippet": "Sao chép toàn bộ các phần tử từ mảng cũ sang mảng mới bằng System.arraycopy()."
     },
     {
       "paragraph_id": 117,
-      "start": 789.67,
-      "end": 791.71,
-      "duration": 2.04,
+      "start": 681.02,
+      "end": 683.04,
+      "duration": 2.02,
       "text_snippet": "Loại bỏ mảng cũ."
     },
     {
       "paragraph_id": 118,
-      "start": 791.71,
-      "end": 794.09,
+      "start": 683.0,
+      "end": 685.38,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 119,
-      "start": 794.09,
-      "end": 797.49,
+      "start": 685.37,
+      "end": 688.77,
       "duration": 3.4,
       "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
     },
     {
       "paragraph_id": 120,
-      "start": 797.49,
-      "end": 811.14,
-      "duration": 13.65,
+      "start": 688.77,
+      "end": 700.24,
+      "duration": 11.47,
       "text_snippet": "https://docs.oracle.com/javase/specs/jls/se21/html/jls-10.html (Arrays in Java L"
     },
     {
       "paragraph_id": 121,
-      "start": 811.14,
-      "end": 812.89,
-      "duration": 1.75,
+      "start": 700.35,
+      "end": 710.4,
+      "duration": 10.05,
       "text_snippet": "https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html (Official "
     }
   ]

@@ -25,4 +25,3 @@ Matcher applies a Pattern to input text and exposes match operations.
 ## lookaround
 
 `lookaround` — lookaround provides specific functionality and rules in Java development.
-

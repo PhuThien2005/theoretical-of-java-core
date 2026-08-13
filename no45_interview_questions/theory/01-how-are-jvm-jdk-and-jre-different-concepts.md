@@ -1,11 +1,5 @@
 # Common Java Core Interview Questions - Part 1
 
-## Learning Goal
-
-This file covers foundational Java Core interview questions regarding JVM architecture, pass-by-value rules, String memory structure, and Collection Internals (HashMap/ArrayList).
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `How are JVM, JDK, and JRE different?` | JDK is the development toolkit, JRE is the runtime environment, and JVM executes bytecode. |
@@ -58,9 +52,6 @@ public class ReferenceTest {
 ---
 
 ### == vs .equals()
-
-- **`==`** — ==: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`.equals()`** — .equals(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

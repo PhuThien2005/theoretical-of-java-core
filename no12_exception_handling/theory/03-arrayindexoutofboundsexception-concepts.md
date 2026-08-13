@@ -1,11 +1,5 @@
 # Exception Handling - Part 3
 
-## Learning Goal
-
-This file covers a focused slice of **Exception Handling**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `ArrayIndexOutOfBoundsException` | Thrown when an array is accessed with an illegal index (negative or >= size). |
@@ -288,9 +282,3 @@ try {
     // This catch block is bypassed! NullPointerException is thrown instead.
 }
 ```
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?

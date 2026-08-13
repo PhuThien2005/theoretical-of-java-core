@@ -1,21 +1,6 @@
 # Biên Dịch, Đóng Gói, Thực Thi - Phần 1 (Build, Compile, Run - Part 1)
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này trình bày một phần trọng tâm của **Biên Dịch, Đóng Gói, Thực Thi (Build, Compile, Run)**. Hãy nghiên cứu từng khái niệm dưới dạng một quy tắc thực hành trong Java, thay vì chỉ ghi nhớ các thuật ngữ riêng lẻ.
-
 ## Khung Nội Dung (Outline Coverage)
-
-- **`javac`** — javac: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`java`** — java: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`jar`** — jar: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Create JAR file`** — Create JAR file: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Executable JAR`** — Executable JAR: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Classpath`** — Classpath: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Manifest file`** — Manifest file: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Basic Maven`** — Basic Maven: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Basic Gradle`** — Basic Gradle: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Dependency management`** — Dependency management: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 

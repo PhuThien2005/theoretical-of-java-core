@@ -34,8 +34,6 @@ Một **giao diện (Interface)** là một kiểu tham chiếu (Reference type)
 
 ### Đặc trưng:
 - **Từ khóa bổ nghĩa ngầm định (Implicit Modifier):**
-- **`public static final`** — public static final: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`public abstract`** — public abstract: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **Không có trạng thái thực thể:** Không thể khai báo các trường thực thể hoặc hàm khởi tạo.
 - **Triển khai nhiều giao diện (Multiple Implementation):** Một lớp có thể triển khai nhiều giao diện (ví dụ: `class Car implements Drivable, Flyable`), cho phép đa kế thừa hành vi (Multiple inheritance of behavior).
 

@@ -1,7 +1,7 @@
 {
   "lesson": "04-filenotfoundexception-concepts",
-  "total_duration_seconds": 278.7,
-  "total_paragraphs": 57,
+  "total_duration_seconds": 253.15,
+  "total_paragraphs": 53,
   "timestamps": [
     {
       "paragraph_id": 1,
@@ -13,393 +13,365 @@
     {
       "paragraph_id": 2,
       "start": 4.38,
-      "end": 6.17,
-      "duration": 1.79,
-      "text_snippet": "Mục Tiêu Học Tập"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 6.16,
-      "end": 15.66,
+      "end": 13.88,
       "duration": 9.5,
       "text_snippet": "File này tập trung vào một phần cụ thể của Xử Lý Ngoại Lệ. Hãy nghiên cứu từng k"
     },
     {
-      "paragraph_id": 4,
-      "start": 15.66,
-      "end": 17.94,
-      "duration": 2.28,
+      "paragraph_id": 3,
+      "start": 13.88,
+      "end": 16.15,
+      "duration": 2.27,
       "text_snippet": "Các Khái Niệm Được Đề Cập"
     },
     {
-      "paragraph_id": 5,
-      "start": 17.94,
-      "end": 23.93,
-      "duration": 5.99,
-      "text_snippet": "FileNotFoundException — FileNotFoundException: Cung cấp các quy tắc và cơ chế ho"
-    },
-    {
-      "paragraph_id": 6,
-      "start": 23.93,
-      "end": 29.88,
-      "duration": 5.95,
-      "text_snippet": "SQLException — SQLException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể tro"
-    },
-    {
-      "paragraph_id": 7,
-      "start": 29.88,
-      "end": 42.13,
-      "duration": 12.25,
-      "text_snippet": "Các thực tiễn tốt nhất khi xử lý ngoại lệ — Các thực tiễn tốt nhất khi xử lý ngo"
-    },
-    {
-      "paragraph_id": 8,
-      "start": 42.12,
-      "end": 43.52,
-      "duration": 1.4,
+      "paragraph_id": 4,
+      "start": 16.15,
+      "end": 17.97,
+      "duration": 1.82,
       "text_snippet": "Ghi Chú Chi Tiết"
     },
     {
-      "paragraph_id": 9,
-      "start": 43.52,
-      "end": 43.92,
-      "duration": 0.4,
+      "paragraph_id": 5,
+      "start": 18.07,
+      "end": 19.75,
+      "duration": 1.68,
       "text_snippet": "FileNotFoundException"
     },
     {
-      "paragraph_id": 10,
-      "start": 43.88,
-      "end": 61.03,
-      "duration": 17.15,
+      "paragraph_id": 6,
+      "start": 19.7,
+      "end": 36.32,
+      "duration": 16.62,
       "text_snippet": "Một ngoại lệ đã kiểm tra (checked exception), lớp con của IOException, được ném "
     },
     {
-      "paragraph_id": 11,
-      "start": 61.12,
-      "end": 63.21,
-      "duration": 2.09,
+      "paragraph_id": 7,
+      "start": 36.32,
+      "end": 37.72,
+      "duration": 1.4,
       "text_snippet": "Kiểm tra thực tiễn:"
     },
     {
-      "paragraph_id": 12,
-      "start": 63.16,
-      "end": 65.92,
-      "duration": 2.76,
+      "paragraph_id": 8,
+      "start": 36.33,
+      "end": 39.08,
+      "duration": 2.75,
       "text_snippet": "Định nghĩa FileNotFoundException trong một câu."
     },
     {
-      "paragraph_id": 13,
-      "start": 65.92,
-      "end": 71.08,
-      "duration": 5.16,
+      "paragraph_id": 9,
+      "start": 39.18,
+      "end": 44.33,
+      "duration": 5.15,
       "text_snippet": "Nhận biết FileNotFoundException trong code, lệnh, tài liệu, hoặc câu hỏi phỏng v"
     },
     {
-      "paragraph_id": 14,
-      "start": 71.09,
-      "end": 76.04,
-      "duration": 4.95,
+      "paragraph_id": 10,
+      "start": 44.28,
+      "end": 49.22,
+      "duration": 4.94,
       "text_snippet": "Giải thích một lỗi, giới hạn, hoặc đánh đổi liên quan đến FileNotFoundException."
     },
     {
-      "paragraph_id": 15,
-      "start": 76.04,
-      "end": 78.85,
-      "duration": 2.81,
+      "paragraph_id": 11,
+      "start": 49.21,
+      "end": 52.18,
+      "duration": 2.97,
       "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
     },
     {
-      "paragraph_id": 16,
-      "start": 78.95,
-      "end": 84.23,
-      "duration": 5.28,
+      "paragraph_id": 12,
+      "start": 52.19,
+      "end": 57.35,
+      "duration": 5.16,
       "text_snippet": "new FileReader(\"does_not_exist.txt\") ném FileNotFoundException."
     },
     {
-      "paragraph_id": 17,
-      "start": 84.17,
-      "end": 87.66,
-      "duration": 3.49,
+      "paragraph_id": 13,
+      "start": 57.45,
+      "end": 60.95,
+      "duration": 3.5,
       "text_snippet": "Ví Dụ Code Chạy Được: Kích Hoạt và Xử Lý"
     },
     {
-      "paragraph_id": 18,
-      "start": 87.66,
-      "end": 90.04,
+      "paragraph_id": 14,
+      "start": 60.9,
+      "end": 63.28,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 19,
-      "start": 90.04,
-      "end": 91.7,
+      "paragraph_id": 15,
+      "start": 63.27,
+      "end": 64.93,
       "duration": 1.66,
       "text_snippet": "SQLException"
     },
     {
-      "paragraph_id": 20,
-      "start": 91.7,
-      "end": 101.26,
+      "paragraph_id": 16,
+      "start": 64.94,
+      "end": 74.5,
       "duration": 9.56,
       "text_snippet": "Một ngoại lệ đã kiểm tra (checked exception) cung cấp thông tin về lỗi truy cập "
     },
     {
-      "paragraph_id": 21,
-      "start": 101.26,
-      "end": 102.66,
-      "duration": 1.4,
+      "paragraph_id": 17,
+      "start": 74.6,
+      "end": 76.69,
+      "duration": 2.09,
       "text_snippet": "Kiểm tra thực tiễn:"
     },
     {
-      "paragraph_id": 22,
-      "start": 102.66,
-      "end": 104.76,
-      "duration": 2.1,
+      "paragraph_id": 18,
+      "start": 76.64,
+      "end": 79.47,
+      "duration": 2.83,
       "text_snippet": "Định nghĩa SQLException trong một câu."
     },
     {
-      "paragraph_id": 23,
-      "start": 104.76,
-      "end": 109.31,
-      "duration": 4.55,
+      "paragraph_id": 19,
+      "start": 79.46,
+      "end": 84.61,
+      "duration": 5.15,
       "text_snippet": "Nhận biết SQLException trong code, lệnh, tài liệu, hoặc câu hỏi phỏng vấn."
     },
     {
-      "paragraph_id": 24,
-      "start": 109.31,
-      "end": 113.86,
-      "duration": 4.55,
+      "paragraph_id": 20,
+      "start": 84.61,
+      "end": 89.54,
+      "duration": 4.93,
       "text_snippet": "Giải thích một lỗi, giới hạn, hoặc đánh đổi liên quan đến SQLException."
     },
     {
-      "paragraph_id": 25,
-      "start": 113.86,
-      "end": 116.66,
-      "duration": 2.8,
+      "paragraph_id": 21,
+      "start": 89.64,
+      "end": 92.59,
+      "duration": 2.95,
       "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
     },
     {
-      "paragraph_id": 26,
-      "start": 116.76,
-      "end": 120.93,
+      "paragraph_id": 22,
+      "start": 92.54,
+      "end": 96.71,
       "duration": 4.17,
       "text_snippet": "Kết nối đến cơ sở dữ liệu với thông tin đăng nhập không hợp lệ."
     },
     {
-      "paragraph_id": 27,
-      "start": 120.89,
-      "end": 125.29,
+      "paragraph_id": 23,
+      "start": 96.71,
+      "end": 101.11,
       "duration": 4.4,
       "text_snippet": "Ví Dụ Code Chạy Được: Kích Hoạt và Xử Lý (Mô phỏng)"
     },
     {
-      "paragraph_id": 28,
-      "start": 125.29,
-      "end": 127.67,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 29,
-      "start": 127.66,
-      "end": 141.36,
-      "duration": 13.7,
-      "text_snippet": "Các Thực Tiễn Tốt Nhất Khi Xử Lý Ngoại Lệ (Best Practices)"
-    },
-    {
-      "paragraph_id": 30,
-      "start": 141.36,
-      "end": 155.01,
-      "duration": 13.65,
-      "text_snippet": "Xử lý ngoại lệ chắc chắn đảm bảo ứng dụng có thể phục hồi từ các lỗi bất ngờ một"
-    },
-    {
-      "paragraph_id": 31,
-      "start": 141.46,
-      "end": 143.56,
-      "duration": 2.1,
-      "text_snippet": "Kiểm tra thực tiễn:"
-    },
-    {
-      "paragraph_id": 32,
-      "start": 143.51,
-      "end": 147.87,
-      "duration": 4.36,
-      "text_snippet": "Định nghĩa \"thực tiễn tốt nhất khi xử lý ngoại lệ\" trong một câu."
-    },
-    {
-      "paragraph_id": 33,
-      "start": 147.87,
-      "end": 153.33,
-      "duration": 5.46,
-      "text_snippet": "Nhận biết các thực tiễn tốt nhất trong code, lệnh, tài liệu, hoặc câu hỏi phỏng "
-    },
-    {
-      "paragraph_id": 34,
-      "start": 153.34,
-      "end": 159.03,
-      "duration": 5.69,
-      "text_snippet": "Giải thích một lỗi, giới hạn, hoặc đánh đổi liên quan đến xử lý ngoại lệ không đ"
-    },
-    {
-      "paragraph_id": 35,
-      "start": 159.02,
-      "end": 161.83,
-      "duration": 2.81,
-      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
-    },
-    {
-      "paragraph_id": 36,
-      "start": 161.94,
-      "end": 167.9,
-      "duration": 5.96,
-      "text_snippet": "Luôn đóng tài nguyên bằng try-with-resources; không bao giờ bắt Throwable khi có"
-    },
-    {
-      "paragraph_id": 37,
-      "start": 167.85,
-      "end": 170.99,
-      "duration": 3.14,
-      "text_snippet": "Các Thực Tiễn Tốt Nhất Khi Xử Lý Ngoại Lệ"
-    },
-    {
-      "paragraph_id": 38,
-      "start": 170.99,
-      "end": 178.27,
-      "duration": 7.28,
-      "text_snippet": "Không nuốt ngoại lệ: Một khối catch rỗng che giấu lỗi. Luôn ghi lại thất bại hoặ"
-    },
-    {
-      "paragraph_id": 39,
-      "start": 178.26,
-      "end": 189.52,
-      "duration": 11.26,
-      "text_snippet": "Bắt ngoại lệ cụ thể: Tránh bắt Exception hoặc Throwable chung. Bắt các lớp con c"
-    },
-    {
-      "paragraph_id": 40,
-      "start": 189.52,
-      "end": 197.17,
-      "duration": 7.65,
-      "text_snippet": "Dùng Try-with-Resources: Tránh dọn dẹp tài nguyên thủ công trong khối finally, v"
-    },
-    {
-      "paragraph_id": 41,
-      "start": 197.17,
-      "end": 207.67,
-      "duration": 10.5,
-      "text_snippet": "Bảo tồn Stack Trace: Khi bọc ngoại lệ cấp thấp trong ngoại lệ tùy chỉnh, luôn tr"
-    },
-    {
-      "paragraph_id": 42,
-      "start": 207.67,
-      "end": 217.12,
-      "duration": 9.45,
-      "text_snippet": "Không dùng ngoại lệ để điều khiển luồng: Việc tạo ngoại lệ tốn kém do phải tạo s"
-    },
-    {
-      "paragraph_id": 43,
-      "start": 217.12,
-      "end": 218.52,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 44,
-      "start": 218.52,
-      "end": 219.57,
-      "duration": 1.05,
-      "text_snippet": "Lỗi Thường Gặp"
-    },
-    {
-      "paragraph_id": 45,
-      "start": 219.57,
-      "end": 222.37,
-      "duration": 2.8,
-      "text_snippet": "1. Dùng Ngoại Lệ Để Điều Khiển Luồng"
-    },
-    {
-      "paragraph_id": 46,
-      "start": 222.47,
-      "end": 233.08,
-      "duration": 10.61,
-      "text_snippet": "Dùng ngoại lệ để điều khiển đường đi thực thi của chương trình là một phản mẫu ("
-    },
-    {
-      "paragraph_id": 47,
-      "start": 233.09,
-      "end": 235.47,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 48,
-      "start": 235.46,
-      "end": 241.41,
-      "duration": 5.95,
-      "text_snippet": "2. Bắt Throwable"
-    },
-    {
-      "paragraph_id": 49,
-      "start": 241.41,
-      "end": 249.17,
-      "duration": 7.76,
-      "text_snippet": "Bắt Throwable sẽ bắt cả Exception và Error. Bắt các lỗi như OutOfMemoryError hoặ"
-    },
-    {
-      "paragraph_id": 50,
-      "start": 249.17,
-      "end": 251.37,
+      "paragraph_id": 24,
+      "start": 101.11,
+      "end": 103.31,
       "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 51,
-      "start": 251.47,
-      "end": 261.1,
-      "duration": 9.63,
-      "text_snippet": "3. Ghi Log Rồi Ném Lại"
+      "paragraph_id": 25,
+      "start": 103.41,
+      "end": 117.01,
+      "duration": 13.6,
+      "text_snippet": "Các Thực Tiễn Tốt Nhất Khi Xử Lý Ngoại Lệ (Best Practices)"
     },
     {
-      "paragraph_id": 52,
-      "start": 261.1,
-      "end": 270.9,
-      "duration": 9.8,
-      "text_snippet": "Ghi log một ngoại lệ rồi ngay lập tức ném lại nó dẫn đến log trùng lặp ở mỗi cấp"
+      "paragraph_id": 26,
+      "start": 117.01,
+      "end": 130.66,
+      "duration": 13.65,
+      "text_snippet": "Xử lý ngoại lệ chắc chắn đảm bảo ứng dụng có thể phục hồi từ các lỗi bất ngờ một"
     },
     {
-      "paragraph_id": 53,
-      "start": 261.1,
-      "end": 263.48,
+      "paragraph_id": 27,
+      "start": 117.01,
+      "end": 119.1,
+      "duration": 2.09,
+      "text_snippet": "Kiểm tra thực tiễn:"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 119.1,
+      "end": 123.45,
+      "duration": 4.35,
+      "text_snippet": "Định nghĩa \"thực tiễn tốt nhất khi xử lý ngoại lệ\" trong một câu."
+    },
+    {
+      "paragraph_id": 29,
+      "start": 123.55,
+      "end": 129.04,
+      "duration": 5.49,
+      "text_snippet": "Nhận biết các thực tiễn tốt nhất trong code, lệnh, tài liệu, hoặc câu hỏi phỏng "
+    },
+    {
+      "paragraph_id": 30,
+      "start": 128.99,
+      "end": 134.68,
+      "duration": 5.69,
+      "text_snippet": "Giải thích một lỗi, giới hạn, hoặc đánh đổi liên quan đến xử lý ngoại lệ không đ"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 134.68,
+      "end": 137.68,
+      "duration": 3.0,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 137.68,
+      "end": 143.64,
+      "duration": 5.96,
+      "text_snippet": "Luôn đóng tài nguyên bằng try-with-resources; không bao giờ bắt Throwable khi có"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 143.74,
+      "end": 146.86,
+      "duration": 3.12,
+      "text_snippet": "Các Thực Tiễn Tốt Nhất Khi Xử Lý Ngoại Lệ"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 146.81,
+      "end": 154.08,
+      "duration": 7.27,
+      "text_snippet": "Không nuốt ngoại lệ: Một khối catch rỗng che giấu lỗi. Luôn ghi lại thất bại hoặ"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 154.09,
+      "end": 165.35,
+      "duration": 11.26,
+      "text_snippet": "Bắt ngoại lệ cụ thể: Tránh bắt Exception hoặc Throwable chung. Bắt các lớp con c"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 165.35,
+      "end": 173.0,
+      "duration": 7.65,
+      "text_snippet": "Dùng Try-with-Resources: Tránh dọn dẹp tài nguyên thủ công trong khối finally, v"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 173.1,
+      "end": 181.34,
+      "duration": 8.24,
+      "text_snippet": "Bảo tồn Stack Trace: Khi bọc ngoại lệ cấp thấp trong ngoại lệ tùy chỉnh, luôn tr"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 181.29,
+      "end": 189.64,
+      "duration": 8.35,
+      "text_snippet": "Không dùng ngoại lệ để điều khiển luồng: Việc tạo ngoại lệ tốn kém do phải tạo s"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 189.64,
+      "end": 192.02,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 54,
-      "start": 263.47,
-      "end": 265.81,
+      "paragraph_id": 40,
+      "start": 192.01,
+      "end": 193.65,
+      "duration": 1.64,
+      "text_snippet": "Lỗi Thường Gặp"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 193.75,
+      "end": 207.22,
+      "duration": 13.47,
+      "text_snippet": "1. Dùng Ngoại Lệ Để Điều Khiển Luồng"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 207.22,
+      "end": 219.12,
+      "duration": 11.9,
+      "text_snippet": "Dùng ngoại lệ để điều khiển đường đi thực thi của chương trình là một phản mẫu ("
+    },
+    {
+      "paragraph_id": 43,
+      "start": 207.22,
+      "end": 209.58,
+      "duration": 2.36,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 209.59,
+      "end": 211.6,
+      "duration": 2.01,
+      "text_snippet": "2. Bắt Throwable"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 211.7,
+      "end": 223.37,
+      "duration": 11.67,
+      "text_snippet": "Bắt Throwable sẽ bắt cả Exception và Error. Bắt các lỗi như OutOfMemoryError hoặ"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 223.38,
+      "end": 225.76,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 225.75,
+      "end": 235.46,
+      "duration": 9.71,
+      "text_snippet": "3. Ghi Log Rồi Ném Lại"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 235.46,
+      "end": 245.26,
+      "duration": 9.8,
+      "text_snippet": "Ghi log một ngoại lệ rồi ngay lập tức ném lại nó dẫn đến log trùng lặp ở mỗi cấp"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 235.56,
+      "end": 237.94,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 237.89,
+      "end": 240.23,
       "duration": 2.34,
       "text_snippet": "Câu Hỏi Ôn Tập Phổ Biến"
     },
     {
-      "paragraph_id": 55,
-      "start": 265.81,
-      "end": 270.74,
-      "duration": 4.93,
+      "paragraph_id": 51,
+      "start": 240.22,
+      "end": 249.47,
+      "duration": 9.25,
       "text_snippet": "Những khái niệm nào ở đây là quy tắc tại thời điểm biên dịch (compile-time)?"
     },
     {
-      "paragraph_id": 56,
-      "start": 270.84,
-      "end": 278.7,
-      "duration": 7.86,
+      "paragraph_id": 52,
+      "start": 249.47,
+      "end": 253.67,
+      "duration": 4.2,
       "text_snippet": "Những khái niệm nào ảnh hưởng đến hành vi lúc chạy (runtime)?"
     },
     {
-      "paragraph_id": 57,
-      "start": 278.7,
-      "end": 282.9,
-      "duration": 4.2,
+      "paragraph_id": 53,
+      "start": 249.57,
+      "end": 253.15,
+      "duration": 3.58,
       "text_snippet": "Những khái niệm nào có khả năng là bẫy trong phỏng vấn?"
     }
   ]

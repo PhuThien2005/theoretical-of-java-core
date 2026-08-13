@@ -1,7 +1,5 @@
 # Các Khái Niệm Java Hiện Đại Cần Biết - Phần 1
 
-## Mục Tiêu Học Tập
-
 File này trình bày một mảng tập trung về **các tính năng Java hiện đại** được giới thiệu trong các phiên bản JDK gần đây (từ Java 10 đến 21). Hãy học từng khái niệm như một quy tắc Java thực tế.
 
 ## Nội Dung Đề Cương
@@ -308,8 +306,6 @@ Trình biên dịch tạo ra:
 - **Field `private final`** cho mỗi thành phần record — không thể thay đổi sau khi khởi tạo.
 - **Canonical constructor** với tất cả thành phần là tham số để gán mỗi field.
 - **Phương thức Accessor** đặt tên theo field (ví dụ: `point.x()`, không phải `getX()`) — các accessor khớp tên field theo thiết kế để làm cho truy cập thành phần có thể khám phá.
-- **`equals()`** — equals(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`toString()`** — toString(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 Record là `final` ngầm định và không thể kế thừa các lớp khác (chúng ngầm định kế thừa `java.lang.Record`). Điều này ngăn chặn thay đổi thông qua phân lớp. Cú pháp compact constructor cho phép xác thực mà không cần khai báo lại tham số.
 

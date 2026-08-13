@@ -1,15 +1,5 @@
 # Lập Trình Mạng (Networking) - Phần 2
 
-## Mục Tiêu Học Tập
-
-Tài liệu này tập trung vào một phần chuyên sâu của **Lập Trình Mạng (Networking)**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc thực tế trong Java, không chỉ đơn thuần là lý thuyết từ vựng.
-
-## Tóm Tắt Nội Dung (Outline Coverage)
-
-- **`HttpURLConnection`** — HttpURLConnection: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Java 11 HttpClient`** — Java 11 HttpClient: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Client-server model`** — Client-server model: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### HttpURLConnection

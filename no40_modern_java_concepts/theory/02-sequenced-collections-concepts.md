@@ -1,7 +1,5 @@
 # Các Khái Niệm Java Hiện Đại Cần Biết - Phần 2
 
-## Mục Tiêu Học Tập
-
 File này trình bày về Sequenced Collections và String Templates. Hãy học từng khái niệm như một quy tắc Java thực tế.
 
 ## Nội Dung Đề Cương

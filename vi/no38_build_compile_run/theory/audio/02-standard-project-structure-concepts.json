@@ -1,341 +1,306 @@
 {
   "lesson": "02-standard-project-structure-concepts",
-  "total_duration_seconds": 622.25,
-  "total_paragraphs": 48,
+  "total_duration_seconds": 542.15,
+  "total_paragraphs": 43,
   "timestamps": [
     {
       "paragraph_id": 1,
       "start": 0.1,
-      "end": 5.59,
-      "duration": 5.49,
+      "end": 5.56,
+      "duration": 5.46,
       "text_snippet": "Xây dựng, Biên dịch, Chạy (Build, Compile, Run) - Phần 2"
     },
     {
       "paragraph_id": 2,
-      "start": 5.54,
-      "end": 7.34,
-      "duration": 1.8,
-      "text_snippet": "Mục Tiêu Học Tập"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 7.34,
-      "end": 17.13,
-      "duration": 9.79,
-      "text_snippet": "Tài liệu này trình bày về bố cục cấu trúc dự án tiêu chuẩn và kiểm thử đơn vị vớ"
-    },
-    {
-      "paragraph_id": 4,
-      "start": 17.12,
-      "end": 19.13,
-      "duration": 2.01,
-      "text_snippet": "Nội Dung Tổng Quan"
-    },
-    {
-      "paragraph_id": 5,
-      "start": 19.14,
-      "end": 26.53,
-      "duration": 7.39,
-      "text_snippet": "Standard project structure — Standard project structure: Cung cấp các quy tắc và"
-    },
-    {
-      "paragraph_id": 6,
-      "start": 26.62,
-      "end": 34.37,
-      "duration": 7.75,
-      "text_snippet": "Basic unit test with JUnit — Basic unit test with JUnit: Cung cấp các quy tắc và"
-    },
-    {
-      "paragraph_id": 7,
-      "start": 34.32,
-      "end": 36.15,
-      "duration": 1.83,
+      "start": 5.51,
+      "end": 7.35,
+      "duration": 1.84,
       "text_snippet": "Ghi Chú Chi Tiết"
     },
     {
-      "paragraph_id": 8,
-      "start": 36.15,
-      "end": 40.51,
-      "duration": 4.36,
+      "paragraph_id": 3,
+      "start": 7.35,
+      "end": 11.7,
+      "duration": 4.35,
       "text_snippet": "Cấu trúc dự án tiêu chuẩn (Standard project structure)"
     },
     {
-      "paragraph_id": 9,
-      "start": 40.51,
-      "end": 86.68,
-      "duration": 46.17,
+      "paragraph_id": 4,
+      "start": 11.7,
+      "end": 27.95,
+      "duration": 16.25,
       "text_snippet": "Các dự án Java tuân theo một bố cục thư mục quy ước được định nghĩa bởi các công"
     },
     {
-      "paragraph_id": 10,
-      "start": 86.69,
-      "end": 97.39,
-      "duration": 10.7,
+      "paragraph_id": 5,
+      "start": 28.05,
+      "end": 68.4,
+      "duration": 40.35,
       "text_snippet": "Bố cục Thư Mục Tiêu Chuẩn: my-app/ ├── pom.xml # Cấu hình dự án Maven (hoặc buil"
     },
     {
-      "paragraph_id": 11,
-      "start": 97.39,
-      "end": 99.49,
+      "paragraph_id": 6,
+      "start": 68.4,
+      "end": 70.5,
       "duration": 2.1,
       "text_snippet": "Bố cục Thư Mục Tiêu Chuẩn:"
     },
     {
-      "paragraph_id": 12,
-      "start": 99.49,
-      "end": 100.89,
-      "duration": 1.4,
+      "paragraph_id": 7,
+      "start": 68.4,
+      "end": 70.78,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 13,
-      "start": 100.89,
-      "end": 148.49,
-      "duration": 47.6,
+      "paragraph_id": 8,
+      "start": 70.78,
+      "end": 84.52,
+      "duration": 13.74,
       "text_snippet": "Sai Lầm Thường Gặp / Trường Hợp Lỗi: Đặt các tệp nguồn Java trực tiếp dưới src/m"
     },
     {
-      "paragraph_id": 14,
-      "start": 148.49,
-      "end": 151.29,
-      "duration": 2.8,
+      "paragraph_id": 9,
+      "start": 84.61,
+      "end": 87.52,
+      "duration": 2.91,
       "text_snippet": "Sai Lầm Thường Gặp / Trường Hợp Lỗi:"
     },
     {
-      "paragraph_id": 15,
-      "start": 151.29,
-      "end": 173.34,
-      "duration": 22.05,
+      "paragraph_id": 10,
+      "start": 87.48,
+      "end": 107.02,
+      "duration": 19.54,
       "text_snippet": "Đặt các tệp nguồn Java trực tiếp dưới src/main/ hoặc src/ thay vì src/main/java/"
     },
     {
-      "paragraph_id": 16,
-      "start": 173.44,
-      "end": 197.04,
-      "duration": 23.6,
+      "paragraph_id": 11,
+      "start": 107.01,
+      "end": 128.62,
+      "duration": 21.61,
       "text_snippet": "Thêm các tài nguyên chính vào src/main/java/ thay vì src/main/resources/. Giai đ"
     },
     {
-      "paragraph_id": 17,
-      "start": 197.04,
-      "end": 201.53,
-      "duration": 4.49,
+      "paragraph_id": 12,
+      "start": 128.62,
+      "end": 133.12,
+      "duration": 4.5,
       "text_snippet": "Tại Sao Cấu Trúc Dự Án Tiêu Chuẩn Lại Tách Biệt Mã Nguồn Và Tài Nguyên"
     },
     {
-      "paragraph_id": 18,
-      "start": 201.52,
-      "end": 257.55,
-      "duration": 56.03,
+      "paragraph_id": 13,
+      "start": 133.22,
+      "end": 186.1,
+      "duration": 52.88,
       "text_snippet": "Các công cụ xây dựng như Maven và Gradle dựa trên các quy ước để tách biệt mã ng"
     },
     {
-      "paragraph_id": 19,
-      "start": 257.55,
-      "end": 261.64,
+      "paragraph_id": 14,
+      "start": 186.1,
+      "end": 190.19,
       "duration": 4.09,
       "text_snippet": "Mô Hình Tư Duy: Nguyên Liệu Nấu Ăn so với Sách Công Thức"
     },
     {
-      "paragraph_id": 20,
-      "start": 261.64,
-      "end": 268.15,
-      "duration": 6.51,
+      "paragraph_id": 15,
+      "start": 190.19,
+      "end": 195.44,
+      "duration": 5.25,
       "text_snippet": "src/main/java (Sách công thức): Chúng cần được dịch, in và đóng thành sách (biên"
     },
     {
-      "paragraph_id": 21,
-      "start": 268.25,
-      "end": 282.85,
-      "duration": 14.6,
+      "paragraph_id": 16,
+      "start": 195.44,
+      "end": 211.54,
+      "duration": 16.1,
       "text_snippet": "src/main/resources (Nguyên liệu): Chúng chỉ cần được giao đến nhà bếp (sao chép "
     },
     {
-      "paragraph_id": 22,
-      "start": 282.85,
-      "end": 285.23,
+      "paragraph_id": 17,
+      "start": 209.81,
+      "end": 212.19,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 23,
-      "start": 285.22,
-      "end": 287.15,
-      "duration": 1.93,
-      "text_snippet": "Ví Dụ Thực Tế"
-    },
-    {
-      "paragraph_id": 24,
-      "start": 287.15,
-      "end": 289.51,
-      "duration": 2.36,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 25,
-      "start": 289.51,
-      "end": 292.01,
-      "duration": 2.5,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
-    },
-    {
-      "paragraph_id": 26,
-      "start": 292.11,
-      "end": 312.87,
-      "duration": 20.76,
-      "text_snippet": "Lập trình viên đặt config.properties bên trong src/main/java/ → Tác vụ compiler:"
-    },
-    {
-      "paragraph_id": 27,
-      "start": 312.82,
-      "end": 326.46,
-      "duration": 13.64,
-      "text_snippet": "Kiểm thử đơn vị cơ bản với JUnit (Basic unit test with JUnit)"
-    },
-    {
-      "paragraph_id": 28,
-      "start": 326.46,
-      "end": 331.23,
-      "duration": 4.77,
-      "text_snippet": "JUnit (hiện tại là JUnit 5 / Jupiter) là khung công tác chính để viết các bài ki"
-    },
-    {
-      "paragraph_id": 29,
-      "start": 331.24,
-      "end": 376.88,
-      "duration": 45.64,
-      "text_snippet": "Ví Dụ Mã Nguồn: package com.example; import org.junit.jupiter.api.Test; import s"
-    },
-    {
-      "paragraph_id": 30,
-      "start": 376.88,
-      "end": 378.28,
-      "duration": 1.4,
-      "text_snippet": "Ví Dụ Mã Nguồn:"
-    },
-    {
-      "paragraph_id": 31,
-      "start": 376.88,
-      "end": 378.28,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 32,
-      "start": 378.27,
-      "end": 433.22,
-      "duration": 54.95,
-      "text_snippet": "Sai Lầm Thường Gặp / Trường Hợp Lỗi: Quên chú thích @Test: Nếu bạn bỏ qua @Test "
-    },
-    {
-      "paragraph_id": 33,
-      "start": 433.23,
-      "end": 436.03,
-      "duration": 2.8,
-      "text_snippet": "Sai Lầm Thường Gặp / Trường Hợp Lỗi:"
-    },
-    {
-      "paragraph_id": 34,
-      "start": 436.02,
-      "end": 451.07,
-      "duration": 15.05,
-      "text_snippet": "Quên chú thích @Test: Nếu bạn bỏ qua @Test (từ gói org.junit.jupiter.api), công "
-    },
-    {
-      "paragraph_id": 35,
-      "start": 451.07,
-      "end": 466.12,
-      "duration": 15.05,
-      "text_snippet": "Đảo ngược các đối số trong Khẳng định: Viết assertEquals(actual, expected) thay "
-    },
-    {
-      "paragraph_id": 36,
-      "start": 466.23,
-      "end": 483.88,
-      "duration": 17.65,
-      "text_snippet": "Nhồi nhét Khẳng định (Assertion Overload): Đặt hàng tá khẳng định không liên qua"
-    },
-    {
-      "paragraph_id": 37,
-      "start": 483.88,
-      "end": 490.86,
-      "duration": 6.98,
-      "text_snippet": "Tại Sao Thứ Tự Khẳng Định (Assertion) Và Chú Thích (Annotation) Trong JUnit Lại "
-    },
-    {
-      "paragraph_id": 38,
-      "start": 490.85,
-      "end": 539.89,
-      "duration": 49.04,
-      "text_snippet": "Các khung kiểm thử tự động yêu cầu các giao thức nghiêm ngặt để xác định, thực t"
-    },
-    {
-      "paragraph_id": 39,
-      "start": 539.89,
-      "end": 543.94,
-      "duration": 4.05,
-      "text_snippet": "Mô Hình Tư Duy: Xác Minh Chú Thích và Định Dạng Khẳng Định"
-    },
-    {
-      "paragraph_id": 40,
-      "start": 543.94,
-      "end": 546.14,
-      "duration": 2.2,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 41,
-      "start": 546.24,
-      "end": 548.18,
+      "paragraph_id": 18,
+      "start": 212.14,
+      "end": 214.08,
       "duration": 1.94,
       "text_snippet": "Ví Dụ Thực Tế"
     },
     {
-      "paragraph_id": 42,
-      "start": 548.12,
-      "end": 550.5,
-      "duration": 2.38,
+      "paragraph_id": 19,
+      "start": 214.08,
+      "end": 216.44,
+      "duration": 2.36,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 43,
-      "start": 550.5,
-      "end": 553.0,
+      "paragraph_id": 20,
+      "start": 216.44,
+      "end": 218.94,
       "duration": 2.5,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
     },
     {
-      "paragraph_id": 44,
-      "start": 553.0,
-      "end": 573.61,
-      "duration": 20.61,
+      "paragraph_id": 21,
+      "start": 219.04,
+      "end": 239.09,
+      "duration": 20.05,
+      "text_snippet": "Lập trình viên đặt config.properties bên trong src/main/java/ → Tác vụ compiler:"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 239.04,
+      "end": 252.38,
+      "duration": 13.34,
+      "text_snippet": "Kiểm thử đơn vị cơ bản với JUnit (Basic unit test with JUnit)"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 252.38,
+      "end": 257.15,
+      "duration": 4.77,
+      "text_snippet": "JUnit (hiện tại là JUnit 5 / Jupiter) là khung công tác chính để viết các bài ki"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 257.15,
+      "end": 301.6,
+      "duration": 44.45,
+      "text_snippet": "Ví Dụ Mã Nguồn: package com.example; import org.junit.jupiter.api.Test; import s"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 301.7,
+      "end": 303.8,
+      "duration": 2.1,
+      "text_snippet": "Ví Dụ Mã Nguồn:"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 303.75,
+      "end": 306.13,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 306.12,
+      "end": 360.55,
+      "duration": 54.43,
+      "text_snippet": "Sai Lầm Thường Gặp / Trường Hợp Lỗi: Quên chú thích @Test: Nếu bạn bỏ qua @Test "
+    },
+    {
+      "paragraph_id": 28,
+      "start": 360.55,
+      "end": 363.35,
+      "duration": 2.8,
+      "text_snippet": "Sai Lầm Thường Gặp / Trường Hợp Lỗi:"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 360.65,
+      "end": 374.56,
+      "duration": 13.91,
+      "text_snippet": "Quên chú thích @Test: Nếu bạn bỏ qua @Test (từ gói org.junit.jupiter.api), công "
+    },
+    {
+      "paragraph_id": 30,
+      "start": 374.51,
+      "end": 392.94,
+      "duration": 18.43,
+      "text_snippet": "Đảo ngược các đối số trong Khẳng định: Viết assertEquals(actual, expected) thay "
+    },
+    {
+      "paragraph_id": 31,
+      "start": 392.94,
+      "end": 410.63,
+      "duration": 17.69,
+      "text_snippet": "Nhồi nhét Khẳng định (Assertion Overload): Đặt hàng tá khẳng định không liên qua"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 410.62,
+      "end": 417.6,
+      "duration": 6.98,
+      "text_snippet": "Tại Sao Thứ Tự Khẳng Định (Assertion) Và Chú Thích (Annotation) Trong JUnit Lại "
+    },
+    {
+      "paragraph_id": 33,
+      "start": 417.7,
+      "end": 466.49,
+      "duration": 48.79,
+      "text_snippet": "Các khung kiểm thử tự động yêu cầu các giao thức nghiêm ngặt để xác định, thực t"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 466.49,
+      "end": 470.53,
+      "duration": 4.04,
+      "text_snippet": "Mô Hình Tư Duy: Xác Minh Chú Thích và Định Dạng Khẳng Định"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 470.53,
+      "end": 472.89,
+      "duration": 2.36,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 472.89,
+      "end": 474.81,
+      "duration": 1.92,
+      "text_snippet": "Ví Dụ Thực Tế"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 474.91,
+      "end": 477.29,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 477.24,
+      "end": 479.73,
+      "duration": 2.49,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 479.73,
+      "end": 501.29,
+      "duration": 21.56,
       "text_snippet": "Lập trình viên viết khẳng định kiểm thử → Lập trình viên đảo ngược các đối số th"
     },
     {
-      "paragraph_id": 45,
-      "start": 573.61,
-      "end": 576.05,
+      "paragraph_id": 40,
+      "start": 501.29,
+      "end": 503.73,
       "duration": 2.44,
       "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
     },
     {
-      "paragraph_id": 46,
-      "start": 576.05,
-      "end": 583.05,
-      "duration": 7.0,
+      "paragraph_id": 41,
+      "start": 503.83,
+      "end": 508.21,
+      "duration": 4.38,
       "text_snippet": "Thư mục nào chứa cấu hình chính so với dữ liệu giả lập để kiểm thử? (src/main/re"
     },
     {
-      "paragraph_id": 47,
-      "start": 583.05,
-      "end": 603.7,
+      "paragraph_id": 42,
+      "start": 508.2,
+      "end": 528.85,
       "duration": 20.65,
       "text_snippet": "Rủi ro của việc kiểm thử các chi tiết triển khai private là gì? (Nó liên kết chặ"
     },
     {
-      "paragraph_id": 48,
-      "start": 603.7,
-      "end": 622.25,
+      "paragraph_id": 43,
+      "start": 528.85,
+      "end": 547.4,
       "duration": 18.55,
       "text_snippet": "Các công cụ xây dựng tương tác với kết quả kiểm thử JUnit như thế nào? (Các đườn"
     }

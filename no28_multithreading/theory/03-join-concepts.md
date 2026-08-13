@@ -1,11 +1,5 @@
 # Multithreading - Part 3
 
-## Learning Goal
-
-This file covers thread synchronization primitives (`join`), signaling (`interrupt`), daemon threads, and execution behavior. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `join` | An instance method (`thread.join()`) that blocks the calling thread until the target thread terminates. |
@@ -217,4 +211,3 @@ Worker joined in 505 ms
 2. Thread A finds threadB.isAlive() is true &rarr; Thread A invokes threadB.wait(), entering WAITING.
 3. Thread B completes execution &rarr; JVM natively triggers notifyAll() on threadB monitor.
 4. Thread A is awakened &rarr; Thread A re-evaluates isAlive() to false and exits join().
-

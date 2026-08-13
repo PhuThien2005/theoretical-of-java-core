@@ -1,19 +1,6 @@
 # Các Từ Khóa Đặc Tả Trong Java - Phần 3 (Modifiers in Java - Part 3)
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này bao quát một phần trọng tâm của **Các Từ Khóa Đặc Tả Trong Java**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc thực tế trong Java, chứ không phải các thuật ngữ lý thuyết đơn thuần.
-
 ## Đề Cương Bao Phủ (Outline Coverage)
-
-- **`Static block`** — Static block: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Static nested class`** — Static nested class: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Static import`** — Static import: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Final variable`** — Final variable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Final method`** — Final method: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Final class`** — Final class: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Final parameter`** — Final parameter: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Blank final variable`** — Blank final variable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

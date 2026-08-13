@@ -1,11 +1,5 @@
 # Build, Compile, Run - Part 2
 
-## Learning Goal
-
-This file covers standard project structure layouts and unit testing with JUnit. Study each concept as a practical Java rule.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Standard project structure` | The standard directory layout for organizing source code, resources, and tests (used by Maven, Gradle, etc.). |
@@ -172,9 +166,3 @@ assertEquals(4, 5);
 Developer writes test assertion $\rightarrow$ Developer reverses arguments to `assertEquals(actualResult, expectedResult)` $\rightarrow$ The assertion fails $\rightarrow$ JUnit constructs failure message using positions `assertEquals(firstParam, secondParam)` $\rightarrow$ Developer reads incorrect "Expected: <actualResult> but was: <expectedResult>" message $\rightarrow$ Developer wastes time looking at the wrong part of the codebase.
 
 ---
-
-## Common Review Prompts
-
-- Which directory handles production configurations vs test mock data? (`src/main/resources` vs `src/test/resources`)
-- What is the risk of testing private implementation details? (It couples tests tightly to internal details, making refactoring difficult. Tests should verify public API interfaces and observable behavior).
-- How do build tools interact with JUnit test results? (Build pipelines usually run `test` tasks; if any test assertions fail, the build fails, preventing the deployment of buggy code).

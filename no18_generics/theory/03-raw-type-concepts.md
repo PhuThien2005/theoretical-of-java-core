@@ -306,4 +306,3 @@ Arrays are reified &rarr; Arrays enforce their exact element type at runtime via
 - https://docs.oracle.com/javase/tutorial/java/generics/rawTypes.html
 - https://docs.oracle.com/javase/specs/jls/se21/html/jls-4.html#jls-4.8 (Raw Types)
 - https://docs.oracle.com/javase/specs/jls/se21/html/jls-10.html (Arrays)
-

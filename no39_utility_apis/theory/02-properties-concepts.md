@@ -1,11 +1,5 @@
 # Some Common Utility APIs - Part 2
 
-## Learning Goal
-
-This file covers localized resources, properties configuration, custom string formatting, and input parsing utility APIs. Study each concept as a practical Java rule.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Properties` | Text-based key-value configuration class (`java.util.Properties`). |
@@ -291,4 +285,3 @@ public class ScannerPitfallDemo {
     }
 }
 ```
-

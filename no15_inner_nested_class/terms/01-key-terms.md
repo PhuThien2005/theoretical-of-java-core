@@ -31,4 +31,3 @@ Small example: `ClassName.member` accesses a class-level member.
 ## variable capture
 
 `variable capture` — Inner/local classes capturing local variables from enclosing scope if they are effectively final.
-

@@ -1,11 +1,5 @@
 # Multithreading - Part 4
 
-## Learning Goal
-
-This file covers thread safety principles, object immutability, and atomic operations. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Thread safety` | A property of an object or method ensuring it behaves correctly when accessed by multiple threads concurrently, without requiring additional external synchronization. |
@@ -197,4 +191,3 @@ Final Counter: 14382
 2. Thread writes back outdated value &rarr; Concurrent updates are lost (Race Condition).
 3. CPU caches and compiler reorder instructions &rarr; Local updates are not immediately flushed to RAM.
 4. Other threads read from local L1/L2 caches &rarr; Threads see outdated data (Visibility Issue).
-

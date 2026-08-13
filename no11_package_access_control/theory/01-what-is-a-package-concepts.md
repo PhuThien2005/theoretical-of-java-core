@@ -1,11 +1,5 @@
 # Package and Access Control - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **Package and Access Control**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `What is a package?` | A package groups related classes and gives them a namespace. |
@@ -470,12 +464,6 @@ public class CollisionDemo {
 4. **Incorrect Order of import static**: Writing `static import` instead of `import static`.
 5. **Accessing Protected Members of Superclass Instance in Different Package**: A subclass in package `B` inheriting from a class in package `A` can access the protected field of its superclass *only* via references of its own subclass type. It cannot access it using a parent/superclass reference.
 
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
-
 ## Reference Links
 
 - [JLS Chapter 7 - Packages](https://docs.oracle.com/javase/specs/jls/se21/html/jls-7.html)
@@ -483,4 +471,3 @@ public class CollisionDemo {
 - [JLS Section 7.5 - Import Declarations](https://docs.oracle.com/javase/specs/jls/se21/html/jls-7.html#jls-7.5)
 - [Oracle Java Tutorial - Creating and Using Packages](https://docs.oracle.com/javase/tutorial/java/package/packages.html)
 - [Oracle Java Tutorial - Using Package Members](https://docs.oracle.com/javase/tutorial/java/package/usepkgs.html)
-

@@ -1,11 +1,5 @@
 # Basic Security - Part 2
 
-## Learning Goal
-
-This file covers a focused slice of **Basic Security**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Avoid insecure deserialization` | Serialization converts an object graph into bytes so it can be stored or transferred. |
@@ -27,12 +21,6 @@ Practical check:
 Tiny example or mental model:
 
 - When reading code, ask: what does `Avoid insecure deserialization` change, allow, reject, or clarify?
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
 
 ## Code Examples
 
@@ -114,4 +102,3 @@ Untrusted byte stream passed to `ObjectInputStream.readObject()` &rarr; JVM inst
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/ObjectInputFilter.html (ObjectInputFilter JavaDoc)
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/ObjectInputStream.html (ObjectInputStream JavaDoc)
 - https://docs.oracle.com/javase/tutorial/security/ (Java Security Tutorial)
-

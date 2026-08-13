@@ -1,11 +1,5 @@
 # Exception Handling - Part 2
 
-## Learning Goal
-
-This file covers a focused slice of **Exception Handling**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `finally` | A block that always executes when the try block exits, ensuring cleanup occurs. |
@@ -425,12 +419,6 @@ try (String s = "Hello") { // Compile error!
     System.out.println(s);
 }
 ```
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
 
 ---
 

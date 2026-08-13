@@ -1,195 +1,160 @@
 {
   "lesson": "02-sequenced-collections-concepts",
-  "total_duration_seconds": 271.88,
-  "total_paragraphs": 27,
+  "total_duration_seconds": 257.36,
+  "total_paragraphs": 22,
   "timestamps": [
     {
       "paragraph_id": 1,
       "start": 0.1,
-      "end": 6.81,
-      "duration": 6.71,
+      "end": 6.8,
+      "duration": 6.7,
       "text_snippet": "Các Khái Niệm Java Hiện Đại Cần Biết - Phần 2 (Modern Java Concepts To Know - Pa"
     },
     {
       "paragraph_id": 2,
-      "start": 6.76,
-      "end": 9.76,
+      "start": 6.75,
+      "end": 9.75,
       "duration": 3.0,
-      "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 9.76,
-      "end": 29.7,
-      "duration": 19.94,
-      "text_snippet": "Tài liệu này trình bày các khái niệm về Sequenced Collections và String Template"
-    },
-    {
-      "paragraph_id": 4,
-      "start": 29.7,
-      "end": 31.8,
-      "duration": 2.1,
-      "text_snippet": "Khái Quát Nội Dung (Outline Coverage)"
-    },
-    {
-      "paragraph_id": 5,
-      "start": 31.8,
-      "end": 38.45,
-      "duration": 6.65,
-      "text_snippet": "Sequenced Collections — Sequenced Collections: Cung cấp các quy tắc và cơ chế ho"
-    },
-    {
-      "paragraph_id": 6,
-      "start": 29.7,
-      "end": 45.45,
-      "duration": 15.75,
-      "text_snippet": "String templates were once preview; currently they should not be used as a stabl"
-    },
-    {
-      "paragraph_id": 7,
-      "start": 45.45,
-      "end": 47.55,
-      "duration": 2.1,
       "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
     },
     {
-      "paragraph_id": 8,
-      "start": 47.55,
-      "end": 50.35,
-      "duration": 2.8,
+      "paragraph_id": 3,
+      "start": 9.75,
+      "end": 28.24,
+      "duration": 18.49,
       "text_snippet": "Sequenced Collections (Bộ sưu tập có thứ tự)"
     },
     {
-      "paragraph_id": 9,
-      "start": 50.35,
-      "end": 67.85,
+      "paragraph_id": 4,
+      "start": 28.24,
+      "end": 45.74,
       "duration": 17.5,
       "text_snippet": "Sequenced Collections (được giới thiệu từ Java 21) đồng nhất các bộ sưu tập có p"
     },
     {
-      "paragraph_id": 10,
-      "start": 67.85,
-      "end": 79.05,
-      "duration": 11.2,
+      "paragraph_id": 5,
+      "start": 28.34,
+      "end": 57.94,
+      "duration": 29.6,
       "text_snippet": "Phân cấp Giao diện (Interface Hierarchy): SequencedCollection<E> (được kế thừa b"
     },
     {
-      "paragraph_id": 11,
-      "start": 79.05,
-      "end": 81.15,
+      "paragraph_id": 6,
+      "start": 57.94,
+      "end": 60.04,
       "duration": 2.1,
       "text_snippet": "Phân cấp Giao diện (Interface Hierarchy):"
     },
     {
-      "paragraph_id": 12,
-      "start": 81.15,
-      "end": 84.3,
+      "paragraph_id": 7,
+      "start": 60.04,
+      "end": 63.19,
       "duration": 3.15,
       "text_snippet": "SequencedCollection<E> (được kế thừa bởi List, Deque, và SequencedSet)"
     },
     {
-      "paragraph_id": 13,
-      "start": 84.3,
-      "end": 87.1,
+      "paragraph_id": 8,
+      "start": 63.19,
+      "end": 65.99,
       "duration": 2.8,
       "text_snippet": "SequencedSet<E> (được kế thừa bởi LinkedHashSet và SortedSet)"
     },
     {
-      "paragraph_id": 14,
-      "start": 87.1,
-      "end": 90.25,
-      "duration": 3.15,
+      "paragraph_id": 9,
+      "start": 58.04,
+      "end": 63.45,
+      "duration": 5.41,
       "text_snippet": "SequencedMap<K, V> (được kế thừa bởi LinkedHashMap và SortedMap)"
     },
     {
-      "paragraph_id": 15,
-      "start": 90.25,
-      "end": 108.45,
-      "duration": 18.2,
+      "paragraph_id": 10,
+      "start": 63.4,
+      "end": 96.65,
+      "duration": 33.25,
       "text_snippet": "Ví dụ có thể chạy được (Runnable Example): SequencedCollection<String> coll = ne"
     },
     {
-      "paragraph_id": 16,
-      "start": 108.55,
-      "end": 112.45,
-      "duration": 3.9,
+      "paragraph_id": 11,
+      "start": 96.65,
+      "end": 99.45,
+      "duration": 2.8,
       "text_snippet": "Ví dụ có thể chạy được (Runnable Example):"
     },
     {
-      "paragraph_id": 17,
-      "start": 112.4,
-      "end": 114.78,
-      "duration": 2.38,
+      "paragraph_id": 12,
+      "start": 96.65,
+      "end": 98.85,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 18,
-      "start": 114.77,
-      "end": 155.67,
-      "duration": 40.9,
+      "paragraph_id": 13,
+      "start": 98.95,
+      "end": 153.6,
+      "duration": 54.65,
       "text_snippet": "Sai lầm thường gặp / Chế độ thất bại (Common Mistake / Failure Mode): Bộ sưu tập"
     },
     {
-      "paragraph_id": 19,
-      "start": 155.67,
-      "end": 160.57,
+      "paragraph_id": 14,
+      "start": 153.6,
+      "end": 158.5,
       "duration": 4.9,
       "text_snippet": "Sai lầm thường gặp / Chế độ thất bại (Common Mistake / Failure Mode):"
     },
     {
-      "paragraph_id": 20,
-      "start": 160.57,
-      "end": 169.67,
+      "paragraph_id": 15,
+      "start": 158.5,
+      "end": 167.6,
       "duration": 9.1,
       "text_snippet": "Bộ sưu tập Rỗng (Empty Collections): Gọi getFirst() hoặc getLast() trên một bộ s"
     },
     {
-      "paragraph_id": 21,
-      "start": 155.67,
-      "end": 172.12,
+      "paragraph_id": 16,
+      "start": 167.6,
+      "end": 184.05,
       "duration": 16.45,
       "text_snippet": "Tính khả biến đảo ngược (Reversed Mutability): Bộ sưu tập được trả về bởi revers"
     },
     {
-      "paragraph_id": 22,
-      "start": 172.12,
-      "end": 184.37,
-      "duration": 12.25,
+      "paragraph_id": 17,
+      "start": 153.7,
+      "end": 169.6,
+      "duration": 15.9,
       "text_snippet": "Mẫu chuỗi từng là tính năng xem trước; hiện tại không nên sử dụng như một tính n"
     },
     {
-      "paragraph_id": 23,
-      "start": 184.37,
-      "end": 202.92,
-      "duration": 18.55,
+      "paragraph_id": 18,
+      "start": 169.6,
+      "end": 184.91,
+      "duration": 15.31,
       "text_snippet": "Mẫu chuỗi (String Templates - ví dụ: STR.\"Hello \\{name}\") được giới thiệu dưới d"
     },
     {
-      "paragraph_id": 24,
-      "start": 202.92,
-      "end": 237.57,
-      "duration": 34.65,
+      "paragraph_id": 19,
+      "start": 184.91,
+      "end": 232.47,
+      "duration": 47.56,
       "text_snippet": "Thực hành đúng (Correct Practice): Tránh sử dụng Mẫu chuỗi (STR.) trong bất kỳ m"
     },
     {
-      "paragraph_id": 25,
-      "start": 237.57,
-      "end": 250.17,
+      "paragraph_id": 20,
+      "start": 232.47,
+      "end": 245.07,
       "duration": 12.6,
       "text_snippet": "Tránh sử dụng Mẫu chuỗi (STR.) trong bất kỳ mã nguồn tiêu chuẩn hoặc mã chạy thự"
     },
     {
-      "paragraph_id": 26,
-      "start": 250.17,
-      "end": 270.47,
-      "duration": 20.3,
+      "paragraph_id": 21,
+      "start": 232.57,
+      "end": 255.21,
+      "duration": 22.64,
       "text_snippet": "Các giải pháp thay thế tiêu chuẩn (Standard Alternatives): Sử dụng phép nối chuỗ"
     },
     {
-      "paragraph_id": 27,
-      "start": 270.47,
-      "end": 271.87,
-      "duration": 1.4,
+      "paragraph_id": 22,
+      "start": 255.16,
+      "end": 257.36,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     }
   ]

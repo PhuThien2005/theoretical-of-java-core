@@ -1,11 +1,5 @@
 # ClassLoader - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **ClassLoader**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Class loading process` | The multi-phase lifecycle of loading, linking, and initializing class definitions into the JVM memory. |

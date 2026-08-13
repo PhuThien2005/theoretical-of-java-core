@@ -8,8 +8,6 @@ JDBC is the Java API for connecting to relational databases.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
-
-
 ### Driver
 
 ### DriverManager
@@ -27,8 +25,6 @@ Statement executes static SQL but should not be used with untrusted input.
 PreparedStatement precompiles SQL with placeholders and binds values safely.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
-
-
 
 ## Why PreparedStatement Prevents SQL Injection and Leverages Query Plan Caching
 
@@ -101,8 +97,6 @@ ResultSet represents a database result set, providing sequential access to retri
 
 It matters because it maintains a cursor pointing to its current row of data, which is initially positioned before the first row. You must call `next()` to advance the cursor and retrieve data.
 
-
-
 ### Transaction:
 
 Transaction is a group of related rules in JDBC that groups several related details.
@@ -158,12 +152,6 @@ try (Connection conn = dataSource.getConnection();                       // 1st 
 4. **`Statement.close()` is called second, releasing the database compilation session** -> 
 5. **`Connection.close()` is called last, returning the physical connection to the pool** -> 
 6. **No resource leaks occur on either the client JVM or the database server**.
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
 
 ## Code Examples
 

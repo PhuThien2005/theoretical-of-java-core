@@ -1,15 +1,6 @@
 # Comparable và Comparator - Phần 2
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này trình bày một phần trọng tâm về **Comparable và Comparator**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải là những từ vựng rời rạc.
-
 ## Phạm Vi Nội Dung (Outline Coverage)
-
-- **`Reverse order`** — Reverse order: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Null handling:`** — Null handling:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`nullsFirst`** — nullsFirst: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`nullsLast`** — nullsLast: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 
@@ -182,7 +173,6 @@ Sắp xếp mảng đối tượng $\rightarrow$ Các phần tử riêng lẻ l�
 1. **Đảo ngược các bộ so sánh nguyên thủy không đúng cách**: Việc đảo ngược một bộ so sánh nguyên thủy bằng cách sử dụng phép trừ lambda tự chế `(a, b) -> b - a` rất dễ gây ra lỗi tràn số (overflow bug) (ví dụ: `Integer.MIN_VALUE` so với `1`). Hãy luôn sử dụng `Comparator.reverseOrder()` hoặc `Comparator.comparingInt(...).reversed()`.
 2. **Đảo ngược kép (Double Reversal)**: Việc sử dụng `comparator.reversed().reversed()` chỉ đơn giản là trả về thứ tự ban đầu nhưng lại làm tăng thêm chi phí thực thi do các lớp bọc.
 3. **Lỗi NPE do tự động giải bọc ngầm định (Implicit unboxing NPE)**: Khi sắp xếp các lớp bọc bằng `nullsLast` hoặc `nullsFirst`, hãy đảm bảo bộ trích xuất trả về đối tượng lớp bọc (như `Integer`) chứ không phải kiểu nguyên thủy (`int`), nếu không JVM sẽ cố gắng tự động giải bọc giá trị `null` thành kiểu nguyên thủy trước khi truyền nó đi, dẫn đến lỗi `NullPointerException`.
-
 
 ## Câu hỏi Ôn tập Thường gặp (Common Review Prompts)
 

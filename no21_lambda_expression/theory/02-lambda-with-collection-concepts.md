@@ -1,11 +1,5 @@
 # Lambda Expression - Part 2
 
-## Learning Goal
-
-This file covers a focused slice of **Lambda Expression**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Lambda with Collection` | A collection is an object that groups multiple elements under a common API. |
@@ -115,9 +109,3 @@ names.sort((s1, s2) -> s1.length() - s2.length());
 // If s1.length() is Integer.MAX_VALUE and s2.length() is -1, subtraction overflows!
 // Correct approach is to always use Integer.compare(x, y).
 ```
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?

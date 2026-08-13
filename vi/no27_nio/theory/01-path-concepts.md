@@ -1,21 +1,10 @@
 # NIO / NIO.2 - Phần 1 (NIO / NIO.2 - Part 1)
 
-## Mục tiêu học tập
-
-Tài liệu này tập trung vào một phần trọng tâm của **NIO / NIO.2**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc Java thực tế, thay vì chỉ học các từ vựng rời rạc.
-
 ## Đề cương chi tiết
 
 - **`Path`** — Đối tượng NIO đại diện cho đường dẫn phân cấp đến tệp hoặc thư mục.
-- **`Paths`** — Paths: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **`Files`** — Lớp tiện ích NIO cung cấp các phương thức static để thao tác với tệp và thư mục.
-- **`StandardOpenOption`** — StandardOpenOption: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Read/write file using Files`** — Read/write file using Files: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Walk file tree`** — Walk file tree: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Copy/move/delete file`** — Copy/move/delete file: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **`Channel`** — Kết nối mở trong NIO tới thiết bị I/O hỗ trợ đọc và ghi dữ liệu.
-- **`Buffer`** — Buffer: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ByteBuffer`** — ByteBuffer: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi chú chi tiết
 

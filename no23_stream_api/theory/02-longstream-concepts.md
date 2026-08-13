@@ -13,8 +13,6 @@ LongStream longStream = LongStream.of(100L, 200L, 300L);
 LongStream range = LongStream.rangeClosed(1, 100); // 1 to 100 inclusive
 ```
 
-
-
 ### DoubleStream
 
 The static factory method `Stream.of()` allows you to quickly create a Stream from directly supplied values (varargs).
@@ -26,8 +24,6 @@ DoubleStream doubleStream = DoubleStream.of(1.5, 2.5, 3.5);
 DoubleSummaryStatistics stats = doubleStream.summaryStatistics();
 System.out.println("Average: " + stats.getAverage());
 ```
-
-
 
 ### Intermediate operations:
 
@@ -43,8 +39,6 @@ Stream.of("a", "b", "c")
       .map(String::toUpperCase); // Returns a new Stream (not executed yet)
 ```
 
-
-
 ### filter
 
 `filter` — filter provides specific functionality and rules in Java development.
@@ -59,8 +53,6 @@ Stream.of("apple", "banana", "kiwi")
       .forEach(System.out::println); // Prints: apple, banana
 ```
 
-
-
 ### map
 
 Map does not inherit from Collection, so it does not have a direct `.stream()` method. However, you can create a Stream from a Map indirectly via `.keySet().stream()`, `.values().stream()`, or `.entrySet().stream()`.
@@ -72,8 +64,6 @@ Stream.of("apple", "banana")
       .map(String::toUpperCase)
       .forEach(System.out::println); // Prints: APPLE, BANANA
 ```
-
-
 
 ### flatMap
 
@@ -94,20 +84,14 @@ nestedList.stream()
 ### Case Study: FlatMap vs Map in detail
 
 #### The difference in signatures and return types
-- **`map`** — map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`flatMap`** — flatMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 #### When to use which?
-- **`map`** — map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`flatMap`** — flatMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 #### Visualizing the flattening
 If we have a stream of streams:
 `Stream.of( Stream.of(1, 2), Stream.of(3, 4) )`
 - Applying `map(s -> s)` keeps it as `Stream<Stream<Integer>>` (nested).
 - Applying `flatMap(s -> s)` merges them into a single `Stream<Integer>` containing `[1, 2, 3, 4]`.
-
-
 
 ### distinct
 
@@ -122,8 +106,6 @@ Stream.of(1, 2, 2, 3, 1)
       .distinct()
       .forEach(System.out::print); // Prints: 123
 ```
-
-
 
 ### sorted
 
@@ -162,14 +144,6 @@ Stream.of(1, 2, 3)
       })
       .count();
 ```
-
-
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
 
 ## Why flatMap() Differs from map()
 

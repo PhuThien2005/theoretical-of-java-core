@@ -1,22 +1,5 @@
 # Giao Diện Chức Năng (Functional Interface) - Phần 1
 
-## Mục Tiêu Học Tập
-
-Tài liệu này tập trung vào một phần chuyên sâu của **Giao Diện Chức Năng (Functional Interface)**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc thực tế trong Java, không chỉ đơn thuần là lý thuyết từ vựng.
-
-## Tóm Tắt Nội Dung (Outline Coverage)
-
-- **`Predicate<T>`** — Predicate<T>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Function<T, R>`** — Function<T, R>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Consumer<T>`** — Consumer<T>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Supplier<T>`** — Supplier<T>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`UnaryOperator<T>`** — UnaryOperator<T>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`BinaryOperator<T>`** — BinaryOperator<T>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`BiPredicate<T, U>`** — BiPredicate<T, U>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`BiFunction<T, U, R>`** — BiFunction<T, U, R>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`BiConsumer<T, U>`** — BiConsumer<T, U>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Đầu vào là gì?`** — Đầu vào là gì?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### Chú thích @FunctionalInterface

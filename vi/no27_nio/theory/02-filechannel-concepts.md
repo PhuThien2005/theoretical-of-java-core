@@ -1,15 +1,5 @@
 # NIO / NIO.2 - Phần 2
 
-## Mục Tiêu Học Tập
-
-File này đề cập đến một phần trọng tâm của **NIO / NIO.2**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải là những từ vựng rời rạc.
-
-## Đề Cương Khái Niệm
-
-- **`FileChannel`** — FileChannel: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Selector Cơ Bản (Basic Selector)`** — Selector Cơ Bản (Basic Selector): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`I/O Bất Đồng Bộ Cơ Bản (Basic Asynchronous IO)`** — I/O Bất Đồng Bộ Cơ Bản (Basic Asynchronous IO): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### FileChannel

@@ -149,4 +149,3 @@ If asked to explain JVM, JRE, and JDK:
 
 - https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html (javac Command Reference)
 - https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html (java Command Reference)
-

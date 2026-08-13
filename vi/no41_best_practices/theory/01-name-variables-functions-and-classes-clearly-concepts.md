@@ -1,21 +1,6 @@
 # Thực hành tốt nhất trong Java - Phần 1 (Best Practices in Java - Part 1)
 
-## Mục tiêu học tập
-
-Tài liệu này tập trung vào các **Thực hành tốt nhất (Best Practices)** nền tảng trong Java liên quan đến đặt tên, thiết kế cấu trúc, hiệu quả cộng chuỗi, toán học chính xác, và quản lý tài nguyên/ngoại lệ an toàn. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc Java thực tế.
-
 ## Đề cương chi tiết
-
-- **`Name variables, functions, and classes clearly`** — Name variables, functions, and classes clearly: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Code according to convention`** — Code according to convention: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Do not overuse static`** — Do not overuse static: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Do not overuse inheritance`** — Do not overuse inheritance: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Prefer composition over inheritance`** — Prefer composition over inheritance: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Override equals/hashCode correctly`** — Override equals/hashCode correctly: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Use StringBuilder when concatenating strings many times`** — Use StringBuilder when concatenating strings many times: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Use BigDecimal for money`** — Use BigDecimal for money: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Use try-with-resources`** — Use try-with-resources: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Do not catch overly broad Exception if unnecessary`** — Do not catch overly broad Exception if unnecessary: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

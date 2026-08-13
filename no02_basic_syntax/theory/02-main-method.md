@@ -235,4 +235,3 @@ java EntryPointDemo Alice Bob
 
 - https://docs.oracle.com/javase/specs/jls/se21/html/jls-12.html#jls-12.1.4 (JLS Execution - Invoke Test.main)
 - https://docs.oracle.com/javase/tutorial/getStarted/application/ (Oracle Java Tutorials - HelloWorld Application)
-

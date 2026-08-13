@@ -1,11 +1,5 @@
 # Modifiers in Java - Part 2
 
-## Learning Goal
-
-This file covers a focused slice of **Modifiers in Java**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `abstract` | Abstract means incomplete by design: subclasses or implementations must provide missing behavior. |
@@ -353,9 +347,3 @@ Practical check:
 Tiny example or mental model:
 
 - `ClassName.member` accesses a class-level member.
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?

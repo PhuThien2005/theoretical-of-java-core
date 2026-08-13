@@ -1,11 +1,5 @@
 # Basic Unit Testing - Part 2: Exceptions, Private Logic & Coverage
 
-## Learning Goal
-
-This file covers testing exceptional behavior, the strategy for testing private methods, and the meaning and limitations of code coverage.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Test exception` | Verifying that code throws the expected exception type under erroneous conditions. |
@@ -20,7 +14,6 @@ This file covers testing exceptional behavior, the strategy for testing private 
 
 Unit tests must verify that code handles bad inputs or failure modes gracefully by throwing expected exceptions.
 
-- **`assertThrows`** — assertThrows: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - The standard approach is to use `Assertions.assertThrows(Class<T> expectedType, Executable executable)`.
   - It returns the thrown exception instance, which allows asserting further details like the exact error message or custom exception state.
 

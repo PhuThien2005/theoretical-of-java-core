@@ -1,11 +1,5 @@
 # NIO / NIO.2 - Part 2
 
-## Learning Goal
-
-This file covers a focused slice of **NIO / NIO.2**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `FileChannel` | A thread-safe, high-performance channel for reading, writing, mapping, and locking files; supports random access operations. |

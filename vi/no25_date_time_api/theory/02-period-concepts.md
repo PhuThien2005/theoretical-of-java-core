@@ -1,20 +1,5 @@
 # API Ngày và Giờ (Date and Time API) - Phần 2
 
-## Mục Tiêu Học Tập
-
-Tài liệu này tập trung vào một phần chuyên sâu của **API Ngày và Giờ (Date and Time API)**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc thực tế trong Java, không chỉ đơn thuần là lý thuyết từ vựng.
-
-## Tóm Tắt Nội Dung (Outline Coverage)
-
-- **`Period`** — Period: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`DateTimeFormatter`** — DateTimeFormatter: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ZoneId`** — ZoneId: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Parse date/time`** — Parse date/time: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Format date/time`** — Format date/time: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Compare date/time`** — Compare date/time: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Add/subtract date/time`** — Add/subtract date/time: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Timezone`** — Timezone: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### Period

@@ -1,11 +1,5 @@
 # Object class - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **Object class**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `toString()` |toString() returns a human-readable text representation of an object. |
@@ -344,9 +338,3 @@ Because GC execution is non-deterministic, using `finalize()` to close files or 
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object) (Java SE 21 Object.equals Contract)
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#toString() (Java SE 21 Object.toString Contract)
 - https://docs.oracle.com/javase/specs/jls/se21/html/jls-15.html#jls-15.18.1 (JLS 21 String Concatenation Operator +)
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?

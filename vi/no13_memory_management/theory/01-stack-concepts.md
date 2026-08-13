@@ -1,19 +1,8 @@
 # Quản Lý Bộ Nhớ Java (Java Memory Management) - Phần 1
 
-## Mục Tiêu Học Tập
-
 File này tập trung vào một phần cụ thể của **Quản Lý Bộ Nhớ Java**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tiễn, không phải từ vựng đơn thuần.
 
 ## Các Khái Niệm Được Đề Cập
-
-- **`Stack`** — Stack: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Heap`** — Heap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Vùng Phương Thức / Metaspace`** — Vùng Phương Thức / Metaspace: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`PC Register`** — PC Register: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Native Method Stack`** — Native Method Stack: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Vòng đời đối tượng`** — Vòng đời đối tượng: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Biến tham chiếu`** — Biến tham chiếu: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Tham chiếu mạnh`** — Tham chiếu mạnh: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

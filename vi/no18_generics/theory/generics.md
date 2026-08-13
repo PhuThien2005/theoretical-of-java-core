@@ -59,12 +59,6 @@
   - `Stream<T> map(Function<? super T, ? extends R>)`
 
 ## 9. Generic với Collection
-- **`List`** — List: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Set`** — Set: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Map`** — Map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Queue`** — Queue: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Deque`** — Deque: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Optional`** — Optional: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 **Ví dụ:**
 ```java
@@ -91,11 +85,6 @@ void addAll(List<? super Integer> ints) { ints.add(1); }
 - **Khi nào cần tránh**: Hầu như luôn luôn; chỉ sử dụng khi tương tác với mã nguồn cũ (legacy code) từ trước thời kỳ generic (trước Java 5).
 
 ## 12. Các Hạn Chế Của Generic
-- **`new T[10]`** — new T[10]: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Integer`** — Integer: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Class<T>`** — Class<T>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`class MyStringList extends ArrayList<String>`** — class MyStringList extends ArrayList<String>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Giới hạn suy luận kiểu`** — Giới hạn suy luận kiểu: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## 13. Ví Dụ Tổng Hợp
 ```java

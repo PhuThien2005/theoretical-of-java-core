@@ -59,4 +59,3 @@ Small example: When reading code, ask: what does `mock object` change, allow, re
 ## code coverage
 
 `code coverage` — code coverage provides specific functionality and rules in Java development.
-

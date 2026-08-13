@@ -1,11 +1,5 @@
 # Reflection - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **Reflection**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `What is Reflection?` | Reflection lets code inspect and manipulate classes, fields, methods, and constructors at runtime. |
@@ -151,7 +145,6 @@ public class ModifierInspector {
 
 Fields are inspected using `java.lang.reflect.Field`.
 
-- **`getField(name)`** — getField(name): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - `getField(name)` returns the specified **public** field, searching through the class and all its superclasses.
   - `getDeclaredField(name)` returns the specified field declared **directly** in the class (including private, protected, package-private), but ignores inherited fields.
 - **Listing Fields**: `getFields()` vs `getDeclaredFields()` follow the same scoping rule.
@@ -300,7 +293,6 @@ public class Instantiator {
 Reflection can bypass access controls (like `private`, `protected`, or package-private) using `AccessibleObject.setAccessible(true)`.
 
 - **AccessibleObject**: Superclass of `Field`, `Method`, and `Constructor`.
-- **`setAccessible(true)`** — setAccessible(true): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **Constraints**: 
   - A `SecurityManager` (if present) can block this action.
   - Java Module System (Java 9+) blocks deep reflection into non-exported modules unless `--add-opens` is passed to the JVM.
@@ -412,9 +404,6 @@ public class AnnotationRunner {
 
 ---
 
-## Common Review Prompts
-
-- **Which concepts here are compile-time rules?**
   None; Reflection is entirely a runtime API. However, attempting reflection on invalid names throws exceptions (like `ClassNotFoundException` or `NoSuchMethodException`) at runtime.
 - **Which concepts here affect runtime behavior?**
   Instantiations, method executions, private accesses, and exceptions.

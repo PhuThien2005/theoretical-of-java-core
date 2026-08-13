@@ -1,677 +1,586 @@
 {
   "lesson": "01-tostring-concepts",
-  "total_duration_seconds": 723.3,
-  "total_paragraphs": 96,
+  "total_duration_seconds": 656.75,
+  "total_paragraphs": 83,
   "timestamps": [
     {
       "paragraph_id": 1,
       "start": 0.1,
-      "end": 2.4,
-      "duration": 2.3,
+      "end": 2.41,
+      "duration": 2.31,
       "text_snippet": "Lớp Object - Phần 1"
     },
     {
       "paragraph_id": 2,
-      "start": 2.35,
-      "end": 4.14,
-      "duration": 1.79,
-      "text_snippet": "Mục Tiêu Học Tập"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 4.14,
-      "end": 15.08,
-      "duration": 10.94,
-      "text_snippet": "Tài liệu này bao gồm một phần trọng tâm về lớp Object (Object class). Hãy nghiên"
-    },
-    {
-      "paragraph_id": 4,
-      "start": 15.07,
-      "end": 18.57,
-      "duration": 3.5,
-      "text_snippet": "Tóm Tắt Nội Dung (Outline Coverage)"
-    },
-    {
-      "paragraph_id": 5,
-      "start": 18.57,
-      "end": 24.25,
-      "duration": 5.68,
-      "text_snippet": "toString() — toString(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong J"
-    },
-    {
-      "paragraph_id": 6,
-      "start": 24.35,
-      "end": 30.07,
-      "duration": 5.72,
-      "text_snippet": "equals() — equals(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 7,
-      "start": 30.02,
-      "end": 35.97,
-      "duration": 5.95,
-      "text_snippet": "hashCode() — hashCode(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong J"
-    },
-    {
-      "paragraph_id": 8,
-      "start": 35.98,
-      "end": 42.04,
-      "duration": 6.06,
-      "text_snippet": "getClass() — getClass(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong J"
-    },
-    {
-      "paragraph_id": 9,
-      "start": 42.04,
-      "end": 47.56,
-      "duration": 5.52,
-      "text_snippet": "clone() — clone(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 10,
-      "start": 47.56,
-      "end": 55.18,
-      "duration": 7.62,
-      "text_snippet": "finalize() (đã bị loại bỏ) — finalize() (đã bị loại bỏ): Cung cấp các quy tắc và"
-    },
-    {
-      "paragraph_id": 11,
-      "start": 55.29,
-      "end": 60.76,
-      "duration": 5.47,
-      "text_snippet": "wait() — wait(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 12,
-      "start": 60.71,
-      "end": 73.55,
-      "duration": 12.84,
-      "text_snippet": "notify() — notify(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 13,
-      "start": 73.55,
-      "end": 79.5,
-      "duration": 5.95,
-      "text_snippet": "notifyAll() — notifyAll(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong"
-    },
-    {
-      "paragraph_id": 14,
-      "start": 73.55,
-      "end": 86.01,
-      "duration": 12.46,
-      "text_snippet": "Tại sao ghi đè equals() đồng nghĩa với việc bạn cũng phải ghi đè hashCode() — Tạ"
-    },
-    {
-      "paragraph_id": 15,
-      "start": 86.01,
-      "end": 87.83,
-      "duration": 1.82,
+      "start": 2.36,
+      "end": 4.19,
+      "duration": 1.83,
       "text_snippet": "Ghi Chú Chi Tiết"
     },
     {
-      "paragraph_id": 16,
-      "start": 87.94,
-      "end": 104.66,
-      "duration": 16.72,
+      "paragraph_id": 3,
+      "start": 4.19,
+      "end": 20.79,
+      "duration": 16.6,
       "text_snippet": "toString()"
     },
     {
-      "paragraph_id": 17,
-      "start": 104.66,
-      "end": 122.16,
+      "paragraph_id": 4,
+      "start": 20.79,
+      "end": 38.29,
       "duration": 17.5,
       "text_snippet": "toString() trả về một chuỗi văn bản biểu diễn đối tượng dưới dạng con người có t"
     },
     {
-      "paragraph_id": 18,
-      "start": 104.66,
-      "end": 107.04,
+      "paragraph_id": 5,
+      "start": 20.89,
+      "end": 23.27,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 19,
-      "start": 107.04,
-      "end": 118.78,
-      "duration": 11.74,
+      "paragraph_id": 6,
+      "start": 23.21,
+      "end": 34.93,
+      "duration": 11.72,
       "text_snippet": "Việc ghi đè toString() là một thói quen lập trình tốt để trả về một chuỗi mô tả "
     },
     {
-      "paragraph_id": 20,
-      "start": 118.78,
-      "end": 121.7,
-      "duration": 2.92,
+      "paragraph_id": 7,
+      "start": 34.94,
+      "end": 37.84,
+      "duration": 2.9,
       "text_snippet": "Ví dụ: Ghi đè toString()"
     },
     {
-      "paragraph_id": 21,
-      "start": 121.8,
-      "end": 124.18,
-      "duration": 2.38,
+      "paragraph_id": 8,
+      "start": 37.84,
+      "end": 40.04,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 22,
-      "start": 124.12,
-      "end": 129.23,
+      "paragraph_id": 9,
+      "start": 40.14,
+      "end": 45.25,
       "duration": 5.11,
       "text_snippet": "Tại sao toString được Tự động Gọi và Cách Tham chiếu Vòng gây ra lỗi Tràn Ngăn X"
     },
     {
-      "paragraph_id": 23,
-      "start": 129.24,
-      "end": 186.68,
-      "duration": 57.44,
+      "paragraph_id": 10,
+      "start": 45.2,
+      "end": 102.51,
+      "duration": 57.31,
       "text_snippet": "Trong Java, phương thức toString() được trình biên dịch gọi ngầm trong quá trình"
     },
     {
-      "paragraph_id": 24,
-      "start": 186.68,
-      "end": 188.08,
+      "paragraph_id": 11,
+      "start": 102.51,
+      "end": 103.91,
       "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 25,
-      "start": 186.68,
-      "end": 190.48,
+      "paragraph_id": 12,
+      "start": 102.51,
+      "end": 106.31,
       "duration": 3.8,
       "text_snippet": "Ví dụ Thực Tế: Tràn Ngăn Xếp do Tham Chiếu Vòng"
     },
     {
-      "paragraph_id": 26,
-      "start": 190.47,
-      "end": 191.87,
-      "duration": 1.4,
+      "paragraph_id": 13,
+      "start": 106.41,
+      "end": 108.79,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 27,
-      "start": 191.88,
-      "end": 195.03,
-      "duration": 3.15,
+      "paragraph_id": 14,
+      "start": 108.74,
+      "end": 112.66,
+      "duration": 3.92,
       "text_snippet": "Chuỗi Nguyên nhân - Kết quả của Circular toString()"
     },
     {
-      "paragraph_id": 28,
-      "start": 195.03,
-      "end": 196.43,
-      "duration": 1.4,
+      "paragraph_id": 15,
+      "start": 112.66,
+      "end": 115.04,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 29,
-      "start": 196.42,
-      "end": 204.47,
-      "duration": 8.05,
+      "paragraph_id": 16,
+      "start": 115.04,
+      "end": 124.19,
+      "duration": 9.15,
       "text_snippet": "Xem thêm: Chi tiết về Stack Memory và nguyên nhân gây ra StackOverflowError, đượ"
     },
     {
-      "paragraph_id": 30,
-      "start": 204.47,
-      "end": 204.87,
-      "duration": 0.4,
+      "paragraph_id": 17,
+      "start": 124.29,
+      "end": 130.34,
+      "duration": 6.05,
       "text_snippet": "equals()"
     },
     {
-      "paragraph_id": 31,
-      "start": 204.92,
-      "end": 223.67,
-      "duration": 18.75,
+      "paragraph_id": 18,
+      "start": 130.34,
+      "end": 144.81,
+      "duration": 14.47,
       "text_snippet": "equals() định nghĩa sự bằng nhau mang tính logic giữa các đối tượng. Theo mặc đị"
     },
     {
-      "paragraph_id": 32,
-      "start": 223.67,
-      "end": 226.55,
+      "paragraph_id": 19,
+      "start": 144.81,
+      "end": 147.69,
       "duration": 2.88,
       "text_snippet": "Ví dụ: Ghi đè equals()"
     },
     {
-      "paragraph_id": 33,
-      "start": 226.55,
-      "end": 228.93,
-      "duration": 2.38,
+      "paragraph_id": 20,
+      "start": 147.69,
+      "end": 149.89,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 34,
-      "start": 228.92,
-      "end": 233.97,
-      "duration": 5.05,
+      "paragraph_id": 21,
+      "start": 149.99,
+      "end": 155.07,
+      "duration": 5.08,
       "text_snippet": "Tại sao Nạp chồng equals Thay vì Ghi đè lại Gây lỗi Ngầm mà không có Cảnh báo"
     },
     {
-      "paragraph_id": 35,
-      "start": 233.97,
-      "end": 291.83,
+      "paragraph_id": 22,
+      "start": 155.01,
+      "end": 212.87,
       "duration": 57.86,
       "text_snippet": "Một lỗi phổ biến và nguy hiểm trong Java là nạp chồng equals() bằng cách khai bá"
     },
     {
-      "paragraph_id": 36,
-      "start": 291.94,
-      "end": 294.32,
+      "paragraph_id": 23,
+      "start": 212.88,
+      "end": 215.26,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 37,
-      "start": 294.26,
-      "end": 297.71,
+      "paragraph_id": 24,
+      "start": 215.25,
+      "end": 218.7,
       "duration": 3.45,
       "text_snippet": "Ví dụ Thực Tế: Thất bại Ngầm của Tập Hợp"
     },
     {
-      "paragraph_id": 38,
-      "start": 297.71,
-      "end": 300.09,
+      "paragraph_id": 25,
+      "start": 218.8,
+      "end": 221.18,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 39,
-      "start": 300.09,
-      "end": 304.52,
-      "duration": 4.43,
+      "paragraph_id": 26,
+      "start": 221.12,
+      "end": 225.56,
+      "duration": 4.44,
       "text_snippet": "Chuỗi Nguyên nhân - Kết quả của phương thức equals() bị nạp chồng"
     },
     {
-      "paragraph_id": 40,
-      "start": 304.51,
-      "end": 306.71,
-      "duration": 2.2,
+      "paragraph_id": 27,
+      "start": 225.56,
+      "end": 227.94,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 41,
-      "start": 306.71,
-      "end": 307.11,
-      "duration": 0.4,
+      "paragraph_id": 28,
+      "start": 227.94,
+      "end": 229.69,
+      "duration": 1.75,
       "text_snippet": "hashCode()"
     },
     {
-      "paragraph_id": 42,
-      "start": 307.06,
-      "end": 323.16,
-      "duration": 16.1,
+      "paragraph_id": 29,
+      "start": 229.79,
+      "end": 243.53,
+      "duration": 13.74,
       "text_snippet": "hashCode() trả về một giá trị băm kiểu số nguyên cho đối tượng, được sử dụng bởi"
     },
     {
-      "paragraph_id": 43,
-      "start": 323.16,
-      "end": 324.91,
-      "duration": 1.75,
+      "paragraph_id": 30,
+      "start": 243.47,
+      "end": 246.42,
+      "duration": 2.95,
       "text_snippet": "Ví dụ: Ghi đè hashCode()"
     },
     {
-      "paragraph_id": 44,
-      "start": 324.91,
-      "end": 326.31,
-      "duration": 1.4,
+      "paragraph_id": 31,
+      "start": 246.43,
+      "end": 248.81,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 45,
-      "start": 326.31,
-      "end": 326.71,
-      "duration": 0.4,
+      "paragraph_id": 32,
+      "start": 248.8,
+      "end": 250.54,
+      "duration": 1.74,
       "text_snippet": "getClass()"
     },
     {
-      "paragraph_id": 46,
-      "start": 326.76,
-      "end": 340.65,
+      "paragraph_id": 33,
+      "start": 250.64,
+      "end": 264.53,
       "duration": 13.89,
       "text_snippet": "getClass() là một phương thức chung cuộc (Final method) trong lớp Object dùng để"
     },
     {
-      "paragraph_id": 47,
-      "start": 340.65,
-      "end": 342.05,
+      "paragraph_id": 34,
+      "start": 264.52,
+      "end": 265.92,
       "duration": 1.4,
       "text_snippet": "getClass() so với instanceof"
     },
     {
-      "paragraph_id": 48,
-      "start": 340.65,
-      "end": 349.9,
+      "paragraph_id": 35,
+      "start": 264.52,
+      "end": 273.77,
       "duration": 9.25,
       "text_snippet": "Toán tử instanceof đánh giá là true nếu đối tượng thuộc kiểu được chỉ định hoặc "
     },
     {
-      "paragraph_id": 49,
-      "start": 349.9,
-      "end": 363.08,
-      "duration": 13.18,
+      "paragraph_id": 36,
+      "start": 273.77,
+      "end": 287.02,
+      "duration": 13.25,
       "text_snippet": "getClass() cho phép so sánh kiểu khớp chính xác. Ví dụ, obj.getClass() == User.c"
     },
     {
-      "paragraph_id": 50,
-      "start": 363.07,
-      "end": 365.27,
-      "duration": 2.2,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 51,
-      "start": 365.27,
-      "end": 365.67,
-      "duration": 0.4,
-      "text_snippet": "clone()"
-    },
-    {
-      "paragraph_id": 52,
-      "start": 365.62,
-      "end": 370.87,
-      "duration": 5.25,
-      "text_snippet": "clone() tạo và trả về một bản sao sao chép từng trường của đối tượng."
-    },
-    {
-      "paragraph_id": 53,
-      "start": 370.88,
-      "end": 381.03,
-      "duration": 10.15,
-      "text_snippet": "Lớp muốn hỗ trợ sao chép phải triển khai giao diện đánh dấu (Marker interface) j"
-    },
-    {
-      "paragraph_id": 54,
-      "start": 381.02,
-      "end": 395.02,
-      "duration": 14.0,
-      "text_snippet": "Theo mặc định, Object.clone() thực hiện một bản sao nông (Shallow copy). Nó sao "
-    },
-    {
-      "paragraph_id": 55,
-      "start": 395.02,
-      "end": 404.47,
-      "duration": 9.45,
-      "text_snippet": "Một bản sao sâu (Deep copy) yêu cầu sao chép thủ công các đối tượng có thể thay "
-    },
-    {
-      "paragraph_id": 56,
-      "start": 404.47,
-      "end": 407.97,
-      "duration": 3.5,
-      "text_snippet": "Ví dụ: Bản sao Nông so với Bản sao Sâu"
-    },
-    {
-      "paragraph_id": 57,
-      "start": 407.97,
-      "end": 409.37,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 58,
-      "start": 409.37,
-      "end": 411.12,
-      "duration": 1.75,
-      "text_snippet": "finalize() (đã bị loại bỏ)"
-    },
-    {
-      "paragraph_id": 59,
-      "start": 411.12,
-      "end": 434.92,
-      "duration": 23.8,
-      "text_snippet": "Trong lịch sử, finalize() được gọi bởi bộ thu gom rác (Garbage collector) trên m"
-    },
-    {
-      "paragraph_id": 60,
-      "start": 434.92,
-      "end": 438.07,
-      "duration": 3.15,
-      "text_snippet": "Tại sao nó bị loại bỏ (từ Java 9):"
-    },
-    {
-      "paragraph_id": 61,
-      "start": 438.17,
-      "end": 447.38,
-      "duration": 9.21,
-      "text_snippet": "Không có Đảm bảo: Không có gì đảm bảo thời điểm (hoặc thậm chí là liệu) finalize"
-    },
-    {
-      "paragraph_id": 62,
-      "start": 447.34,
-      "end": 457.84,
-      "duration": 10.5,
-      "text_snippet": "Ảnh hưởng Hiệu năng: Việc ghi đè finalize() làm chậm bộ thu gom rác (GC) vì các "
-    },
-    {
-      "paragraph_id": 63,
-      "start": 457.84,
-      "end": 480.04,
-      "duration": 22.2,
-      "text_snippet": "Sự Hồi sinh Đối tượng & Tấn công thông qua Phương thức Hủy: Một đối tượng có thể"
-    },
-    {
-      "paragraph_id": 64,
-      "start": 480.04,
-      "end": 490.5,
-      "duration": 10.46,
-      "text_snippet": "Các giải pháp thay thế Hiện modern: Sử dụng giao diện AutoCloseable với khối lện"
-    },
-    {
-      "paragraph_id": 65,
-      "start": 490.5,
-      "end": 494.34,
-      "duration": 3.84,
-      "text_snippet": "wait(), notify(), và notifyAll()"
-    },
-    {
-      "paragraph_id": 66,
-      "start": 494.34,
-      "end": 509.74,
-      "duration": 15.4,
-      "text_snippet": "Các phương thức này là các phương thức chung cuộc của lớp Object được sử dụng để"
-    },
-    {
-      "paragraph_id": 67,
-      "start": 509.74,
-      "end": 520.24,
-      "duration": 10.5,
-      "text_snippet": "wait(): Giải phóng khóa trên bộ giám sát đối tượng và khiến luồng hiện tại chờ c"
-    },
-    {
-      "paragraph_id": 68,
-      "start": 520.24,
-      "end": 525.84,
-      "duration": 5.6,
-      "text_snippet": "notify(): Đánh thức một luồng đơn lẻ đang chờ trên bộ giám sát của đối tượng."
-    },
-    {
-      "paragraph_id": 69,
-      "start": 525.84,
-      "end": 531.44,
-      "duration": 5.6,
-      "text_snippet": "notifyAll(): Đánh thức tất cả các luồng đang chờ trên bộ giám sát của đối tượng."
-    },
-    {
-      "paragraph_id": 70,
-      "start": 531.44,
-      "end": 532.14,
-      "duration": 0.7,
-      "text_snippet": "Quy tắc:"
-    },
-    {
-      "paragraph_id": 71,
-      "start": 532.14,
-      "end": 541.94,
-      "duration": 9.8,
-      "text_snippet": "Phải được gọi từ một ngữ cảnh đồng bộ hóa (Synchronized) (sở hữu bộ giám sát của"
-    },
-    {
-      "paragraph_id": 72,
-      "start": 541.94,
-      "end": 552.09,
-      "duration": 10.15,
-      "text_snippet": "Phương thức wait() phải luôn được gọi trong một vòng lặp kiểm tra điều kiện đang"
-    },
-    {
-      "paragraph_id": 73,
-      "start": 552.09,
-      "end": 553.49,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 74,
-      "start": 553.49,
-      "end": 558.74,
-      "duration": 5.25,
-      "text_snippet": "Tại sao ghi đè equals() đồng nghĩa với việc bạn cũng phải ghi đè hashCode()"
-    },
-    {
-      "paragraph_id": 75,
-      "start": 558.74,
-      "end": 566.79,
-      "duration": 8.05,
-      "text_snippet": "Đây là một trong những ràng buộc (Contract) quan trọng nhất trong Java. Nếu bạn "
-    },
-    {
-      "paragraph_id": 76,
-      "start": 566.89,
-      "end": 574.44,
-      "duration": 7.55,
-      "text_snippet": "Nếu hai đối tượng bằng nhau theo phương thức equals(Object), chúng phải trả về c"
-    },
-    {
-      "paragraph_id": 77,
-      "start": 574.39,
-      "end": 586.94,
-      "duration": 12.55,
-      "text_snippet": "Nếu bạn ghi đè equals() nhưng không ghi đè hashCode(), hai đối tượng bằng nhau v"
-    },
-    {
-      "paragraph_id": 78,
-      "start": 586.94,
-      "end": 603.24,
-      "duration": 16.3,
-      "text_snippet": "Khi các đối tượng này được sử dụng làm khóa trong một HashMap hoặc phần tử trong"
-    },
-    {
-      "paragraph_id": 79,
-      "start": 603.24,
-      "end": 605.09,
-      "duration": 1.85,
-      "text_snippet": "Các lỗi thường gặp"
-    },
-    {
-      "paragraph_id": 80,
-      "start": 605.09,
-      "end": 608.36,
-      "duration": 3.27,
-      "text_snippet": "1. Nạp chồng thay vì Ghi đè equals()"
-    },
-    {
-      "paragraph_id": 81,
-      "start": 608.46,
-      "end": 629.75,
-      "duration": 21.29,
-      "text_snippet": "Một lỗi phổ biến là khai báo equals(MyClass other) thay vì equals(Object other)."
-    },
-    {
-      "paragraph_id": 82,
-      "start": 629.75,
-      "end": 632.13,
+      "paragraph_id": 37,
+      "start": 287.12,
+      "end": 289.5,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 83,
-      "start": 632.12,
-      "end": 637.17,
+      "paragraph_id": 38,
+      "start": 289.45,
+      "end": 307.82,
+      "duration": 18.37,
+      "text_snippet": "clone()"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 307.82,
+      "end": 313.07,
+      "duration": 5.25,
+      "text_snippet": "clone() tạo và trả về một bản sao sao chép từng trường của đối tượng."
+    },
+    {
+      "paragraph_id": 40,
+      "start": 313.07,
+      "end": 323.22,
+      "duration": 10.15,
+      "text_snippet": "Lớp muốn hỗ trợ sao chép phải triển khai giao diện đánh dấu (Marker interface) j"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 307.93,
+      "end": 331.53,
+      "duration": 23.6,
+      "text_snippet": "Theo mặc định, Object.clone() thực hiện một bản sao nông (Shallow copy). Nó sao "
+    },
+    {
+      "paragraph_id": 42,
+      "start": 331.52,
+      "end": 340.97,
+      "duration": 9.45,
+      "text_snippet": "Một bản sao sâu (Deep copy) yêu cầu sao chép thủ công các đối tượng có thể thay "
+    },
+    {
+      "paragraph_id": 43,
+      "start": 331.52,
+      "end": 335.17,
+      "duration": 3.65,
+      "text_snippet": "Ví dụ: Bản sao Nông so với Bản sao Sâu"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 335.18,
+      "end": 337.38,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 337.48,
+      "end": 340.47,
+      "duration": 2.99,
+      "text_snippet": "finalize() (đã bị loại bỏ)"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 340.41,
+      "end": 359.31,
+      "duration": 18.9,
+      "text_snippet": "Trong lịch sử, finalize() được gọi bởi bộ thu gom rác (Garbage collector) trên m"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 359.31,
+      "end": 362.81,
+      "duration": 3.5,
+      "text_snippet": "Tại sao nó bị loại bỏ (từ Java 9):"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 362.81,
+      "end": 372.01,
+      "duration": 9.2,
+      "text_snippet": "Không có Đảm bảo: Không có gì đảm bảo thời điểm (hoặc thậm chí là liệu) finalize"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 372.11,
+      "end": 382.61,
+      "duration": 10.5,
+      "text_snippet": "Ảnh hưởng Hiệu năng: Việc ghi đè finalize() làm chậm bộ thu gom rác (GC) vì các "
+    },
+    {
+      "paragraph_id": 50,
+      "start": 382.56,
+      "end": 404.75,
+      "duration": 22.19,
+      "text_snippet": "Sự Hồi sinh Đối tượng & Tấn công thông qua Phương thức Hủy: Một đối tượng có thể"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 404.75,
+      "end": 414.91,
+      "duration": 10.16,
+      "text_snippet": "Các giải pháp thay thế Hiện modern: Sử dụng giao diện AutoCloseable với khối lện"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 414.91,
+      "end": 418.75,
+      "duration": 3.84,
+      "text_snippet": "wait(), notify(), và notifyAll()"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 418.85,
+      "end": 431.61,
+      "duration": 12.76,
+      "text_snippet": "Các phương thức này là các phương thức chung cuộc của lớp Object được sử dụng để"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 431.61,
+      "end": 439.57,
+      "duration": 7.96,
+      "text_snippet": "wait(): Giải phóng khóa trên bộ giám sát đối tượng và khiến luồng hiện tại chờ c"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 439.57,
+      "end": 450.1,
+      "duration": 10.53,
+      "text_snippet": "notify(): Đánh thức một luồng đơn lẻ đang chờ trên bộ giám sát của đối tượng."
+    },
+    {
+      "paragraph_id": 56,
+      "start": 450.1,
+      "end": 455.7,
+      "duration": 5.6,
+      "text_snippet": "notifyAll(): Đánh thức tất cả các luồng đang chờ trên bộ giám sát của đối tượng."
+    },
+    {
+      "paragraph_id": 57,
+      "start": 450.2,
+      "end": 451.68,
+      "duration": 1.48,
+      "text_snippet": "Quy tắc:"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 451.62,
+      "end": 460.33,
+      "duration": 8.71,
+      "text_snippet": "Phải được gọi từ một ngữ cảnh đồng bộ hóa (Synchronized) (sở hữu bộ giám sát của"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 460.34,
+      "end": 468.77,
+      "duration": 8.43,
+      "text_snippet": "Phương thức wait() phải luôn được gọi trong một vòng lặp kiểm tra điều kiện đang"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 468.76,
+      "end": 470.96,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 471.06,
+      "end": 476.31,
+      "duration": 5.25,
+      "text_snippet": "Tại sao ghi đè equals() đồng nghĩa với việc bạn cũng phải ghi đè hashCode()"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 476.26,
+      "end": 485.58,
+      "duration": 9.32,
+      "text_snippet": "Đây là một trong những ràng buộc (Contract) quan trọng nhất trong Java. Nếu bạn "
+    },
+    {
+      "paragraph_id": 63,
+      "start": 485.59,
+      "end": 493.14,
+      "duration": 7.55,
+      "text_snippet": "Nếu hai đối tượng bằng nhau theo phương thức equals(Object), chúng phải trả về c"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 493.14,
+      "end": 505.57,
+      "duration": 12.43,
+      "text_snippet": "Nếu bạn ghi đè equals() nhưng không ghi đè hashCode(), hai đối tượng bằng nhau v"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 505.66,
+      "end": 521.91,
+      "duration": 16.25,
+      "text_snippet": "Khi các đối tượng này được sử dụng làm khóa trong một HashMap hoặc phần tử trong"
+    },
+    {
+      "paragraph_id": 66,
+      "start": 521.91,
+      "end": 523.76,
+      "duration": 1.85,
+      "text_snippet": "Các lỗi thường gặp"
+    },
+    {
+      "paragraph_id": 67,
+      "start": 523.76,
+      "end": 527.05,
+      "duration": 3.29,
+      "text_snippet": "1. Nạp chồng thay vì Ghi đè equals()"
+    },
+    {
+      "paragraph_id": 68,
+      "start": 527.05,
+      "end": 548.21,
+      "duration": 21.16,
+      "text_snippet": "Một lỗi phổ biến là khai báo equals(MyClass other) thay vì equals(Object other)."
+    },
+    {
+      "paragraph_id": 69,
+      "start": 548.31,
+      "end": 550.69,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 70,
+      "start": 550.64,
+      "end": 555.69,
       "duration": 5.05,
       "text_snippet": "2. Thay đổi trạng thái bên trong equals(), hashCode(), hoặc toString()"
     },
     {
-      "paragraph_id": 84,
-      "start": 637.17,
-      "end": 647.79,
-      "duration": 10.62,
+      "paragraph_id": 71,
+      "start": 555.69,
+      "end": 566.32,
+      "duration": 10.63,
       "text_snippet": "Các phương thức này phải là các hàm thuần túy và không có tác dụng phụ (Side-eff"
     },
     {
-      "paragraph_id": 85,
-      "start": 647.8,
-      "end": 651.95,
+      "paragraph_id": 72,
+      "start": 566.31,
+      "end": 570.46,
       "duration": 4.15,
       "text_snippet": "3. Gọi các phương thức giám sát bên ngoài các khối đồng bộ hóa"
     },
     {
-      "paragraph_id": 86,
-      "start": 652.05,
-      "end": 664.65,
-      "duration": 12.6,
+      "paragraph_id": 73,
+      "start": 570.56,
+      "end": 582.65,
+      "duration": 12.09,
       "text_snippet": "Việc gọi wait(), notify(), hoặc notifyAll() mà không nắm giữ khóa giám sát đối t"
     },
     {
-      "paragraph_id": 87,
-      "start": 664.6,
-      "end": 668.45,
+      "paragraph_id": 74,
+      "start": 582.6,
+      "end": 586.45,
       "duration": 3.85,
       "text_snippet": "4. Dựa vào finalize() để dọn dẹp tài nguyên"
     },
     {
-      "paragraph_id": 88,
-      "start": 668.45,
-      "end": 681.04,
-      "duration": 12.59,
+      "paragraph_id": 75,
+      "start": 586.45,
+      "end": 599.06,
+      "duration": 12.61,
       "text_snippet": "Vì hoạt động của bộ thu gom rác (GC) không mang tính xác định, việc sử dụng fina"
     },
     {
-      "paragraph_id": 89,
-      "start": 681.04,
-      "end": 683.05,
+      "paragraph_id": 76,
+      "start": 599.06,
+      "end": 601.07,
       "duration": 2.01,
       "text_snippet": "Liên kết Tham khảo"
     },
     {
-      "paragraph_id": 90,
-      "start": 683.05,
-      "end": 700.55,
-      "duration": 17.5,
+      "paragraph_id": 77,
+      "start": 601.18,
+      "end": 641.77,
+      "duration": 40.59,
       "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.ht"
     },
     {
-      "paragraph_id": 91,
-      "start": 700.55,
-      "end": 703.0,
+      "paragraph_id": 78,
+      "start": 641.76,
+      "end": 644.21,
       "duration": 2.45,
       "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.ht"
     },
     {
-      "paragraph_id": 92,
-      "start": 703.0,
-      "end": 705.8,
+      "paragraph_id": 79,
+      "start": 644.21,
+      "end": 647.01,
       "duration": 2.8,
       "text_snippet": "https://docs.oracle.com/javase/specs/jls/se21/html/jls-15.html#jls-15.18.1 (JLS "
     },
     {
-      "paragraph_id": 93,
-      "start": 705.8,
-      "end": 708.25,
-      "duration": 2.45,
+      "paragraph_id": 80,
+      "start": 641.76,
+      "end": 644.2,
+      "duration": 2.44,
       "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
     },
     {
-      "paragraph_id": 94,
-      "start": 708.25,
-      "end": 713.5,
-      "duration": 5.25,
+      "paragraph_id": 81,
+      "start": 644.3,
+      "end": 656.75,
+      "duration": 12.45,
       "text_snippet": "Những khái niệm nào ở đây là các quy tắc tại thời điểm biên dịch?"
     },
     {
-      "paragraph_id": 95,
-      "start": 713.5,
-      "end": 718.75,
+      "paragraph_id": 82,
+      "start": 656.75,
+      "end": 662.0,
       "duration": 5.25,
       "text_snippet": "Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy?"
     },
     {
-      "paragraph_id": 96,
-      "start": 718.75,
-      "end": 723.3,
+      "paragraph_id": 83,
+      "start": 662.0,
+      "end": 666.55,
       "duration": 4.55,
       "text_snippet": "Những khái niệm nào ở đây dễ trở thành bẫy khi phỏng vấn?"
     }

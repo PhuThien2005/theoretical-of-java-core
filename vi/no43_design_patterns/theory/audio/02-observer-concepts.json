@@ -1,7 +1,7 @@
 {
   "lesson": "02-observer-concepts",
-  "total_duration_seconds": 551.62,
-  "total_paragraphs": 68,
+  "total_duration_seconds": 473.39,
+  "total_paragraphs": 55,
   "timestamps": [
     {
       "paragraph_id": 1,
@@ -13,469 +13,378 @@
     {
       "paragraph_id": 2,
       "start": 4.12,
-      "end": 5.91,
-      "duration": 1.79,
-      "text_snippet": "Mục Tiêu Học Tập"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 5.91,
-      "end": 24.67,
-      "duration": 18.76,
-      "text_snippet": "File này đề cập đến các mẫu thiết kế hành vi (behavioral pattern) thuộc nhóm GoF"
-    },
-    {
-      "paragraph_id": 4,
-      "start": 24.68,
-      "end": 26.73,
-      "duration": 2.05,
-      "text_snippet": "Đề Cương Khái Niệm"
-    },
-    {
-      "paragraph_id": 5,
-      "start": 26.73,
-      "end": 32.75,
-      "duration": 6.02,
-      "text_snippet": "Observer — Observer: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 6,
-      "start": 32.75,
-      "end": 39.4,
-      "duration": 6.65,
-      "text_snippet": "Template Method — Template Method: Cung cấp các quy tắc và cơ chế hoạt động cụ t"
-    },
-    {
-      "paragraph_id": 7,
-      "start": 39.4,
-      "end": 45.35,
-      "duration": 5.95,
-      "text_snippet": "Command — Command: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 8,
-      "start": 45.35,
-      "end": 51.3,
-      "duration": 5.95,
-      "text_snippet": "Iterator — Iterator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 9,
-      "start": 51.3,
-      "end": 57.25,
-      "duration": 5.95,
-      "text_snippet": "State — State: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 10,
-      "start": 57.25,
-      "end": 63.2,
-      "duration": 5.95,
-      "text_snippet": "MVC — MVC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 11,
-      "start": 63.3,
-      "end": 68.64,
-      "duration": 5.34,
-      "text_snippet": "DAO — DAO: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 12,
-      "start": 68.59,
-      "end": 74.43,
-      "duration": 5.84,
-      "text_snippet": "DTO — DTO: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 13,
-      "start": 74.42,
-      "end": 80.78,
-      "duration": 6.36,
-      "text_snippet": "Repository — Repository: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong J"
-    },
-    {
-      "paragraph_id": 14,
-      "start": 80.79,
-      "end": 87.27,
-      "duration": 6.48,
-      "text_snippet": "Service Layer — Service Layer: Cung cấp các quy tắc và cơ chế hoạt động cụ thể t"
-    },
-    {
-      "paragraph_id": 15,
-      "start": 87.26,
-      "end": 89.08,
-      "duration": 1.82,
+      "end": 5.95,
+      "duration": 1.83,
       "text_snippet": "Ghi Chú Chi Tiết"
     },
     {
-      "paragraph_id": 16,
-      "start": 89.09,
-      "end": 89.49,
-      "duration": 0.4,
+      "paragraph_id": 3,
+      "start": 5.95,
+      "end": 19.61,
+      "duration": 13.66,
       "text_snippet": "Observer"
     },
     {
-      "paragraph_id": 17,
-      "start": 89.44,
-      "end": 104.49,
+      "paragraph_id": 4,
+      "start": 19.61,
+      "end": 34.66,
       "duration": 15.05,
       "text_snippet": "Định nghĩa một mối quan hệ phụ thuộc một-nhiều trong đó khi một đối tượng (Subje"
     },
     {
-      "paragraph_id": 18,
-      "start": 104.49,
-      "end": 127.24,
-      "duration": 22.75,
+      "paragraph_id": 5,
+      "start": 19.71,
+      "end": 52.29,
+      "duration": 32.58,
       "text_snippet": "Ví dụ chạy được:public interface Observer { void update(String event); } public "
     },
     {
-      "paragraph_id": 19,
-      "start": 127.24,
-      "end": 128.64,
-      "duration": 1.4,
+      "paragraph_id": 6,
+      "start": 52.29,
+      "end": 54.67,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 20,
-      "start": 128.64,
-      "end": 129.34,
-      "duration": 0.7,
+      "paragraph_id": 7,
+      "start": 54.66,
+      "end": 56.68,
+      "duration": 2.02,
       "text_snippet": "Template Method"
     },
     {
-      "paragraph_id": 21,
-      "start": 129.44,
-      "end": 141.72,
-      "duration": 12.28,
+      "paragraph_id": 8,
+      "start": 56.69,
+      "end": 69.04,
+      "duration": 12.35,
       "text_snippet": "Định nghĩa khung của một thuật toán trong một phương thức, trì hoãn một số bước "
     },
     {
-      "paragraph_id": 22,
-      "start": 141.71,
-      "end": 160.51,
-      "duration": 18.8,
+      "paragraph_id": 9,
+      "start": 69.14,
+      "end": 87.41,
+      "duration": 18.27,
       "text_snippet": "Ví dụ chạy được:public abstract class NetworkDataImporter { // Template Method d"
     },
     {
-      "paragraph_id": 23,
-      "start": 160.51,
-      "end": 162.88,
-      "duration": 2.37,
+      "paragraph_id": 10,
+      "start": 87.36,
+      "end": 89.74,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 24,
-      "start": 162.89,
-      "end": 164.37,
+      "paragraph_id": 11,
+      "start": 89.74,
+      "end": 91.22,
       "duration": 1.48,
       "text_snippet": "Command"
     },
     {
-      "paragraph_id": 25,
-      "start": 164.36,
-      "end": 175.0,
+      "paragraph_id": 12,
+      "start": 91.21,
+      "end": 101.85,
       "duration": 10.64,
       "text_snippet": "Đóng gói một yêu cầu thành một đối tượng, từ đó cho phép bạn tham số hóa các cli"
     },
     {
-      "paragraph_id": 26,
-      "start": 175.0,
-      "end": 195.3,
-      "duration": 20.3,
+      "paragraph_id": 13,
+      "start": 101.95,
+      "end": 128.1,
+      "duration": 26.15,
       "text_snippet": "Ví dụ chạy được:public interface Command { void execute(); } public class LightO"
     },
     {
-      "paragraph_id": 27,
-      "start": 195.3,
-      "end": 196.7,
-      "duration": 1.4,
+      "paragraph_id": 14,
+      "start": 128.1,
+      "end": 130.48,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 28,
-      "start": 196.7,
-      "end": 197.1,
-      "duration": 0.4,
+      "paragraph_id": 15,
+      "start": 130.47,
+      "end": 132.07,
+      "duration": 1.6,
       "text_snippet": "Iterator"
     },
     {
-      "paragraph_id": 29,
-      "start": 197.05,
-      "end": 207.2,
-      "duration": 10.15,
+      "paragraph_id": 16,
+      "start": 132.07,
+      "end": 138.8,
+      "duration": 6.73,
       "text_snippet": "Cung cấp một cách thức để truy cập tuần tự các phần tử của một đối tượng tập hợp"
     },
     {
-      "paragraph_id": 30,
-      "start": 207.2,
-      "end": 215.25,
-      "duration": 8.05,
+      "paragraph_id": 17,
+      "start": 138.9,
+      "end": 156.78,
+      "duration": 17.88,
       "text_snippet": "Ví dụ chạy được: List<String> list = List.of(\"a\", \"b\", \"c\"); Iterator<String> it"
     },
     {
-      "paragraph_id": 31,
-      "start": 215.25,
-      "end": 216.65,
+      "paragraph_id": 18,
+      "start": 156.78,
+      "end": 158.18,
       "duration": 1.4,
       "text_snippet": "Ví dụ chạy được:"
     },
     {
-      "paragraph_id": 32,
-      "start": 216.65,
-      "end": 218.05,
-      "duration": 1.4,
+      "paragraph_id": 19,
+      "start": 156.78,
+      "end": 159.16,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 33,
-      "start": 218.05,
-      "end": 230.3,
-      "duration": 12.25,
+      "paragraph_id": 20,
+      "start": 159.15,
+      "end": 172.63,
+      "duration": 13.48,
       "text_snippet": "Sai lầm phổ biến: Thay đổi cấu trúc của một collection (ví dụ: list.remove()) tr"
     },
     {
-      "paragraph_id": 34,
-      "start": 230.3,
-      "end": 242.55,
-      "duration": 12.25,
+      "paragraph_id": 21,
+      "start": 172.72,
+      "end": 186.11,
+      "duration": 13.39,
       "text_snippet": "Sai lầm phổ biến: Thay đổi cấu trúc của một collection (ví dụ: list.remove()) tr"
     },
     {
-      "paragraph_id": 35,
-      "start": 242.55,
-      "end": 242.95,
-      "duration": 0.4,
+      "paragraph_id": 22,
+      "start": 186.11,
+      "end": 187.27,
+      "duration": 1.16,
       "text_snippet": "State"
     },
     {
-      "paragraph_id": 36,
-      "start": 243.0,
-      "end": 251.44,
-      "duration": 8.44,
+      "paragraph_id": 23,
+      "start": 187.28,
+      "end": 195.73,
+      "duration": 8.45,
       "text_snippet": "Cho phép một đối tượng thay đổi hành vi của nó khi trạng thái nội bộ của nó thay"
     },
     {
-      "paragraph_id": 37,
-      "start": 251.44,
-      "end": 272.42,
-      "duration": 20.98,
+      "paragraph_id": 24,
+      "start": 195.72,
+      "end": 216.72,
+      "duration": 21.0,
       "text_snippet": "Ví dụ chạy được:public interface State { void handleRequest(); } public class Pl"
     },
     {
+      "paragraph_id": 25,
+      "start": 216.82,
+      "end": 219.2,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 219.15,
+      "end": 222.98,
+      "duration": 3.83,
+      "text_snippet": "MVC (Model-View-Controller)"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 222.97,
+      "end": 227.09,
+      "duration": 4.12,
+      "text_snippet": "Một mẫu kiến trúc phân tách các mối quan tâm thành ba module:"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 227.1,
+      "end": 232.91,
+      "duration": 5.81,
+      "text_snippet": "Model: Đại diện cho các lược đồ cơ sở dữ liệu, các thực thể và logic dữ liệu."
+    },
+    {
+      "paragraph_id": 29,
+      "start": 233.01,
+      "end": 237.12,
+      "duration": 4.11,
+      "text_snippet": "View: Kết xuất các thành phần UI để hiển thị cho người dùng."
+    },
+    {
+      "paragraph_id": 30,
+      "start": 237.07,
+      "end": 242.74,
+      "duration": 5.67,
+      "text_snippet": "Controller: Lắng nghe các đầu vào của người dùng, cập nhật Model và làm mới View"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 242.75,
+      "end": 245.8,
+      "duration": 3.05,
+      "text_snippet": "DAO (Data Access Object)"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 245.8,
+      "end": 254.1,
+      "duration": 8.3,
+      "text_snippet": "Mẫu thiết kế DAO tách biệt tầng ứng dụng/nghiệp vụ khỏi tầng lưu trữ (thường là "
+    },
+    {
+      "paragraph_id": 33,
+      "start": 254.2,
+      "end": 261.8,
+      "duration": 7.6,
+      "text_snippet": "Ví dụ chạy được:public interface UserDao { User findById(long id); void save(Use"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 261.75,
+      "end": 264.13,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 264.12,
+      "end": 267.57,
+      "duration": 3.45,
+      "text_snippet": "DTO (Data Transfer Object)"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 267.57,
+      "end": 286.32,
+      "duration": 18.75,
+      "text_snippet": "Một DTO là một đối tượng vận chuyển dữ liệu giữa các tiến trình (ví dụ: qua các "
+    },
+    {
+      "paragraph_id": 37,
+      "start": 286.43,
+      "end": 297.29,
+      "duration": 10.86,
+      "text_snippet": "Ví dụ chạy được:// In modern Java, records are perfect DTO carriers public recor"
+    },
+    {
       "paragraph_id": 38,
-      "start": 272.41,
-      "end": 274.79,
+      "start": 297.24,
+      "end": 299.62,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 39,
-      "start": 274.79,
-      "end": 278.63,
-      "duration": 3.84,
-      "text_snippet": "MVC (Model-View-Controller)"
-    },
-    {
-      "paragraph_id": 40,
-      "start": 278.62,
-      "end": 282.53,
-      "duration": 3.91,
-      "text_snippet": "Một mẫu kiến trúc phân tách các mối quan tâm thành ba module:"
-    },
-    {
-      "paragraph_id": 41,
-      "start": 282.54,
-      "end": 288.84,
-      "duration": 6.3,
-      "text_snippet": "Model: Đại diện cho các lược đồ cơ sở dữ liệu, các thực thể và logic dữ liệu."
-    },
-    {
-      "paragraph_id": 42,
-      "start": 288.84,
-      "end": 293.39,
-      "duration": 4.55,
-      "text_snippet": "View: Kết xuất các thành phần UI để hiển thị cho người dùng."
-    },
-    {
-      "paragraph_id": 43,
-      "start": 293.39,
-      "end": 298.99,
-      "duration": 5.6,
-      "text_snippet": "Controller: Lắng nghe các đầu vào của người dùng, cập nhật Model và làm mới View"
-    },
-    {
-      "paragraph_id": 44,
-      "start": 298.99,
-      "end": 300.39,
-      "duration": 1.4,
-      "text_snippet": "DAO (Data Access Object)"
-    },
-    {
-      "paragraph_id": 45,
-      "start": 300.39,
-      "end": 311.24,
-      "duration": 10.85,
-      "text_snippet": "Mẫu thiết kế DAO tách biệt tầng ứng dụng/nghiệp vụ khỏi tầng lưu trữ (thường là "
-    },
-    {
-      "paragraph_id": 46,
-      "start": 311.34,
-      "end": 318.94,
-      "duration": 7.6,
-      "text_snippet": "Ví dụ chạy được:public interface UserDao { User findById(long id); void save(Use"
-    },
-    {
-      "paragraph_id": 47,
-      "start": 318.89,
-      "end": 321.27,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 48,
-      "start": 321.26,
-      "end": 324.71,
-      "duration": 3.45,
-      "text_snippet": "DTO (Data Transfer Object)"
-    },
-    {
-      "paragraph_id": 49,
-      "start": 324.71,
-      "end": 354.42,
-      "duration": 29.71,
-      "text_snippet": "Một DTO là một đối tượng vận chuyển dữ liệu giữa các tiến trình (ví dụ: qua các "
-    },
-    {
-      "paragraph_id": 50,
-      "start": 354.42,
-      "end": 361.77,
-      "duration": 7.35,
-      "text_snippet": "Ví dụ chạy được:// In modern Java, records are perfect DTO carriers public recor"
-    },
-    {
-      "paragraph_id": 51,
-      "start": 354.42,
-      "end": 355.82,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 52,
-      "start": 355.82,
-      "end": 356.22,
-      "duration": 0.4,
+      "start": 299.61,
+      "end": 313.65,
+      "duration": 14.04,
       "text_snippet": "Repository"
     },
     {
-      "paragraph_id": 53,
-      "start": 356.17,
-      "end": 369.82,
+      "paragraph_id": 40,
+      "start": 313.65,
+      "end": 327.3,
       "duration": 13.65,
       "text_snippet": "Một Repository là một mẫu thiết kế hướng miền (Domain-Driven Design - DDD) làm t"
     },
     {
-      "paragraph_id": 54,
-      "start": 369.82,
-      "end": 388.02,
-      "duration": 18.2,
+      "paragraph_id": 41,
+      "start": 313.75,
+      "end": 327.71,
+      "duration": 13.96,
       "text_snippet": "Điểm khác biệt so với DAO: Trong khi một DAO ánh xạ chặt chẽ tới các bảng cơ sở "
     },
     {
-      "paragraph_id": 55,
-      "start": 388.02,
-      "end": 389.77,
-      "duration": 1.75,
+      "paragraph_id": 42,
+      "start": 327.66,
+      "end": 337.4,
+      "duration": 9.74,
       "text_snippet": "Tầng Dịch Vụ (Service Layer)"
     },
     {
-      "paragraph_id": 56,
-      "start": 389.77,
-      "end": 405.17,
-      "duration": 15.4,
+      "paragraph_id": 43,
+      "start": 337.4,
+      "end": 345.51,
+      "duration": 8.11,
       "text_snippet": "Tầng Dịch vụ (Service Layer) đóng gói các quy tắc nghiệp vụ cốt lõi và các giao "
     },
     {
-      "paragraph_id": 57,
-      "start": 405.17,
-      "end": 410.42,
-      "duration": 5.25,
+      "paragraph_id": 44,
+      "start": 345.51,
+      "end": 350.67,
+      "duration": 5.16,
       "text_snippet": "Tại Sao Mẫu Observer Giúp Giảm Phụ Thuộc Giữa Đối Tượng Chính Và Các Observer"
     },
     {
-      "paragraph_id": 58,
-      "start": 410.42,
-      "end": 451.02,
-      "duration": 40.6,
+      "paragraph_id": 45,
+      "start": 350.77,
+      "end": 385.97,
+      "duration": 35.2,
       "text_snippet": "Mẫu thiết kế Observer định nghĩa một mối quan hệ phụ thuộc một-nhiều giúp giảm p"
     },
     {
-      "paragraph_id": 59,
-      "start": 451.02,
-      "end": 490.92,
-      "duration": 39.9,
+      "paragraph_id": 46,
+      "start": 385.97,
+      "end": 420.62,
+      "duration": 34.65,
       "text_snippet": "Tại thời điểm chạy, subject lưu trữ các observer trong một collection (ví dụ: Ar"
     },
     {
-      "paragraph_id": 60,
-      "start": 490.92,
-      "end": 493.72,
-      "duration": 2.8,
+      "paragraph_id": 47,
+      "start": 420.62,
+      "end": 424.42,
+      "duration": 3.8,
       "text_snippet": "Sơ đồ điều phối sự kiện (Mental Model)"
     },
     {
-      "paragraph_id": 61,
-      "start": 493.72,
-      "end": 495.12,
-      "duration": 1.4,
+      "paragraph_id": 48,
+      "start": 424.42,
+      "end": 426.62,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 62,
-      "start": 495.12,
-      "end": 496.52,
-      "duration": 1.4,
+      "paragraph_id": 49,
+      "start": 426.72,
+      "end": 428.66,
+      "duration": 1.94,
       "text_snippet": "Ví Dụ Mã Nguồn"
     },
     {
-      "paragraph_id": 63,
-      "start": 496.52,
-      "end": 497.92,
-      "duration": 1.4,
+      "paragraph_id": 50,
+      "start": 428.61,
+      "end": 430.97,
+      "duration": 2.36,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 64,
-      "start": 497.92,
-      "end": 500.02,
-      "duration": 2.1,
+      "paragraph_id": 51,
+      "start": 430.97,
+      "end": 433.44,
+      "duration": 2.47,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
     },
     {
-      "paragraph_id": 65,
-      "start": 500.02,
-      "end": 529.07,
-      "duration": 29.05,
+      "paragraph_id": 52,
+      "start": 433.45,
+      "end": 454.22,
+      "duration": 20.77,
       "text_snippet": "Subject trực tiếp tham chiếu tới các lớp observer cụ thể → Liên kết chặt chẽ và "
     },
     {
-      "paragraph_id": 66,
-      "start": 529.17,
-      "end": 532.52,
+      "paragraph_id": 53,
+      "start": 454.32,
+      "end": 457.67,
       "duration": 3.35,
       "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
     },
     {
-      "paragraph_id": 67,
-      "start": 532.47,
-      "end": 551.62,
-      "duration": 19.15,
+      "paragraph_id": 54,
+      "start": 457.62,
+      "end": 473.38,
+      "duration": 15.76,
       "text_snippet": "https://refactoring.guru/design-patterns (Mẫu thiết kế Refactoring Guru)"
     },
     {
-      "paragraph_id": 68,
-      "start": 551.62,
-      "end": 554.42,
+      "paragraph_id": 55,
+      "start": 473.39,
+      "end": 476.19,
       "duration": 2.8,
       "text_snippet": "https://docs.oracle.com/javase/tutorial/java/concepts/ (Tài liệu khái niệm Java "
     }

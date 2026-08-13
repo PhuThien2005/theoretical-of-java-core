@@ -1,7 +1,5 @@
 # 02 - Cú Pháp Cơ Bản (Basic Syntax)
 
-## Mục Tiêu Học Tập
-
 Sau khi hoàn thành chủ đề này, bạn cần có thể:
 
 - Đọc được cấu trúc của một chương trình Java tối giản.

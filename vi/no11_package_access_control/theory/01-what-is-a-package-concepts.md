@@ -1,20 +1,6 @@
 # Gói và Kiểm Soát Truy Cập - Phần 1 (Package and Access Control - Part 1)
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này tập trung vào một phần trọng tâm về **Gói và Kiểm Soát Truy Cập (Package and Access Control)**. Hãy học từng khái niệm như một quy tắc Java thực tế, tránh việc ghi nhớ từ vựng một cách máy móc.
-
 ## Khung Nội Dung (Outline Coverage)
-
-- **`What is a package?`** — What is a package?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Create package`** — Create package: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Import package`** — Import package: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`import static`** — import static: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Default package`** — Default package: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Package naming convention`** — Package naming convention: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Access between packages`** — Access between packages: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Classpath`** — Classpath: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Basic module path`** — Basic module path: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

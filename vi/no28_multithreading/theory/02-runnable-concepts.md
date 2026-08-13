@@ -1,19 +1,6 @@
 # Đa luồng - Phần 2 (Multithreading - Part 2)
 
-## Mục tiêu học tập
-
-Tài liệu này tập trung vào các trạng thái thực thi luồng, lập lịch, và các thao tác cơ bản như khởi chạy, chạy và tạm dừng. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc Java thực tế, thay vì chỉ học các từ vựng rời rạc.
-
 ## Đề cương chi tiết
-
-- **`Runnable`** — Runnable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Running`** — Running: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Blocked`** — Blocked: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Waiting`** — Waiting: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Timed Waiting`** — Timed Waiting: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Terminated`** — Terminated: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`start() vs run()`** — start() vs run(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`sleep`** — sleep: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi chú chi tiết
 

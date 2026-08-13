@@ -1,18 +1,5 @@
 # Chú thích - Phần 2
 
-## Mục Tiêu Học Tập
-
-Tài liệu này tập trung vào một phần chuyên sâu của **Chú thích (Annotation)**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc thực tế trong Java, không chỉ đơn thuần là lý thuyết từ vựng.
-
-## Tóm Tắt Nội Dung (Outline Coverage)
-
-- **`@Documented`** — @Documented: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`@Inherited`** — @Inherited: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`@Repeatable`** — @Repeatable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Custom annotation`** — Custom annotation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Runtime annotation`** — Runtime annotation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Basic annotation processing`** — Basic annotation processing: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### @Documented

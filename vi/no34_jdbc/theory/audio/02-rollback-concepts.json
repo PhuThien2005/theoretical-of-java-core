@@ -1,845 +1,775 @@
 {
   "lesson": "02-rollback-concepts",
-  "total_duration_seconds": 932.25,
-  "total_paragraphs": 120,
+  "total_duration_seconds": 951.57,
+  "total_paragraphs": 110,
   "timestamps": [
     {
       "paragraph_id": 1,
       "start": 0.1,
-      "end": 2.84,
-      "duration": 2.74,
+      "end": 2.85,
+      "duration": 2.75,
       "text_snippet": "JDBC - Phần 2"
     },
     {
       "paragraph_id": 2,
-      "start": 2.79,
-      "end": 4.58,
-      "duration": 1.79,
-      "text_snippet": "Mục Tiêu Học Tập"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 4.58,
-      "end": 24.88,
-      "duration": 20.3,
-      "text_snippet": "Tài liệu này giải thích các khái niệm JDBC nâng cao: quản lý giao dịch với rollb"
-    },
-    {
-      "paragraph_id": 4,
-      "start": 24.88,
-      "end": 26.93,
-      "duration": 2.05,
-      "text_snippet": "Đề Cương Khái Niệm"
-    },
-    {
-      "paragraph_id": 5,
-      "start": 27.03,
-      "end": 34.38,
-      "duration": 7.35,
-      "text_snippet": "rollback — Hủy bỏ tất cả thay đổi kể từ lần commit() gần nhất, giải phóng các da"
-    },
-    {
-      "paragraph_id": 6,
-      "start": 34.33,
-      "end": 44.66,
-      "duration": 10.33,
-      "text_snippet": "setAutoCommit — Chuyển đổi giữa chế độ tự động commit (mỗi SQL tự commit ngay) v"
-    },
-    {
-      "paragraph_id": 7,
-      "start": 44.65,
-      "end": 53.79,
-      "duration": 9.14,
-      "text_snippet": "Xử lý theo lô (Batch processing) — Gom nhiều câu lệnh SQL vào một lần gửi qua ad"
-    },
-    {
-      "paragraph_id": 8,
-      "start": 53.79,
-      "end": 64.26,
-      "duration": 10.47,
-      "text_snippet": "Tấn công chèn mã SQL (SQL Injection) — Lỗ hổng bảo mật khi đầu vào người dùng th"
-    },
-    {
-      "paragraph_id": 9,
-      "start": 64.36,
-      "end": 74.67,
-      "duration": 10.31,
-      "text_snippet": "Nhóm kết nối cơ bản (Basic Connection Pool) — Tái sử dụng các kết nối TCP đã thi"
-    },
-    {
-      "paragraph_id": 10,
-      "start": 74.62,
-      "end": 83.97,
-      "duration": 9.35,
-      "text_snippet": "DataSource — Interface trong javax.sql thay thế DriverManager, hỗ trợ connection"
-    },
-    {
-      "paragraph_id": 11,
-      "start": 83.97,
-      "end": 96.68,
-      "duration": 12.71,
-      "text_snippet": "CRUD sử dụng JDBC — Bốn thao tác cơ bản: CREATE (INSERT), READ (SELECT), UPDATE,"
-    },
-    {
-      "paragraph_id": 12,
-      "start": 96.69,
-      "end": 98.52,
+      "start": 2.8,
+      "end": 4.63,
       "duration": 1.83,
       "text_snippet": "Ghi Chú Chi Tiết"
     },
     {
-      "paragraph_id": 13,
-      "start": 98.61,
-      "end": 108.42,
-      "duration": 9.81,
+      "paragraph_id": 3,
+      "start": 4.62,
+      "end": 14.5,
+      "duration": 9.88,
       "text_snippet": "rollback"
     },
     {
-      "paragraph_id": 14,
-      "start": 108.42,
-      "end": 115.51,
+      "paragraph_id": 4,
+      "start": 14.5,
+      "end": 21.59,
       "duration": 7.09,
       "text_snippet": "conn.rollback() ra lệnh cho database hủy bỏ tất cả thay đổi đã thực hiện kể từ l"
     },
     {
-      "paragraph_id": 15,
-      "start": 115.51,
-      "end": 117.72,
-      "duration": 2.21,
+      "paragraph_id": 5,
+      "start": 21.69,
+      "end": 23.92,
+      "duration": 2.23,
       "text_snippet": "Các quy tắc quan trọng:"
     },
     {
-      "paragraph_id": 16,
-      "start": 117.72,
-      "end": 127.8,
+      "paragraph_id": 6,
+      "start": 23.86,
+      "end": 33.94,
       "duration": 10.08,
       "text_snippet": "Rollback chỉ có ý nghĩa khi auto-commit đã bị tắt. Ở chế độ auto-commit (mặc địn"
     },
     {
-      "paragraph_id": 17,
-      "start": 127.9,
-      "end": 143.51,
+      "paragraph_id": 7,
+      "start": 33.94,
+      "end": 49.55,
       "duration": 15.61,
       "text_snippet": "Sau khi rollback, tất cả database lock (row lock, table lock) mà giao dịch đang "
     },
     {
-      "paragraph_id": 18,
-      "start": 143.51,
-      "end": 157.92,
-      "duration": 14.41,
+      "paragraph_id": 8,
+      "start": 49.55,
+      "end": 51.89,
+      "duration": 2.34,
       "text_snippet": "rollback() bản thân nó có thể ném SQLException nếu Connection đã bị đóng hoặc gặ"
     },
     {
-      "paragraph_id": 19,
-      "start": 157.93,
-      "end": 165.63,
-      "duration": 7.7,
+      "paragraph_id": 9,
+      "start": 51.99,
+      "end": 64.05,
+      "duration": 12.06,
       "text_snippet": "Rollback không hoàn tác các thay đổi DDL (CREATE TABLE, ALTER TABLE) trên hầu hế"
     },
     {
-      "paragraph_id": 20,
-      "start": 157.93,
-      "end": 160.13,
-      "duration": 2.2,
+      "paragraph_id": 10,
+      "start": 64.0,
+      "end": 66.38,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 21,
-      "start": 160.22,
-      "end": 176.81,
-      "duration": 16.59,
+      "paragraph_id": 11,
+      "start": 66.38,
+      "end": 73.72,
+      "duration": 7.34,
       "text_snippet": "setAutoCommit"
     },
     {
-      "paragraph_id": 22,
-      "start": 176.81,
-      "end": 179.61,
+      "paragraph_id": 12,
+      "start": 73.71,
+      "end": 76.51,
       "duration": 2.8,
       "text_snippet": "conn.setAutoCommit(boolean) chuyển đổi Connection giữa hai chế độ:"
     },
     {
-      "paragraph_id": 23,
-      "start": 176.81,
-      "end": 188.93,
-      "duration": 12.12,
+      "paragraph_id": 13,
+      "start": 73.81,
+      "end": 94.97,
+      "duration": 21.16,
       "text_snippet": "setAutoCommit(true) (mặc định khi mới tạo Connection): Mỗi câu lệnh SQL được coi"
     },
     {
-      "paragraph_id": 24,
-      "start": 188.94,
-      "end": 193.13,
-      "duration": 4.19,
+      "paragraph_id": 14,
+      "start": 94.97,
+      "end": 99.35,
+      "duration": 4.38,
       "text_snippet": "setAutoCommit(false): Tất cả các câu lệnh SQL tiếp theo được nhóm vào một giao d"
     },
     {
-      "paragraph_id": 25,
-      "start": 193.22,
-      "end": 207.16,
-      "duration": 13.94,
+      "paragraph_id": 15,
+      "start": 99.35,
+      "end": 113.48,
+      "duration": 14.13,
       "text_snippet": "Quy tắc thực hành: Luôn khôi phục setAutoCommit(true) trong khối finally sau khi"
     },
     {
-      "paragraph_id": 26,
-      "start": 207.11,
-      "end": 212.05,
-      "duration": 4.94,
+      "paragraph_id": 16,
+      "start": 113.47,
+      "end": 118.42,
+      "duration": 4.95,
       "text_snippet": "Tại Sao Việc Vô Hiệu Hóa Tự Động Commit Thiết Lập Các Ranh Giới Giao Dịch ACID"
     },
     {
-      "paragraph_id": 27,
-      "start": 212.05,
-      "end": 248.06,
-      "duration": 36.01,
+      "paragraph_id": 17,
+      "start": 118.52,
+      "end": 190.08,
+      "duration": 71.56,
       "text_snippet": "Theo mặc định, các kết nối JDBC mới hoạt động ở chế độ tự động commit, nơi mỗi c"
     },
     {
-      "paragraph_id": 28,
-      "start": 248.06,
-      "end": 252.61,
+      "paragraph_id": 18,
+      "start": 190.09,
+      "end": 194.64,
       "duration": 4.55,
       "text_snippet": "Tự động Commit hoạt động so với Ranh giới Giao dịch (Mental Model)"
     },
     {
-      "paragraph_id": 29,
-      "start": 248.16,
-      "end": 250.54,
-      "duration": 2.38,
+      "paragraph_id": 19,
+      "start": 194.64,
+      "end": 196.04,
+      "duration": 1.4,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 30,
-      "start": 250.49,
-      "end": 255.13,
-      "duration": 4.64,
+      "paragraph_id": 20,
+      "start": 196.04,
+      "end": 201.29,
+      "duration": 5.25,
       "text_snippet": "Ví Dụ Mã Nguồn: Quản Lý Giao Dịch Khi Vô Hiệu Hóa Tự Động Commit"
     },
     {
-      "paragraph_id": 31,
-      "start": 255.12,
-      "end": 257.48,
-      "duration": 2.36,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 32,
-      "start": 257.49,
-      "end": 259.99,
-      "duration": 2.5,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
-    },
-    {
-      "paragraph_id": 33,
-      "start": 260.09,
-      "end": 280.02,
-      "duration": 19.93,
-      "text_snippet": "conn.setAutoCommit(false) được gọi → Cơ sở dữ liệu ngừng commit các câu lệnh riê"
-    },
-    {
-      "paragraph_id": 34,
-      "start": 279.96,
-      "end": 284.77,
-      "duration": 4.81,
-      "text_snippet": "Tại Sao Savepoint Cho Phép Quay Lui Một Phần Và Cơ Chế Cô Lập Của Chúng"
-    },
-    {
-      "paragraph_id": 35,
-      "start": 284.78,
-      "end": 295.54,
-      "duration": 10.76,
-      "text_snippet": "Một Savepoint (điểm lưu trữ) cho phép một giao dịch được chia thành các bước log"
-    },
-    {
-      "paragraph_id": 36,
-      "start": 295.54,
-      "end": 329.14,
-      "duration": 33.6,
-      "text_snippet": "Khi một Savepoint được thiết lập, cơ sở dữ liệu sẽ đánh dấu một trạng thái cụ th"
-    },
-    {
-      "paragraph_id": 37,
-      "start": 295.64,
-      "end": 299.81,
-      "duration": 4.17,
-      "text_snippet": "Quay lui một phần qua Savepoint (Mental Model)"
-    },
-    {
-      "paragraph_id": 38,
-      "start": 299.76,
-      "end": 302.14,
+      "paragraph_id": 21,
+      "start": 190.19,
+      "end": 192.57,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 39,
-      "start": 302.14,
-      "end": 306.3,
-      "duration": 4.16,
-      "text_snippet": "Ví Dụ Mã Nguồn: Quay Lui Một Phần Sử Dụng Savepoint"
-    },
-    {
-      "paragraph_id": 40,
-      "start": 306.3,
-      "end": 308.5,
-      "duration": 2.2,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 41,
-      "start": 308.6,
-      "end": 311.1,
-      "duration": 2.5,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
-    },
-    {
-      "paragraph_id": 42,
-      "start": 311.05,
-      "end": 331.61,
-      "duration": 20.56,
-      "text_snippet": "Savepoint được tạo qua conn.setSavepoint() → Cơ sở dữ liệu đánh dấu điểm kiểm tr"
-    },
-    {
-      "paragraph_id": 43,
-      "start": 331.61,
-      "end": 341.73,
-      "duration": 10.12,
-      "text_snippet": "Xử lý theo lô (Batch Processing)"
-    },
-    {
-      "paragraph_id": 44,
-      "start": 341.74,
-      "end": 347.33,
-      "duration": 5.59,
-      "text_snippet": "Batch processing gom nhiều câu lệnh SQL vào một lần gửi tới database, thay vì gử"
-    },
-    {
-      "paragraph_id": 45,
-      "start": 347.43,
-      "end": 349.54,
-      "duration": 2.11,
-      "text_snippet": "Cơ chế hoạt động:"
-    },
-    {
-      "paragraph_id": 46,
-      "start": 349.49,
-      "end": 356.38,
-      "duration": 6.89,
-      "text_snippet": "Gọi stmt.addBatch() để thêm câu lệnh hiện tại (với các tham số đã set) vào hàng "
-    },
-    {
-      "paragraph_id": 47,
-      "start": 356.38,
-      "end": 369.22,
-      "duration": 12.84,
-      "text_snippet": "Khi hàng đợi đủ lớn, gọi stmt.executeBatch() để gửi toàn bộ batch trong một lần "
-    },
-    {
-      "paragraph_id": 48,
-      "start": 369.21,
-      "end": 376.56,
-      "duration": 7.35,
-      "text_snippet": "executeBatch() trả về int[] — mỗi phần tử là số hàng bị ảnh hưởng bởi câu lệnh t"
-    },
-    {
-      "paragraph_id": 49,
-      "start": 369.31,
-      "end": 371.31,
-      "duration": 2.0,
-      "text_snippet": "Quy tắc thực hành:"
-    },
-    {
-      "paragraph_id": 50,
-      "start": 371.26,
-      "end": 379.77,
-      "duration": 8.51,
-      "text_snippet": "Gọi executeBatch() sau mỗi 500–1000 hàng để tránh OutOfMemoryError (hàng đợi giữ"
-    },
-    {
-      "paragraph_id": 51,
-      "start": 379.77,
-      "end": 388.66,
-      "duration": 8.89,
-      "text_snippet": "Luôn kết hợp batch processing với setAutoCommit(false) — nếu để auto-commit, mỗi"
-    },
-    {
-      "paragraph_id": 52,
-      "start": 388.66,
-      "end": 394.85,
-      "duration": 6.19,
-      "text_snippet": "Gọi executeBatch() lần cuối sau vòng lặp để xử lý các phần tử còn lại không đủ b"
-    },
-    {
-      "paragraph_id": 53,
-      "start": 394.95,
-      "end": 412.3,
-      "duration": 17.35,
-      "text_snippet": "Lỗi thường gặp: Nếu một câu lệnh trong batch thất bại, driver ném BatchUpdateExc"
-    },
-    {
-      "paragraph_id": 54,
-      "start": 412.3,
-      "end": 426.55,
-      "duration": 14.25,
-      "text_snippet": "Tấn Công Chèn Mã SQL (SQL Injection)"
-    },
-    {
-      "paragraph_id": 55,
-      "start": 426.55,
-      "end": 428.75,
-      "duration": 2.2,
-      "text_snippet": "SQL Injection xảy ra khi đầu vào từ người dùng thoát ra khỏi ngữ cảnh string lit"
-    },
-    {
-      "paragraph_id": 56,
-      "start": 428.75,
-      "end": 435.3,
-      "duration": 6.55,
-      "text_snippet": "Ứng dụng ghép chuỗi: \"SELECT * FROM users WHERE name = '\" + userInput + \"'\""
-    },
-    {
-      "paragraph_id": 57,
-      "start": 435.4,
-      "end": 438.09,
-      "duration": 2.69,
-      "text_snippet": "Người dùng nhập: ' OR '1'='1"
-    },
-    {
-      "paragraph_id": 58,
-      "start": 438.04,
-      "end": 444.89,
-      "duration": 6.85,
-      "text_snippet": "SQL hoàn chỉnh trở thành: SELECT * FROM users WHERE name = '' OR '1'='1'"
-    },
-    {
-      "paragraph_id": 59,
-      "start": 444.89,
-      "end": 448.51,
-      "duration": 3.62,
-      "text_snippet": "Điều kiện '1'='1' luôn đúng → trả về toàn bộ bảng."
-    },
-    {
-      "paragraph_id": 60,
-      "start": 448.51,
-      "end": 458.71,
-      "duration": 10.2,
-      "text_snippet": "Kẻ tấn công có thể leo thang: '; DROP TABLE users; -- để xóa bảng, hoặc ' UNION "
-    },
-    {
-      "paragraph_id": 61,
-      "start": 458.81,
-      "end": 480.85,
-      "duration": 22.04,
-      "text_snippet": "Cách phòng chống trong JDBC: Dùng PreparedStatement với placeholder ?. PreparedS"
-    },
-    {
-      "paragraph_id": 62,
-      "start": 480.85,
-      "end": 491.88,
-      "duration": 11.03,
-      "text_snippet": "Xem thêm: Phần \"Tại sao PreparedStatement ngăn chặn SQL Injection\" trong 01-what"
-    },
-    {
-      "paragraph_id": 63,
-      "start": 491.88,
-      "end": 495.99,
-      "duration": 4.11,
-      "text_snippet": "Nhóm Kết Nối Cơ Bản (Basic Connection Pool)"
-    },
-    {
-      "paragraph_id": 64,
-      "start": 495.99,
-      "end": 508.97,
-      "duration": 12.98,
-      "text_snippet": "Tạo một kết nối vật lý mới tới database là hoạt động rất tốn kém: TCP three-way "
-    },
-    {
-      "paragraph_id": 65,
-      "start": 509.06,
-      "end": 511.87,
-      "duration": 2.81,
-      "text_snippet": "Cơ chế Connection Pool:"
-    },
-    {
-      "paragraph_id": 66,
-      "start": 511.82,
-      "end": 519.27,
-      "duration": 7.45,
-      "text_snippet": "Khởi động ứng dụng: Pool tạo sẵn N kết nối vật lý (ví dụ: minimumIdle=5) và giữ "
-    },
-    {
-      "paragraph_id": 67,
-      "start": 519.27,
-      "end": 527.66,
-      "duration": 8.39,
-      "text_snippet": "Khi cần kết nối: dataSource.getConnection() trả về một kết nối rảnh rỗi từ pool "
-    },
-    {
-      "paragraph_id": 68,
-      "start": 527.66,
-      "end": 542.07,
-      "duration": 14.41,
-      "text_snippet": "Khi trả kết nối: connection.close() KHÔNG đóng socket TCP. Thay vào đó, pool chặ"
-    },
-    {
-      "paragraph_id": 69,
-      "start": 542.17,
-      "end": 550.13,
-      "duration": 7.96,
-      "text_snippet": "Health check: Pool định kỳ kiểm tra kết nối còn sống không (ví dụ: gửi SELECT 1)"
-    },
-    {
-      "paragraph_id": 70,
-      "start": 550.09,
-      "end": 561.95,
-      "duration": 11.86,
-      "text_snippet": "Framework phổ biến: HikariCP (mặc định trong Spring Boot) — nhẹ, nhanh, cấu hình"
-    },
-    {
-      "paragraph_id": 71,
-      "start": 561.95,
-      "end": 586.46,
-      "duration": 24.51,
-      "text_snippet": "DataSource"
-    },
-    {
-      "paragraph_id": 72,
-      "start": 586.46,
-      "end": 601.51,
-      "duration": 15.05,
-      "text_snippet": "DataSource là interface trong package javax.sql, được thiết kế để thay thế Drive"
-    },
-    {
-      "paragraph_id": 73,
-      "start": 586.56,
-      "end": 590.52,
-      "duration": 3.96,
-      "text_snippet": "Tại sao DataSource ưu việt hơn DriverManager:"
-    },
-    {
-      "paragraph_id": 74,
-      "start": 590.48,
-      "end": 597.02,
-      "duration": 6.54,
-      "text_snippet": "Connection Pooling: DataSource hỗ trợ pool tích hợp — DriverManager luôn tạo kết"
-    },
-    {
-      "paragraph_id": 75,
-      "start": 597.01,
-      "end": 604.94,
-      "duration": 7.93,
-      "text_snippet": "Cấu hình tập trung: URL, user, password, pool size được cấu hình ở một chỗ, khôn"
-    },
-    {
-      "paragraph_id": 76,
-      "start": 604.94,
-      "end": 612.34,
-      "duration": 7.4,
-      "text_snippet": "Distributed Transactions: XADataSource (mở rộng của DataSource) hỗ trợ giao dịch"
-    },
-    {
-      "paragraph_id": 77,
-      "start": 612.44,
-      "end": 621.83,
-      "duration": 9.39,
-      "text_snippet": "JNDI Lookup: Trong application server (Tomcat, WildFly), DataSource được đăng ký"
-    },
-    {
-      "paragraph_id": 78,
-      "start": 621.77,
-      "end": 624.15,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 79,
-      "start": 624.15,
-      "end": 628.74,
-      "duration": 4.59,
-      "text_snippet": "Tại Sao Nhóm Kết Nối Cơ Sở Dữ Liệu Lại Mang Lại Hiệu Năng Vượt Trội"
-    },
-    {
-      "paragraph_id": 80,
-      "start": 628.74,
-      "end": 654.9,
-      "duration": 26.16,
-      "text_snippet": "Thiết lập một kết nối vật lý mới tới cơ sở dữ liệu là một hoạt động cực kỳ tốn k"
-    },
-    {
-      "paragraph_id": 81,
-      "start": 655.0,
-      "end": 689.31,
-      "duration": 34.31,
-      "text_snippet": "Các framework nhóm kết nối (chẳng hạn như HikariCP hoặc Apache Commons DBCP) giả"
-    },
-    {
-      "paragraph_id": 82,
-      "start": 689.31,
-      "end": 696.02,
-      "duration": 6.71,
-      "text_snippet": "Pre-allocated Connections vs. Manual Handshakes (Mental Model)"
-    },
-    {
-      "paragraph_id": 83,
-      "start": 696.02,
-      "end": 698.4,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 84,
-      "start": 698.4,
-      "end": 702.59,
-      "duration": 4.19,
-      "text_snippet": "Ví Dụ Mã Nguồn: Tái Sử Dụng Kết Nối Với HikariCP"
-    },
-    {
-      "paragraph_id": 85,
-      "start": 702.69,
-      "end": 705.07,
-      "duration": 2.38,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 86,
-      "start": 705.01,
-      "end": 707.49,
+      "paragraph_id": 22,
+      "start": 192.51,
+      "end": 194.99,
       "duration": 2.48,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
     },
     {
-      "paragraph_id": 87,
-      "start": 707.49,
-      "end": 727.13,
-      "duration": 19.64,
+      "paragraph_id": 23,
+      "start": 194.99,
+      "end": 215.76,
+      "duration": 20.77,
+      "text_snippet": "conn.setAutoCommit(false) được gọi → Cơ sở dữ liệu ngừng commit các câu lệnh riê"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 215.76,
+      "end": 220.55,
+      "duration": 4.79,
+      "text_snippet": "Tại Sao Savepoint Cho Phép Quay Lui Một Phần Và Cơ Chế Cô Lập Của Chúng"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 220.65,
+      "end": 243.4,
+      "duration": 22.75,
+      "text_snippet": "Một Savepoint (điểm lưu trữ) cho phép một giao dịch được chia thành các bước log"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 243.4,
+      "end": 273.56,
+      "duration": 30.16,
+      "text_snippet": "Khi một Savepoint được thiết lập, cơ sở dữ liệu sẽ đánh dấu một trạng thái cụ th"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 273.56,
+      "end": 276.36,
+      "duration": 2.8,
+      "text_snippet": "Quay lui một phần qua Savepoint (Mental Model)"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 273.56,
+      "end": 275.76,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 275.86,
+      "end": 279.97,
+      "duration": 4.11,
+      "text_snippet": "Ví Dụ Mã Nguồn: Quay Lui Một Phần Sử Dụng Savepoint"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 279.93,
+      "end": 282.31,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 31,
+      "start": 282.3,
+      "end": 284.77,
+      "duration": 2.47,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 284.78,
+      "end": 306.55,
+      "duration": 21.77,
+      "text_snippet": "Savepoint được tạo qua conn.setSavepoint() → Cơ sở dữ liệu đánh dấu điểm kiểm tr"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 306.65,
+      "end": 316.66,
+      "duration": 10.01,
+      "text_snippet": "Xử lý theo lô (Batch Processing)"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 316.66,
+      "end": 322.25,
+      "duration": 5.59,
+      "text_snippet": "Batch processing gom nhiều câu lệnh SQL vào một lần gửi tới database, thay vì gử"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 322.25,
+      "end": 324.36,
+      "duration": 2.11,
+      "text_snippet": "Cơ chế hoạt động:"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 324.36,
+      "end": 331.26,
+      "duration": 6.9,
+      "text_snippet": "Gọi stmt.addBatch() để thêm câu lệnh hiện tại (với các tham số đã set) vào hàng "
+    },
+    {
+      "paragraph_id": 37,
+      "start": 331.36,
+      "end": 344.14,
+      "duration": 12.78,
+      "text_snippet": "Khi hàng đợi đủ lớn, gọi stmt.executeBatch() để gửi toàn bộ batch trong một lần "
+    },
+    {
+      "paragraph_id": 38,
+      "start": 344.14,
+      "end": 351.49,
+      "duration": 7.35,
+      "text_snippet": "executeBatch() trả về int[] — mỗi phần tử là số hàng bị ảnh hưởng bởi câu lệnh t"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 344.14,
+      "end": 346.14,
+      "duration": 2.0,
+      "text_snippet": "Quy tắc thực hành:"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 346.14,
+      "end": 354.48,
+      "duration": 8.34,
+      "text_snippet": "Gọi executeBatch() sau mỗi 500–1000 hàng để tránh OutOfMemoryError (hàng đợi giữ"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 354.58,
+      "end": 363.49,
+      "duration": 8.91,
+      "text_snippet": "Luôn kết hợp batch processing với setAutoCommit(false) — nếu để auto-commit, mỗi"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 363.44,
+      "end": 369.63,
+      "duration": 6.19,
+      "text_snippet": "Gọi executeBatch() lần cuối sau vòng lặp để xử lý các phần tử còn lại không đủ b"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 369.62,
+      "end": 387.05,
+      "duration": 17.43,
+      "text_snippet": "Lỗi thường gặp: Nếu một câu lệnh trong batch thất bại, driver ném BatchUpdateExc"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 387.05,
+      "end": 391.66,
+      "duration": 4.61,
+      "text_snippet": "Tấn Công Chèn Mã SQL (SQL Injection)"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 391.76,
+      "end": 403.34,
+      "duration": 11.58,
+      "text_snippet": "SQL Injection xảy ra khi đầu vào từ người dùng thoát ra khỏi ngữ cảnh string lit"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 403.34,
+      "end": 409.63,
+      "duration": 6.29,
+      "text_snippet": "Ứng dụng ghép chuỗi: \"SELECT * FROM users WHERE name = '\" + userInput + \"'\""
+    },
+    {
+      "paragraph_id": 47,
+      "start": 409.62,
+      "end": 412.32,
+      "duration": 2.7,
+      "text_snippet": "Người dùng nhập: ' OR '1'='1"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 412.33,
+      "end": 419.06,
+      "duration": 6.73,
+      "text_snippet": "SQL hoàn chỉnh trở thành: SELECT * FROM users WHERE name = '' OR '1'='1'"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 419.15,
+      "end": 422.95,
+      "duration": 3.8,
+      "text_snippet": "Điều kiện '1'='1' luôn đúng → trả về toàn bộ bảng."
+    },
+    {
+      "paragraph_id": 50,
+      "start": 422.9,
+      "end": 433.09,
+      "duration": 10.19,
+      "text_snippet": "Kẻ tấn công có thể leo thang: '; DROP TABLE users; -- để xóa bảng, hoặc ' UNION "
+    },
+    {
+      "paragraph_id": 51,
+      "start": 433.09,
+      "end": 455.21,
+      "duration": 22.12,
+      "text_snippet": "Cách phòng chống trong JDBC: Dùng PreparedStatement với placeholder ?. PreparedS"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 455.21,
+      "end": 466.25,
+      "duration": 11.04,
+      "text_snippet": "Xem thêm: Phần \"Tại sao PreparedStatement ngăn chặn SQL Injection\" trong 01-what"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 466.35,
+      "end": 470.47,
+      "duration": 4.12,
+      "text_snippet": "Nhóm Kết Nối Cơ Bản (Basic Connection Pool)"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 470.43,
+      "end": 490.79,
+      "duration": 20.36,
+      "text_snippet": "Tạo một kết nối vật lý mới tới database là hoạt động rất tốn kém: TCP three-way "
+    },
+    {
+      "paragraph_id": 55,
+      "start": 490.79,
+      "end": 493.59,
+      "duration": 2.8,
+      "text_snippet": "Cơ chế Connection Pool:"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 493.59,
+      "end": 501.03,
+      "duration": 7.44,
+      "text_snippet": "Khởi động ứng dụng: Pool tạo sẵn N kết nối vật lý (ví dụ: minimumIdle=5) và giữ "
+    },
+    {
+      "paragraph_id": 57,
+      "start": 501.12,
+      "end": 509.51,
+      "duration": 8.39,
+      "text_snippet": "Khi cần kết nối: dataSource.getConnection() trả về một kết nối rảnh rỗi từ pool "
+    },
+    {
+      "paragraph_id": 58,
+      "start": 509.46,
+      "end": 523.86,
+      "duration": 14.4,
+      "text_snippet": "Khi trả kết nối: connection.close() KHÔNG đóng socket TCP. Thay vào đó, pool chặ"
+    },
+    {
+      "paragraph_id": 59,
+      "start": 523.86,
+      "end": 531.81,
+      "duration": 7.95,
+      "text_snippet": "Health check: Pool định kỳ kiểm tra kết nối còn sống không (ví dụ: gửi SELECT 1)"
+    },
+    {
+      "paragraph_id": 60,
+      "start": 531.81,
+      "end": 543.48,
+      "duration": 11.67,
+      "text_snippet": "Framework phổ biến: HikariCP (mặc định trong Spring Boot) — nhẹ, nhanh, cấu hình"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 543.59,
+      "end": 578.51,
+      "duration": 34.92,
+      "text_snippet": "DataSource"
+    },
+    {
+      "paragraph_id": 62,
+      "start": 578.51,
+      "end": 593.56,
+      "duration": 15.05,
+      "text_snippet": "DataSource là interface trong package javax.sql, được thiết kế để thay thế Drive"
+    },
+    {
+      "paragraph_id": 63,
+      "start": 593.56,
+      "end": 596.01,
+      "duration": 2.45,
+      "text_snippet": "Tại sao DataSource ưu việt hơn DriverManager:"
+    },
+    {
+      "paragraph_id": 64,
+      "start": 596.01,
+      "end": 601.26,
+      "duration": 5.25,
+      "text_snippet": "Connection Pooling: DataSource hỗ trợ pool tích hợp — DriverManager luôn tạo kết"
+    },
+    {
+      "paragraph_id": 65,
+      "start": 578.61,
+      "end": 586.55,
+      "duration": 7.94,
+      "text_snippet": "Cấu hình tập trung: URL, user, password, pool size được cấu hình ở một chỗ, khôn"
+    },
+    {
+      "paragraph_id": 66,
+      "start": 586.5,
+      "end": 593.92,
+      "duration": 7.42,
+      "text_snippet": "Distributed Transactions: XADataSource (mở rộng của DataSource) hỗ trợ giao dịch"
+    },
+    {
+      "paragraph_id": 67,
+      "start": 593.92,
+      "end": 603.26,
+      "duration": 9.34,
+      "text_snippet": "JNDI Lookup: Trong application server (Tomcat, WildFly), DataSource được đăng ký"
+    },
+    {
+      "paragraph_id": 68,
+      "start": 603.26,
+      "end": 605.46,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 69,
+      "start": 605.56,
+      "end": 610.15,
+      "duration": 4.59,
+      "text_snippet": "Tại Sao Nhóm Kết Nối Cơ Sở Dữ Liệu Lại Mang Lại Hiệu Năng Vượt Trội"
+    },
+    {
+      "paragraph_id": 70,
+      "start": 610.1,
+      "end": 636.26,
+      "duration": 26.16,
+      "text_snippet": "Thiết lập một kết nối vật lý mới tới cơ sở dữ liệu là một hoạt động cực kỳ tốn k"
+    },
+    {
+      "paragraph_id": 71,
+      "start": 636.26,
+      "end": 670.64,
+      "duration": 34.38,
+      "text_snippet": "Các framework nhóm kết nối (chẳng hạn như HikariCP hoặc Apache Commons DBCP) giả"
+    },
+    {
+      "paragraph_id": 72,
+      "start": 670.64,
+      "end": 677.24,
+      "duration": 6.6,
+      "text_snippet": "Pre-allocated Connections vs. Manual Handshakes (Mental Model)"
+    },
+    {
+      "paragraph_id": 73,
+      "start": 677.34,
+      "end": 679.72,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 74,
+      "start": 679.66,
+      "end": 683.85,
+      "duration": 4.19,
+      "text_snippet": "Ví Dụ Mã Nguồn: Tái Sử Dụng Kết Nối Với HikariCP"
+    },
+    {
+      "paragraph_id": 75,
+      "start": 683.85,
+      "end": 686.21,
+      "duration": 2.36,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 76,
+      "start": 686.21,
+      "end": 688.71,
+      "duration": 2.5,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+    },
+    {
+      "paragraph_id": 77,
+      "start": 688.81,
+      "end": 709.74,
+      "duration": 20.93,
       "text_snippet": "Pool được thiết lập khi khởi động → Các socket vật lý đang hoạt động được tạo và"
     },
     {
-      "paragraph_id": 88,
-      "start": 727.12,
-      "end": 730.35,
-      "duration": 3.23,
+      "paragraph_id": 78,
+      "start": 709.69,
+      "end": 718.85,
+      "duration": 9.16,
       "text_snippet": "CRUD sử dụng JDBC"
     },
     {
-      "paragraph_id": 89,
-      "start": 730.45,
-      "end": 736.35,
-      "duration": 5.9,
+      "paragraph_id": 79,
+      "start": 718.85,
+      "end": 724.8,
+      "duration": 5.95,
       "text_snippet": "CRUD là bốn thao tác cơ bản khi làm việc với cơ sở dữ liệu qua JDBC:"
     },
     {
-      "paragraph_id": 90,
-      "start": 736.3,
-      "end": 744.31,
-      "duration": 8.01,
+      "paragraph_id": 80,
+      "start": 718.85,
+      "end": 727.26,
+      "duration": 8.41,
       "text_snippet": "CREATE → INSERT INTO table (...) VALUES (...) → dùng executeUpdate(), trả về số "
     },
     {
-      "paragraph_id": 91,
-      "start": 744.31,
-      "end": 753.55,
-      "duration": 9.24,
+      "paragraph_id": 81,
+      "start": 727.36,
+      "end": 733.96,
+      "duration": 6.6,
       "text_snippet": "READ → SELECT ... FROM table WHERE ... → dùng executeQuery(), trả về ResultSet c"
     },
     {
-      "paragraph_id": 92,
-      "start": 753.55,
-      "end": 761.01,
-      "duration": 7.46,
+      "paragraph_id": 82,
+      "start": 733.96,
+      "end": 740.26,
+      "duration": 6.3,
       "text_snippet": "UPDATE → UPDATE table SET ... WHERE ... → dùng executeUpdate(), trả về số hàng b"
     },
     {
-      "paragraph_id": 93,
-      "start": 761.11,
-      "end": 767.23,
-      "duration": 6.12,
+      "paragraph_id": 83,
+      "start": 740.26,
+      "end": 745.86,
+      "duration": 5.6,
       "text_snippet": "DELETE → DELETE FROM table WHERE ... → dùng executeUpdate(), trả về số hàng bị x"
     },
     {
-      "paragraph_id": 94,
-      "start": 767.19,
-      "end": 769.2,
-      "duration": 2.01,
+      "paragraph_id": 84,
+      "start": 745.86,
+      "end": 747.26,
+      "duration": 1.4,
       "text_snippet": "Quy tắc quan trọng:"
     },
     {
-      "paragraph_id": 95,
-      "start": 769.2,
-      "end": 776.72,
-      "duration": 7.52,
+      "paragraph_id": 85,
+      "start": 757.86,
+      "end": 765.36,
+      "duration": 7.5,
       "text_snippet": "Luôn dùng PreparedStatement với placeholder ? cho mọi thao tác CRUD — không bao "
     },
     {
-      "paragraph_id": 96,
-      "start": 776.73,
-      "end": 786.84,
+      "paragraph_id": 86,
+      "start": 765.36,
+      "end": 775.47,
       "duration": 10.11,
       "text_snippet": "Kiểm tra giá trị trả về của executeUpdate(): nếu trả về 0, có nghĩa là không có "
     },
     {
-      "paragraph_id": 97,
-      "start": 786.94,
-      "end": 798.54,
-      "duration": 11.6,
+      "paragraph_id": 87,
+      "start": 775.47,
+      "end": 787.12,
+      "duration": 11.65,
       "text_snippet": "Để lấy auto-generated key sau INSERT: dùng conn.prepareStatement(sql, Statement."
     },
     {
+      "paragraph_id": 88,
+      "start": 787.12,
+      "end": 789.32,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 89,
+      "start": 789.42,
+      "end": 791.26,
+      "duration": 1.84,
+      "text_snippet": "Câu Hỏi Ôn Tập"
+    },
+    {
+      "paragraph_id": 90,
+      "start": 791.21,
+      "end": 798.98,
+      "duration": 7.77,
+      "text_snippet": "Nếu quên gọi conn.commit() sau khi setAutoCommit(false), điều gì xảy ra với dữ l"
+    },
+    {
+      "paragraph_id": 91,
+      "start": 798.99,
+      "end": 805.32,
+      "duration": 6.33,
+      "text_snippet": "Savepoint hữu ích trong tình huống nào? Cho một ví dụ thực tế ngoài ví dụ chuyển"
+    },
+    {
+      "paragraph_id": 92,
+      "start": 805.31,
+      "end": 817.65,
+      "duration": 12.34,
+      "text_snippet": "Tại sao connection.close() trong connection pool không thực sự đóng kết nối TCP?"
+    },
+    {
+      "paragraph_id": 93,
+      "start": 817.75,
+      "end": 826.93,
+      "duration": 9.18,
+      "text_snippet": "Khi executeBatch() thất bại ở giữa batch, các câu lệnh đã thực thi trước đó có b"
+    },
+    {
+      "paragraph_id": 94,
+      "start": 826.92,
+      "end": 834.03,
+      "duration": 7.11,
+      "text_snippet": "DataSource khác DriverManager ở những điểm nào? Tại sao production code nên dùng"
+    },
+    {
+      "paragraph_id": 95,
+      "start": 834.04,
+      "end": 841.22,
+      "duration": 7.18,
+      "text_snippet": "executeUpdate() trả về 0 có nghĩa là lỗi không? Khi nào trả về 0 là hành vi bình"
+    },
+    {
+      "paragraph_id": 96,
+      "start": 841.21,
+      "end": 843.37,
+      "duration": 2.16,
+      "text_snippet": "Các Ví Dụ Mã Nguồn"
+    },
+    {
+      "paragraph_id": 97,
+      "start": 843.48,
+      "end": 846.79,
+      "duration": 3.31,
+      "text_snippet": "Quản Lý Giao Dịch (commit và rollback)"
+    },
+    {
       "paragraph_id": 98,
-      "start": 798.49,
-      "end": 800.87,
+      "start": 846.74,
+      "end": 849.12,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
       "paragraph_id": 99,
-      "start": 800.86,
-      "end": 802.7,
-      "duration": 1.84,
-      "text_snippet": "Câu Hỏi Ôn Tập"
-    },
-    {
-      "paragraph_id": 100,
-      "start": 802.7,
-      "end": 810.31,
-      "duration": 7.61,
-      "text_snippet": "Nếu quên gọi conn.commit() sau khi setAutoCommit(false), điều gì xảy ra với dữ l"
-    },
-    {
-      "paragraph_id": 101,
-      "start": 810.41,
-      "end": 816.69,
-      "duration": 6.28,
-      "text_snippet": "Savepoint hữu ích trong tình huống nào? Cho một ví dụ thực tế ngoài ví dụ chuyển"
-    },
-    {
-      "paragraph_id": 102,
-      "start": 816.69,
-      "end": 829.18,
-      "duration": 12.49,
-      "text_snippet": "Tại sao connection.close() trong connection pool không thực sự đóng kết nối TCP?"
-    },
-    {
-      "paragraph_id": 103,
-      "start": 829.18,
-      "end": 838.39,
-      "duration": 9.21,
-      "text_snippet": "Khi executeBatch() thất bại ở giữa batch, các câu lệnh đã thực thi trước đó có b"
-    },
-    {
-      "paragraph_id": 104,
-      "start": 838.39,
-      "end": 845.45,
-      "duration": 7.06,
-      "text_snippet": "DataSource khác DriverManager ở những điểm nào? Tại sao production code nên dùng"
-    },
-    {
-      "paragraph_id": 105,
-      "start": 845.55,
-      "end": 852.7,
-      "duration": 7.15,
-      "text_snippet": "executeUpdate() trả về 0 có nghĩa là lỗi không? Khi nào trả về 0 là hành vi bình"
-    },
-    {
-      "paragraph_id": 106,
-      "start": 852.7,
-      "end": 854.86,
-      "duration": 2.16,
-      "text_snippet": "Các Ví Dụ Mã Nguồn"
-    },
-    {
-      "paragraph_id": 107,
-      "start": 854.86,
-      "end": 858.22,
-      "duration": 3.36,
-      "text_snippet": "Quản Lý Giao Dịch (commit và rollback)"
-    },
-    {
-      "paragraph_id": 108,
-      "start": 858.23,
-      "end": 860.43,
-      "duration": 2.2,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 109,
-      "start": 860.53,
-      "end": 862.47,
+      "start": 849.11,
+      "end": 851.05,
       "duration": 1.94,
       "text_snippet": "Xử Lý Theo Lô"
     },
     {
-      "paragraph_id": 110,
-      "start": 862.41,
-      "end": 864.79,
-      "duration": 2.38,
+      "paragraph_id": 100,
+      "start": 851.05,
+      "end": 853.25,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 111,
-      "start": 864.79,
-      "end": 866.63,
+      "paragraph_id": 101,
+      "start": 853.35,
+      "end": 855.19,
       "duration": 1.84,
       "text_snippet": "Các Lỗi Thường Gặp"
     },
     {
-      "paragraph_id": 112,
-      "start": 866.63,
-      "end": 879.32,
-      "duration": 12.69,
+      "paragraph_id": 102,
+      "start": 855.14,
+      "end": 867.82,
+      "duration": 12.68,
       "text_snippet": "Giả định tự động Commit mặc định tắt: Theo mặc định, các kết nối cơ sở dữ liệu m"
     },
     {
-      "paragraph_id": 113,
-      "start": 879.41,
-      "end": 902.32,
-      "duration": 22.91,
+      "paragraph_id": 103,
+      "start": 867.81,
+      "end": 890.42,
+      "duration": 22.61,
       "text_snippet": "Quên không Commit: Nếu tự động commit bị vô hiệu hóa và bạn thực thi các câu lện"
     },
     {
-      "paragraph_id": 114,
-      "start": 902.33,
-      "end": 907.33,
+      "paragraph_id": 104,
+      "start": 890.42,
+      "end": 895.42,
       "duration": 5.0,
       "text_snippet": "Không xử lý ngoại lệ khi Rollback: Nếu xảy ra lỗi trong quá trình thực thi giao "
     },
     {
-      "paragraph_id": 115,
-      "start": 907.33,
-      "end": 916.83,
-      "duration": 9.5,
+      "paragraph_id": 105,
+      "start": 895.52,
+      "end": 905.01,
+      "duration": 9.49,
       "text_snippet": "Xem thêm: Cấu trúc phân cấp ngoại lệ và cách xử lý Checked Exception trong Java,"
     },
     {
-      "paragraph_id": 116,
-      "start": 916.83,
-      "end": 920.0,
-      "duration": 3.17,
+      "paragraph_id": 106,
+      "start": 904.96,
+      "end": 908.32,
+      "duration": 3.36,
       "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
     },
     {
-      "paragraph_id": 117,
-      "start": 920.1,
-      "end": 932.25,
-      "duration": 12.15,
+      "paragraph_id": 107,
+      "start": 908.32,
+      "end": 932.71,
+      "duration": 24.39,
       "text_snippet": "https://docs.oracle.com/javase/tutorial/jdbc/basics/transactions.html (Sử dụng G"
     },
     {
-      "paragraph_id": 118,
-      "start": 932.25,
-      "end": 934.35,
+      "paragraph_id": 108,
+      "start": 932.71,
+      "end": 934.81,
       "duration": 2.1,
       "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.sql/java/sql/Connection."
     },
     {
-      "paragraph_id": 119,
-      "start": 934.35,
-      "end": 936.1,
-      "duration": 1.75,
+      "paragraph_id": 109,
+      "start": 932.81,
+      "end": 951.57,
+      "duration": 18.76,
       "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.sql/java/sql/Savepoint.h"
     },
     {
-      "paragraph_id": 120,
-      "start": 936.1,
-      "end": 938.9,
+      "paragraph_id": 110,
+      "start": 951.57,
+      "end": 954.37,
       "duration": 2.8,
       "text_snippet": "https://github.com/brettwooldridge/HikariCP (Tham khảo dự án HikariCP trên GitHu"
     }

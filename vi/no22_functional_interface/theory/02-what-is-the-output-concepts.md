@@ -1,13 +1,6 @@
 # Giao Diện Chức Năng - Phần 2 (Functional Interface - Part 2)
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này tập trung vào một phần trọng tâm về **Giao Diện Chức Năng (Functional Interface)**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, tránh việc ghi nhớ từ vựng một cách máy móc.
-
 ## Khung Nội Dung (Outline Coverage)
-
-- **`What is the output?`** — What is the output?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`When to use which interface?`** — When to use which interface?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

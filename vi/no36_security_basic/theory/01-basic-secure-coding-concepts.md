@@ -1,13 +1,8 @@
 # Bảo Mật Cơ Bản - Phần 1 (Basic Security - Part 1)
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này trình bày một phần trọng tâm của **Bảo mật Cơ bản (Basic Security)**. Hãy nghiên cứu từng khái niệm dưới dạng một quy tắc thực hành trong Java, thay vì chỉ ghi nhớ các thuật ngữ riêng lẻ.
-
 ## Khung Nội Dung (Outline Coverage)
 
 - **`Basic secure coding`** — Thực hành viết mã nguồn an toàn chống lại các lỗ hổng và nguy cơ khai thác bảo mật.
-- **`Hashing`** — Hashing: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **`MessageDigest`** — Lớp cung cấp chức năng của các thuật toán băm mật mã (SHA-256, MD5).
 - **`SHA-256`** — Thuật toán băm mật mã tạo ra giá trị băm 256-bit (32-byte).
 - **`Base64`** — Phương thức mã hóa dữ liệu nhị phân thành chuỗi ký tự văn bản ASCII.
@@ -15,7 +10,6 @@ Tài liệu này trình bày một phần trọng tâm của **Bảo mật Cơ b
 - **`KeyStore`** — Kho lưu trữ an toàn chứa các khóa mật mã (private/public key) và chứng chỉ số.
 - **`Basic SSL/TLS`** — Giao thức mật mã đảm bảo an toàn và mã hóa đường truyền mạng.
 - **`Input validation`** — Lọc và xác thực đầu vào từ người dùng để phòng chống các lỗ hổng injection.
-- **`Avoid SQL Injection`** — Avoid SQL Injection: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 

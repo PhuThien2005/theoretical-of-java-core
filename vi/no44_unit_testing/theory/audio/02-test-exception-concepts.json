@@ -1,538 +1,496 @@
 {
   "lesson": "02-test-exception-concepts",
-  "total_duration_seconds": 807.8,
-  "total_paragraphs": 76,
+  "total_duration_seconds": 674.54,
+  "total_paragraphs": 70,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 6.65,
-      "duration": 6.65,
+      "start": 0.1,
+      "end": 6.52,
+      "duration": 6.42,
       "text_snippet": "Kiểm thử đơn vị cơ bản - Phần 2: Ngoại lệ, Logic Private & Độ bao phủ mã nguồn"
     },
     {
       "paragraph_id": 2,
-      "start": 6.65,
-      "end": 8.05,
-      "duration": 1.4,
-      "text_snippet": "Mục Tiêu Học Tập"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 8.05,
-      "end": 21.0,
-      "duration": 12.95,
-      "text_snippet": "Tài liệu này trình bày về việc kiểm thử hành vi ngoại lệ, chiến lược kiểm thử cá"
-    },
-    {
-      "paragraph_id": 4,
-      "start": 21.0,
-      "end": 22.4,
-      "duration": 1.4,
-      "text_snippet": "Nội Dung Tổng Quan"
-    },
-    {
-      "paragraph_id": 5,
-      "start": 22.4,
-      "end": 29.05,
-      "duration": 6.65,
-      "text_snippet": "Test exception — Test exception: Cung cấp các quy tắc và cơ chế hoạt động cụ thể"
-    },
-    {
-      "paragraph_id": 6,
-      "start": 29.05,
-      "end": 37.1,
-      "duration": 8.05,
-      "text_snippet": "Test private logic indirectly — Test private logic indirectly: Cung cấp các quy "
-    },
-    {
-      "paragraph_id": 7,
-      "start": 37.1,
-      "end": 44.45,
-      "duration": 7.35,
-      "text_snippet": "Basic code coverage — Basic code coverage: Cung cấp các quy tắc và cơ chế hoạt đ"
-    },
-    {
-      "paragraph_id": 8,
-      "start": 44.45,
-      "end": 45.85,
-      "duration": 1.4,
+      "start": 6.47,
+      "end": 8.31,
+      "duration": 1.84,
       "text_snippet": "Ghi Chú Chi Tiết"
     },
     {
-      "paragraph_id": 9,
-      "start": 45.85,
-      "end": 47.95,
-      "duration": 2.1,
+      "paragraph_id": 3,
+      "start": 8.31,
+      "end": 11.9,
+      "duration": 3.59,
       "text_snippet": "Kiểm thử ngoại lệ (Test Exception)"
     },
     {
-      "paragraph_id": 10,
-      "start": 47.95,
-      "end": 60.55,
-      "duration": 12.6,
+      "paragraph_id": 4,
+      "start": 11.9,
+      "end": 20.05,
+      "duration": 8.15,
       "text_snippet": "Các bài kiểm thử đơn vị phải xác minh rằng mã nguồn xử lý các đầu vào tồi hoặc c"
     },
     {
-      "paragraph_id": 11,
-      "start": 60.65,
-      "end": 104.45,
-      "duration": 43.8,
-      "text_snippet": "assertThrows — assertThrows: Cung cấp các quy tắc và cơ chế hoạt động cụ thể tro"
+      "paragraph_id": 5,
+      "start": 20.15,
+      "end": 35.78,
+      "duration": 15.63,
+      "text_snippet": "Cách tiếp cận tiêu chuẩn là sử dụng Assertions.assertThrows(Class<T> expectedTyp"
     },
     {
-      "paragraph_id": 12,
-      "start": 104.45,
-      "end": 110.4,
-      "duration": 5.95,
-      "text_snippet": "assertThrows — assertThrows: Cung cấp các quy tắc và cơ chế hoạt động cụ thể tro"
-    },
-    {
-      "paragraph_id": 13,
-      "start": 110.4,
-      "end": 114.6,
+      "paragraph_id": 6,
+      "start": 35.78,
+      "end": 39.98,
       "duration": 4.2,
       "text_snippet": "Cách tiếp cận tiêu chuẩn là sử dụng Assertions.assertThrows(Class<T> expectedTyp"
     },
     {
-      "paragraph_id": 14,
-      "start": 114.6,
-      "end": 125.45,
+      "paragraph_id": 7,
+      "start": 35.77,
+      "end": 51.24,
+      "duration": 15.47,
+      "text_snippet": "Nó trả về thể hiện ngoại lệ được ném ra, cho phép khẳng định thêm các chi tiết n"
+    },
+    {
+      "paragraph_id": 8,
+      "start": 51.25,
+      "end": 62.1,
       "duration": 10.85,
       "text_snippet": "Nó trả về thể hiện ngoại lệ được ném ra, cho phép khẳng định thêm các chi tiết n"
     },
     {
-      "paragraph_id": 15,
-      "start": 104.45,
-      "end": 152.11,
-      "duration": 47.66,
+      "paragraph_id": 9,
+      "start": 51.35,
+      "end": 102.9,
+      "duration": 51.55,
       "text_snippet": "Ví Dụ Thực Tế: import org.junit.jupiter.api.Test; import static org.junit.jupite"
     },
     {
-      "paragraph_id": 16,
-      "start": 152.11,
-      "end": 153.51,
+      "paragraph_id": 10,
+      "start": 102.9,
+      "end": 104.3,
       "duration": 1.4,
       "text_snippet": "Ví Dụ Thực Tế:"
     },
     {
-      "paragraph_id": 17,
-      "start": 153.51,
-      "end": 154.91,
-      "duration": 1.4,
+      "paragraph_id": 11,
+      "start": 102.9,
+      "end": 105.28,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 18,
-      "start": 154.91,
-      "end": 158.41,
-      "duration": 3.5,
+      "paragraph_id": 12,
+      "start": 105.28,
+      "end": 110.03,
+      "duration": 4.75,
       "text_snippet": "Kiểm thử gián tiếp logic private (Test Private Logic Indirectly)"
     },
     {
-      "paragraph_id": 19,
-      "start": 158.41,
-      "end": 166.11,
-      "duration": 7.7,
+      "paragraph_id": 13,
+      "start": 110.12,
+      "end": 115.76,
+      "duration": 5.64,
       "text_snippet": "Một tình huống khó xử phổ biến là làm thế nào để kiểm thử một phương thức bổ trợ"
     },
     {
-      "paragraph_id": 20,
-      "start": 166.11,
-      "end": 177.66,
-      "duration": 11.55,
+      "paragraph_id": 14,
+      "start": 115.71,
+      "end": 125.09,
+      "duration": 9.38,
       "text_snippet": "Quy tắc: Không bao giờ chuyển một phương thức thành public hoặc sử dụng phản chi"
     },
     {
-      "paragraph_id": 21,
-      "start": 177.66,
-      "end": 201.11,
-      "duration": 23.45,
+      "paragraph_id": 15,
+      "start": 125.09,
+      "end": 142.83,
+      "duration": 17.74,
       "text_snippet": "Tại sao?: Nếu bạn kiểm thử trực tiếp các phương thức private (ví dụ: bằng cách s"
     },
     {
-      "paragraph_id": 22,
-      "start": 201.11,
-      "end": 227.36,
-      "duration": 26.25,
+      "paragraph_id": 16,
+      "start": 142.82,
+      "end": 162.22,
+      "duration": 19.4,
       "text_snippet": "Giải pháp: Kiểm thử các phương thức private gián tiếp bằng cách gọi các phương t"
     },
     {
-      "paragraph_id": 23,
-      "start": 227.36,
-      "end": 230.86,
-      "duration": 3.5,
+      "paragraph_id": 17,
+      "start": 162.33,
+      "end": 173.19,
+      "duration": 10.86,
       "text_snippet": "Độ bao phủ mã nguồn cơ bản (Basic Code Coverage)"
     },
     {
-      "paragraph_id": 24,
-      "start": 230.86,
-      "end": 240.31,
-      "duration": 9.45,
+      "paragraph_id": 18,
+      "start": 173.19,
+      "end": 190.77,
+      "duration": 17.58,
       "text_snippet": "Độ bao phủ mã nguồn (Code Coverage) đo lường tỷ lệ mã nguồn được thực thi khi ch"
     },
     {
-      "paragraph_id": 25,
-      "start": 240.31,
-      "end": 246.26,
+      "paragraph_id": 19,
+      "start": 190.76,
+      "end": 196.71,
       "duration": 5.95,
       "text_snippet": "Độ bao phủ dòng/câu lệnh (Line/Statement Coverage): Việc thực thi có đi qua dòng"
     },
     {
-      "paragraph_id": 26,
-      "start": 246.36,
-      "end": 255.21,
-      "duration": 8.85,
+      "paragraph_id": 20,
+      "start": 196.71,
+      "end": 206.86,
+      "duration": 10.15,
       "text_snippet": "Độ bao phủ nhánh (Branch Coverage): Việc thực thi có bao phủ cả hai đường dẫn tr"
     },
     {
-      "paragraph_id": 27,
-      "start": 255.16,
-      "end": 314.85,
-      "duration": 59.69,
+      "paragraph_id": 21,
+      "start": 190.86,
+      "end": 249.26,
+      "duration": 58.4,
       "text_snippet": "Giới hạn: Độ bao phủ cao không phải là sự đảm bảo cho chất lượng cao. Các công c"
     },
     {
-      "paragraph_id": 28,
-      "start": 314.85,
-      "end": 330.6,
+      "paragraph_id": 22,
+      "start": 249.26,
+      "end": 265.01,
       "duration": 15.75,
       "text_snippet": "Các công cụ đo độ bao phủ mã nguồn chỉ kiểm tra xem các dòng mã có được thực thi"
     },
     {
-      "paragraph_id": 29,
-      "start": 330.6,
-      "end": 348.45,
+      "paragraph_id": 23,
+      "start": 265.01,
+      "end": 282.86,
       "duration": 17.85,
       "text_snippet": "Bạn có thể viết các bài kiểm thử có độ bao phủ 100% nhưng không khẳng định gì cả"
     },
     {
-      "paragraph_id": 30,
-      "start": 314.85,
-      "end": 317.31,
+      "paragraph_id": 24,
+      "start": 249.26,
+      "end": 251.72,
       "duration": 2.46,
       "text_snippet": "Sai Lầm Thường Gặp & Bẫy"
     },
     {
-      "paragraph_id": 31,
-      "start": 317.31,
-      "end": 319.76,
-      "duration": 2.45,
+      "paragraph_id": 25,
+      "start": 251.83,
+      "end": 255.09,
+      "duration": 3.26,
       "text_snippet": "1. Bẫy try-catch \"Bỏ Sót Ngoại Lệ\""
     },
     {
-      "paragraph_id": 32,
-      "start": 319.76,
-      "end": 333.06,
-      "duration": 13.3,
+      "paragraph_id": 26,
+      "start": 255.04,
+      "end": 265.93,
+      "duration": 10.89,
       "text_snippet": "Trước khi có assertThrows, các lập trình viên thường sử dụng các khối try-catch "
     },
     {
-      "paragraph_id": 33,
-      "start": 333.06,
-      "end": 333.46,
-      "duration": 0.4,
+      "paragraph_id": 27,
+      "start": 265.93,
+      "end": 267.29,
+      "duration": 1.36,
       "text_snippet": "Sai:"
     },
     {
-      "paragraph_id": 34,
-      "start": 333.41,
-      "end": 334.81,
-      "duration": 1.4,
+      "paragraph_id": 28,
+      "start": 267.29,
+      "end": 269.49,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 35,
-      "start": 334.81,
-      "end": 336.21,
-      "duration": 1.4,
+      "paragraph_id": 29,
+      "start": 269.59,
+      "end": 272.49,
+      "duration": 2.9,
       "text_snippet": "Đúng (Sử dụng assertThrows):"
     },
     {
-      "paragraph_id": 36,
-      "start": 336.21,
-      "end": 337.61,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 37,
-      "start": 337.61,
-      "end": 341.46,
-      "duration": 3.85,
-      "text_snippet": "Ví dụ Thực Tế: Kiểm Thử Gián Tiếp Logic Validator Private"
-    },
-    {
-      "paragraph_id": 38,
-      "start": 341.46,
-      "end": 347.41,
-      "duration": 5.95,
-      "text_snippet": "Quan sát một UserRegistrationService có các quy tắc xác thực email và mật khẩu p"
-    },
-    {
-      "paragraph_id": 39,
-      "start": 347.41,
-      "end": 348.81,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 40,
-      "start": 348.81,
-      "end": 356.86,
-      "duration": 8.05,
-      "text_snippet": "Thay vì sử dụng phản chiếu hoặc chuyển validateEmail thành package-private, chún"
-    },
-    {
-      "paragraph_id": 41,
-      "start": 356.86,
-      "end": 358.26,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 42,
-      "start": 358.26,
-      "end": 363.51,
-      "duration": 5.25,
-      "text_snippet": "Tại Sao Nên Kiểm Thử Gián Tiếp Các Phương Thức Private Qua API Công Khai"
-    },
-    {
-      "paragraph_id": 43,
-      "start": 363.51,
-      "end": 390.11,
-      "duration": 26.6,
-      "text_snippet": "Một phương thức private là một chi tiết triển khai (implementation detail) — nó "
-    },
-    {
-      "paragraph_id": 44,
-      "start": 390.11,
-      "end": 417.76,
-      "duration": 27.65,
-      "text_snippet": "Khớp nối triển khai (Implementation coupling): Bài kiểm thử phụ thuộc vào tên ph"
-    },
-    {
-      "paragraph_id": 45,
-      "start": 417.76,
-      "end": 445.41,
-      "duration": 27.65,
-      "text_snippet": "Khớp nối triển khai (Implementation coupling): Bài kiểm thử phụ thuộc vào tên ph"
-    },
-    {
-      "paragraph_id": 46,
-      "start": 445.41,
-      "end": 468.86,
-      "duration": 23.45,
-      "text_snippet": "Bỏ sót hợp đồng: Các bài kiểm thử phương thức private xác minh rằng một cơ chế p"
-    },
-    {
-      "paragraph_id": 47,
-      "start": 468.86,
-      "end": 492.31,
-      "duration": 23.45,
-      "text_snippet": "Bỏ sót hợp đồng: Các bài kiểm thử phương thức private xác minh rằng một cơ chế p"
-    },
-    {
-      "paragraph_id": 48,
-      "start": 492.31,
-      "end": 525.91,
-      "duration": 33.6,
-      "text_snippet": "Cách tiếp cận đúng: kiểm thử phương thức public với các đầu vào được thiết kế để"
-    },
-    {
-      "paragraph_id": 49,
-      "start": 525.91,
-      "end": 530.11,
-      "duration": 4.2,
-      "text_snippet": "Mô Hình Tư Duy: Kiểm Thử Trực Tiếp so với Gián Tiếp"
-    },
-    {
-      "paragraph_id": 50,
-      "start": 530.11,
-      "end": 531.51,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 51,
-      "start": 531.51,
-      "end": 535.71,
-      "duration": 4.2,
-      "text_snippet": "Ví Dụ Thực Tế: Kiểm Thử Logic Private Qua API Công Khai"
-    },
-    {
-      "paragraph_id": 52,
-      "start": 535.71,
-      "end": 537.11,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 53,
-      "start": 537.11,
-      "end": 539.21,
-      "duration": 2.1,
-      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
-    },
-    {
-      "paragraph_id": 54,
-      "start": 539.21,
-      "end": 578.41,
-      "duration": 39.2,
-      "text_snippet": "Phương thức private là chi tiết triển khai → Kiểm thử trực tiếp qua phản chiếu g"
-    },
-    {
-      "paragraph_id": 55,
-      "start": 578.41,
-      "end": 582.61,
-      "duration": 4.2,
-      "text_snippet": "Tại Sao assertThrows An Toàn Hơn Try-Catch Khi Kiểm Thử Ngoại Lệ"
-    },
-    {
-      "paragraph_id": 56,
-      "start": 582.71,
-      "end": 599.6,
-      "duration": 16.89,
-      "text_snippet": "Mẫu try-catch để kiểm thử ngoại lệ có một chế độ thất bại âm thầm cực kỳ nguy hi"
-    },
-    {
-      "paragraph_id": 57,
-      "start": 599.6,
-      "end": 620.6,
-      "duration": 21.0,
-      "text_snippet": "assertThrows(ExceptionType.class, () -> ...) giải quyết vấn đề này bằng cách làm"
-    },
-    {
-      "paragraph_id": 58,
-      "start": 620.6,
-      "end": 625.52,
-      "duration": 4.92,
-      "text_snippet": "Mô Hình Tư Duy: Bẫy try-catch so với Sự an toàn của assertThrows"
-    },
-    {
-      "paragraph_id": 59,
-      "start": 625.52,
-      "end": 627.9,
+      "paragraph_id": 30,
+      "start": 272.44,
+      "end": 274.82,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 60,
-      "start": 627.9,
-      "end": 631.78,
-      "duration": 3.88,
-      "text_snippet": "Ví Dụ Thực Tế: Mẫu assertThrows Hoàn Chỉnh"
+      "paragraph_id": 31,
+      "start": 274.81,
+      "end": 279.42,
+      "duration": 4.61,
+      "text_snippet": "Ví dụ Thực Tế: Kiểm Thử Gián Tiếp Logic Validator Private"
     },
     {
-      "paragraph_id": 61,
-      "start": 631.77,
-      "end": 633.17,
-      "duration": 1.4,
+      "paragraph_id": 32,
+      "start": 279.43,
+      "end": 284.89,
+      "duration": 5.46,
+      "text_snippet": "Quan sát một UserRegistrationService có các quy tắc xác thực email và mật khẩu p"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 284.99,
+      "end": 287.37,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 62,
-      "start": 633.17,
-      "end": 635.27,
-      "duration": 2.1,
+      "paragraph_id": 34,
+      "start": 287.31,
+      "end": 295.49,
+      "duration": 8.18,
+      "text_snippet": "Thay vì sử dụng phản chiếu hoặc chuyển validateEmail thành package-private, chún"
+    },
+    {
+      "paragraph_id": 35,
+      "start": 295.49,
+      "end": 297.87,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 36,
+      "start": 297.86,
+      "end": 302.51,
+      "duration": 4.65,
+      "text_snippet": "Tại Sao Nên Kiểm Thử Gián Tiếp Các Phương Thức Private Qua API Công Khai"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 302.61,
+      "end": 324.78,
+      "duration": 22.17,
+      "text_snippet": "Một phương thức private là một chi tiết triển khai (implementation detail) — nó "
+    },
+    {
+      "paragraph_id": 38,
+      "start": 324.79,
+      "end": 368.05,
+      "duration": 43.26,
+      "text_snippet": "Khớp nối triển khai (Implementation coupling): Bài kiểm thử phụ thuộc vào tên ph"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 368.05,
+      "end": 395.7,
+      "duration": 27.65,
+      "text_snippet": "Khớp nối triển khai (Implementation coupling): Bài kiểm thử phụ thuộc vào tên ph"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 368.05,
+      "end": 385.99,
+      "duration": 17.94,
+      "text_snippet": "Bỏ sót hợp đồng: Các bài kiểm thử phương thức private xác minh rằng một cơ chế p"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 386.09,
+      "end": 403.97,
+      "duration": 17.88,
+      "text_snippet": "Bỏ sót hợp đồng: Các bài kiểm thử phương thức private xác minh rằng một cơ chế p"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 403.96,
+      "end": 428.66,
+      "duration": 24.7,
+      "text_snippet": "Cách tiếp cận đúng: kiểm thử phương thức public với các đầu vào được thiết kế để"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 428.66,
+      "end": 432.52,
+      "duration": 3.86,
+      "text_snippet": "Mô Hình Tư Duy: Kiểm Thử Trực Tiếp so với Gián Tiếp"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 432.53,
+      "end": 434.73,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 434.83,
+      "end": 439.49,
+      "duration": 4.66,
+      "text_snippet": "Ví Dụ Thực Tế: Kiểm Thử Logic Private Qua API Công Khai"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 439.44,
+      "end": 441.82,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 441.81,
+      "end": 444.3,
+      "duration": 2.49,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
     },
     {
-      "paragraph_id": 63,
-      "start": 635.27,
-      "end": 668.52,
-      "duration": 33.25,
+      "paragraph_id": 48,
+      "start": 444.3,
+      "end": 469.9,
+      "duration": 25.6,
+      "text_snippet": "Phương thức private là chi tiết triển khai → Kiểm thử trực tiếp qua phản chiếu g"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 470.0,
+      "end": 474.41,
+      "duration": 4.41,
+      "text_snippet": "Tại Sao assertThrows An Toàn Hơn Try-Catch Khi Kiểm Thử Ngoại Lệ"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 474.36,
+      "end": 491.3,
+      "duration": 16.94,
+      "text_snippet": "Mẫu try-catch để kiểm thử ngoại lệ có một chế độ thất bại âm thầm cực kỳ nguy hi"
+    },
+    {
+      "paragraph_id": 51,
+      "start": 491.3,
+      "end": 512.28,
+      "duration": 20.98,
+      "text_snippet": "assertThrows(ExceptionType.class, () -> ...) giải quyết vấn đề này bằng cách làm"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 512.28,
+      "end": 517.22,
+      "duration": 4.94,
+      "text_snippet": "Mô Hình Tư Duy: Bẫy try-catch so với Sự an toàn của assertThrows"
+    },
+    {
+      "paragraph_id": 53,
+      "start": 517.31,
+      "end": 519.69,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 519.64,
+      "end": 523.5,
+      "duration": 3.86,
+      "text_snippet": "Ví Dụ Thực Tế: Mẫu assertThrows Hoàn Chỉnh"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 523.5,
+      "end": 525.86,
+      "duration": 2.36,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 525.86,
+      "end": 528.36,
+      "duration": 2.5,
+      "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 528.46,
+      "end": 551.56,
+      "duration": 23.1,
       "text_snippet": "Mẫu try-catch: ngoại lệ không được ném ra → khối catch bị bỏ qua → mọi khẳng địn"
     },
     {
-      "paragraph_id": 64,
-      "start": 668.52,
-      "end": 674.47,
-      "duration": 5.95,
+      "paragraph_id": 58,
+      "start": 551.56,
+      "end": 563.35,
+      "duration": 11.79,
       "text_snippet": "Tại Sao Độ Bao Phủ Mã Nguồn Là Chỉ Số Chất Lượng Cần Thiết Nhưng Chưa Đủ"
     },
     {
-      "paragraph_id": 65,
-      "start": 674.48,
-      "end": 707.73,
-      "duration": 33.25,
+      "paragraph_id": 59,
+      "start": 563.35,
+      "end": 580.7,
+      "duration": 17.35,
       "text_snippet": "Độ bao phủ mã nguồn đo lường việc thực thi — một dòng hoặc nhánh mã nguồn có đượ"
     },
     {
-      "paragraph_id": 66,
-      "start": 707.83,
-      "end": 740.28,
-      "duration": 32.45,
+      "paragraph_id": 60,
+      "start": 580.7,
+      "end": 603.8,
+      "duration": 23.1,
       "text_snippet": "Ví dụ, một bài kiểm thử gọi calculator.add(2, 3) mà không gọi bất kỳ assertEqual"
     },
     {
-      "paragraph_id": 67,
-      "start": 740.27,
-      "end": 751.29,
-      "duration": 11.02,
+      "paragraph_id": 61,
+      "start": 603.9,
+      "end": 623.91,
+      "duration": 20.01,
       "text_snippet": "Độ bao phủ mã nguồn cao là một nền tảng cần thiết (mã nguồn chưa được kiểm thử c"
     },
     {
-      "paragraph_id": 68,
-      "start": 751.3,
-      "end": 755.29,
+      "paragraph_id": 62,
+      "start": 623.91,
+      "end": 627.9,
       "duration": 3.99,
       "text_snippet": "Mô Hình Tư Duy: Độ Bao Phủ so với Tính Đúng Đắn"
     },
     {
-      "paragraph_id": 69,
-      "start": 755.29,
-      "end": 757.67,
+      "paragraph_id": 63,
+      "start": 627.9,
+      "end": 630.28,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 70,
-      "start": 757.66,
-      "end": 762.46,
+      "paragraph_id": 64,
+      "start": 630.28,
+      "end": 635.08,
       "duration": 4.8,
       "text_snippet": "Ví Dụ Thực Tế: Độ bao phủ nhánh và giới hạn của độ bao phủ dòng"
     },
     {
-      "paragraph_id": 71,
-      "start": 762.46,
-      "end": 763.86,
-      "duration": 1.4,
+      "paragraph_id": 65,
+      "start": 635.18,
+      "end": 637.56,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 72,
-      "start": 763.86,
-      "end": 765.96,
-      "duration": 2.1,
+      "paragraph_id": 66,
+      "start": 637.5,
+      "end": 639.98,
+      "duration": 2.48,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
     },
     {
-      "paragraph_id": 73,
-      "start": 765.96,
-      "end": 797.81,
-      "duration": 31.85,
+      "paragraph_id": 67,
+      "start": 639.98,
+      "end": 659.29,
+      "duration": 19.31,
       "text_snippet": "Đạt 100% độ bao phủ dòng → Mọi dòng mã nguồn đều được thực thi trong quá trình k"
     },
     {
-      "paragraph_id": 74,
-      "start": 797.81,
-      "end": 799.21,
-      "duration": 1.4,
+      "paragraph_id": 68,
+      "start": 659.29,
+      "end": 661.29,
+      "duration": 2.0,
       "text_snippet": "Liên Kết Tham Khảo"
     },
     {
-      "paragraph_id": 75,
-      "start": 799.21,
-      "end": 800.96,
-      "duration": 1.75,
+      "paragraph_id": 69,
+      "start": 661.39,
+      "end": 674.54,
+      "duration": 13.15,
       "text_snippet": "https://junit.org/junit5/docs/current/user-guide/ (JUnit 5 User Guide)"
     },
     {
-      "paragraph_id": 76,
-      "start": 801.06,
-      "end": 807.8,
-      "duration": 6.74,
+      "paragraph_id": 70,
+      "start": 674.54,
+      "end": 675.59,
+      "duration": 1.05,
       "text_snippet": "https://site.mockito.org/ (Mockito documentation)"
     }
   ]

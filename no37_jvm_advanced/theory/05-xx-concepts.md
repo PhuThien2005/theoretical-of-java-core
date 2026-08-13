@@ -1,11 +1,5 @@
 # Advanced JVM - Part 5
 
-## Learning Goal
-
-This file covers a focused slice of **Advanced JVM**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `-XX` |`XX` — XX provides specific functionality and rules in Java development. |
@@ -52,12 +46,6 @@ jmap -dump:format=b,file=heap_dump.hprof 1234
 
 - **Manually parsing heap dumps**: Heap dumps are binary files and can be huge. Do not open them in raw text editors. Always use specialized tools like Eclipse Memory Analyzer (MAT) or VisualVM.
 - **Failing to capture thread dumps during deadlocks**: When application threads hang, immediately capture 2-3 thread dumps spaced a few seconds apart to identify which threads are blocked on which monitors.
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
 
 ## Why JVM Flag Classifications Exist
 
@@ -116,4 +104,3 @@ Configuring standard flags &rarr; Guarantees cross-vendor portability &rarr; Add
 ## Reference Links
 
 - https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html (Java Command-Line Tool Options Reference)
-

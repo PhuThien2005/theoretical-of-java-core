@@ -1,440 +1,370 @@
 {
   "lesson": "03-survivor-concepts",
-  "total_duration_seconds": 514.66,
-  "total_paragraphs": 62,
+  "total_duration_seconds": 445.85,
+  "total_paragraphs": 52,
   "timestamps": [
     {
       "paragraph_id": 1,
       "start": 0.1,
-      "end": 6.0,
-      "duration": 5.9,
+      "end": 5.98,
+      "duration": 5.88,
       "text_snippet": "JVM Nâng Cao - Phần 3 (Advanced JVM - Part 3)"
     },
     {
       "paragraph_id": 2,
-      "start": 5.95,
-      "end": 8.95,
-      "duration": 3.0,
-      "text_snippet": "Mục Tiêu Học Tập (Learning Goal)"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 8.95,
-      "end": 21.18,
-      "duration": 12.23,
-      "text_snippet": "Tài liệu này trình bày một phần trọng tâm về JVM Nâng Cao (Advanced JVM). Hãy ng"
-    },
-    {
-      "paragraph_id": 4,
-      "start": 21.18,
-      "end": 24.44,
+      "start": 5.92,
+      "end": 9.18,
       "duration": 3.26,
       "text_snippet": "Khung Nội Dung (Outline Coverage)"
     },
     {
-      "paragraph_id": 5,
-      "start": 24.44,
-      "end": 30.32,
-      "duration": 5.88,
-      "text_snippet": "Survivor — Survivor: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 6,
-      "start": 30.41,
-      "end": 37.16,
-      "duration": 6.75,
-      "text_snippet": "Old Generation — Old Generation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể"
-    },
-    {
-      "paragraph_id": 7,
-      "start": 37.11,
-      "end": 44.03,
-      "duration": 6.92,
-      "text_snippet": "GC algorithms: — GC algorithms:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể"
-    },
-    {
-      "paragraph_id": 8,
-      "start": 44.04,
-      "end": 50.76,
-      "duration": 6.72,
-      "text_snippet": "Serial GC — Serial GC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Jav"
-    },
-    {
-      "paragraph_id": 9,
-      "start": 50.76,
-      "end": 57.54,
-      "duration": 6.78,
-      "text_snippet": "Parallel GC — Parallel GC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong"
-    },
-    {
-      "paragraph_id": 10,
-      "start": 57.54,
-      "end": 63.7,
-      "duration": 6.16,
-      "text_snippet": "old CMS — old CMS: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 11,
-      "start": 63.8,
-      "end": 70.11,
-      "duration": 6.31,
-      "text_snippet": "G1 GC — G1 GC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 12,
-      "start": 70.06,
-      "end": 76.07,
-      "duration": 6.01,
-      "text_snippet": "ZGC — ZGC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 13,
-      "start": 76.08,
-      "end": 79.07,
+      "paragraph_id": 3,
+      "start": 9.19,
+      "end": 12.18,
       "duration": 2.99,
       "text_snippet": "Ghi Chú Chi Tiết (Detailed Notes)"
     },
     {
-      "paragraph_id": 14,
-      "start": 79.06,
-      "end": 90.3,
-      "duration": 11.24,
+      "paragraph_id": 4,
+      "start": 12.18,
+      "end": 15.46,
+      "duration": 3.28,
       "text_snippet": "Vùng Sống Sót (Survivor Space)"
     },
     {
-      "paragraph_id": 15,
-      "start": 90.3,
-      "end": 97.57,
-      "duration": 7.27,
+      "paragraph_id": 5,
+      "start": 15.55,
+      "end": 30.58,
+      "duration": 15.03,
       "text_snippet": "Vùng Sống Sót (Survivor) bao gồm hai không gian nhớ nhỏ có kích thước bằng nhau "
     },
     {
-      "paragraph_id": 16,
-      "start": 97.67,
-      "end": 112.03,
-      "duration": 14.36,
+      "paragraph_id": 6,
+      "start": 30.58,
+      "end": 44.97,
+      "duration": 14.39,
       "text_snippet": "Quy tắc dịch chuyển: Tại một thời điểm, một vùng Survivor sẽ ở trạng thái hoạt đ"
     },
     {
-      "paragraph_id": 17,
-      "start": 112.04,
-      "end": 143.45,
-      "duration": 31.41,
+      "paragraph_id": 7,
+      "start": 44.96,
+      "end": 64.36,
+      "duration": 19.4,
       "text_snippet": "Tích tuổi đối tượng: Mỗi lần đối tượng sống sót qua một đợt Minor GC và được sao"
     },
     {
-      "paragraph_id": 18,
-      "start": 143.45,
-      "end": 145.2,
+      "paragraph_id": 8,
+      "start": 64.36,
+      "end": 66.11,
       "duration": 1.75,
       "text_snippet": "Thế Hệ Già (Old Generation)"
     },
     {
-      "paragraph_id": 19,
-      "start": 145.2,
-      "end": 158.15,
-      "duration": 12.95,
+      "paragraph_id": 9,
+      "start": 64.46,
+      "end": 76.26,
+      "duration": 11.8,
       "text_snippet": "Thế hệ Già (Old Generation hay Tenured Generation) là vùng lưu trữ các đối tượng"
     },
     {
-      "paragraph_id": 20,
-      "start": 143.45,
-      "end": 157.01,
-      "duration": 13.56,
+      "paragraph_id": 10,
+      "start": 76.21,
+      "end": 89.78,
+      "duration": 13.57,
       "text_snippet": "Tần suất dọn rác: Các đợt dọn rác trên thế hệ Già (Major GC hoặc Full GC) xảy ra"
     },
     {
-      "paragraph_id": 21,
-      "start": 157.01,
-      "end": 167.16,
-      "duration": 10.15,
+      "paragraph_id": 11,
+      "start": 89.79,
+      "end": 100.3,
+      "duration": 10.51,
       "text_snippet": "Trường hợp thất bại: Nếu thế hệ Già bị đầy và GC không thể giải phóng thêm không"
     },
     {
-      "paragraph_id": 22,
-      "start": 167.16,
-      "end": 169.96,
-      "duration": 2.8,
+      "paragraph_id": 12,
+      "start": 100.3,
+      "end": 104.0,
+      "duration": 3.7,
       "text_snippet": "Các thuật toán thu gom rác (GC algorithms)"
     },
     {
-      "paragraph_id": 23,
-      "start": 169.96,
-      "end": 183.61,
-      "duration": 13.65,
+      "paragraph_id": 13,
+      "start": 104.1,
+      "end": 113.59,
+      "duration": 9.49,
       "text_snippet": "Việc hiểu rõ hành vi thời gian chạy của các thuật toán GC giúp giải thích hiệu n"
     },
     {
-      "paragraph_id": 24,
-      "start": 183.61,
-      "end": 184.66,
-      "duration": 1.05,
+      "paragraph_id": 14,
+      "start": 113.54,
+      "end": 115.98,
+      "duration": 2.44,
       "text_snippet": "1. Serial GC"
     },
     {
-      "paragraph_id": 25,
-      "start": 184.66,
-      "end": 192.36,
-      "duration": 7.7,
+      "paragraph_id": 15,
+      "start": 115.97,
+      "end": 123.91,
+      "duration": 7.94,
       "text_snippet": "Bộ thu gom rác chạy đơn luồng. Khi thực hiện dọn rác, nó sẽ dừng toàn bộ các luồ"
     },
     {
-      "paragraph_id": 26,
-      "start": 192.36,
-      "end": 199.01,
-      "duration": 6.65,
+      "paragraph_id": 16,
+      "start": 123.91,
+      "end": 130.11,
+      "duration": 6.2,
       "text_snippet": "Phù hợp: Các ứng dụng dòng lệnh nhỏ, các vi dịch vụ chạy trong container chỉ có "
     },
     {
-      "paragraph_id": 27,
-      "start": 199.01,
-      "end": 200.06,
-      "duration": 1.05,
+      "paragraph_id": 17,
+      "start": 130.21,
+      "end": 133.55,
+      "duration": 3.34,
       "text_snippet": "Kích hoạt: -XX:+UseSerialGC"
     },
     {
-      "paragraph_id": 28,
-      "start": 200.06,
-      "end": 201.11,
-      "duration": 1.05,
+      "paragraph_id": 18,
+      "start": 133.5,
+      "end": 136.1,
+      "duration": 2.6,
       "text_snippet": "2. Parallel GC"
     },
     {
-      "paragraph_id": 29,
-      "start": 201.11,
-      "end": 210.56,
-      "duration": 9.45,
+      "paragraph_id": 19,
+      "start": 136.1,
+      "end": 144.61,
+      "duration": 8.51,
       "text_snippet": "Sử dụng nhiều luồng song song để thực hiện dọn rác nhằm giảm thiểu thời gian Sto"
     },
     {
-      "paragraph_id": 30,
-      "start": 210.56,
-      "end": 216.51,
-      "duration": 5.95,
+      "paragraph_id": 20,
+      "start": 144.61,
+      "end": 150.36,
+      "duration": 5.75,
       "text_snippet": "Phù hợp: Các ứng dụng xử lý dữ liệu theo lô (batch processing), tính toán khoa h"
     },
     {
-      "paragraph_id": 31,
-      "start": 216.61,
-      "end": 219.76,
-      "duration": 3.15,
+      "paragraph_id": 21,
+      "start": 150.46,
+      "end": 153.67,
+      "duration": 3.21,
       "text_snippet": "Kích hoạt: -XX:+UseParallelGC"
     },
     {
-      "paragraph_id": 32,
-      "start": 219.71,
-      "end": 223.9,
-      "duration": 4.19,
+      "paragraph_id": 22,
+      "start": 153.62,
+      "end": 157.82,
+      "duration": 4.2,
       "text_snippet": "3. Concurrent Mark Sweep (CMS) GC"
     },
     {
-      "paragraph_id": 33,
-      "start": 223.9,
-      "end": 232.35,
-      "duration": 8.45,
+      "paragraph_id": 23,
+      "start": 157.83,
+      "end": 166.29,
+      "duration": 8.46,
       "text_snippet": "Thuật toán dọn rác đồng thời thế hệ cũ, cố gắng thực hiện phần lớn các công việc"
     },
     {
-      "paragraph_id": 34,
-      "start": 232.35,
-      "end": 239.81,
-      "duration": 7.46,
+      "paragraph_id": 24,
+      "start": 166.29,
+      "end": 173.78,
+      "duration": 7.49,
       "text_snippet": "Trạng thái: Đã bị loại bỏ hoàn toàn (removed) từ Java 14 do cấu trúc phức tạp và"
     },
     {
-      "paragraph_id": 35,
-      "start": 239.81,
-      "end": 243.04,
-      "duration": 3.23,
+      "paragraph_id": 25,
+      "start": 173.88,
+      "end": 177.26,
+      "duration": 3.38,
       "text_snippet": "4. G1 GC (Garbage-First)"
     },
     {
-      "paragraph_id": 36,
-      "start": 243.14,
-      "end": 260.34,
-      "duration": 17.2,
+      "paragraph_id": 26,
+      "start": 177.2,
+      "end": 194.47,
+      "duration": 17.27,
       "text_snippet": "Bộ thu gom rác mặc định từ Java 9. Nó chia bộ nhớ heap thành hàng nghìn vùng ảo "
     },
     {
-      "paragraph_id": 37,
-      "start": 260.34,
-      "end": 266.04,
-      "duration": 5.7,
+      "paragraph_id": 27,
+      "start": 194.47,
+      "end": 200.19,
+      "duration": 5.72,
       "text_snippet": "Phù hợp: Các ứng dụng máy chủ lớn có bộ nhớ heap từ 4GB đến vài chục GB."
     },
     {
-      "paragraph_id": 38,
-      "start": 266.04,
-      "end": 269.64,
-      "duration": 3.6,
+      "paragraph_id": 28,
+      "start": 200.2,
+      "end": 203.77,
+      "duration": 3.57,
       "text_snippet": "Kích hoạt: -XX:+UseG1GC"
     },
     {
-      "paragraph_id": 39,
-      "start": 269.64,
-      "end": 273.64,
+      "paragraph_id": 29,
+      "start": 203.88,
+      "end": 207.88,
       "duration": 4.0,
       "text_snippet": "5. ZGC (Z Garbage Collector)"
     },
     {
-      "paragraph_id": 40,
-      "start": 273.64,
-      "end": 291.68,
-      "duration": 18.04,
+      "paragraph_id": 30,
+      "start": 207.83,
+      "end": 225.79,
+      "duration": 17.96,
       "text_snippet": "Bộ thu gom rác thế hệ mới có độ trễ siêu thấp. Nó thực hiện tất cả các công việc"
     },
     {
-      "paragraph_id": 41,
-      "start": 291.78,
-      "end": 299.49,
-      "duration": 7.71,
+      "paragraph_id": 31,
+      "start": 225.79,
+      "end": 233.49,
+      "duration": 7.7,
       "text_snippet": "Phù hợp: Các ứng dụng yêu cầu thời gian phản hồi thời gian thực cực nhanh (tài c"
     },
     {
-      "paragraph_id": 42,
-      "start": 299.44,
-      "end": 302.27,
+      "paragraph_id": 32,
+      "start": 233.49,
+      "end": 236.32,
       "duration": 2.83,
       "text_snippet": "Kích hoạt: -XX:+UseZGC"
     },
     {
-      "paragraph_id": 43,
-      "start": 302.26,
-      "end": 305.62,
+      "paragraph_id": 33,
+      "start": 236.41,
+      "end": 239.77,
       "duration": 3.36,
       "text_snippet": "Ví Dụ Mã Nguồn (Code Examples)"
     },
     {
-      "paragraph_id": 44,
-      "start": 305.62,
-      "end": 310.98,
-      "duration": 5.36,
+      "paragraph_id": 34,
+      "start": 239.72,
+      "end": 245.06,
+      "duration": 5.34,
       "text_snippet": "Lựa chọn thuật toán GC thông qua các cờ CLI khi khởi động JVM"
     },
     {
-      "paragraph_id": 45,
-      "start": 310.99,
-      "end": 313.19,
-      "duration": 2.2,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 46,
-      "start": 313.19,
-      "end": 315.64,
-      "duration": 2.45,
-      "text_snippet": "Các Sai Lầm Thường Gặp (Common Mistakes)"
-    },
-    {
-      "paragraph_id": 47,
-      "start": 315.64,
-      "end": 335.59,
-      "duration": 19.95,
-      "text_snippet": "Sử dụng Serial GC trên các máy chủ đa nhân: Serial GC chỉ sử dụng một luồng duy "
-    },
-    {
-      "paragraph_id": 48,
-      "start": 335.59,
-      "end": 357.99,
-      "duration": 22.4,
-      "text_snippet": "Lầm tưởng G1 GC chia các phân thế hệ vật lý cố định: Không giống như Parallel GC"
-    },
-    {
-      "paragraph_id": 49,
-      "start": 357.99,
-      "end": 361.49,
-      "duration": 3.5,
-      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)"
-    },
-    {
-      "paragraph_id": 50,
-      "start": 361.49,
-      "end": 372.34,
-      "duration": 10.85,
-      "text_snippet": "Khái niệm nào ở đây là quy tắc tại thời điểm chạy? (Các thuật toán hoạt động của"
-    },
-    {
-      "paragraph_id": 51,
-      "start": 372.44,
-      "end": 379.32,
-      "duration": 6.88,
-      "text_snippet": "Cờ CLI nào được dùng để kích hoạt bộ thu gom rác ZGC? (-XX:+UseZGC)."
-    },
-    {
-      "paragraph_id": 52,
-      "start": 379.31,
-      "end": 386.0,
-      "duration": 6.69,
-      "text_snippet": "Tại Sao Các Vùng Survivor Ngăn Chặn Phân Mảnh Bộ Nhớ Heap (Why Survivor Spaces P"
-    },
-    {
-      "paragraph_id": 53,
-      "start": 386.0,
-      "end": 456.15,
-      "duration": 70.15,
-      "text_snippet": "Mô hình thu gom rác phân thế hệ sử dụng các vùng Sống Sót (S0 và S1) bên cạnh vù"
-    },
-    {
-      "paragraph_id": 54,
-      "start": 456.15,
-      "end": 460.7,
-      "duration": 4.55,
-      "text_snippet": "Mô hình Tư duy: Quy trình Sao chép và Sơ tán (Copy-and-Evacuate Process)"
-    },
-    {
-      "paragraph_id": 55,
-      "start": 456.15,
-      "end": 458.35,
-      "duration": 2.2,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 56,
-      "start": 458.45,
-      "end": 460.39,
-      "duration": 1.94,
-      "text_snippet": "Ví Dụ Mã Nguồn"
-    },
-    {
-      "paragraph_id": 57,
-      "start": 460.34,
-      "end": 477.15,
-      "duration": 16.81,
-      "text_snippet": "Dưới đây là mã nguồn mô phỏng việc tạo liên tục các đối tượng ngắn hạn. Vì các đ"
-    },
-    {
-      "paragraph_id": 58,
-      "start": 477.15,
-      "end": 479.53,
+      "paragraph_id": 35,
+      "start": 245.06,
+      "end": 247.44,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 59,
-      "start": 479.52,
-      "end": 483.41,
-      "duration": 3.89,
+      "paragraph_id": 36,
+      "start": 247.44,
+      "end": 250.74,
+      "duration": 3.3,
+      "text_snippet": "Các Sai Lầm Thường Gặp (Common Mistakes)"
+    },
+    {
+      "paragraph_id": 37,
+      "start": 250.84,
+      "end": 266.45,
+      "duration": 15.61,
+      "text_snippet": "Sử dụng Serial GC trên các máy chủ đa nhân: Serial GC chỉ sử dụng một luồng duy "
+    },
+    {
+      "paragraph_id": 38,
+      "start": 266.45,
+      "end": 284.0,
+      "duration": 17.55,
+      "text_snippet": "Lầm tưởng G1 GC chia các phân thế hệ vật lý cố định: Không giống như Parallel GC"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 284.0,
+      "end": 288.06,
+      "duration": 4.06,
+      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp (Common Review Prompts)"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 288.06,
+      "end": 297.7,
+      "duration": 9.64,
+      "text_snippet": "Khái niệm nào ở đây là quy tắc tại thời điểm chạy? (Các thuật toán hoạt động của"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 297.8,
+      "end": 302.44,
+      "duration": 4.64,
+      "text_snippet": "Cờ CLI nào được dùng để kích hoạt bộ thu gom rác ZGC? (-XX:+UseZGC)."
+    },
+    {
+      "paragraph_id": 42,
+      "start": 302.44,
+      "end": 308.74,
+      "duration": 6.3,
+      "text_snippet": "Tại Sao Các Vùng Survivor Ngăn Chặn Phân Mảnh Bộ Nhớ Heap (Why Survivor Spaces P"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 308.74,
+      "end": 388.54,
+      "duration": 79.8,
+      "text_snippet": "Mô hình thu gom rác phân thế hệ sử dụng các vùng Sống Sót (S0 và S1) bên cạnh vù"
+    },
+    {
+      "paragraph_id": 44,
+      "start": 388.54,
+      "end": 393.09,
+      "duration": 4.55,
+      "text_snippet": "Mô hình Tư duy: Quy trình Sao chép và Sơ tán (Copy-and-Evacuate Process)"
+    },
+    {
+      "paragraph_id": 45,
+      "start": 381.49,
+      "end": 383.87,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 46,
+      "start": 383.81,
+      "end": 385.75,
+      "duration": 1.94,
+      "text_snippet": "Ví Dụ Mã Nguồn"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 385.75,
+      "end": 402.24,
+      "duration": 16.49,
+      "text_snippet": "Dưới đây là mã nguồn mô phỏng việc tạo liên tục các đối tượng ngắn hạn. Vì các đ"
+    },
+    {
+      "paragraph_id": 48,
+      "start": 402.24,
+      "end": 404.44,
+      "duration": 2.2,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 404.54,
+      "end": 408.44,
+      "duration": 3.9,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)"
     },
     {
-      "paragraph_id": 60,
-      "start": 483.41,
-      "end": 507.66,
-      "duration": 24.25,
+      "paragraph_id": 50,
+      "start": 408.39,
+      "end": 433.22,
+      "duration": 24.83,
       "text_snippet": "Các đối tượng mới được cấp phát trong vùng Eden $\\rightarrow$ Minor GC được kích"
     },
     {
-      "paragraph_id": 61,
-      "start": 507.66,
-      "end": 509.76,
+      "paragraph_id": 51,
+      "start": 433.21,
+      "end": 435.31,
       "duration": 2.1,
       "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
     },
     {
-      "paragraph_id": 62,
-      "start": 509.76,
-      "end": 514.66,
-      "duration": 4.9,
+      "paragraph_id": 52,
+      "start": 433.21,
+      "end": 445.85,
+      "duration": 12.64,
       "text_snippet": "https://docs.oracle.com/en/java/javase/21/gctuning/factors-affecting-garbage-col"
     }
   ]

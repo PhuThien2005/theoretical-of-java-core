@@ -1,11 +1,5 @@
 # Basic Design Patterns Commonly Seen in Java - Part 2
 
-## Learning Goal
-
-This file covers GoF behavioral patterns and architectural patterns (MVC, DAO, DTO, Repository, Service Layer) standard in Java enterprise code. Study each concept as a practical Java rule.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Observer` | Subscription model allowing multiple listener objects to react to subject state changes. |

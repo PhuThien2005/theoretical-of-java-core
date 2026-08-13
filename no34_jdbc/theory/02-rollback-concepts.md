@@ -12,8 +12,6 @@ setAutoCommit determines whether statements are executed in auto-commit mode (wh
 
 It matters because for multi-step transactional operations (e.g., bank transfer), auto-commit must be disabled (`setAutoCommit(false)`) to ensure atomic execution.
 
-
-
 ## Why Disabling Auto-Commit Establishes Transactional ACID Boundaries
 
 By default, new JDBC connections operate in auto-commit mode, where every individual SQL statement is treated as a distinct transaction and committed immediately to the database upon execution. While convenient, this model violates the Atomicity and Consistency properties of ACID transactions for operations requiring multiple related updates (such as transferring money between two accounts). If one update succeeds and the next fails (e.g., due to a network interruption or business rule violation), the database is left in a corrupted, partially updated state. Disabling auto-commit (`conn.setAutoCommit(false)`) instructs the database engine to group all subsequent SQL commands into a single logical transaction block. This manual control ensures that either all modifications are finalized together via `conn.commit()`, or all changes are completely discarded via `conn.rollback()` in the event of an error, preserving database consistency.
@@ -218,14 +216,6 @@ JDBC is the Java API for connecting to relational databases.
 
 Use it to predict the exact Java rule, the allowed form, and the failure mode. Review it with a tiny example instead of memorizing only the label.
 
-
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
-
 ## Code Examples
 
 ### Transaction Management (commit and rollback)
@@ -301,4 +291,3 @@ try (Connection conn = dataSource.getConnection();
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.sql/java/sql/Connection.html#setAutoCommit(boolean) (Connection setAutoCommit JavaDoc)
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.sql/java/sql/Savepoint.html (Savepoint JavaDoc)
 - https://github.com/brettwooldridge/HikariCP (HikariCP Connection Pool GitHub Reference)
-

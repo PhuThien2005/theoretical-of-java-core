@@ -1,21 +1,6 @@
 # Vào/Ra (I/O) trong Java - Phần 1 (IO in Java - Part 1)
 
-## Mục tiêu học tập
-
-Tài liệu này tập trung vào một phần trọng tâm của **Vào/Ra (I/O) trong Java**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc Java thực tế, thay vì chỉ học các từ vựng rời rạc.
-
 ## Đề cương chi tiết
-
-- **`File`** — File: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Create file`** — Create file: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Delete file`** — Delete file: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Check existence`** — Check existence: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Read file metadata`** — Read file metadata: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Create directory`** — Create directory: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`InputStream`** — InputStream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`OutputStream`** — OutputStream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`FileInputStream`** — FileInputStream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`FileOutputStream`** — FileOutputStream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi chú chi tiết
 

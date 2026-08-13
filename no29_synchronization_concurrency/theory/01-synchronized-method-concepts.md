@@ -1,11 +1,5 @@
 # Synchronization and Concurrency - Part 1
 
-## Learning Goal
-
-This file covers Java's intrinsic locking primitives, monitors, and the wait/notify signaling mechanism. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `synchronized method` | Locks the object instance (`this`) for instance methods, or the `Class` object for static methods, preventing other threads from executing any synchronized methods on that lock. |

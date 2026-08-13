@@ -1,20 +1,5 @@
 # Kiến Trúc JVM Nâng Cao (Advanced JVM) - Phần 1
 
-## Mục Tiêu Học Tập
-
-File này đề cập đến một phần trọng tâm của **Kiến Trúc JVM Nâng Cao (Advanced JVM)**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải là những từ vựng rời rạc.
-
-## Đề Cương Khái Niệm
-
-- **`Kiến trúc JVM`** — Kiến trúc JVM: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Phân hệ Class Loader`** — Thành phần JVM chịu trách nhiệm tải, liên kết và khởi tạo các tệp .class vào bộ nhớ.
-- **`Vùng dữ liệu thời gian chạy:`** — Vùng dữ liệu thời gian chạy:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Heap`** — Heap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Stack`** — Stack: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Method Area / Metaspace`** — Method Area / Metaspace: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Thanh ghi PC`** — Thanh ghi PC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Native Method Stack`** — Native Method Stack: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### Kiến Trúc JVM (JVM Architecture)
@@ -34,8 +19,6 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 - Khi đọc mã nguồn, hãy tự hỏi: `Kiến trúc JVM` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ### Phân Hệ Class Loader (Class Loader Subsystem)
-
-**`Phân hệ Class Loader`** — Phân hệ Class Loader: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 
@@ -165,12 +148,6 @@ System.out.println("Max Heap: " + (maxMemory / 1024 / 1024) + " MB");
 
 - **Giả định StackOverflowError liên quan đến Heap**: Lỗi `StackOverflowError` xảy ra trong Thread Stack (ngăn xếp luồng) khi các khung cuộc gọi vượt quá giới hạn bộ nhớ ngăn xếp (thường là do đệ quy vô hạn). Điều này không liên quan đến Heap.
 - **Lầm lẫn Metaspace với Heap**: Siêu dữ liệu lớp được lưu trữ trong Metaspace (ngoài heap / bộ nhớ bản địa) kể từ Java 8. Nó không cạnh tranh không gian Heap với các đối tượng Java, nhưng vẫn có thể làm cạn kiệt bộ nhớ bản địa nếu có quá nhiều lớp được tải lên.
-
-## Các Câu Hỏi Ôn Tập Thường Gặp
-
-- Những khái niệm nào ở đây là quy tắc tại thời điểm biên dịch?
-- Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy?
-- Những khái niệm nào ở đây có khả năng là bẫy phỏng vấn?
 
 ## Tại Sao Việc Tải Lớp Có Ba Giai Đoạn Riêng Biệt
 

@@ -1,19 +1,6 @@
 # Đồng bộ hóa và Đồng thời - Phần 2 (Synchronization and Concurrency - Part 2)
 
-## Mục tiêu học tập
-
-Tài liệu này tập trung vào các vấn đề đồng bộ hóa nâng cao (deadlock, livelock, starvation), tính hiển thị của bộ nhớ (`volatile`), và các nguyên ngữ nguyên tử không dùng khóa (lock-free atomic primitives). Hãy nghiên cứu từng khái niệm dưới dạng quy tắc Java thực tế, thay vì chỉ học các từ vựng rời rạc.
-
 ## Đề cương chi tiết
-
-- **`Deadlock`** — Deadlock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Livelock`** — Livelock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Starvation`** — Starvation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Volatile`** — Volatile: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Atomic classes:`** — Atomic classes:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`AtomicInteger`** — AtomicInteger: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`AtomicLong`** — AtomicLong: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`AtomicBoolean`** — AtomicBoolean: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi chú chi tiết
 

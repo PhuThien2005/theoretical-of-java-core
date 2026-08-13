@@ -1,15 +1,5 @@
 # Đa Luồng (Multithreading) - Phần 4
 
-## Mục Tiêu Học Tập
-
-File này đề cập đến các nguyên tắc an toàn luồng (thread safety), tính bất biến của đối tượng (object immutability) và các hoạt động nguyên tử (atomic operation). Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải là những từ vựng rời rạc.
-
-## Đề Cương Khái Niệm
-
-- **`An toàn luồng (Thread safety)`** — An toàn luồng (Thread safety): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Đối tượng bất biến (Immutable object)`** — Đối tượng bất biến (Immutable object): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Hoạt động nguyên tử (Atomic operation)`** — Hoạt động nguyên tử (Atomic operation): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### An Toàn Luồng (Thread Safety)

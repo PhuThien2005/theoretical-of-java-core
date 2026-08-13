@@ -1,22 +1,5 @@
 # Các Mẫu Thiết Kế Cơ Bản Thường Gặp Trong Java - Phần 1
 
-## Mục Tiêu Học Tập
-
-File này đề cập đến một phần trọng tâm của các **Mẫu thiết kế (Design Pattern)** khởi tạo (creational) và cấu trúc (structural) thuộc nhóm GoF được sử dụng rộng rãi trong Java. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế.
-
-## Đề Cương Khái Niệm
-
-- **`Singleton`** — Singleton: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Factory Method`** — Factory Method: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Abstract Factory`** — Abstract Factory: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Builder`** — Builder: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Prototype`** — Prototype: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Adapter`** — Adapter: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Decorator`** — Decorator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Facade`** — Facade: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Proxy`** — Proxy: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Strategy`** — Strategy: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ---
 
 ## Ghi Chú Chi Tiết

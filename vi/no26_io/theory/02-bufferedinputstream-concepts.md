@@ -1,22 +1,5 @@
 # I/O trong Java - Phần 2
 
-## Mục Tiêu Học Tập
-
-File này đề cập đến một phần trọng tâm của **I/O trong Java**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải là những từ vựng rời rạc.
-
-## Đề Cương Khái Niệm
-
-- **`BufferedInputStream`** — BufferedInputStream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`BufferedOutputStream`** — BufferedOutputStream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Reader`** — Reader: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Writer`** — Writer: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`FileReader`** — FileReader: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`FileWriter`** — FileWriter: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`BufferedReader`** — BufferedReader: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`BufferedWriter`** — BufferedWriter: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ObjectInputStream`** — ObjectInputStream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ObjectOutputStream`** — ObjectOutputStream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### Các Luồng Đệm - Byte Buffering (Buffered Streams)

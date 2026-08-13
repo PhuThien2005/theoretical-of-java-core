@@ -1,7 +1,7 @@
 {
   "lesson": "02-avoid-insecure-deserialization-concepts",
-  "total_duration_seconds": 366.59,
-  "total_paragraphs": 42,
+  "total_duration_seconds": 334.74,
+  "total_paragraphs": 38,
   "timestamps": [
     {
       "paragraph_id": 1,
@@ -13,287 +13,259 @@
     {
       "paragraph_id": 2,
       "start": 4.28,
-      "end": 6.07,
-      "duration": 1.79,
-      "text_snippet": "Mục Tiêu Học Tập"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 6.06,
-      "end": 17.57,
-      "duration": 11.51,
-      "text_snippet": "Tài liệu này trình bày một phần trọng tâm của Bảo mật cơ bản (Basic Security). H"
-    },
-    {
-      "paragraph_id": 4,
-      "start": 17.57,
-      "end": 19.58,
-      "duration": 2.01,
-      "text_snippet": "Nội Dung Tổng Quan"
-    },
-    {
-      "paragraph_id": 5,
-      "start": 19.59,
-      "end": 28.32,
-      "duration": 8.73,
-      "text_snippet": "Avoid insecure deserialization — Avoid insecure deserialization: Cung cấp các qu"
-    },
-    {
-      "paragraph_id": 6,
-      "start": 28.41,
-      "end": 30.23,
-      "duration": 1.82,
+      "end": 6.11,
+      "duration": 1.83,
       "text_snippet": "Ghi Chú Chi Tiết"
     },
     {
-      "paragraph_id": 7,
-      "start": 30.19,
-      "end": 54.38,
-      "duration": 24.19,
+      "paragraph_id": 3,
+      "start": 6.1,
+      "end": 30.12,
+      "duration": 24.02,
       "text_snippet": "Tránh giải tuần tự hóa không an toàn (Avoid insecure deserialization)"
     },
     {
-      "paragraph_id": 8,
-      "start": 54.38,
-      "end": 73.98,
+      "paragraph_id": 4,
+      "start": 30.12,
+      "end": 49.72,
       "duration": 19.6,
       "text_snippet": "Giải tuần tự hóa không an toàn (Insecure deserialization) xảy ra khi dữ liệu đã "
     },
     {
-      "paragraph_id": 9,
-      "start": 54.38,
-      "end": 61.44,
-      "duration": 7.06,
+      "paragraph_id": 5,
+      "start": 30.23,
+      "end": 37.27,
+      "duration": 7.04,
       "text_snippet": "Xem thêm: Cơ chế Tuần tự hóa cơ bản trong Java, được trình bày chi tiết trong Ch"
     },
     {
-      "paragraph_id": 10,
-      "start": 61.44,
-      "end": 83.69,
-      "duration": 22.25,
+      "paragraph_id": 6,
+      "start": 37.21,
+      "end": 59.47,
+      "duration": 22.26,
       "text_snippet": "Khái niệm này rất quan trọng vì quá trình giải tuần tự hóa của Java khởi tạo các"
     },
     {
-      "paragraph_id": 11,
-      "start": 83.79,
-      "end": 85.89,
+      "paragraph_id": 7,
+      "start": 59.48,
+      "end": 61.58,
       "duration": 2.1,
       "text_snippet": "Kiểm tra thực tế:"
     },
     {
-      "paragraph_id": 12,
-      "start": 85.84,
-      "end": 90.09,
-      "duration": 4.25,
+      "paragraph_id": 8,
+      "start": 61.58,
+      "end": 65.82,
+      "duration": 4.24,
       "text_snippet": "Định nghĩa Avoid insecure deserialization trong một câu."
     },
     {
-      "paragraph_id": 13,
-      "start": 90.09,
-      "end": 96.88,
-      "duration": 6.79,
+      "paragraph_id": 9,
+      "start": 65.91,
+      "end": 72.71,
+      "duration": 6.8,
       "text_snippet": "Nhận biết Avoid insecure deserialization trong mã nguồn, câu lệnh, tài liệu hoặc"
     },
     {
-      "paragraph_id": 14,
-      "start": 96.88,
-      "end": 102.86,
-      "duration": 5.98,
+      "paragraph_id": 10,
+      "start": 72.66,
+      "end": 78.65,
+      "duration": 5.99,
       "text_snippet": "Giải thích một lỗi, hạn chế hoặc đánh đổi liên quan đến Avoid insecure deseriali"
     },
     {
-      "paragraph_id": 15,
-      "start": 102.85,
-      "end": 105.66,
-      "duration": 2.81,
+      "paragraph_id": 11,
+      "start": 78.65,
+      "end": 81.64,
+      "duration": 2.99,
       "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
     },
     {
-      "paragraph_id": 16,
-      "start": 105.76,
-      "end": 113.72,
-      "duration": 7.96,
+      "paragraph_id": 12,
+      "start": 81.64,
+      "end": 89.38,
+      "duration": 7.74,
       "text_snippet": "Khi đọc mã nguồn, hãy hỏi: Avoid insecure deserialization thay đổi, cho phép, từ"
     },
     {
-      "paragraph_id": 17,
-      "start": 113.67,
-      "end": 116.11,
+      "paragraph_id": 13,
+      "start": 89.47,
+      "end": 91.91,
       "duration": 2.44,
       "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
     },
     {
-      "paragraph_id": 18,
-      "start": 116.11,
-      "end": 129.91,
+      "paragraph_id": 14,
+      "start": 91.86,
+      "end": 105.66,
       "duration": 13.8,
       "text_snippet": "Những khái niệm nào ở đây là quy tắc trong thời gian biên dịch (compile-time)?"
     },
     {
-      "paragraph_id": 19,
-      "start": 129.91,
-      "end": 135.51,
+      "paragraph_id": 15,
+      "start": 105.66,
+      "end": 111.26,
       "duration": 5.6,
       "text_snippet": "Những khái niệm nào ở đây ảnh hưởng đến hành vi khi chạy ứng dụng (runtime)?"
     },
     {
-      "paragraph_id": 20,
-      "start": 135.51,
-      "end": 140.06,
+      "paragraph_id": 16,
+      "start": 111.26,
+      "end": 115.81,
       "duration": 4.55,
       "text_snippet": "Những khái niệm nào ở đây có khả năng là bẫy phỏng vấn?"
     },
     {
-      "paragraph_id": 21,
-      "start": 130.01,
-      "end": 132.17,
+      "paragraph_id": 17,
+      "start": 105.76,
+      "end": 107.92,
       "duration": 2.16,
       "text_snippet": "Các Ví Dụ Mã Nguồn"
     },
     {
-      "paragraph_id": 22,
-      "start": 132.12,
-      "end": 137.96,
-      "duration": 5.84,
+      "paragraph_id": 18,
+      "start": 107.88,
+      "end": 113.64,
+      "duration": 5.76,
       "text_snippet": "Sử dụng ObjectInputFilter (Java 9+) để ngăn chặn giải tuần tự hóa không an toàn"
     },
     {
-      "paragraph_id": 23,
-      "start": 137.96,
-      "end": 140.34,
-      "duration": 2.38,
+      "paragraph_id": 19,
+      "start": 113.64,
+      "end": 116.0,
+      "duration": 2.36,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 24,
-      "start": 140.34,
-      "end": 142.25,
+      "paragraph_id": 20,
+      "start": 116.0,
+      "end": 117.91,
       "duration": 1.91,
       "text_snippet": "Sai Lầm Thường Gặp"
     },
     {
-      "paragraph_id": 25,
-      "start": 142.25,
-      "end": 160.31,
-      "duration": 18.06,
+      "paragraph_id": 21,
+      "start": 118.01,
+      "end": 155.71,
+      "duration": 37.7,
       "text_snippet": "Giải tuần tự hóa các luồng byte không đáng tin cậy: Giải tuần tự hóa dữ liệu do "
     },
     {
-      "paragraph_id": 26,
-      "start": 160.41,
-      "end": 180.08,
-      "duration": 19.67,
+      "paragraph_id": 22,
+      "start": 155.71,
+      "end": 171.11,
+      "duration": 15.4,
       "text_snippet": "Không sử dụng transient cho các trường nhạy cảm: Quên đánh dấu các trường chứa m"
     },
     {
-      "paragraph_id": 27,
-      "start": 180.09,
-      "end": 186.55,
-      "duration": 6.46,
+      "paragraph_id": 23,
+      "start": 155.71,
+      "end": 162.16,
+      "duration": 6.45,
       "text_snippet": "Không sử dụng ObjectInputFilter: Cho phép các đồ thị lớp tùy ý được khởi tạo tro"
     },
     {
-      "paragraph_id": 28,
-      "start": 186.55,
-      "end": 192.5,
-      "duration": 5.95,
+      "paragraph_id": 24,
+      "start": 162.16,
+      "end": 167.91,
+      "duration": 5.75,
       "text_snippet": "Tại Sao Giải Tuần Tự Hóa Không An Toàn Lại Cho Phép Thực Thi Mã Từ Xa (RCE)"
     },
     {
-      "paragraph_id": 29,
-      "start": 192.5,
-      "end": 217.05,
-      "duration": 24.55,
+      "paragraph_id": 25,
+      "start": 168.01,
+      "end": 192.45,
+      "duration": 24.44,
       "text_snippet": "Cơ chế tuần tự hóa mặc định của Java, khi giải tuần tự hóa một luồng byte thông "
     },
     {
-      "paragraph_id": 30,
-      "start": 217.05,
-      "end": 246.69,
-      "duration": 29.64,
+      "paragraph_id": 26,
+      "start": 192.45,
+      "end": 239.57,
+      "duration": 47.12,
       "text_snippet": "Kẻ tấn công có thể chèn một luồng byte tuần tự hóa được thiết kế tinh vi để khai"
     },
     {
-      "paragraph_id": 31,
-      "start": 246.79,
-      "end": 280.4,
-      "duration": 33.61,
+      "paragraph_id": 27,
+      "start": 239.57,
+      "end": 255.83,
+      "duration": 16.26,
       "text_snippet": "Trong một cuộc tấn công thực tế, kẻ tấn công liên kết nhiều lệnh gọi readObject("
     },
     {
-      "paragraph_id": 32,
-      "start": 280.4,
-      "end": 285.8,
-      "duration": 5.4,
+      "paragraph_id": 28,
+      "start": 255.84,
+      "end": 261.25,
+      "duration": 5.41,
       "text_snippet": "ObjectInputFilter (được giới thiệu từ Java 9) cung cấp cơ chế danh sách trắng (w"
     },
     {
-      "paragraph_id": 33,
-      "start": 285.8,
-      "end": 289.64,
+      "paragraph_id": 29,
+      "start": 261.35,
+      "end": 265.19,
       "duration": 3.84,
       "text_snippet": "Mô Hình Tư Duy: Chuỗi Tiện Ích Giải Tuần Tự Hóa"
     },
     {
-      "paragraph_id": 34,
-      "start": 289.64,
-      "end": 292.02,
+      "paragraph_id": 30,
+      "start": 265.14,
+      "end": 267.52,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 35,
-      "start": 292.01,
-      "end": 296.87,
-      "duration": 4.86,
+      "paragraph_id": 31,
+      "start": 267.51,
+      "end": 272.4,
+      "duration": 4.89,
       "text_snippet": "Ví Dụ Mã Nguồn: ObjectInputFilter Whitelist để Ngăn Chặn RCE"
     },
     {
-      "paragraph_id": 36,
-      "start": 296.98,
-      "end": 299.36,
-      "duration": 2.38,
+      "paragraph_id": 32,
+      "start": 272.4,
+      "end": 274.6,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 37,
-      "start": 299.3,
-      "end": 301.78,
-      "duration": 2.48,
+      "paragraph_id": 33,
+      "start": 274.7,
+      "end": 277.2,
+      "duration": 2.5,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
     },
     {
-      "paragraph_id": 38,
-      "start": 301.77,
-      "end": 325.63,
-      "duration": 23.86,
+      "paragraph_id": 34,
+      "start": 277.15,
+      "end": 302.11,
+      "duration": 24.96,
       "text_snippet": "Luồng byte không đáng tin cậy được truyền vào ObjectInputStream.readObject() → J"
     },
     {
-      "paragraph_id": 39,
-      "start": 325.64,
-      "end": 327.65,
+      "paragraph_id": 35,
+      "start": 302.11,
+      "end": 304.12,
       "duration": 2.01,
       "text_snippet": "Liên Kết Tham Khảo"
     },
     {
-      "paragraph_id": 40,
-      "start": 327.65,
-      "end": 342.25,
-      "duration": 14.6,
+      "paragraph_id": 36,
+      "start": 304.12,
+      "end": 315.5,
+      "duration": 11.38,
       "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/ObjectInput"
     },
     {
-      "paragraph_id": 41,
-      "start": 342.35,
-      "end": 366.59,
-      "duration": 24.24,
+      "paragraph_id": 37,
+      "start": 315.6,
+      "end": 334.74,
+      "duration": 19.14,
       "text_snippet": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/ObjectInput"
     },
     {
-      "paragraph_id": 42,
-      "start": 366.59,
-      "end": 367.99,
+      "paragraph_id": 38,
+      "start": 334.74,
+      "end": 336.14,
       "duration": 1.4,
       "text_snippet": "https://docs.oracle.com/javase/tutorial/security/ (Java Security Tutorial)"
     }

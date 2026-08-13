@@ -24,8 +24,6 @@ Ví dụ nhỏ: Khi đọc code, hãy hỏi: `sealed class` thay đổi, cho ph�
 
 ## pattern matching
 
-**`Pattern matching (khớp mẫu)`** — Pattern matching (khớp mẫu): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
 Tại sao quan trọng: Dùng để dự đoán quy tắc Java chính xác, dạng được phép và trường hợp thất bại. Ôn lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn tên.
 
 Nhầm lẫn phổ biến: Người học thường ghi nhớ `pattern matching` như một từ khóa nhưng không giải thích được vấn đề nó giải quyết hay quy tắc nó thay đổi.
@@ -33,8 +31,6 @@ Nhầm lẫn phổ biến: Người học thường ghi nhớ `pattern matching`
 Ví dụ nhỏ: Khi đọc code, hãy hỏi: `pattern matching` thay đổi, cho phép, từ chối, hay làm rõ điều gì?
 
 ## text block
-
-**`Text block (khối văn bản)`** — Text block (khối văn bản): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Tại sao quan trọng: Quan trọng vì code đồng thời (concurrent) có thể trông đúng trong kiểm thử đơn luồng (single-thread) nhưng lại thất bại khi có áp lực về thời gian. Nhầm lẫn phổ biến là cho rằng visibility, ordering, và atomicity là cùng một đảm bảo.
 

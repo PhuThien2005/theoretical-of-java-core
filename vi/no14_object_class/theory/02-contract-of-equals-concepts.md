@@ -1,14 +1,6 @@
 # Lớp Object - Phần 2 (Object class - Part 2)
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này bao gồm một phần nội dung trọng tâm về **lớp Object**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc thực tế trong Java, không chỉ đơn thuần là các từ vựng học thuật.
-
 ## Đề Cương Nội Dung (Outline Coverage)
-
-- **`Quy ước của equals()`** — Quy ước của equals(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Quy ước của hashCode()`** — Quy ước của hashCode(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`So sánh đối tượng bằng tham chiếu và bằng giá trị`** — So sánh đối tượng bằng tham chiếu và bằng giá trị: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 

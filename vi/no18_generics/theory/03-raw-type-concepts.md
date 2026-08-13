@@ -156,14 +156,6 @@ if (obj instanceof List)         { }   // OK — raw type check
 
 ## Bảng Tóm Tắt
 
-- **`new T()`** — new T(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`new T[n]`** — new T[n]: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`List<int>`** — List<int>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`static T field`** — static T field: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`catch (T e)`** — catch (T e): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Nạp chồng phương thức có cùng kiểu xóa`** — Nạp chồng phương thức có cùng kiểu xóa: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`instanceof List<String>`** — instanceof List<String>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Tại sao Kiểu Nguyên Bản Tồn tại và Mối Nguy hiểm của Chúng
 
 Kiểu nguyên bản chỉ tồn tại trong ngôn ngữ Java nhằm mục đích duy nhất là duy trì khả năng tương thích ngược với mã nguồn cũ được viết trước phiên bản Java 5. Trước khi kiểu chung được giới thiệu, các tập hợp chỉ nắm giữ các tham chiếu `Object`, và kiểu nguyên bản cho phép đoạn mã cũ này biên dịch và chạy trên các môi trường chạy hiện đại mà không cần sửa đổi. Tuy nhiên, việc sử dụng kiểu nguyên bản trong mã mới sẽ bỏ qua mọi hoạt động xác minh an toàn kiểu của trình biên dịch. Do trình biên dịch không thực hiện kiểm tra kiểu trên các tập hợp nguyên bản, nó cho phép lập trình viên chèn các kiểu không khớp vào tập hợp mà không đưa ra bất kỳ cảnh báo biên dịch nào. Vi phạm an toàn kiểu thực tế sau đó sẽ bị đẩy xuống thời điểm chạy, nơi việc đọc một phần tử và cố gắng ép kiểu nó sang một kiểu không chính xác sẽ ném ra ngoại lệ `ClassCastException` và làm sập ứng dụng.

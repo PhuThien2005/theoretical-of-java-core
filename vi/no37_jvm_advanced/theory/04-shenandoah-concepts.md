@@ -1,20 +1,5 @@
 # JVM nâng cao (Advanced JVM) - Phần 4
 
-## Mục Tiêu Học Tập
-
-Tài liệu này trình bày một phần trọng tâm của **JVM nâng cao (Advanced JVM)**. Hãy nghiên cứu từng khái niệm dưới dạng một quy tắc Java thực tế, thay vì chỉ học từ vựng riêng lẻ.
-
-## Nội Dung Tổng Quan
-
-- **`Shenandoah`** — Bộ thu gom rác độ trễ cực thấp thực hiện nén bộ nhớ song song với luồng ứng dụng.
-- **`Stop-the-world`** — Thời điểm JVM tạm dừng tất cả các luồng ứng dụng để thực hiện các thao tác quản lý bộ nhớ an toàn.
-- **`Minor GC`** — Đợt thu gom rác chỉ diễn ra trên vùng nhớ Young Generation.
-- **`Major GC`** — Major GC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Full GC`** — Full GC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Basic JVM tuning:`** — Basic JVM tuning:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`-Xms`** — -Xms: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`-Xmx`** — -Xmx: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### Shenandoah
@@ -23,11 +8,7 @@ Tài liệu này trình bày một phần trọng tâm của **JVM nâng cao (Ad
 
 ### Stop-the-world
 
-`Stop-the-**`world`** — world: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
 ### Minor GC
-
-**`Minor GC`** — Minor GC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Khái niệm này rất quan trọng vì hành vi thời gian chạy sẽ giải thích các vấn đề về hiệu năng, lỗi bộ nhớ, hành vi khi khởi động và nhiều câu hỏi phỏng vấn. Hiểu lầm phổ biến là trộn lẫn các khái niệm biên dịch (compile-time) với các dịch vụ thời gian chạy của JVM.
 
@@ -43,8 +24,6 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### Major GC
 
-**`Major GC`** — Major GC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
 Khái niệm này rất quan trọng vì hành vi thời gian chạy sẽ giải thích các vấn đề về hiệu năng, lỗi bộ nhớ, hành vi khi khởi động và nhiều câu hỏi phỏng vấn. Hiểu lầm phổ biến là trộn lẫn các khái niệm biên dịch (compile-time) với các dịch vụ thời gian chạy của JVM.
 
 Kiểm tra thực tế:
@@ -58,8 +37,6 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 - Khi đọc mã nguồn, hãy hỏi: `Major GC` thay đổi, cho phép, từ chối hoặc làm rõ điều gì?
 
 ### Full GC
-
-**`Full GC`** — Full GC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Khái niệm này rất quan trọng vì hành vi thời gian chạy sẽ giải thích các vấn đề về hiệu năng, lỗi bộ nhớ, hành vi khi khởi động và nhiều câu hỏi phỏng vấn. Hiểu lầm phổ biến là trộn lẫn các khái niệm biên dịch (compile-time) với các dịch vụ thời gian chạy của JVM.
 
@@ -91,11 +68,7 @@ Ví dụ nhỏ hoặc mô hình tư duy:
 
 ### -Xms
 
-`-**`Xms`** — Xms: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
 ### -Xmx
-
-`-**`Xmx`** — Xmx: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 ## Các Ví Dụ Mã Nguồn
 

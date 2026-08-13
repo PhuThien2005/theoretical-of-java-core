@@ -1,19 +1,6 @@
 # Các Bổ Từ Trong Java - Phần 2 (Modifiers in Java - Part 2)
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này tập trung vào một phần trọng tâm về **Các Bổ Từ Trong Java (Modifiers in Java)**. Hãy học từng khái niệm như một quy tắc Java thực tế, tránh việc ghi nhớ từ vựng một cách máy móc.
-
 ## Khung Nội Dung (Outline Coverage)
-
-- **`abstract`** — abstract: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`synchronized`** — synchronized: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`volatile`** — volatile: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`transient`** — transient: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`native`** — native: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`strictfp`** — strictfp: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Static variable`** — Static variable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Static method`** — Static method: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

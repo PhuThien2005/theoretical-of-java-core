@@ -1,11 +1,5 @@
 # Best Practices in Java - Part 1
 
-## Learning Goal
-
-This file covers foundational Java **Best Practices** regarding naming, structural design, string concatenation efficiency, precision arithmetic, and safe exception/resource management. Study each concept as a practical Java rule.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Name variables, functions, and classes clearly` | Rules for writing self-documenting code with descriptive names. |

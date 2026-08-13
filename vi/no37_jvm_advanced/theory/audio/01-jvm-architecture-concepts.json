@@ -1,762 +1,650 @@
 {
   "lesson": "01-jvm-architecture-concepts",
-  "total_duration_seconds": 646.65,
-  "total_paragraphs": 108,
+  "total_duration_seconds": 551.88,
+  "total_paragraphs": 92,
   "timestamps": [
     {
       "paragraph_id": 1,
       "start": 0.1,
-      "end": 5.19,
-      "duration": 5.09,
+      "end": 5.2,
+      "duration": 5.1,
       "text_snippet": "Kiến Trúc JVM Nâng Cao (Advanced JVM) - Phần 1"
     },
     {
       "paragraph_id": 2,
-      "start": 5.14,
-      "end": 6.93,
-      "duration": 1.79,
-      "text_snippet": "Mục Tiêu Học Tập"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 6.92,
-      "end": 19.24,
-      "duration": 12.32,
-      "text_snippet": "File này đề cập đến một phần trọng tâm của Kiến Trúc JVM Nâng Cao (Advanced JVM)"
-    },
-    {
-      "paragraph_id": 4,
-      "start": 19.25,
-      "end": 21.3,
-      "duration": 2.05,
-      "text_snippet": "Đề Cương Khái Niệm"
-    },
-    {
-      "paragraph_id": 5,
-      "start": 21.3,
-      "end": 28.29,
-      "duration": 6.99,
-      "text_snippet": "Kiến trúc JVM — Kiến trúc JVM: Cung cấp các quy tắc và cơ chế hoạt động cụ thể t"
-    },
-    {
-      "paragraph_id": 6,
-      "start": 28.39,
-      "end": 35.78,
-      "duration": 7.39,
-      "text_snippet": "Phân hệ Class Loader — Thành phần JVM chịu trách nhiệm tải, liên kết và khởi tạo"
-    },
-    {
-      "paragraph_id": 7,
-      "start": 35.73,
-      "end": 43.2,
-      "duration": 7.47,
-      "text_snippet": "Vùng dữ liệu thời gian chạy: — Vùng dữ liệu thời gian chạy:: Cung cấp các quy tắ"
-    },
-    {
-      "paragraph_id": 8,
-      "start": 43.2,
-      "end": 48.23,
-      "duration": 5.03,
-      "text_snippet": "Heap — Heap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 9,
-      "start": 48.23,
-      "end": 53.32,
-      "duration": 5.09,
-      "text_snippet": "Stack — Stack: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 10,
-      "start": 53.31,
-      "end": 61.55,
-      "duration": 8.24,
-      "text_snippet": "Method Area / Metaspace — Method Area / Metaspace: Cung cấp các quy tắc và cơ ch"
-    },
-    {
-      "paragraph_id": 11,
-      "start": 61.65,
-      "end": 68.06,
-      "duration": 6.41,
-      "text_snippet": "Thanh ghi PC — Thanh ghi PC: Cung cấp các quy tắc và cơ chế hoạt động cụ thể tro"
-    },
-    {
-      "paragraph_id": 12,
-      "start": 68.01,
-      "end": 74.67,
-      "duration": 6.66,
-      "text_snippet": "Native Method Stack — Native Method Stack: Cung cấp các quy tắc và cơ chế hoạt đ"
-    },
-    {
-      "paragraph_id": 13,
-      "start": 74.68,
-      "end": 76.5,
-      "duration": 1.82,
+      "start": 5.15,
+      "end": 6.98,
+      "duration": 1.83,
       "text_snippet": "Ghi Chú Chi Tiết"
     },
     {
-      "paragraph_id": 14,
-      "start": 76.5,
-      "end": 80.72,
+      "paragraph_id": 3,
+      "start": 6.97,
+      "end": 11.19,
       "duration": 4.22,
       "text_snippet": "Kiến Trúc JVM (JVM Architecture)"
     },
     {
-      "paragraph_id": 15,
-      "start": 80.73,
-      "end": 87.51,
+      "paragraph_id": 4,
+      "start": 11.2,
+      "end": 17.98,
       "duration": 6.78,
       "text_snippet": "JVM thực thi bytecode và quản lý các dịch vụ thời gian chạy như bộ nhớ, JIT và G"
     },
     {
-      "paragraph_id": 16,
-      "start": 87.6,
-      "end": 101.35,
+      "paragraph_id": 5,
+      "start": 18.08,
+      "end": 31.83,
       "duration": 13.75,
       "text_snippet": "Nó quan trọng vì hành vi runtime giải thích hiệu năng, lỗi bộ nhớ, hành vi khi k"
     },
     {
-      "paragraph_id": 17,
-      "start": 101.35,
-      "end": 103.45,
+      "paragraph_id": 6,
+      "start": 31.83,
+      "end": 33.93,
       "duration": 2.1,
       "text_snippet": "Kiểm tra thực tế:"
     },
     {
-      "paragraph_id": 18,
-      "start": 103.45,
-      "end": 106.76,
+      "paragraph_id": 7,
+      "start": 33.92,
+      "end": 37.23,
       "duration": 3.31,
       "text_snippet": "Định nghĩa Kiến trúc JVM trong một câu."
     },
     {
-      "paragraph_id": 19,
-      "start": 106.76,
-      "end": 112.51,
-      "duration": 5.75,
+      "paragraph_id": 8,
+      "start": 37.24,
+      "end": 43.0,
+      "duration": 5.76,
       "text_snippet": "Nhận diện Kiến trúc JVM trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn."
     },
     {
-      "paragraph_id": 20,
-      "start": 112.51,
-      "end": 118.23,
-      "duration": 5.72,
+      "paragraph_id": 9,
+      "start": 43.1,
+      "end": 48.81,
+      "duration": 5.71,
       "text_snippet": "Giải thích một lỗi (bug), giới hạn hoặc sự đánh đổi liên quan đến Kiến trúc JVM."
     },
     {
-      "paragraph_id": 21,
-      "start": 118.34,
-      "end": 121.3,
+      "paragraph_id": 10,
+      "start": 48.76,
+      "end": 51.72,
       "duration": 2.96,
       "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
     },
     {
-      "paragraph_id": 22,
-      "start": 121.25,
-      "end": 128.6,
-      "duration": 7.35,
+      "paragraph_id": 11,
+      "start": 51.73,
+      "end": 59.07,
+      "duration": 7.34,
       "text_snippet": "Khi đọc mã nguồn, hãy tự hỏi: Kiến trúc JVM thay đổi, cho phép, từ chối hay làm "
     },
     {
-      "paragraph_id": 23,
-      "start": 128.6,
-      "end": 140.05,
-      "duration": 11.45,
+      "paragraph_id": 12,
+      "start": 59.06,
+      "end": 63.11,
+      "duration": 4.05,
       "text_snippet": "Phân Hệ Class Loader (Class Loader Subsystem)"
     },
     {
-      "paragraph_id": 24,
-      "start": 140.05,
-      "end": 148.8,
-      "duration": 8.75,
-      "text_snippet": "Phân hệ Class Loader — Phân hệ Class Loader: Cung cấp các quy tắc và cơ chế hoạt"
-    },
-    {
-      "paragraph_id": 25,
-      "start": 140.05,
-      "end": 150.38,
-      "duration": 10.33,
-      "text_snippet": "Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại."
-    },
-    {
-      "paragraph_id": 26,
-      "start": 150.47,
-      "end": 152.57,
-      "duration": 2.1,
-      "text_snippet": "Kiểm tra thực tế:"
-    },
-    {
-      "paragraph_id": 27,
-      "start": 152.53,
-      "end": 155.79,
-      "duration": 3.26,
-      "text_snippet": "Định nghĩa Phân hệ Class Loader trong một câu."
-    },
-    {
-      "paragraph_id": 28,
-      "start": 155.79,
-      "end": 161.46,
-      "duration": 5.67,
-      "text_snippet": "Nhận diện Phân hệ Class Loader trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng"
-    },
-    {
-      "paragraph_id": 29,
-      "start": 161.46,
-      "end": 166.71,
-      "duration": 5.25,
-      "text_snippet": "Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến Phân hệ Class Loader"
-    },
-    {
-      "paragraph_id": 30,
-      "start": 166.71,
-      "end": 169.53,
-      "duration": 2.82,
-      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
-    },
-    {
-      "paragraph_id": 31,
-      "start": 169.64,
-      "end": 176.99,
-      "duration": 7.35,
-      "text_snippet": "Khi đọc mã nguồn, hãy tự hỏi: Phân hệ Class Loader thay đổi, cho phép, từ chối h"
-    },
-    {
-      "paragraph_id": 32,
-      "start": 176.94,
-      "end": 187.64,
-      "duration": 10.7,
-      "text_snippet": "Vùng Dữ Liệu Thời Gian Chạy (Runtime Data Areas)"
-    },
-    {
-      "paragraph_id": 33,
-      "start": 187.64,
-      "end": 196.04,
-      "duration": 8.4,
-      "text_snippet": "Vùng dữ liệu thời gian chạy là một nhóm các quy tắc liên quan trong JVM nâng cao"
-    },
-    {
-      "paragraph_id": 34,
-      "start": 187.64,
-      "end": 197.96,
-      "duration": 10.32,
-      "text_snippet": "Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại."
-    },
-    {
-      "paragraph_id": 35,
-      "start": 197.96,
-      "end": 199.91,
-      "duration": 1.95,
-      "text_snippet": "Kiểm tra thực tế:"
-    },
-    {
-      "paragraph_id": 36,
-      "start": 200.01,
-      "end": 203.43,
-      "duration": 3.42,
-      "text_snippet": "Định nghĩa Vùng dữ liệu thời gian chạy trong một câu."
-    },
-    {
-      "paragraph_id": 37,
-      "start": 203.39,
-      "end": 209.22,
-      "duration": 5.83,
-      "text_snippet": "Nhận diện Vùng dữ liệu thời gian chạy trong mã nguồn, lệnh, tài liệu hoặc câu hỏ"
-    },
-    {
-      "paragraph_id": 38,
-      "start": 209.21,
-      "end": 214.64,
-      "duration": 5.43,
-      "text_snippet": "Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến Vùng dữ liệu thời gi"
-    },
-    {
-      "paragraph_id": 39,
-      "start": 214.64,
-      "end": 217.59,
-      "duration": 2.95,
-      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
-    },
-    {
-      "paragraph_id": 40,
-      "start": 217.59,
-      "end": 224.9,
-      "duration": 7.31,
-      "text_snippet": "Khi đọc mã nguồn, hãy tự hỏi: Vùng dữ liệu thời gian chạy thay đổi, cho phép, từ"
-    },
-    {
-      "paragraph_id": 41,
-      "start": 225.0,
-      "end": 238.35,
-      "duration": 13.35,
-      "text_snippet": "Heap"
-    },
-    {
-      "paragraph_id": 42,
-      "start": 238.35,
-      "end": 242.9,
-      "duration": 4.55,
-      "text_snippet": "Heap lưu trữ các đối tượng được tạo ra tại thời điểm chạy."
-    },
-    {
-      "paragraph_id": 43,
-      "start": 242.9,
-      "end": 251.3,
-      "duration": 8.4,
-      "text_snippet": "Xem thêm: Mối quan hệ giữa Heap và Stack trong quản lý bộ nhớ, được trình bày ch"
-    },
-    {
-      "paragraph_id": 44,
-      "start": 238.35,
-      "end": 252.16,
-      "duration": 13.81,
-      "text_snippet": "Nó quan trọng vì hành vi runtime giải thích hiệu năng, lỗi bộ nhớ, hành vi khi k"
-    },
-    {
-      "paragraph_id": 45,
-      "start": 252.16,
-      "end": 254.07,
-      "duration": 1.91,
-      "text_snippet": "Kiểm tra thực tế:"
-    },
-    {
-      "paragraph_id": 46,
-      "start": 254.18,
-      "end": 256.45,
-      "duration": 2.27,
-      "text_snippet": "Định nghĩa Heap trong một câu."
-    },
-    {
-      "paragraph_id": 47,
-      "start": 256.4,
-      "end": 261.14,
-      "duration": 4.74,
-      "text_snippet": "Nhận diện Heap trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn."
-    },
-    {
-      "paragraph_id": 48,
-      "start": 261.14,
-      "end": 265.4,
-      "duration": 4.26,
-      "text_snippet": "Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến Heap."
-    },
-    {
-      "paragraph_id": 49,
-      "start": 265.4,
-      "end": 268.35,
-      "duration": 2.95,
-      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
-    },
-    {
-      "paragraph_id": 50,
-      "start": 268.35,
-      "end": 274.57,
-      "duration": 6.22,
-      "text_snippet": "Khi đọc mã nguồn, hãy tự hỏi: Heap thay đổi, cho phép, từ chối hay làm rõ điều g"
-    },
-    {
-      "paragraph_id": 51,
-      "start": 274.68,
-      "end": 281.97,
-      "duration": 7.29,
-      "text_snippet": "Stack"
-    },
-    {
-      "paragraph_id": 52,
-      "start": 281.96,
-      "end": 288.96,
-      "duration": 7.0,
-      "text_snippet": "Stack lưu trữ các khung phương thức (method frame), các biến cục bộ và luồng cuộ"
-    },
-    {
-      "paragraph_id": 53,
-      "start": 281.96,
-      "end": 295.72,
-      "duration": 13.76,
-      "text_snippet": "Nó quan trọng vì hành vi runtime giải thích hiệu năng, lỗi bộ nhớ, hành vi khi k"
-    },
-    {
-      "paragraph_id": 54,
-      "start": 295.73,
-      "end": 297.83,
-      "duration": 2.1,
-      "text_snippet": "Kiểm tra thực tế:"
-    },
-    {
-      "paragraph_id": 55,
-      "start": 297.83,
-      "end": 300.29,
-      "duration": 2.46,
-      "text_snippet": "Định nghĩa Stack trong một câu."
-    },
-    {
-      "paragraph_id": 56,
-      "start": 300.29,
-      "end": 305.19,
-      "duration": 4.9,
-      "text_snippet": "Nhận diện Stack trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn."
-    },
-    {
-      "paragraph_id": 57,
-      "start": 305.19,
-      "end": 310.09,
-      "duration": 4.9,
-      "text_snippet": "Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến Stack."
-    },
-    {
-      "paragraph_id": 58,
-      "start": 310.09,
-      "end": 312.89,
-      "duration": 2.8,
-      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
-    },
-    {
-      "paragraph_id": 59,
-      "start": 312.89,
-      "end": 319.54,
-      "duration": 6.65,
-      "text_snippet": "Khi đọc mã nguồn, hãy tự hỏi: Stack thay đổi, cho phép, từ chối hay làm rõ điều "
-    },
-    {
-      "paragraph_id": 60,
-      "start": 319.54,
-      "end": 320.94,
-      "duration": 1.4,
-      "text_snippet": "Method Area / Metaspace"
-    },
-    {
-      "paragraph_id": 61,
-      "start": 321.04,
-      "end": 328.55,
-      "duration": 7.51,
-      "text_snippet": "Metaspace lưu trữ siêu dữ liệu lớp (class metadata) bên ngoài heap Java thông th"
-    },
-    {
-      "paragraph_id": 62,
-      "start": 328.5,
-      "end": 338.8,
-      "duration": 10.3,
-      "text_snippet": "Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại."
-    },
-    {
-      "paragraph_id": 63,
-      "start": 338.8,
-      "end": 340.9,
-      "duration": 2.1,
-      "text_snippet": "Kiểm tra thực tế:"
-    },
-    {
-      "paragraph_id": 64,
-      "start": 340.9,
-      "end": 344.79,
-      "duration": 3.89,
-      "text_snippet": "Định nghĩa Method Area / Metaspace trong một câu."
-    },
-    {
-      "paragraph_id": 65,
-      "start": 344.79,
-      "end": 351.04,
-      "duration": 6.25,
-      "text_snippet": "Nhận diện Method Area / Metaspace trong mã nguồn, lệnh, tài liệu hoặc câu hỏi ph"
-    },
-    {
-      "paragraph_id": 66,
-      "start": 351.14,
-      "end": 356.94,
-      "duration": 5.8,
-      "text_snippet": "Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến Method Area / Metasp"
-    },
-    {
-      "paragraph_id": 67,
-      "start": 356.89,
-      "end": 359.85,
-      "duration": 2.96,
-      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
-    },
-    {
-      "paragraph_id": 68,
-      "start": 359.85,
-      "end": 367.8,
-      "duration": 7.95,
-      "text_snippet": "Khi đọc mã nguồn, hãy tự hỏi: Method Area / Metaspace thay đổi, cho phép, từ chố"
-    },
-    {
-      "paragraph_id": 69,
-      "start": 367.8,
-      "end": 375.92,
-      "duration": 8.12,
-      "text_snippet": "Thanh Ghi PC (PC Register)"
-    },
-    {
-      "paragraph_id": 70,
-      "start": 375.93,
-      "end": 380.83,
-      "duration": 4.9,
-      "text_snippet": "Thanh ghi PC theo dõi chỉ thị lệnh JVM hiện tại của một luồng."
-    },
-    {
-      "paragraph_id": 71,
-      "start": 376.03,
-      "end": 386.29,
+      "paragraph_id": 13,
+      "start": 63.21,
+      "end": 73.47,
       "duration": 10.26,
       "text_snippet": "Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại."
     },
     {
-      "paragraph_id": 72,
-      "start": 386.29,
-      "end": 388.39,
+      "paragraph_id": 14,
+      "start": 73.47,
+      "end": 75.57,
       "duration": 2.1,
       "text_snippet": "Kiểm tra thực tế:"
     },
     {
-      "paragraph_id": 73,
-      "start": 388.39,
-      "end": 391.31,
+      "paragraph_id": 15,
+      "start": 75.58,
+      "end": 78.84,
+      "duration": 3.26,
+      "text_snippet": "Định nghĩa Phân hệ Class Loader trong một câu."
+    },
+    {
+      "paragraph_id": 16,
+      "start": 78.84,
+      "end": 84.51,
+      "duration": 5.67,
+      "text_snippet": "Nhận diện Phân hệ Class Loader trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 84.61,
+      "end": 89.85,
+      "duration": 5.24,
+      "text_snippet": "Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến Phân hệ Class Loader"
+    },
+    {
+      "paragraph_id": 18,
+      "start": 89.8,
+      "end": 92.75,
+      "duration": 2.95,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 92.75,
+      "end": 100.1,
+      "duration": 7.35,
+      "text_snippet": "Khi đọc mã nguồn, hãy tự hỏi: Phân hệ Class Loader thay đổi, cho phép, từ chối h"
+    },
+    {
+      "paragraph_id": 20,
+      "start": 100.1,
+      "end": 104.1,
+      "duration": 4.0,
+      "text_snippet": "Vùng Dữ Liệu Thời Gian Chạy (Runtime Data Areas)"
+    },
+    {
+      "paragraph_id": 21,
+      "start": 104.2,
+      "end": 110.65,
+      "duration": 6.45,
+      "text_snippet": "Vùng dữ liệu thời gian chạy là một nhóm các quy tắc liên quan trong JVM nâng cao"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 110.6,
+      "end": 120.9,
+      "duration": 10.3,
+      "text_snippet": "Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại."
+    },
+    {
+      "paragraph_id": 23,
+      "start": 120.9,
+      "end": 123.0,
+      "duration": 2.1,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 24,
+      "start": 123.0,
+      "end": 126.43,
+      "duration": 3.43,
+      "text_snippet": "Định nghĩa Vùng dữ liệu thời gian chạy trong một câu."
+    },
+    {
+      "paragraph_id": 25,
+      "start": 126.52,
+      "end": 132.37,
+      "duration": 5.85,
+      "text_snippet": "Nhận diện Vùng dữ liệu thời gian chạy trong mã nguồn, lệnh, tài liệu hoặc câu hỏ"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 132.32,
+      "end": 137.76,
+      "duration": 5.44,
+      "text_snippet": "Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến Vùng dữ liệu thời gi"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 137.76,
+      "end": 140.71,
+      "duration": 2.95,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 28,
+      "start": 140.71,
+      "end": 148.02,
+      "duration": 7.31,
+      "text_snippet": "Khi đọc mã nguồn, hãy tự hỏi: Vùng dữ liệu thời gian chạy thay đổi, cho phép, từ"
+    },
+    {
+      "paragraph_id": 29,
+      "start": 148.12,
+      "end": 161.47,
+      "duration": 13.35,
+      "text_snippet": "Heap"
+    },
+    {
+      "paragraph_id": 30,
+      "start": 161.47,
+      "end": 166.02,
+      "duration": 4.55,
+      "text_snippet": "Heap lưu trữ các đối tượng được tạo ra tại thời điểm chạy."
+    },
+    {
+      "paragraph_id": 31,
+      "start": 166.03,
+      "end": 174.43,
+      "duration": 8.4,
+      "text_snippet": "Xem thêm: Mối quan hệ giữa Heap và Stack trong quản lý bộ nhớ, được trình bày ch"
+    },
+    {
+      "paragraph_id": 32,
+      "start": 161.47,
+      "end": 175.22,
+      "duration": 13.75,
+      "text_snippet": "Nó quan trọng vì hành vi runtime giải thích hiệu năng, lỗi bộ nhớ, hành vi khi k"
+    },
+    {
+      "paragraph_id": 33,
+      "start": 175.32,
+      "end": 177.42,
+      "duration": 2.1,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 34,
+      "start": 177.38,
+      "end": 179.67,
+      "duration": 2.29,
+      "text_snippet": "Định nghĩa Heap trong một câu."
+    },
+    {
+      "paragraph_id": 35,
+      "start": 179.66,
+      "end": 184.41,
+      "duration": 4.75,
+      "text_snippet": "Nhận diện Heap trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn."
+    },
+    {
+      "paragraph_id": 36,
+      "start": 184.41,
+      "end": 188.69,
+      "duration": 4.28,
+      "text_snippet": "Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến Heap."
+    },
+    {
+      "paragraph_id": 37,
+      "start": 188.79,
+      "end": 191.74,
+      "duration": 2.95,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 38,
+      "start": 191.69,
+      "end": 198.09,
+      "duration": 6.4,
+      "text_snippet": "Khi đọc mã nguồn, hãy tự hỏi: Heap thay đổi, cho phép, từ chối hay làm rõ điều g"
+    },
+    {
+      "paragraph_id": 39,
+      "start": 198.09,
+      "end": 205.44,
+      "duration": 7.35,
+      "text_snippet": "Stack"
+    },
+    {
+      "paragraph_id": 40,
+      "start": 205.44,
+      "end": 212.44,
+      "duration": 7.0,
+      "text_snippet": "Stack lưu trữ các khung phương thức (method frame), các biến cục bộ và luồng cuộ"
+    },
+    {
+      "paragraph_id": 41,
+      "start": 205.54,
+      "end": 219.28,
+      "duration": 13.74,
+      "text_snippet": "Nó quan trọng vì hành vi runtime giải thích hiệu năng, lỗi bộ nhớ, hành vi khi k"
+    },
+    {
+      "paragraph_id": 42,
+      "start": 219.28,
+      "end": 221.38,
+      "duration": 2.1,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 43,
+      "start": 221.38,
+      "end": 223.83,
+      "duration": 2.45,
+      "text_snippet": "Định nghĩa Stack trong một câu."
+    },
+    {
+      "paragraph_id": 44,
+      "start": 223.82,
+      "end": 228.66,
+      "duration": 4.84,
+      "text_snippet": "Nhận diện Stack trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn."
+    },
+    {
+      "paragraph_id": 45,
+      "start": 228.76,
+      "end": 233.07,
+      "duration": 4.31,
+      "text_snippet": "Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến Stack."
+    },
+    {
+      "paragraph_id": 46,
+      "start": 233.03,
+      "end": 235.98,
+      "duration": 2.95,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 47,
+      "start": 235.97,
+      "end": 242.43,
+      "duration": 6.46,
+      "text_snippet": "Khi đọc mã nguồn, hãy tự hỏi: Stack thay đổi, cho phép, từ chối hay làm rõ điều "
+    },
+    {
+      "paragraph_id": 48,
+      "start": 242.44,
+      "end": 245.02,
+      "duration": 2.58,
+      "text_snippet": "Method Area / Metaspace"
+    },
+    {
+      "paragraph_id": 49,
+      "start": 245.11,
+      "end": 252.62,
+      "duration": 7.51,
+      "text_snippet": "Metaspace lưu trữ siêu dữ liệu lớp (class metadata) bên ngoài heap Java thông th"
+    },
+    {
+      "paragraph_id": 50,
+      "start": 252.57,
+      "end": 262.87,
+      "duration": 10.3,
+      "text_snippet": "Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại."
+    },
+    {
+      "paragraph_id": 51,
+      "start": 262.88,
+      "end": 264.98,
+      "duration": 2.1,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 52,
+      "start": 264.97,
+      "end": 268.51,
+      "duration": 3.54,
+      "text_snippet": "Định nghĩa Method Area / Metaspace trong một câu."
+    },
+    {
+      "paragraph_id": 53,
+      "start": 268.61,
+      "end": 274.47,
+      "duration": 5.86,
+      "text_snippet": "Nhận diện Method Area / Metaspace trong mã nguồn, lệnh, tài liệu hoặc câu hỏi ph"
+    },
+    {
+      "paragraph_id": 54,
+      "start": 274.43,
+      "end": 279.88,
+      "duration": 5.45,
+      "text_snippet": "Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến Method Area / Metasp"
+    },
+    {
+      "paragraph_id": 55,
+      "start": 279.88,
+      "end": 282.87,
+      "duration": 2.99,
+      "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
+    },
+    {
+      "paragraph_id": 56,
+      "start": 282.86,
+      "end": 290.25,
+      "duration": 7.39,
+      "text_snippet": "Khi đọc mã nguồn, hãy tự hỏi: Method Area / Metaspace thay đổi, cho phép, từ chố"
+    },
+    {
+      "paragraph_id": 57,
+      "start": 290.35,
+      "end": 298.45,
+      "duration": 8.1,
+      "text_snippet": "Thanh Ghi PC (PC Register)"
+    },
+    {
+      "paragraph_id": 58,
+      "start": 298.45,
+      "end": 303.35,
+      "duration": 4.9,
+      "text_snippet": "Thanh ghi PC theo dõi chỉ thị lệnh JVM hiện tại của một luồng."
+    },
+    {
+      "paragraph_id": 59,
+      "start": 298.45,
+      "end": 308.77,
+      "duration": 10.32,
+      "text_snippet": "Sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại."
+    },
+    {
+      "paragraph_id": 60,
+      "start": 308.77,
+      "end": 310.72,
+      "duration": 1.95,
+      "text_snippet": "Kiểm tra thực tế:"
+    },
+    {
+      "paragraph_id": 61,
+      "start": 310.83,
+      "end": 313.75,
       "duration": 2.92,
       "text_snippet": "Định nghĩa Thanh ghi PC trong một câu."
     },
     {
-      "paragraph_id": 74,
-      "start": 391.31,
-      "end": 396.71,
-      "duration": 5.4,
+      "paragraph_id": 62,
+      "start": 313.7,
+      "end": 319.09,
+      "duration": 5.39,
       "text_snippet": "Nhận diện Thanh ghi PC trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng vấn."
     },
     {
-      "paragraph_id": 75,
-      "start": 396.71,
-      "end": 401.72,
-      "duration": 5.01,
+      "paragraph_id": 63,
+      "start": 319.09,
+      "end": 324.09,
+      "duration": 5.0,
       "text_snippet": "Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến Thanh ghi PC."
     },
     {
-      "paragraph_id": 76,
-      "start": 401.83,
-      "end": 404.79,
-      "duration": 2.96,
+      "paragraph_id": 64,
+      "start": 324.09,
+      "end": 326.9,
+      "duration": 2.81,
       "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
     },
     {
-      "paragraph_id": 77,
-      "start": 404.74,
-      "end": 411.78,
+      "paragraph_id": 65,
+      "start": 327.0,
+      "end": 334.04,
       "duration": 7.04,
       "text_snippet": "Khi đọc mã nguồn, hãy tự hỏi: Thanh ghi PC thay đổi, cho phép, từ chối hay làm r"
     },
     {
-      "paragraph_id": 78,
-      "start": 411.78,
-      "end": 422.94,
+      "paragraph_id": 66,
+      "start": 333.99,
+      "end": 345.15,
       "duration": 11.16,
       "text_snippet": "Native Method Stack"
     },
     {
-      "paragraph_id": 79,
-      "start": 422.94,
-      "end": 433.79,
+      "paragraph_id": 67,
+      "start": 345.15,
+      "end": 356.0,
       "duration": 10.85,
       "text_snippet": "Native Method Stack lưu trữ các khung để thực thi các phương thức bản địa (nativ"
     },
     {
-      "paragraph_id": 80,
-      "start": 422.94,
-      "end": 431.5,
+      "paragraph_id": 68,
+      "start": 345.15,
+      "end": 353.71,
       "duration": 8.56,
       "text_snippet": "Xem thêm: Từ khóa native dùng để định nghĩa các phương thức bản địa trong mã Jav"
     },
     {
-      "paragraph_id": 81,
-      "start": 431.6,
-      "end": 448.31,
+      "paragraph_id": 69,
+      "start": 353.81,
+      "end": 370.52,
       "duration": 16.71,
       "text_snippet": "Nó quan trọng vì khi mã Java gọi mã bản địa (như thư viện mật mã bản địa hoặc cá"
     },
     {
-      "paragraph_id": 82,
-      "start": 448.31,
-      "end": 450.41,
+      "paragraph_id": 70,
+      "start": 370.53,
+      "end": 372.63,
       "duration": 2.1,
       "text_snippet": "Kiểm tra thực tế:"
     },
     {
-      "paragraph_id": 83,
-      "start": 450.41,
-      "end": 453.6,
+      "paragraph_id": 71,
+      "start": 372.63,
+      "end": 375.82,
       "duration": 3.19,
       "text_snippet": "Định nghĩa Native Method Stack trong một câu."
     },
     {
-      "paragraph_id": 84,
-      "start": 453.6,
-      "end": 459.14,
+      "paragraph_id": 72,
+      "start": 375.81,
+      "end": 381.35,
       "duration": 5.54,
       "text_snippet": "Nhận diện Native Method Stack trong mã nguồn, lệnh, tài liệu hoặc câu hỏi phỏng "
     },
     {
-      "paragraph_id": 85,
-      "start": 459.14,
-      "end": 464.19,
-      "duration": 5.05,
+      "paragraph_id": 73,
+      "start": 381.45,
+      "end": 386.49,
+      "duration": 5.04,
       "text_snippet": "Giải thích một lỗi, giới hạn hoặc sự đánh đổi liên quan đến Native Method Stack."
     },
     {
-      "paragraph_id": 86,
-      "start": 464.29,
-      "end": 467.25,
-      "duration": 2.96,
+      "paragraph_id": 74,
+      "start": 386.44,
+      "end": 389.39,
+      "duration": 2.95,
       "text_snippet": "Ví dụ nhỏ hoặc mô hình tư duy:"
     },
     {
-      "paragraph_id": 87,
-      "start": 467.2,
-      "end": 474.45,
-      "duration": 7.25,
+      "paragraph_id": 75,
+      "start": 389.39,
+      "end": 396.63,
+      "duration": 7.24,
       "text_snippet": "Khi đọc mã nguồn, hãy tự hỏi: Native Method Stack thay đổi, cho phép, từ chối ha"
     },
     {
-      "paragraph_id": 88,
-      "start": 474.45,
-      "end": 476.61,
+      "paragraph_id": 76,
+      "start": 396.62,
+      "end": 398.78,
       "duration": 2.16,
       "text_snippet": "Các Ví Dụ Mã Nguồn"
     },
     {
-      "paragraph_id": 89,
-      "start": 476.61,
-      "end": 479.58,
-      "duration": 2.97,
+      "paragraph_id": 77,
+      "start": 398.89,
+      "end": 401.87,
+      "duration": 2.98,
       "text_snippet": "Truy Vấn Thông Tin Bộ Nhớ Bằng Mã Lệnh"
     },
     {
-      "paragraph_id": 90,
-      "start": 479.59,
-      "end": 481.79,
-      "duration": 2.2,
+      "paragraph_id": 78,
+      "start": 401.81,
+      "end": 404.19,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 91,
-      "start": 481.89,
-      "end": 483.73,
+      "paragraph_id": 79,
+      "start": 404.19,
+      "end": 406.03,
       "duration": 1.84,
       "text_snippet": "Các Lỗi Thường Gặp"
     },
     {
-      "paragraph_id": 92,
-      "start": 483.68,
-      "end": 497.16,
-      "duration": 13.48,
+      "paragraph_id": 80,
+      "start": 406.03,
+      "end": 419.53,
+      "duration": 13.5,
       "text_snippet": "Giả định StackOverflowError liên quan đến Heap: Lỗi StackOverflowError xảy ra tr"
     },
     {
-      "paragraph_id": 93,
-      "start": 497.15,
-      "end": 513.27,
-      "duration": 16.12,
+      "paragraph_id": 81,
+      "start": 419.63,
+      "end": 435.43,
+      "duration": 15.8,
       "text_snippet": "Lầm lẫn Metaspace với Heap: Siêu dữ liệu lớp được lưu trữ trong Metaspace (ngoài"
     },
     {
-      "paragraph_id": 94,
-      "start": 513.27,
-      "end": 515.71,
-      "duration": 2.44,
-      "text_snippet": "Các Câu Hỏi Ôn Tập Thường Gặp"
-    },
-    {
-      "paragraph_id": 95,
-      "start": 515.71,
-      "end": 519.6,
-      "duration": 3.89,
-      "text_snippet": "Những khái niệm nào ở đây là quy tắc tại thời điểm biên dịch?"
-    },
-    {
-      "paragraph_id": 96,
-      "start": 519.7,
-      "end": 528.0,
-      "duration": 8.3,
-      "text_snippet": "Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy?"
-    },
-    {
-      "paragraph_id": 97,
-      "start": 528.0,
-      "end": 532.55,
-      "duration": 4.55,
-      "text_snippet": "Những khái niệm nào ở đây có khả năng là bẫy phỏng vấn?"
-    },
-    {
-      "paragraph_id": 98,
-      "start": 528.0,
-      "end": 531.36,
+      "paragraph_id": 82,
+      "start": 435.43,
+      "end": 438.79,
       "duration": 3.36,
       "text_snippet": "Tại Sao Việc Tải Lớp Có Ba Giai Đoạn Riêng Biệt"
     },
     {
-      "paragraph_id": 99,
-      "start": 531.36,
-      "end": 600.46,
-      "duration": 69.1,
+      "paragraph_id": 83,
+      "start": 438.79,
+      "end": 507.44,
+      "duration": 68.65,
       "text_snippet": "Phân hệ class loading của JVM chia việc tải lớp thành ba giai đoạn riêng biệt (L"
     },
     {
-      "paragraph_id": 100,
-      "start": 600.46,
-      "end": 602.91,
+      "paragraph_id": 84,
+      "start": 507.44,
+      "end": 509.89,
       "duration": 2.45,
       "text_snippet": "Các giai đoạn tải lớp (Mental Model)"
     },
     {
-      "paragraph_id": 101,
-      "start": 600.56,
-      "end": 602.94,
+      "paragraph_id": 85,
+      "start": 507.54,
+      "end": 509.92,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 102,
-      "start": 602.89,
-      "end": 604.83,
+      "paragraph_id": 86,
+      "start": 509.86,
+      "end": 511.8,
       "duration": 1.94,
       "text_snippet": "Ví Dụ Mã Nguồn"
     },
     {
-      "paragraph_id": 103,
-      "start": 604.82,
-      "end": 607.2,
-      "duration": 2.38,
+      "paragraph_id": 87,
+      "start": 511.8,
+      "end": 514.16,
+      "duration": 2.36,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 104,
-      "start": 607.2,
-      "end": 609.68,
-      "duration": 2.48,
+      "paragraph_id": 88,
+      "start": 514.16,
+      "end": 516.66,
+      "duration": 2.5,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả"
     },
     {
-      "paragraph_id": 105,
-      "start": 609.67,
-      "end": 620.18,
-      "duration": 10.51,
+      "paragraph_id": 89,
+      "start": 516.76,
+      "end": 527.67,
+      "duration": 10.91,
       "text_snippet": "Classloader đọc luồng byte .class → Xác thực chạy các kiểm tra kiểu → Chuẩn bị c"
     },
     {
-      "paragraph_id": 106,
-      "start": 620.29,
-      "end": 628.07,
+      "paragraph_id": 90,
+      "start": 527.62,
+      "end": 535.4,
       "duration": 7.78,
       "text_snippet": "Xem thêm: Chi tiết về các loại ClassLoader và quá trình tải lớp, được trình bày "
     },
     {
-      "paragraph_id": 107,
-      "start": 628.01,
-      "end": 631.38,
-      "duration": 3.37,
+      "paragraph_id": 91,
+      "start": 535.4,
+      "end": 538.78,
+      "duration": 3.38,
       "text_snippet": "Liên Kết Tham Khảo (Reference Links)"
     },
     {
-      "paragraph_id": 108,
-      "start": 631.39,
-      "end": 646.65,
-      "duration": 15.26,
+      "paragraph_id": 92,
+      "start": 538.77,
+      "end": 551.87,
+      "duration": 13.1,
       "text_snippet": "https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html (Chương 5. Tải, "
     }
   ]

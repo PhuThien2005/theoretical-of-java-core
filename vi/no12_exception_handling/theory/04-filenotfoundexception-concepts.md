@@ -1,14 +1,8 @@
 # Xử Lý Ngoại Lệ (Exception Handling) - Phần 4
 
-## Mục Tiêu Học Tập
-
 File này tập trung vào một phần cụ thể của **Xử Lý Ngoại Lệ**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tiễn, không phải từ vựng đơn thuần.
 
 ## Các Khái Niệm Được Đề Cập
-
-- **`FileNotFoundException`** — FileNotFoundException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`SQLException`** — SQLException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Các thực tiễn tốt nhất khi xử lý ngoại lệ`** — Các thực tiễn tốt nhất khi xử lý ngoại lệ: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

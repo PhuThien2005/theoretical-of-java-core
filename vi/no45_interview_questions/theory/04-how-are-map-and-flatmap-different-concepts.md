@@ -1,17 +1,6 @@
 # Các Câu Hỏi Phỏng Vấn Java Core Thường Gặp - Phần 4 (Common Java Core Interview Questions - Part 4)
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này trình bày các câu hỏi phỏng vấn Java Core nâng cao liên quan đến các phép biến đổi Stream, hành vi của lớp Optional, các lớp Map an toàn luồng, tính nhất quán của mã băm, cơ chế hoạt động của Bộ thu gom rác (Garbage Collection) và cách tổ chức bộ nhớ của JVM.
-
 ## Khung Nội Dung (Outline Coverage)
-
-- **`How are map and flatMap different?`** — How are map and flatMap different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`How are orElse and orElseGet different?`** — How are orElse and orElseGet different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`How are HashMap, Hashtable, and ConcurrentHashMap different?`** — How are HashMap, Hashtable, and ConcurrentHashMap different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Why must overriding equals() also override hashCode()?`** — Why must overriding equals() also override hashCode()?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`How does Garbage Collection work?`** — How does Garbage Collection work?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`How are Stack and Heap different?`** — How are Stack and Heap different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 
@@ -20,8 +9,6 @@ Tài liệu này trình bày các câu hỏi phỏng vấn Java Core nâng cao l
 ### map() vs. flatMap()
 
 Cả hai đều là các hoạt động trung gian của Stream/Optional, nhưng chúng khác nhau về phong cách ánh xạ:
-- **`map`** — map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`flatMap`** — flatMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ```java
 // map: [ ["a", "b"], ["c"] ] -> [ 2, 1 ] (kích thước của các danh sách con)
@@ -35,9 +22,6 @@ Stream<String> flat = list.stream().flatMap(Collection::stream);
 ---
 
 ### Optional: `orElse` vs. `orElseGet`
-
-- **`orElse(T other)`** — orElse(T other): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`orElseGet(Supplier<? extends T> other)`** — orElseGet(Supplier<? extends T> other): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ```java
 public String getDatabaseValue() {
@@ -53,10 +37,6 @@ optional.orElseGet(() -> getDatabaseValue()); // KHÔNG IN RA (đánh giá trì 
 ---
 
 ### HashMap vs. Hashtable vs. ConcurrentHashMap
-
-- **`HashMap`** — HashMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Hashtable`** — Hashtable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ConcurrentHashMap`** — ConcurrentHashMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

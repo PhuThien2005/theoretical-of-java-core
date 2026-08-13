@@ -1,21 +1,6 @@
 # Biểu Thức Chính Quy - Phần 1 (Regular Expression - Part 1)
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này trình bày một phần trọng tâm về **Biểu Thức Chính Quy (Regular Expression - Regex)**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, tránh việc chỉ ghi nhớ từ vựng một cách máy móc.
-
 ## Khung Nội Dung (Outline Coverage)
-
-- **`What is Regex?`** — What is Regex?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Pattern`** — Pattern: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Matcher`** — Matcher: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`matches`** — matches: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`find`** — find: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`group`** — group: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Character classes`** — Character classes: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Quantifiers`** — Quantifiers: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Capturing group`** — Capturing group: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Non-capturing group`** — Non-capturing group: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

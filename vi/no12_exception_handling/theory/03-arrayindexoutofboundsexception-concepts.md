@@ -1,19 +1,8 @@
 # Xử Lý Ngoại Lệ (Exception Handling) - Phần 3
 
-## Mục Tiêu Học Tập
-
 File này tập trung vào một phần cụ thể của **Xử Lý Ngoại Lệ**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tiễn, không phải từ vựng đơn thuần.
 
 ## Các Khái Niệm Được Đề Cập
-
-- **`ArrayIndexOutOfBoundsException`** — ArrayIndexOutOfBoundsException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`StringIndexOutOfBoundsException`** — StringIndexOutOfBoundsException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ClassCastException`** — ClassCastException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`NumberFormatException`** — NumberFormatException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ArithmeticException`** — ArithmeticException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`IllegalArgumentException`** — IllegalArgumentException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`IllegalStateException`** — IllegalStateException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`IOException`** — IOException: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

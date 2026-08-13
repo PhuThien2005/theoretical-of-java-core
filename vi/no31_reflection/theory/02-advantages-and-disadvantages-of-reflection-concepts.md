@@ -1,14 +1,5 @@
 # Phản Xạ (Reflection) - Phần 2
 
-## Mục Tiêu Học Tập
-
-File này đề cập đến một phần trọng tâm của **Phản Xạ (Reflection)**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải là những từ vựng rời rạc.
-
-## Đề Cương Khái Niệm
-
-- **`Ưu điểm và nhược điểm của phản xạ`** — Ưu điểm và nhược điểm của phản xạ: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Phản xạ trong các framework như Spring`** — Phản xạ trong các framework như Spring: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ---
 
 ## Ghi Chú Chi Tiết

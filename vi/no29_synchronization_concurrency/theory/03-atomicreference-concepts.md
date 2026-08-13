@@ -1,20 +1,5 @@
 # Đồng Bộ Hóa và Độ Đồng Thời (Synchronization and Concurrency) - Phần 3
 
-## Mục Tiêu Học Tập
-
-File này đề cập đến Lock API tường minh của Java (`Lock`, `ReentrantLock`, `ReadWriteLock`, `StampedLock`) và các bộ đồng bộ hóa cấp cao (`Semaphore`, `CountDownLatch`). Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải là những từ vựng rời rạc.
-
-## Đề Cương Khái Niệm
-
-- **`AtomicReference`** — AtomicReference: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Lock API:`** — Lock API:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Lock`** — Lock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ReentrantLock`** — ReentrantLock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ReadWriteLock`** — ReadWriteLock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`StampedLock`** — StampedLock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Semaphore`** — Semaphore: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`CountDownLatch`** — CountDownLatch: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### Lock API và ReentrantLock

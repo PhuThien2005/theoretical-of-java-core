@@ -43,7 +43,6 @@ Trước khi chuyển sang chủ đề tiếp theo, hãy đảm bảo rằng b�
 5. Tại sao dữ liệu nhạy cảm (như mật khẩu) nên được lưu trữ trong `char[]` thay vì `String`, và cơ chế bộ nhớ JVM nào khiến việc lưu giữ chuỗi (String retention) trở thành một nguy cơ bảo mật (Security Liability)?
    &rarr; Xem [Tại sao mật khẩu không được lưu trữ trong String](theory/01-basic-secure-coding-concepts.md#why-passwords-must-not-be-stored-in-strings)
 
-
 ```mermaid
 flowchart TD
     A[Bảo mật cơ bản] --> B["Định nghĩa (Definitions)"]

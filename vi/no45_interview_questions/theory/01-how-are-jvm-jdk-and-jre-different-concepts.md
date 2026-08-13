@@ -1,20 +1,5 @@
 # Các Câu Hỏi Phỏng Vấn Java Core Thường Gặp - Phần 1
 
-## Mục Tiêu Học Tập
-
-File này đề cập đến các câu hỏi phỏng vấn Java Core nền tảng liên quan đến kiến trúc JVM, quy tắc truyền tham trị (pass-by-value), cấu trúc bộ nhớ String và cơ chế hoạt động bên trong của các Collection (HashMap/ArrayList).
-
-## Đề Cương Khái Niệm
-
-- **`JVM, JDK, và JRE khác nhau như thế nào?`** — JVM, JDK, và JRE khác nhau như thế nào?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Java có truyền tham chiếu không?`** — Java có truyền tham chiếu không?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Sự khác biệt giữa == và .equals() là gì?`** — Sự khác biệt giữa == và .equals() là gì?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Tại sao String lại bất biến (immutable)?`** — Tại sao String lại bất biến (immutable)?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`String, StringBuilder, và StringBuffer khác nhau như thế nào?`** — String, StringBuilder, và StringBuffer khác nhau như thế nào?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`HashMap hoạt động như thế nào?`** — HashMap hoạt động như thế nào?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`HashMap có những cải tiến gì trong Java 8?`** — HashMap có những cải tiến gì trong Java 8?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ArrayList và LinkedList khác nhau như thế nào?`** — ArrayList và LinkedList khác nhau như thế nào?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ---
 
 ## Ghi Chú Chi Tiết
@@ -56,9 +41,6 @@ public class ReferenceTest {
 ---
 
 ### == so với .equals()
-
-- **`==`** — ==: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`.equals()`** — .equals(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

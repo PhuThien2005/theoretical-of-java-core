@@ -1,11 +1,5 @@
 # Synchronization and Concurrency - Part 4
 
-## Learning Goal
-
-This file covers high-level concurrent collections (`ConcurrentHashMap`, `CopyOnWriteArrayList`, `BlockingQueue`) and synchronization barriers (`CyclicBarrier`, `Phaser`). Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `CyclicBarrier` | A reusable synchronization barrier where a fixed number of threads must wait for each other before proceeding. |

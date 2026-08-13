@@ -1,20 +1,5 @@
 # Đa Luồng (Multithreading) - Phần 1
 
-## Mục Tiêu Học Tập
-
-Tài liệu này trình bày các nguyên lý cơ bản về tạo luồng, các trạng thái vòng đời và quản lý luồng. Hãy nghiên cứu từng khái niệm dưới dạng một quy tắc Java thực tế, thay vì chỉ học từ vựng riêng lẻ.
-
-## Nội Dung Tổng Quan
-
-- **`Process vs Thread`** — Process vs Thread: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Create thread using:`** — Create thread using:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`extends Thread`** — extends Thread: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`implements Runnable`** — implements Runnable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`implements Callable`** — implements Callable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ExecutorService`** — ExecutorService: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Lifecycle of Thread`** — Lifecycle of Thread: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`New`** — New: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### Tiến trình so với Luồng (Process vs Thread)

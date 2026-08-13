@@ -1,11 +1,5 @@
 # Regular Expression - Part 2
 
-## Learning Goal
-
-This file covers a focused slice of **Regular Expression**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Basic lookahead / lookbehind` | Lookahead and lookbehind are zero-width assertions that match a position without consuming characters. |
@@ -182,8 +176,6 @@ public class PasswordValidator {
 
 Java supports replacing substrings matching a regex through String and Matcher methods.
 
-- **`String.replaceAll(regex, replacement)`** — String.replaceAll(regex, replacement): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`String.replace(target, replacement)`** — String.replace(target, replacement): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **Backreferences in Replacement**: You can reference captured groups in the replacement string using `$groupNumber` (e.g. `$1`).
 - **Advanced Replacement (`appendReplacement`/`appendTail`)**: `Matcher` provides a loop-based replacement mechanism to dynamically calculate replacements (e.g. transforming text uppercase, evaluating math expressions).
 
@@ -318,9 +310,6 @@ Separator matched at end of input → Engine creates empty string array element 
 
 ---
 
-## Common Review Prompts
-
-- **How do lookarounds affect match performance?**
   Overusing nested lookarounds can cause performance degradation because the engine checks assertions at every candidate index. Keep lookarounds simple.
 - **Why are lookbehinds restricted to fixed-length bounds in Java?**
   Unlike lookaheads (which search forward into unread text), looking behind requires stepping backward into the match buffer. To keep this efficient, the regex compiler must know exactly how far back to look, preventing arbitrary regex quantifiers like `*` or `+`.

@@ -35,4 +35,3 @@ Transient marks a field that should be skipped during Java serialization.
 ## serialVersionUID
 
 `serialVersionUID` — serialVersionUID provides specific functionality and rules in Java development.
-

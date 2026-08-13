@@ -1,23 +1,6 @@
 # Enum (Kiểu liệt kê) - Phần 1 (Enum - Part 1)
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này trình bày một phần trọng tâm về **Enum (Kiểu liệt kê)** trong Java. Hãy học từng khái niệm như một quy tắc Java thực tế, tránh việc ghi nhớ từ vựng một cách máy móc.
-
 ## Khung Nội Dung (Outline Coverage)
-
-- **`What is an enum?`** — What is an enum?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Declare enum`** — Declare enum: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Enum constructor`** — Enum constructor: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Enum field`** — Enum field: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Enum method`** — Enum method: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`values()`** — values(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`valueOf()`** — valueOf(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ordinal()`** — ordinal(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`name()`** — name(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Enum in switch`** — Enum in switch: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`EnumSet`** — EnumSet: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`EnumMap`** — EnumMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

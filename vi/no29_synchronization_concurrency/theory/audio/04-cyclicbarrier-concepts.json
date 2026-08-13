@@ -1,321 +1,244 @@
 {
   "lesson": "04-cyclicbarrier-concepts",
-  "total_duration_seconds": 333.45,
-  "total_paragraphs": 45,
+  "total_duration_seconds": 256.34,
+  "total_paragraphs": 34,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 4.55,
-      "duration": 4.55,
+      "start": 0.1,
+      "end": 5.8,
+      "duration": 5.7,
       "text_snippet": "Đồng bộ hóa và Tính đồng thời (Synchronization and Concurrency) - Phần 4"
     },
     {
       "paragraph_id": 2,
-      "start": 4.55,
-      "end": 5.95,
-      "duration": 1.4,
-      "text_snippet": "Mục Tiêu Học Tập"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 5.95,
-      "end": 22.75,
-      "duration": 16.8,
-      "text_snippet": "Tài liệu này tập trung vào các tập hợp đồng thời cấp cao (ConcurrentHashMap, Cop"
-    },
-    {
-      "paragraph_id": 4,
-      "start": 22.75,
-      "end": 24.85,
-      "duration": 2.1,
-      "text_snippet": "Tóm Tắt Nội Dung (Outline Coverage)"
-    },
-    {
-      "paragraph_id": 5,
-      "start": 24.85,
-      "end": 30.8,
-      "duration": 5.95,
-      "text_snippet": "CyclicBarrier — CyclicBarrier: Cung cấp các quy tắc và cơ chế hoạt động cụ thể t"
-    },
-    {
-      "paragraph_id": 6,
-      "start": 30.8,
-      "end": 36.75,
-      "duration": 5.95,
-      "text_snippet": "Phaser — Phaser: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 7,
-      "start": 36.75,
-      "end": 42.7,
-      "duration": 5.95,
-      "text_snippet": "BlockingQueue — BlockingQueue: Cung cấp các quy tắc và cơ chế hoạt động cụ thể t"
-    },
-    {
-      "paragraph_id": 8,
-      "start": 42.7,
-      "end": 51.45,
-      "duration": 8.75,
-      "text_snippet": "Các tập hợp đồng thời: — Các tập hợp đồng thời:: Cung cấp các quy tắc và cơ chế "
-    },
-    {
-      "paragraph_id": 9,
-      "start": 51.45,
-      "end": 57.4,
-      "duration": 5.95,
-      "text_snippet": "ConcurrentHashMap — ConcurrentHashMap: Cung cấp các quy tắc và cơ chế hoạt động "
-    },
-    {
-      "paragraph_id": 10,
-      "start": 57.4,
-      "end": 63.35,
-      "duration": 5.95,
-      "text_snippet": "CopyOnWriteArrayList — CopyOnWriteArrayList: Cung cấp các quy tắc và cơ chế hoạt"
-    },
-    {
-      "paragraph_id": 11,
-      "start": 63.45,
-      "end": 69.55,
-      "duration": 6.1,
-      "text_snippet": "ConcurrentLinkedQueue — ConcurrentLinkedQueue: Cung cấp các quy tắc và cơ chế ho"
-    },
-    {
-      "paragraph_id": 12,
-      "start": 69.5,
-      "end": 76.8,
-      "duration": 7.3,
-      "text_snippet": "Khung công tác Executor: — Khung công tác Executor:: Cung cấp các quy tắc và cơ "
-    },
-    {
-      "paragraph_id": 13,
-      "start": 76.8,
-      "end": 78.64,
-      "duration": 1.84,
+      "start": 5.75,
+      "end": 7.58,
+      "duration": 1.83,
       "text_snippet": "Ghi Chú Chi Tiết"
     },
     {
-      "paragraph_id": 14,
-      "start": 78.64,
-      "end": 87.58,
+      "paragraph_id": 3,
+      "start": 7.58,
+      "end": 16.52,
       "duration": 8.94,
       "text_snippet": "CyclicBarrier so với CountDownLatch (CyclicBarrier vs CountDownLatch)"
     },
     {
-      "paragraph_id": 15,
-      "start": 87.57,
-      "end": 91.47,
+      "paragraph_id": 4,
+      "start": 16.51,
+      "end": 20.41,
       "duration": 3.9,
       "text_snippet": "CountDownLatch: Chỉ sử dụng một lần, không thể đặt lại. Một luồng sẽ chờ, các lu"
     },
     {
-      "paragraph_id": 16,
-      "start": 91.57,
-      "end": 110.99,
+      "paragraph_id": 5,
+      "start": 20.51,
+      "end": 39.93,
       "duration": 19.42,
       "text_snippet": "CyclicBarrier: Có thể tái sử dụng (tự động đặt lại bộ đếm sau khi vượt qua). Các"
     },
     {
-      "paragraph_id": 17,
-      "start": 111.0,
-      "end": 113.38,
+      "paragraph_id": 6,
+      "start": 39.94,
+      "end": 42.32,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 18,
-      "start": 113.38,
-      "end": 117.57,
+      "paragraph_id": 7,
+      "start": 42.31,
+      "end": 46.5,
       "duration": 4.19,
       "text_snippet": "Các Tập hợp Đồng thời: ConcurrentHashMap so với SynchronizedMap"
     },
     {
-      "paragraph_id": 19,
-      "start": 117.56,
-      "end": 125.2,
+      "paragraph_id": 8,
+      "start": 46.5,
+      "end": 54.14,
       "duration": 7.64,
       "text_snippet": "Collections.synchronizedMap() khóa toàn bộ bản đồ cho mỗi thao tác đọc và ghi, g"
     },
     {
-      "paragraph_id": 20,
-      "start": 125.2,
-      "end": 137.16,
-      "duration": 11.96,
+      "paragraph_id": 9,
+      "start": 54.24,
+      "end": 66.14,
+      "duration": 11.9,
       "text_snippet": "ConcurrentHashMap phân mảnh bản đồ thành các phân đoạn khóa (lock stripe) hoặc c"
     },
     {
-      "paragraph_id": 21,
-      "start": 137.26,
-      "end": 149.16,
-      "duration": 11.9,
+      "paragraph_id": 10,
+      "start": 66.14,
+      "end": 77.98,
+      "duration": 11.84,
       "text_snippet": "Quan trọng: Các hoạt động phức hợp (như kiểm tra rồi thực hiện - check-then-act)"
     },
     {
-      "paragraph_id": 22,
-      "start": 149.11,
-      "end": 151.49,
+      "paragraph_id": 11,
+      "start": 77.97,
+      "end": 80.35,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 23,
-      "start": 151.49,
-      "end": 153.5,
+      "paragraph_id": 12,
+      "start": 80.35,
+      "end": 82.36,
       "duration": 2.01,
       "text_snippet": "CopyOnWriteArrayList"
     },
     {
-      "paragraph_id": 24,
-      "start": 153.5,
-      "end": 174.64,
-      "duration": 21.14,
+      "paragraph_id": 13,
+      "start": 82.46,
+      "end": 103.47,
+      "duration": 21.01,
       "text_snippet": "Các thao tác thay đổi dữ liệu (add, set, remove) sẽ tạo bản sao của toàn bộ mảng"
     },
     {
-      "paragraph_id": 25,
-      "start": 174.64,
-      "end": 180.22,
-      "duration": 5.58,
+      "paragraph_id": 14,
+      "start": 103.47,
+      "end": 109.23,
+      "duration": 5.76,
       "text_snippet": "Ví Dụ Thực Tế: Sổ đăng ký Lắng nghe Sự kiện (Event Listener Registry)"
     },
     {
-      "paragraph_id": 26,
-      "start": 180.31,
-      "end": 181.8,
+      "paragraph_id": 15,
+      "start": 109.24,
+      "end": 110.73,
       "duration": 1.49,
       "text_snippet": "Bài toán"
     },
     {
-      "paragraph_id": 27,
-      "start": 181.75,
-      "end": 201.76,
-      "duration": 20.01,
+      "paragraph_id": 16,
+      "start": 110.72,
+      "end": 130.62,
+      "duration": 19.9,
       "text_snippet": "Một khung công tác giao diện người dùng (GUI framework) có một lớp cốt lõi dùng "
     },
     {
-      "paragraph_id": 28,
-      "start": 201.76,
-      "end": 203.17,
+      "paragraph_id": 17,
+      "start": 130.72,
+      "end": 132.13,
       "duration": 1.41,
       "text_snippet": "Giải pháp"
     },
     {
-      "paragraph_id": 29,
-      "start": 203.18,
-      "end": 205.74,
-      "duration": 2.56,
+      "paragraph_id": 18,
+      "start": 132.09,
+      "end": 134.66,
+      "duration": 2.57,
       "text_snippet": "Sử dụng CopyOnWriteArrayList."
     },
     {
-      "paragraph_id": 30,
-      "start": 205.74,
-      "end": 207.94,
-      "duration": 2.2,
+      "paragraph_id": 19,
+      "start": 134.66,
+      "end": 137.02,
+      "duration": 2.36,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 31,
-      "start": 207.94,
-      "end": 209.34,
-      "duration": 1.4,
+      "paragraph_id": 20,
+      "start": 137.03,
+      "end": 138.87,
+      "duration": 1.84,
       "text_snippet": "Các lỗi thường gặp"
     },
     {
-      "paragraph_id": 32,
-      "start": 209.34,
-      "end": 213.89,
+      "paragraph_id": 21,
+      "start": 138.96,
+      "end": 143.51,
       "duration": 4.55,
       "text_snippet": "1. Sử dụng CopyOnWriteArrayList cho các Danh sách có thao tác Ghi nhiều"
     },
     {
-      "paragraph_id": 33,
-      "start": 213.89,
-      "end": 228.24,
-      "duration": 14.35,
+      "paragraph_id": 22,
+      "start": 143.46,
+      "end": 153.8,
+      "duration": 10.34,
       "text_snippet": "Nếu bạn thực hiện ghi vào một CopyOnWriteArrayList bên trong một vòng lặp, nó sẽ"
     },
     {
-      "paragraph_id": 34,
-      "start": 228.24,
-      "end": 229.64,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 35,
-      "start": 229.64,
-      "end": 233.14,
-      "duration": 3.5,
-      "text_snippet": "2. Lỗi Kiểm tra rồi Thực hiện (Check-Then-Act) với ConcurrentHashMap"
-    },
-    {
-      "paragraph_id": 36,
-      "start": 233.24,
-      "end": 240.24,
-      "duration": 7.0,
-      "text_snippet": "Giả định sai lầm rằng việc kiểm tra một giá trị trong ConcurrentHashMap và sau đ"
-    },
-    {
-      "paragraph_id": 37,
-      "start": 240.19,
-      "end": 242.57,
+      "paragraph_id": 23,
+      "start": 153.8,
+      "end": 156.18,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 38,
-      "start": 242.56,
-      "end": 267.37,
+      "paragraph_id": 24,
+      "start": 156.18,
+      "end": 161.41,
+      "duration": 5.23,
+      "text_snippet": "2. Lỗi Kiểm tra rồi Thực hiện (Check-Then-Act) với ConcurrentHashMap"
+    },
+    {
+      "paragraph_id": 25,
+      "start": 161.5,
+      "end": 168.5,
+      "duration": 7.0,
+      "text_snippet": "Giả định sai lầm rằng việc kiểm tra một giá trị trong ConcurrentHashMap và sau đ"
+    },
+    {
+      "paragraph_id": 26,
+      "start": 168.45,
+      "end": 170.83,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 27,
+      "start": 170.83,
+      "end": 195.64,
       "duration": 24.81,
       "text_snippet": "Tại sao CyclicBarrier và CountDownLatch Khác nhau"
     },
     {
-      "paragraph_id": 39,
-      "start": 267.38,
-      "end": 291.78,
-      "duration": 24.4,
+      "paragraph_id": 28,
+      "start": 195.64,
+      "end": 220.03,
+      "duration": 24.39,
       "text_snippet": "CountDownLatch và CyclicBarrier là các tiện ích đồng thời được thiết kế để đồng "
     },
     {
-      "paragraph_id": 40,
-      "start": 291.77,
-      "end": 295.65,
+      "paragraph_id": 29,
+      "start": 220.12,
+      "end": 224.0,
       "duration": 3.88,
       "text_snippet": "Mô hình Tư duy: CountDownLatch so với CyclicBarrier"
     },
     {
-      "paragraph_id": 41,
-      "start": 295.65,
-      "end": 297.05,
-      "duration": 1.4,
+      "paragraph_id": 30,
+      "start": 223.95,
+      "end": 226.33,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 42,
-      "start": 297.05,
-      "end": 298.45,
-      "duration": 1.4,
+      "paragraph_id": 31,
+      "start": 226.33,
+      "end": 228.27,
+      "duration": 1.94,
       "text_snippet": "Ví dụ Thực Tế"
     },
     {
-      "paragraph_id": 43,
-      "start": 298.45,
-      "end": 299.85,
-      "duration": 1.4,
+      "paragraph_id": 32,
+      "start": 228.26,
+      "end": 230.46,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 44,
-      "start": 299.85,
-      "end": 301.95,
-      "duration": 2.1,
+      "paragraph_id": 33,
+      "start": 230.56,
+      "end": 233.04,
+      "duration": 2.48,
       "text_snippet": "Chuỗi Nguyên nhân - Kết quả"
     },
     {
-      "paragraph_id": 45,
-      "start": 301.95,
-      "end": 333.45,
-      "duration": 31.5,
+      "paragraph_id": 34,
+      "start": 232.99,
+      "end": 256.34,
+      "duration": 23.35,
       "text_snippet": "Các luồng gọi barrier.await() → Chiếm giữ khóa nội bộ → Giảm số lượng luồng cần "
     }
   ]

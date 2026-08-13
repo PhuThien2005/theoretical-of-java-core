@@ -1,22 +1,5 @@
 # API Ngày và Giờ (Date and Time API) - Phần 1
 
-## Mục Tiêu Học Tập
-
-File này đề cập đến một phần trọng tâm của **API Ngày và Giờ (Date and Time API)**. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải là những từ vựng rời rạc.
-
-## Đề Cương Khái Niệm
-
-- **`Date`** — Date: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Calendar`** — Calendar: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`SimpleDateFormat`** — SimpleDateFormat: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`LocalDate`** — LocalDate: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`LocalTime`** — LocalTime: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`LocalDateTime`** — LocalDateTime: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ZonedDateTime`** — ZonedDateTime: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`OffsetDateTime`** — OffsetDateTime: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Instant`** — Instant: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Duration`** — Duration: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### Date
@@ -270,12 +253,6 @@ System.out.println("Days between: " + period.getDays()); // 3
 ### 3. Chia Sẻ SimpleDateFormat
 
 Việc sử dụng một thực thể SimpleDateFormat ở dạng tĩnh hoặc chia sẻ giữa các luồng gây ra các giá trị định dạng/phân tích cú pháp bị hỏng hoặc lỗi crash. Hãy sử dụng `java.time.format.DateTimeFormatter` để thay thế, lớp này hoàn toàn an toàn luồng.
-
-## Các Câu Hỏi Ôn Tập Thường Gặp
-
-- Những khái niệm nào ở đây là quy tắc tại thời điểm biên dịch?
-- Những khái niệm nào ở đây ảnh hưởng đến hành vi tại thời điểm chạy?
-- Những khái niệm nào ở đây có khả năng là bẫy phỏng vấn?
 
 ## Liên Kết Tham Khảo (Reference Links)
 

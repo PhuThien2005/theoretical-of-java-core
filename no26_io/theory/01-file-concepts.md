@@ -1,11 +1,5 @@
 # IO in Java - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **IO in Java**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `File` | Represents a file or directory path in memory; does not open or read the actual contents of a file directly. |
@@ -205,4 +199,3 @@ folder.delete(); // Returns false if not empty!
 - https://docs.oracle.com/javase/tutorial/essential/io/charstreams.html (Character Streams - Oracle Java Tutorials)
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/Reader.html (Reader API Documentation)
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/InputStreamReader.html (InputStreamReader API Documentation)
-

@@ -1,19 +1,6 @@
 # Đa luồng (Multithreading) - Phần 3
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này đề cập đến các nguyên hàm đồng bộ luồng (Thread Synchronization Primitives) (`join`), truyền tín hiệu (Signaling) (`interrupt`), luồng daemon (Daemon Threads), và hành vi thực thi (Execution Behavior). Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, chứ không phải như những từ vựng rời rạc.
-
 ## Nội Dung Khái Quát (Outline Coverage)
-
-- **`join`** — join: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`yield`** — yield: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`interrupt`** — interrupt: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Luồng daemon`** — Luồng daemon: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Luồng người dùng (User Thread)`** — Luồng người dùng (User Thread): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Độ ưu tiên của luồng (Thread Priority)`** — Độ ưu tiên của luồng (Thread Priority): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Tình trạng tương tranh (Race Condition)`** — Tình trạng tương tranh (Race Condition): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Vùng tới hạn (Critical Section)`** — Vùng tới hạn (Critical Section): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 

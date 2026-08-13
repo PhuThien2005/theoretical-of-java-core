@@ -1,11 +1,5 @@
 # Lambda Expression - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **Lambda Expression**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `What is a lambda?` | A lambda expression is a compact function-like block used where a functional interface is expected. |
@@ -689,12 +683,6 @@ java.util.function.BiFunction<String, String, Boolean> checker = String::startsW
 // But String has no startsWith() method without arguments, so this fails.
 java.util.function.Function<String, Boolean> badChecker = String::startsWith; // Compile Error!
 ```
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
 
 ## Reference Links
 

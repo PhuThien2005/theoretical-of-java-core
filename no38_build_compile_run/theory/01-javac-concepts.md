@@ -1,11 +1,5 @@
 # Build, Compile, Run - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **Build, Compile, Run**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `javac` | The Java Compiler tool that translates source code (`.java`) into JVM bytecode (`.class`). |
@@ -383,9 +377,3 @@ mvn dependency:tree
 Declare direct dependency in `pom.xml`/`build.gradle` $\rightarrow$ Build tool reads POM/Gradle script $\rightarrow$ Build tool queries remote repository for dependency POM metadata $\rightarrow$ Build tool discovers transitive dependencies (e.g., `httpcore5`, `slf4j-api`) $\rightarrow$ Build tool resolves conflicts and constructs correct classpath automatically for compilation and execution.
 
 ---
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules? (`javac`, compiling syntax, classpath for compiler)
-- Which concepts here affect runtime behavior? (`java`, classpath for JVM, manifest attributes, runtime jar dependencies)
-- Which concepts here are likely interview traps? (Using wrong classpath separators on different OS, ignoring the trailing newline in manifest files, executing `java ClassName.class` instead of `java ClassName`).

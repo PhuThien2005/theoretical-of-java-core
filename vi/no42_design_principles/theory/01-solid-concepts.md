@@ -1,22 +1,5 @@
 # Các Nguyên Tắc Thiết Kế Cơ Bản Thường Đi Kèm Với Java Core - Phần 1
 
-## Mục Tiêu Học Tập
-
-File này đề cập đến các **Nguyên tắc thiết kế (Design Principles)** cơ bản đi kèm với quá trình phát triển Java Core (SOLID, DRY, KISS, YAGNI, coupling, cohesion, và Clean Code). Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế.
-
-## Đề Cương Khái Niệm
-
-- **`SOLID`** — SOLID: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`DRY`** — DRY: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`KISS`** — KISS: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`YAGNI`** — YAGNI: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Ưu tiên thành phần hơn kế thừa`** — Ưu tiên thành phần hơn kế thừa: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Tính liên kết (Coupling)`** — Tính liên kết (Coupling): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Tính gắn kết (Cohesion)`** — Tính gắn kết (Cohesion): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Tiêm phụ thuộc cơ bản`** — Tiêm phụ thuộc cơ bản: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Lập trình phòng thủ`** — Lập trình phòng thủ: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Quy tắc viết code sạch cơ bản`** — Quy tắc viết code sạch cơ bản: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ---
 
 ## Ghi Chú Chi Tiết

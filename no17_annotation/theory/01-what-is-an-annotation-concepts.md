@@ -1,11 +1,5 @@
 # Annotation - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **Annotation**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `What is an annotation?` | An annotation attaches metadata to program elements such as classes, methods, or fields. |
@@ -379,12 +373,6 @@ Developers sometimes declare a method in a subclass with the same signature as a
 Putting `@SafeVarargs` on a method that modifies the varargs array contents (e.g., placing elements inside it) is a mistake. The annotation disables compiler warnings, but it does NOT prevent `ClassCastException` at runtime due to heap pollution if the caller passes an array of a different runtime class type.
 
 ---
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
 
 ## Reference Links
 

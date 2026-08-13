@@ -1,9 +1,5 @@
 # JDBC - Phần 1 (JDBC - Part 1)
 
-## Mục tiêu học tập
-
-Tài liệu này giải thích kiến trúc JDBC và các thành phần cốt lõi: từ cách Java tìm đúng Driver, mở Connection, gửi truy vấn qua Statement/PreparedStatement, đọc kết quả từ ResultSet, đến cách quản lý Transaction. Mỗi khái niệm được trình bày kèm cơ chế hoạt động bên trong, lỗi thường gặp, và ví dụ mã nguồn cụ thể.
-
 ## Đề cương chi tiết
 
 - **`What is JDBC?`** — API chuẩn trong `java.sql` và `javax.sql`, trừu tượng hóa sự khác biệt giữa các hệ cơ sở dữ liệu phía sau một tập interface thống nhất.

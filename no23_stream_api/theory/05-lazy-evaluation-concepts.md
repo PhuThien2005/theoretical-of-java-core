@@ -17,8 +17,6 @@ System.out.println("Stream pipeline built.");
 stream.count(); // Now execution starts!
 ```
 
-
-
 ### Short-circuiting
 
 `Short-circuiting` — Short-circuiting provides specific functionality and rules in Java development.
@@ -33,8 +31,6 @@ Stream.iterate(1, i -> i + 1)
       .limit(3) // Limits elements flowing downstream
       .count(); // Prints Generated: 1, 2, 3
 ```
-
-
 
 ### Parallel stream
 
@@ -66,8 +62,6 @@ A good heuristic to decide whether to use parallel streams is $N \times Q > 10,0
 - $Q$ is the computational cost per element.
 If $N \times Q$ is small, sequential streams are almost always faster.
 
-
-
 ### Collectors:
 
 Collectors is a group of related rules in Stream API that groups several related details.
@@ -80,8 +74,6 @@ Use it to predict the exact Java rule, the allowed form, and the failure mode. R
 List<String> list = Stream.of("a", "b").collect(Collectors.toList());
 ```
 
-
-
 ### toSet
 
 A Set is a collection that rejects duplicates according to equality rules.
@@ -93,8 +85,6 @@ It matters because choosing the wrong data structure changes correctness, perfor
 // Accumulate into a Set to eliminate duplicates
 Set<String> set = Stream.of("a", "b", "a").collect(Collectors.toSet()); // ["a", "b"]
 ```
-
-
 
 ### toMap
 
@@ -111,8 +101,6 @@ Map<Integer, String> map = Stream.of("apple", "banana")
                                  ));
 ```
 
-
-
 ### joining
 
 `joining` — joining provides specific functionality and rules in Java development.
@@ -125,8 +113,6 @@ Use it to predict the exact Java rule, the allowed form, and the failure mode. R
 String joined = Stream.of("a", "b", "c")
                       .collect(Collectors.joining(", ")); // "a, b, c"
 ```
-
-
 
 ### groupingBy
 
@@ -166,14 +152,6 @@ Parallel streams execute operations on multiple threads. Mutating a shared colle
 List<Integer> list = new ArrayList<>();
 List.of(1, 2, 3, 4).parallelStream().forEach(list::add); // DANGEROUS: Race condition!
 ```
-
-
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
 
 ## Why Streams Are Lazily Evaluated
 

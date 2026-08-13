@@ -1,11 +1,5 @@
 # Java Memory Management - Part 2
 
-## Learning Goal
-
-This file covers a focused slice of **Java Memory Management**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Weak reference` |`Weak reference` — Allows referent reclamation on the next GC cycle once all strong references are removed. |
@@ -253,12 +247,6 @@ Assuming `finalize()` will run reliably or quickly is a major error. It may neve
 
 ### 4. Thinking Islands of Isolation Cannot be GC'd
 Thinking that any cyclic dependency (like Object A referencing B, and B referencing A) prevents GC is a mistake. Reachability is traced from GC Roots; if the entire group is disconnected from GC Roots, the entire island is collected.
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
 
 ## Why Different Reference Types Exist
 

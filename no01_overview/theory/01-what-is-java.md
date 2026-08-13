@@ -159,4 +159,3 @@ Garbage Collection helps reclaim unused objects, but Java programs can still was
 ## Reference Links
 
 - https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-1.html#jvms-1.2 (The Java Virtual Machine)
-

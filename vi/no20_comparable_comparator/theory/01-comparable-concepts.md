@@ -1,21 +1,6 @@
 # Comparable và Comparator - Phần 1 (Comparable and Comparator - Part 1)
 
-## Mục tiêu học tập
-
-Tài liệu này tập trung vào một phần trọng tâm của **Comparable và Comparator**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc Java thực tế, thay vì chỉ học các từ vựng rời rạc.
-
 ## Đề cương chi tiết
-
-- **`Comparable`** — Comparable: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`compareTo`** — compareTo: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Comparator`** — Comparator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`compare`** — compare: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Natural ordering`** — Natural ordering: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Custom ordering`** — Custom ordering: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Sort List object`** — Sort List object: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Sort by multiple criteria`** — Sort by multiple criteria: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Comparator.comparing`** — Comparator.comparing: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`thenComparing`** — thenComparing: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi chú chi tiết
 
@@ -571,12 +556,6 @@ Collections.sort(names); // Throws NullPointerException!
 ```java
 names.sort(Comparator.nullsFirst(Comparator.naturalOrder())); // [null, Alice, Bob]
 ```
-
-## Các câu hỏi ôn tập thường gặp
-
-- Khái niệm nào ở đây là quy tắc thời điểm biên dịch?
-- Khái niệm nào ở đây ảnh hưởng đến hành vi thời điểm chạy?
-- Khái niệm nào ở đây có khả năng là bẫy phỏng vấn?
 
 ## Liên kết tham khảo
 

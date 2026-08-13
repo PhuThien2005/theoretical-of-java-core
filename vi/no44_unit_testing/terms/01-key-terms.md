@@ -12,23 +12,17 @@ JUnit là một framework kiểm thử Java để viết và chạy các bài ki
 
 ## Ca Kiểm Thử (Test Case)
 
-**`test case` (ca kiểm thử)`** — test case` (ca kiểm thử): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
 - **Tại sao điều này quan trọng**: Nó quan trọng vì các bài kiểm thử giúp bảo vệ hành vi của hệ thống khi có sự thay đổi. Một điểm nhầm lẫn phổ biến là đi kiểm thử các chi tiết triển khai thay vì kiểm thử hành vi có thể quan sát được.
 - **Nhầm lẫn phổ biến**: Người học thường ghi nhớ `test case` như một từ vựng nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.
 - **Ví dụ nhỏ**: Khi đọc mã nguồn, hãy tự hỏi: `test case` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## Khẳng Định (Assertion)
 
-**`assertion` (khẳng định)`** — assertion` (khẳng định): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
 - **Tại sao điều này quan trọng**: Nó quan trọng vì các bài kiểm thử giúp bảo vệ hành vi của hệ thống khi có sự thay đổi. Một điểm nhầm lẫn phổ biến là đi kiểm thử các chi tiết triển khai thay vì kiểm thử hành vi có thể quan sát được.
 - **Nhầm lẫn phổ biến**: Người học thường ghi nhớ `assertion` như một từ vựng nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.
 - **Ví dụ nhỏ**: Khi đọc mã nguồn, hãy tự hỏi: `assertion` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## Điều Kiện Kiểm Thử (Fixture)
-
-**`fixture` (điều kiện kiểm thử)`** — fixture` (điều kiện kiểm thử): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 - **Tại sao điều này quan trọng**: Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 - **Nhầm lẫn phổ biến**: Người học thường ghi nhớ `fixture` như một từ vựng nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.
@@ -44,15 +38,11 @@ Mockito là một framework giả lập (mocking framework) được sử dụng
 
 ## Đối Tượng Giả Lập (Mock Object)
 
-**`mock object` (đối tượng giả lập)`** — mock object` (đối tượng giả lập): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
 - **Tại sao điều này quan trọng**: Nó quan trọng vì các bài kiểm thử giúp bảo vệ hành vi của hệ thống khi có sự thay đổi. Một điểm nhầm lẫn phổ biến là đi kiểm thử các chi tiết triển khai thay vì kiểm thử hành vi có thể quan sát được.
 - **Nhầm lẫn phổ biến**: Người học thường ghi nhớ `mock object` như một từ vựng nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.
 - **Ví dụ nhỏ**: Khi đọc mã nguồn, hãy tự hỏi: `mock object` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## Độ Bao Phủ Mã Nguồn (Code Coverage)
-
-**`code coverage` (độ bao phủ mã nguồn)`** — code coverage` (độ bao phủ mã nguồn): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 - **Tại sao điều này quan trọng**: Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 - **Nhầm lẫn phổ biến**: Người học thường ghi nhớ `code coverage` như một từ vựng nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.

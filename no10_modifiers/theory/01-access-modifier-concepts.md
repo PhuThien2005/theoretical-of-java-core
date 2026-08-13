@@ -1,11 +1,5 @@
 # Modifiers in Java - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **Modifiers in Java**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Access modifier:` | Access modifier is a group of related rules in Modifiers in Java that groups several related details. |
@@ -415,9 +409,3 @@ public class SecureBankAccount {
 1. **Validation and Control**: The `SecureBankAccount` class now enforces rules. A caller cannot set a negative balance or withdraw more than they have.
 2. **Read-Only / Write-Only Access**: We can make the field read-only to the outside world by providing a getter but no direct setter (deposits and withdrawals are behavior-driven, not direct state mutation).
 3. **Internal Representation Independence**: If we decide to change the internal data type of `balance` from `double` to `java.math.BigDecimal` (for currency precision), we can do so without breaking any client code because the public API (methods) remains the same.
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?

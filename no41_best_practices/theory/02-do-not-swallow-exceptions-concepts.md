@@ -1,11 +1,5 @@
 # Best Practices in Java - Part 2
 
-## Learning Goal
-
-This file covers advanced Java **Best Practices** including exception handling rules, type-safety, null avoidance, coding for testability, and class immutability patterns. Study each concept as a practical Java rule.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Do not swallow exceptions` | Rules for handling or propagating exceptions instead of ignoring them. |

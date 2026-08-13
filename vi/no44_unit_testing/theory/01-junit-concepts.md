@@ -1,22 +1,5 @@
 # Kiểm thử đơn vị cơ bản - Phần 1: Các kiến thức cơ bản về JUnit 5 & Mockito
 
-## Mục Tiêu Học Tập
-
-Tài liệu này trình bày các nguyên lý cơ bản của kiểm thử đơn vị trong Java bằng cách sử dụng JUnit 5 và Mockito. Bạn sẽ tìm hiểu về vòng đời kiểm thử, các khẳng định (assertion) và các tương tác đối tượng giả lập (mock object).
-
-## Nội Dung Tổng Quan
-
-- **`JUnit`** — JUnit: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Test case`** — Test case: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Assertion`** — Assertion: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`@Test`** — @Test: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`@BeforeEach`** — @BeforeEach: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`@AfterEach`** — @AfterEach: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`@BeforeAll`** — @BeforeAll: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`@AfterAll`** — @AfterAll: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Basic Mockito`** — Basic Mockito: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Mock object`** — Mock object: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ---
 
 ## Ghi Chú Chi Tiết

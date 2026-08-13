@@ -1,11 +1,5 @@
 # Annotation - Part 2
 
-## Learning Goal
-
-This file covers a focused slice of **Annotation**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `@Documented` |`@Documented` — Indicates that the annotation should be included in generated Javadoc output. |
@@ -379,12 +373,6 @@ A common interview trap is assuming `@Inherited` works for interface implementat
 Attempting to declare an element returning a wrapper object class (such as `Integer` or `Boolean`) or nested array structures (such as `String[][]`) is a compilation error. Only primitives, String, Class, enums, annotations, and 1D arrays of these types are permitted.
 
 ---
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
 
 ## Reference Links
 

@@ -1,11 +1,5 @@
 # Advanced JVM - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **Advanced JVM**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `JVM architecture` | The JVM executes bytecode and manages runtime services such as memory, JIT, and GC. |
@@ -114,12 +108,6 @@ System.out.println("Max Heap: " + (maxMemory / 1024 / 1024) + " MB");
 - **Assuming StackOverflowError is Heap-related**: A `StackOverflowError` occurs in the Thread Stack when call frames exceed stack memory limits (often due to infinite recursion). This is unrelated to the Heap.
 - **Confusing Metaspace with Heap**: Class metadata is stored in Metaspace (off-heap/native memory) since Java 8. It does not compete with Java objects for Heap space, but can still exhaust native memory if too many classes are loaded.
 
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
-
 ## Why Class Loading Has Three Distinct Phases
 
 The JVM class loading subsystem splits class loading into three distinct phases (Loading, Linking, and Initializing) to enforce security, verify structural integrity, and optimize memory allocation before code execution. During the **Loading** phase, the JVM locates the binary representation of a class (typically a `.class` file) and imports it into the Method Area/Metaspace, creating a `java.lang.Class` object. In the **Linking** phase, the JVM performs Verification (crucial for security, checking format, bytecode constraints, and type rules to prevent malicious exploits), Preparation (allocating memory for static fields and initializing them to default values), and Resolution (optionally resolving symbolic references into direct references). Finally, during **Initialization**, the JVM executes the static initialization blocks and assigns the actual values declared in code to the static variables via the compiler-generated `<clinit>` method.
@@ -173,4 +161,3 @@ Classloader reads `.class` byte stream &rarr; Verification runs type checks &rar
 ## Reference Links
 
 - https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html (Chapter 5. Loading, Linking, and Initializing)
-

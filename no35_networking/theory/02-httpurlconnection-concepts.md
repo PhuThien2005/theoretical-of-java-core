@@ -1,11 +1,5 @@
 # Networking - Part 2
 
-## Learning Goal
-
-This file covers a focused slice of **Networking**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `HttpURLConnection` | Legacy HTTP client class, blocking, lacks modern protocol support, requires explicit timeout configuration. |
@@ -99,12 +93,6 @@ Use legacy HttpURLConnection &rarr; Undergoing request blocks execution thread &
 Transition to Java 11 HttpClient &rarr; Reactive streams engine handles asynchronous I/O &rarr; Non-blocking CompletableFuture returned &rarr; Request runs concurrently on shared thread pool &rarr; HTTP/2 multiplexing reduces connection overhead &rarr; Optimal application throughput achieved.
 
 ---
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
 
 ## Code Examples
 

@@ -1,11 +1,5 @@
 # Functional Interface - Part 2
 
-## Learning Goal
-
-This file covers a focused slice of **Functional Interface**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `What is the output?` | What is the output is a key question for understanding Functional Interface. |
@@ -234,9 +228,3 @@ Confusing `andThen` with `compose` can lead to processing pipelines executing in
 Chaining methods in both custom and JDK functional interfaces (like `Function.andThen`) will throw a `NullPointerException` at composition time (not execution time) if `null` is passed as the chained argument.
 
 ---
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?

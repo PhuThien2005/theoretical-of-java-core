@@ -1,14 +1,5 @@
 # Enum - Phần 2
 
-## Mục Tiêu Học Tập
-
-Tài liệu này trình bày một phần trọng tâm của **Enum**. Hãy nghiên cứu từng khái niệm dưới dạng một quy tắc Java thực tế, thay vì chỉ học từ vựng riêng lẻ.
-
-## Nội Dung Tổng Quan
-
-- **`Enum implements interface`** — Enum implements interface: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Enum Singleton pattern`** — Enum Singleton pattern: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### Enum triển khai giao diện (Enum implements interface)

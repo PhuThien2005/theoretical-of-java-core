@@ -1,11 +1,5 @@
 # Comparable and Comparator - Part 2
 
-## Learning Goal
-
-This file covers a focused slice of **Comparable and Comparator**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Reverse order` |`Reverse order` — Inverts the comparison result to sort elements in descending order. |
@@ -183,12 +177,6 @@ Sorting array of objects $\rightarrow$ Individual elements are references where 
 1. **Incorrectly reversing primitive comparators**: Reversing a primitive comparator using custom lambda subtraction `(a, b) -> b - a` is highly prone to overflow bugs (e.g. `Integer.MIN_VALUE` vs `1`). Always use `Comparator.reverseOrder()` or `Comparator.comparingInt(...).reversed()`.
 2. **Double Reversal**: Using `comparator.reversed().reversed()` simply returns the original ordering but adds execution overhead due to the wrapping layers.
 3. **Implicit unboxing NPE**: When sorting wrappers with `nullsLast` or `nullsFirst`, ensure the extractor returns the wrapper object (like `Integer`) and not the primitive (`int`), otherwise the JVM will attempt to auto-unbox the `null` to a primitive before passing it, causing a `NullPointerException`.
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
 
 ## Reference Links
 

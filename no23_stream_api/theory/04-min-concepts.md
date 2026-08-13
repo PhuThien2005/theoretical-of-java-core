@@ -15,8 +15,6 @@ Optional<Integer> minVal = Stream.of(5, 2, 8, 1)
                                  .min(Integer::compareTo); // Returns Optional[1]
 ```
 
-
-
 ### max
 
 `max` — max provides specific functionality and rules in Java development.
@@ -29,8 +27,6 @@ Use it to predict the exact Java rule, the allowed form, and the failure mode. R
 Optional<Integer> maxVal = Stream.of(5, 2, 8, 1)
                                  .max(Integer::compareTo); // Returns Optional[8]
 ```
-
-
 
 ### reduce
 
@@ -45,8 +41,6 @@ int sum = Stream.of(1, 2, 3, 4)
                 .reduce(0, (a, b) -> a + b); // Returns 10
 ```
 
-
-
 ### anyMatch
 
 `anyMatch` — anyMatch provides specific functionality and rules in Java development.
@@ -59,8 +53,6 @@ Use it to predict the exact Java rule, the allowed form, and the failure mode. R
 boolean hasEven = Stream.of(1, 3, 4, 5)
                         .anyMatch(n -> n % 2 == 0); // true
 ```
-
-
 
 ### allMatch
 
@@ -75,8 +67,6 @@ boolean allEven = Stream.of(2, 4, 6)
                         .allMatch(n -> n % 2 == 0); // true
 ```
 
-
-
 ### noneMatch
 
 `noneMatch` — noneMatch provides specific functionality and rules in Java development.
@@ -90,8 +80,6 @@ boolean noneNegative = Stream.of(1, 2, 3)
                              .noneMatch(n -> n < 0); // true
 ```
 
-
-
 ### findFirst
 
 `findFirst` — findFirst provides specific functionality and rules in Java development.
@@ -104,8 +92,6 @@ Use it to predict the exact Java rule, the allowed form, and the failure mode. R
 Optional<String> first = Stream.of("banana", "apple", "cherry")
                                .findFirst(); // Optional["banana"]
 ```
-
-
 
 ### findAny
 
@@ -145,11 +131,3 @@ Optional<Integer> any = List.of(1, 2, 3, 4, 5).parallelStream()
                              .filter(n -> n > 3)
                              .findAny();
 ```
-
-
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?

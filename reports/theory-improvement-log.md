@@ -747,4 +747,3 @@ This log tracks the improvements made to the theory files across the 45 Java Cor
 ### Self-Check Coverage
 - Before: Missing Self-Check section, skeletal key terms, and 91 generic template-generated Anki card warnings.
 - After: 5/5 PASS, 0 quality warnings.
-

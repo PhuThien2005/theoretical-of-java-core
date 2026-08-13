@@ -1,14 +1,5 @@
 # Xây dựng, Biên dịch, Chạy (Build, Compile, Run) - Phần 2
 
-## Mục Tiêu Học Tập
-
-Tài liệu này trình bày về bố cục cấu trúc dự án tiêu chuẩn và kiểm thử đơn vị với JUnit. Hãy nghiên cứu từng khái niệm dưới dạng một quy tắc Java thực tế.
-
-## Nội Dung Tổng Quan
-
-- **`Standard project structure`** — Standard project structure: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Basic unit test with JUnit`** — Basic unit test with JUnit: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### Cấu trúc dự án tiêu chuẩn (Standard project structure)

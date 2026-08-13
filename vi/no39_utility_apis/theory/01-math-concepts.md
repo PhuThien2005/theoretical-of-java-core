@@ -1,21 +1,8 @@
 # Một Số Utility API Thông Dụng — Phần 1
 
-## Mục Tiêu Học Tập
-
 File này trình bày một lát cắt có trọng tâm về **Một Số Utility API Thông Dụng** gồm API toán học, độ chính xác tùy ý, hệ thống và thực thi tiến trình. Học từng khái niệm như một quy tắc Java thực tiễn.
 
 ## Nội Dung Đề Cương
-
-- **`Math`** — Math: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Random`** — Random: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`BigInteger`** — BigInteger: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`BigDecimal`** — BigDecimal: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`UUID`** — UUID: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Objects`** — Objects: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Optional`** — Optional: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`System`** — System: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Runtime`** — Runtime: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ProcessBuilder`** — ProcessBuilder: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 
@@ -121,7 +108,6 @@ public class RandomDemo {
 }
 ```
 
-
 ---
 
 ### BigInteger
@@ -183,9 +169,6 @@ Giá trị toán học của một `BigDecimal` là:
 $$\text{Giá trị} = \text{unscaledValue} \times 10^{-\text{scale}}$$
 
 ##### Bảng Ví Dụ Biểu Diễn
-- **`123.45`** — 123.45: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`0.0007`** — 0.0007: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`-50`** — -50: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 #### Rủi Ro Khởi Tạo Sớm Bằng Literal Double
 Khi bạn viết `new BigDecimal(0.1)`, trình biên dịch trước tiên đánh giá literal `double` `0.1`, vốn đã không chính xác trong hệ nhị phân. Constructor `BigDecimal` sau đó nắm bắt giá trị không chính xác đó.
@@ -253,7 +236,6 @@ public class BigDecimalDemo {
     }
 }
 ```
-
 
 ---
 
@@ -351,9 +333,7 @@ public class BigDecimalDemo {
 Mặc dù cả `java.lang.System` và `java.lang.Runtime` đều cho phép lập trình viên giao tiếp với môi trường chạy ứng dụng, chúng phục vụ các vai trò thiết kế khác nhau và tương tác với JVM ở các mức trừu tượng khác nhau.
 
 #### Điểm Khác Biệt Chính và Ý Định Thiết Kế
-- **`java.lang.System`** — java.lang.System: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   `System` là lớp final chỉ chứa trường và phương thức `static`. Không thể khởi tạo. Nó đóng vai trò lớp tiện ích cấp cao để truy cập luồng I/O tiêu chuẩn (`System.in`, `System.out`, `System.err`), thuộc tính hệ thống, biến môi trường, sao chép mảng (`System.arraycopy`) và bộ đếm thời gian hệ thống cấp thấp (`currentTimeMillis` và `nanoTime`).
-- **`java.lang.Runtime`** — java.lang.Runtime: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   `Runtime` đại diện cho instance đang hoạt động duy nhất của Java Virtual Machine. Nó tuân theo mẫu thiết kế Singleton (Đơn Thể); bạn lấy instance hiện tại bằng `Runtime.getRuntime()`. Vì nó đại diện cho chính tiến trình máy ảo, nó cung cấp các phương thức kiểm tra mức sử dụng bộ nhớ (`freeMemory()`, `totalMemory()`, `maxMemory()`), đăng ký shutdown hook và khởi tạo tiến trình con.
 
 #### Các Phương Thức Ủy Quyền
@@ -409,7 +389,6 @@ public class SystemRuntimeDemo {
     }
 }
 ```
-
 
 ---
 

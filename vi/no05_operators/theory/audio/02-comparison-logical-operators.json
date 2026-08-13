@@ -1,7 +1,7 @@
 {
   "lesson": "02-comparison-logical-operators",
-  "total_duration_seconds": 356.56,
-  "total_paragraphs": 55,
+  "total_duration_seconds": 214.36,
+  "total_paragraphs": 46,
   "timestamps": [
     {
       "paragraph_id": 1,
@@ -13,379 +13,316 @@
     {
       "paragraph_id": 2,
       "start": 6.04,
-      "end": 22.77,
-      "duration": 16.73,
+      "end": 22.6,
+      "duration": 16.56,
       "text_snippet": "Các toán tử so sánh tạo ra kết quả kiểu boolean. Các toán tử logic kết hợp các g"
     },
     {
       "paragraph_id": 3,
-      "start": 22.76,
-      "end": 24.86,
+      "start": 22.6,
+      "end": 24.7,
       "duration": 2.1,
       "text_snippet": "Toán Tử So Sánh (Comparison Operators)"
     },
     {
       "paragraph_id": 4,
-      "start": 24.86,
-      "end": 28.01,
+      "start": 24.7,
+      "end": 27.85,
       "duration": 3.15,
       "text_snippet": "Các toán tử so sánh trong Java bao gồm:"
     },
     {
       "paragraph_id": 5,
-      "start": 22.76,
-      "end": 26.91,
-      "duration": 4.15,
-      "text_snippet": "== — ==: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 6,
-      "start": 26.91,
-      "end": 32.86,
-      "duration": 5.95,
-      "text_snippet": "!= — !=: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 7,
-      "start": 32.86,
-      "end": 38.81,
-      "duration": 5.95,
-      "text_snippet": "> — >: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 8,
-      "start": 38.81,
-      "end": 44.76,
-      "duration": 5.95,
-      "text_snippet": "< — <: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 9,
-      "start": 44.76,
-      "end": 50.71,
-      "duration": 5.95,
-      "text_snippet": ">= — >=: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 10,
-      "start": 50.71,
-      "end": 56.66,
-      "duration": 5.95,
-      "text_snippet": "<= — <=: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 11,
-      "start": 56.66,
-      "end": 57.36,
-      "duration": 0.7,
+      "start": 22.7,
+      "end": 24.3,
+      "duration": 1.6,
       "text_snippet": "Ví dụ:"
     },
     {
-      "paragraph_id": 12,
-      "start": 57.36,
-      "end": 58.76,
-      "duration": 1.4,
+      "paragraph_id": 6,
+      "start": 24.25,
+      "end": 26.63,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 13,
-      "start": 58.76,
-      "end": 64.71,
-      "duration": 5.95,
+      "paragraph_id": 7,
+      "start": 26.62,
+      "end": 31.83,
+      "duration": 5.21,
       "text_snippet": "Các biểu thức so sánh luôn trả về kết quả kiểu boolean, không phải kiểu số nguyê"
     },
     {
-      "paragraph_id": 14,
-      "start": 64.71,
-      "end": 68.21,
-      "duration": 3.5,
+      "paragraph_id": 8,
+      "start": 31.84,
+      "end": 35.48,
+      "duration": 3.64,
       "text_snippet": "Toán Tử == Với Kiểu Nguyên Thủy (== With Primitives)"
     },
     {
-      "paragraph_id": 15,
-      "start": 68.21,
-      "end": 75.21,
-      "duration": 7.0,
+      "paragraph_id": 9,
+      "start": 35.57,
+      "end": 40.97,
+      "duration": 5.4,
       "text_snippet": "Đối với các kiểu dữ liệu nguyên thủy, toán tử == so sánh các giá trị thực tế của"
     },
     {
-      "paragraph_id": 16,
-      "start": 75.31,
-      "end": 77.69,
+      "paragraph_id": 10,
+      "start": 40.92,
+      "end": 43.3,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 17,
-      "start": 77.64,
-      "end": 84.36,
-      "duration": 6.72,
+      "paragraph_id": 11,
+      "start": 43.3,
+      "end": 50.03,
+      "duration": 6.73,
       "text_snippet": "Cơ chế này áp dụng tương tự đối với các kiểu dữ liệu số nguyên, số thực, ký tự c"
     },
     {
-      "paragraph_id": 18,
-      "start": 84.36,
-      "end": 87.67,
-      "duration": 3.31,
+      "paragraph_id": 12,
+      "start": 50.02,
+      "end": 53.14,
+      "duration": 3.12,
       "text_snippet": "Toán Tử == Với Đối Tượng (== With Objects)"
     },
     {
-      "paragraph_id": 19,
-      "start": 87.67,
-      "end": 98.36,
-      "duration": 10.69,
+      "paragraph_id": 13,
+      "start": 53.25,
+      "end": 63.91,
+      "duration": 10.66,
       "text_snippet": "Đối với tham chiếu đối tượng, toán tử == so sánh xem hai biến tham chiếu có cùng"
     },
     {
-      "paragraph_id": 20,
-      "start": 98.36,
-      "end": 100.56,
-      "duration": 2.2,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 21,
-      "start": 100.56,
-      "end": 109.31,
-      "duration": 8.75,
-      "text_snippet": "Hãy sử dụng phương thức .equals() khi bạn muốn so sánh tính bằng nhau về mặt nội"
-    },
-    {
-      "paragraph_id": 22,
-      "start": 109.31,
-      "end": 111.06,
-      "duration": 1.75,
-      "text_snippet": "Toán Tử Logic (Logical Operators)"
-    },
-    {
-      "paragraph_id": 23,
-      "start": 111.06,
-      "end": 116.31,
-      "duration": 5.25,
-      "text_snippet": "Các toán tử logic dùng để kết hợp nhiều biểu thức boolean lại với nhau."
-    },
-    {
-      "paragraph_id": 24,
-      "start": 116.31,
-      "end": 122.26,
-      "duration": 5.95,
-      "text_snippet": "&& — &&: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 25,
-      "start": 122.26,
-      "end": 128.21,
-      "duration": 5.95,
-      "text_snippet": "|| — ||: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 26,
-      "start": 128.31,
-      "end": 132.46,
-      "duration": 4.15,
-      "text_snippet": "! — !: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 27,
-      "start": 132.41,
-      "end": 134.79,
+      "paragraph_id": 14,
+      "start": 63.91,
+      "end": 66.29,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 28,
-      "start": 134.79,
-      "end": 138.93,
+      "paragraph_id": 15,
+      "start": 66.29,
+      "end": 73.43,
+      "duration": 7.14,
+      "text_snippet": "Hãy sử dụng phương thức .equals() khi bạn muốn so sánh tính bằng nhau về mặt nội"
+    },
+    {
+      "paragraph_id": 16,
+      "start": 73.42,
+      "end": 77.17,
+      "duration": 3.75,
+      "text_snippet": "Toán Tử Logic (Logical Operators)"
+    },
+    {
+      "paragraph_id": 17,
+      "start": 77.27,
+      "end": 81.8,
+      "duration": 4.53,
+      "text_snippet": "Các toán tử logic dùng để kết hợp nhiều biểu thức boolean lại với nhau."
+    },
+    {
+      "paragraph_id": 18,
+      "start": 81.75,
+      "end": 84.13,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 19,
+      "start": 84.12,
+      "end": 88.26,
       "duration": 4.14,
       "text_snippet": "Đánh Giá Ngắn Mạch (Short-Circuit Evaluation)"
     },
     {
-      "paragraph_id": 29,
-      "start": 138.92,
-      "end": 154.86,
-      "duration": 15.94,
+      "paragraph_id": 20,
+      "start": 88.26,
+      "end": 104.21,
+      "duration": 15.95,
       "text_snippet": "Các toán tử && và || hoạt động theo cơ chế ngắn mạch (short-circuit). Điều này c"
     },
     {
-      "paragraph_id": 30,
-      "start": 154.86,
-      "end": 157.06,
+      "paragraph_id": 21,
+      "start": 104.31,
+      "end": 106.69,
+      "duration": 2.38,
+      "text_snippet": "Đoạn mã mẫu Java:"
+    },
+    {
+      "paragraph_id": 22,
+      "start": 106.64,
+      "end": 117.66,
+      "duration": 11.02,
+      "text_snippet": "Nếu biểu thức user != null là false, Java sẽ bỏ qua và không gọi phương thức use"
+    },
+    {
+      "paragraph_id": 23,
+      "start": 117.66,
+      "end": 123.36,
+      "duration": 5.7,
+      "text_snippet": "Tương tự với toán tử ||, nếu vế trái trả về true, Java sẽ bỏ qua vế phải."
+    },
+    {
+      "paragraph_id": 24,
+      "start": 123.36,
+      "end": 125.56,
       "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 31,
-      "start": 157.06,
-      "end": 167.21,
-      "duration": 10.15,
-      "text_snippet": "Nếu biểu thức user != null là false, Java sẽ bỏ qua và không gọi phương thức use"
-    },
-    {
-      "paragraph_id": 32,
-      "start": 167.21,
-      "end": 173.51,
-      "duration": 6.3,
-      "text_snippet": "Tương tự với toán tử ||, nếu vế trái trả về true, Java sẽ bỏ qua vế phải."
-    },
-    {
-      "paragraph_id": 33,
-      "start": 173.51,
-      "end": 174.91,
-      "duration": 1.4,
-      "text_snippet": "Đoạn mã mẫu Java:"
-    },
-    {
-      "paragraph_id": 34,
-      "start": 174.91,
-      "end": 179.81,
-      "duration": 4.9,
+      "paragraph_id": 25,
+      "start": 125.66,
+      "end": 130.92,
+      "duration": 5.26,
       "text_snippet": "Nếu biến cached là true, phương thức loadFromDisk() sẽ không bao giờ được gọi."
     },
     {
-      "paragraph_id": 35,
-      "start": 179.81,
-      "end": 182.61,
-      "duration": 2.8,
+      "paragraph_id": 26,
+      "start": 130.87,
+      "end": 133.82,
+      "duration": 2.95,
       "text_snippet": "Toán Tử & và | Với Kiểu Boolean"
     },
     {
-      "paragraph_id": 36,
-      "start": 182.61,
-      "end": 193.46,
-      "duration": 10.85,
+      "paragraph_id": 27,
+      "start": 133.82,
+      "end": 142.93,
+      "duration": 9.11,
       "text_snippet": "Java cũng cho phép sử dụng các toán tử & và | với các toán hạng kiểu boolean. Tu"
     },
     {
-      "paragraph_id": 37,
-      "start": 193.46,
-      "end": 194.86,
-      "duration": 1.4,
+      "paragraph_id": 28,
+      "start": 142.94,
+      "end": 145.14,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 38,
-      "start": 194.86,
-      "end": 214.46,
-      "duration": 19.6,
+      "paragraph_id": 29,
+      "start": 145.24,
+      "end": 150.28,
+      "duration": 5.04,
       "text_snippet": "Cả hai vế trái và phải đều sẽ bị đánh giá bất kể kết quả vế trái là gì. Những ng"
     },
     {
-      "paragraph_id": 39,
-      "start": 214.46,
-      "end": 221.46,
+      "paragraph_id": 30,
+      "start": 150.27,
+      "end": 157.27,
       "duration": 7.0,
       "text_snippet": "Tại Sao Các Toán Tử Logic Sử Dụng Cơ Chế Ngắn Mạch và Sự Khác Biệt Với Toán Tử B"
     },
     {
-      "paragraph_id": 40,
-      "start": 221.46,
-      "end": 290.06,
+      "paragraph_id": 31,
+      "start": 157.27,
+      "end": 225.87,
       "duration": 68.6,
       "text_snippet": "Ngắn mạch vừa là một tối ưu hóa hiệu năng vừa là một cơ chế bảo vệ an toàn được "
     },
     {
-      "paragraph_id": 41,
-      "start": 290.06,
-      "end": 292.16,
+      "paragraph_id": 32,
+      "start": 225.87,
+      "end": 227.97,
       "duration": 2.1,
       "text_snippet": "Sơ Đồ Quy Trình Quyết Định"
     },
     {
-      "paragraph_id": 42,
-      "start": 292.16,
-      "end": 300.91,
-      "duration": 8.75,
+      "paragraph_id": 33,
+      "start": 150.37,
+      "end": 159.55,
+      "duration": 9.18,
       "text_snippet": "Sơ đồ dưới đây minh họa cách toán tử && (ngắn mạch) và & (không ngắn mạch) xử lý"
     },
     {
-      "paragraph_id": 43,
-      "start": 300.91,
-      "end": 302.31,
-      "duration": 1.4,
+      "paragraph_id": 34,
+      "start": 159.5,
+      "end": 161.88,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 44,
-      "start": 302.31,
-      "end": 305.11,
-      "duration": 2.8,
+      "paragraph_id": 35,
+      "start": 161.87,
+      "end": 165.76,
+      "duration": 3.89,
       "text_snippet": "Chuỗi Nguyên Nhân - Kết Quả (Cause-Effect Chain)"
     },
     {
-      "paragraph_id": 45,
-      "start": 305.11,
-      "end": 324.36,
-      "duration": 19.25,
+      "paragraph_id": 36,
+      "start": 165.76,
+      "end": 178.96,
+      "duration": 13.2,
       "text_snippet": "Tham chiếu name là null → name != null trả về false → toán tử && phát hiện toán "
     },
     {
-      "paragraph_id": 46,
-      "start": 324.36,
-      "end": 325.76,
-      "duration": 1.4,
+      "paragraph_id": 37,
+      "start": 179.06,
+      "end": 181.0,
+      "duration": 1.94,
       "text_snippet": "Ví Dụ Mã Nguồn"
     },
     {
-      "paragraph_id": 47,
-      "start": 325.76,
-      "end": 327.16,
-      "duration": 1.4,
+      "paragraph_id": 38,
+      "start": 180.95,
+      "end": 183.31,
+      "duration": 2.36,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 48,
-      "start": 327.16,
-      "end": 329.61,
-      "duration": 2.45,
+      "paragraph_id": 39,
+      "start": 183.31,
+      "end": 186.76,
+      "duration": 3.45,
       "text_snippet": "Các Sai Lầm Thường Gặp (Common Mistakes)"
     },
     {
-      "paragraph_id": 49,
-      "start": 329.61,
-      "end": 333.11,
-      "duration": 3.5,
+      "paragraph_id": 40,
+      "start": 186.76,
+      "end": 190.05,
+      "duration": 3.29,
       "text_snippet": "Đừng nhầm lẫn giữa phép gán và phép so sánh:"
     },
     {
-      "paragraph_id": 50,
-      "start": 333.11,
-      "end": 334.51,
-      "duration": 1.4,
+      "paragraph_id": 41,
+      "start": 190.15,
+      "end": 192.53,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 51,
-      "start": 334.51,
-      "end": 340.11,
-      "duration": 5.6,
+      "paragraph_id": 42,
+      "start": 192.47,
+      "end": 198.68,
+      "duration": 6.21,
       "text_snippet": "Đối với kiểu boolean, viết if (ready) thường rõ ràng hơn viết if (ready == true)"
     },
     {
-      "paragraph_id": 52,
-      "start": 340.11,
-      "end": 345.36,
-      "duration": 5.25,
+      "paragraph_id": 43,
+      "start": 198.69,
+      "end": 202.99,
+      "duration": 4.3,
       "text_snippet": "Đừng sử dụng toán tử == để so sánh nội dung của các chuỗi String:"
     },
     {
-      "paragraph_id": 53,
-      "start": 345.36,
-      "end": 346.76,
-      "duration": 1.4,
+      "paragraph_id": 44,
+      "start": 202.99,
+      "end": 205.19,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 54,
-      "start": 346.76,
-      "end": 355.16,
-      "duration": 8.4,
+      "paragraph_id": 45,
+      "start": 205.29,
+      "end": 212.21,
+      "duration": 6.92,
       "text_snippet": "Khi biến có thể nhận giá trị null, hãy viết hằng chuỗi văn bản lên trước phương "
     },
     {
-      "paragraph_id": 55,
-      "start": 355.16,
-      "end": 356.56,
-      "duration": 1.4,
+      "paragraph_id": 46,
+      "start": 212.16,
+      "end": 214.36,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     }
   ]

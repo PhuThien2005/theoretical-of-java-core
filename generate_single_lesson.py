@@ -2,11 +2,12 @@ import sys
 import os
 import json
 import asyncio
+import re
 import edge_tts
 
 VOICE = "vi-VN-HoaiMyNeural"
 PROJECT_DIR = "/home/fhu_thjen/projects/learning-java"
-SEMAPHORE_LIMIT = 5
+SEMAPHORE_LIMIT = 1
 
 async def get_marked_blocks(md_path):
     cmd = ["node", "scratch_extract_blocks.js", md_path]
@@ -26,16 +27,39 @@ async def get_marked_blocks(md_path):
         
     return json.loads(stdout.decode('utf-8'))
 
+def clean_for_tts(text):
+    text = re.sub(r'\\rightarrow|\\implies|\\to|[→⇒]', ' sang ', text)
+    text = re.sub(r'\\leftarrow|←', ' từ ', text)
+    text = re.sub(r'\\le|\\leq|≤', ' nhỏ hơn hoặc bằng ', text)
+    text = re.sub(r'\\ge|\\geq|≥', ' lớn hơn hoặc bằng ', text)
+    text = re.sub(r'\\neq|≠', ' khác ', text)
+    text = re.sub(r'\\times|×', ' nhân ', text)
+    text = text.replace('+=', ' cộng gán ')
+    text = text.replace('-=', ' trừ gán ')
+    text = text.replace('*=', ' nhân gán ')
+    text = text.replace('/=', ' chia gán ')
+    text = text.replace('%=', ' chia dư gán ')
+    text = text.replace('==', ' bằng ')
+    text = text.replace('!=', ' khác ')
+    text = text.replace('<=', ' nhỏ hơn hoặc bằng ')
+    text = text.replace('>=', ' lớn hơn hoặc bằng ')
+    for ch in ['$', '\\', '|', '_', '+', '*', '/', '%', '=', '<', '>', '#', '`', '~', '^']:
+        text = text.replace(ch, ' ')
+    return text
+
 async def process_chunk_parallel(chunk_idx, chunk, sem):
-    texts = [item[1] for item in chunk]
-    full_chunk_text = " . ".join(texts)
+    texts = [clean_for_tts(item[1]) for item in chunk]
+    full_chunk_text = " . ".join(texts).strip(" .")
+    if not full_chunk_text:
+        return chunk_idx, [], bytearray()
     
     cues = []
     chunk_audio_bytes = bytearray()
     
-    # Retry up to 10 times for resilience
-    for attempt in range(10):
+    # Retry up to 8 times for resilience
+    for attempt in range(8):
         async with sem:
+            await asyncio.sleep(0.2)
             cues = []
             chunk_audio_bytes = bytearray()
             try:
@@ -50,16 +74,15 @@ async def process_chunk_parallel(chunk_idx, chunk, sem):
                                 "duration": item["duration"] / 10000000.0,
                                 "text": item["text"]
                             })
-                await asyncio.wait_for(fetch_stream(), timeout=30.0)
+                await asyncio.wait_for(fetch_stream(), timeout=45.0)
                 if len(chunk_audio_bytes) > 0:
                     break
             except Exception as e:
-                sleep_time = min(15, 2 * (attempt + 1))
-                print(f"   [Chunk {chunk_idx}] Attempt {attempt+1} failed: {e}. Retrying in {sleep_time}s...", flush=True)
-                await asyncio.sleep(sleep_time)
+                print(f"   [Chunk {chunk_idx}] Attempt {attempt+1} failed: {e}. Retrying...", flush=True)
+                await asyncio.sleep(1.0)
                 
     if len(chunk_audio_bytes) == 0:
-        raise RuntimeError(f"Failed to generate audio for chunk {chunk_idx} after 15 attempts.")
+        raise RuntimeError(f"Failed to generate audio for chunk {chunk_idx} after 8 attempts.")
         
     return chunk_idx, cues, chunk_audio_bytes
 
@@ -75,6 +98,7 @@ async def main():
     lesson_name = os.path.splitext(os.path.basename(md_path))[0]
     
     blocks = await get_marked_blocks(md_path)
+    CHUNK_SIZE = 3
     if not blocks:
         print(f"Empty blocks for {lesson_name}")
         return

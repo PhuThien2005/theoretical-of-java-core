@@ -1,22 +1,5 @@
 # Hệ Thống Mô-đun Java (Java Module System) - Phần 1
 
-## Mục Tiêu Học Tập
-
-Tài liệu này tập trung vào **Hệ Thống Mô-đun Java** (được giới thiệu từ Java 9 dưới tên gọi Dự án Jigsaw). Hãy nghiên cứu cách các mô-đun thực thi cơ chế đóng gói mạnh mẽ (strong encapsulation), giải quyết tình trạng "địa ngục đường dẫn lớp" (classpath hell), và thay đổi cách JVM tải cũng như bảo mật các lớp.
-
-## Tóm Tắt Nội Dung (Outline Coverage)
-
-- **`What is a module?`** — What is a module?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`module-info.java`** — module-info.java: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`requires`** — requires: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`exports`** — exports: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`opens`** — opens: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Named module`** — Named module: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Unnamed module`** — Unnamed module: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Automatic module`** — Automatic module: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Module-level encapsulation`** — Module-level encapsulation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Module path vs Classpath`** — Module path vs Classpath: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ---
 
 ## Ghi Chú Chi Tiết

@@ -51,9 +51,6 @@ Stack lưu trữ các khung gọi phương thức (Method Call Frames). Mỗi kh
 
 Các đặc tính chính của Stack:
 
-- **`Khung có kích thước cố định`** — Khung có kích thước cố định: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Cấp phát nhanh`** — Cấp phát nhanh: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Tự động dọn dẹp`** — Tự động dọn dẹp: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **Lưu trữ**: các giá trị nguyên thủy (`int`, `double`, `boolean`, v.v.) và các địa chỉ tham chiếu (các con trỏ trỏ đến các đối tượng trên Heap).
 
 ### Bộ Nhớ Heap (Heap Memory)
@@ -62,9 +59,6 @@ Heap lưu trữ các đối tượng và mảng. Khi bạn viết `new Student()
 
 Các đặc tính chính của Heap:
 
-- **`Cấp phát động`** — Cấp phát động: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Cấp phát chậm hơn`** — Cấp phát chậm hơn: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Được dọn rác`** — Được dọn rác: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **Lưu trữ**: tất cả các đối tượng (`String`, mảng, `Student`, các lớp bao bọc, v.v.).
 
 ### Tại Sao Kiểu Nguyên Thủy Nằm Trên Stack Và Đối Tượng Nằm Trên Heap (Why Primitives Go On The Stack And Objects Go On The Heap)
@@ -117,12 +111,6 @@ String name = "Alice";  // Large package → warehouse (Heap), tracking slip in 
 Phần trước đã nêu rằng `String` không phải là kiểu nguyên thủy — nhưng **tại sao** lại như vậy?
 
 Câu trả lời xuất phát trực tiếp từ cách hoạt động của Stack: **các kiểu nguyên thủy phải có kích thước cố định, có thể dự đoán trước tại thời điểm biên dịch**. Mọi kiểu nguyên thủy trong Java đều có kích thước được đảm bảo:
-
-- **`byte`** — byte: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`int`** — int: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`double`** — double: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`boolean`** — boolean: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`String`** — String: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 Một `String` có thể dài 1 ký tự hoặc 1 triệu ký tự. Kích thước của nó là **thay đổi và không thể dự đoán trước tại thời điểm biên dịch**:
 
@@ -288,10 +276,6 @@ System.out.println(greeting.toUpperCase()); // NullPointerException at runtime!
 ### Tại Sao NullPointerException Là Ngoại Lệ Phổ Biến Nhất Trong Java (Why NullPointerException Is The Most Common Java Exception)
 
 `NullPointerException` (NPE) là ngoại lệ thời điểm chạy (Runtime Exception) phổ biến nhất trong Java vì:
-
-- **`null`** — null: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`null`** — null: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`null`** — null: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ```java
 public static String findUser(int id) {

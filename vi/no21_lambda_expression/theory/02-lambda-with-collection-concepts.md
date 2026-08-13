@@ -1,14 +1,8 @@
 # Biểu Thức Lambda (Lambda Expression) - Phần 2
 
-## Mục Tiêu Học Tập
-
 Tệp (File) này cung cấp một phần trọng tâm về **biểu thức Lambda**. Hãy học từng khái niệm như một quy tắc Java thực tế, chứ không phải như các từ vựng riêng lẻ.
 
 ## Nội Dung Tóm Tắt
-
-- **`Lambda with Collection`** — Lambda with Collection: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Lambda with Thread`** — Lambda with Thread: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Lambda with Comparator`** — Lambda with Comparator: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết
 

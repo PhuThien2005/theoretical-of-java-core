@@ -1,11 +1,5 @@
 # Optional - Part 2
 
-## Learning Goal
-
-This file covers a focused slice of **Optional**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `map` | map transforms the wrapped value if present and wraps the result back into an Optional. |
@@ -118,9 +112,6 @@ Confusing `map` and `flatMap` when the mapping function returns `Optional`. If y
 The core difference between `map()` and `flatMap()` is how they handle the return type of the mapping function. The `map()` method is designed for mapping functions that return raw values; it automatically wraps whatever raw value the mapper returns into a new `Optional`. If you pass a mapper function that itself returns an `Optional`, `map()` will still wrap it, resulting in a nested `Optional<Optional<T>>` structure. Conversely, `flatMap()` is designed specifically for mapping functions that already return an `Optional`; it returns that `Optional` directly without applying another layer of wrapping. Additionally, a critical mechanism difference is that if the mapping function returns `null`, `map()` catches this and safely returns `Optional.empty()`, whereas `flatMap()` explicitly checks for null and throws a `NullPointerException` to prevent invalid nested optionals.
 
 ### Mental Model: The Nested Box Analogy
-
-- **`map`** — map: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`flatMap`** — flatMap: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ```mermaid
 flowchart LR
@@ -512,9 +503,3 @@ findUser(123)
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html#map(java.util.function.Function) (Optional.map API Documentation)
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html#flatMap(java.util.function.Function) (Optional.flatMap API Documentation)
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html (Optional API Specification)
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?

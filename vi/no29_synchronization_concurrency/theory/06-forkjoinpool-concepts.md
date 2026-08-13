@@ -1,14 +1,5 @@
 # Đồng bộ hóa và Đồng thời - Phần 6
 
-## Mục Tiêu Học Tập
-
-Tài liệu này trình bày về khung Fork/Join (`ForkJoinPool`, `RecursiveTask`, `RecursiveAction`) và các chi tiết thực thi của Luồng song song (Parallel Stream). Hãy nghiên cứu từng khái niệm dưới dạng một quy tắc Java thực tế, thay vì chỉ học từ vựng riêng lẻ.
-
-## Nội Dung Tổng Quan
-
-- **`ForkJoinPool`** — ForkJoinPool: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Parallel Stream`** — Parallel Stream: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### ForkJoinPool và Trộm công việc (Work-Stealing)

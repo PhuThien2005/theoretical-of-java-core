@@ -1,11 +1,5 @@
 # IO in Java - Part 3
 
-## Learning Goal
-
-This file covers a focused slice of **IO in Java**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Serialization` | The process of converting an object's state into a byte stream so it can be saved to a file or sent over a network. |
@@ -330,4 +324,3 @@ Scanner s2 = new Scanner(System.in);
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/Serializable.html (Serializable API Documentation)
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/ObjectInputStream.html (ObjectInputStream API Documentation)
 - https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.21 (JLS Unreachable Statements)
-

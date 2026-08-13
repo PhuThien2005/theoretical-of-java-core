@@ -1,11 +1,5 @@
 # Basic Unit Testing - Part 1: JUnit 5 & Mockito Basics
 
-## Learning Goal
-
-This file covers the fundamentals of unit testing in Java using JUnit 5 and Mockito. You will learn the test lifecycle, assertions, and mock object interactions.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `JUnit` | Java testing framework for writing and running automated unit tests. |

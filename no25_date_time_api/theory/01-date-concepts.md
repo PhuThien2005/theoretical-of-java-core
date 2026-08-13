@@ -1,11 +1,5 @@
 # Date and Time API - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **Date and Time API**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Date` | Legacy mutable class representing an instant in time with millisecond precision; suffers from thread-safety issues, 0-indexed months, and confusing timezone handling. |
@@ -270,12 +264,6 @@ System.out.println("Days between: " + period.getDays()); // 3
 ### 3. Sharing SimpleDateFormat
 Using a static or shared instance of `SimpleDateFormat` across threads causes corrupt parse/format values or crash errors. Use `java.time.format.DateTimeFormatter` instead, which is completely thread-safe.
 
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
-
 ## Reference Links
 
 - https://docs.oracle.com/javase/tutorial/datetime/ (Oracle Java Date-Time Trail)
@@ -284,4 +272,3 @@ Using a static or shared instance of `SimpleDateFormat` across threads causes co
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZonedDateTime.html (ZonedDateTime JavaDoc)
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/OffsetDateTime.html (OffsetDateTime JavaDoc)
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/Instant.html (Instant JavaDoc)
-

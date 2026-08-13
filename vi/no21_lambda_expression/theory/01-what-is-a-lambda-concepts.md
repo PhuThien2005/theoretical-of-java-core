@@ -1,22 +1,5 @@
 # Biểu Thức Lambda (Lambda Expression) - Phần 1
 
-## Mục Tiêu Học Tập
-
-Tài liệu này trình bày một phần trọng tâm của **Biểu thức Lambda (Lambda Expression)**. Hãy nghiên cứu từng khái niệm dưới dạng một quy tắc Java thực tế, thay vì chỉ học từ vựng riêng lẻ.
-
-## Nội Dung Tổng Quan
-
-- **`What is a lambda?`** — What is a lambda?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Lambda syntax`** — Lambda syntax: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Functional interface`** — Functional interface: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`@FunctionalInterface`** — @FunctionalInterface: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Method reference:`** — Method reference:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`static method reference`** — static method reference: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`instance method reference`** — instance method reference: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`constructor reference`** — constructor reference: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Variable capture`** — Variable capture: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Effectively final`** — Effectively final: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### Lambda là gì? (What is a lambda?)
@@ -334,8 +317,6 @@ java.util.function.Function<String, Integer> parserRef = Integer::parseInt;
 
 ### Tham chiếu phương thức thể hiện (instance method reference)
 
-**`Tham chiếu phương thức thể hiện (instance method reference)`** — Tham chiếu phương thức thể hiện (instance method reference): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
 Kiểm tra thực tế:
 
 - Định nghĩa `instance method reference` trong một câu.
@@ -361,8 +342,6 @@ java.util.function.BiFunction<String, String, String> unboundConcat = String::co
 ```
 
 ### Tham chiếu hàm khởi tạo (constructor reference)
-
-**`Tham chiếu hàm khởi tạo (constructor reference)`** — Tham chiếu hàm khởi tạo (constructor reference): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Kiểm tra thực tế:
 
@@ -439,8 +418,6 @@ Phương thức giao diện chức năng khớp chữ ký và thực thi thành 
 ```
 
 ### Sao chụp biến (Variable capture)
-
-**`Sao chụp biến (Variable capture)`** — Sao chụp biến (Variable capture): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Kiểm tra thực tế:
 

@@ -1,19 +1,6 @@
 # Các Câu Hỏi Phỏng Vấn Java Core Thường Gặp - Phần 2 (Common Java Core Interview Questions - Part 2)
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này trình bày các câu hỏi phỏng vấn Java Core ở mức độ trung cấp liên quan đến các thao tác trên Set, các bổ từ sửa đổi (final, static), kế thừa ngoại lệ, các mối quan hệ hướng đối tượng (OOP) và ngữ cảnh thực thể (instance context).
-
 ## Khung Nội Dung (Outline Coverage)
-
-- **`How does HashSet remove duplicates?`** — How does HashSet remove duplicates?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`How are final, finally, and finalize different?`** — How are final, finally, and finalize different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`How are checked and unchecked exceptions different?`** — How are checked and unchecked exceptions different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`How are abstract class and interface different?`** — How are abstract class and interface different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`How are overload and override different?`** — How are overload and override different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Can static methods be overridden?`** — Can static methods be overridden?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Are constructors inherited?`** — Are constructors inherited?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`How are this and super different?`** — How are this and super different?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 
@@ -38,12 +25,9 @@ public class HashSet<E> {
 
 ### phân biệt final vs. finally vs. finalize()
 
-- **`final`** — final: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - **Biến (Variable)**: Cấm gán lại giá trị (trở thành hằng số).
   - **Phương thức (Method)**: Cấm các lớp con ghi đè phương thức này.
   - **Lớp (Class)**: Cấm lớp khác kế thừa (ví dụ: `String`, `Integer`).
-- **`finally`** — finally: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`finalize()`** — finalize(): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 
@@ -107,9 +91,6 @@ Không, các hàm khởi tạo không được kế thừa bởi các lớp con.
 ---
 
 ### phân biệt this vs. super
-
-- **`this`** — this: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`super`** — super: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

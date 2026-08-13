@@ -1,21 +1,6 @@
 # Chú Thích - Phần 1 (Annotation - Part 1)
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này trình bày một phần trọng tâm về **Chú Thích (Annotation)** trong Java. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, tránh việc ghi nhớ từ vựng một cách máy móc.
-
 ## Khung Nội Dung (Outline Coverage)
-
-- **`What is an annotation?`** — What is an annotation?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Built-in annotations:`** — Built-in annotations:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`@Override`** — @Override: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`@Deprecated`** — @Deprecated: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`@SuppressWarnings`** — @SuppressWarnings: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`@FunctionalInterface`** — @FunctionalInterface: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`@SafeVarargs`** — @SafeVarargs: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Meta-annotations:`** — Meta-annotations:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`@Target`** — @Target: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`@Retention`** — @Retention: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 

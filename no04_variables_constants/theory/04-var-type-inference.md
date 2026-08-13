@@ -163,4 +163,3 @@ void broken() {
 
 - [Java Language Specification: Local Variable Type Inference](https://docs.oracle.com/javase/specs/jls/se21/html/jls-14.html#jls-14.4)
 - [OpenJDK FAQ: Local Variable Type Inference](https://openjdk.org/projects/amber/LVTIstyle.html)
-

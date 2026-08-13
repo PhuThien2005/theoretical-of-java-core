@@ -1,11 +1,5 @@
 # NIO / NIO.2 - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **NIO / NIO.2**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Path` | An interface representing a hierarchical path to a file or directory; replaces `java.io.File` with a cleaner, more flexible API. |

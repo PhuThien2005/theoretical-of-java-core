@@ -1,11 +1,5 @@
 # Synchronization and Concurrency - Part 2
 
-## Learning Goal
-
-This file covers advanced synchronization problems (deadlock, livelock, starvation), memory visibility (`volatile`), and lock-free atomic primitives. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Deadlock` | A situation where two or more threads are blocked forever, each waiting for a lock held by another thread. |

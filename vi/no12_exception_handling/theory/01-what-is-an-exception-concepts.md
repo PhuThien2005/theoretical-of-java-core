@@ -1,7 +1,5 @@
 # Xử lý ngoại lệ - Phần 1 (Exception Handling - Part 1)
 
-## Mục tiêu học tập (Learning Goal)
-
 Tệp này bao gồm một phần tập trung vào **Xử lý ngoại lệ**. Nghiên cứu từng khái niệm như một quy tắc Java thực tế chứ không phải như một từ vựng riêng biệt.
 
 ## Đề cương Bảo hiểm (Outline Coverage)

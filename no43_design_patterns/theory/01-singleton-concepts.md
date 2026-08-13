@@ -1,11 +1,5 @@
 # Basic Design Patterns Commonly Seen in Java - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of creational and structural **Design Patterns** (GoF) widely used in Java. Study each concept as a practical Java rule.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Singleton` | Restricting class instantiation to a single object with global access. |

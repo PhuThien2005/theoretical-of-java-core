@@ -1,21 +1,6 @@
 # Cơ Chế Phản Chiếu - Phần 1 (Reflection - Part 1)
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này trình bày một phần trọng tâm về **Cơ Chế Phản Chiếu (Reflection)** trong Java. Hãy nghiên cứu từng khái niệm như một quy tắc Java thực tế, tránh việc ghi nhớ từ vựng một cách máy móc.
-
 ## Khung Nội Dung (Outline Coverage)
-
-- **`What is Reflection?`** — What is Reflection?: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Class<?>`** — Class<?>: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Get class information`** — Get class information: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Get field`** — Get field: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Get method`** — Get method: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Get constructor`** — Get constructor: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Invoke method using reflection`** — Invoke method using reflection: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Create object using reflection`** — Create object using reflection: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Access private field/method`** — Access private field/method: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Annotation + reflection`** — Annotation + reflection: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ---
 
@@ -150,7 +135,6 @@ public class ModifierInspector {
 
 Các trường thuộc tính được kiểm tra thông qua lớp `java.lang.reflect.Field`.
 
-- **`getField(name)`** — getField(name): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
   - `getField(name)` trả về trường thuộc tính **public** được chỉ định, thực hiện tìm kiếm trên chính lớp đó và toàn bộ các lớp cha của nó.
   - `getDeclaredField(name)` trả về trường thuộc tính được khai báo **trực tiếp** trong lớp (bao gồm cả private, protected, package-private), nhưng bỏ qua các trường kế thừa từ lớp cha.
 - **Liệt kê các trường**: `getFields()` vs `getDeclaredFields()` tuân thủ cùng các quy tắc phạm vi tìm kiếm nêu trên.
@@ -299,7 +283,6 @@ public class Instantiator {
 Reflection có thể vượt qua các kiểm soát quyền truy cập ngôn ngữ (như `private`, `protected`, hoặc package-private) bằng cách gọi phương thức `AccessibleObject.setAccessible(true)`.
 
 - **AccessibleObject**: Là lớp cha của `Field`, `Method`, và `Constructor`.
-- **`setAccessible(true)`** — setAccessible(true): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **Các giới hạn ràng buộc**: 
   - Một `SecurityManager` (nếu hoạt động) có thể chặn hành động này.
   - Hệ thống Module của Java (từ Java 9 trở đi) sẽ chặn việc phản chiếu sâu vào các gói không được xuất (non-exported packages) của các module có tên trừ khi tham số `--add-opens` được truyền vào lúc khởi động JVM.

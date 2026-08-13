@@ -263,4 +263,3 @@ This compiles, but it fails when the program runs.
 - https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.html#jvms-2.5 (Run-Time Data Areas)
 - https://docs.oracle.com/en/java/javase/21/gctuning/garbage-collector-implementation.html (Garbage Collector Implementation)
 - https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-4.html (The class File Format)
-

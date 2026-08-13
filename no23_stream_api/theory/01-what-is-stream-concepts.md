@@ -16,8 +16,6 @@ long count = list.stream()
 System.out.println(count); // Output: 1
 ```
 
-
-
 ### Stream vs Collection
 
 A collection is an object that groups multiple elements under a common API.
@@ -38,8 +36,6 @@ stream.forEach(System.out::print);
 // stream.forEach(System.out::print); // Throws IllegalStateException!
 ```
 
-
-
 ### Create Stream:
 
 The static factory method `Stream.of()` allows you to quickly create a Stream from directly supplied values (varargs).
@@ -51,8 +47,6 @@ Stream<String> emptyStream = Stream.empty();
 Stream<Integer> streamOf = Stream.of(1, 2, 3);
 ```
 
-
-
 ### from List
 
 You can easily create a Stream from a List (or any Collection) by calling the default `.stream()` method provided on the Collection interface.
@@ -62,8 +56,6 @@ You can easily create a Stream from a List (or any Collection) by calling the de
 List<String> list = List.of("Java", "Stream", "API");
 Stream<String> stream = list.stream(); // Returns Stream<String>
 ```
-
-
 
 ### from Array
 
@@ -81,8 +73,6 @@ int[] intArr = {1, 2, 3};
 IntStream intStream = Arrays.stream(intArr);
 ```
 
-
-
 ### from Map
 
 Map does not inherit from Collection, so it does not have a direct `.stream()` method. However, you can create a Stream from a Map indirectly via `.keySet().stream()`, `.values().stream()`, or `.entrySet().stream()`.
@@ -95,8 +85,6 @@ Stream<String> keyStream = map.keySet().stream();
 Stream<Integer> valueStream = map.values().stream();
 Stream<Map.Entry<String, Integer>> entryStream = map.entrySet().stream();
 ```
-
-
 
 ### Stream.of
 
@@ -121,8 +109,6 @@ try (Stream<String> lines = Files.lines(Paths.get("example.txt"))) {
     // Handle I/O exception
 }
 ```
-
-
 
 ### IntStream
 
@@ -156,14 +142,6 @@ System.out.println(badStream.count()); // Prints 1
 IntStream goodStream = Arrays.stream(numbers);
 System.out.println(goodStream.count()); // Prints 3
 ```
-
-
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
 
 ## Why Primitive Streams Exist and Avoid Autoboxing
 

@@ -31,4 +31,3 @@ Classpath tells the JVM and compiler where to find classes and JARs.
 ## module path
 
 Module path is the module-system-aware alternative to classpath for named modules.
-

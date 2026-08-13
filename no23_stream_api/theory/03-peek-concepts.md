@@ -19,8 +19,6 @@ List<String> result = Stream.of("one", "two", "three")
                             .collect(Collectors.toList());
 ```
 
-
-
 ### limit
 
 `limit` — limit provides specific functionality and rules in Java development.
@@ -34,8 +32,6 @@ Stream.of(1, 2, 3, 4, 5)
       .limit(3)
       .forEach(System.out::print); // Prints: 123
 ```
-
-
 
 ### skip
 
@@ -51,8 +47,6 @@ Stream.of(1, 2, 3, 4, 5)
       .forEach(System.out::print); // Prints: 345
 ```
 
-
-
 ### Terminal operations:
 
 Terminal operations is a group of related rules in Stream API that groups several related details.
@@ -64,8 +58,6 @@ Use it to predict the exact Java rule, the allowed form, and the failure mode. R
 // Terminal operations execute the pipeline and close the stream
 long count = Stream.of(1, 2, 3).count();
 ```
-
-
 
 ### forEach
 
@@ -79,8 +71,6 @@ Use it to predict the exact Java rule, the allowed form, and the failure mode. R
 Stream.of("a", "b").forEach(System.out::print); // Output: ab
 ```
 
-
-
 ### collect
 
 `collect` — collect provides specific functionality and rules in Java development.
@@ -93,8 +83,6 @@ Use it to predict the exact Java rule, the allowed form, and the failure mode. R
 List<String> list = Stream.of("a", "b").collect(Collectors.toList());
 ```
 
-
-
 ### toList
 
 You can easily create a Stream from a List (or any Collection) by calling the default `.stream()` method provided on the Collection interface.
@@ -104,8 +92,6 @@ You can easily create a Stream from a List (or any Collection) by calling the de
 // toList() (Java 16+) returns an unmodifiable List directly
 List<String> unmodifiableList = Stream.of("a", "b").toList();
 ```
-
-
 
 ### count
 
@@ -139,14 +125,6 @@ Modifying shared non-thread-safe state from a parallel stream's `forEach` leads 
 List<Integer> list = new ArrayList<>(); // Non-thread-safe
 List.of(1, 2, 3, 4).parallelStream().forEach(list::add); // Race condition!
 ```
-
-
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
 
 ## Why peek() Should Not Be Used for State Mutation
 

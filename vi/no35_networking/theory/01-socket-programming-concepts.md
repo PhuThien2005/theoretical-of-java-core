@@ -1,22 +1,5 @@
 # Lập Trình Mạng (Networking) - Phần 1
 
-## Mục Tiêu Học Tập
-
-Tài liệu này tập trung vào một phần chuyên sâu của **Lập Trình Mạng (Networking)**. Hãy nghiên cứu từng khái niệm dưới dạng quy tắc thực tế trong Java, không chỉ đơn thuần là lý thuyết từ vựng.
-
-## Tóm Tắt Nội Dung (Outline Coverage)
-
-- **`Socket programming`** — Socket programming: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`TCP socket`** — TCP socket: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`UDP socket`** — UDP socket: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Socket`** — Socket: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`ServerSocket`** — ServerSocket: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`DatagramSocket`** — DatagramSocket: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`InetAddress`** — Lớp đại diện cho địa chỉ IP (IPv4 hoặc IPv6) trong lập trình mạng Java.
-- **`URL`** — Định dạng địa chỉ tài nguyên thống nhất trên mạng (Uniform Resource Locator).
-- **`URI`** — Định danh tài nguyên thống nhất (Uniform Resource Identifier) tổng quát hơn URL.
-- **`Basic HTTP request`** — Basic HTTP request: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-
 ## Ghi Chú Chi Tiết
 
 ### Lập trình Socket (Socket programming)

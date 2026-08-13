@@ -24,8 +24,6 @@ Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `Matcher` thay đổi, 
 
 ## Lớp Ký Tự (Character Class)
 
-**`character class` (lớp ký tự)`** — character class` (lớp ký tự): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
 Tại sao điều này quan trọng: Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 
 Nhầm lẫn phổ biến: Người học thường ghi nhớ `character class` như một từ vựng nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.
@@ -33,8 +31,6 @@ Nhầm lẫn phổ biến: Người học thường ghi nhớ `character class` 
 Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `character class` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## Bộ Lượng Hóa (Quantifier)
-
-**`quantifier` (bộ lượng hóa)`** — quantifier` (bộ lượng hóa): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Tại sao điều này quan trọng: Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 
@@ -44,8 +40,6 @@ Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `quantifier` thay đổ
 
 ## Nhóm Thu Nạp (Capturing Group)
 
-**`capturing group` (nhóm thu nạp)`** — capturing group` (nhóm thu nạp): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
-
 Tại sao điều này quan trọng: Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 
 Nhầm lẫn phổ biến: Người học thường ghi nhớ `capturing group` như một từ vựng nhưng không thể giải thích nó giải quyết vấn đề gì hoặc làm thay đổi quy tắc nào.
@@ -53,8 +47,6 @@ Nhầm lẫn phổ biến: Người học thường ghi nhớ `capturing group` 
 Ví dụ nhỏ: Khi đọc mã nguồn, hãy tự hỏi: `capturing group` thay đổi, cho phép, từ chối hay làm rõ điều gì?
 
 ## Khớp Nhìn Xung Quanh (Lookaround)
-
-**`lookaround` (khớp nhìn xung quanh)`** — lookaround` (khớp nhìn xung quanh): Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong lập trình Java.
 
 Tại sao điều này quan trọng: Hãy sử dụng nó để dự đoán quy tắc Java chính xác, dạng được phép và chế độ thất bại. Hãy ôn tập lại với một ví dụ nhỏ thay vì chỉ ghi nhớ nhãn của nó.
 

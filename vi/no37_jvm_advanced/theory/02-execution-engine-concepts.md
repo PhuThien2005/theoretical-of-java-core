@@ -1,19 +1,10 @@
 # Máy Ảo JVM Nâng Cao - Phần 2 (Advanced JVM - Part 2)
 
-## Mục Tiêu Học Tập (Learning Goal)
-
-Tài liệu này trình bày một phần trọng tâm của **JVM Nâng Cao (Advanced JVM)**. Hãy nghiên cứu từng khái niệm dưới dạng một quy tắc thực hành trong Java, thay vì chỉ ghi nhớ các thuật ngữ riêng lẻ.
-
 ## Khung Nội Dung (Outline Coverage)
 
 - **`Execution Engine`** — Bộ thực thi bytecode của JVM bao gồm Interpreter, JIT Compiler và Garbage Collector.
 - **`Interpreter`** — Bộ thông dịch đọc và thực thi từng câu lệnh bytecode theo thứ tự.
-- **`JIT Compiler`** — JIT Compiler: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 - **`Garbage Collector`** — Tiến trình dọn dẹp bộ nhớ tự động thu hồi các đối tượng không còn được trỏ tới.
-- **`Native Interface`** — Native Interface: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Heap generation:`** — Heap generation:: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Young Generation`** — Young Generation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
-- **`Eden`** — Eden: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java.
 
 ## Ghi Chú Chi Tiết (Detailed Notes)
 

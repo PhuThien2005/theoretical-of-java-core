@@ -1,11 +1,5 @@
 # Java Memory Management - Part 1
 
-## Learning Goal
-
-This file covers a focused slice of **Java Memory Management**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Stack` | Stack stores method frames, local variables, and call flow for each thread. |
@@ -184,12 +178,6 @@ Setting a reference variable to `null` does not trigger immediate garbage collec
 
 ### 4. Believing Static Fields Live in Metaspace
 Since Java 8, static variables (both primitives and object references) are allocated on the Java Heap, specifically inside the `java.lang.Class` instance of that class. Metaspace only stores the metadata describing the class itself, not the actual values or instances of static variables.
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
 
 ## Why Primitives Live on the Stack or Heap
 

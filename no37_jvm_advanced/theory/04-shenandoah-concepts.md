@@ -1,11 +1,5 @@
 # Advanced JVM - Part 4
 
-## Learning Goal
-
-This file covers a focused slice of **Advanced JVM**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Shenandoah` |`Shenandoah` — Shenandoah provides specific functionality and rules in Java development. |
@@ -104,12 +98,6 @@ java -Xms1g -Xmx2g -XX:MaxGCPauseMillis=50 -jar app.jar
 - **Mismatched -Xms and -Xmx**: If `-Xms` is smaller than `-Xmx`, the JVM will dynamically resize the heap. This resizing causes GC pauses and performance overhead. Setting them equal is best practice for production.
 - **Setting MaxGCPauseMillis too low**: Setting it to an unrealistic target (e.g. 5ms) can cause the GC to run continuously, starving application threads of CPU.
 
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?
-
 ## Why Shenandoah GC Achieves Ultra-Low Pause Times
 
 Shenandoah GC achieves ultra-low pause times that are independent of the heap size by performing its compaction phase concurrently with running Java application threads. Unlike traditional garbage collectors like G1 or Parallel GC, which stop all application threads (Stop-The-World) to copy objects and compact memory regions, Shenandoah executes this compaction step concurrently. To prevent race conditions while application threads read or write to objects that are in the process of being moved, Shenandoah employs a mechanism called **Brooks Pointers** (in older JDK versions) or **Load/Write Barriers** (in newer versions). Every object on the heap prefix-prepends a reference field pointing to itself (the Brooks Pointer). When the concurrent GC thread copies an object to a new region, it uses a Compare-And-Swap (CAS) instruction to update the old object's Brooks Pointer to point to the new copy, causing all application threads executing load barriers to transparently redirect reads and writes to the new object location.
@@ -174,4 +162,3 @@ GC selects region for compaction &rarr; GC allocates copy in to-space &rarr; GC 
 ## Reference Links
 
 - https://openjdk.org/jeps/189 (JEP 189: Shenandoah: A Low-Pause-Time Garbage Collector)
-

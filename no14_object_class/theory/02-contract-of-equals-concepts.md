@@ -1,11 +1,5 @@
 # Object class - Part 2
 
-## Learning Goal
-
-This file covers a focused slice of **Object class**. Study each concept as a practical Java rule, not as isolated vocabulary.
-
-## Outline Coverage
-
 | Concept | What to know |
 | --- | --- |
 | `Contract of equals()` | equals() defines logical equality between objects. |
@@ -339,9 +333,3 @@ return Objects.equals(name, other.name);
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object) (Java SE 21 Object.equals Contract)
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#hashCode() (Java SE 21 Object.hashCode Contract)
 - https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/System.html#identityHashCode(java.lang.Object) (Java SE 21 System.identityHashCode)
-
-## Common Review Prompts
-
-- Which concepts here are compile-time rules?
-- Which concepts here affect runtime behavior?
-- Which concepts here are likely interview traps?

@@ -1,7 +1,5 @@
 # 00 - Cài Đặt Môi Trường (Setup)
 
-## Mục Tiêu Học Tập
-
 Sau khi hoàn thành chủ đề này, bạn cần có thể:
 
 - Phân biệt JDK (Bộ Phát Triển Java) và JRE (Môi Trường Chạy Java).

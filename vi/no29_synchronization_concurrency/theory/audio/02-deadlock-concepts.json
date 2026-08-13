@@ -1,370 +1,300 @@
 {
   "lesson": "02-deadlock-concepts",
-  "total_duration_seconds": 393.99,
-  "total_paragraphs": 52,
+  "total_duration_seconds": 293.62,
+  "total_paragraphs": 42,
   "timestamps": [
     {
       "paragraph_id": 1,
-      "start": 0.0,
-      "end": 5.25,
-      "duration": 5.25,
+      "start": 0.1,
+      "end": 6.64,
+      "duration": 6.54,
       "text_snippet": "Đồng bộ hóa và Đồng thời - Phần 2 (Synchronization and Concurrency - Part 2)"
     },
     {
       "paragraph_id": 2,
-      "start": 5.25,
-      "end": 6.65,
-      "duration": 1.4,
-      "text_snippet": "Mục tiêu học tập"
-    },
-    {
-      "paragraph_id": 3,
-      "start": 6.65,
-      "end": 26.95,
-      "duration": 20.3,
-      "text_snippet": "Tài liệu này tập trung vào các vấn đề đồng bộ hóa nâng cao (deadlock, livelock, "
-    },
-    {
-      "paragraph_id": 4,
-      "start": 26.95,
-      "end": 28.35,
-      "duration": 1.4,
+      "start": 6.59,
+      "end": 8.5,
+      "duration": 1.91,
       "text_snippet": "Đề cương chi tiết"
     },
     {
-      "paragraph_id": 5,
-      "start": 28.35,
-      "end": 34.3,
-      "duration": 5.95,
-      "text_snippet": "Deadlock — Deadlock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 6,
-      "start": 34.4,
-      "end": 40.05,
-      "duration": 5.65,
-      "text_snippet": "Livelock — Livelock: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 7,
-      "start": 40.0,
-      "end": 46.19,
-      "duration": 6.19,
-      "text_snippet": "Starvation — Starvation: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong J"
-    },
-    {
-      "paragraph_id": 8,
-      "start": 46.19,
-      "end": 52.14,
-      "duration": 5.95,
-      "text_snippet": "Volatile — Volatile: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong Java."
-    },
-    {
-      "paragraph_id": 9,
-      "start": 52.14,
-      "end": 65.1,
-      "duration": 12.96,
-      "text_snippet": "Atomic classes: — Atomic classes:: Cung cấp các quy tắc và cơ chế hoạt động cụ t"
-    },
-    {
-      "paragraph_id": 10,
-      "start": 65.1,
-      "end": 71.05,
-      "duration": 5.95,
-      "text_snippet": "AtomicInteger — AtomicInteger: Cung cấp các quy tắc và cơ chế hoạt động cụ thể t"
-    },
-    {
-      "paragraph_id": 11,
-      "start": 65.1,
-      "end": 71.05,
-      "duration": 5.95,
-      "text_snippet": "AtomicLong — AtomicLong: Cung cấp các quy tắc và cơ chế hoạt động cụ thể trong J"
-    },
-    {
-      "paragraph_id": 12,
-      "start": 71.05,
-      "end": 77.0,
-      "duration": 5.95,
-      "text_snippet": "AtomicBoolean — AtomicBoolean: Cung cấp các quy tắc và cơ chế hoạt động cụ thể t"
-    },
-    {
-      "paragraph_id": 13,
-      "start": 77.0,
-      "end": 78.4,
-      "duration": 1.4,
+      "paragraph_id": 3,
+      "start": 8.5,
+      "end": 10.34,
+      "duration": 1.84,
       "text_snippet": "Ghi chú chi tiết"
     },
     {
-      "paragraph_id": 14,
-      "start": 78.4,
-      "end": 81.2,
-      "duration": 2.8,
+      "paragraph_id": 4,
+      "start": 10.34,
+      "end": 14.0,
+      "duration": 3.66,
       "text_snippet": "Khóa chết và Khóa động (Deadlock and Livelock)"
     },
     {
-      "paragraph_id": 15,
-      "start": 81.2,
-      "end": 82.25,
-      "duration": 1.05,
+      "paragraph_id": 5,
+      "start": 14.1,
+      "end": 20.86,
+      "duration": 6.76,
       "text_snippet": "Khóa chết (Deadlock)"
     },
     {
-      "paragraph_id": 16,
-      "start": 82.35,
-      "end": 86.84,
-      "duration": 4.49,
+      "paragraph_id": 6,
+      "start": 20.86,
+      "end": 25.06,
+      "duration": 4.2,
       "text_snippet": "Deadlock yêu cầu bốn điều kiện đồng thời (các điều kiện Coffman):"
     },
     {
-      "paragraph_id": 17,
-      "start": 86.79,
-      "end": 92.15,
-      "duration": 5.36,
+      "paragraph_id": 7,
+      "start": 20.86,
+      "end": 26.17,
+      "duration": 5.31,
       "text_snippet": "Loại trừ lẫn nhau (Mutual Exclusion): Các tài nguyên được nắm giữ độc quyền."
     },
     {
-      "paragraph_id": 18,
-      "start": 92.15,
-      "end": 97.98,
-      "duration": 5.83,
+      "paragraph_id": 8,
+      "start": 26.18,
+      "end": 31.82,
+      "duration": 5.64,
       "text_snippet": "Giữ và Đợi (Hold and Wait): Các luồng đang nắm giữ khóa sẽ đợi để có thêm các kh"
     },
     {
-      "paragraph_id": 19,
-      "start": 97.97,
-      "end": 103.8,
-      "duration": 5.83,
+      "paragraph_id": 9,
+      "start": 31.91,
+      "end": 37.75,
+      "duration": 5.84,
       "text_snippet": "Không cướp đoạt (No Preemption): Các khóa không thể bị tước đoạt một cách ép buộ"
     },
     {
-      "paragraph_id": 20,
-      "start": 103.8,
-      "end": 111.0,
-      "duration": 7.2,
+      "paragraph_id": 10,
+      "start": 37.7,
+      "end": 45.1,
+      "duration": 7.4,
       "text_snippet": "Chờ đợi vòng lặp (Circular Wait): Luồng A giữ Khóa 1 và chờ Khóa 2; Luồng B giữ "
     },
     {
-      "paragraph_id": 21,
-      "start": 111.1,
-      "end": 116.66,
-      "duration": 5.56,
+      "paragraph_id": 11,
+      "start": 45.1,
+      "end": 50.85,
+      "duration": 5.75,
       "text_snippet": "Khắc phục: Loại bộ chờ đợi vòng lặp bằng cách lấy các khóa theo một thứ tự toàn "
     },
     {
-      "paragraph_id": 22,
-      "start": 116.61,
-      "end": 118.99,
-      "duration": 2.38,
+      "paragraph_id": 12,
+      "start": 50.85,
+      "end": 53.05,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 23,
-      "start": 118.99,
-      "end": 121.33,
-      "duration": 2.34,
+      "paragraph_id": 13,
+      "start": 53.15,
+      "end": 55.5,
+      "duration": 2.35,
       "text_snippet": "Khóa động (Livelock)"
     },
     {
-      "paragraph_id": 24,
-      "start": 121.33,
-      "end": 132.61,
-      "duration": 11.28,
+      "paragraph_id": 14,
+      "start": 55.45,
+      "end": 66.67,
+      "duration": 11.22,
       "text_snippet": "Không giống như deadlock, các luồng không bị chặn. Chúng tích cực tiêu thụ các c"
     },
     {
-      "paragraph_id": 25,
-      "start": 132.6,
-      "end": 136.92,
-      "duration": 4.32,
+      "paragraph_id": 15,
+      "start": 66.67,
+      "end": 71.23,
+      "duration": 4.56,
       "text_snippet": "Tính hiển thị của Volatile (Volatile Visibility)"
     },
     {
-      "paragraph_id": 26,
-      "start": 137.03,
-      "end": 160.52,
-      "duration": 23.49,
+      "paragraph_id": 16,
+      "start": 71.24,
+      "end": 94.28,
+      "duration": 23.04,
       "text_snippet": "Nếu không có volatile, các cập nhật được thực hiện đối với một biến bởi Luồng A "
     },
     {
-      "paragraph_id": 27,
-      "start": 160.51,
-      "end": 162.89,
+      "paragraph_id": 17,
+      "start": 94.38,
+      "end": 96.76,
       "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 28,
-      "start": 162.89,
-      "end": 171.98,
-      "duration": 9.09,
+      "paragraph_id": 18,
+      "start": 96.7,
+      "end": 105.75,
+      "duration": 9.05,
       "text_snippet": "Xem thêm: Bản chất của visibility và instruction reordering của volatile, được t"
     },
     {
-      "paragraph_id": 29,
-      "start": 171.98,
-      "end": 186.27,
+      "paragraph_id": 19,
+      "start": 105.75,
+      "end": 120.04,
       "duration": 14.29,
       "text_snippet": "Các lớp nguyên tử và So sánh và Hoán đổi (Compare-And-Swap - CAS)"
     },
     {
-      "paragraph_id": 30,
-      "start": 186.26,
-      "end": 195.71,
+      "paragraph_id": 20,
+      "start": 120.04,
+      "end": 129.49,
       "duration": 9.45,
       "text_snippet": "Các lớp nguyên tử sử dụng các chỉ thị CPU không dùng khóa (như CMPXCHG trên x86)"
     },
     {
-      "paragraph_id": 31,
-      "start": 186.36,
-      "end": 201.37,
+      "paragraph_id": 21,
+      "start": 120.14,
+      "end": 135.15,
       "duration": 15.01,
       "text_snippet": "Thao tác CAS: Nhận giá trị kỳ vọng (expected value) và giá trị mới (new value). "
     },
     {
-      "paragraph_id": 32,
-      "start": 201.38,
-      "end": 203.74,
+      "paragraph_id": 22,
+      "start": 135.15,
+      "end": 137.51,
       "duration": 2.36,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 33,
-      "start": 203.74,
-      "end": 208.14,
-      "duration": 4.4,
+      "paragraph_id": 23,
+      "start": 137.51,
+      "end": 141.92,
+      "duration": 4.41,
       "text_snippet": "Ví Dụ Thực Tế: Thứ tự khóa khi chuyển khoản tài khoản ngân hàng"
     },
     {
-      "paragraph_id": 34,
-      "start": 208.14,
-      "end": 209.58,
+      "paragraph_id": 24,
+      "start": 141.93,
+      "end": 143.37,
       "duration": 1.44,
       "text_snippet": "Vấn đề"
     },
     {
-      "paragraph_id": 35,
-      "start": 209.58,
-      "end": 221.79,
-      "duration": 12.21,
+      "paragraph_id": 25,
+      "start": 143.46,
+      "end": 155.92,
+      "duration": 12.46,
       "text_snippet": "Trong một ứng dụng ngân hàng, nếu Khách hàng A chuyển tiền cho Khách hàng B tron"
     },
     {
-      "paragraph_id": 36,
-      "start": 221.79,
-      "end": 222.49,
-      "duration": 0.7,
+      "paragraph_id": 26,
+      "start": 155.88,
+      "end": 157.29,
+      "duration": 1.41,
       "text_snippet": "Giải pháp"
     },
     {
-      "paragraph_id": 37,
-      "start": 222.49,
-      "end": 230.89,
-      "duration": 8.4,
+      "paragraph_id": 27,
+      "start": 157.29,
+      "end": 163.6,
+      "duration": 6.31,
       "text_snippet": "Thiết lập một thứ tự khóa nhất quán bằng cách sử dụng các mã băm (hash code) hoặ"
     },
     {
-      "paragraph_id": 38,
-      "start": 230.89,
-      "end": 232.29,
-      "duration": 1.4,
+      "paragraph_id": 28,
+      "start": 163.6,
+      "end": 165.8,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 39,
-      "start": 232.29,
-      "end": 233.69,
-      "duration": 1.4,
+      "paragraph_id": 29,
+      "start": 165.9,
+      "end": 167.75,
+      "duration": 1.85,
       "text_snippet": "Các lỗi thường gặp"
     },
     {
-      "paragraph_id": 40,
-      "start": 233.69,
-      "end": 237.19,
-      "duration": 3.5,
+      "paragraph_id": 30,
+      "start": 167.7,
+      "end": 176.16,
+      "duration": 8.46,
       "text_snippet": "1. Giả định volatile sẽ giúp count++ an toàn luồng"
     },
     {
-      "paragraph_id": 41,
-      "start": 237.19,
-      "end": 253.29,
-      "duration": 16.1,
+      "paragraph_id": 31,
+      "start": 176.16,
+      "end": 184.11,
+      "duration": 7.95,
       "text_snippet": "count++ là một thao tác hỗn hợp gồm ba bước: đọc, cộng 1, ghi lại. Khai báo coun"
     },
     {
-      "paragraph_id": 42,
-      "start": 253.29,
-      "end": 254.69,
-      "duration": 1.4,
+      "paragraph_id": 32,
+      "start": 184.11,
+      "end": 186.31,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 43,
-      "start": 254.69,
-      "end": 258.54,
-      "duration": 3.85,
+      "paragraph_id": 33,
+      "start": 186.41,
+      "end": 196.61,
+      "duration": 10.2,
       "text_snippet": "2. Lồng các khóa mà không có thứ tự cố định"
     },
     {
-      "paragraph_id": 44,
-      "start": 258.54,
-      "end": 267.29,
+      "paragraph_id": 34,
+      "start": 196.61,
+      "end": 205.36,
       "duration": 8.75,
       "text_snippet": "Lồng các khóa trên các tài nguyên được truyền động dưới dạng đối số là nguyên nh"
     },
     {
-      "paragraph_id": 45,
-      "start": 267.29,
-      "end": 271.49,
-      "duration": 4.2,
+      "paragraph_id": 35,
+      "start": 196.61,
+      "end": 200.55,
+      "duration": 3.94,
       "text_snippet": "Tại sao Deadlock xảy ra và làm thế nào để tránh chúng"
     },
     {
-      "paragraph_id": 46,
-      "start": 271.49,
-      "end": 351.64,
-      "duration": 80.15,
+      "paragraph_id": 36,
+      "start": 200.55,
+      "end": 260.44,
+      "duration": 59.89,
       "text_snippet": "Một deadlock xảy ra trong Java khi hai hoặc nhiều luồng bị chặn vĩnh viễn, mỗi l"
     },
     {
-      "paragraph_id": 47,
-      "start": 351.64,
-      "end": 354.09,
-      "duration": 2.45,
+      "paragraph_id": 37,
+      "start": 260.54,
+      "end": 263.56,
+      "duration": 3.02,
       "text_snippet": "Mô hình tư duy: Chu trình Deadlock"
     },
     {
-      "paragraph_id": 48,
-      "start": 354.09,
-      "end": 355.49,
-      "duration": 1.4,
+      "paragraph_id": 38,
+      "start": 263.51,
+      "end": 265.89,
+      "duration": 2.38,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 49,
-      "start": 355.49,
-      "end": 356.89,
-      "duration": 1.4,
+      "paragraph_id": 39,
+      "start": 265.89,
+      "end": 267.83,
+      "duration": 1.94,
       "text_snippet": "Ví dụ mã nguồn"
     },
     {
-      "paragraph_id": 50,
-      "start": 356.89,
-      "end": 358.29,
-      "duration": 1.4,
+      "paragraph_id": 40,
+      "start": 267.82,
+      "end": 270.02,
+      "duration": 2.2,
       "text_snippet": "Đoạn mã mẫu Java:"
     },
     {
-      "paragraph_id": 51,
-      "start": 358.29,
-      "end": 360.39,
-      "duration": 2.1,
+      "paragraph_id": 41,
+      "start": 270.12,
+      "end": 272.6,
+      "duration": 2.48,
       "text_snippet": "Chuỗi nguyên nhân - kết quả"
     },
     {
-      "paragraph_id": 52,
-      "start": 360.39,
-      "end": 393.99,
-      "duration": 33.6,
+      "paragraph_id": 42,
+      "start": 272.55,
+      "end": 293.62,
+      "duration": 21.07,
       "text_snippet": "Khóa lồng nhau trên các tài nguyên theo các thứ tự khác nhau → Luồng A lấy được "
     }
   ]
